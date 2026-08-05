@@ -18,6 +18,8 @@ export interface EngineConfig {
   onTargetBias?: number;
   conversionBias?: number;
   desperationScale?: number;
+  /** Stop at 90 minutes (no extra time or penalties). Draws allowed. */
+  regulationOnly?: boolean;
 }
 
 const REGULATION_SEGMENTS = 6;
@@ -239,6 +241,7 @@ export function simulateMatch(squadA: Squad, squadB: Squad, config: EngineConfig
   const conversionBias = config.conversionBias ?? 0.9;
   const desperationScale = config.desperationScale ?? 0.5;
   const maxShotsClamp = config.maxShotsClamp ?? [2, 6];
+  const regulationOnly = config.regulationOnly ?? false;
 
   const playersA = rollForms(squadA.players);
   const playersB = rollForms(squadB.players);
@@ -288,7 +291,7 @@ export function simulateMatch(squadA: Squad, squadB: Squad, config: EngineConfig
   let penalties = false;
   let penaltyScore: [number, number] | undefined;
 
-  if (score[0] === score[1]) {
+  if (score[0] === score[1] && !regulationOnly) {
     extraTime = true;
     for (let i = 0; i < ET_SEGMENTS; i++) {
       const minute = REGULATION_MINUTES + Math.round(((i + 0.5) * ET_MINUTES) / ET_SEGMENTS);

@@ -1,17 +1,21 @@
 <script lang="ts">
   import FormationPicker from './FormationPicker.svelte';
   import DraftBoard from './DraftBoard.svelte';
-  import MatchView from './MatchView.svelte';
-  import { buildUserSquad } from '../lib/draft.js';
+  import TeamReadyView from './TeamReadyView.svelte';
+  import TournamentView from './TournamentView.svelte';
+  import { buildUserSquad, DRAFT_ROUNDS } from '../lib/draft.js';
+  import { createTournament } from '../lib/tournament.js';
   import type { Formation, Player, Squad } from '../lib/types.js';
+  import type { Tournament as TournamentState } from '../lib/tournament.js';
 
-  type Step = 'setup' | 'draft' | 'match';
+  type Step = 'setup' | 'draft' | 'ready' | 'tournament';
 
   let step = $state<Step>('setup');
   let formation = $state<Formation | null>(null);
   let formationKey = $state('');
   let drafted = $state<Player[]>([]);
   let squad = $state<Squad | null>(null);
+  let tournament = $state<TournamentState | null>(null);
   let rerollsUsed = $state(0);
 
   function selectFormation(key: string, f: Formation) {
@@ -24,6 +28,7 @@
     drafted = [];
     rerollsUsed = 0;
     squad = null;
+    tournament = null;
     step = 'setup';
   }
 
@@ -35,10 +40,21 @@
     rerollsUsed += n;
   }
 
+  function startTournament() {
+    if (!formation || !squad) return;
+    tournament = createTournament(squad);
+    step = 'tournament';
+  }
+
+  function startNewTournament() {
+    if (!squad) return;
+    tournament = createTournament(squad);
+  }
+
   $effect(() => {
-    if (formation && drafted.length === 11) {
+    if (step === 'draft' && formation && drafted.length === DRAFT_ROUNDS) {
       squad = buildUserSquad(formation, drafted);
-      step = 'match';
+      step = 'ready';
     }
   });
 </script>
@@ -53,7 +69,19 @@
       onPick={handlePick}
       onRerollUsed={handleReroll}
     />
-  {:else if step === 'match' && squad}
-    <MatchView userSquad={squad} onReset={reset} />
+  {:else if step === 'ready' && formation && squad}
+    <TeamReadyView
+      formation={formation}
+      formationKey={formationKey}
+      drafted={squad.players}
+      onStart={startTournament}
+      onReset={reset}
+    />
+  {:else if step === 'tournament' && tournament}
+    <TournamentView
+      tournament={tournament}
+      onNewTournament={startNewTournament}
+      onReset={reset}
+    />
   {/if}
 </main>

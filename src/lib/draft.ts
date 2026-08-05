@@ -34,7 +34,6 @@ export const POSITION_LABEL: Record<Position, string> = {
 
 export const MAX_REROLLS = 3;
 export const DRAFT_ROUNDS = 11;
-export const OFFER_SIZE = 5;
 
 const pool: Player[] = HISTORICAL_SQUADS.flatMap((s) => s.players);
 
@@ -78,10 +77,8 @@ function fits(p: Player, left: Record<Position, number>): boolean {
   return left[p.position] > 0;
 }
 
-function eligibleForYear(nation: string, year: number, left: Record<Position, number>): Player[] {
-  return pool
-    .filter((p) => p.nation === nation && p.wcYear === year && fits(p, left))
-    .slice(0, 11);
+function squadOf(nation: string, year: number): Player[] {
+  return pool.filter((p) => p.nation === nation && p.wcYear === year).slice(0, 11);
 }
 
 export interface Offer {
@@ -92,32 +89,21 @@ export interface Offer {
 
 export function makeOffer(formation: Formation, drafted: Player[], history: Offer[] = []): Offer {
   const left = slotsLeft(formation, drafted);
-  const count = candidateCount(left);
-  const usedCombos = new Set(history.map((o) => `${o.nation}-${o.year}`));
-  const candidates: { nation: string; year: number; players: Player[] }[] = [];
 
-  for (const nation of draftableNations()) {
-    for (const year of nationYears(nation)) {
-      if (usedCombos.has(`${nation}-${year}`)) continue;
-      const players = eligibleForYear(nation, year, left);
-      if (players.length > 0) candidates.push({ nation, year, players });
-    }
-  }
+  const pickable = (nation: string, year: number): boolean =>
+    squadOf(nation, year).some((p) => fits(p, left));
 
-  if (candidates.length === 0) {
-    // fall back: allow re-using nations/combos so draft can never stall
-    for (const nation of draftableNations()) {
-      for (const year of nationYears(nation)) {
-        const players = eligibleForYear(nation, year, left);
-        if (players.length > 0) candidates.push({ nation, year, players });
-      }
-    }
-  }
+  let combos = draftableNations().flatMap((nation) =>
+    nationYears(nation).map((year) => ({ nation, year })),
+  );
 
-  const chosen = pick(candidates);
-  const keep = Math.min(count, OFFER_SIZE);
-  const players = shuffle(chosen.players).slice(0, keep);
-  return { nation: chosen.nation, year: chosen.year, players };
+  const fresh = combos.filter(
+    (c) => !history.some((o) => o.nation === c.nation && o.year === c.year) && pickable(c.nation, c.year),
+  );
+  const usable = (fresh.length > 0 ? fresh : combos.filter((c) => pickable(c.nation, c.year)));
+  const chosen = pick(usable);
+
+  return { nation: chosen.nation, year: chosen.year, players: shuffle(squadOf(chosen.nation, chosen.year)) };
 }
 
 export function rerollOffer(

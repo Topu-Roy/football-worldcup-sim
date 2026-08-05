@@ -1,68 +1,64 @@
 <script lang="ts">
   import { NATION_NAMES } from '../lib/draft.js';
   import { simulateMatch } from '../lib/matchEngine.js';
-  import type { Squad } from '../lib/types.js';
-  import { HISTORICAL_SQUADS } from '../data/historical/index.js';
+  import type { MatchResult, Squad } from '../lib/types.js';
   import { countSameNation } from '../lib/team.js';
 
   let {
     userSquad,
-    onReset,
-  }: { userSquad: Squad; onReset: () => void } = $props();
+    opponentSquad,
+    roundLabel,
+    onResult,
+    onNext,
+    nextLabel = 'Next match',
+    regulationOnly = false,
+  }: {
+    userSquad: Squad;
+    opponentSquad: Squad;
+    roundLabel: string;
+    onResult: (r: MatchResult) => void;
+    onNext: () => void;
+    nextLabel?: string;
+    regulationOnly?: boolean;
+  } = $props();
 
-  let opponentId = $state<string | null>(null);
-  let result = $state<ReturnType<typeof simulateMatch> | null>(null);
+  let result = $state<MatchResult | null>(null);
   let isSimulating = $state(false);
 
-  $effect(() => {
-    if (!opponentId) {
-      opponentId = randomOpponent().id;
-    }
-    if (opponentId && !result) {
-      result = simulateMatch(userSquad, opponent());
-    }
-  });
-
-  function randomOpponent(): Squad {
-    const filtered = HISTORICAL_SQUADS.filter((s) => s.id !== 'user-squad');
-    return filtered[Math.floor(Math.random() * filtered.length)];
-  }
-
-  function opponent(): Squad {
-    return HISTORICAL_SQUADS.find((s) => s.id === opponentId) ?? HISTORICAL_SQUADS[0];
-  }
-
   function simulate() {
+    if (result) return;
     isSimulating = true;
     setTimeout(() => {
-      result = simulateMatch(userSquad, opponent());
+      const r = simulateMatch(userSquad, opponentSquad, { regulationOnly });
+      result = r;
+      onResult(r);
       isSimulating = false;
     }, 60);
   }
 
   const userNationCount = $derived(countSameNation(userSquad.players));
-
-  const userGoals = $derived(result?.winner === 0 ? result.score[0] : result.score[1]);
-  const oppGoals = $derived(result?.winner === 1 ? result.score[1] : result.score[0]);
+  const userGoals = $derived(result?.score[0]);
+  const oppGoals = $derived(result?.score[1]);
 </script>
 
 <section class="mx-auto max-w-4xl px-6 py-12">
-  <p class="mono-label text-mint">Matchday</p>
-  <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">Your XI vs. History</h2>
-
-  <div class="mt-8 flex flex-wrap items-center gap-4">
-    <label class="mono-label text-secondary" for="opponent">OPPONENT</label>
-    <select
-      id="opponent"
-      bind:value={opponentId}
-      class="rounded-full border border-white/25 bg-slate px-4 py-2 text-white"
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <p class="mono-label text-mint">{roundLabel}</p>
+      <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
+        Your XI <span class="text-secondary">vs.</span> {opponentSquad.name}
+      </h2>
+      <p class="mono-label mt-3 text-secondary">
+        {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
+      </p>
+    </div>
+    <button
+      type="button"
+      class="pill-outline"
+      onclick={simulate}
+      disabled={isSimulating || result !== null}
     >
-      {#each HISTORICAL_SQUADS as s (s.id)}
-        <option value={s.id}>{s.name}</option>
-      {/each}
-    </select>
-    <button type="button" class="pill-outline" onclick={simulate} disabled={isSimulating}>
-      {isSimulating ? 'Simulating…' : 'Simulate match'}
+      {isSimulating ? 'Simulating…' : result ? 'Match played' : 'Play match'}
     </button>
   </div>
 
@@ -81,9 +77,9 @@
       <div class="rounded-[24px] border border-white/15 bg-slate/30 p-8">
         <div class="flex items-center justify-between">
           <div>
-            <p class="font-display text-4xl">{opponent().name}</p>
+            <p class="font-display text-4xl">{opponentSquad.name}</p>
             <p class="mono-label mt-1 text-secondary">
-              {NATION_NAMES[opponent().nation] ?? opponent().nation} · {opponent().wcYear}
+              {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
             </p>
           </div>
           <p class="font-display text-5xl text-secondary">{oppGoals}</p>
@@ -129,7 +125,7 @@
             <li class="flex items-center gap-3 text-sm">
               <span class="font-mono text-xs text-secondary">{ev.minute}'</span>
               <span class="h-2 w-2 rounded-full" style:background={ev.teamIndex === 0 ? '#3cffd0' : '#5200ff'}></span>
-              <span>{ev.teamIndex === 0 ? 'You' : opponent().name}</span>
+              <span>{ev.teamIndex === 0 ? 'You' : opponentSquad.name}</span>
               <span class="text-mint">GOAL</span>
             </li>
           {/each}
@@ -145,7 +141,7 @@
     {/if}
 
     <div class="mt-8 flex justify-center gap-4">
-      <button type="button" class="pill-outline" onclick={onReset}>New draft</button>
+      <button type="button" class="pill-outline" onclick={onNext}>{nextLabel}</button>
     </div>
   {/if}
 </section>

@@ -176,28 +176,38 @@
     {/if}
 
     <aside class="h-fit rounded-[24px] border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6">
-      <p class="mono-label text-mint">Your XI</p>
-      <div class="mt-4 space-y-3">
+      <p class="mono-label text-mint">Your XI <span class="text-secondary">({drafted.length}/11)</span></p>
+      <div class="mt-4 space-y-4">
         {#each positionOrder as pos (pos)}
-          {#if left[pos] > 0 || drafted.some((p) => p.position === pos)}
-            <div class="flex items-center justify-between">
-              <p class="mono-label !text-[10px]" style:color={positionColor(pos)}>
-                {POSITION_LABEL[pos]} <span class="text-secondary">({formation[pos]} picked {formation[pos] - left[pos]}/{formation[pos]})</span>
-              </p>
+          <div>
+            <p class="mono-label !text-[10px]" style:color={positionColor(pos)}>
+              {POSITION_LABEL[pos]}
+              <span class="text-secondary">
+                {formation[pos]}
+              </span>
+            </p>
+            <div class="mt-2 space-y-1.5">
+              {#each Array(formation[pos]) as _, i (pos + i)}
+                {@const p = drafted.filter((x) => x.position === pos)[i]}
+                {#if p}
+                  <div
+                    class="flex items-center justify-between rounded-full border px-3 py-1.5"
+                    style:border-color={positionColor(pos)}
+                  >
+                    <span class="text-sm">{p.name}</span>
+                    <span class="font-mono text-[10px] text-secondary">
+                      {NATION_NAMES[p.nation] ?? p.nation} {p.wcYear}
+                    </span>
+                  </div>
+                {:else}
+                  <div class="rounded-full border border-dashed border-white/15 px-3 py-1.5">
+                    <span class="text-sm text-secondary">Empty</span>
+                  </div>
+                {/if}
+              {/each}
             </div>
-            {#each drafted.filter((p) => p.position === pos) as p (p.id)}
-              <div class="flex items-center justify-between rounded-full border border-white/10 px-3 py-1.5">
-                <span class="text-sm">{p.name}</span>
-                <span class="font-mono text-[10px] text-secondary">
-                  {NATION_NAMES[p.nation] ?? p.nation} {p.wcYear}
-                </span>
-              </div>
-            {/each}
-          {/if}
+          </div>
         {/each}
-        {#if drafted.length === 0}
-          <p class="text-sm text-secondary">Pick a player to start building.</p>
-        {/if}
       </div>
       {#if chemistry > 0}
         <div class="mt-6 rounded-full border border-mint px-4 py-2 text-center">

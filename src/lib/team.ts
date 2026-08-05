@@ -37,21 +37,23 @@ export function chemistryBonus(players: Player[], isHistorical: boolean): number
 function applyChemistryAndForm(player: Player, bonus: number): Player {
   const chemistryMul = 1 + bonus;
   const form = player.form ?? 0;
-  const adjust = (v?: number) => (v === undefined ? undefined : v * chemistryMul + form);
+  const withForm = (v?: number) => (v === undefined ? undefined : v + form);
+  const withChemAndForm = (v?: number) =>
+    v === undefined ? undefined : v * chemistryMul + form;
   return {
     ...player,
-    reflexes: adjust(player.reflexes),
-    positioning: adjust(player.positioning),
-    distribution: adjust(player.distribution),
-    tackling: adjust(player.tackling),
-    aerial: adjust(player.aerial),
-    passing: adjust(player.passing),
-    pace: adjust(player.pace),
-    dribble: adjust(player.dribble),
-    workRate: adjust(player.workRate),
-    stamina: adjust(player.stamina),
-    finishing: adjust(player.finishing),
-    offBall: adjust(player.offBall),
+    reflexes: withForm(player.reflexes),
+    positioning: withForm(player.positioning),
+    distribution: withForm(player.distribution),
+    tackling: withForm(player.tackling),
+    aerial: withForm(player.aerial),
+    passing: withChemAndForm(player.passing),
+    pace: withForm(player.pace),
+    dribble: withForm(player.dribble),
+    workRate: withForm(player.workRate),
+    stamina: withForm(player.stamina),
+    finishing: withForm(player.finishing),
+    offBall: withChemAndForm(player.offBall),
     composure: (player.composure ?? 0) + form,
   };
 }
