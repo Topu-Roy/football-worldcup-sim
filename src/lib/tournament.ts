@@ -192,7 +192,20 @@ export function createTournament(userSquad: Squad): Tournament {
 export function registerUserResult(state: Tournament, matchId: string, result: MatchResult): void {
   const m = state.matches.find((x) => x.id === matchId);
   if (!m || m.result) return;
-  m.result = result;
+  m.result = normalizeResultForMatch(state, m, result);
+}
+
+function normalizeResultForMatch(state: Tournament, m: TournamentMatch, result: MatchResult): MatchResult {
+  if (m.away !== state.userSquad.id) return result;
+  return {
+    ...result,
+    score: [result.score[1], result.score[0]],
+    shots: [result.shots[1], result.shots[0]],
+    shotsOnTarget: [result.shotsOnTarget[1], result.shotsOnTarget[0]],
+    possession: [result.possession[1], result.possession[0]],
+    winner: result.winner === null ? null : result.winner === 0 ? 1 : 0,
+    events: result.events.map((ev) => ({ ...ev, teamIndex: ev.teamIndex === 0 ? 1 : 0 })),
+  };
 }
 
 export function groupDone(state: Tournament): boolean {
@@ -274,7 +287,8 @@ export function resolveKnockout(state: Tournament): void {
 
   state.phase = 'ended';
   if (final.isUser) {
-    state.outcome = final.result.winner === 0 ? 'champion' : 'runners-up';
+    const userWon = final.result!.winner === (final.home === state.userSquad.id ? 0 : 1);
+    state.outcome = userWon ? 'champion' : 'runners-up';
   } else {
     state.outcome = 'semi-final-exit';
   }
