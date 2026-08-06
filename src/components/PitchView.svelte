@@ -15,11 +15,17 @@
     formationKey,
     onAssignRole,
     size = "md",
+    onSlotClick,
+    selectableRoles = null,
+    bestPosition = null,
   }: {
     players: Player[];
     formationKey: string;
     onAssignRole?: (playerId: string, role: string) => void;
     size?: "sm" | "md";
+    onSlotClick?: (role: string, slotIndex: number) => void;
+    selectableRoles?: string[] | null;
+    bestPosition?: string | null;
   } = $props();
 
   const slots = $derived(assignSlots(players, formationKey));
@@ -217,14 +223,40 @@
         {/if}
       </div>
     {:else}
+      {@const selecting = onSlotClick !== undefined}
+      {@const placing = selecting && selectableRoles !== null}
+      {@const enabled = placing && selectableRoles.includes(s.slot.role)}
       <div
         class="absolute -translate-x-1/2 -translate-y-1/2"
         style:left={`${s.slot.x}%`}
         style:top={`${s.slot.y}%`}
       >
-        <div
-          class="h-4 w-4 rounded-full border border-dashed border-white/40 opacity-40"
-        ></div>
+        {#if selecting}
+          <button
+            type="button"
+            disabled={placing && !enabled}
+            class="relative flex h-14 w-14 items-center justify-center rounded-full border-2 font-mono text-base font-bold uppercase tracking-wide {enabled
+              ? 'border-dashed border-mint/70 bg-mint/10 text-mint cursor-pointer hover:bg-mint/20'
+              : placing
+                ? 'border-dashed border-white/15 bg-white/5 text-white/25 cursor-not-allowed'
+                : 'border-dashed border-white/50 bg-mint/10 text-white/60 cursor-default'}"
+            onclick={() => onSlotClick?.(s.slot.role, i)}
+          >
+            {s.slot.role}
+            {#if s.slot.role === bestPosition}
+              <span
+                class="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-yellow text-[10px] leading-none text-black"
+                >★</span
+              >
+            {/if}
+          </button>
+        {:else}
+          <div
+            class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-white/50 bg-mint/10 font-mono text-base font-bold uppercase tracking-wide text-white/60"
+          >
+            {s.slot.role}
+          </div>
+        {/if}
       </div>
     {/if}
   {/each}

@@ -7,7 +7,10 @@ export function buildUserSquad(formation: Formation, drafted: Player[]): Squad {
     nation: "MIX",
     wcYear: 2026,
     formation,
-    players: drafted.map((p) => ({ ...p, assignedPosition: p.bestPosition })),
+    players: drafted.map((p) => ({
+      ...p,
+      assignedPosition: p.assignedPosition ?? p.bestPosition,
+    })),
     isHistorical: false,
   };
 }

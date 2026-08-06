@@ -72,19 +72,33 @@ export function assignSlots(
 ): { player: Player | null; slot: PitchSlot }[] {
   const slots = pitchSlots(formationKey);
   const used = new Set<string>();
-  return slots.map((slot) => {
-    const byRole = players.find(
-      (p) => !used.has(p.id) && assignedRole(p) === slot.role,
+  const committed = (p: Player) => p.assignedSlot !== undefined;
+  return slots.map((slot, i) => {
+    const explicit = players.find(
+      (p) => !used.has(p.id) && p.assignedSlot === i,
     );
-    const byDept = !byRole
+    const byRole = !explicit
       ? players.find(
           (p) =>
-            !used.has(p.id) && slotDepartment(p) === departmentOf(slot.role),
+            !used.has(p.id) &&
+            !committed(p) &&
+            assignedRole(p) === slot.role,
         )
       : undefined;
+    const byDept =
+      !explicit && !byRole
+        ? players.find(
+            (p) =>
+              !used.has(p.id) &&
+              !committed(p) &&
+              slotDepartment(p) === departmentOf(slot.role),
+          )
+        : undefined;
     const fallback =
-      !byRole && !byDept ? players.find((p) => !used.has(p.id)) : undefined;
-    const player = byRole ?? byDept ?? fallback ?? null;
+      !explicit && !byRole && !byDept
+        ? players.find((p) => !used.has(p.id) && !committed(p))
+        : undefined;
+    const player = explicit ?? byRole ?? byDept ?? fallback ?? null;
     if (player) used.add(player.id);
     return { player, slot };
   });

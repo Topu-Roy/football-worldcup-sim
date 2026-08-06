@@ -22,6 +22,7 @@ export interface Player {
   positions: string[];
   bestPosition: string;
   assignedPosition?: string;
+  assignedSlot?: number;
   composure: number;
   form?: number;
   reflexes?: number;

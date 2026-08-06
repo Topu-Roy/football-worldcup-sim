@@ -2,6 +2,7 @@
   import {
     MAX_REROLLS,
     NATION_NAMES,
+    assignSlots,
     draftableNations,
     fits,
     makeOffer,
@@ -33,6 +34,7 @@
   let offerHistory: ReturnType<typeof makeOffer>[] = $state([]);
   let rerollsLeft = $state(MAX_REROLLS);
   let drafted = $state<Player[]>([]);
+  let selected = $state<Player | null>(null);
 
   $effect(() => {
     if (!offer) {
@@ -48,6 +50,14 @@
   const complete = $derived(validateDraft(formation, drafted));
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
+  const draftSlots = $derived(assignSlots(drafted, formationKey));
+  const selectableRoles = $derived.by(() => {
+    const sel = selected;
+    if (!sel) return null;
+    return draftSlots
+      .filter((s) => !s.player && sel.positions.includes(s.slot.role))
+      .map((s) => s.slot.role);
+  });
   const offerPlayers = $derived(
     [...(offer?.players ?? [])].sort(
       (a, b) =>
@@ -78,6 +88,7 @@
   });
 
   function newOffer() {
+    selected = null;
     const next = makeOffer(formation, drafted, offerHistory);
     offer = next;
     offerHistory = [...offerHistory, next];
@@ -90,16 +101,39 @@
         ? sameNationReroll(formation, drafted, offer, offerHistory)
         : newNationReroll(formation, drafted, offer, offerHistory);
     if (!next) return;
+    selected = null;
     rerollsLeft -= 1;
     offer = next;
     offerHistory = [...offerHistory, next];
   }
 
-  function pick(p: Player) {
-    if (complete || left[slotDepartment(p)] <= 0) return;
-    const next = [...drafted, p];
+  function hasPlaceableSlot(p: Player): boolean {
+    return draftSlots.some(
+      (s) => !s.player && p.positions.includes(s.slot.role),
+    );
+  }
+
+  function toggleSelect(p: Player) {
+    if (complete || left[slotDepartment(p)] <= 0 || !hasPlaceableSlot(p))
+      return;
+    selected = selected?.id === p.id ? null : p;
+  }
+
+  function place(role: string, slotIndex: number) {
+    if (!selected) return;
+    if (left[slotDepartment(selected)] <= 0) return;
+    const slot = draftSlots[slotIndex];
+    if (!slot || slot.player) return;
+    if (!selected.positions.includes(role)) return;
+    const placed = {
+      ...selected,
+      assignedPosition: role,
+      assignedSlot: slotIndex,
+    };
+    const next = [...drafted, placed];
     drafted = next;
-    onPick(p);
+    selected = null;
+    onPick(placed);
     rerollsLeft = MAX_REROLLS;
     if (!validateDraft(formation, next)) {
       newOffer();
@@ -200,13 +234,17 @@
             {@const tier = playerTier(p)}
             <button
               type="button"
-              class="{playerCard} {tier === 'elite'
+              class="{playerCard} {selected?.id === p.id
+                ? 'ring-2 ring-mint'
+                : ''} {tier === 'elite'
                 ? 'card-elite'
                 : tier === 'star'
                   ? 'card-star'
                   : ''} text-left"
-              disabled={complete || left[slotDepartment(p)] <= 0}
-              onclick={() => pick(p)}
+              disabled={complete ||
+                left[slotDepartment(p)] <= 0 ||
+                !hasPlaceableSlot(p)}
+              onclick={() => toggleSelect(p)}
             >
               <div class="flex items-start justify-between gap-2">
                 <div class="min-w-0 flex-1">
@@ -276,7 +314,14 @@
         Your XI <span class="text-secondary">({drafted.length}/11)</span>
       </p>
       <div class="mt-4">
-        <PitchView players={drafted} {formationKey} size="md" />
+        <PitchView
+          players={drafted}
+          {formationKey}
+          size="md"
+          onSlotClick={place}
+          selectableRoles={selectableRoles}
+          bestPosition={selected?.bestPosition ?? null}
+        />
       </div>
       {#if chemistry > 0}
         <div class="mt-6 rounded-full border border-mint px-4 py-2 text-center">
