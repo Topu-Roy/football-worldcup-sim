@@ -70,7 +70,6 @@
     <DraftBoard {formation} {formationKey} onPick={handlePick} />
   {:else if step === "ready" && formation && squad}
     <TeamReadyView
-      {formation}
       {formationKey}
       {squad}
       onStart={startTournament}

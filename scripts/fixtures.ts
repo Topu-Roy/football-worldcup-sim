@@ -1,6 +1,13 @@
-import type { Player, Squad } from "../src/lib/types.js";
+import type { Player, Position, Squad } from "../src/lib/types.js";
 
 export const FORMATION = { GK: 1, DEF: 4, MID: 3, ATT: 3 };
+
+const ROLE_BY_DEPT: Record<Position, string> = {
+  GK: "GK",
+  DEF: "CB",
+  MID: "CM",
+  ATT: "ST",
+};
 
 export function jitter(strength: number): number {
   return Math.max(
@@ -11,15 +18,17 @@ export function jitter(strength: number): number {
 
 export function makePlayer(
   id: number,
-  position: Player["position"],
+  position: Position,
   strength: number,
 ): Player {
+  const role = ROLE_BY_DEPT[position];
   const p: Player = {
     id: `p${id}`,
     name: `P${id}`,
     nation: `N${id % 5}`,
     wcYear: 2022,
-    position,
+    positions: [role],
+    bestPosition: role,
     composure: jitter(strength),
   };
   switch (position) {
@@ -58,7 +67,7 @@ export function makeSquad(
   const players: Player[] = [];
   let n = 0;
   for (const [pos, count] of Object.entries(FORMATION) as [
-    Player["position"],
+    Position,
     number,
   ][]) {
     for (let i = 0; i < count; i++) {

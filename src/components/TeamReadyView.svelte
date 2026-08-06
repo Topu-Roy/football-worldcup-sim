@@ -1,27 +1,15 @@
 <script lang="ts">
-  import {
-    NATION_NAMES,
-    POSITION_LABEL,
-    ROLE_LABELS,
-    assignedRole,
-    outOfPosition,
-    playerRating,
-    positionColor,
-    rolesForDepartment,
-    slotDepartment,
-  } from "../lib/draft.js";
   import { chemistryBonus, countSameNation } from "../lib/team.js";
-  import type { Formation, Position, Squad } from "../lib/types.js";
+  import type { Squad } from "../lib/types.js";
+  import PitchView from "./PitchView.svelte";
 
   let {
-    formation,
     formationKey,
     squad,
     onStart,
     onReset,
     onAssignRole,
   }: {
-    formation: Formation;
     formationKey: string;
     squad: Squad;
     onStart: () => void;
@@ -30,7 +18,6 @@
   } = $props();
 
   const drafted = $derived(squad.players);
-  const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
 
@@ -48,58 +35,8 @@
     <span class="text-secondary">· {drafted.length} players</span>
   </h2>
 
-  <div class="mt-8 grid gap-4 lg:grid-cols-2">
-    {#each positionOrder as pos (pos)}
-      <div class="rounded-3xl border border-white/15 bg-slate/30 p-5">
-        <p class="{mono} text-[10px]" style:color={positionColor(pos)}>
-          {POSITION_LABEL[pos]}
-          <span class="text-secondary">({formation[pos]})</span>
-        </p>
-        <div class="mt-3 space-y-1.5">
-          {#each Array(formation[pos]) as _, i (pos + i)}
-            {@const p = drafted.filter((x) => slotDepartment(x) === pos)[i]}
-            <div
-              class="flex items-center justify-between gap-2 rounded-full border px-3 py-1.5"
-              style:border-color={positionColor(pos)}
-            >
-              <span class="text-sm font-bold">
-                {p?.name ?? "Empty"}{p ? ` (${playerRating(p)})` : ""}
-              </span>
-              {#if p}
-                <div class="flex items-center gap-2">
-                  {#if outOfPosition(p)}
-                    <span
-                      class="rounded-full bg-red-500/15 px-2 py-0.5 font-mono text-[9px] font-semibold tracking-[1px] text-red-400 uppercase"
-                      >OUT −5–10%</span
-                    >
-                  {/if}
-                  {#if pos === "GK"}
-                    <span class="font-mono text-[10px] text-secondary">
-                      {ROLE_LABELS[assignedRole(p)]}
-                    </span>
-                  {:else}
-                    <select
-                      class="rounded-full bg-slate px-2 py-1 font-mono text-[10px] text-white"
-                      value={assignedRole(p)}
-                      onchange={(e) =>
-                        onAssignRole(p.id, e.currentTarget.value)}
-                    >
-                      {#each rolesForDepartment(slotDepartment(p)) as role (role)}
-                        <option value={role}>{ROLE_LABELS[role]}</option>
-                      {/each}
-                    </select>
-                  {/if}
-                  <span class="font-mono text-[10px] text-secondary">
-                    {NATION_NAMES[p.nation] ?? p.nation}
-                    {p.wcYear}
-                  </span>
-                </div>
-              {/if}
-            </div>
-          {/each}
-        </div>
-      </div>
-    {/each}
+  <div class="mt-8">
+    <PitchView players={drafted} {formationKey} onAssignRole={onAssignRole} />
   </div>
 
   <div class="mt-8 grid grid-cols-3 gap-4 text-center">

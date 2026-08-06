@@ -1,5 +1,6 @@
 import { HISTORICAL_SQUADS } from "../src/data/historical/index.js";
 import type { Player } from "../src/lib/types.js";
+import { slotDepartment } from "../src/lib/draft/roles.js";
 
 const STAT_KEYS: Record<string, string[]> = {
   GK: ["reflexes", "positioning", "distribution"],
@@ -40,13 +41,13 @@ for (const squad of HISTORICAL_SQUADS) {
       errors++;
     }
 
-    counts[p.position]++;
+    counts[slotDepartment(p)]++;
 
-    const required = STAT_KEYS[p.position];
+    const required = STAT_KEYS[slotDepartment(p)];
     for (const key of required) {
       const v = p[key as keyof Player] as number | undefined;
       if (v === undefined) {
-        console.error(`${tag}: ${p.name} (${p.position}) missing ${key}`);
+        console.error(`${tag}: ${p.name} (${slotDepartment(p)}) missing ${key}`);
         errors++;
       } else if (v < 1 || v > 99) {
         console.error(`${tag}: ${p.name} ${key}=${v} out of range 1-99`);
@@ -57,9 +58,12 @@ for (const squad of HISTORICAL_SQUADS) {
       console.error(`${tag}: ${p.name} bad composure`);
       errors++;
     }
-    if (p.position === "MID" || p.position === "ATT") {
+    if (
+      slotDepartment(p) === "MID" ||
+      slotDepartment(p) === "ATT"
+    ) {
       if (p.stamina === undefined || p.stamina < 1 || p.stamina > 99) {
-        console.error(`${tag}: ${p.name} (${p.position}) bad stamina`);
+        console.error(`${tag}: ${p.name} (${slotDepartment(p)}) bad stamina`);
         errors++;
       }
     }

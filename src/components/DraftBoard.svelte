@@ -2,7 +2,6 @@
   import {
     MAX_REROLLS,
     NATION_NAMES,
-    POSITION_LABEL,
     draftableNations,
     fits,
     makeOffer,
@@ -10,7 +9,6 @@
     newNationReroll,
     playerRating,
     playerTier,
-    positionColor,
     sameNationReroll,
     slotDepartment,
     slotsLeft,
@@ -19,6 +17,7 @@
   } from "../lib/draft.js";
   import { countSameNation, chemistryBonus } from "../lib/team.js";
   import type { Formation, Player, Position } from "../lib/types.js";
+  import PitchView from "./PitchView.svelte";
 
   let {
     formation,
@@ -57,28 +56,30 @@
     ),
   );
 
-  const canSameNation = $derived(
-    !!offer &&
-      nationYears(offer.nation).some(
-        (y) =>
-          y !== offer.year &&
-          !offerHistory.some(
-            (o) => o.nation === offer.nation && o.year === y,
-          ) &&
-          squadOf(offer.nation, y).some((p) => fits(p, left)),
-      ),
-  );
+  const canSameNation = $derived.by(() => {
+    const o = offer;
+    if (!o) return false;
+    return nationYears(o.nation).some(
+      (y) =>
+        y !== o.year &&
+        !offerHistory.some(
+          (h) => h.nation === o.nation && h.year === y,
+        ) &&
+        squadOf(o.nation, y).some((p) => fits(p, left)),
+    );
+  });
 
-  const canNewNation = $derived(
-    !!offer &&
-      draftableNations().some(
-        (n) =>
-          n !== offer.nation &&
-          nationYears(n).some((y) =>
-            squadOf(n, y).some((p) => fits(p, left)),
-          ),
-      ),
-  );
+  const canNewNation = $derived.by(() => {
+    const o = offer;
+    if (!o) return false;
+    return draftableNations().some(
+      (n) =>
+        n !== o.nation &&
+        nationYears(n).some((y) =>
+          squadOf(n, y).some((p) => fits(p, left)),
+        ),
+    );
+  });
 
   function newOffer() {
     const next = makeOffer(formation, drafted, offerHistory);
@@ -169,7 +170,7 @@
     </div>
   </header>
 
-  <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_340px]">
+  <div class="mt-8 grid gap-6 lg:grid-cols-2">
     {#if offer}
       <div>
         <div
@@ -198,7 +199,7 @@
             </button>
           </div>
         </div>
-        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-2">
           {#each offerPlayers as p (p.id)}
             {@const tier = playerTier(p)}
             <button
@@ -278,40 +279,8 @@
       <p class="{mono} text-mint">
         Your XI <span class="text-secondary">({drafted.length}/11)</span>
       </p>
-      <div class="mt-4 space-y-4">
-        {#each positionOrder as pos (pos)}
-          <div>
-            <p class="{mono} text-[10px]" style:color={positionColor(pos)}>
-              {POSITION_LABEL[pos]}
-              <span class="text-secondary">
-                {formation[pos]}
-              </span>
-            </p>
-            <div class="mt-2 space-y-1.5">
-              {#each Array(formation[pos]) as _, i (pos + i)}
-                {@const p = drafted.filter((x) => slotDepartment(x) === pos)[i]}
-                {#if p}
-                  <div
-                    class="flex items-center justify-between rounded-full border px-3 py-1.5"
-                    style:border-color={positionColor(pos)}
-                  >
-                    <span class="text-sm">{p.name} ({playerRating(p)})</span>
-                    <span class="font-mono text-[10px] text-secondary">
-                      {NATION_NAMES[p.nation] ?? p.nation}
-                      {p.wcYear}
-                    </span>
-                  </div>
-                {:else}
-                  <div
-                    class="rounded-full border border-dashed border-white/15 px-3 py-1.5"
-                  >
-                    <span class="text-sm text-secondary">Empty</span>
-                  </div>
-                {/if}
-              {/each}
-            </div>
-          </div>
-        {/each}
+      <div class="mt-4">
+        <PitchView players={drafted} {formationKey} size="md" />
       </div>
       {#if chemistry > 0}
         <div class="mt-6 rounded-full border border-mint px-4 py-2 text-center">

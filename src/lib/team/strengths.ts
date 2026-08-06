@@ -25,7 +25,9 @@ function applyChemistryAndForm(player: Player, bonus: number): Player {
     stamina: applyNerf(withForm(player.stamina), "stamina"),
     finishing: applyNerf(withForm(player.finishing), "finishing"),
     offBall: applyNerf(withChemAndForm(player.offBall), "offBall"),
-    composure: applyNerf((player.composure ?? 0) + form, "composure"),
+    composure:
+      applyNerf((player.composure ?? 0) + form, "composure") ??
+      player.composure,
   };
 }
 
