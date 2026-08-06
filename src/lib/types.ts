@@ -21,6 +21,7 @@ export interface Player {
   wcYear: number;
   positions: string[];
   bestPosition: string;
+  assignedPosition?: string;
   composure: number;
   form?: number;
   reflexes?: number;

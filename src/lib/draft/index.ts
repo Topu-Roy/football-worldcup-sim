@@ -17,8 +17,13 @@ export { buildUserSquad } from "./squad.js";
 export { playerRating } from "./rating.js";
 export {
   ROLE_LABELS,
+  assignedRole,
   departmentOf,
+  outOfPosition,
+  roleGap,
+  roleNerf,
   roleRating,
+  rolesForDepartment,
   slotDepartment,
 } from "./roles.js";
 export { positionColor } from "./colors.js";

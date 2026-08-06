@@ -1,28 +1,31 @@
 import type { Formation, Player, TeamStrengths } from "../types.js";
 import { chemistryBonus } from "./chemistry.js";
-import { slotDepartment } from "../draft/roles.js";
+import { roleNerf, slotDepartment } from "../draft/roles.js";
 
 function applyChemistryAndForm(player: Player, bonus: number): Player {
   const chemistryMul = 1 + bonus;
   const form = player.form ?? 0;
+  const { factor, keys } = roleNerf(player);
+  const applyNerf = (v: number | undefined, key: string) =>
+    v === undefined ? undefined : keys.has(key) ? v * factor : v;
   const withForm = (v?: number) => (v === undefined ? undefined : v + form);
   const withChemAndForm = (v?: number) =>
     v === undefined ? undefined : v * chemistryMul + form;
   return {
     ...player,
-    reflexes: withForm(player.reflexes),
-    positioning: withForm(player.positioning),
-    distribution: withForm(player.distribution),
-    tackling: withForm(player.tackling),
-    aerial: withForm(player.aerial),
-    passing: withChemAndForm(player.passing),
-    pace: withForm(player.pace),
-    dribble: withForm(player.dribble),
-    workRate: withForm(player.workRate),
-    stamina: withForm(player.stamina),
-    finishing: withForm(player.finishing),
-    offBall: withChemAndForm(player.offBall),
-    composure: (player.composure ?? 0) + form,
+    reflexes: applyNerf(withForm(player.reflexes), "reflexes"),
+    positioning: applyNerf(withForm(player.positioning), "positioning"),
+    distribution: applyNerf(withForm(player.distribution), "distribution"),
+    tackling: applyNerf(withForm(player.tackling), "tackling"),
+    aerial: applyNerf(withForm(player.aerial), "aerial"),
+    passing: applyNerf(withChemAndForm(player.passing), "passing"),
+    pace: applyNerf(withForm(player.pace), "pace"),
+    dribble: applyNerf(withForm(player.dribble), "dribble"),
+    workRate: applyNerf(withForm(player.workRate), "workRate"),
+    stamina: applyNerf(withForm(player.stamina), "stamina"),
+    finishing: applyNerf(withForm(player.finishing), "finishing"),
+    offBall: applyNerf(withChemAndForm(player.offBall), "offBall"),
+    composure: applyNerf((player.composure ?? 0) + form, "composure"),
   };
 }
 

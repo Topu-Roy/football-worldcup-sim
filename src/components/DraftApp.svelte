@@ -45,6 +45,16 @@
     tournament = createTournament(squad);
   }
 
+  function assignRole(playerId: string, role: string) {
+    if (!squad) return;
+    squad = {
+      ...squad,
+      players: squad.players.map((p) =>
+        p.id === playerId ? { ...p, assignedPosition: role } : p,
+      ),
+    };
+  }
+
   $effect(() => {
     if (step === "draft" && formation && drafted.length === DRAFT_ROUNDS) {
       squad = buildUserSquad(formation, drafted);
@@ -62,9 +72,10 @@
     <TeamReadyView
       {formation}
       {formationKey}
-      drafted={squad.players}
+      {squad}
       onStart={startTournament}
       onReset={reset}
+      onAssignRole={assignRole}
     />
   {:else if step === "tournament" && tournament}
     <TournamentView

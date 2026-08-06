@@ -138,6 +138,68 @@ const ROLE_WEIGHTS: Record<string, [keyof Player, number][]> = {
   ],
 };
 
+export const ROLE_LEVEL: Record<string, number> = {
+  GK: 0,
+  CB: 1,
+  LB: 2,
+  RB: 2,
+  CDM: 3,
+  CM: 4,
+  LM: 4,
+  RM: 4,
+  CAM: 5,
+  SS: 6,
+  CF: 6,
+  LW: 6,
+  RW: 6,
+  ST: 7,
+};
+
+type NerfMode = "both" | "forward";
+
+const DEPT_NERF_MODE: Record<Position, NerfMode> = {
+  GK: "both",
+  DEF: "both",
+  MID: "forward",
+  ATT: "both",
+};
+
+export function assignedRole(p: Player): string {
+  return p.assignedPosition ?? p.bestPosition;
+}
+
+export function roleGap(p: Player): number {
+  const best = p.bestPosition;
+  const assigned = assignedRole(p);
+  if (best === assigned) return 0;
+  const mode = DEPT_NERF_MODE[departmentOf(best)] ?? "forward";
+  const diff = (ROLE_LEVEL[assigned] ?? 0) - (ROLE_LEVEL[best] ?? 0);
+  return mode === "both" ? Math.abs(diff) : Math.max(0, diff);
+}
+
+export function outOfPosition(p: Player): boolean {
+  return roleGap(p) > 0;
+}
+
+export interface NerfResult {
+  factor: number;
+  keys: Set<string>;
+}
+
+export function roleNerf(p: Player): NerfResult {
+  const gap = roleGap(p);
+  if (gap <= 0) return { factor: 1, keys: new Set() };
+  const pct = Math.min(10, gap * (5 + Math.random() * 5));
+  const keys = new Set((ROLE_WEIGHTS[assignedRole(p)] ?? []).map(([k]) => k));
+  return { factor: 1 - pct / 100, keys };
+}
+
+export function rolesForDepartment(dept: Position): string[] {
+  return (Object.keys(DEPARTMENT_OF_ROLE) as string[]).filter(
+    (r) => DEPARTMENT_OF_ROLE[r] === dept,
+  );
+}
+
 export function roleRating(p: Player, role: string): number {
   const weights = ROLE_WEIGHTS[role];
   if (!weights) return 0;

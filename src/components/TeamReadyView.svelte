@@ -2,27 +2,34 @@
   import {
     NATION_NAMES,
     POSITION_LABEL,
+    ROLE_LABELS,
+    assignedRole,
+    outOfPosition,
     playerRating,
     positionColor,
+    rolesForDepartment,
     slotDepartment,
   } from "../lib/draft.js";
   import { chemistryBonus, countSameNation } from "../lib/team.js";
-  import type { Formation, Player, Position } from "../lib/types.js";
+  import type { Formation, Position, Squad } from "../lib/types.js";
 
   let {
     formation,
     formationKey,
-    drafted,
+    squad,
     onStart,
     onReset,
+    onAssignRole,
   }: {
     formation: Formation;
     formationKey: string;
-    drafted: Player[];
+    squad: Squad;
     onStart: () => void;
     onReset: () => void;
+    onAssignRole: (playerId: string, role: string) => void;
   } = $props();
 
+  const drafted = $derived(squad.players);
   const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
@@ -52,17 +59,41 @@
           {#each Array(formation[pos]) as _, i (pos + i)}
             {@const p = drafted.filter((x) => slotDepartment(x) === pos)[i]}
             <div
-              class="flex items-center justify-between rounded-full border px-3 py-1.5"
+              class="flex items-center justify-between gap-2 rounded-full border px-3 py-1.5"
               style:border-color={positionColor(pos)}
             >
               <span class="text-sm font-bold">
                 {p?.name ?? "Empty"}{p ? ` (${playerRating(p)})` : ""}
               </span>
               {#if p}
-                <span class="font-mono text-[10px] text-secondary">
-                  {NATION_NAMES[p.nation] ?? p.nation}
-                  {p.wcYear}
-                </span>
+                <div class="flex items-center gap-2">
+                  {#if outOfPosition(p)}
+                    <span
+                      class="rounded-full bg-red-500/15 px-2 py-0.5 font-mono text-[9px] font-semibold tracking-[1px] text-red-400 uppercase"
+                      >OUT −5–10%</span
+                    >
+                  {/if}
+                  {#if pos === "GK"}
+                    <span class="font-mono text-[10px] text-secondary">
+                      {ROLE_LABELS[assignedRole(p)]}
+                    </span>
+                  {:else}
+                    <select
+                      class="rounded-full bg-slate px-2 py-1 font-mono text-[10px] text-white"
+                      value={assignedRole(p)}
+                      onchange={(e) =>
+                        onAssignRole(p.id, e.currentTarget.value)}
+                    >
+                      {#each rolesForDepartment(slotDepartment(p)) as role (role)}
+                        <option value={role}>{ROLE_LABELS[role]}</option>
+                      {/each}
+                    </select>
+                  {/if}
+                  <span class="font-mono text-[10px] text-secondary">
+                    {NATION_NAMES[p.nation] ?? p.nation}
+                    {p.wcYear}
+                  </span>
+                </div>
               {/if}
             </div>
           {/each}
