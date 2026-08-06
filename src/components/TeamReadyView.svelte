@@ -25,10 +25,16 @@
   const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
+
+  const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
+  const pillOutline =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-6 py-3 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
+  const pillOutlineAlt =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-secondary border border-secondary rounded-full px-6 py-3 bg-transparent transition-all duration-150 hover:bg-secondary hover:text-black";
 </script>
 
 <section class="mx-auto max-w-3xl px-6 py-12">
-  <p class="mono-label text-mint">Team complete</p>
+  <p class="{mono} text-mint">Team complete</p>
   <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
     {formationKey}
     <span class="text-secondary">· {drafted.length} players</span>
@@ -36,8 +42,8 @@
 
   <div class="mt-8 grid gap-4 lg:grid-cols-2">
     {#each positionOrder as pos (pos)}
-      <div class="rounded-[24px] border border-white/15 bg-slate/30 p-5">
-        <p class="mono-label !text-[10px]" style:color={positionColor(pos)}>
+      <div class="rounded-3xl border border-white/15 bg-slate/30 p-5">
+        <p class="{mono} text-[10px]" style:color={positionColor(pos)}>
           {POSITION_LABEL[pos]}
           <span class="text-secondary">({formation[pos]})</span>
         </p>
@@ -65,16 +71,16 @@
   </div>
 
   <div class="mt-8 grid grid-cols-3 gap-4 text-center">
-    <div class="rounded-[16px] border border-white/10 bg-slate/20 px-4 py-3">
-      <p class="mono-label !text-[10px] text-secondary">PLAYERS</p>
+    <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">
+      <p class="{mono} text-[10px] text-secondary">PLAYERS</p>
       <p class="mt-1 font-display text-3xl">{drafted.length}</p>
     </div>
-    <div class="rounded-[16px] border border-white/10 bg-slate/20 px-4 py-3">
-      <p class="mono-label !text-[10px] text-secondary">SAME NATION</p>
+    <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">
+      <p class="{mono} text-[10px] text-secondary">SAME NATION</p>
       <p class="mt-1 font-display text-3xl">{sameNation}</p>
     </div>
-    <div class="rounded-[16px] border border-mint bg-mint/10 px-4 py-3">
-      <p class="mono-label !text-[10px] text-mint">CHEMISTRY</p>
+    <div class="rounded-2xl border border-mint bg-mint/10 px-4 py-3">
+      <p class="{mono} text-[10px] text-mint">CHEMISTRY</p>
       <p class="mt-1 font-display text-3xl text-mint">
         +{Math.round(chemistry * 100)}%
       </p>
@@ -82,59 +88,11 @@
   </div>
 
   <div class="mt-10 flex flex-wrap justify-center gap-4">
-    <button type="button" class="pill-outline" onclick={onStart}
+    <button type="button" class="{pillOutline}" onclick={onStart}
       >Start tournament</button
     >
-    <button type="button" class="pill-outline-alt" onclick={onReset}
+    <button type="button" class="{pillOutlineAlt}" onclick={onReset}
       >Start over</button
     >
   </div>
 </section>
-
-<style>
-  .mono-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-
-  .pill-outline {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-mint);
-    border: 1px solid var(--color-mint);
-    border-radius: 40px;
-    padding: 12px 24px;
-    background: transparent;
-    transition: all 150ms ease;
-  }
-
-  .pill-outline:hover {
-    background: var(--color-mint);
-    color: #000;
-  }
-
-  .pill-outline-alt {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-secondary);
-    border: 1px solid var(--color-secondary);
-    border-radius: 40px;
-    padding: 12px 24px;
-    background: transparent;
-    transition: all 150ms ease;
-  }
-
-  .pill-outline-alt:hover {
-    background: var(--color-secondary);
-    color: #000;
-  }
-</style>

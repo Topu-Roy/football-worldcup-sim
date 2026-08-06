@@ -13,10 +13,12 @@
           `${f[pos as keyof Formation]} ${POSITION_LABEL[pos as keyof typeof POSITION_LABEL]}${f[pos as keyof Formation] > 1 ? "s" : ""}`,
       )
       .join(" · ");
+
+  const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
 </script>
 
 <section class="mx-auto max-w-3xl px-6 py-16">
-  <p class="mono-label mb-4 text-mint">World Cup Draft Simulator</p>
+  <p class="{mono} mb-4 text-mint">World Cup Draft Simulator</p>
   <h1
     class="font-display text-6xl leading-[0.85] tracking-[1.07px] md:text-7xl"
   >
@@ -46,13 +48,3 @@
     {/each}
   </div>
 </section>
-
-<style>
-  .mono-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-</style>

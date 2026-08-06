@@ -116,20 +116,26 @@
     if (o === "semi-final-exit") return "SEMI-FINAL EXIT";
     return "ELIMINATED IN GROUP STAGE";
   }
+
+  const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
+  const pillOutline =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
+  const pillSmall =
+    "font-mono text-[11px] font-semibold tracking-[1.4px] uppercase text-mint border border-mint rounded-full py-1.5 px-3.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black disabled:opacity-30";
 </script>
 
 <section class="mx-auto max-w-6xl px-6 py-12">
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p class="mono-label text-mint">Tournament · 8 teams</p>
+      <p class="{mono} text-mint">Tournament · 8 teams</p>
       <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
         World Cup Run
       </h2>
-      <p class="mono-label mt-3 text-secondary">
+      <p class="{mono} mt-3 text-secondary">
         Group A + Group B · top 2 advance to knockouts
       </p>
     </div>
-    <button type="button" class="pill-outline" onclick={onReset}
+    <button type="button" class="{pillOutline}" onclick={onReset}
       >New draft</button
     >
   </header>
@@ -154,17 +160,17 @@
   {:else if tournament.phase === "group"}
     <div class="mt-10 grid gap-6 lg:grid-cols-2">
       <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
-        <p class="mono-label mb-4 text-secondary">GROUP A</p>
+        <p class="{mono} mb-4 text-secondary">GROUP A</p>
         {@render StandingsTable(standingsA, tournament.userSquad.id)}
       </div>
       <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
-        <p class="mono-label mb-4 text-secondary">GROUP B</p>
+        <p class="{mono} mb-4 text-secondary">GROUP B</p>
         {@render StandingsTable(standingsB, null)}
       </div>
     </div>
 
     <div class="mt-6 rounded-3xl border border-white/15 p-6">
-      <p class="mono-label mb-4 text-secondary">YOUR GROUP MATCHES</p>
+      <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
       <ul class="space-y-3">
         {#each userGroupMatches as m (m.id)}
           <li
@@ -173,7 +179,7 @@
             <div>
               <p class="font-bold">
                 vs. {opponentOf(m).name}
-                <span class="mono-label ml-2! text-secondary">
+                <span class="{mono} ml-2! text-secondary">
                   {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
                     m,
                   ).wcYear}
@@ -183,17 +189,17 @@
             <div class="flex items-center gap-4">
               {#if m.result}
                 <span
-                  class="mono-label"
+                  class={mono}
                   style:color={outcomeColor(outcomeBadge(m))}
                   >{outcomeBadge(m)}
                   {m.result.score[0]}–{m.result.score[1]}</span
                 >
               {:else}
-                <span class="mono-label text-secondary">NOT PLAYED</span>
+                <span class="{mono} text-secondary">NOT PLAYED</span>
               {/if}
               <button
                 type="button"
-                class="pill-small"
+                class="{pillSmall}"
                 disabled={m.result !== null}
                 onclick={() => playMatch(m)}
               >
@@ -208,7 +214,7 @@
         <div class="mt-6 flex justify-center">
           <button
             type="button"
-            class="pill-outline"
+            class="{pillOutline}"
             onclick={() => advanceToKnockout(tournament)}
           >
             Proceed to knockouts
@@ -220,7 +226,7 @@
     <div class="mt-10 grid gap-6 lg:grid-cols-3">
       {#each knockoutByRound.sf as m (m.id)}
         <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
-          <p class="mono-label mb-4 text-secondary">SEMI-FINAL</p>
+          <p class="{mono} mb-4 text-secondary">SEMI-FINAL</p>
           {@render BracketMatch(
             m,
             tournament.userSquad.id,
@@ -231,7 +237,7 @@
       {/each}
       {#each knockoutByRound.final as m (m.id)}
         <div class="rounded-3xl border border-yellow bg-yellow/10 p-6">
-          <p class="mono-label mb-4" style:color="var(--color-yellow)">FINAL</p>
+          <p class="{mono} mb-4 text-yellow">FINAL</p>
           {@render BracketMatch(
             m,
             tournament.userSquad.id,
@@ -246,7 +252,7 @@
       <div class="mt-8 flex justify-center">
         <button
           type="button"
-          class="pill-outline"
+          class="{pillOutline}"
           onclick={() => resolveKnockout(tournament)}
         >
           Finish tournament
@@ -258,7 +264,7 @@
       <div
         class="rounded-3xl border border-white/15 bg-slate/30 px-10 py-8 text-center"
       >
-        <p class="mono-label text-secondary">TOURNAMENT OVER</p>
+        <p class="{mono} text-secondary">TOURNAMENT OVER</p>
         <p
           class="mt-3 font-display text-6xl tracking-[1px]"
           style:color={tournament.outcome === "champion"
@@ -275,7 +281,7 @@
         <div
           class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-6"
         >
-          <p class="mono-label mb-4 text-secondary">FINAL GROUP A TABLE</p>
+          <p class="{mono} mb-4 text-secondary">FINAL GROUP A TABLE</p>
           {@render StandingsTable(standingsA, tournament.userSquad.id)}
         </div>
       {/if}
@@ -292,7 +298,7 @@
           </div>
 
           <div class="mt-6 rounded-3xl border border-white/15 p-6">
-            <p class="mono-label mb-4 text-secondary">MATCH RESULTS</p>
+            <p class="{mono} mb-4 text-secondary">MATCH RESULTS</p>
             <div class="grid grid-cols-2 gap-4 text-center sm:grid-cols-4">
               {@render Stat("Goals for", String(stats.gf))}
               {@render Stat("Goals against", String(stats.ga))}
@@ -315,7 +321,7 @@
           >
             <table class="w-full text-left text-sm">
               <thead>
-                <tr class="mono-label text-secondary">
+                <tr class="{mono} text-secondary">
                   <th class="pr-4 pb-3">Round</th>
                   <th class="pr-4 pb-3">Opponent</th>
                   <th class="pr-4 pb-3">Score</th>
@@ -329,7 +335,7 @@
               <tbody>
                 {#each stats.matches as sm (sm.id)}
                   <tr class="border-t border-white/10">
-                    <td class="mono-label py-3 pr-4 text-[10px]! text-secondary"
+                    <td class="{mono} py-3 pr-4 text-[10px] text-secondary"
                       >{sm.roundLabel}</td
                     >
                     <td class="py-3 pr-4 font-bold">{sm.opponentName}</td>
@@ -337,7 +343,7 @@
                       >{sm.result.score[0]}–{sm.result.score[1]}</td
                     >
                     <td
-                      class="mono-label py-3 pr-4 text-[10px]!"
+                      class="{mono} py-3 pr-4 text-[10px]"
                       style:color={outcomeColor(sm.outcome)}>{sm.outcome}</td
                     >
                     <td class="py-3 pr-4 font-mono"
@@ -350,7 +356,7 @@
                     <td class="py-3 pr-4 font-mono"
                       >{Math.round(sm.result.possession[0] * 100)}%</td
                     >
-                    <td class="mono-label py-3 text-[10px]! text-secondary">
+                    <td class="{mono} py-3 text-[10px] text-secondary">
                       {sm.result.extraTime ? "ET" : ""}{sm.result.penalties
                         ? "·PEN"
                         : ""}
@@ -364,10 +370,10 @@
       {/if}
 
       <div class="flex gap-4">
-        <button type="button" class="pill-outline" onclick={startNewTournament}
+        <button type="button" class="{pillOutline}" onclick={startNewTournament}
           >New tournament (same XI)</button
         >
-        <button type="button" class="pill-outline" onclick={onReset}
+        <button type="button" class="{pillOutline}" onclick={onReset}
           >New draft</button
         >
       </div>
@@ -381,7 +387,7 @@
 )}
   <table class="w-full text-left text-sm">
     <thead>
-      <tr class="mono-label text-secondary">
+      <tr class="{mono} text-secondary">
         <th class="pr-3 pb-2">#</th>
         <th class="pr-3 pb-2">Team</th>
         <th class="pr-3 pb-2 text-center">P</th>
@@ -396,11 +402,11 @@
     </thead>
     <tbody>
       {#each rows as row, i (row.squadId)}
-        <tr class:user-row={row.squadId === userId}>
+        <tr class={row.squadId === userId ? "bg-mint/[0.08]" : ""}>
           <td class="py-2 pr-3 font-mono text-secondary">{i + 1}</td>
           <td class="py-2 pr-3 font-bold">
             {row.squadId === userId ? "You" : row.name}
-            <span class="mono-label ml-2! text-secondary">
+            <span class="{mono} ml-2! text-secondary">
               {NATION_NAMES[row.nation] ?? row.nation}
             </span>
           </td>
@@ -438,14 +444,14 @@
     {/each}
     <div class="mt-3 flex justify-center">
       {#if m.isUser && !m.result}
-        <button type="button" class="pill-small" onclick={onPlay}>Play</button>
+        <button type="button" class="{pillSmall}" onclick={onPlay}>Play</button>
       {:else if m.result}
-        <span class="mono-label text-[10px]! text-secondary">
+        <span class="{mono} text-[10px] text-secondary">
           {m.result.winner === 0 ? squads[m.home].name : squads[m.away].name} advance
           {m.result.penalties ? " · pens" : m.result.extraTime ? " · ET" : ""}
         </span>
       {:else}
-        <span class="mono-label text-[10px]! text-secondary">AUTO</span>
+        <span class="{mono} text-[10px] text-secondary">AUTO</span>
       {/if}
     </div>
   </div>
@@ -455,63 +461,7 @@
   <div
     class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3 text-center"
   >
-    <p class="mono-label text-[10px]! text-secondary">{label}</p>
+    <p class="{mono} text-[10px] text-secondary">{label}</p>
     <p class="mt-1 font-display text-2xl">{value}</p>
   </div>
 {/snippet}
-
-<style>
-  :global(.user-row) {
-    background: rgba(60, 255, 208, 0.08);
-  }
-
-  .mono-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-
-  .pill-outline {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-mint);
-    border: 1px solid var(--color-mint);
-    border-radius: 40px;
-    padding: 10px 20px;
-    background: transparent;
-    transition: all 150ms ease;
-  }
-
-  .pill-outline:hover {
-    background: var(--color-mint);
-    color: #000;
-  }
-
-  .pill-small {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    color: var(--color-mint);
-    border: 1px solid var(--color-mint);
-    border-radius: 40px;
-    padding: 6px 14px;
-    background: transparent;
-    transition: all 150ms ease;
-  }
-
-  .pill-small:hover:not(:disabled) {
-    background: var(--color-mint);
-    color: #000;
-  }
-
-  .pill-small:disabled {
-    opacity: 0.3;
-  }
-</style>

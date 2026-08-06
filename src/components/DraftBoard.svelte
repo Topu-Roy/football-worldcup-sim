@@ -104,12 +104,20 @@
       (p[key as keyof Player] as number) ?? 0,
     ]);
   }
+
+  const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
+  const pillOutline =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
+  const playerCard =
+    "border border-white/15 rounded-[20px] bg-[#1a1a1a] p-5 transition-all duration-150 enabled:hover:border-mint enabled:hover:-translate-y-0.5 disabled:opacity-45 disabled:cursor-not-allowed";
+  const pillTag =
+    "font-mono text-[10px] font-semibold tracking-[1.5px] uppercase rounded-full py-1 px-2.5";
 </script>
 
 <section class="mx-auto max-w-6xl px-6 py-12">
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p class="mono-label text-mint">Draft Round {round} / 11</p>
+      <p class="{mono} text-mint">Draft Round {round} / 11</p>
       <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
         {formationKey}
         <span class="text-secondary"
@@ -119,12 +127,12 @@
     </div>
     <div class="flex items-center gap-6">
       <div class="text-right">
-        <p class="mono-label text-secondary">REROLLS LEFT</p>
+        <p class="{mono} text-secondary">REROLLS LEFT</p>
         <p class="font-display text-3xl">{rerollsLeft}</p>
       </div>
       <button
         type="button"
-        class="pill-outline disabled:opacity-30"
+        class="{pillOutline} disabled:opacity-30"
         disabled={rerollsLeft <= 0 || complete}
         onclick={reroll}
       >
@@ -136,14 +144,14 @@
   <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_340px]">
     {#if offer}
       <div>
-        <p class="mono-label mb-4 text-secondary">
+        <p class="{mono} mb-4 text-secondary">
           {NATION_NAMES[offer.nation] ?? offer.nation} · {offer.year}
         </p>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {#each offerPlayers as p (p.id)}
             <button
               type="button"
-              class="player-card text-left"
+              class="{playerCard} text-left"
               disabled={complete || left[p.position] <= 0}
               onclick={() => pick(p)}
             >
@@ -156,20 +164,20 @@
                     >
                   </p>
                   <p
-                    class="mono-label mt-1"
+                    class="{mono} mt-1"
                     style:color={positionColor(p.position)}
                   >
                     {POSITION_LABEL[p.position]}
                   </p>
                 </div>
                 {#if left[p.position] <= 0}
-                  <span class="pill-tag bg-slate text-secondary">FULL</span>
+                  <span class="{pillTag} bg-slate text-secondary">FULL</span>
                 {/if}
               </div>
               <dl class="mt-4 space-y-1.5">
                 {#each statRows(p) as [label, val] (label)}
                   <div class="flex items-center justify-between gap-3">
-                    <dt class="mono-label text-[10px]! text-secondary">
+                    <dt class="{mono} text-[10px] text-secondary">
                       {label}
                     </dt>
                     <div class="flex items-center gap-2">
@@ -191,15 +199,15 @@
     {/if}
 
     <aside
-      class="h-fit rounded-[24px] border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
+      class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
     >
-      <p class="mono-label text-mint">
+      <p class="{mono} text-mint">
         Your XI <span class="text-secondary">({drafted.length}/11)</span>
       </p>
       <div class="mt-4 space-y-4">
         {#each positionOrder as pos (pos)}
           <div>
-            <p class="mono-label !text-[10px]" style:color={positionColor(pos)}>
+            <p class="{mono} text-[10px]" style:color={positionColor(pos)}>
               {POSITION_LABEL[pos]}
               <span class="text-secondary">
                 {formation[pos]}
@@ -233,7 +241,7 @@
       </div>
       {#if chemistry > 0}
         <div class="mt-6 rounded-full border border-mint px-4 py-2 text-center">
-          <span class="mono-label !text-[10px] text-mint"
+          <span class="{mono} text-[10px] text-mint"
             >CHEMISTRY +{Math.round(chemistry * 100)}%</span
           >
         </div>
@@ -241,62 +249,3 @@
     </aside>
   </div>
 </section>
-
-<style>
-  .mono-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-
-  .pill-outline {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-mint);
-    border: 1px solid var(--color-mint);
-    border-radius: 40px;
-    padding: 10px 20px;
-    background: transparent;
-    transition: all 150ms ease;
-  }
-
-  .pill-outline:hover:not(:disabled) {
-    background: var(--color-mint);
-    color: #000;
-  }
-
-  .player-card {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    background: #1a1a1a;
-    padding: 20px;
-    transition:
-      border-color 150ms ease,
-      transform 150ms ease;
-  }
-
-  .player-card:hover:not(:disabled) {
-    border-color: var(--color-mint);
-    transform: translateY(-2px);
-  }
-
-  .player-card:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-  }
-
-  .pill-tag {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 20px;
-    padding: 4px 10px;
-  }
-</style>

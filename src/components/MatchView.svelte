@@ -212,30 +212,38 @@
     script?.penalties?.slice(0, penIndex) ?? [],
   );
   const speedOptions = [1, 2, 4];
+
+  const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
+  const pillOutline =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent whitespace-nowrap transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
+  const pillSolid =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-black bg-mint border border-mint rounded-full px-5 py-2.5 whitespace-nowrap transition-all duration-150 hover:brightness-110";
+  const speedBtn =
+    "font-mono text-xs font-semibold px-3.5 py-2.5 text-mint bg-transparent transition-all duration-150";
 </script>
 
 <section class="mx-auto max-w-4xl px-6 py-12">
   <div class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p class="mono-label text-mint">{roundLabel}</p>
+      <p class="{mono} text-mint">{roundLabel}</p>
       <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
         Your XI <span class="text-secondary">vs.</span>
         {opponentSquad.name}
       </h2>
-      <p class="mono-label mt-3 text-secondary">
+      <p class="{mono} mt-3 text-secondary">
         {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
       </p>
     </div>
 
     {#if !script}
-      <button type="button" class="pill-solid" onclick={playMatch}
+      <button type="button" class="{pillSolid}" onclick={playMatch}
         >Play match</button
       >
     {:else if !finished}
       <div class="flex items-center gap-2">
         <button
           type="button"
-          class="pill-outline"
+          class="{pillOutline}"
           onclick={() => (playing = !playing)}
         >
           {playing ? "Pause" : "Play"}
@@ -244,19 +252,19 @@
           {#each speedOptions as s (s)}
             <button
               type="button"
-              class={speed === s ? "speed-btn speed-on" : "speed-btn"}
+              class={speed === s ? `${speedBtn} bg-mint text-black` : speedBtn}
               onclick={() => (speed = s)}>{s}x</button
             >
           {/each}
         </div>
-        <button type="button" class="pill-outline" onclick={skip}>Skip</button>
+        <button type="button" class="{pillOutline}" onclick={skip}>Skip</button>
       </div>
     {:else}
       <div class="flex items-center gap-2">
-        <button type="button" class="pill-outline" onclick={replay}
+        <button type="button" class="{pillOutline}" onclick={replay}
           >Replay</button
         >
-        <button type="button" class="pill-solid" onclick={onNext}
+        <button type="button" class="{pillSolid}" onclick={onNext}
           >{nextLabel}</button
         >
       </div>
@@ -265,34 +273,36 @@
 
   {#if script}
     <div
-      class="mt-8 overflow-hidden rounded-[24px] border border-white/15 bg-slate/30"
+      class="mt-8 overflow-hidden rounded-3xl border border-white/15 bg-slate/30"
     >
-      <div class="scoreboard px-6 py-5">
-        <div class="team-col items-end">
+      <div
+        class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-6 py-5"
+      >
+        <div class="flex flex-col items-end">
           <p class="font-display text-2xl leading-none text-mint">Your XI</p>
-          <p class="mono-label mt-2 text-secondary">
+          <p class="{mono} mt-2 text-secondary">
             {userSquad.players.length} players · {userNationCount} same nation
           </p>
         </div>
         <div class="text-center">
-          <p class="mono-label text-secondary">
+          <p class="{mono} text-secondary">
             {displayScore[0]} : {displayScore[1]}
           </p>
-          <p class="score-text">{clockLabel}</p>
+          <p class="font-mono text-[15px] font-semibold text-secondary mt-1">{clockLabel}</p>
           {#if phase === "play" && currentSnap.isET}
-            <p class="mono-label mt-2 text-yellow">EXTRA TIME</p>
+            <p class="{mono} mt-2 text-yellow">EXTRA TIME</p>
           {/if}
           {#if phase === "pens" || (phase === "done" && script.result.penalties)}
-            <p class="mono-label mt-2 text-yellow">
+            <p class="{mono} mt-2 text-yellow">
               PENS {pensScore[0]} : {pensScore[1]}
             </p>
           {/if}
         </div>
-        <div class="team-col items-start">
+        <div class="flex flex-col items-start">
           <p class="font-display text-2xl leading-none text-secondary">
             {opponentSquad.name}
           </p>
-          <p class="mono-label mt-2 text-secondary">
+          <p class="{mono} mt-2 text-secondary">
             {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
           </p>
         </div>
@@ -300,8 +310,8 @@
 
       <div class="mx-6 mb-4">
         <div class="flex items-center justify-between">
-          <p class="mono-label text-secondary">{teamName(0)}</p>
-          <p class="mono-label text-secondary">{teamName(1)}</p>
+          <p class="{mono} text-secondary">{teamName(0)}</p>
+          <p class="{mono} text-secondary">{teamName(1)}</p>
         </div>
         <div class="mt-1 flex h-2 overflow-hidden rounded-full bg-white/10">
           <div
@@ -323,13 +333,13 @@
       <div class="px-6 pb-5">
         <div class="grid grid-cols-2 gap-4 text-center">
           <div>
-            <p class="mono-label text-secondary">SHOTS</p>
+            <p class="{mono} text-secondary">SHOTS</p>
             <p class="font-display text-3xl">
               {displayShots[0]} : {displayShots[1]}
             </p>
           </div>
           <div>
-            <p class="mono-label text-secondary">ON TARGET</p>
+            <p class="{mono} text-secondary">ON TARGET</p>
             <p class="font-display text-3xl">
               {displayOnTarget[0]} : {displayOnTarget[1]}
             </p>
@@ -339,7 +349,7 @@
     </div>
 
     {#if phase === "pre"}
-      <p class="mono-label mt-6 text-center text-secondary">
+      <p class="{mono} mt-6 text-center text-secondary">
         KICK OFF — {teamName(0)} vs {teamName(1)}
       </p>
     {/if}
@@ -347,20 +357,22 @@
     {#if flashEvent}
       {#key flashCount}
         <div
-          class="goal-flash"
+          class="fixed inset-0 z-50 flex items-center justify-center gap-2.5 font-mono text-lg font-bold tracking-[2px] uppercase bg-canvas/90 animate-[goalPulse_1.8s_ease-out_forwards] pointer-events-none"
           class:text-mint={flashEvent.teamIndex === 0}
           class:text-uv={flashEvent.teamIndex === 1}
         >
           GOAL! <span class="font-mono">{teamName(flashEvent.teamIndex)}</span>
           —
-          <span class="font-display">{flashEvent.scorerName ?? "Goal"}</span>
+          <span class="font-display normal-case tracking-normal"
+            >{flashEvent.scorerName ?? "Goal"}</span
+          >
         </div>
       {/key}
     {/if}
 
     {#if phase === "pens" || (phase === "done" && script.result.penalties)}
-      <div class="mt-6 rounded-[24px] border border-white/15 p-6">
-        <p class="mono-label mb-4 text-yellow">PENALTY SHOOTOUT</p>
+      <div class="mt-6 rounded-3xl border border-white/15 p-6">
+        <p class="{mono} mb-4 text-yellow">PENALTY SHOOTOUT</p>
         <ul class="space-y-2">
           {#each visibleKicks as k, i (i)}
             <li
@@ -386,8 +398,8 @@
     {/if}
 
     {#if commentary.length > 0}
-      <div class="mt-6 rounded-[24px] border border-white/15 p-6">
-        <p class="mono-label mb-4 text-secondary">COMMENTARY</p>
+      <div class="mt-6 rounded-3xl border border-white/15 p-6">
+        <p class="{mono} mb-4 text-secondary">COMMENTARY</p>
         <ul class="flex max-h-56 flex-col-reverse gap-2 overflow-y-auto pr-2">
           {#each [...commentary].reverse() as line (line.id)}
             <li
@@ -404,8 +416,8 @@
     {/if}
 
     {#if phase === "done" && script.result.events.length > 0}
-      <div class="mt-6 rounded-[24px] border border-white/15 p-6">
-        <p class="mono-label mb-4 text-secondary">SCORERS</p>
+      <div class="mt-6 rounded-3xl border border-white/15 p-6">
+        <p class="{mono} mb-4 text-secondary">SCORERS</p>
         <ul class="space-y-2">
           {#each script.result.events as ev, i (i)}
             <li class="flex items-center gap-3 text-sm">
@@ -427,8 +439,8 @@
     {/if}
 
     {#if phase === "done"}
-      <div class="mt-6 rounded-[24px] border border-white/15 p-6 text-center">
-        <p class="mono-label text-mint">
+      <div class="mt-6 rounded-3xl border border-white/15 p-6 text-center">
+        <p class="{mono} text-mint">
           {script.result.winner === 0
             ? "YOU WIN"
             : script.result.winner === 1
@@ -436,7 +448,7 @@
               : "DRAW"}
         </p>
         {#if script.result.extraTime}
-          <p class="mono-label mt-2 text-yellow">
+          <p class="{mono} mt-2 text-yellow">
             Extra time{script.result.penalties ? " · decided on penalties" : ""}
           </p>
         {/if}
@@ -451,111 +463,6 @@
 </section>
 
 <style>
-  .mono-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-
-  .pill-outline {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-mint);
-    border: 1px solid var(--color-mint);
-    border-radius: 40px;
-    padding: 10px 20px;
-    background: transparent;
-    transition: all 150ms ease;
-    white-space: nowrap;
-  }
-
-  .pill-outline:hover:not(:disabled) {
-    background: var(--color-mint);
-    color: #000;
-  }
-
-  .pill-solid {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #000;
-    background: var(--color-mint);
-    border: 1px solid var(--color-mint);
-    border-radius: 40px;
-    padding: 10px 20px;
-    transition: all 150ms ease;
-    white-space: nowrap;
-  }
-
-  .pill-solid:hover {
-    filter: brightness(1.1);
-  }
-
-  .speed-btn {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 10px 14px;
-    color: var(--color-mint);
-    background: transparent;
-    transition: all 150ms ease;
-  }
-
-  .speed-on {
-    background: var(--color-mint);
-    color: #000;
-  }
-
-  .scoreboard {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .team-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .score-text {
-    font-family: var(--font-mono);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-secondary);
-    margin-top: 4px;
-  }
-
-  .goal-flash {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: rgba(19, 19, 19, 0.92);
-    animation: goalPulse 1.8s ease-out forwards;
-    pointer-events: none;
-  }
-
-  .goal-flash .font-display {
-    text-transform: none;
-    letter-spacing: 0;
-  }
-
   @keyframes goalPulse {
     0% {
       opacity: 0;
