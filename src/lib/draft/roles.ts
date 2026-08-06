@@ -212,5 +212,5 @@ export function roleRating(p: Player, role: string): number {
         : ((p[key as keyof Player] as number | undefined) ?? composure);
     raw += val * w;
   }
-  return Math.min(99, Math.max(50, Math.round(50 + (raw - 55) * 0.9)));
+  return Math.min(99, Math.max(50, Math.round(raw)));
 }

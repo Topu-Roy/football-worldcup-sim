@@ -9,6 +9,7 @@
     nationYears,
     newNationReroll,
     playerRating,
+    playerTier,
     positionColor,
     sameNationReroll,
     slotDepartment,
@@ -199,9 +200,14 @@
         </div>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {#each offerPlayers as p (p.id)}
+            {@const tier = playerTier(p)}
             <button
               type="button"
-              class="{playerCard} text-left"
+              class="{playerCard} {tier === 'elite'
+                ? 'card-elite'
+                : tier === 'star'
+                  ? 'card-star'
+                  : ''} text-left"
               disabled={complete || left[slotDepartment(p)] <= 0}
               onclick={() => pick(p)}
             >
@@ -211,10 +217,22 @@
                     <p class="min-w-0 flex-1 truncate text-lg font-bold">
                       {p.name}
                     </p>
-                    <span
-                      class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint"
-                      >{playerRating(p)}</span
-                    >
+                    {#if tier === "elite"}
+                      <span
+                        class="flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full border border-transparent bg-gradient-to-br from-[#ffd700] to-[#b45309] px-1.5 font-mono text-xs font-bold text-black"
+                        >★{playerRating(p)}</span
+                      >
+                    {:else if tier === "star"}
+                      <span
+                        class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#ffd23c]/60 bg-slate font-mono text-xs font-bold text-[#ffd23c]"
+                        >{playerRating(p)}</span
+                      >
+                    {:else}
+                      <span
+                        class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint"
+                        >{playerRating(p)}</span
+                      >
+                    {/if}
                   </div>
                   <div class="mt-1 flex flex-wrap items-center gap-1">
                     {#each p.positions as role (role)}
@@ -243,15 +261,8 @@
                     >
                       {label}
                     </dt>
-                    <div class="flex shrink-0 items-center gap-2">
-                      <div class="h-1 w-24 rounded-full bg-slate">
-                        <div
-                          class="h-1 rounded-full bg-secondary"
-                          style:width={`${val}%`}
-                        ></div>
-                      </div>
-                      <dd class="w-6 text-right font-mono text-xs">{val}</dd>
-                    </div>
+                    <div class="h-px flex-1 bg-white/15"></div>
+                    <dd class="text-right font-mono text-xs">{val}</dd>
                   </div>
                 {/each}
               </dl>
@@ -312,3 +323,70 @@
     </aside>
   </div>
 </section>
+
+<style>
+  @property --elite-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  .card-elite {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent !important;
+    background:
+      linear-gradient(#161616, #161616) padding-box,
+      conic-gradient(
+          from var(--elite-angle),
+          #ffd700,
+          #f59e0b,
+          #b45309,
+          #ffd700
+        )
+        border-box !important;
+    box-shadow:
+      0 0 24px rgb(255 215 0 / 0.25),
+      0 0 48px rgb(245 158 11 / 0.15);
+    animation: elite-angle 3s linear infinite;
+  }
+
+  @keyframes elite-angle {
+    to {
+      --elite-angle: 360deg;
+    }
+  }
+
+  .card-elite::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 20%,
+      rgb(255 255 255 / 0.14) 40%,
+      transparent 60%
+    );
+    transform: translateX(-110%);
+    animation: elite-shine 3.2s ease-in-out infinite;
+  }
+
+  @keyframes elite-shine {
+    0% {
+      transform: translateX(-110%);
+    }
+    55% {
+      transform: translateX(110%);
+    }
+    100% {
+      transform: translateX(110%);
+    }
+  }
+
+  .card-star {
+    border-color: rgb(255 210 60 / 0.4) !important;
+    box-shadow: 0 0 16px rgb(255 210 60 / 0.12);
+  }
+</style>

@@ -14,7 +14,7 @@ export {
 } from "./offer.js";
 export type { Offer } from "./offer.js";
 export { buildUserSquad } from "./squad.js";
-export { playerRating } from "./rating.js";
+export { playerRating, avgRating, playerTier } from "./rating.js";
 export {
   ROLE_LABELS,
   assignedRole,
