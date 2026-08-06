@@ -125,28 +125,33 @@
         >
       </h2>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <div class="text-right">
         <p class="{mono} text-secondary">REROLLS LEFT</p>
         <p class="font-display text-3xl">{rerollsLeft}</p>
       </div>
-      <button
-        type="button"
-        class="{pillOutline} disabled:opacity-30"
-        disabled={rerollsLeft <= 0 || complete}
-        onclick={reroll}
-      >
-        Reroll squad
-      </button>
     </div>
   </header>
 
   <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_340px]">
     {#if offer}
       <div>
-        <p class="{mono} mb-4 text-secondary">
-          {NATION_NAMES[offer.nation] ?? offer.nation} · {offer.year}
-        </p>
+        <div
+          class="mb-5 flex items-center justify-between gap-4 font-display text-3xl text-white"
+        >
+          <span>
+            {NATION_NAMES[offer.nation] ?? offer.nation}
+            <span class="text-mint">{offer.year}</span>
+          </span>
+          <button
+            type="button"
+            class="{pillOutline} disabled:opacity-30"
+            disabled={rerollsLeft <= 0 || complete}
+            onclick={reroll}
+          >
+            Reroll squad
+          </button>
+        </div>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {#each offerPlayers as p (p.id)}
             <button
@@ -156,13 +161,16 @@
               onclick={() => pick(p)}
             >
               <div class="flex items-start justify-between gap-2">
-                <div>
-                  <p class="text-lg font-bold">
-                    {p.name}
-                    <span class="font-mono text-sm text-secondary"
-                      >({playerRating(p)})</span
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-baseline justify-between gap-2">
+                    <p class="min-w-0 flex-1 truncate text-lg font-bold">
+                      {p.name}
+                    </p>
+                    <span
+                      class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint"
+                      >{playerRating(p)}</span
                     >
-                  </p>
+                  </div>
                   <p
                     class="{mono} mt-1"
                     style:color={positionColor(p.position)}
@@ -171,16 +179,20 @@
                   </p>
                 </div>
                 {#if left[p.position] <= 0}
-                  <span class="{pillTag} bg-slate text-secondary">FULL</span>
+                  <span class="{pillTag} shrink-0 bg-slate text-secondary"
+                    >FULL</span
+                  >
                 {/if}
               </div>
               <dl class="mt-4 space-y-1.5">
                 {#each statRows(p) as [label, val] (label)}
-                  <div class="flex items-center justify-between gap-3">
-                    <dt class="{mono} text-[10px] text-secondary">
+                  <div class="flex items-center gap-3">
+                    <dt
+                      class="{mono} min-w-0 flex-1 truncate leading-none text-[10px] text-secondary"
+                    >
                       {label}
                     </dt>
-                    <div class="flex items-center gap-2">
+                    <div class="flex shrink-0 items-center gap-2">
                       <div class="h-1 w-24 rounded-full bg-slate">
                         <div
                           class="h-1 rounded-full bg-secondary"
