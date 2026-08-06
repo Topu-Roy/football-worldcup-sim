@@ -1,4 +1,4 @@
-export type Position = 'GK' | 'DEF' | 'MID' | 'ATT';
+export type Position = "GK" | "DEF" | "MID" | "ATT";
 
 export type Formation = {
   GK: number;
@@ -8,10 +8,10 @@ export type Formation = {
 };
 
 export const FORMATIONS: Record<string, Formation> = {
-  '4-3-3': { GK: 1, DEF: 4, MID: 3, ATT: 3 },
-  '4-4-2': { GK: 1, DEF: 4, MID: 4, ATT: 2 },
-  '3-5-2': { GK: 1, DEF: 3, MID: 5, ATT: 2 },
-  '4-2-3-1': { GK: 1, DEF: 4, MID: 5, ATT: 1 },
+  "4-3-3": { GK: 1, DEF: 4, MID: 3, ATT: 3 },
+  "4-4-2": { GK: 1, DEF: 4, MID: 4, ATT: 2 },
+  "3-5-2": { GK: 1, DEF: 3, MID: 5, ATT: 2 },
+  "4-2-3-1": { GK: 1, DEF: 4, MID: 5, ATT: 1 },
 };
 
 export interface Player {
@@ -67,7 +67,7 @@ export interface TeamStrengths {
 export interface MatchEvent {
   minute: number;
   teamIndex: 0 | 1;
-  type: 'goal';
+  type: "goal";
   scorerId?: string;
   scorerName?: string;
 }

@@ -1,8 +1,8 @@
-import type { MatchResult, Squad } from '../types.js';
-import { HISTORICAL_SQUADS } from '../../data/historical/index.js';
-import { shuffle } from '../random.js';
-import { simulateMatch } from '../matchEngine.js';
-import type { Tournament, TournamentMatch } from './types.js';
+import type { MatchResult, Squad } from "../types.js";
+import { HISTORICAL_SQUADS } from "../../data/historical/index.js";
+import { shuffle } from "../random.js";
+import { simulateMatch } from "../matchEngine.js";
+import type { Tournament, TournamentMatch } from "./types.js";
 
 function roundRobinPairs(teams: string[]): [string, string][] {
   const pairs: [string, string][] = [];
@@ -14,7 +14,11 @@ function roundRobinPairs(teams: string[]): [string, string][] {
   return pairs;
 }
 
-function simResult(home: Squad, away: Squad, regulationOnly = false): MatchResult {
+function simResult(
+  home: Squad,
+  away: Squad,
+  regulationOnly = false,
+): MatchResult {
   return simulateMatch(home, away, { regulationOnly });
 }
 
@@ -33,8 +37,8 @@ export function createTournament(userSquad: Squad): Tournament {
     const isUser = home === userSquad.id;
     matches.push({
       id: `A-${home}-${away}`,
-      round: 'group',
-      group: 'A',
+      round: "group",
+      group: "A",
       home,
       away,
       result: isUser ? null : simResult(squads[home], squads[away], true),
@@ -44,8 +48,8 @@ export function createTournament(userSquad: Squad): Tournament {
   for (const [home, away] of roundRobinPairs(groupB)) {
     matches.push({
       id: `B-${home}-${away}`,
-      round: 'group',
-      group: 'B',
+      round: "group",
+      group: "B",
       home,
       away,
       result: simResult(squads[home], squads[away], true),
@@ -53,5 +57,11 @@ export function createTournament(userSquad: Squad): Tournament {
     });
   }
 
-  return { phase: 'group', userSquad, squads, groups: { A: groupA, B: groupB }, matches };
+  return {
+    phase: "group",
+    userSquad,
+    squads,
+    groups: { A: groupA, B: groupB },
+    matches,
+  };
 }

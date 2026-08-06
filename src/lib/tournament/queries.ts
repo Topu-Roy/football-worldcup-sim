@@ -1,23 +1,30 @@
-import type { Squad } from '../types.js';
-import type { GroupStanding, Tournament, TournamentMatch } from './types.js';
-import { standingsFor } from './standings.js';
+import type { Squad } from "../types.js";
+import type { GroupStanding, Tournament, TournamentMatch } from "./types.js";
+import { standingsFor } from "./standings.js";
 
 export function groupDone(state: Tournament): boolean {
-  return state.matches.filter((m) => m.round === 'group').every((m) => m.result !== null);
+  return state.matches
+    .filter((m) => m.round === "group")
+    .every((m) => m.result !== null);
 }
 
 export function userGroupStanding(state: Tournament): GroupStanding | null {
-  const a = standingsFor(state, 'A');
+  const a = standingsFor(state, "A");
   return a.find((s) => s.squadId === state.userSquad.id) ?? null;
 }
 
 export function nextUserMatch(state: Tournament): TournamentMatch | null {
-  return state.matches.find((m) => m.isUser && m.round === 'group' && !m.result) ??
-    state.matches.find((m) => m.isUser && m.round === 'sf' && !m.result) ??
-    state.matches.find((m) => m.isUser && m.round === 'final' && !m.result) ??
-    null;
+  return (
+    state.matches.find((m) => m.isUser && m.round === "group" && !m.result) ??
+    state.matches.find((m) => m.isUser && m.round === "sf" && !m.result) ??
+    state.matches.find((m) => m.isUser && m.round === "final" && !m.result) ??
+    null
+  );
 }
 
-export function matchTeams(state: Tournament, m: TournamentMatch): { home: Squad; away: Squad } {
+export function matchTeams(
+  state: Tournament,
+  m: TournamentMatch,
+): { home: Squad; away: Squad } {
   return { home: state.squads[m.home], away: state.squads[m.away] };
 }

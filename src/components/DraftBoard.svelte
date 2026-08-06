@@ -169,7 +169,7 @@
               <dl class="mt-4 space-y-1.5">
                 {#each statRows(p) as [label, val] (label)}
                   <div class="flex items-center justify-between gap-3">
-                    <dt class="mono-label !text-[10px] text-secondary">
+                    <dt class="mono-label text-[10px]! text-secondary">
                       {label}
                     </dt>
                     <div class="flex items-center gap-2">

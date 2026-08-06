@@ -1,11 +1,11 @@
-import type { MatchResult, Squad } from '../types.js';
+import type { MatchResult, Squad } from "../types.js";
 
-export type MatchRound = 'group' | 'sf' | 'final';
+export type MatchRound = "group" | "sf" | "final";
 
 export interface TournamentMatch {
   id: string;
   round: MatchRound;
-  group?: 'A' | 'B';
+  group?: "A" | "B";
   home: string;
   away: string;
   result: MatchResult | null;
@@ -27,10 +27,11 @@ export interface GroupStanding {
   points: number;
 }
 
-export type TournamentOutcome = 'champion' | 'runners-up' | 'semi-final-exit' | 'eliminated';
+export type TournamentOutcome =
+  "champion" | "runners-up" | "semi-final-exit" | "eliminated";
 
 export interface Tournament {
-  phase: 'group' | 'knockout' | 'ended';
+  phase: "group" | "knockout" | "ended";
   userSquad: Squad;
   squads: Record<string, Squad>;
   groups: { A: string[]; B: string[] };
@@ -46,7 +47,7 @@ export interface UserMatchStat {
   opponentNation: string;
   opponentYear: number;
   result: MatchResult;
-  outcome: 'W' | 'D' | 'L';
+  outcome: "W" | "D" | "L";
 }
 
 export interface AggregateStats {

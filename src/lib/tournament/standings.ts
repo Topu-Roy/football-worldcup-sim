@@ -1,11 +1,15 @@
-import type { Squad } from '../types.js';
-import type { GroupStanding, Tournament, TournamentMatch } from './types.js';
+import type { Squad } from "../types.js";
+import type { GroupStanding, Tournament, TournamentMatch } from "./types.js";
 
-function standingsForGroup(matches: TournamentMatch[], teams: string[], squads: Record<string, Squad>): GroupStanding[] {
+function standingsForGroup(
+  matches: TournamentMatch[],
+  teams: string[],
+  squads: Record<string, Squad>,
+): GroupStanding[] {
   const base: GroupStanding = {
-    squadId: '',
-    name: '',
-    nation: '',
+    squadId: "",
+    name: "",
+    nation: "",
     wcYear: 0,
     played: 0,
     won: 0,
@@ -19,10 +23,19 @@ function standingsForGroup(matches: TournamentMatch[], teams: string[], squads: 
   const table = new Map<string, GroupStanding>();
   for (const id of teams) {
     const s = squads[id];
-    table.set(id, { ...base, squadId: id, name: s.name, nation: s.nation, wcYear: s.wcYear });
+    table.set(id, {
+      ...base,
+      squadId: id,
+      name: s.name,
+      nation: s.nation,
+      wcYear: s.wcYear,
+    });
   }
 
-  const groupMatches = matches.filter((m) => m.round === 'group' && teams.includes(m.home) && teams.includes(m.away));
+  const groupMatches = matches.filter(
+    (m) =>
+      m.round === "group" && teams.includes(m.home) && teams.includes(m.away),
+  );
   for (const m of groupMatches) {
     if (!m.result) continue;
     const home = table.get(m.home)!;
@@ -61,6 +74,9 @@ function standingsForGroup(matches: TournamentMatch[], teams: string[], squads: 
   });
 }
 
-export function standingsFor(state: Tournament, group: 'A' | 'B'): GroupStanding[] {
+export function standingsFor(
+  state: Tournament,
+  group: "A" | "B",
+): GroupStanding[] {
   return standingsForGroup(state.matches, state.groups[group], state.squads);
 }

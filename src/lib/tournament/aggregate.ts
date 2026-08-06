@@ -1,4 +1,4 @@
-import type { AggregateStats, MatchRound, Tournament } from './types.js';
+import type { AggregateStats, MatchRound, Tournament } from "./types.js";
 
 export function aggregateStats(state: Tournament): AggregateStats {
   const stats: AggregateStats = {
@@ -18,14 +18,23 @@ export function aggregateStats(state: Tournament): AggregateStats {
     avgGoalsFor: 0,
   };
 
-  const roundLabel = (r: MatchRound): string => (r === 'group' ? 'Group A' : r === 'sf' ? 'Semi-final' : 'Final');
+  const roundLabel = (r: MatchRound): string =>
+    r === "group" ? "Group A" : r === "sf" ? "Semi-final" : "Final";
 
   for (const m of state.matches.filter((x) => x.isUser && x.result)) {
-    const opp = m.home === state.userSquad.id ? state.squads[m.away] : state.squads[m.home];
+    const opp =
+      m.home === state.userSquad.id
+        ? state.squads[m.away]
+        : state.squads[m.home];
     const userHome = m.home === state.userSquad.id;
     const gf = userHome ? m.result!.score[0] : m.result!.score[1];
     const ga = userHome ? m.result!.score[1] : m.result!.score[0];
-    const outcome: 'W' | 'D' | 'L' = m.result!.winner === null ? 'D' : m.result!.winner === (userHome ? 0 : 1) ? 'W' : 'L';
+    const outcome: "W" | "D" | "L" =
+      m.result!.winner === null
+        ? "D"
+        : m.result!.winner === (userHome ? 0 : 1)
+          ? "W"
+          : "L";
 
     stats.matches.push({
       id: m.id,
@@ -41,11 +50,11 @@ export function aggregateStats(state: Tournament): AggregateStats {
     stats.played++;
     stats.gf += gf;
     stats.ga += ga;
-    if (outcome === 'W') {
+    if (outcome === "W") {
       stats.won++;
       stats.points += 3;
       stats.biggestWin = Math.max(stats.biggestWin, gf - ga);
-    } else if (outcome === 'D') {
+    } else if (outcome === "D") {
       stats.drawn++;
       stats.points += 1;
     } else {
@@ -53,7 +62,7 @@ export function aggregateStats(state: Tournament): AggregateStats {
       stats.biggestLoss = Math.max(stats.biggestLoss, ga - gf);
     }
     if (ga === 0) stats.cleanSheets++;
-    if (m.result!.penalties && outcome === 'W') stats.penaltyWins++;
+    if (m.result!.penalties && outcome === "W") stats.penaltyWins++;
   }
 
   stats.gd = stats.gf - stats.ga;

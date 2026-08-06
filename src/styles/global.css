@@ -15,10 +15,12 @@
   --color-pink: #ff3c9e;
   --color-orange: #ff8a3c;
   --color-blue: #3c9dff;
-  --font-mono: "PolySans Mono", "Space Mono", "JetBrains Mono", ui-monospace, "Courier New",
-    monospace;
-  --font-sans: "PolySans", "Space Grotesk", "DM Sans", "Hanken Grotesk", "Helvetica", "Arial",
-    sans-serif;
+  --font-mono:
+    "PolySans Mono", "Space Mono", "JetBrains Mono", ui-monospace,
+    "Courier New", monospace;
+  --font-sans:
+    "PolySans", "Space Grotesk", "DM Sans", "Hanken Grotesk", "Helvetica",
+    "Arial", sans-serif;
   --font-display: "Manuka", Impact, "Archivo Black", "Arial Black", sans-serif;
 }
 

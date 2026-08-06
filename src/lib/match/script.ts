@@ -5,13 +5,17 @@ import type {
   PenaltyKick,
   SegmentSnapshot,
   Squad,
-} from '../types.js';
-import { computeTeamStrengths, decayRateFor, rollForms } from '../team/index.js';
-import { BASE_MAX_SHOTS, MAX_SHOTS_CLAMP, SCALE } from './config.js';
-import { type TeamState } from './dynamics.js';
-import { buildSegmentShots, simShots } from './shots.js';
-import { pickScorer } from './scorer.js';
-import { penaltyTakers, simPenalties } from './penalties.js';
+} from "../types.js";
+import {
+  computeTeamStrengths,
+  decayRateFor,
+  rollForms,
+} from "../team/index.js";
+import { BASE_MAX_SHOTS, MAX_SHOTS_CLAMP, SCALE } from "./config.js";
+import { type TeamState } from "./dynamics.js";
+import { buildSegmentShots, simShots } from "./shots.js";
+import { pickScorer } from "./scorer.js";
+import { penaltyTakers, simPenalties } from "./penalties.js";
 
 export interface EngineConfig {
   scale?: number;
@@ -30,7 +34,11 @@ const REGULATION_MINUTES = 90;
 const ET_SEGMENTS = 2;
 const ET_MINUTES = 30;
 
-export function simulateMatchScript(squadA: Squad, squadB: Squad, config: EngineConfig = {}): MatchScript {
+export function simulateMatchScript(
+  squadA: Squad,
+  squadB: Squad,
+  config: EngineConfig = {},
+): MatchScript {
   const scale = config.scale ?? SCALE;
   const base = config.baseMaxShots ?? BASE_MAX_SHOTS;
   const onTargetBias = config.onTargetBias ?? 0.6;
@@ -45,8 +53,16 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
   const strengthsB = computeTeamStrengths(playersB, squadB.isHistorical);
 
   const states: [TeamState, TeamState] = [
-    { strengths: strengthsA, decay: decayRateFor(strengthsA.avgStamina), stamina: 1 },
-    { strengths: strengthsB, decay: decayRateFor(strengthsB.avgStamina), stamina: 1 },
+    {
+      strengths: strengthsA,
+      decay: decayRateFor(strengthsA.avgStamina),
+      stamina: 1,
+    },
+    {
+      strengths: strengthsB,
+      decay: decayRateFor(strengthsB.avgStamina),
+      stamina: 1,
+    },
   ];
 
   const score: [number, number] = [0, 0];
@@ -56,14 +72,30 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
   const possessionSum: [number, number] = [0, 0];
 
   function processSegment(minute: number, isET: boolean): SegmentSnapshot {
-    const segShots = buildSegmentShots(states, score, minute, base, isET, desperationScale, maxShotsClamp);
+    const segShots = buildSegmentShots(
+      states,
+      score,
+      minute,
+      base,
+      isET,
+      desperationScale,
+      maxShotsClamp,
+    );
     const poss =
       (states[0].strengths.creativity + states[0].strengths.defPassing) /
-      (states[0].strengths.creativity + states[0].strengths.defPassing + states[1].strengths.creativity + states[1].strengths.defPassing);
+      (states[0].strengths.creativity +
+        states[0].strengths.defPassing +
+        states[1].strengths.creativity +
+        states[1].strengths.defPassing);
     possessionSum[0] += poss;
     possessionSum[1] += 1 - poss;
 
-    const { goals, onTarget } = simShots(segShots, scale, onTargetBias, conversionBias);
+    const { goals, onTarget } = simShots(
+      segShots,
+      scale,
+      onTargetBias,
+      conversionBias,
+    );
     const segEvents: MatchEvent[] = [];
     for (const t of [0, 1] as const) {
       shots[t] += segShots.filter((s) => s.team === t).length;
@@ -74,7 +106,7 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
         const ev: MatchEvent = {
           minute,
           teamIndex: t,
-          type: 'goal',
+          type: "goal",
           scorerId: scorer.id,
           scorerName: scorer.name,
         };
@@ -100,7 +132,9 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
 
   const regulation: SegmentSnapshot[] = [];
   for (let i = 0; i < REGULATION_SEGMENTS; i++) {
-    const minute = Math.round(((i + 0.5) * REGULATION_MINUTES) / REGULATION_SEGMENTS);
+    const minute = Math.round(
+      ((i + 0.5) * REGULATION_MINUTES) / REGULATION_SEGMENTS,
+    );
     regulation.push(processSegment(minute, false));
   }
 
@@ -111,13 +145,21 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
   if (score[0] === score[1] && !regulationOnly) {
     extraTime = [];
     for (let i = 0; i < ET_SEGMENTS; i++) {
-      const minute = REGULATION_MINUTES + Math.round(((i + 0.5) * ET_MINUTES) / ET_SEGMENTS);
+      const minute =
+        REGULATION_MINUTES + Math.round(((i + 0.5) * ET_MINUTES) / ET_SEGMENTS);
       extraTime.push(processSegment(minute, true));
     }
     if (score[0] === score[1]) {
       const takersA = penaltyTakers(playersA);
       const takersB = penaltyTakers(playersB);
-      const shootout = simPenalties(takersA, takersB, strengthsA.gk, strengthsB.gk, scale, 1.1);
+      const shootout = simPenalties(
+        takersA,
+        takersB,
+        strengthsA.gk,
+        strengthsB.gk,
+        scale,
+        1.1,
+      );
       penalties = shootout.kicks;
       penaltyScore = shootout.score;
       score[0] += penaltyScore[0];
@@ -125,7 +167,8 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
     }
   }
 
-  const winner: 0 | 1 | null = score[0] === score[1] ? null : score[0] > score[1] ? 0 : 1;
+  const winner: 0 | 1 | null =
+    score[0] === score[1] ? null : score[0] > score[1] ? 0 : 1;
   const totalPoss = possessionSum[0] + possessionSum[1];
 
   const result: MatchResult = {
@@ -143,6 +186,10 @@ export function simulateMatchScript(squadA: Squad, squadB: Squad, config: Engine
   return { regulation, extraTime, penalties, result };
 }
 
-export function simulateMatch(squadA: Squad, squadB: Squad, config: EngineConfig = {}): MatchResult {
+export function simulateMatch(
+  squadA: Squad,
+  squadB: Squad,
+  config: EngineConfig = {},
+): MatchResult {
   return simulateMatchScript(squadA, squadB, config).result;
 }

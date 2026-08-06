@@ -1,5 +1,5 @@
-import type { Player } from '../types.js';
-import { clamp } from '../random.js';
+import type { Player } from "../types.js";
+import { clamp } from "../random.js";
 
 export const CHEMISTRY_CAP = 0.1;
 export const CHEMISTRY_CURVE: Record<number, number> = {
@@ -21,7 +21,10 @@ export function countSameNation(players: Player[]): number {
   return max;
 }
 
-export function chemistryBonus(players: Player[], isHistorical: boolean): number {
+export function chemistryBonus(
+  players: Player[],
+  isHistorical: boolean,
+): number {
   if (isHistorical) return 0.2;
   const n = countSameNation(players);
   return clamp(CHEMISTRY_CURVE[n] ?? 0, 0, CHEMISTRY_CAP);

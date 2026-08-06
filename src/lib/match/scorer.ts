@@ -1,9 +1,14 @@
-import type { Player } from '../types.js';
+import type { Player } from "../types.js";
 
-const POSITION_GOAL_WEIGHT: Record<string, number> = { ATT: 5, MID: 2.5, DEF: 0.6, GK: 0 };
+const POSITION_GOAL_WEIGHT: Record<string, number> = {
+  ATT: 5,
+  MID: 2.5,
+  DEF: 0.6,
+  GK: 0,
+};
 
 export function pickScorer(team: Player[]): Player {
-  const candidates = team.filter((p) => p.position !== 'GK');
+  const candidates = team.filter((p) => p.position !== "GK");
   if (candidates.length === 0) return team[0];
   const weight = (p: Player) =>
     POSITION_GOAL_WEIGHT[p.position] *

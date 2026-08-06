@@ -1,11 +1,11 @@
-import { HISTORICAL_SQUADS } from '../src/data/historical/index.js';
-import type { Player } from '../src/lib/types.js';
+import { HISTORICAL_SQUADS } from "../src/data/historical/index.js";
+import type { Player } from "../src/lib/types.js";
 
 const STAT_KEYS: Record<string, string[]> = {
-  GK: ['reflexes', 'positioning', 'distribution'],
-  DEF: ['tackling', 'aerial', 'passing', 'pace'],
-  MID: ['passing', 'dribble', 'workRate', 'stamina'],
-  ATT: ['finishing', 'dribble', 'pace', 'offBall'],
+  GK: ["reflexes", "positioning", "distribution"],
+  DEF: ["tackling", "aerial", "passing", "pace"],
+  MID: ["passing", "dribble", "workRate", "stamina"],
+  ATT: ["finishing", "dribble", "pace", "offBall"],
 };
 
 let errors = 0;
@@ -34,7 +34,9 @@ for (const squad of HISTORICAL_SQUADS) {
     seenIds.add(p.id);
 
     if (p.wcYear !== squad.wcYear) {
-      console.error(`${tag}: ${p.name} wcYear ${p.wcYear} != squad ${squad.wcYear}`);
+      console.error(
+        `${tag}: ${p.name} wcYear ${p.wcYear} != squad ${squad.wcYear}`,
+      );
       errors++;
     }
 
@@ -55,7 +57,7 @@ for (const squad of HISTORICAL_SQUADS) {
       console.error(`${tag}: ${p.name} bad composure`);
       errors++;
     }
-    if (p.position === 'MID' || p.position === 'ATT') {
+    if (p.position === "MID" || p.position === "ATT") {
       if (p.stamina === undefined || p.stamina < 1 || p.stamina > 99) {
         console.error(`${tag}: ${p.name} (${p.position}) bad stamina`);
         errors++;
@@ -65,7 +67,10 @@ for (const squad of HISTORICAL_SQUADS) {
 
   const f = squad.formation;
   const ok =
-    counts.GK === f.GK && counts.DEF === f.DEF && counts.MID === f.MID && counts.ATT === f.ATT;
+    counts.GK === f.GK &&
+    counts.DEF === f.DEF &&
+    counts.MID === f.MID &&
+    counts.ATT === f.ATT;
   if (!ok) {
     console.error(
       `${tag}: counts ${JSON.stringify(counts)} don't match formation ${JSON.stringify(f)}`,
@@ -77,7 +82,7 @@ for (const squad of HISTORICAL_SQUADS) {
 console.log(`Total squads: ${HISTORICAL_SQUADS.length}`);
 console.log(`Total players: ${seenIds.size}`);
 if (errors === 0) {
-  console.log('VALIDATION PASSED');
+  console.log("VALIDATION PASSED");
 } else {
   console.error(`VALIDATION FAILED with ${errors} errors`);
   process.exit(1);

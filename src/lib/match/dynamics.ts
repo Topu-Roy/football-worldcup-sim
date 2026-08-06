@@ -1,6 +1,6 @@
-import type { TeamStrengths } from '../types.js';
-import { clamp } from '../random.js';
-import { CHAOS_FACTOR } from './config.js';
+import type { TeamStrengths } from "../types.js";
+import { clamp } from "../random.js";
+import { CHAOS_FACTOR } from "./config.js";
 
 export interface TeamState {
   strengths: TeamStrengths;
@@ -65,7 +65,13 @@ export function effectiveStats(
   isET: boolean,
   desperationScale = 1,
 ): EffectiveStats {
-  const d = desperation(scoreDiff, minute, composure, trailing, desperationScale);
+  const d = desperation(
+    scoreDiff,
+    minute,
+    composure,
+    trailing,
+    desperationScale,
+  );
   const staminaMult = clamp(stamina, 0, 1);
 
   let finishing = strengths.finishing * (1 - d.finishingPenalty) * staminaMult;
@@ -82,7 +88,12 @@ export function effectiveStats(
   };
 }
 
-export function maxShotsFor(attack: number, oppDefense: number, base: number, clampRange: [number, number]): number {
+export function maxShotsFor(
+  attack: number,
+  oppDefense: number,
+  base: number,
+  clampRange: [number, number],
+): number {
   const raw = base * (attack / Math.max(oppDefense, 1));
   return clamp(raw, clampRange[0], clampRange[1]);
 }

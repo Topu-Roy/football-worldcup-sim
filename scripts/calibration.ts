@@ -1,17 +1,22 @@
-import { simulateMatch } from '../src/lib/matchEngine.js';
-import { makeSquad } from './fixtures.js';
+import { simulateMatch } from "../src/lib/matchEngine.js";
+import { makeSquad } from "./fixtures.js";
 
 const N = Number(process.argv[2] ?? 500);
 const STRENGTH = Number(process.argv[3] ?? 72);
-const conversionBias = process.argv[4] !== undefined ? Number(process.argv[4]) : undefined;
-const baseShots = process.argv[5] !== undefined ? Number(process.argv[5]) : undefined;
-const chaos = process.argv[6] !== undefined ? Number(process.argv[6]) : undefined;
-const desperation = process.argv[7] !== undefined ? Number(process.argv[7]) : undefined;
-const clampMax = process.argv[8] !== undefined ? Number(process.argv[8]) : undefined;
-const historical = process.argv.includes('--historical');
+const conversionBias =
+  process.argv[4] !== undefined ? Number(process.argv[4]) : undefined;
+const baseShots =
+  process.argv[5] !== undefined ? Number(process.argv[5]) : undefined;
+const chaos =
+  process.argv[6] !== undefined ? Number(process.argv[6]) : undefined;
+const desperation =
+  process.argv[7] !== undefined ? Number(process.argv[7]) : undefined;
+const clampMax =
+  process.argv[8] !== undefined ? Number(process.argv[8]) : undefined;
+const historical = process.argv.includes("--historical");
 
-const a = makeSquad('A', STRENGTH, false);
-const b = makeSquad('B', STRENGTH, historical);
+const a = makeSquad("A", STRENGTH, false);
+const b = makeSquad("B", STRENGTH, historical);
 
 let totalGoals = 0;
 let within1 = 0;
@@ -28,19 +33,27 @@ let convN = 0;
 const scorelines = new Map<string, number>();
 
 const config =
-  conversionBias !== undefined || baseShots !== undefined || chaos !== undefined || desperation !== undefined || clampMax !== undefined
+  conversionBias !== undefined ||
+  baseShots !== undefined ||
+  chaos !== undefined ||
+  desperation !== undefined ||
+  clampMax !== undefined
     ? {
         conversionBias,
         baseMaxShots: baseShots,
         chaosFactor: chaos,
         desperationScale: desperation,
-        maxShotsClamp: clampMax !== undefined ? ([2, clampMax] as [number, number]) : undefined,
+        maxShotsClamp:
+          clampMax !== undefined
+            ? ([2, clampMax] as [number, number])
+            : undefined,
       }
     : {};
 
 for (let i = 0; i < N; i++) {
   const r = simulateMatch(a, b, config);
-  const penGoals = r.penalties && r.penaltyScore ? r.penaltyScore[0] + r.penaltyScore[1] : 0;
+  const penGoals =
+    r.penalties && r.penaltyScore ? r.penaltyScore[0] + r.penaltyScore[1] : 0;
   const total = r.score[0] + r.score[1] - penGoals;
   totalGoals += total;
   shotsSum += r.shots[0] + r.shots[1];
@@ -60,21 +73,39 @@ for (let i = 0; i < N; i++) {
 }
 
 const avg = totalGoals / N;
-const sorted = [...scorelines.entries()].sort((x, y) => y[1] - x[1]).slice(0, 8);
+const sorted = [...scorelines.entries()]
+  .sort((x, y) => y[1] - x[1])
+  .slice(0, 8);
 
 console.log(
-  `\n=== Calibration: ${N} sims, strength ${STRENGTH}, convBias ${conversionBias ?? 'd'}, baseShots ${baseShots ?? 'd'}, chaos ${chaos ?? 'd'}, despr ${desperation ?? 'd'}, clamp ${clampMax ?? 'd'}${historical ? ' (vs historical AI)' : ''} ===`,
+  `\n=== Calibration: ${N} sims, strength ${STRENGTH}, convBias ${conversionBias ?? "d"}, baseShots ${baseShots ?? "d"}, chaos ${chaos ?? "d"}, despr ${desperation ?? "d"}, clamp ${clampMax ?? "d"}${historical ? " (vs historical AI)" : ""} ===`,
 );
 console.log(`Avg shots/match: ${(shotsSum / N).toFixed(1)}     (real ~10-25)`);
 console.log(`Avg SOT/match:   ${(sotSum / N).toFixed(1)}     (real ~6-10)`);
-console.log(`Avg goals/match: ${avg.toFixed(2)}        target 2.4-2.8 (excl. shootout)`);
-console.log(`Conversion:      ${((convSum / Math.max(convN, 1)) * 100).toFixed(1)}%   (real ~30-35%)`);
-console.log(`Within 1 goal:   ${((within1 / N) * 100).toFixed(1)}%    target 55-65%`);
-console.log(`Within 2 goals:  ${((within2 / N) * 100).toFixed(1)}%    target 70-80%`);
-console.log(`Clean sheets:    ${(((cleanSheetA + cleanSheetB) / (2 * N)) * 100).toFixed(1)}%  target 25-35%`);
-console.log(`>4 goals:        ${((highScoring / N) * 100).toFixed(1)}%     target <10%`);
-console.log(`Extra time:      ${((et / N) * 100).toFixed(1)}%    target 20-30%`);
-console.log(`Penalties:       ${((pens / N) * 100).toFixed(1)}%    target 10-15%`);
+console.log(
+  `Avg goals/match: ${avg.toFixed(2)}        target 2.4-2.8 (excl. shootout)`,
+);
+console.log(
+  `Conversion:      ${((convSum / Math.max(convN, 1)) * 100).toFixed(1)}%   (real ~30-35%)`,
+);
+console.log(
+  `Within 1 goal:   ${((within1 / N) * 100).toFixed(1)}%    target 55-65%`,
+);
+console.log(
+  `Within 2 goals:  ${((within2 / N) * 100).toFixed(1)}%    target 70-80%`,
+);
+console.log(
+  `Clean sheets:    ${(((cleanSheetA + cleanSheetB) / (2 * N)) * 100).toFixed(1)}%  target 25-35%`,
+);
+console.log(
+  `>4 goals:        ${((highScoring / N) * 100).toFixed(1)}%     target <10%`,
+);
+console.log(
+  `Extra time:      ${((et / N) * 100).toFixed(1)}%    target 20-30%`,
+);
+console.log(
+  `Penalties:       ${((pens / N) * 100).toFixed(1)}%    target 10-15%`,
+);
 console.log(`Top scorelines (incl shootout):`);
 for (const [key, count] of sorted) {
   console.log(`  ${key}: ${((count / N) * 100).toFixed(1)}%`);

@@ -1,1 +1,1 @@
-export * from './tournament/index.js';
+export * from "./tournament/index.js";

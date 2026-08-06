@@ -16,15 +16,14 @@
 | **2022** | **Argentina**    | France       | Croatia      | Morocco     |
 | **2026** | **Spain**        | Argentina    | England      | France      |
 
-
-| Team                 | 🥇 | 🥈 | 🥉 | 4th | Total Top 4 |
-| -------------------- | -- | -- | -- | --- | ----------- |
-| Brazil               | 3  | 1  | 1  | 2   | **7**       |
-| Germany/West Germany | 3  | 3  | 2  | 1   | **9**       |
-| Argentina            | 3  | 3  | 0  | 0   | **6**       |
-| Italy                | 2  | 2  | 1  | 1   | **6**       |
-| France               | 2  | 2  | 1  | 1   | **6**       |
-| Spain                | 2  | 0  | 0  | 0   | **2**       |
-| Netherlands          | 0  | 3  | 1  | 1   | **5**       |
-| Croatia              | 0  | 1  | 2  | 0   | **3**       |
-| England              | 0  | 0  | 1  | 3   | **4**       |
+| Team                 | 🥇  | 🥈  | 🥉  | 4th | Total Top 4 |
+| -------------------- | --- | --- | --- | --- | ----------- |
+| Brazil               | 3   | 1   | 1   | 2   | **7**       |
+| Germany/West Germany | 3   | 3   | 2   | 1   | **9**       |
+| Argentina            | 3   | 3   | 0   | 0   | **6**       |
+| Italy                | 2   | 2   | 1   | 1   | **6**       |
+| France               | 2   | 2   | 1   | 1   | **6**       |
+| Spain                | 2   | 0   | 0   | 0   | **2**       |
+| Netherlands          | 0   | 3   | 1   | 1   | **5**       |
+| Croatia              | 0   | 1   | 2   | 0   | **3**       |
+| England              | 0   | 0   | 1   | 3   | **4**       |
