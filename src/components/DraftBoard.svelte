@@ -4,6 +4,7 @@
     NATION_NAMES,
     POSITION_LABEL,
     makeOffer,
+    playerRating,
     positionColor,
     slotsLeft,
     validateDraft,
@@ -37,11 +38,16 @@
   });
 
   const left = $derived(slotsLeft(formation, drafted));
-  const positionOrder: Position[] = ['GK', 'DEF', 'MID', 'ATT'];
+  const positionOrder: Position[] = ['GK', 'ATT', 'MID', 'DEF'];
   const round = $derived(drafted.length + 1);
   const complete = $derived(validateDraft(formation, drafted));
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
+  const offerPlayers = $derived(
+    [...(offer?.players ?? [])].sort(
+      (a, b) => positionOrder.indexOf(a.position) - positionOrder.indexOf(b.position),
+    ),
+  );
 
   function newOffer() {
     const next = makeOffer(formation, drafted, offerHistory);
@@ -131,7 +137,7 @@
           {NATION_NAMES[offer.nation] ?? offer.nation} · {offer.year}
         </p>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {#each offer.players as p (p.id)}
+          {#each offerPlayers as p (p.id)}
             <button
               type="button"
               class="player-card text-left"
@@ -140,7 +146,9 @@
             >
               <div class="flex items-start justify-between gap-2">
                 <div>
-                  <p class="text-lg font-bold">{p.name}</p>
+                  <p class="text-lg font-bold">
+                    {p.name} <span class="font-mono text-sm text-secondary">({playerRating(p)})</span>
+                  </p>
                   <p
                     class="mono-label mt-1"
                     style:color={positionColor(p.position)}
@@ -159,9 +167,8 @@
                     <div class="flex items-center gap-2">
                       <div class="h-1 w-24 rounded-full bg-slate">
                         <div
-                          class="h-1 rounded-full"
+                          class="h-1 rounded-full bg-secondary"
                           style:width={`${val}%`}
-                          style:background={positionColor(p.position)}
                         ></div>
                       </div>
                       <dd class="w-6 text-right font-mono text-xs">{val}</dd>
@@ -194,7 +201,7 @@
                     class="flex items-center justify-between rounded-full border px-3 py-1.5"
                     style:border-color={positionColor(pos)}
                   >
-                    <span class="text-sm">{p.name}</span>
+                    <span class="text-sm">{p.name} ({playerRating(p)})</span>
                     <span class="font-mono text-[10px] text-secondary">
                       {NATION_NAMES[p.nation] ?? p.nation} {p.wcYear}
                     </span>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NATION_NAMES, POSITION_LABEL, positionColor } from '../lib/draft.js';
+  import { NATION_NAMES, POSITION_LABEL, playerRating, positionColor } from '../lib/draft.js';
   import { chemistryBonus, countSameNation } from '../lib/team.js';
   import type { Formation, Player, Position } from '../lib/types.js';
 
@@ -17,7 +17,7 @@
     onReset: () => void;
   } = $props();
 
-  const positionOrder: Position[] = ['GK', 'DEF', 'MID', 'ATT'];
+  const positionOrder: Position[] = ['GK', 'ATT', 'MID', 'DEF'];
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
 </script>
@@ -43,7 +43,9 @@
               class="flex items-center justify-between rounded-full border px-3 py-1.5"
               style:border-color={positionColor(pos)}
             >
-              <span class="text-sm font-bold">{p?.name ?? 'Empty'}</span>
+              <span class="text-sm font-bold">
+                {p?.name ?? 'Empty'}{p ? ` (${playerRating(p)})` : ''}
+              </span>
               {#if p}
                 <span class="font-mono text-[10px] text-secondary">
                   {NATION_NAMES[p.nation] ?? p.nation} {p.wcYear}
