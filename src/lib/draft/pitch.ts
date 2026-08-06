@@ -78,12 +78,12 @@ export function assignSlots(
     );
     const byDept = !byRole
       ? players.find(
-          (p) => !used.has(p.id) && slotDepartment(p) === departmentOf(slot.role),
+          (p) =>
+            !used.has(p.id) && slotDepartment(p) === departmentOf(slot.role),
         )
       : undefined;
-    const fallback = !byRole && !byDept
-      ? players.find((p) => !used.has(p.id))
-      : undefined;
+    const fallback =
+      !byRole && !byDept ? players.find((p) => !used.has(p.id)) : undefined;
     const player = byRole ?? byDept ?? fallback ?? null;
     if (player) used.add(player.id);
     return { player, slot };

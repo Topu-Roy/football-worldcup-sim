@@ -89,11 +89,7 @@ export function computeTeamStrengths(
     avgStamina: avg(
       boosted.map((p) => {
         const dept = slotDepartment(p);
-        return dept === "GK"
-          ? 80
-          : dept === "DEF"
-            ? 75
-            : (p.stamina ?? 70);
+        return dept === "GK" ? 80 : dept === "DEF" ? 75 : (p.stamina ?? 70);
       }),
     ),
   };

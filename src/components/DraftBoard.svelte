@@ -62,9 +62,7 @@
     return nationYears(o.nation).some(
       (y) =>
         y !== o.year &&
-        !offerHistory.some(
-          (h) => h.nation === o.nation && h.year === y,
-        ) &&
+        !offerHistory.some((h) => h.nation === o.nation && h.year === y) &&
         squadOf(o.nation, y).some((p) => fits(p, left)),
     );
   });
@@ -75,9 +73,7 @@
     return draftableNations().some(
       (n) =>
         n !== o.nation &&
-        nationYears(n).some((y) =>
-          squadOf(n, y).some((p) => fits(p, left)),
-        ),
+        nationYears(n).some((y) => squadOf(n, y).some((p) => fits(p, left))),
     );
   });
 
@@ -240,8 +236,8 @@
                       <span
                         class="rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-[1px] uppercase {role ===
                         p.bestPosition
-                          ? "bg-mint text-black"
-                          : "border border-white/15 text-secondary"}"
+                          ? 'bg-mint text-black'
+                          : 'border border-white/15 text-secondary'}"
                       >
                         {role}
                       </span>
@@ -258,7 +254,7 @@
                 {#each statRows(p) as [label, val] (label)}
                   <div class="flex items-center gap-3">
                     <dt
-                      class="{mono} min-w-0 flex-1 truncate leading-none text-[10px] text-secondary"
+                      class="{mono} min-w-0 flex-1 truncate text-[10px] leading-none text-secondary"
                     >
                       {label}
                     </dt>

@@ -36,7 +36,7 @@
   </h2>
 
   <div class="mt-8">
-    <PitchView players={drafted} {formationKey} onAssignRole={onAssignRole} />
+    <PitchView players={drafted} {formationKey} {onAssignRole} />
   </div>
 
   <div class="mt-8 grid grid-cols-3 gap-4 text-center">
@@ -57,10 +57,10 @@
   </div>
 
   <div class="mt-10 flex flex-wrap justify-center gap-4">
-    <button type="button" class="{pillOutline}" onclick={onStart}
+    <button type="button" class={pillOutline} onclick={onStart}
       >Start tournament</button
     >
-    <button type="button" class="{pillOutlineAlt}" onclick={onReset}
+    <button type="button" class={pillOutlineAlt} onclick={onReset}
       >Start over</button
     >
   </div>

@@ -4,7 +4,12 @@ export {
   NATION_NAMES,
   POSITION_LABEL,
 } from "./constants.js";
-export { draftableNations, formationOptions, nationYears, squadOf } from "./pool.js";
+export {
+  draftableNations,
+  formationOptions,
+  nationYears,
+  squadOf,
+} from "./pool.js";
 export { fits, slotsLeft, validateDraft } from "./slots.js";
 export {
   makeOffer,

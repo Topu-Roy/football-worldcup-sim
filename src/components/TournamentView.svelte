@@ -135,7 +135,7 @@
         Group A + Group B · top 2 advance to knockouts
       </p>
     </div>
-    <button type="button" class="{pillOutline}" onclick={onReset}
+    <button type="button" class={pillOutline} onclick={onReset}
       >New draft</button
     >
   </header>
@@ -188,9 +188,7 @@
             </div>
             <div class="flex items-center gap-4">
               {#if m.result}
-                <span
-                  class={mono}
-                  style:color={outcomeColor(outcomeBadge(m))}
+                <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
                   >{outcomeBadge(m)}
                   {m.result.score[0]}–{m.result.score[1]}</span
                 >
@@ -199,7 +197,7 @@
               {/if}
               <button
                 type="button"
-                class="{pillSmall}"
+                class={pillSmall}
                 disabled={m.result !== null}
                 onclick={() => playMatch(m)}
               >
@@ -214,7 +212,7 @@
         <div class="mt-6 flex justify-center">
           <button
             type="button"
-            class="{pillOutline}"
+            class={pillOutline}
             onclick={() => advanceToKnockout(tournament)}
           >
             Proceed to knockouts
@@ -252,7 +250,7 @@
       <div class="mt-8 flex justify-center">
         <button
           type="button"
-          class="{pillOutline}"
+          class={pillOutline}
           onclick={() => resolveKnockout(tournament)}
         >
           Finish tournament
@@ -370,10 +368,10 @@
       {/if}
 
       <div class="flex gap-4">
-        <button type="button" class="{pillOutline}" onclick={startNewTournament}
+        <button type="button" class={pillOutline} onclick={startNewTournament}
           >New tournament (same XI)</button
         >
-        <button type="button" class="{pillOutline}" onclick={onReset}
+        <button type="button" class={pillOutline} onclick={onReset}
           >New draft</button
         >
       </div>
@@ -444,7 +442,7 @@
     {/each}
     <div class="mt-3 flex justify-center">
       {#if m.isUser && !m.result}
-        <button type="button" class="{pillSmall}" onclick={onPlay}>Play</button>
+        <button type="button" class={pillSmall} onclick={onPlay}>Play</button>
       {:else if m.result}
         <span class="{mono} text-[10px] text-secondary">
           {m.result.winner === 0 ? squads[m.home].name : squads[m.away].name} advance

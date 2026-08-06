@@ -47,7 +47,9 @@ for (const squad of HISTORICAL_SQUADS) {
     for (const key of required) {
       const v = p[key as keyof Player] as number | undefined;
       if (v === undefined) {
-        console.error(`${tag}: ${p.name} (${slotDepartment(p)}) missing ${key}`);
+        console.error(
+          `${tag}: ${p.name} (${slotDepartment(p)}) missing ${key}`,
+        );
         errors++;
       } else if (v < 1 || v > 99) {
         console.error(`${tag}: ${p.name} ${key}=${v} out of range 1-99`);
@@ -58,10 +60,7 @@ for (const squad of HISTORICAL_SQUADS) {
       console.error(`${tag}: ${p.name} bad composure`);
       errors++;
     }
-    if (
-      slotDepartment(p) === "MID" ||
-      slotDepartment(p) === "ATT"
-    ) {
+    if (slotDepartment(p) === "MID" || slotDepartment(p) === "ATT") {
       if (p.stamina === undefined || p.stamina < 1 || p.stamina > 99) {
         console.error(`${tag}: ${p.name} (${slotDepartment(p)}) bad stamina`);
         errors++;

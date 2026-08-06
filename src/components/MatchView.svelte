@@ -236,14 +236,14 @@
     </div>
 
     {#if !script}
-      <button type="button" class="{pillSolid}" onclick={playMatch}
+      <button type="button" class={pillSolid} onclick={playMatch}
         >Play match</button
       >
     {:else if !finished}
       <div class="flex items-center gap-2">
         <button
           type="button"
-          class="{pillOutline}"
+          class={pillOutline}
           onclick={() => (playing = !playing)}
         >
           {playing ? "Pause" : "Play"}
@@ -257,14 +257,14 @@
             >
           {/each}
         </div>
-        <button type="button" class="{pillOutline}" onclick={skip}>Skip</button>
+        <button type="button" class={pillOutline} onclick={skip}>Skip</button>
       </div>
     {:else}
       <div class="flex items-center gap-2">
-        <button type="button" class="{pillOutline}" onclick={replay}
+        <button type="button" class={pillOutline} onclick={replay}
           >Replay</button
         >
-        <button type="button" class="{pillSolid}" onclick={onNext}
+        <button type="button" class={pillSolid} onclick={onNext}
           >{nextLabel}</button
         >
       </div>
@@ -275,9 +275,7 @@
     <div
       class="mt-8 overflow-hidden rounded-3xl border border-white/15 bg-slate/30"
     >
-      <div
-        class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-6 py-5"
-      >
+      <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-6 py-5">
         <div class="flex flex-col items-end">
           <p class="font-display text-2xl leading-none text-mint">Your XI</p>
           <p class="{mono} mt-2 text-secondary">
@@ -288,7 +286,9 @@
           <p class="{mono} text-secondary">
             {displayScore[0]} : {displayScore[1]}
           </p>
-          <p class="font-mono text-[15px] font-semibold text-secondary mt-1">{clockLabel}</p>
+          <p class="mt-1 font-mono text-[15px] font-semibold text-secondary">
+            {clockLabel}
+          </p>
           {#if phase === "play" && currentSnap.isET}
             <p class="{mono} mt-2 text-yellow">EXTRA TIME</p>
           {/if}
@@ -357,13 +357,13 @@
     {#if flashEvent}
       {#key flashCount}
         <div
-          class="fixed inset-0 z-50 flex items-center justify-center gap-2.5 font-mono text-lg font-bold tracking-[2px] uppercase bg-canvas/90 animate-[goalPulse_1.8s_ease-out_forwards] pointer-events-none"
+          class="pointer-events-none fixed inset-0 z-50 flex animate-[goalPulse_1.8s_ease-out_forwards] items-center justify-center gap-2.5 bg-canvas/90 font-mono text-lg font-bold tracking-[2px] uppercase"
           class:text-mint={flashEvent.teamIndex === 0}
           class:text-uv={flashEvent.teamIndex === 1}
         >
           GOAL! <span class="font-mono">{teamName(flashEvent.teamIndex)}</span>
           —
-          <span class="font-display normal-case tracking-normal"
+          <span class="font-display tracking-normal normal-case"
             >{flashEvent.scorerName ?? "Goal"}</span
           >
         </div>

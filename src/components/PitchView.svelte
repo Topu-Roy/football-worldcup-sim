@@ -203,8 +203,7 @@
               class="rounded bg-black/80 px-1 py-0.5 font-mono text-[9px] text-white"
               value={assignedRole(s.player)}
               onchange={(e) =>
-                s.player &&
-                onAssignRole(s.player.id, e.currentTarget.value)}
+                s.player && onAssignRole(s.player.id, e.currentTarget.value)}
             >
               {#each rolesForDepartment(slotDepartment(s.player)) as role (role)}
                 <option value={role}>{ROLE_LABELS[role]}</option>
