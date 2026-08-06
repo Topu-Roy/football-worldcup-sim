@@ -68,6 +68,8 @@ export interface MatchEvent {
   minute: number;
   teamIndex: 0 | 1;
   type: 'goal';
+  scorerId?: string;
+  scorerName?: string;
 }
 
 export interface MatchResult {
@@ -80,4 +82,29 @@ export interface MatchResult {
   penaltyScore?: [number, number];
   events: MatchEvent[];
   winner: 0 | 1 | null;
+}
+
+export interface SegmentSnapshot {
+  minute: number;
+  isET: boolean;
+  score: [number, number];
+  shots: [number, number];
+  shotsOnTarget: [number, number];
+  possession: [number, number];
+  events: MatchEvent[];
+}
+
+export interface PenaltyKick {
+  team: 0 | 1;
+  round: number;
+  takerId: string;
+  takerName: string;
+  scored: boolean;
+}
+
+export interface MatchScript {
+  regulation: SegmentSnapshot[];
+  extraTime?: SegmentSnapshot[];
+  penalties?: PenaltyKick[];
+  result: MatchResult;
 }

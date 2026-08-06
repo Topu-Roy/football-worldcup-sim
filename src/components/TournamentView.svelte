@@ -139,11 +139,11 @@
     <div class="mt-10 grid gap-6 lg:grid-cols-2">
       <div class="rounded-[24px] border border-white/15 bg-slate/30 p-6">
         <p class="mono-label text-secondary mb-4">GROUP A</p>
-        <StandingsTable rows={standingsA} userId={tournament.userSquad.id} />
+        {@render StandingsTable(standingsA, tournament.userSquad.id)}
       </div>
       <div class="rounded-[24px] border border-white/15 bg-slate/30 p-6">
         <p class="mono-label text-secondary mb-4">GROUP B</p>
-        <StandingsTable rows={standingsB} userId={null} />
+        {@render StandingsTable(standingsB, null)}
       </div>
     </div>
 
@@ -195,23 +195,13 @@
       {#each knockoutByRound.sf as m (m.id)}
         <div class="rounded-[24px] border border-white/15 bg-slate/30 p-6">
           <p class="mono-label text-secondary mb-4">SEMI-FINAL</p>
-          <BracketMatch
-            m={m}
-            userId={tournament.userSquad.id}
-            squads={tournament.squads}
-            onPlay={() => playMatch(m)}
-          />
+          {@render BracketMatch(m, tournament.userSquad.id, tournament.squads, () => playMatch(m))}
         </div>
       {/each}
       {#each knockoutByRound.final as m (m.id)}
         <div class="rounded-[24px] border border-yellow bg-yellow/10 p-6">
           <p class="mono-label mb-4" style:color="var(--color-yellow)">FINAL</p>
-          <BracketMatch
-            m={m}
-            userId={tournament.userSquad.id}
-            squads={tournament.squads}
-            onPlay={() => playMatch(m)}
-          />
+          {@render BracketMatch(m, tournament.userSquad.id, tournament.squads, () => playMatch(m))}
         </div>
       {/each}
     </div>
@@ -236,31 +226,31 @@
       {#if tournament.outcome === 'eliminated'}
         <div class="w-full max-w-2xl rounded-[24px] border border-white/15 bg-slate/30 p-6">
           <p class="mono-label text-secondary mb-4">FINAL GROUP A TABLE</p>
-          <StandingsTable rows={standingsA} userId={tournament.userSquad.id} />
+          {@render StandingsTable(standingsA, tournament.userSquad.id)}
         </div>
       {/if}
 
       {#if stats}
         <div class="w-full max-w-4xl">
           <div class="grid grid-cols-3 gap-4 sm:grid-cols-6">
-            <Stat label="Played" value={String(stats.played)} />
-            <Stat label="Won" value={String(stats.won)} />
-            <Stat label="Drawn" value={String(stats.drawn)} />
-            <Stat label="Lost" value={String(stats.lost)} />
-            <Stat label="Points" value={String(stats.points)} />
-            <Stat label="Goal diff" value={formatSigned(stats.gd)} />
+            {@render Stat('Played', String(stats.played))}
+            {@render Stat('Won', String(stats.won))}
+            {@render Stat('Drawn', String(stats.drawn))}
+            {@render Stat('Lost', String(stats.lost))}
+            {@render Stat('Points', String(stats.points))}
+            {@render Stat('Goal diff', formatSigned(stats.gd))}
           </div>
 
           <div class="mt-6 rounded-[24px] border border-white/15 p-6">
             <p class="mono-label text-secondary mb-4">MATCH RESULTS</p>
             <div class="grid grid-cols-2 gap-4 text-center sm:grid-cols-4">
-              <Stat label="Goals for" value={String(stats.gf)} />
-              <Stat label="Goals against" value={String(stats.ga)} />
-              <Stat label="Clean sheets" value={String(stats.cleanSheets)} />
-              <Stat label="Penalty wins" value={String(stats.penaltyWins)} />
-              <Stat label="Biggest win" value={stats.biggestWin > 0 ? `+${stats.biggestWin}` : '–'} />
-              <Stat label="Biggest loss" value={stats.biggestLoss > 0 ? `−${stats.biggestLoss}` : '–'} />
-              <Stat label="Avg goals/match" value={stats.avgGoalsFor.toFixed(2)} />
+              {@render Stat('Goals for', String(stats.gf))}
+              {@render Stat('Goals against', String(stats.ga))}
+              {@render Stat('Clean sheets', String(stats.cleanSheets))}
+              {@render Stat('Penalty wins', String(stats.penaltyWins))}
+              {@render Stat('Biggest win', stats.biggestWin > 0 ? `+${stats.biggestWin}` : '–')}
+              {@render Stat('Biggest loss', stats.biggestLoss > 0 ? `−${stats.biggestLoss}` : '–')}
+              {@render Stat('Avg goals/match', stats.avgGoalsFor.toFixed(2))}
             </div>
           </div>
 
