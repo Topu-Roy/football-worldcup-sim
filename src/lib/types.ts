@@ -19,7 +19,8 @@ export interface Player {
   name: string;
   nation: string;
   wcYear: number;
-  position: Position;
+  positions: string[];
+  bestPosition: string;
   composure: number;
   form?: number;
   reflexes?: number;

@@ -1,9 +1,10 @@
 import type { PenaltyKick, Player } from "../types.js";
 import { logistic } from "../random.js";
+import { slotDepartment } from "../draft/roles.js";
 
 export function penaltyTakers(players: Player[]): Player[] {
   return [...players]
-    .filter((p) => p.position !== "GK")
+    .filter((p) => slotDepartment(p) !== "GK")
     .sort(
       (a, b) =>
         0.5 * (b.composure ?? 0) +

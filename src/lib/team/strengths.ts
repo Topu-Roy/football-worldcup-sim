@@ -1,5 +1,6 @@
 import type { Formation, Player, TeamStrengths } from "../types.js";
 import { chemistryBonus } from "./chemistry.js";
+import { slotDepartment } from "../draft/roles.js";
 
 function applyChemistryAndForm(player: Player, bonus: number): Player {
   const chemistryMul = 1 + bonus;
@@ -30,7 +31,7 @@ export function validateFormation(
   formation: Formation,
 ): boolean {
   const counts: Record<string, number> = { GK: 0, DEF: 0, MID: 0, ATT: 0 };
-  for (const p of players) counts[p.position] += 1;
+  for (const p of players) counts[slotDepartment(p)] += 1;
   return (
     counts.GK === formation.GK &&
     counts.DEF === formation.DEF &&
@@ -47,7 +48,8 @@ export function computeTeamStrengths(
   const boosted = players.map((p) => applyChemistryAndForm(p, bonus));
   const avg = (vals: number[]) =>
     vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
-  const byPos = (pos: string) => boosted.filter((p) => p.position === pos);
+  const byPos = (pos: string) =>
+    boosted.filter((p) => slotDepartment(p) === pos);
 
   const gk = byPos("GK");
   const def = byPos("DEF");
@@ -80,13 +82,14 @@ export function computeTeamStrengths(
       ATT: avg(att.map((p) => p.composure ?? 0)),
     },
     avgStamina: avg(
-      boosted.map((p) =>
-        p.position === "GK"
+      boosted.map((p) => {
+        const dept = slotDepartment(p);
+        return dept === "GK"
           ? 80
-          : p.position === "DEF"
+          : dept === "DEF"
             ? 75
-            : (p.stamina ?? 70),
-      ),
+            : (p.stamina ?? 70);
+      }),
     ),
   };
 }

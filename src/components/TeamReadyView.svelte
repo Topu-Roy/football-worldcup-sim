@@ -4,6 +4,7 @@
     POSITION_LABEL,
     playerRating,
     positionColor,
+    slotDepartment,
   } from "../lib/draft.js";
   import { chemistryBonus, countSameNation } from "../lib/team.js";
   import type { Formation, Player, Position } from "../lib/types.js";
@@ -49,7 +50,7 @@
         </p>
         <div class="mt-3 space-y-1.5">
           {#each Array(formation[pos]) as _, i (pos + i)}
-            {@const p = drafted.filter((x) => x.position === pos)[i]}
+            {@const p = drafted.filter((x) => slotDepartment(x) === pos)[i]}
             <div
               class="flex items-center justify-between rounded-full border px-3 py-1.5"
               style:border-color={positionColor(pos)}

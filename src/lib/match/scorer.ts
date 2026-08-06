@@ -1,4 +1,5 @@
 import type { Player } from "../types.js";
+import { slotDepartment } from "../draft/roles.js";
 
 const POSITION_GOAL_WEIGHT: Record<string, number> = {
   ATT: 5,
@@ -8,10 +9,10 @@ const POSITION_GOAL_WEIGHT: Record<string, number> = {
 };
 
 export function pickScorer(team: Player[]): Player {
-  const candidates = team.filter((p) => p.position !== "GK");
+  const candidates = team.filter((p) => slotDepartment(p) !== "GK");
   if (candidates.length === 0) return team[0];
   const weight = (p: Player) =>
-    POSITION_GOAL_WEIGHT[p.position] *
+    POSITION_GOAL_WEIGHT[slotDepartment(p)] *
     (0.5 + (p.finishing ?? 60) / 200) *
     (0.5 + (p.composure ?? 60) / 200);
   const total = candidates.reduce((n, p) => n + weight(p), 0);

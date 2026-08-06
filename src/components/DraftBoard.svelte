@@ -3,10 +3,17 @@
     MAX_REROLLS,
     NATION_NAMES,
     POSITION_LABEL,
+    draftableNations,
+    fits,
     makeOffer,
+    nationYears,
+    newNationReroll,
     playerRating,
     positionColor,
+    sameNationReroll,
+    slotDepartment,
     slotsLeft,
+    squadOf,
     validateDraft,
   } from "../lib/draft.js";
   import { countSameNation, chemistryBonus } from "../lib/team.js";
@@ -16,12 +23,10 @@
     formation,
     formationKey,
     onPick,
-    onRerollUsed,
   }: {
     formation: Formation;
     formationKey: string;
     onPick: (p: Player) => void;
-    onRerollUsed: (n: number) => void;
   } = $props();
 
   let offer = $state<ReturnType<typeof makeOffer> | null>(null);
@@ -46,8 +51,32 @@
   const offerPlayers = $derived(
     [...(offer?.players ?? [])].sort(
       (a, b) =>
-        positionOrder.indexOf(a.position) - positionOrder.indexOf(b.position),
+        positionOrder.indexOf(slotDepartment(a)) -
+        positionOrder.indexOf(slotDepartment(b)),
     ),
+  );
+
+  const canSameNation = $derived(
+    !!offer &&
+      nationYears(offer.nation).some(
+        (y) =>
+          y !== offer.year &&
+          !offerHistory.some(
+            (o) => o.nation === offer.nation && o.year === y,
+          ) &&
+          squadOf(offer.nation, y).some((p) => fits(p, left)),
+      ),
+  );
+
+  const canNewNation = $derived(
+    !!offer &&
+      draftableNations().some(
+        (n) =>
+          n !== offer.nation &&
+          nationYears(n).some((y) =>
+            squadOf(n, y).some((p) => fits(p, left)),
+          ),
+      ),
   );
 
   function newOffer() {
@@ -56,18 +85,24 @@
     offerHistory = [...offerHistory, next];
   }
 
-  function reroll() {
-    if (rerollsLeft <= 0 || complete) return;
+  function reroll(kind: "same" | "new") {
+    if (rerollsLeft <= 0 || complete || !offer) return;
+    const next =
+      kind === "same"
+        ? sameNationReroll(formation, drafted, offer, offerHistory)
+        : newNationReroll(formation, drafted, offer, offerHistory);
+    if (!next) return;
     rerollsLeft -= 1;
-    onRerollUsed(1);
-    newOffer();
+    offer = next;
+    offerHistory = [...offerHistory, next];
   }
 
   function pick(p: Player) {
-    if (complete || left[p.position] <= 0) return;
+    if (complete || left[slotDepartment(p)] <= 0) return;
     const next = [...drafted, p];
     drafted = next;
     onPick(p);
+    rerollsLeft = MAX_REROLLS;
     if (!validateDraft(formation, next)) {
       newOffer();
     }
@@ -99,7 +134,7 @@
         ["Off Ball", "offBall"],
       ],
     };
-    return (map[p.position] ?? []).map(([label, key]) => [
+    return (map[slotDepartment(p)] ?? []).map(([label, key]) => [
       label,
       (p[key as keyof Player] as number) ?? 0,
     ]);
@@ -143,21 +178,31 @@
             {NATION_NAMES[offer.nation] ?? offer.nation}
             <span class="text-mint">{offer.year}</span>
           </span>
-          <button
-            type="button"
-            class="{pillOutline} disabled:opacity-30"
-            disabled={rerollsLeft <= 0 || complete}
-            onclick={reroll}
-          >
-            Reroll squad
-          </button>
+          <div class="flex shrink-0 flex-wrap justify-end gap-2">
+            <button
+              type="button"
+              class="{pillOutline} disabled:opacity-30"
+              disabled={!canSameNation || rerollsLeft <= 0 || complete}
+              onclick={() => reroll("same")}
+            >
+              Different year
+            </button>
+            <button
+              type="button"
+              class="{pillOutline} disabled:opacity-30"
+              disabled={!canNewNation || rerollsLeft <= 0 || complete}
+              onclick={() => reroll("new")}
+            >
+              Different nation
+            </button>
+          </div>
         </div>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {#each offerPlayers as p (p.id)}
             <button
               type="button"
               class="{playerCard} text-left"
-              disabled={complete || left[p.position] <= 0}
+              disabled={complete || left[slotDepartment(p)] <= 0}
               onclick={() => pick(p)}
             >
               <div class="flex items-start justify-between gap-2">
@@ -171,14 +216,20 @@
                       >{playerRating(p)}</span
                     >
                   </div>
-                  <p
-                    class="{mono} mt-1"
-                    style:color={positionColor(p.position)}
-                  >
-                    {POSITION_LABEL[p.position]}
-                  </p>
+                  <div class="mt-1 flex flex-wrap items-center gap-1">
+                    {#each p.positions as role (role)}
+                      <span
+                        class="rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-[1px] uppercase {role ===
+                        p.bestPosition
+                          ? "bg-mint text-black"
+                          : "border border-white/15 text-secondary"}"
+                      >
+                        {role}
+                      </span>
+                    {/each}
+                  </div>
                 </div>
-                {#if left[p.position] <= 0}
+                {#if left[slotDepartment(p)] <= 0}
                   <span class="{pillTag} shrink-0 bg-slate text-secondary"
                     >FULL</span
                   >
@@ -227,7 +278,7 @@
             </p>
             <div class="mt-2 space-y-1.5">
               {#each Array(formation[pos]) as _, i (pos + i)}
-                {@const p = drafted.filter((x) => x.position === pos)[i]}
+                {@const p = drafted.filter((x) => slotDepartment(x) === pos)[i]}
                 {#if p}
                   <div
                     class="flex items-center justify-between rounded-full border px-3 py-1.5"

@@ -5,9 +5,7 @@ import { HISTORICAL_SQUADS } from "../../data/historical/index.js";
 const pool: Player[] = HISTORICAL_SQUADS.flatMap((s) => s.players);
 
 export function squadOf(nation: string, year: number): Player[] {
-  return pool
-    .filter((p) => p.nation === nation && p.wcYear === year)
-    .slice(0, 11);
+  return pool.filter((p) => p.nation === nation && p.wcYear === year);
 }
 
 export function nationYears(nation: string): number[] {

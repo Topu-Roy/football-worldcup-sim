@@ -1,5 +1,6 @@
 import type { Formation, Player, Position } from "../types.js";
 import { DRAFT_ROUNDS } from "./constants.js";
+import { slotDepartment } from "./roles.js";
 
 export function slotsLeft(
   formation: Formation,
@@ -11,7 +12,7 @@ export function slotsLeft(
     MID: formation.MID,
     ATT: formation.ATT,
   };
-  for (const p of drafted) left[p.position] -= 1;
+  for (const p of drafted) left[slotDepartment(p)] -= 1;
   return left;
 }
 
@@ -20,7 +21,7 @@ export function candidateCount(left: Record<Position, number>): number {
 }
 
 export function fits(p: Player, left: Record<Position, number>): boolean {
-  return left[p.position] > 0;
+  return left[slotDepartment(p)] > 0;
 }
 
 export function validateDraft(
