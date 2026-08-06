@@ -1,7 +1,12 @@
 <script lang="ts">
-  import { NATION_NAMES, POSITION_LABEL, playerRating, positionColor } from '../lib/draft.js';
-  import { chemistryBonus, countSameNation } from '../lib/team.js';
-  import type { Formation, Player, Position } from '../lib/types.js';
+  import {
+    NATION_NAMES,
+    POSITION_LABEL,
+    playerRating,
+    positionColor,
+  } from "../lib/draft.js";
+  import { chemistryBonus, countSameNation } from "../lib/team.js";
+  import type { Formation, Player, Position } from "../lib/types.js";
 
   let {
     formation,
@@ -17,7 +22,7 @@
     onReset: () => void;
   } = $props();
 
-  const positionOrder: Position[] = ['GK', 'ATT', 'MID', 'DEF'];
+  const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
 </script>
@@ -44,11 +49,12 @@
               style:border-color={positionColor(pos)}
             >
               <span class="text-sm font-bold">
-                {p?.name ?? 'Empty'}{p ? ` (${playerRating(p)})` : ''}
+                {p?.name ?? "Empty"}{p ? ` (${playerRating(p)})` : ""}
               </span>
               {#if p}
                 <span class="font-mono text-[10px] text-secondary">
-                  {NATION_NAMES[p.nation] ?? p.nation} {p.wcYear}
+                  {NATION_NAMES[p.nation] ?? p.nation}
+                  {p.wcYear}
                 </span>
               {/if}
             </div>
@@ -61,21 +67,27 @@
   <div class="mt-8 grid grid-cols-3 gap-4 text-center">
     <div class="rounded-[16px] border border-white/10 bg-slate/20 px-4 py-3">
       <p class="mono-label !text-[10px] text-secondary">PLAYERS</p>
-      <p class="font-display mt-1 text-3xl">{drafted.length}</p>
+      <p class="mt-1 font-display text-3xl">{drafted.length}</p>
     </div>
     <div class="rounded-[16px] border border-white/10 bg-slate/20 px-4 py-3">
       <p class="mono-label !text-[10px] text-secondary">SAME NATION</p>
-      <p class="font-display mt-1 text-3xl">{sameNation}</p>
+      <p class="mt-1 font-display text-3xl">{sameNation}</p>
     </div>
     <div class="rounded-[16px] border border-mint bg-mint/10 px-4 py-3">
       <p class="mono-label !text-[10px] text-mint">CHEMISTRY</p>
-      <p class="font-display mt-1 text-3xl text-mint">+{Math.round(chemistry * 100)}%</p>
+      <p class="mt-1 font-display text-3xl text-mint">
+        +{Math.round(chemistry * 100)}%
+      </p>
     </div>
   </div>
 
   <div class="mt-10 flex flex-wrap justify-center gap-4">
-    <button type="button" class="pill-outline" onclick={onStart}>Start tournament</button>
-    <button type="button" class="pill-outline-alt" onclick={onReset}>Start over</button>
+    <button type="button" class="pill-outline" onclick={onStart}
+      >Start tournament</button
+    >
+    <button type="button" class="pill-outline-alt" onclick={onReset}
+      >Start over</button
+    >
   </div>
 </section>
 

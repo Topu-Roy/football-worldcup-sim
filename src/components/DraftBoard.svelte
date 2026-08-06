@@ -8,9 +8,9 @@
     positionColor,
     slotsLeft,
     validateDraft,
-  } from '../lib/draft.js';
-  import { countSameNation, chemistryBonus } from '../lib/team.js';
-  import type { Formation, Player, Position } from '../lib/types.js';
+  } from "../lib/draft.js";
+  import { countSameNation, chemistryBonus } from "../lib/team.js";
+  import type { Formation, Player, Position } from "../lib/types.js";
 
   let {
     formation,
@@ -38,14 +38,15 @@
   });
 
   const left = $derived(slotsLeft(formation, drafted));
-  const positionOrder: Position[] = ['GK', 'ATT', 'MID', 'DEF'];
+  const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const round = $derived(drafted.length + 1);
   const complete = $derived(validateDraft(formation, drafted));
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
   const offerPlayers = $derived(
     [...(offer?.players ?? [])].sort(
-      (a, b) => positionOrder.indexOf(a.position) - positionOrder.indexOf(b.position),
+      (a, b) =>
+        positionOrder.indexOf(a.position) - positionOrder.indexOf(b.position),
     ),
   );
 
@@ -75,27 +76,27 @@
   function statRows(p: Player): [string, number][] {
     const map: Record<Position, [string, keyof Player][]> = {
       GK: [
-        ['Reflexes', 'reflexes'],
-        ['Positioning', 'positioning'],
-        ['Distribution', 'distribution'],
+        ["Reflexes", "reflexes"],
+        ["Positioning", "positioning"],
+        ["Distribution", "distribution"],
       ],
       DEF: [
-        ['Tackling', 'tackling'],
-        ['Aerial', 'aerial'],
-        ['Passing', 'passing'],
-        ['Pace', 'pace'],
+        ["Tackling", "tackling"],
+        ["Aerial", "aerial"],
+        ["Passing", "passing"],
+        ["Pace", "pace"],
       ],
       MID: [
-        ['Passing', 'passing'],
-        ['Dribble', 'dribble'],
-        ['Work Rate', 'workRate'],
-        ['Stamina', 'stamina'],
+        ["Passing", "passing"],
+        ["Dribble", "dribble"],
+        ["Work Rate", "workRate"],
+        ["Stamina", "stamina"],
       ],
       ATT: [
-        ['Finishing', 'finishing'],
-        ['Dribble', 'dribble'],
-        ['Pace', 'pace'],
-        ['Off Ball', 'offBall'],
+        ["Finishing", "finishing"],
+        ["Dribble", "dribble"],
+        ["Pace", "pace"],
+        ["Off Ball", "offBall"],
       ],
     };
     return (map[p.position] ?? []).map(([label, key]) => [
@@ -111,7 +112,9 @@
       <p class="mono-label text-mint">Draft Round {round} / 11</p>
       <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
         {formationKey}
-        <span class="text-secondary">{sameNation > 1 ? ` · ${sameNation} same nation` : ''}</span>
+        <span class="text-secondary"
+          >{sameNation > 1 ? ` · ${sameNation} same nation` : ""}</span
+        >
       </h2>
     </div>
     <div class="flex items-center gap-6">
@@ -147,7 +150,10 @@
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <p class="text-lg font-bold">
-                    {p.name} <span class="font-mono text-sm text-secondary">({playerRating(p)})</span>
+                    {p.name}
+                    <span class="font-mono text-sm text-secondary"
+                      >({playerRating(p)})</span
+                    >
                   </p>
                   <p
                     class="mono-label mt-1"
@@ -163,7 +169,9 @@
               <dl class="mt-4 space-y-1.5">
                 {#each statRows(p) as [label, val] (label)}
                   <div class="flex items-center justify-between gap-3">
-                    <dt class="mono-label !text-[10px] text-secondary">{label}</dt>
+                    <dt class="mono-label !text-[10px] text-secondary">
+                      {label}
+                    </dt>
                     <div class="flex items-center gap-2">
                       <div class="h-1 w-24 rounded-full bg-slate">
                         <div
@@ -182,8 +190,12 @@
       </div>
     {/if}
 
-    <aside class="h-fit rounded-[24px] border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6">
-      <p class="mono-label text-mint">Your XI <span class="text-secondary">({drafted.length}/11)</span></p>
+    <aside
+      class="h-fit rounded-[24px] border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
+    >
+      <p class="mono-label text-mint">
+        Your XI <span class="text-secondary">({drafted.length}/11)</span>
+      </p>
       <div class="mt-4 space-y-4">
         {#each positionOrder as pos (pos)}
           <div>
@@ -203,11 +215,14 @@
                   >
                     <span class="text-sm">{p.name} ({playerRating(p)})</span>
                     <span class="font-mono text-[10px] text-secondary">
-                      {NATION_NAMES[p.nation] ?? p.nation} {p.wcYear}
+                      {NATION_NAMES[p.nation] ?? p.nation}
+                      {p.wcYear}
                     </span>
                   </div>
                 {:else}
-                  <div class="rounded-full border border-dashed border-white/15 px-3 py-1.5">
+                  <div
+                    class="rounded-full border border-dashed border-white/15 px-3 py-1.5"
+                  >
                     <span class="text-sm text-secondary">Empty</span>
                   </div>
                 {/if}
@@ -218,7 +233,9 @@
       </div>
       {#if chemistry > 0}
         <div class="mt-6 rounded-full border border-mint px-4 py-2 text-center">
-          <span class="mono-label !text-[10px] text-mint">CHEMISTRY +{Math.round(chemistry * 100)}%</span>
+          <span class="mono-label !text-[10px] text-mint"
+            >CHEMISTRY +{Math.round(chemistry * 100)}%</span
+          >
         </div>
       {/if}
     </aside>
@@ -258,7 +275,9 @@
     border-radius: 20px;
     background: #1a1a1a;
     padding: 20px;
-    transition: border-color 150ms ease, transform 150ms ease;
+    transition:
+      border-color 150ms ease,
+      transform 150ms ease;
   }
 
   .player-card:hover:not(:disabled) {
