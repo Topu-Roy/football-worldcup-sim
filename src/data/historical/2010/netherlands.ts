@@ -117,6 +117,9 @@ export const NETHERLANDS_2010: Squad = {
       dribble: 80,
       workRate: 92,
       stamina: 90,
+      finishing: 82,
+      pace: 84,
+      offBall: 84,
       composure: 88,
     },
     {
@@ -145,6 +148,9 @@ export const NETHERLANDS_2010: Squad = {
       dribble: 93,
       workRate: 82,
       stamina: 82,
+      finishing: 88,
+      pace: 92,
+      offBall: 88,
       composure: 88,
     },
     {
@@ -189,6 +195,8 @@ export const NETHERLANDS_2010: Squad = {
       offBall: 82,
       aerial: 84,
       pace: 70,
+      dribble: 80,
+      stamina: 78,
       composure: 78,
     },
     {

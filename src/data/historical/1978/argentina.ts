@@ -117,6 +117,9 @@ export const ARGENTINA_1978: Squad = {
       dribble: 90,
       workRate: 84,
       stamina: 84,
+      finishing: 90,
+      pace: 82,
+      offBall: 88,
       composure: 92,
     },
     {
@@ -248,6 +251,7 @@ export const ARGENTINA_1978: Squad = {
       passing: 70,
       stamina: 76,
       workRate: 78,
+      aerial: 74,
       composure: 76,
     },
   ],

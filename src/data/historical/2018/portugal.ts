@@ -121,6 +121,8 @@ export const PORTUGAL_2018: Squad = {
       workRate: 76,
       stamina: 74,
       finishing: 74,
+      pace: 74,
+      offBall: 78,
       composure: 78,
     },
     {

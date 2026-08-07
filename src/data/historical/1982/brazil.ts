@@ -137,6 +137,7 @@ export const BRAZIL_1982: Squad = {
       pace: 80,
       offBall: 88,
       stamina: 74,
+      workRate: 80,
       composure: 92,
     },
     {
@@ -222,6 +223,7 @@ export const BRAZIL_1982: Squad = {
       passing: 70,
       workRate: 82,
       stamina: 78,
+      dribble: 72,
       composure: 74,
     },
     {

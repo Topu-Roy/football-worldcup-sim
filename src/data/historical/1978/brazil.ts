@@ -177,6 +177,8 @@ export const BRAZIL_1978: Squad = {
       pace: 80,
       offBall: 88,
       passing: 92,
+      workRate: 86,
+      stamina: 86,
       composure: 90,
     },
     {
@@ -191,6 +193,8 @@ export const BRAZIL_1978: Squad = {
       offBall: 84,
       pace: 84,
       aerial: 78,
+      dribble: 84,
+      stamina: 82,
       composure: 80,
     },
     {
@@ -206,6 +210,7 @@ export const BRAZIL_1978: Squad = {
       pace: 80,
       aerial: 80,
       stamina: 82,
+      dribble: 80,
       composure: 80,
     },
     {
@@ -221,6 +226,7 @@ export const BRAZIL_1978: Squad = {
       passing: 74,
       stamina: 82,
       workRate: 82,
+      aerial: 72,
       composure: 80,
     },
     {

@@ -204,6 +204,8 @@ export const BELGIUM_1986: Squad = {
       offBall: 76,
       aerial: 80,
       pace: 76,
+      dribble: 76,
+      stamina: 74,
       composure: 74,
     },
   ],

@@ -83,6 +83,7 @@ export const CAMEROON_1990: Squad = {
       pace: 70,
       stamina: 80,
       workRate: 80,
+      dribble: 76,
       composure: 78,
     },
     {
@@ -239,6 +240,7 @@ export const CAMEROON_1990: Squad = {
       pace: 70,
       stamina: 76,
       workRate: 76,
+      dribble: 72,
       composure: 74,
     },
     {

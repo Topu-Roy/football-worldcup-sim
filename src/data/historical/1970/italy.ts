@@ -200,6 +200,7 @@ export const ITALY_1970: Squad = {
       bestPosition: "ST",
       jerseyNumber: 19,
       finishing: 78,
+      dribble: 76,
       offBall: 80,
       pace: 80,
       aerial: 76,

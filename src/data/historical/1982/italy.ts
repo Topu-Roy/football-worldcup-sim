@@ -117,6 +117,9 @@ export const ITALY_1982: Squad = {
       dribble: 94,
       workRate: 90,
       stamina: 84,
+      finishing: 88,
+      pace: 92,
+      offBall: 88,
       composure: 90,
     },
     {
@@ -191,6 +194,7 @@ export const ITALY_1982: Squad = {
       passing: 74,
       stamina: 84,
       workRate: 84,
+      aerial: 76,
       composure: 82,
     },
     {

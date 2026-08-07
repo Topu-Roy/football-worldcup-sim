@@ -230,6 +230,7 @@ export const GERMANY_2006: Squad = {
       bestPosition: "ST",
       jerseyNumber: 9,
       finishing: 76,
+      dribble: 74,
       offBall: 78,
       aerial: 80,
       pace: 76,

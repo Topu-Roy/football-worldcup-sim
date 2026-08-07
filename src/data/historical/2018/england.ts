@@ -205,6 +205,7 @@ export const ENGLAND_2018: Squad = {
       tackling: 78,
       workRate: 84,
       stamina: 84,
+      dribble: 78,
       composure: 82,
     },
     {

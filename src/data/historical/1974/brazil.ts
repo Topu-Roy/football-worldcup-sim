@@ -187,6 +187,7 @@ export const BRAZIL_1974: Squad = {
       bestPosition: "ST",
       jerseyNumber: 19,
       finishing: 82,
+      dribble: 76,
       offBall: 82,
       pace: 82,
       aerial: 80,

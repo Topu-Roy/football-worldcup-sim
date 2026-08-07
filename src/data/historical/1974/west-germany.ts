@@ -188,6 +188,7 @@ export const WEST_GERMANY_1974: Squad = {
       bestPosition: "RB",
       jerseyNumber: 6,
       tackling: 80,
+      aerial: 78,
       pace: 82,
       passing: 76,
       stamina: 84,

@@ -173,9 +173,11 @@ export const NETHERLANDS_1978: Squad = {
       bestPosition: "ST",
       jerseyNumber: 18,
       finishing: 76,
+      dribble: 72,
       aerial: 86,
       offBall: 78,
       pace: 68,
+      stamina: 72,
       composure: 74,
     },
     {
@@ -206,6 +208,7 @@ export const NETHERLANDS_1978: Squad = {
       passing: 76,
       stamina: 84,
       workRate: 82,
+      aerial: 76,
       composure: 80,
     },
     {
@@ -221,6 +224,7 @@ export const NETHERLANDS_1978: Squad = {
       passing: 76,
       stamina: 82,
       workRate: 80,
+      aerial: 76,
       composure: 78,
     },
   ],

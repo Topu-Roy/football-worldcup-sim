@@ -220,6 +220,7 @@ export const ARGENTINA_2014: Squad = {
       passing: 80,
       workRate: 82,
       stamina: 80,
+      dribble: 82,
       composure: 80,
     },
     {

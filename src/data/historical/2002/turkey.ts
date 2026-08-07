@@ -190,6 +190,7 @@ export const TURKEY_2002: Squad = {
       pace: 84,
       dribble: 78,
       aerial: 78,
+      stamina: 76,
       composure: 72,
     },
     {

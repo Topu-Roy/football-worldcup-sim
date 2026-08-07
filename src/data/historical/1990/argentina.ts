@@ -146,6 +146,8 @@ export const ARGENTINA_1990: Squad = {
       pace: 76,
       offBall: 86,
       stamina: 78,
+      passing: 90,
+      workRate: 80,
       composure: 92,
     },
     {
@@ -201,6 +203,7 @@ export const ARGENTINA_1990: Squad = {
       bestPosition: "ST",
       jerseyNumber: 3,
       finishing: 80,
+      dribble: 78,
       offBall: 80,
       pace: 84,
       aerial: 80,
@@ -219,6 +222,7 @@ export const ARGENTINA_1990: Squad = {
       tackling: 76,
       workRate: 86,
       stamina: 88,
+      dribble: 76,
       composure: 78,
     },
     {

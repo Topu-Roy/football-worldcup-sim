@@ -145,6 +145,9 @@ export const SPAIN_2010: Squad = {
       dribble: 88,
       workRate: 90,
       stamina: 88,
+      finishing: 82,
+      pace: 88,
+      offBall: 82,
       composure: 86,
     },
     {
@@ -174,6 +177,7 @@ export const SPAIN_2010: Squad = {
       offBall: 84,
       pace: 88,
       dribble: 80,
+      stamina: 82,
       composure: 80,
     },
     {
@@ -204,6 +208,7 @@ export const SPAIN_2010: Squad = {
       passing: 86,
       pace: 82,
       offBall: 82,
+      stamina: 84,
       composure: 86,
     },
     {

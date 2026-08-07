@@ -162,6 +162,7 @@ export const FRANCE_1986: Squad = {
       aerial: 78,
       pace: 84,
       stamina: 82,
+      dribble: 82,
       composure: 82,
     },
     {
@@ -177,6 +178,7 @@ export const FRANCE_1986: Squad = {
       passing: 74,
       stamina: 84,
       workRate: 82,
+      aerial: 76,
       composure: 80,
     },
     {
@@ -192,6 +194,7 @@ export const FRANCE_1986: Squad = {
       passing: 72,
       stamina: 80,
       workRate: 80,
+      aerial: 72,
       composure: 78,
     },
     {
@@ -206,6 +209,7 @@ export const FRANCE_1986: Squad = {
       dribble: 80,
       pace: 76,
       workRate: 76,
+      stamina: 78,
       composure: 78,
     },
   ],

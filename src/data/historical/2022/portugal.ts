@@ -138,6 +138,8 @@ export const PORTUGAL_2022: Squad = {
       workRate: 86,
       stamina: 84,
       finishing: 76,
+      pace: 82,
+      offBall: 80,
       composure: 86,
     },
     {
@@ -154,6 +156,7 @@ export const PORTUGAL_2022: Squad = {
       offBall: 80,
       passing: 84,
       stamina: 76,
+      workRate: 78,
       composure: 80,
     },
     {
@@ -231,6 +234,7 @@ export const PORTUGAL_2022: Squad = {
       workRate: 82,
       stamina: 82,
       dribble: 82,
+      aerial: 78,
       composure: 80,
     },
     {

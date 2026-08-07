@@ -131,6 +131,8 @@ export const ARGENTINA_1986: Squad = {
       dribble: 97,
       pace: 90,
       offBall: 92,
+      passing: 91,
+      workRate: 80,
       composure: 95,
       stamina: 84,
     },
@@ -176,6 +178,7 @@ export const ARGENTINA_1986: Squad = {
       offBall: 82,
       pace: 82,
       stamina: 80,
+      dribble: 80,
       composure: 78,
     },
     {
@@ -205,6 +208,7 @@ export const ARGENTINA_1986: Squad = {
       pace: 76,
       stamina: 80,
       workRate: 80,
+      aerial: 74,
       composure: 78,
     },
     {
@@ -232,6 +236,7 @@ export const ARGENTINA_1986: Squad = {
       dribble: 80,
       pace: 84,
       offBall: 80,
+      stamina: 82,
       composure: 80,
     },
     {

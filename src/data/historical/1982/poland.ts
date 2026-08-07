@@ -94,6 +94,7 @@ export const POLAND_1982: Squad = {
       passing: 72,
       stamina: 82,
       workRate: 82,
+      aerial: 72,
       composure: 78,
     },
     {
@@ -150,6 +151,9 @@ export const POLAND_1982: Squad = {
       dribble: 84,
       workRate: 84,
       stamina: 82,
+      finishing: 78,
+      pace: 84,
+      offBall: 84,
       composure: 88,
     },
     {
@@ -164,6 +168,9 @@ export const POLAND_1982: Squad = {
       dribble: 84,
       workRate: 80,
       stamina: 78,
+      finishing: 74,
+      pace: 84,
+      offBall: 76,
       composure: 76,
     },
     {
@@ -238,6 +245,7 @@ export const POLAND_1982: Squad = {
       passing: 70,
       stamina: 80,
       workRate: 80,
+      aerial: 74,
       composure: 78,
     },
   ],

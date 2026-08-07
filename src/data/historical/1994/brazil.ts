@@ -187,9 +187,11 @@ export const BRAZIL_1994: Squad = {
       bestPosition: "ST",
       jerseyNumber: 19,
       finishing: 78,
+      dribble: 78,
       offBall: 78,
       pace: 82,
       aerial: 78,
+      stamina: 78,
       composure: 76,
     },
     {
@@ -205,6 +207,7 @@ export const BRAZIL_1994: Squad = {
       pace: 88,
       stamina: 84,
       workRate: 84,
+      aerial: 74,
       composure: 78,
     },
     {
@@ -219,6 +222,7 @@ export const BRAZIL_1994: Squad = {
       dribble: 84,
       pace: 88,
       offBall: 78,
+      stamina: 76,
       composure: 74,
     },
     {

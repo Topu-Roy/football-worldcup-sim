@@ -187,6 +187,7 @@ export const URUGUAY_1970: Squad = {
       bestPosition: "RB",
       jerseyNumber: 16,
       tackling: 80,
+      aerial: 76,
       pace: 78,
       passing: 72,
       stamina: 84,

@@ -187,6 +187,7 @@ export const MOROCCO_2022: Squad = {
       bestPosition: "LB",
       jerseyNumber: 25,
       tackling: 72,
+      aerial: 74,
       passing: 72,
       pace: 80,
       stamina: 78,

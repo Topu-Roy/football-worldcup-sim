@@ -118,6 +118,7 @@ export const COLOMBIA_2014: Squad = {
       aerial: 76,
       pace: 74,
       stamina: 76,
+      dribble: 76,
       composure: 78,
     },
     {
@@ -148,6 +149,8 @@ export const COLOMBIA_2014: Squad = {
       workRate: 86,
       stamina: 84,
       finishing: 78,
+      pace: 88,
+      offBall: 82,
       composure: 82,
     },
     {
@@ -191,6 +194,7 @@ export const COLOMBIA_2014: Squad = {
       offBall: 74,
       pace: 76,
       stamina: 72,
+      dribble: 74,
       composure: 74,
     },
     {
@@ -220,6 +224,7 @@ export const COLOMBIA_2014: Squad = {
       aerial: 74,
       pace: 76,
       stamina: 72,
+      dribble: 78,
       composure: 76,
     },
     {

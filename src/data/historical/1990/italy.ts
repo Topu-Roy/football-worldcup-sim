@@ -176,6 +176,8 @@ export const ITALY_1990: Squad = {
       pace: 82,
       offBall: 86,
       passing: 88,
+      workRate: 80,
+      stamina: 82,
       composure: 88,
     },
     {
@@ -191,6 +193,7 @@ export const ITALY_1990: Squad = {
       pace: 76,
       offBall: 82,
       passing: 82,
+      stamina: 80,
       composure: 84,
     },
     {
@@ -205,6 +208,8 @@ export const ITALY_1990: Squad = {
       offBall: 78,
       aerial: 82,
       pace: 80,
+      dribble: 76,
+      stamina: 76,
       composure: 76,
     },
     {
@@ -219,6 +224,7 @@ export const ITALY_1990: Squad = {
       offBall: 80,
       pace: 78,
       stamina: 78,
+      dribble: 74,
       composure: 78,
     },
   ],

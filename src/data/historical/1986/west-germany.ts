@@ -191,6 +191,8 @@ export const WEST_GERMANY_1986: Squad = {
       offBall: 84,
       pace: 84,
       aerial: 78,
+      dribble: 80,
+      stamina: 80,
       composure: 84,
     },
     {
@@ -218,6 +220,7 @@ export const WEST_GERMANY_1986: Squad = {
       tackling: 78,
       pace: 82,
       passing: 74,
+      aerial: 76,
       stamina: 82,
       workRate: 82,
       composure: 80,

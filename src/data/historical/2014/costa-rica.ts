@@ -104,6 +104,8 @@ export const COSTA_RICA_2014: Squad = {
       workRate: 78,
       stamina: 78,
       finishing: 68,
+      pace: 78,
+      offBall: 72,
       composure: 72,
     },
     {

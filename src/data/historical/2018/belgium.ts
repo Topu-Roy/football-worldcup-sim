@@ -131,6 +131,9 @@ export const BELGIUM_2018: Squad = {
       dribble: 86,
       workRate: 82,
       stamina: 78,
+      finishing: 82,
+      pace: 86,
+      offBall: 84,
       composure: 82,
     },
     {
@@ -191,6 +194,7 @@ export const BELGIUM_2018: Squad = {
       offBall: 80,
       stamina: 84,
       workRate: 82,
+      passing: 80,
       composure: 80,
     },
     {
@@ -206,6 +210,7 @@ export const BELGIUM_2018: Squad = {
       passing: 76,
       workRate: 82,
       stamina: 84,
+      dribble: 74,
       composure: 78,
     },
     {
@@ -221,6 +226,7 @@ export const BELGIUM_2018: Squad = {
       pace: 82,
       passing: 80,
       stamina: 82,
+      offBall: 80,
       composure: 80,
     },
     {

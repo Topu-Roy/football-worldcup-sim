@@ -89,6 +89,9 @@ export const BRAZIL_2002: Squad = {
       dribble: 72,
       workRate: 84,
       stamina: 84,
+      tackling: 82,
+      aerial: 82,
+      pace: 76,
       composure: 84,
     },
     {
@@ -132,6 +135,8 @@ export const BRAZIL_2002: Squad = {
       pace: 88,
       offBall: 84,
       stamina: 78,
+      passing: 86,
+      workRate: 82,
       composure: 84,
     },
     {
@@ -208,6 +213,7 @@ export const BRAZIL_2002: Squad = {
       pace: 84,
       stamina: 80,
       workRate: 80,
+      aerial: 70,
       composure: 76,
     },
     {

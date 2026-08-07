@@ -176,6 +176,7 @@ export const SOUTH_KOREA_2002: Squad = {
       pace: 94,
       stamina: 86,
       workRate: 84,
+      offBall: 78,
       composure: 72,
     },
     {
@@ -190,6 +191,8 @@ export const SOUTH_KOREA_2002: Squad = {
       offBall: 82,
       pace: 76,
       aerial: 78,
+      dribble: 76,
+      stamina: 80,
       composure: 80,
     },
     {

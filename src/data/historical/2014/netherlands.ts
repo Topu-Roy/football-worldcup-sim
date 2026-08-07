@@ -131,6 +131,9 @@ export const NETHERLANDS_2014: Squad = {
       dribble: 84,
       workRate: 82,
       stamina: 80,
+      finishing: 78,
+      pace: 90,
+      offBall: 80,
       composure: 80,
     },
     {
@@ -175,6 +178,7 @@ export const NETHERLANDS_2014: Squad = {
       workRate: 92,
       stamina: 92,
       tackling: 74,
+      dribble: 78,
       composure: 82,
     },
     {
@@ -204,6 +208,8 @@ export const NETHERLANDS_2014: Squad = {
       offBall: 84,
       aerial: 84,
       pace: 70,
+      dribble: 72,
+      stamina: 72,
       composure: 80,
     },
     {
@@ -234,6 +240,7 @@ export const NETHERLANDS_2014: Squad = {
       pace: 80,
       stamina: 82,
       workRate: 80,
+      aerial: 70,
       composure: 78,
     },
   ],

@@ -203,9 +203,11 @@ export const NETHERLANDS_1998: Squad = {
       bestPosition: "ST",
       jerseyNumber: 21,
       finishing: 84,
+      dribble: 76,
       offBall: 80,
       aerial: 84,
       pace: 80,
+      stamina: 74,
       composure: 76,
     },
     {

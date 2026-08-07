@@ -191,6 +191,7 @@ export const BRAZIL_1998: Squad = {
       offBall: 80,
       pace: 82,
       dribble: 82,
+      stamina: 76,
       composure: 76,
     },
     {

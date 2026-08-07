@@ -191,6 +191,8 @@ export const FRANCE_1998: Squad = {
       offBall: 82,
       aerial: 78,
       pace: 78,
+      dribble: 76,
+      stamina: 78,
       composure: 78,
     },
     {
@@ -233,6 +235,7 @@ export const FRANCE_1998: Squad = {
       tackling: 80,
       pace: 84,
       passing: 80,
+      aerial: 76,
       stamina: 82,
       workRate: 82,
       composure: 80,

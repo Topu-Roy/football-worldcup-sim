@@ -161,6 +161,9 @@ export const ARGENTINA_2026: Squad = {
       dribble: 84,
       workRate: 82,
       stamina: 84,
+      finishing: 80,
+      pace: 86,
+      offBall: 82,
       composure: 80,
     },
     {

@@ -219,6 +219,7 @@ export const SWEDEN_1994: Squad = {
       bestPosition: "LB",
       jerseyNumber: 5,
       tackling: 74,
+      aerial: 76,
       pace: 84,
       stamina: 82,
       passing: 72,

@@ -121,6 +121,7 @@ export const DENMARK_1986: Squad = {
       pace: 88,
       offBall: 80,
       stamina: 78,
+      workRate: 78,
       composure: 76,
     },
     {
@@ -166,6 +167,7 @@ export const DENMARK_1986: Squad = {
       offBall: 86,
       pace: 84,
       stamina: 76,
+      workRate: 80,
       composure: 86,
     },
     {

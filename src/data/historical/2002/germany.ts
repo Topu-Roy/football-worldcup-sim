@@ -172,6 +172,7 @@ export const GERMANY_2002: Squad = {
       bestPosition: "ST",
       jerseyNumber: 20,
       finishing: 84,
+      dribble: 72,
       offBall: 84,
       aerial: 88,
       pace: 64,
@@ -190,6 +191,7 @@ export const GERMANY_2002: Squad = {
       tackling: 78,
       workRate: 88,
       stamina: 88,
+      dribble: 78,
       composure: 80,
     },
     {
@@ -204,6 +206,7 @@ export const GERMANY_2002: Squad = {
       tackling: 80,
       workRate: 86,
       stamina: 86,
+      dribble: 78,
       composure: 80,
     },
     {
@@ -234,6 +237,7 @@ export const GERMANY_2002: Squad = {
       pace: 78,
       stamina: 80,
       workRate: 78,
+      dribble: 78,
       composure: 78,
     },
   ],

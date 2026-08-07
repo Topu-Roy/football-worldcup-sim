@@ -145,6 +145,9 @@ export const PORTUGAL_2006: Squad = {
       dribble: 92,
       workRate: 78,
       stamina: 82,
+      finishing: 84,
+      pace: 92,
+      offBall: 86,
       composure: 82,
     },
     {
@@ -191,6 +194,7 @@ export const PORTUGAL_2006: Squad = {
       aerial: 80,
       pace: 78,
       stamina: 74,
+      dribble: 76,
       composure: 76,
     },
     {
@@ -205,6 +209,7 @@ export const PORTUGAL_2006: Squad = {
       tackling: 78,
       workRate: 84,
       stamina: 84,
+      dribble: 76,
       composure: 80,
     },
     {
@@ -216,8 +221,9 @@ export const PORTUGAL_2006: Squad = {
       bestPosition: "ST",
       jerseyNumber: 21,
       finishing: 80,
-      offBall: 82,
+      dribble: 78,
       pace: 80,
+      offBall: 82,
       stamina: 76,
       composure: 80,
     },

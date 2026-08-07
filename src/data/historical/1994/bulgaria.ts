@@ -132,6 +132,8 @@ export const BULGARIA_1994: Squad = {
       pace: 74,
       offBall: 76,
       stamina: 80,
+      passing: 78,
+      workRate: 80,
       composure: 76,
     },
     {
@@ -177,6 +179,7 @@ export const BULGARIA_1994: Squad = {
       passing: 70,
       stamina: 80,
       workRate: 82,
+      aerial: 74,
       composure: 76,
     },
     {
@@ -191,6 +194,8 @@ export const BULGARIA_1994: Squad = {
       offBall: 80,
       pace: 74,
       aerial: 76,
+      dribble: 76,
+      stamina: 80,
       composure: 78,
     },
     {
