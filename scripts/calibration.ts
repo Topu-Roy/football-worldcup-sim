@@ -45,7 +45,7 @@ const config =
         desperationScale: desperation,
         maxShotsClamp:
           clampMax !== undefined
-            ? ([2, clampMax] as [number, number])
+            ? ([0, clampMax] as [number, number])
             : undefined,
       }
     : {};

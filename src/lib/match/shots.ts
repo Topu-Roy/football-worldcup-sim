@@ -1,4 +1,4 @@
-import { logistic, clamp } from "../random.js";
+import { logistic, poisson } from "../random.js";
 import {
   effectivePossessionShare,
   effectiveStats,
@@ -54,14 +54,12 @@ export function buildSegmentShots(
     desperationScale,
   );
 
-  const shots0 = clamp(
-    Math.round(possession * maxShotsFor(s0.attack, s1.defense, base)),
-    maxShotsClamp[0],
+  const shots0 = Math.min(
+    poisson(possession * maxShotsFor(s0.attack, s1.defense, base)),
     maxShotsClamp[1],
   );
-  const shots1 = clamp(
-    Math.round((1 - possession) * maxShotsFor(s1.attack, s0.defense, base)),
-    maxShotsClamp[0],
+  const shots1 = Math.min(
+    poisson((1 - possession) * maxShotsFor(s1.attack, s0.defense, base)),
     maxShotsClamp[1],
   );
 
