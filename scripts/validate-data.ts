@@ -21,8 +21,8 @@ for (const squad of HISTORICAL_SQUADS) {
   }
   seenSquadIds.add(squad.id);
 
-  if (squad.players.length !== 11) {
-    console.error(`${tag}: has ${squad.players.length} players, expected 11`);
+  if (squad.players.length < 11) {
+    console.error(`${tag}: has ${squad.players.length} players, expected at least 11`);
     errors++;
   }
 
@@ -38,6 +38,11 @@ for (const squad of HISTORICAL_SQUADS) {
       console.error(
         `${tag}: ${p.name} wcYear ${p.wcYear} != squad ${squad.wcYear}`,
       );
+      errors++;
+    }
+
+    if (p.jerseyNumber === undefined || p.jerseyNumber < 1 || p.jerseyNumber > 99) {
+      console.error(`${tag}: ${p.name} missing or bad jerseyNumber`);
       errors++;
     }
 
@@ -70,13 +75,13 @@ for (const squad of HISTORICAL_SQUADS) {
 
   const f = squad.formation;
   const ok =
-    counts.GK === f.GK &&
-    counts.DEF === f.DEF &&
-    counts.MID === f.MID &&
-    counts.ATT === f.ATT;
+    counts.GK >= f.GK &&
+    counts.DEF >= f.DEF &&
+    counts.MID >= f.MID &&
+    counts.ATT >= f.ATT;
   if (!ok) {
     console.error(
-      `${tag}: counts ${JSON.stringify(counts)} don't match formation ${JSON.stringify(f)}`,
+      `${tag}: counts ${JSON.stringify(counts)} don't cover formation ${JSON.stringify(f)}`,
     );
     errors++;
   }

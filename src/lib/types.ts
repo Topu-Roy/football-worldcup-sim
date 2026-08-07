@@ -21,6 +21,7 @@ export interface Player {
   wcYear: number;
   positions: string[];
   bestPosition: string;
+  jerseyNumber?: number;
   assignedPosition?: string;
   assignedSlot?: number;
   composure: number;
