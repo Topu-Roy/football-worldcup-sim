@@ -177,7 +177,6 @@ export const GERMANY_2014: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 84,
-      form: 88,
     },
     {
       id: "ger-2014-schurrle",
@@ -193,7 +192,6 @@ export const GERMANY_2014: Squad = {
       offBall: 80,
       stamina: 78,
       composure: 80,
-      form: 86,
     },
     {
       id: "ger-2014-podolski",
@@ -208,7 +206,6 @@ export const GERMANY_2014: Squad = {
       pace: 84,
       stamina: 78,
       composure: 82,
-      form: 80,
     },
     {
       id: "ger-2014-mertesacker",
@@ -223,7 +220,6 @@ export const GERMANY_2014: Squad = {
       passing: 76,
       pace: 58,
       composure: 84,
-      form: 82,
     },
     {
       id: "ger-2014-kramer",
@@ -238,7 +234,6 @@ export const GERMANY_2014: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 82,
-      form: 80,
     },
   ],
 };

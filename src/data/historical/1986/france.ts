@@ -20,7 +20,6 @@ export const FRANCE_1986: Squad = {
       positioning: 86,
       distribution: 68,
       composure: 88,
-      form: 90,
     },
     {
       id: "fra-1986-amoros",
@@ -164,7 +163,6 @@ export const FRANCE_1986: Squad = {
       pace: 84,
       stamina: 82,
       composure: 82,
-      form: 78,
     },
     {
       id: "fra-1986-ayache",
@@ -180,7 +178,6 @@ export const FRANCE_1986: Squad = {
       stamina: 84,
       workRate: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "fra-1986-bibard",
@@ -196,7 +193,6 @@ export const FRANCE_1986: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 78,
-      form: 76,
     },
     {
       id: "fra-1986-vercruysse",
@@ -211,7 +207,6 @@ export const FRANCE_1986: Squad = {
       pace: 76,
       workRate: 76,
       composure: 78,
-      form: 74,
     },
   ],
 };

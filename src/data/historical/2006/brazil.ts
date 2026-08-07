@@ -143,7 +143,6 @@ export const BRAZIL_2006: Squad = {
       aerial: 72,
       stamina: 74,
       composure: 82,
-      form: 84,
     },
     {
       id: "bra-2006-ronaldinho",
@@ -161,7 +160,6 @@ export const BRAZIL_2006: Squad = {
       stamina: 76,
       workRate: 70,
       composure: 82,
-      form: 74,
     },
     {
       id: "bra-2006-ze-roberto",
@@ -192,7 +190,6 @@ export const BRAZIL_2006: Squad = {
       stamina: 78,
       workRate: 80,
       composure: 76,
-      form: 76,
     },
     {
       id: "bra-2006-gilberto-silva",
@@ -237,7 +234,6 @@ export const BRAZIL_2006: Squad = {
       pace: 74,
       stamina: 72,
       composure: 76,
-      form: 76,
     },
     {
       id: "bra-2006-robinho",
@@ -254,7 +250,6 @@ export const BRAZIL_2006: Squad = {
       passing: 76,
       stamina: 70,
       composure: 76,
-      form: 74,
     },
   ],
 };

@@ -177,7 +177,6 @@ export const URUGUAY_1970: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 80,
-      form: 78,
     },
     {
       id: "uru-1970-caetano",
@@ -193,7 +192,6 @@ export const URUGUAY_1970: Squad = {
       stamina: 84,
       workRate: 84,
       composure: 80,
-      form: 78,
     },
     {
       id: "uru-1970-rocha",
@@ -209,7 +207,6 @@ export const URUGUAY_1970: Squad = {
       stamina: 74,
       finishing: 76,
       composure: 82,
-      form: 78,
     },
     {
       id: "uru-1970-bareno",
@@ -223,7 +220,6 @@ export const URUGUAY_1970: Squad = {
       positioning: 78,
       distribution: 64,
       composure: 80,
-      form: 74,
     },
   ],
 };

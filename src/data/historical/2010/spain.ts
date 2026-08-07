@@ -175,7 +175,6 @@ export const SPAIN_2010: Squad = {
       pace: 88,
       dribble: 80,
       composure: 80,
-      form: 82,
     },
     {
       id: "esp-2010-fabregas",
@@ -191,7 +190,6 @@ export const SPAIN_2010: Squad = {
       stamina: 84,
       finishing: 80,
       composure: 90,
-      form: 86,
     },
     {
       id: "esp-2010-mata",
@@ -207,7 +205,6 @@ export const SPAIN_2010: Squad = {
       pace: 82,
       offBall: 82,
       composure: 86,
-      form: 84,
     },
     {
       id: "esp-2010-navas",
@@ -223,7 +220,6 @@ export const SPAIN_2010: Squad = {
       offBall: 78,
       stamina: 84,
       composure: 82,
-      form: 82,
     },
     {
       id: "esp-2010-albiol",
@@ -238,7 +234,6 @@ export const SPAIN_2010: Squad = {
       passing: 78,
       pace: 68,
       composure: 84,
-      form: 80,
     },
   ],
 };

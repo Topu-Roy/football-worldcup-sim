@@ -20,7 +20,6 @@ export const PORTUGAL_2006: Squad = {
       positioning: 84,
       distribution: 72,
       composure: 90,
-      form: 90,
     },
     {
       id: "por-2006-miguel",
@@ -105,7 +104,6 @@ export const PORTUGAL_2006: Squad = {
       workRate: 88,
       stamina: 86,
       composure: 86,
-      form: 86,
     },
     {
       id: "por-2006-figo",
@@ -120,7 +118,6 @@ export const PORTUGAL_2006: Squad = {
       workRate: 78,
       stamina: 74,
       composure: 88,
-      form: 82,
     },
     {
       id: "por-2006-deco",
@@ -135,7 +132,6 @@ export const PORTUGAL_2006: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 84,
-      form: 84,
     },
     {
       id: "por-2006-ronaldo",
@@ -150,7 +146,6 @@ export const PORTUGAL_2006: Squad = {
       workRate: 78,
       stamina: 82,
       composure: 82,
-      form: 80,
     },
     {
       id: "por-2006-pauleta",
@@ -182,7 +177,6 @@ export const PORTUGAL_2006: Squad = {
       workRate: 82,
       stamina: 80,
       composure: 82,
-      form: 84,
     },
     {
       id: "por-2006-postiga",
@@ -198,7 +192,6 @@ export const PORTUGAL_2006: Squad = {
       pace: 78,
       stamina: 74,
       composure: 76,
-      form: 78,
     },
     {
       id: "por-2006-petit",
@@ -213,7 +206,6 @@ export const PORTUGAL_2006: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 80,
-      form: 78,
     },
     {
       id: "por-2006-nuno-gomes",
@@ -228,7 +220,6 @@ export const PORTUGAL_2006: Squad = {
       pace: 80,
       stamina: 76,
       composure: 80,
-      form: 80,
     },
   ],
 };

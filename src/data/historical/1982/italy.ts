@@ -177,7 +177,6 @@ export const ITALY_1982: Squad = {
       passing: 84,
       pace: 76,
       composure: 92,
-      form: 82,
     },
     {
       id: "ita-1982-bergomi",
@@ -193,7 +192,6 @@ export const ITALY_1982: Squad = {
       stamina: 84,
       workRate: 84,
       composure: 82,
-      form: 80,
     },
     {
       id: "ita-1982-oriali",
@@ -208,7 +206,6 @@ export const ITALY_1982: Squad = {
       workRate: 90,
       stamina: 92,
       composure: 80,
-      form: 80,
     },
     {
       id: "ita-1982-vierchowod",
@@ -223,7 +220,6 @@ export const ITALY_1982: Squad = {
       pace: 84,
       passing: 66,
       composure: 82,
-      form: 80,
     },
     {
       id: "ita-1982-marini",
@@ -238,7 +234,6 @@ export const ITALY_1982: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 80,
-      form: 76,
     },
   ],
 };

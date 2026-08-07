@@ -177,7 +177,6 @@ export const ITALY_1970: Squad = {
       stamina: 72,
       finishing: 78,
       composure: 88,
-      form: 86,
     },
     {
       id: "ita-1970-vieri",
@@ -191,7 +190,6 @@ export const ITALY_1970: Squad = {
       positioning: 78,
       distribution: 62,
       composure: 80,
-      form: 74,
     },
     {
       id: "ita-1970-gori",
@@ -207,7 +205,6 @@ export const ITALY_1970: Squad = {
       aerial: 76,
       stamina: 78,
       composure: 78,
-      form: 76,
     },
     {
       id: "ita-1970-zoff",

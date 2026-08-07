@@ -106,7 +106,6 @@ export const DENMARK_1986: Squad = {
       workRate: 78,
       stamina: 78,
       composure: 80,
-      form: 78,
     },
     {
       id: "den-1986-j-olsen",
@@ -182,7 +181,6 @@ export const DENMARK_1986: Squad = {
       workRate: 84,
       stamina: 82,
       composure: 78,
-      form: 78,
     },
     {
       id: "den-1986-frimann",
@@ -198,7 +196,6 @@ export const DENMARK_1986: Squad = {
       offBall: 76,
       stamina: 74,
       composure: 72,
-      form: 72,
     },
     {
       id: "den-1986-simonsen",
@@ -215,7 +212,6 @@ export const DENMARK_1986: Squad = {
       pace: 70,
       stamina: 66,
       composure: 74,
-      form: 68,
     },
     {
       id: "den-1986-arnesen",
@@ -245,7 +241,6 @@ export const DENMARK_1986: Squad = {
       positioning: 76,
       distribution: 68,
       composure: 72,
-      form: 70,
     },
   ],
 };

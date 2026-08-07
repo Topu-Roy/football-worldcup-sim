@@ -178,7 +178,6 @@ export const WEST_GERMANY_1982: Squad = {
       pace: 70,
       stamina: 76,
       composure: 78,
-      form: 80,
     },
     {
       id: "frg-1982-reinders",
@@ -193,7 +192,6 @@ export const WEST_GERMANY_1982: Squad = {
       pace: 78,
       aerial: 82,
       composure: 74,
-      form: 72,
     },
     {
       id: "frg-1982-magath",
@@ -208,7 +206,6 @@ export const WEST_GERMANY_1982: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 80,
-      form: 78,
     },
     {
       id: "frg-1982-hansi-muller",
@@ -223,7 +220,6 @@ export const WEST_GERMANY_1982: Squad = {
       workRate: 78,
       stamina: 80,
       composure: 84,
-      form: 74,
     },
     {
       id: "frg-1982-matthaus",
@@ -238,7 +234,6 @@ export const WEST_GERMANY_1982: Squad = {
       workRate: 84,
       stamina: 82,
       composure: 80,
-      form: 76,
     },
   ],
 };

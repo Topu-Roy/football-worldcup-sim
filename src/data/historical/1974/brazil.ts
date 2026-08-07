@@ -177,7 +177,6 @@ export const BRAZIL_1974: Squad = {
       offBall: 82,
       stamina: 78,
       composure: 82,
-      form: 82,
     },
     {
       id: "bra-1974-mirandinha",
@@ -193,7 +192,6 @@ export const BRAZIL_1974: Squad = {
       aerial: 80,
       stamina: 80,
       composure: 78,
-      form: 78,
     },
     {
       id: "bra-1974-piazza",
@@ -209,7 +207,6 @@ export const BRAZIL_1974: Squad = {
       stamina: 84,
       tackling: 76,
       composure: 82,
-      form: 78,
     },
     {
       id: "bra-1974-luis-pereira",
@@ -224,7 +221,6 @@ export const BRAZIL_1974: Squad = {
       passing: 68,
       pace: 74,
       composure: 82,
-      form: 80,
     },
     {
       id: "bra-1974-waldir-peres",
@@ -238,7 +234,6 @@ export const BRAZIL_1974: Squad = {
       positioning: 80,
       distribution: 70,
       composure: 80,
-      form: 76,
     },
   ],
 };

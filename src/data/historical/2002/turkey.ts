@@ -176,7 +176,6 @@ export const TURKEY_2002: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 78,
-      form: 80,
     },
     {
       id: "tur-2002-mansiz",
@@ -192,7 +191,6 @@ export const TURKEY_2002: Squad = {
       dribble: 78,
       aerial: 78,
       composure: 72,
-      form: 80,
     },
     {
       id: "tur-2002-nihat",
@@ -208,7 +206,6 @@ export const TURKEY_2002: Squad = {
       dribble: 78,
       stamina: 76,
       composure: 76,
-      form: 78,
     },
     {
       id: "tur-2002-ergun",
@@ -224,7 +221,6 @@ export const TURKEY_2002: Squad = {
       stamina: 82,
       pace: 76,
       composure: 76,
-      form: 76,
     },
     {
       id: "tur-2002-akyel",
@@ -240,7 +236,6 @@ export const TURKEY_2002: Squad = {
       pace: 74,
       stamina: 76,
       composure: 74,
-      form: 74,
     },
   ],
 };

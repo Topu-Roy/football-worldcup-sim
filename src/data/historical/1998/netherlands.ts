@@ -20,7 +20,6 @@ export const NETHERLANDS_1998: Squad = {
       positioning: 88,
       distribution: 80,
       composure: 86,
-      form: 88,
     },
     {
       id: "ned-1998-reiziger",
@@ -91,7 +90,6 @@ export const NETHERLANDS_1998: Squad = {
       workRate: 92,
       stamina: 92,
       composure: 82,
-      form: 88,
     },
     {
       id: "ned-1998-jonk",
@@ -149,7 +147,6 @@ export const NETHERLANDS_1998: Squad = {
       offBall: 92,
       stamina: 78,
       composure: 94,
-      form: 95,
     },
     {
       id: "ned-1998-kluivert",
@@ -180,7 +177,6 @@ export const NETHERLANDS_1998: Squad = {
       offBall: 84,
       stamina: 78,
       composure: 80,
-      form: 86,
     },
     {
       id: "ned-1998-zenden",
@@ -197,7 +193,6 @@ export const NETHERLANDS_1998: Squad = {
       stamina: 82,
       finishing: 76,
       composure: 78,
-      form: 82,
     },
     {
       id: "ned-1998-hasselbaink",
@@ -212,7 +207,6 @@ export const NETHERLANDS_1998: Squad = {
       aerial: 84,
       pace: 80,
       composure: 76,
-      form: 80,
     },
     {
       id: "ned-1998-seedorf",
@@ -227,7 +221,6 @@ export const NETHERLANDS_1998: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 84,
-      form: 82,
     },
   ],
 };

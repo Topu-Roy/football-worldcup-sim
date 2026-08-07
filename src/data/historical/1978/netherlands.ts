@@ -177,7 +177,6 @@ export const NETHERLANDS_1978: Squad = {
       offBall: 78,
       pace: 68,
       composure: 74,
-      form: 76,
     },
     {
       id: "ned-1978-wildschut",
@@ -193,7 +192,6 @@ export const NETHERLANDS_1978: Squad = {
       offBall: 78,
       stamina: 78,
       composure: 76,
-      form: 76,
     },
     {
       id: "ned-1978-suurbier",
@@ -209,7 +207,6 @@ export const NETHERLANDS_1978: Squad = {
       stamina: 84,
       workRate: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "ned-1978-hovenkamp",
@@ -225,7 +222,6 @@ export const NETHERLANDS_1978: Squad = {
       stamina: 82,
       workRate: 80,
       composure: 78,
-      form: 76,
     },
   ],
 };

@@ -20,7 +20,6 @@ export const WEST_GERMANY_1986: Squad = {
       positioning: 85,
       distribution: 68,
       composure: 88,
-      form: 90,
     },
     {
       id: "frg-1986-jakobs",
@@ -119,7 +118,6 @@ export const WEST_GERMANY_1986: Squad = {
       workRate: 82,
       stamina: 76,
       composure: 80,
-      form: 80,
     },
     {
       id: "frg-1986-rummenigge",
@@ -165,7 +163,6 @@ export const WEST_GERMANY_1986: Squad = {
       offBall: 72,
       composure: 74,
       stamina: 72,
-      form: 66,
     },
     {
       id: "frg-1986-hoeness",
@@ -181,7 +178,6 @@ export const WEST_GERMANY_1986: Squad = {
       dribble: 78,
       stamina: 78,
       composure: 78,
-      form: 76,
     },
     {
       id: "frg-1986-voller",
@@ -196,7 +192,6 @@ export const WEST_GERMANY_1986: Squad = {
       pace: 84,
       aerial: 78,
       composure: 84,
-      form: 80,
     },
     {
       id: "frg-1986-augenthaler",
@@ -211,7 +206,6 @@ export const WEST_GERMANY_1986: Squad = {
       passing: 76,
       pace: 68,
       composure: 84,
-      form: 80,
     },
     {
       id: "frg-1986-berthold",
@@ -227,7 +221,6 @@ export const WEST_GERMANY_1986: Squad = {
       stamina: 82,
       workRate: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "frg-1986-rolff",
@@ -242,7 +235,6 @@ export const WEST_GERMANY_1986: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 80,
-      form: 76,
     },
   ],
 };

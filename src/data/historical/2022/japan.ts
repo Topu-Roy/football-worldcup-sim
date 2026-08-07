@@ -20,7 +20,6 @@ export const JAPAN_2022: Squad = {
       positioning: 72,
       distribution: 68,
       composure: 74,
-      form: 64,
     },
     {
       id: "jpn-2022-yamane",
@@ -36,7 +35,6 @@ export const JAPAN_2022: Squad = {
       stamina: 76,
       workRate: 76,
       composure: 76,
-      form: 70,
     },
     {
       id: "jpn-2022-taniguchi",
@@ -51,7 +49,6 @@ export const JAPAN_2022: Squad = {
       passing: 76,
       pace: 68,
       composure: 82,
-      form: 78,
     },
     {
       id: "jpn-2022-itakura",
@@ -66,7 +63,6 @@ export const JAPAN_2022: Squad = {
       passing: 78,
       pace: 78,
       composure: 82,
-      form: 80,
     },
     {
       id: "jpn-2022-nagatomo",
@@ -82,7 +78,6 @@ export const JAPAN_2022: Squad = {
       workRate: 76,
       stamina: 74,
       composure: 78,
-      form: 70,
     },
     {
       id: "jpn-2022-endo",
@@ -98,7 +93,6 @@ export const JAPAN_2022: Squad = {
       stamina: 88,
       tackling: 82,
       composure: 82,
-      form: 82,
     },
     {
       id: "jpn-2022-shibasaki",
@@ -113,7 +107,6 @@ export const JAPAN_2022: Squad = {
       workRate: 74,
       stamina: 76,
       composure: 74,
-      form: 68,
     },
     {
       id: "jpn-2022-doan",
@@ -130,7 +123,6 @@ export const JAPAN_2022: Squad = {
       stamina: 76,
       passing: 80,
       composure: 82,
-      form: 88,
     },
     {
       id: "jpn-2022-mitoma",
@@ -147,7 +139,6 @@ export const JAPAN_2022: Squad = {
       stamina: 82,
       passing: 80,
       composure: 80,
-      form: 82,
     },
     {
       id: "jpn-2022-minamino",
@@ -164,7 +155,6 @@ export const JAPAN_2022: Squad = {
       stamina: 76,
       passing: 80,
       composure: 74,
-      form: 72,
     },
     {
       id: "jpn-2022-kubo",
@@ -181,7 +171,6 @@ export const JAPAN_2022: Squad = {
       stamina: 74,
       passing: 78,
       composure: 76,
-      form: 74,
     },
     {
       id: "jpn-2022-gonda",
@@ -195,7 +184,6 @@ export const JAPAN_2022: Squad = {
       positioning: 84,
       distribution: 72,
       composure: 86,
-      form: 88,
     },
     {
       id: "jpn-2022-morita",
@@ -210,7 +198,6 @@ export const JAPAN_2022: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 78,
-      form: 80,
     },
     {
       id: "jpn-2022-junya-ito",
@@ -227,7 +214,6 @@ export const JAPAN_2022: Squad = {
       stamina: 80,
       passing: 80,
       composure: 80,
-      form: 82,
     },
     {
       id: "jpn-2022-kamada",
@@ -244,7 +230,6 @@ export const JAPAN_2022: Squad = {
       stamina: 78,
       passing: 80,
       composure: 76,
-      form: 74,
     },
     {
       id: "jpn-2022-yoshida",
@@ -259,7 +244,6 @@ export const JAPAN_2022: Squad = {
       passing: 78,
       pace: 68,
       composure: 85,
-      form: 82,
     },
   ],
 };

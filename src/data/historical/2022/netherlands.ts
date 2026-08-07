@@ -20,7 +20,6 @@ export const NETHERLANDS_2022: Squad = {
       positioning: 73,
       distribution: 78,
       composure: 76,
-      form: 64,
     },
     {
       id: "ned-2022-timber",
@@ -35,7 +34,6 @@ export const NETHERLANDS_2022: Squad = {
       passing: 84,
       pace: 84,
       composure: 84,
-      form: 86,
     },
     {
       id: "ned-2022-de-ligt",
@@ -50,7 +48,6 @@ export const NETHERLANDS_2022: Squad = {
       passing: 80,
       pace: 78,
       composure: 80,
-      form: 80,
     },
     {
       id: "ned-2022-van-dijk",
@@ -65,7 +62,6 @@ export const NETHERLANDS_2022: Squad = {
       passing: 86,
       pace: 76,
       composure: 90,
-      form: 88,
     },
     {
       id: "ned-2022-ake",
@@ -80,7 +76,6 @@ export const NETHERLANDS_2022: Squad = {
       passing: 82,
       pace: 82,
       composure: 84,
-      form: 84,
     },
     {
       id: "ned-2022-de-vrij",
@@ -95,7 +90,6 @@ export const NETHERLANDS_2022: Squad = {
       passing: 78,
       pace: 72,
       composure: 82,
-      form: 80,
     },
     {
       id: "ned-2022-bergwijn",
@@ -111,7 +105,6 @@ export const NETHERLANDS_2022: Squad = {
       offBall: 76,
       stamina: 74,
       composure: 74,
-      form: 72,
     },
     {
       id: "ned-2022-gakpo",
@@ -129,7 +122,6 @@ export const NETHERLANDS_2022: Squad = {
       aerial: 78,
       passing: 82,
       composure: 86,
-      form: 90,
     },
     {
       id: "ned-2022-luuk-de-jong",
@@ -145,7 +137,6 @@ export const NETHERLANDS_2022: Squad = {
       pace: 60,
       stamina: 68,
       composure: 78,
-      form: 76,
     },
     {
       id: "ned-2022-depay",
@@ -162,7 +153,6 @@ export const NETHERLANDS_2022: Squad = {
       stamina: 74,
       passing: 82,
       composure: 82,
-      form: 82,
     },
     {
       id: "ned-2022-berghuis",
@@ -179,7 +169,6 @@ export const NETHERLANDS_2022: Squad = {
       stamina: 72,
       passing: 82,
       composure: 78,
-      form: 76,
     },
     {
       id: "ned-2022-klaassen",
@@ -195,7 +184,6 @@ export const NETHERLANDS_2022: Squad = {
       stamina: 84,
       finishing: 80,
       composure: 80,
-      form: 80,
     },
     {
       id: "ned-2022-de-roon",
@@ -211,7 +199,6 @@ export const NETHERLANDS_2022: Squad = {
       stamina: 90,
       tackling: 82,
       composure: 80,
-      form: 82,
     },
     {
       id: "ned-2022-blind",
@@ -228,7 +215,6 @@ export const NETHERLANDS_2022: Squad = {
       stamina: 80,
       aerial: 74,
       composure: 84,
-      form: 82,
     },
     {
       id: "ned-2022-weghorst",
@@ -244,7 +230,6 @@ export const NETHERLANDS_2022: Squad = {
       pace: 66,
       stamina: 76,
       composure: 82,
-      form: 86,
     },
     {
       id: "ned-2022-frenkie-de-jong",
@@ -259,7 +244,6 @@ export const NETHERLANDS_2022: Squad = {
       workRate: 82,
       stamina: 86,
       composure: 87,
-      form: 88,
     },
   ],
 };

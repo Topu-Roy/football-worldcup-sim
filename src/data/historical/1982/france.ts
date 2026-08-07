@@ -33,7 +33,6 @@ export const FRANCE_1982: Squad = {
       positioning: 80,
       distribution: 66,
       composure: 80,
-      form: 76,
     },
     {
       id: "fra-1982-amoros",
@@ -208,7 +207,6 @@ export const FRANCE_1982: Squad = {
       passing: 76,
       pace: 76,
       composure: 84,
-      form: 80,
     },
     {
       id: "fra-1982-bellone",
@@ -224,7 +222,6 @@ export const FRANCE_1982: Squad = {
       offBall: 80,
       stamina: 80,
       composure: 80,
-      form: 82,
     },
     {
       id: "fra-1982-couriol",
@@ -240,7 +237,6 @@ export const FRANCE_1982: Squad = {
       offBall: 78,
       stamina: 78,
       composure: 76,
-      form: 76,
     },
   ],
 };

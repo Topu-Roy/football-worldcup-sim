@@ -178,7 +178,6 @@ export const ARGENTINA_1978: Squad = {
       offBall: 80,
       stamina: 80,
       composure: 78,
-      form: 80,
     },
     {
       id: "arg-1978-larrosa",
@@ -193,7 +192,6 @@ export const ARGENTINA_1978: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "arg-1978-alonso",
@@ -209,7 +207,6 @@ export const ARGENTINA_1978: Squad = {
       stamina: 76,
       finishing: 76,
       composure: 82,
-      form: 76,
     },
     {
       id: "arg-1978-baley",
@@ -223,7 +220,6 @@ export const ARGENTINA_1978: Squad = {
       positioning: 80,
       distribution: 64,
       composure: 82,
-      form: 76,
     },
     {
       id: "arg-1978-r-galvan",

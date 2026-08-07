@@ -177,7 +177,6 @@ export const WEST_GERMANY_1990: Squad = {
       stamina: 80,
       finishing: 78,
       composure: 84,
-      form: 82,
     },
     {
       id: "frg-1990-riedle",
@@ -192,7 +191,6 @@ export const WEST_GERMANY_1990: Squad = {
       aerial: 84,
       pace: 82,
       composure: 78,
-      form: 78,
     },
     {
       id: "frg-1990-mill",
@@ -207,7 +205,6 @@ export const WEST_GERMANY_1990: Squad = {
       pace: 78,
       stamina: 78,
       composure: 76,
-      form: 74,
     },
     {
       id: "frg-1990-bein",
@@ -222,7 +219,6 @@ export const WEST_GERMANY_1990: Squad = {
       workRate: 78,
       stamina: 80,
       composure: 84,
-      form: 78,
     },
     {
       id: "frg-1990-pflugler",
@@ -238,7 +234,6 @@ export const WEST_GERMANY_1990: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 80,
-      form: 76,
     },
   ],
 };

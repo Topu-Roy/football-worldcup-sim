@@ -176,7 +176,6 @@ export const ITALY_1978: Squad = {
       workRate: 92,
       stamina: 90,
       composure: 84,
-      form: 80,
     },
     {
       id: "ita-1978-zaccarelli",
@@ -191,7 +190,6 @@ export const ITALY_1978: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 82,
-      form: 78,
     },
     {
       id: "ita-1978-tardelli",
@@ -206,7 +204,6 @@ export const ITALY_1978: Squad = {
       workRate: 92,
       stamina: 88,
       composure: 84,
-      form: 82,
     },
     {
       id: "ita-1978-graziani",

@@ -104,7 +104,6 @@ export const FRANCE_2006: Squad = {
       workRate: 90,
       stamina: 88,
       composure: 88,
-      form: 88,
     },
     {
       id: "fra-2006-ribery",
@@ -119,7 +118,6 @@ export const FRANCE_2006: Squad = {
       workRate: 88,
       stamina: 84,
       composure: 84,
-      form: 85,
     },
     {
       id: "fra-2006-zidane",
@@ -134,7 +132,6 @@ export const FRANCE_2006: Squad = {
       workRate: 68,
       stamina: 74,
       composure: 90,
-      form: 95,
     },
     {
       id: "fra-2006-malouda",
@@ -164,7 +161,6 @@ export const FRANCE_2006: Squad = {
       offBall: 90,
       stamina: 82,
       composure: 86,
-      form: 90,
     },
     {
       id: "fra-2006-wiltord",
@@ -181,7 +177,6 @@ export const FRANCE_2006: Squad = {
       workRate: 82,
       stamina: 80,
       composure: 80,
-      form: 82,
     },
     {
       id: "fra-2006-trezeguet",
@@ -196,7 +191,6 @@ export const FRANCE_2006: Squad = {
       aerial: 80,
       pace: 74,
       composure: 82,
-      form: 84,
     },
     {
       id: "fra-2006-saha",
@@ -212,7 +206,6 @@ export const FRANCE_2006: Squad = {
       aerial: 78,
       stamina: 76,
       composure: 78,
-      form: 80,
     },
     {
       id: "fra-2006-govou",
@@ -228,7 +221,6 @@ export const FRANCE_2006: Squad = {
       workRate: 80,
       stamina: 78,
       composure: 76,
-      form: 78,
     },
     {
       id: "fra-2006-diarra",
@@ -243,7 +235,6 @@ export const FRANCE_2006: Squad = {
       workRate: 84,
       stamina: 82,
       composure: 80,
-      form: 78,
     },
   ],
 };

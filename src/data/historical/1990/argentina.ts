@@ -176,7 +176,6 @@ export const ARGENTINA_1990: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 78,
-      form: 78,
     },
     {
       id: "arg-1990-olarticoechea",
@@ -192,7 +191,6 @@ export const ARGENTINA_1990: Squad = {
       stamina: 86,
       pace: 80,
       composure: 76,
-      form: 76,
     },
     {
       id: "arg-1990-balbo",
@@ -208,7 +206,6 @@ export const ARGENTINA_1990: Squad = {
       aerial: 80,
       stamina: 78,
       composure: 76,
-      form: 78,
     },
     {
       id: "arg-1990-giusti",
@@ -223,7 +220,6 @@ export const ARGENTINA_1990: Squad = {
       workRate: 86,
       stamina: 88,
       composure: 78,
-      form: 76,
     },
     {
       id: "arg-1990-monzon",
@@ -238,7 +234,6 @@ export const ARGENTINA_1990: Squad = {
       passing: 66,
       pace: 70,
       composure: 76,
-      form: 74,
     },
   ],
 };

@@ -107,7 +107,6 @@ export const PORTUGAL_2018: Squad = {
       dribble: 74,
       stamina: 72,
       composure: 74,
-      form: 72,
     },
     {
       id: "por-2018-bernardo-silva",
@@ -151,7 +150,6 @@ export const PORTUGAL_2018: Squad = {
       passing: 74,
       pace: 84,
       composure: 74,
-      form: 74,
     },
     {
       id: "por-2018-bruno-fernandes",
@@ -167,7 +165,6 @@ export const PORTUGAL_2018: Squad = {
       stamina: 72,
       finishing: 74,
       composure: 72,
-      form: 70,
     },
     {
       id: "por-2018-guedes",
@@ -200,7 +197,6 @@ export const PORTUGAL_2018: Squad = {
       passing: 78,
       stamina: 68,
       composure: 76,
-      form: 78,
     },
     {
       id: "por-2018-cedric",
@@ -229,7 +225,6 @@ export const PORTUGAL_2018: Squad = {
       workRate: 76,
       stamina: 76,
       composure: 76,
-      form: 74,
     },
     {
       id: "por-2018-ruben-dias",
@@ -244,7 +239,6 @@ export const PORTUGAL_2018: Squad = {
       passing: 74,
       pace: 72,
       composure: 74,
-      form: 72,
     },
   ],
 };

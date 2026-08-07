@@ -52,7 +52,6 @@ export const CAMEROON_1990: Squad = {
       stamina: 76,
       workRate: 74,
       composure: 72,
-      form: 74,
     },
     {
       id: "cmr-1990-ebwelle",
@@ -131,7 +130,6 @@ export const CAMEROON_1990: Squad = {
       stamina: 74,
       finishing: 70,
       composure: 74,
-      form: 74,
     },
     {
       id: "cmr-1990-milla",
@@ -181,7 +179,6 @@ export const CAMEROON_1990: Squad = {
       passing: 72,
       stamina: 74,
       composure: 76,
-      form: 74,
     },
     {
       id: "cmr-1990-makanaky",
@@ -197,7 +194,6 @@ export const CAMEROON_1990: Squad = {
       stamina: 78,
       aerial: 76,
       composure: 74,
-      form: 74,
     },
     {
       id: "cmr-1990-djonkep",
@@ -212,7 +208,6 @@ export const CAMEROON_1990: Squad = {
       workRate: 72,
       stamina: 76,
       composure: 70,
-      form: 70,
     },
     {
       id: "cmr-1990-libiih",
@@ -229,7 +224,6 @@ export const CAMEROON_1990: Squad = {
       stamina: 74,
       workRate: 72,
       composure: 72,
-      form: 70,
     },
     {
       id: "cmr-1990-ndip",
@@ -260,7 +254,6 @@ export const CAMEROON_1990: Squad = {
       workRate: 72,
       stamina: 74,
       composure: 70,
-      form: 68,
     },
   ],
 };

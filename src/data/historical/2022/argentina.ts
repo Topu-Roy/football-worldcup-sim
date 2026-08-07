@@ -20,7 +20,6 @@ export const ARGENTINA_2022: Squad = {
       positioning: 90,
       distribution: 84,
       composure: 91,
-      form: 92,
     },
     {
       id: "arg-2022-molina",
@@ -35,7 +34,6 @@ export const ARGENTINA_2022: Squad = {
       passing: 80,
       pace: 86,
       composure: 80,
-      form: 82,
     },
     {
       id: "arg-2022-romero",
@@ -50,7 +48,6 @@ export const ARGENTINA_2022: Squad = {
       passing: 80,
       pace: 82,
       composure: 86,
-      form: 88,
     },
     {
       id: "arg-2022-otamendi",
@@ -65,7 +62,6 @@ export const ARGENTINA_2022: Squad = {
       passing: 82,
       pace: 74,
       composure: 88,
-      form: 88,
     },
     {
       id: "arg-2022-tagliafico",
@@ -80,7 +76,6 @@ export const ARGENTINA_2022: Squad = {
       passing: 78,
       pace: 80,
       composure: 82,
-      form: 80,
     },
     {
       id: "arg-2022-de-paul",
@@ -95,7 +90,6 @@ export const ARGENTINA_2022: Squad = {
       workRate: 93,
       stamina: 90,
       composure: 84,
-      form: 84,
     },
     {
       id: "arg-2022-enzo-fernandez",
@@ -110,7 +104,6 @@ export const ARGENTINA_2022: Squad = {
       workRate: 86,
       stamina: 86,
       composure: 84,
-      form: 88,
     },
     {
       id: "arg-2022-mac-allister",
@@ -125,7 +118,6 @@ export const ARGENTINA_2022: Squad = {
       workRate: 88,
       stamina: 86,
       composure: 86,
-      form: 86,
     },
     {
       id: "arg-2022-di-maria",
@@ -141,7 +133,6 @@ export const ARGENTINA_2022: Squad = {
       offBall: 84,
       stamina: 76,
       composure: 84,
-      form: 80,
     },
     {
       id: "arg-2022-messi",
@@ -157,7 +148,6 @@ export const ARGENTINA_2022: Squad = {
       offBall: 95,
       stamina: 80,
       composure: 97,
-      form: 97,
     },
     {
       id: "arg-2022-julian-alvarez",
@@ -173,7 +163,6 @@ export const ARGENTINA_2022: Squad = {
       offBall: 91,
       stamina: 84,
       composure: 88,
-      form: 92,
     },
     {
       id: "arg-2022-lautaro-martinez",
@@ -190,7 +179,6 @@ export const ARGENTINA_2022: Squad = {
       aerial: 76,
       stamina: 78,
       composure: 80,
-      form: 82,
     },
     {
       id: "arg-2022-montiel",
@@ -206,7 +194,6 @@ export const ARGENTINA_2022: Squad = {
       stamina: 76,
       composure: 74,
       aerial: 70,
-      form: 76,
     },
     {
       id: "arg-2022-lisandro-martinez",
@@ -221,7 +208,6 @@ export const ARGENTINA_2022: Squad = {
       passing: 78,
       pace: 76,
       composure: 82,
-      form: 80,
     },
     {
       id: "arg-2022-acuna",
@@ -237,7 +223,6 @@ export const ARGENTINA_2022: Squad = {
       workRate: 80,
       stamina: 82,
       composure: 74,
-      form: 78,
     },
     {
       id: "arg-2022-paredes",
@@ -252,7 +237,6 @@ export const ARGENTINA_2022: Squad = {
       workRate: 78,
       stamina: 74,
       composure: 76,
-      form: 76,
     },
   ],
 };

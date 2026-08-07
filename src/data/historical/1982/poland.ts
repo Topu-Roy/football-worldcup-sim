@@ -80,7 +80,6 @@ export const POLAND_1982: Squad = {
       composure: 80,
       stamina: 78,
       workRate: 78,
-      form: 76,
     },
     {
       id: "pol-1982-jalocha",
@@ -96,7 +95,6 @@ export const POLAND_1982: Squad = {
       stamina: 82,
       workRate: 82,
       composure: 78,
-      form: 76,
     },
     {
       id: "pol-1982-buncol",
@@ -212,7 +210,6 @@ export const POLAND_1982: Squad = {
       stamina: 80,
       finishing: 76,
       composure: 78,
-      form: 76,
     },
     {
       id: "pol-1982-palasz",
@@ -227,7 +224,6 @@ export const POLAND_1982: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 78,
-      form: 74,
     },
     {
       id: "pol-1982-dziuba",
@@ -243,7 +239,6 @@ export const POLAND_1982: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 78,
-      form: 74,
     },
   ],
 };

@@ -34,7 +34,6 @@ export const BRAZIL_1998: Squad = {
       passing: 84,
       pace: 92,
       composure: 88,
-      form: 88,
     },
     {
       id: "bra-1998-aldair",
@@ -91,7 +90,6 @@ export const BRAZIL_1998: Squad = {
       workRate: 88,
       stamina: 84,
       composure: 78,
-      form: 86,
     },
     {
       id: "bra-1998-dunga",
@@ -150,7 +148,6 @@ export const BRAZIL_1998: Squad = {
       offBall: 92,
       stamina: 84,
       composure: 78,
-      form: 94,
     },
     {
       id: "bra-1998-bebeto",
@@ -181,7 +178,6 @@ export const BRAZIL_1998: Squad = {
       offBall: 76,
       stamina: 74,
       composure: 76,
-      form: 78,
     },
     {
       id: "bra-1998-edmundo",
@@ -196,7 +192,6 @@ export const BRAZIL_1998: Squad = {
       pace: 82,
       dribble: 82,
       composure: 76,
-      form: 78,
     },
     {
       id: "bra-1998-ze-roberto",
@@ -212,7 +207,6 @@ export const BRAZIL_1998: Squad = {
       stamina: 84,
       pace: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "bra-1998-giovanni",
@@ -229,7 +223,6 @@ export const BRAZIL_1998: Squad = {
       workRate: 76,
       stamina: 76,
       composure: 80,
-      form: 76,
     },
     {
       id: "bra-1998-goncalves",
@@ -244,7 +237,6 @@ export const BRAZIL_1998: Squad = {
       passing: 66,
       pace: 70,
       composure: 78,
-      form: 76,
     },
   ],
 };

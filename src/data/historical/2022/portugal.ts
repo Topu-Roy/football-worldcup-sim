@@ -20,7 +20,6 @@ export const PORTUGAL_2022: Squad = {
       positioning: 84,
       distribution: 76,
       composure: 84,
-      form: 82,
     },
     {
       id: "por-2022-dalot",
@@ -35,7 +34,6 @@ export const PORTUGAL_2022: Squad = {
       passing: 82,
       pace: 84,
       composure: 82,
-      form: 82,
     },
     {
       id: "por-2022-pepe",
@@ -50,7 +48,6 @@ export const PORTUGAL_2022: Squad = {
       passing: 82,
       pace: 68,
       composure: 88,
-      form: 88,
     },
     {
       id: "por-2022-ruben-dias",
@@ -65,7 +62,6 @@ export const PORTUGAL_2022: Squad = {
       passing: 84,
       pace: 78,
       composure: 86,
-      form: 86,
     },
     {
       id: "por-2022-guerreiro",
@@ -82,7 +78,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 82,
       aerial: 68,
       composure: 82,
-      form: 84,
     },
     {
       id: "por-2022-palhinha",
@@ -98,7 +93,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 87,
       tackling: 86,
       composure: 82,
-      form: 84,
     },
     {
       id: "por-2022-ronaldo",
@@ -115,7 +109,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 70,
       aerial: 86,
       composure: 78,
-      form: 74,
     },
     {
       id: "por-2022-bruno-fernandes",
@@ -131,7 +124,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 84,
       finishing: 85,
       composure: 84,
-      form: 88,
     },
     {
       id: "por-2022-bernardo-silva",
@@ -147,7 +139,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 84,
       finishing: 76,
       composure: 86,
-      form: 84,
     },
     {
       id: "por-2022-felix",
@@ -164,7 +155,6 @@ export const PORTUGAL_2022: Squad = {
       passing: 84,
       stamina: 76,
       composure: 80,
-      form: 84,
     },
     {
       id: "por-2022-danilo-pereira",
@@ -180,7 +170,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 82,
       tackling: 80,
       composure: 80,
-      form: 76,
     },
     {
       id: "por-2022-william-carvalho",
@@ -196,7 +185,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 74,
       tackling: 76,
       composure: 78,
-      form: 72,
     },
     {
       id: "por-2022-leao",
@@ -213,7 +201,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 74,
       passing: 80,
       composure: 80,
-      form: 84,
     },
     {
       id: "por-2022-joao-mario",
@@ -229,7 +216,6 @@ export const PORTUGAL_2022: Squad = {
       workRate: 74,
       stamina: 74,
       composure: 74,
-      form: 70,
     },
     {
       id: "por-2022-cancelo",
@@ -246,7 +232,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 82,
       dribble: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "por-2022-goncalo-ramos",
@@ -263,7 +248,6 @@ export const PORTUGAL_2022: Squad = {
       stamina: 78,
       aerial: 80,
       composure: 84,
-      form: 88,
     },
   ],
 };

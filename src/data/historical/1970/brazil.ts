@@ -178,7 +178,6 @@ export const BRAZIL_1970: Squad = {
       offBall: 80,
       passing: 80,
       composure: 82,
-      form: 80,
     },
     {
       id: "bra-1970-caju",
@@ -194,7 +193,6 @@ export const BRAZIL_1970: Squad = {
       offBall: 80,
       stamina: 76,
       composure: 82,
-      form: 78,
     },
     {
       id: "bra-1970-joel",
@@ -209,7 +207,6 @@ export const BRAZIL_1970: Squad = {
       passing: 68,
       pace: 72,
       composure: 82,
-      form: 78,
     },
     {
       id: "bra-1970-leao",
@@ -223,7 +220,6 @@ export const BRAZIL_1970: Squad = {
       positioning: 80,
       distribution: 76,
       composure: 82,
-      form: 78,
     },
     {
       id: "bra-1970-marco-antonio",
@@ -239,7 +235,6 @@ export const BRAZIL_1970: Squad = {
       stamina: 82,
       workRate: 82,
       composure: 80,
-      form: 78,
     },
   ],
 };

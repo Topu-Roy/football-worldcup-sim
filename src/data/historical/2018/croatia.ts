@@ -20,7 +20,6 @@ export const CROATIA_2018: Squad = {
       positioning: 84,
       distribution: 62,
       composure: 84,
-      form: 90,
     },
     {
       id: "cro-2018-vrsaljko",
@@ -49,7 +48,6 @@ export const CROATIA_2018: Squad = {
       passing: 74,
       pace: 76,
       composure: 82,
-      form: 84,
     },
     {
       id: "cro-2018-vida",
@@ -64,7 +62,6 @@ export const CROATIA_2018: Squad = {
       passing: 70,
       pace: 76,
       composure: 80,
-      form: 84,
     },
     {
       id: "cro-2018-strinic",
@@ -107,7 +104,6 @@ export const CROATIA_2018: Squad = {
       workRate: 92,
       stamina: 92,
       composure: 90,
-      form: 90,
     },
     {
       id: "cro-2018-modric",
@@ -122,7 +118,6 @@ export const CROATIA_2018: Squad = {
       workRate: 92,
       stamina: 94,
       composure: 94,
-      form: 97,
     },
     {
       id: "cro-2018-rebic",
@@ -138,7 +133,6 @@ export const CROATIA_2018: Squad = {
       offBall: 82,
       stamina: 84,
       composure: 76,
-      form: 82,
     },
     {
       id: "cro-2018-mandzukic",
@@ -154,7 +148,6 @@ export const CROATIA_2018: Squad = {
       offBall: 90,
       stamina: 84,
       composure: 86,
-      form: 92,
     },
     {
       id: "cro-2018-perisic",
@@ -170,7 +163,6 @@ export const CROATIA_2018: Squad = {
       offBall: 88,
       stamina: 86,
       composure: 82,
-      form: 92,
     },
     {
       id: "cro-2018-kramaric",
@@ -186,7 +178,6 @@ export const CROATIA_2018: Squad = {
       offBall: 84,
       stamina: 82,
       composure: 80,
-      form: 84,
     },
     {
       id: "cro-2018-kovacic",
@@ -201,7 +192,6 @@ export const CROATIA_2018: Squad = {
       workRate: 80,
       stamina: 82,
       composure: 82,
-      form: 82,
     },
     {
       id: "cro-2018-pivaric",
@@ -217,7 +207,6 @@ export const CROATIA_2018: Squad = {
       stamina: 78,
       workRate: 78,
       composure: 76,
-      form: 76,
     },
     {
       id: "cro-2018-badelj",
@@ -232,7 +221,6 @@ export const CROATIA_2018: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "cro-2018-pjaca",
@@ -248,7 +236,6 @@ export const CROATIA_2018: Squad = {
       offBall: 74,
       stamina: 74,
       composure: 72,
-      form: 74,
     },
   ],
 };

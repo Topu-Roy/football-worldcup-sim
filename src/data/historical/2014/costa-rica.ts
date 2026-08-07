@@ -90,7 +90,6 @@ export const COSTA_RICA_2014: Squad = {
       passing: 64,
       pace: 66,
       composure: 70,
-      form: 74,
     },
     {
       id: "crc-2014-bolanos",
@@ -151,7 +150,6 @@ export const COSTA_RICA_2014: Squad = {
       workRate: 74,
       stamina: 74,
       composure: 68,
-      form: 68,
     },
     {
       id: "crc-2014-diaz",
@@ -208,7 +206,6 @@ export const COSTA_RICA_2014: Squad = {
       passing: 62,
       pace: 62,
       composure: 68,
-      form: 66,
     },
     {
       id: "crc-2014-urena",
@@ -224,7 +221,6 @@ export const COSTA_RICA_2014: Squad = {
       dribble: 74,
       stamina: 72,
       composure: 68,
-      form: 70,
     },
     {
       id: "crc-2014-cubero",
@@ -239,7 +235,6 @@ export const COSTA_RICA_2014: Squad = {
       workRate: 76,
       stamina: 76,
       composure: 70,
-      form: 68,
     },
   ],
 };

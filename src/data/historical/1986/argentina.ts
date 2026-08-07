@@ -133,7 +133,6 @@ export const ARGENTINA_1986: Squad = {
       offBall: 92,
       composure: 95,
       stamina: 84,
-      form: 97,
     },
     {
       id: "arg-1986-burruchaga",
@@ -178,7 +177,6 @@ export const ARGENTINA_1986: Squad = {
       pace: 82,
       stamina: 80,
       composure: 78,
-      form: 78,
     },
     {
       id: "arg-1986-trobbiani",
@@ -193,7 +191,6 @@ export const ARGENTINA_1986: Squad = {
       workRate: 78,
       stamina: 80,
       composure: 80,
-      form: 76,
     },
     {
       id: "arg-1986-garre",
@@ -209,7 +206,6 @@ export const ARGENTINA_1986: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 78,
-      form: 74,
     },
     {
       id: "arg-1986-islas",
@@ -223,7 +219,6 @@ export const ARGENTINA_1986: Squad = {
       positioning: 80,
       distribution: 66,
       composure: 82,
-      form: 78,
     },
     {
       id: "arg-1986-tapia",
@@ -238,7 +233,6 @@ export const ARGENTINA_1986: Squad = {
       pace: 84,
       offBall: 80,
       composure: 80,
-      form: 80,
     },
     {
       id: "arg-1986-passarella",
@@ -253,7 +247,6 @@ export const ARGENTINA_1986: Squad = {
       passing: 82,
       pace: 70,
       composure: 94,
-      form: 70,
     },
   ],
 };

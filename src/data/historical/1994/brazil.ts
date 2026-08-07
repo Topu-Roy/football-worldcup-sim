@@ -162,7 +162,6 @@ export const BRAZIL_1994: Squad = {
       offBall: 94,
       stamina: 82,
       composure: 90,
-      form: 97,
     },
     {
       id: "bra-1994-rai",
@@ -178,7 +177,6 @@ export const BRAZIL_1994: Squad = {
       stamina: 76,
       finishing: 80,
       composure: 84,
-      form: 82,
     },
     {
       id: "bra-1994-muller",
@@ -193,7 +191,6 @@ export const BRAZIL_1994: Squad = {
       pace: 82,
       aerial: 78,
       composure: 76,
-      form: 76,
     },
     {
       id: "bra-1994-cafu",
@@ -209,7 +206,6 @@ export const BRAZIL_1994: Squad = {
       stamina: 84,
       workRate: 84,
       composure: 78,
-      form: 78,
     },
     {
       id: "bra-1994-ronaldo",
@@ -224,7 +220,6 @@ export const BRAZIL_1994: Squad = {
       pace: 88,
       offBall: 78,
       composure: 74,
-      form: 78,
     },
     {
       id: "bra-1994-leonardo",
@@ -240,7 +235,6 @@ export const BRAZIL_1994: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 80,
-      form: 78,
     },
   ],
 };

@@ -192,7 +192,6 @@ export const SPAIN_2026: Squad = {
       offBall: 84,
       stamina: 78,
       composure: 86,
-      form: 92,
     },
     {
       id: "esp-2026-baena",

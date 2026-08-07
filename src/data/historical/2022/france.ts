@@ -20,7 +20,6 @@ export const FRANCE_2022: Squad = {
       positioning: 88,
       distribution: 80,
       composure: 88,
-      form: 84,
     },
     {
       id: "fra-2022-kounde",
@@ -35,7 +34,6 @@ export const FRANCE_2022: Squad = {
       passing: 80,
       pace: 84,
       composure: 82,
-      form: 82,
     },
     {
       id: "fra-2022-varane",
@@ -50,7 +48,6 @@ export const FRANCE_2022: Squad = {
       passing: 84,
       pace: 84,
       composure: 86,
-      form: 86,
     },
     {
       id: "fra-2022-upamecano",
@@ -65,7 +62,6 @@ export const FRANCE_2022: Squad = {
       passing: 80,
       pace: 89,
       composure: 76,
-      form: 80,
     },
     {
       id: "fra-2022-theo-hernandez",
@@ -80,7 +76,6 @@ export const FRANCE_2022: Squad = {
       passing: 82,
       pace: 92,
       composure: 80,
-      form: 84,
     },
     {
       id: "fra-2022-tchouameni",
@@ -95,7 +90,6 @@ export const FRANCE_2022: Squad = {
       workRate: 84,
       stamina: 86,
       composure: 78,
-      form: 82,
     },
     {
       id: "fra-2022-rabiot",
@@ -110,7 +104,6 @@ export const FRANCE_2022: Squad = {
       workRate: 87,
       stamina: 87,
       composure: 82,
-      form: 84,
     },
     {
       id: "fra-2022-griezmann",
@@ -125,7 +118,6 @@ export const FRANCE_2022: Squad = {
       workRate: 89,
       stamina: 85,
       composure: 87,
-      form: 90,
     },
     {
       id: "fra-2022-dembele",
@@ -141,7 +133,6 @@ export const FRANCE_2022: Squad = {
       offBall: 80,
       stamina: 76,
       composure: 72,
-      form: 78,
     },
     {
       id: "fra-2022-mbappe",
@@ -157,7 +148,6 @@ export const FRANCE_2022: Squad = {
       offBall: 93,
       stamina: 84,
       composure: 90,
-      form: 97,
     },
     {
       id: "fra-2022-giroud",
@@ -173,7 +163,6 @@ export const FRANCE_2022: Squad = {
       offBall: 89,
       stamina: 78,
       composure: 84,
-      form: 88,
     },
     {
       id: "fra-2022-thuram",
@@ -190,7 +179,6 @@ export const FRANCE_2022: Squad = {
       stamina: 74,
       aerial: 76,
       composure: 74,
-      form: 78,
     },
     {
       id: "fra-2022-kolo-muani",
@@ -207,7 +195,6 @@ export const FRANCE_2022: Squad = {
       stamina: 76,
       aerial: 74,
       composure: 74,
-      form: 80,
     },
     {
       id: "fra-2022-coman",
@@ -223,7 +210,6 @@ export const FRANCE_2022: Squad = {
       offBall: 74,
       stamina: 72,
       composure: 70,
-      form: 76,
     },
     {
       id: "fra-2022-camavinga",
@@ -239,7 +225,6 @@ export const FRANCE_2022: Squad = {
       stamina: 82,
       tackling: 76,
       composure: 76,
-      form: 78,
     },
     {
       id: "fra-2022-pavard",
@@ -254,7 +239,6 @@ export const FRANCE_2022: Squad = {
       pace: 76,
       aerial: 78,
       composure: 82,
-      form: 82,
     },
   ],
 };

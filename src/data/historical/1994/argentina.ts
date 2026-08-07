@@ -20,7 +20,6 @@ export const ARGENTINA_1994: Squad = {
       positioning: 76,
       distribution: 72,
       composure: 80,
-      form: 72,
     },
     {
       id: "arg-1994-vazquez",
@@ -37,7 +36,6 @@ export const ARGENTINA_1994: Squad = {
       stamina: 74,
       workRate: 72,
       composure: 72,
-      form: 68,
     },
     {
       id: "arg-1994-chamot",
@@ -131,7 +129,6 @@ export const ARGENTINA_1994: Squad = {
       stamina: 76,
       tackling: 72,
       composure: 76,
-      form: 72,
     },
     {
       id: "arg-1994-batistuta",
@@ -179,7 +176,6 @@ export const ARGENTINA_1994: Squad = {
       passing: 74,
       stamina: 68,
       composure: 72,
-      form: 70,
     },
     {
       id: "arg-1994-caceres",
@@ -226,7 +222,6 @@ export const ARGENTINA_1994: Squad = {
       stamina: 74,
       finishing: 72,
       composure: 78,
-      form: 74,
     },
     {
       id: "arg-1994-balbo",
@@ -258,7 +253,6 @@ export const ARGENTINA_1994: Squad = {
       stamina: 70,
       workRate: 68,
       composure: 70,
-      form: 66,
     },
   ],
 };

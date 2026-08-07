@@ -147,7 +147,6 @@ export const ARGENTINA_2014: Squad = {
       offBall: 84,
       stamina: 84,
       composure: 82,
-      form: 86,
     },
     {
       id: "arg-2014-messi",
@@ -193,7 +192,6 @@ export const ARGENTINA_2014: Squad = {
       pace: 86,
       stamina: 78,
       composure: 82,
-      form: 84,
     },
     {
       id: "arg-2014-palacio",
@@ -209,7 +207,6 @@ export const ARGENTINA_2014: Squad = {
       dribble: 76,
       stamina: 76,
       composure: 74,
-      form: 76,
     },
     {
       id: "arg-2014-maxi-rodriguez",
@@ -224,7 +221,6 @@ export const ARGENTINA_2014: Squad = {
       workRate: 82,
       stamina: 80,
       composure: 80,
-      form: 78,
     },
     {
       id: "arg-2014-federico-fernandez",
@@ -239,7 +235,6 @@ export const ARGENTINA_2014: Squad = {
       passing: 72,
       pace: 74,
       composure: 78,
-      form: 76,
     },
   ],
 };

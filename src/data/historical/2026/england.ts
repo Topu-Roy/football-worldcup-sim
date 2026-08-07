@@ -162,7 +162,6 @@ export const ENGLAND_2026: Squad = {
       offBall: 80,
       stamina: 82,
       composure: 80,
-      form: 82,
     },
     {
       id: "eng-2026-kane",
@@ -208,7 +207,6 @@ export const ENGLAND_2026: Squad = {
       offBall: 82,
       stamina: 82,
       composure: 78,
-      form: 84,
     },
     {
       id: "eng-2026-eze",
@@ -240,7 +238,6 @@ export const ENGLAND_2026: Squad = {
       stamina: 84,
       finishing: 76,
       composure: 82,
-      form: 84,
     },
   ],
 };

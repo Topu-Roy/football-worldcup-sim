@@ -20,7 +20,6 @@ export const CROATIA_2022: Squad = {
       positioning: 87,
       distribution: 83,
       composure: 90,
-      form: 92,
     },
     {
       id: "cro-2022-juranovic",
@@ -35,7 +34,6 @@ export const CROATIA_2022: Squad = {
       passing: 80,
       pace: 82,
       composure: 80,
-      form: 80,
     },
     {
       id: "cro-2022-lovren",
@@ -50,7 +48,6 @@ export const CROATIA_2022: Squad = {
       passing: 80,
       pace: 74,
       composure: 82,
-      form: 82,
     },
     {
       id: "cro-2022-gvardiol",
@@ -65,7 +62,6 @@ export const CROATIA_2022: Squad = {
       passing: 85,
       pace: 89,
       composure: 86,
-      form: 92,
     },
     {
       id: "cro-2022-sosa",
@@ -80,7 +76,6 @@ export const CROATIA_2022: Squad = {
       passing: 82,
       pace: 84,
       composure: 78,
-      form: 80,
     },
     {
       id: "cro-2022-brozovic",
@@ -95,7 +90,6 @@ export const CROATIA_2022: Squad = {
       workRate: 91,
       stamina: 94,
       composure: 82,
-      form: 84,
     },
     {
       id: "cro-2022-modric",
@@ -110,7 +104,6 @@ export const CROATIA_2022: Squad = {
       workRate: 84,
       stamina: 87,
       composure: 95,
-      form: 92,
     },
     {
       id: "cro-2022-kovacic",
@@ -125,7 +118,6 @@ export const CROATIA_2022: Squad = {
       workRate: 84,
       stamina: 86,
       composure: 85,
-      form: 84,
     },
     {
       id: "cro-2022-pasalic",
@@ -141,7 +133,6 @@ export const CROATIA_2022: Squad = {
       stamina: 82,
       finishing: 78,
       composure: 78,
-      form: 80,
     },
     {
       id: "cro-2022-perisic",
@@ -157,7 +148,6 @@ export const CROATIA_2022: Squad = {
       offBall: 85,
       stamina: 89,
       composure: 84,
-      form: 82,
     },
     {
       id: "cro-2022-kramaric",
@@ -173,7 +163,6 @@ export const CROATIA_2022: Squad = {
       offBall: 83,
       stamina: 82,
       composure: 82,
-      form: 84,
     },
     {
       id: "cro-2022-petkovic",
@@ -189,7 +178,6 @@ export const CROATIA_2022: Squad = {
       offBall: 80,
       stamina: 78,
       composure: 78,
-      form: 80,
     },
     {
       id: "cro-2022-majer",
@@ -205,7 +193,6 @@ export const CROATIA_2022: Squad = {
       stamina: 76,
       finishing: 74,
       composure: 76,
-      form: 78,
     },
     {
       id: "cro-2022-vlasic",
@@ -221,7 +208,6 @@ export const CROATIA_2022: Squad = {
       stamina: 80,
       finishing: 76,
       composure: 76,
-      form: 78,
     },
     {
       id: "cro-2022-orsic",
@@ -237,7 +223,6 @@ export const CROATIA_2022: Squad = {
       offBall: 76,
       stamina: 74,
       composure: 74,
-      form: 76,
     },
     {
       id: "cro-2022-stanisic",
@@ -253,7 +238,6 @@ export const CROATIA_2022: Squad = {
       stamina: 76,
       aerial: 74,
       composure: 76,
-      form: 76,
     },
   ],
 };

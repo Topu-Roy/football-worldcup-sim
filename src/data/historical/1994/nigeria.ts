@@ -90,7 +90,6 @@ export const NIGERIA_1994: Squad = {
       passing: 64,
       pace: 74,
       composure: 74,
-      form: 72,
     },
     {
       id: "nga-1994-finidi",
@@ -152,7 +151,6 @@ export const NIGERIA_1994: Squad = {
       stamina: 70,
       finishing: 78,
       composure: 78,
-      form: 74,
     },
     {
       id: "nga-1994-amunike",
@@ -185,7 +183,6 @@ export const NIGERIA_1994: Squad = {
       passing: 74,
       stamina: 76,
       composure: 76,
-      form: 76,
     },
     {
       id: "nga-1994-amokachi",
@@ -232,7 +229,6 @@ export const NIGERIA_1994: Squad = {
       passing: 72,
       stamina: 72,
       composure: 74,
-      form: 72,
     },
     {
       id: "nga-1994-adepoju",
@@ -247,7 +243,6 @@ export const NIGERIA_1994: Squad = {
       workRate: 82,
       stamina: 80,
       composure: 76,
-      form: 74,
     },
   ],
 };

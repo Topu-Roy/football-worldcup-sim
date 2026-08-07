@@ -176,7 +176,6 @@ export const BRAZIL_2014: Squad = {
       pace: 68,
       stamina: 74,
       composure: 72,
-      form: 74,
     },
     {
       id: "bra-2014-bernard",
@@ -192,7 +191,6 @@ export const BRAZIL_2014: Squad = {
       offBall: 76,
       stamina: 78,
       composure: 72,
-      form: 76,
     },
     {
       id: "bra-2014-paulinho",
@@ -207,7 +205,6 @@ export const BRAZIL_2014: Squad = {
       stamina: 84,
       dribble: 76,
       composure: 76,
-      form: 76,
     },
     {
       id: "bra-2014-hernanes",
@@ -223,7 +220,6 @@ export const BRAZIL_2014: Squad = {
       stamina: 80,
       finishing: 76,
       composure: 78,
-      form: 78,
     },
     {
       id: "bra-2014-dante",
@@ -238,7 +234,6 @@ export const BRAZIL_2014: Squad = {
       passing: 74,
       pace: 70,
       composure: 80,
-      form: 78,
     },
   ],
 };

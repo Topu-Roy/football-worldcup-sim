@@ -178,7 +178,6 @@ export const WEST_GERMANY_1974: Squad = {
       stamina: 88,
       tackling: 76,
       composure: 82,
-      form: 78,
     },
     {
       id: "frg-1974-hoffges",
@@ -194,7 +193,6 @@ export const WEST_GERMANY_1974: Squad = {
       stamina: 84,
       workRate: 82,
       composure: 80,
-      form: 76,
     },
     {
       id: "frg-1974-wimmer",
@@ -209,7 +207,6 @@ export const WEST_GERMANY_1974: Squad = {
       workRate: 86,
       stamina: 88,
       composure: 82,
-      form: 80,
     },
     {
       id: "frg-1974-kleff",
@@ -223,7 +220,6 @@ export const WEST_GERMANY_1974: Squad = {
       positioning: 80,
       distribution: 64,
       composure: 82,
-      form: 74,
     },
   ],
 };

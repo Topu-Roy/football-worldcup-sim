@@ -176,7 +176,6 @@ export const NETHERLANDS_2014: Squad = {
       stamina: 92,
       tackling: 74,
       composure: 82,
-      form: 84,
     },
     {
       id: "ned-2014-wijnaldum",
@@ -192,7 +191,6 @@ export const NETHERLANDS_2014: Squad = {
       stamina: 86,
       finishing: 78,
       composure: 82,
-      form: 82,
     },
     {
       id: "ned-2014-huntelaar",
@@ -207,7 +205,6 @@ export const NETHERLANDS_2014: Squad = {
       aerial: 84,
       pace: 70,
       composure: 80,
-      form: 82,
     },
     {
       id: "ned-2014-lens",
@@ -223,7 +220,6 @@ export const NETHERLANDS_2014: Squad = {
       offBall: 78,
       stamina: 80,
       composure: 76,
-      form: 80,
     },
     {
       id: "ned-2014-janmaat",
@@ -239,7 +235,6 @@ export const NETHERLANDS_2014: Squad = {
       stamina: 82,
       workRate: 80,
       composure: 78,
-      form: 78,
     },
   ],
 };

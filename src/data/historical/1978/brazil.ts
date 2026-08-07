@@ -178,7 +178,6 @@ export const BRAZIL_1978: Squad = {
       offBall: 88,
       passing: 92,
       composure: 90,
-      form: 88,
     },
     {
       id: "bra-1978-reinaldo",
@@ -193,7 +192,6 @@ export const BRAZIL_1978: Squad = {
       pace: 84,
       aerial: 78,
       composure: 80,
-      form: 80,
     },
     {
       id: "bra-1978-toninho",
@@ -209,7 +207,6 @@ export const BRAZIL_1978: Squad = {
       aerial: 80,
       stamina: 82,
       composure: 80,
-      form: 78,
     },
     {
       id: "bra-1978-chicao",
@@ -225,7 +222,6 @@ export const BRAZIL_1978: Squad = {
       stamina: 82,
       workRate: 82,
       composure: 80,
-      form: 76,
     },
     {
       id: "bra-1978-waldir-peres",
@@ -239,7 +235,6 @@ export const BRAZIL_1978: Squad = {
       positioning: 82,
       distribution: 70,
       composure: 82,
-      form: 78,
     },
   ],
 };

@@ -90,7 +90,6 @@ export const PORTUGAL_2026: Squad = {
       workRate: 82,
       stamina: 80,
       composure: 78,
-      form: 78,
     },
     {
       id: "por-2026-ronaldo",
@@ -107,7 +106,6 @@ export const PORTUGAL_2026: Squad = {
       stamina: 50,
       aerial: 84,
       composure: 92,
-      form: 80,
     },
     {
       id: "por-2026-bruno-fernandes",
@@ -168,7 +166,6 @@ export const PORTUGAL_2026: Squad = {
       stamina: 76,
       finishing: 78,
       composure: 76,
-      form: 76,
     },
     {
       id: "por-2026-renato-veiga",

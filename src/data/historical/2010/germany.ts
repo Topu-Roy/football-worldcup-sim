@@ -175,7 +175,6 @@ export const GERMANY_2010: Squad = {
       workRate: 80,
       stamina: 82,
       composure: 84,
-      form: 82,
     },
     {
       id: "ger-2010-gomez",
@@ -190,7 +189,6 @@ export const GERMANY_2010: Squad = {
       aerial: 86,
       pace: 78,
       composure: 80,
-      form: 82,
     },
     {
       id: "ger-2010-cacau",
@@ -206,7 +204,6 @@ export const GERMANY_2010: Squad = {
       dribble: 78,
       stamina: 80,
       composure: 78,
-      form: 78,
     },
     {
       id: "ger-2010-marin",
@@ -222,7 +219,6 @@ export const GERMANY_2010: Squad = {
       offBall: 76,
       stamina: 76,
       composure: 74,
-      form: 76,
     },
     {
       id: "ger-2010-badstuber",
@@ -237,7 +233,6 @@ export const GERMANY_2010: Squad = {
       passing: 80,
       pace: 68,
       composure: 80,
-      form: 78,
     },
   ],
 };

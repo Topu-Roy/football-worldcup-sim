@@ -20,7 +20,6 @@ export const GERMANY_2006: Squad = {
       positioning: 86,
       distribution: 74,
       composure: 88,
-      form: 86,
     },
     {
       id: "ger-2006-friedrich",
@@ -77,7 +76,6 @@ export const GERMANY_2006: Squad = {
       passing: 86,
       pace: 88,
       composure: 90,
-      form: 88,
     },
     {
       id: "ger-2006-schneider",
@@ -106,7 +104,6 @@ export const GERMANY_2006: Squad = {
       workRate: 90,
       stamina: 88,
       composure: 86,
-      form: 84,
     },
     {
       id: "ger-2006-ballack",
@@ -121,7 +118,6 @@ export const GERMANY_2006: Squad = {
       workRate: 86,
       stamina: 86,
       composure: 92,
-      form: 84,
     },
     {
       id: "ger-2006-schweinsteiger",
@@ -136,7 +132,6 @@ export const GERMANY_2006: Squad = {
       workRate: 84,
       stamina: 82,
       composure: 82,
-      form: 86,
     },
     {
       id: "ger-2006-klose",
@@ -152,7 +147,6 @@ export const GERMANY_2006: Squad = {
       offBall: 90,
       stamina: 86,
       composure: 90,
-      form: 94,
     },
     {
       id: "ger-2006-podolski",
@@ -168,7 +162,6 @@ export const GERMANY_2006: Squad = {
       offBall: 84,
       stamina: 82,
       composure: 84,
-      form: 86,
     },
     {
       id: "ger-2006-odonkor",
@@ -184,7 +177,6 @@ export const GERMANY_2006: Squad = {
       offBall: 74,
       stamina: 76,
       composure: 70,
-      form: 76,
     },
     {
       id: "ger-2006-neuville",
@@ -200,7 +192,6 @@ export const GERMANY_2006: Squad = {
       stamina: 78,
       dribble: 78,
       composure: 80,
-      form: 82,
     },
     {
       id: "ger-2006-borowski",
@@ -215,7 +206,6 @@ export const GERMANY_2006: Squad = {
       stamina: 84,
       dribble: 78,
       composure: 80,
-      form: 78,
     },
     {
       id: "ger-2006-huth",
@@ -230,7 +220,6 @@ export const GERMANY_2006: Squad = {
       passing: 70,
       pace: 70,
       composure: 78,
-      form: 76,
     },
     {
       id: "ger-2006-hanke",
@@ -246,7 +235,6 @@ export const GERMANY_2006: Squad = {
       pace: 76,
       stamina: 74,
       composure: 74,
-      form: 76,
     },
   ],
 };

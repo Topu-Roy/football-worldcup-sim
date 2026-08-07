@@ -148,7 +148,6 @@ export const BELGIUM_1986: Squad = {
       offBall: 80,
       composure: 78,
       stamina: 74,
-      form: 70,
     },
     {
       id: "bel-1986-vervoort",
@@ -164,7 +163,6 @@ export const BELGIUM_1986: Squad = {
       offBall: 78,
       stamina: 78,
       composure: 78,
-      form: 78,
     },
     {
       id: "bel-1986-mommens",
@@ -179,7 +177,6 @@ export const BELGIUM_1986: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 80,
-      form: 78,
     },
     {
       id: "bel-1986-clijsters",
@@ -194,7 +191,6 @@ export const BELGIUM_1986: Squad = {
       passing: 66,
       pace: 66,
       composure: 80,
-      form: 76,
     },
     {
       id: "bel-1986-veyt",
@@ -209,7 +205,6 @@ export const BELGIUM_1986: Squad = {
       aerial: 80,
       pace: 76,
       composure: 74,
-      form: 72,
     },
   ],
 };

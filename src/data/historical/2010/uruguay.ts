@@ -179,7 +179,6 @@ export const URUGUAY_2010: Squad = {
       pace: 66,
       stamina: 72,
       composure: 80,
-      form: 80,
     },
     {
       id: "uru-2010-lodeiro",
@@ -195,7 +194,6 @@ export const URUGUAY_2010: Squad = {
       stamina: 82,
       finishing: 76,
       composure: 78,
-      form: 80,
     },
     {
       id: "uru-2010-caceres",
@@ -211,7 +209,6 @@ export const URUGUAY_2010: Squad = {
       pace: 80,
       workRate: 82,
       composure: 78,
-      form: 78,
     },
     {
       id: "uru-2010-scotti",
@@ -226,7 +223,6 @@ export const URUGUAY_2010: Squad = {
       passing: 72,
       pace: 66,
       composure: 80,
-      form: 76,
     },
   ],
 };

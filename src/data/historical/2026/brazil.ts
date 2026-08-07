@@ -33,7 +33,6 @@ export const BRAZIL_2026: Squad = {
       positioning: 84,
       distribution: 92,
       composure: 84,
-      form: 82,
     },
     {
       id: "bra-2026-gabriel-magalhaes",
@@ -139,7 +138,6 @@ export const BRAZIL_2026: Squad = {
       stamina: 60,
       finishing: 78,
       composure: 74,
-      form: 72,
     },
     {
       id: "bra-2026-raphinha",
@@ -214,7 +212,6 @@ export const BRAZIL_2026: Squad = {
       offBall: 78,
       stamina: 74,
       composure: 74,
-      form: 80,
     },
     {
       id: "bra-2026-paqueta",

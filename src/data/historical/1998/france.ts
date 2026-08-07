@@ -20,7 +20,6 @@ export const FRANCE_1998: Squad = {
       positioning: 88,
       distribution: 82,
       composure: 88,
-      form: 92,
     },
     {
       id: "fra-1998-thuram",
@@ -35,7 +34,6 @@ export const FRANCE_1998: Squad = {
       passing: 78,
       pace: 88,
       composure: 86,
-      form: 88,
     },
     {
       id: "fra-1998-desailly",
@@ -64,7 +62,6 @@ export const FRANCE_1998: Squad = {
       passing: 82,
       pace: 74,
       composure: 88,
-      form: 88,
     },
     {
       id: "fra-1998-lizarazu",
@@ -107,7 +104,6 @@ export const FRANCE_1998: Squad = {
       workRate: 86,
       stamina: 88,
       composure: 86,
-      form: 88,
     },
     {
       id: "fra-1998-zidane",
@@ -122,7 +118,6 @@ export const FRANCE_1998: Squad = {
       workRate: 70,
       stamina: 80,
       composure: 90,
-      form: 97,
     },
     {
       id: "fra-1998-djorkaeff",
@@ -183,7 +178,6 @@ export const FRANCE_1998: Squad = {
       offBall: 84,
       stamina: 78,
       composure: 80,
-      form: 86,
     },
     {
       id: "fra-1998-trezeguet",
@@ -198,7 +192,6 @@ export const FRANCE_1998: Squad = {
       aerial: 78,
       pace: 78,
       composure: 78,
-      form: 82,
     },
     {
       id: "fra-1998-karembeu",
@@ -214,7 +207,6 @@ export const FRANCE_1998: Squad = {
       dribble: 74,
       pace: 82,
       composure: 78,
-      form: 78,
     },
     {
       id: "fra-1998-boghossian",
@@ -229,7 +221,6 @@ export const FRANCE_1998: Squad = {
       stamina: 84,
       dribble: 76,
       composure: 82,
-      form: 82,
     },
     {
       id: "fra-1998-candela",
@@ -245,7 +236,6 @@ export const FRANCE_1998: Squad = {
       stamina: 82,
       workRate: 82,
       composure: 80,
-      form: 80,
     },
     {
       id: "fra-1998-pires",
@@ -261,7 +251,6 @@ export const FRANCE_1998: Squad = {
       offBall: 78,
       stamina: 82,
       composure: 80,
-      form: 80,
     },
   ],
 };

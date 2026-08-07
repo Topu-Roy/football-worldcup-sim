@@ -20,7 +20,6 @@ export const ENGLAND_2018: Squad = {
       positioning: 84,
       distribution: 88,
       composure: 86,
-      form: 88,
     },
     {
       id: "eng-2018-walker",
@@ -49,7 +48,6 @@ export const ENGLAND_2018: Squad = {
       passing: 88,
       pace: 78,
       composure: 86,
-      form: 84,
     },
     {
       id: "eng-2018-maguire",
@@ -64,7 +62,6 @@ export const ENGLAND_2018: Squad = {
       passing: 80,
       pace: 70,
       composure: 86,
-      form: 88,
     },
     {
       id: "eng-2018-trippier",
@@ -79,7 +76,6 @@ export const ENGLAND_2018: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 84,
-      form: 86,
     },
     {
       id: "eng-2018-henderson",
@@ -108,7 +104,6 @@ export const ENGLAND_2018: Squad = {
       workRate: 88,
       stamina: 86,
       composure: 84,
-      form: 84,
     },
     {
       id: "eng-2018-alli",
@@ -123,7 +118,6 @@ export const ENGLAND_2018: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 84,
-      form: 84,
     },
     {
       id: "eng-2018-young",
@@ -153,7 +147,6 @@ export const ENGLAND_2018: Squad = {
       offBall: 88,
       stamina: 84,
       composure: 76,
-      form: 82,
     },
     {
       id: "eng-2018-kane",
@@ -169,7 +162,6 @@ export const ENGLAND_2018: Squad = {
       offBall: 92,
       stamina: 84,
       composure: 88,
-      form: 95,
     },
     {
       id: "eng-2018-rashford",
@@ -185,7 +177,6 @@ export const ENGLAND_2018: Squad = {
       offBall: 80,
       stamina: 78,
       composure: 72,
-      form: 78,
     },
     {
       id: "eng-2018-vardy",
@@ -201,7 +192,6 @@ export const ENGLAND_2018: Squad = {
       stamina: 86,
       dribble: 78,
       composure: 82,
-      form: 80,
     },
     {
       id: "eng-2018-dier",
@@ -216,7 +206,6 @@ export const ENGLAND_2018: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 82,
-      form: 80,
     },
     {
       id: "eng-2018-loftus-cheek",
@@ -231,7 +220,6 @@ export const ENGLAND_2018: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 80,
-      form: 78,
     },
     {
       id: "eng-2018-cahill",
@@ -246,7 +234,6 @@ export const ENGLAND_2018: Squad = {
       passing: 76,
       pace: 66,
       composure: 84,
-      form: 80,
     },
   ],
 };

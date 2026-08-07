@@ -163,7 +163,6 @@ export const BRAZIL_2002: Squad = {
       offBall: 94,
       stamina: 80,
       composure: 94,
-      form: 97,
     },
     {
       id: "bra-2002-kaka",
@@ -180,7 +179,6 @@ export const BRAZIL_2002: Squad = {
       stamina: 76,
       finishing: 74,
       composure: 78,
-      form: 78,
     },
     {
       id: "bra-2002-denilson",
@@ -196,7 +194,6 @@ export const BRAZIL_2002: Squad = {
       offBall: 76,
       stamina: 72,
       composure: 74,
-      form: 76,
     },
     {
       id: "bra-2002-belletti",
@@ -212,7 +209,6 @@ export const BRAZIL_2002: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 76,
-      form: 76,
     },
     {
       id: "bra-2002-ricardinho",
@@ -228,7 +224,6 @@ export const BRAZIL_2002: Squad = {
       stamina: 78,
       finishing: 74,
       composure: 78,
-      form: 76,
     },
     {
       id: "bra-2002-polga",
@@ -243,7 +238,6 @@ export const BRAZIL_2002: Squad = {
       passing: 70,
       pace: 72,
       composure: 80,
-      form: 76,
     },
   ],
 };

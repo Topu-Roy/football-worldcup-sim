@@ -118,7 +118,6 @@ export const GERMANY_2002: Squad = {
       workRate: 88,
       stamina: 88,
       composure: 86,
-      form: 90,
     },
     {
       id: "ger-2002-bode",
@@ -178,7 +177,6 @@ export const GERMANY_2002: Squad = {
       pace: 64,
       stamina: 74,
       composure: 82,
-      form: 80,
     },
     {
       id: "ger-2002-jeremies",
@@ -193,7 +191,6 @@ export const GERMANY_2002: Squad = {
       workRate: 88,
       stamina: 88,
       composure: 80,
-      form: 78,
     },
     {
       id: "ger-2002-kehl",
@@ -208,7 +205,6 @@ export const GERMANY_2002: Squad = {
       workRate: 86,
       stamina: 86,
       composure: 80,
-      form: 78,
     },
     {
       id: "ger-2002-asamoah",
@@ -224,7 +220,6 @@ export const GERMANY_2002: Squad = {
       stamina: 82,
       dribble: 76,
       composure: 72,
-      form: 76,
     },
     {
       id: "ger-2002-ziege",
@@ -240,7 +235,6 @@ export const GERMANY_2002: Squad = {
       stamina: 80,
       workRate: 78,
       composure: 78,
-      form: 76,
     },
   ],
 };

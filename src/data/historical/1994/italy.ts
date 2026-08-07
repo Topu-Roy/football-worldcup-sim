@@ -162,7 +162,6 @@ export const ITALY_1994: Squad = {
       offBall: 90,
       stamina: 80,
       composure: 86,
-      form: 96,
     },
     {
       id: "ita-1994-zola",
@@ -178,7 +177,6 @@ export const ITALY_1994: Squad = {
       offBall: 84,
       stamina: 74,
       composure: 84,
-      form: 84,
     },
     {
       id: "ita-1994-signori",
@@ -194,7 +192,6 @@ export const ITALY_1994: Squad = {
       dribble: 82,
       stamina: 80,
       composure: 82,
-      form: 84,
     },
     {
       id: "ita-1994-conte",
@@ -209,7 +206,6 @@ export const ITALY_1994: Squad = {
       stamina: 86,
       dribble: 76,
       composure: 82,
-      form: 78,
     },
     {
       id: "ita-1994-mussi",
@@ -225,7 +221,6 @@ export const ITALY_1994: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 78,
-      form: 76,
     },
     {
       id: "ita-1994-casiraghi",
@@ -240,7 +235,6 @@ export const ITALY_1994: Squad = {
       aerial: 82,
       pace: 74,
       composure: 76,
-      form: 76,
     },
   ],
 };

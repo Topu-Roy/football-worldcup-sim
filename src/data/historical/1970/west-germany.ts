@@ -178,7 +178,6 @@ export const WEST_GERMANY_1970: Squad = {
       offBall: 78,
       stamina: 76,
       composure: 76,
-      form: 78,
     },
     {
       id: "frg-1970-held",
@@ -194,7 +193,6 @@ export const WEST_GERMANY_1970: Squad = {
       offBall: 80,
       stamina: 80,
       composure: 78,
-      form: 78,
     },
     {
       id: "frg-1970-weber",
@@ -209,7 +207,6 @@ export const WEST_GERMANY_1970: Squad = {
       passing: 72,
       pace: 74,
       composure: 80,
-      form: 78,
     },
     {
       id: "frg-1970-lorenz",
@@ -224,7 +221,6 @@ export const WEST_GERMANY_1970: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 80,
-      form: 76,
     },
     {
       id: "frg-1970-manglitz",
@@ -238,7 +234,6 @@ export const WEST_GERMANY_1970: Squad = {
       positioning: 80,
       distribution: 68,
       composure: 82,
-      form: 76,
     },
   ],
 };

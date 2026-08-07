@@ -177,7 +177,6 @@ export const SOUTH_KOREA_2002: Squad = {
       stamina: 86,
       workRate: 84,
       composure: 72,
-      form: 76,
     },
     {
       id: "kor-2002-hwang-sun-hong",
@@ -192,7 +191,6 @@ export const SOUTH_KOREA_2002: Squad = {
       pace: 76,
       aerial: 78,
       composure: 80,
-      form: 78,
     },
     {
       id: "kor-2002-lee-chun-soo",
@@ -209,7 +207,6 @@ export const SOUTH_KOREA_2002: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 76,
-      form: 78,
     },
     {
       id: "kor-2002-lee-eul-yong",
@@ -224,7 +221,6 @@ export const SOUTH_KOREA_2002: Squad = {
       stamina: 86,
       dribble: 74,
       composure: 78,
-      form: 76,
     },
   ],
 };

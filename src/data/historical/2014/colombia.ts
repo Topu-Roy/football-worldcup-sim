@@ -62,7 +62,6 @@ export const COLOMBIA_2014: Squad = {
       passing: 72,
       pace: 82,
       composure: 70,
-      form: 70,
     },
     {
       id: "col-2014-carlos-sanchez",
@@ -165,7 +164,6 @@ export const COLOMBIA_2014: Squad = {
       stamina: 78,
       finishing: 74,
       composure: 72,
-      form: 72,
     },
     {
       id: "col-2014-balanta",
@@ -180,7 +178,6 @@ export const COLOMBIA_2014: Squad = {
       passing: 72,
       pace: 76,
       composure: 70,
-      form: 72,
     },
     {
       id: "col-2014-bacca",
@@ -195,7 +192,6 @@ export const COLOMBIA_2014: Squad = {
       pace: 76,
       stamina: 72,
       composure: 74,
-      form: 72,
     },
     {
       id: "col-2014-zuniga",
@@ -225,7 +221,6 @@ export const COLOMBIA_2014: Squad = {
       pace: 76,
       stamina: 72,
       composure: 76,
-      form: 78,
     },
     {
       id: "col-2014-quintero",
@@ -241,7 +236,6 @@ export const COLOMBIA_2014: Squad = {
       stamina: 70,
       finishing: 74,
       composure: 76,
-      form: 74,
     },
   ],
 };

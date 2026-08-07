@@ -92,7 +92,6 @@ export const ARGENTINA_2026: Squad = {
       passing: 80,
       pace: 66,
       composure: 90,
-      form: 76,
     },
     {
       id: "arg-2026-tagliafico",
@@ -239,7 +238,6 @@ export const ARGENTINA_2026: Squad = {
       stamina: 80,
       finishing: 78,
       composure: 82,
-      form: 78,
     },
   ],
 };

@@ -114,7 +114,6 @@ export const NETHERLANDS_1990: Squad = {
       stamina: 68,
       finishing: 70,
       composure: 76,
-      form: 72,
     },
     {
       id: "ned-1990-van-basten",
@@ -176,7 +175,6 @@ export const NETHERLANDS_1990: Squad = {
       aerial: 82,
       stamina: 72,
       composure: 76,
-      form: 74,
     },
     {
       id: "ned-1990-rutjes",
@@ -193,7 +191,6 @@ export const NETHERLANDS_1990: Squad = {
       stamina: 74,
       workRate: 72,
       composure: 72,
-      form: 68,
     },
     {
       id: "ned-1990-van-t-schip",
@@ -209,7 +206,6 @@ export const NETHERLANDS_1990: Squad = {
       stamina: 78,
       pace: 74,
       composure: 76,
-      form: 72,
     },
     {
       id: "ned-1990-roy",
@@ -226,7 +222,6 @@ export const NETHERLANDS_1990: Squad = {
       passing: 72,
       stamina: 70,
       composure: 74,
-      form: 70,
     },
     {
       id: "ned-1990-winter",
@@ -258,7 +253,6 @@ export const NETHERLANDS_1990: Squad = {
       stamina: 74,
       workRate: 74,
       composure: 74,
-      form: 68,
     },
   ],
 };

@@ -167,7 +167,6 @@ export const BRAZIL_1982: Squad = {
       positioning: 76,
       distribution: 66,
       composure: 72,
-      form: 72,
     },
     {
       id: "bra-1982-eduvaldo",
@@ -182,7 +181,6 @@ export const BRAZIL_1982: Squad = {
       passing: 72,
       pace: 80,
       composure: 72,
-      form: 74,
     },
     {
       id: "bra-1982-falcao",
@@ -211,7 +209,6 @@ export const BRAZIL_1982: Squad = {
       passing: 70,
       pace: 72,
       composure: 76,
-      form: 76,
     },
     {
       id: "bra-1982-batista",
@@ -226,7 +223,6 @@ export const BRAZIL_1982: Squad = {
       workRate: 82,
       stamina: 78,
       composure: 74,
-      form: 74,
     },
     {
       id: "bra-1982-dirceu",
@@ -243,7 +239,6 @@ export const BRAZIL_1982: Squad = {
       offBall: 76,
       stamina: 68,
       composure: 74,
-      form: 74,
     },
   ],
 };

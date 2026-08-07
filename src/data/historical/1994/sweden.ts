@@ -179,7 +179,6 @@ export const SWEDEN_1994: Squad = {
       stamina: 82,
       workRate: 82,
       composure: 76,
-      form: 80,
     },
     {
       id: "swe-1994-limpar",
@@ -196,7 +195,6 @@ export const SWEDEN_1994: Squad = {
       workRate: 78,
       stamina: 78,
       composure: 74,
-      form: 76,
     },
     {
       id: "swe-1994-mild",
@@ -211,7 +209,6 @@ export const SWEDEN_1994: Squad = {
       stamina: 86,
       dribble: 72,
       composure: 78,
-      form: 76,
     },
     {
       id: "swe-1994-ljung",
@@ -227,7 +224,6 @@ export const SWEDEN_1994: Squad = {
       passing: 72,
       workRate: 80,
       composure: 76,
-      form: 74,
     },
     {
       id: "swe-1994-erlingmark",
@@ -242,7 +238,6 @@ export const SWEDEN_1994: Squad = {
       passing: 70,
       pace: 68,
       composure: 80,
-      form: 76,
     },
   ],
 };

@@ -20,7 +20,6 @@ export const FRANCE_2018: Squad = {
       positioning: 86,
       distribution: 82,
       composure: 88,
-      form: 86,
     },
     {
       id: "fra-2018-pavard",
@@ -35,7 +34,6 @@ export const FRANCE_2018: Squad = {
       passing: 82,
       pace: 86,
       composure: 82,
-      form: 86,
     },
     {
       id: "fra-2018-varane",
@@ -50,7 +48,6 @@ export const FRANCE_2018: Squad = {
       passing: 84,
       pace: 88,
       composure: 88,
-      form: 88,
     },
     {
       id: "fra-2018-umtiti",
@@ -65,7 +62,6 @@ export const FRANCE_2018: Squad = {
       passing: 80,
       pace: 82,
       composure: 86,
-      form: 88,
     },
     {
       id: "fra-2018-hernandez",
@@ -94,7 +90,6 @@ export const FRANCE_2018: Squad = {
       workRate: 96,
       stamina: 92,
       composure: 90,
-      form: 90,
     },
     {
       id: "fra-2018-pogba",
@@ -109,7 +104,6 @@ export const FRANCE_2018: Squad = {
       workRate: 80,
       stamina: 86,
       composure: 86,
-      form: 90,
     },
     {
       id: "fra-2018-matuidi",
@@ -139,7 +133,6 @@ export const FRANCE_2018: Squad = {
       offBall: 92,
       stamina: 84,
       composure: 86,
-      form: 95,
     },
     {
       id: "fra-2018-griezmann",
@@ -155,7 +148,6 @@ export const FRANCE_2018: Squad = {
       offBall: 92,
       stamina: 84,
       composure: 92,
-      form: 95,
     },
     {
       id: "fra-2018-giroud",
@@ -171,7 +163,6 @@ export const FRANCE_2018: Squad = {
       offBall: 86,
       stamina: 80,
       composure: 86,
-      form: 80,
     },
     {
       id: "fra-2018-dembele",
@@ -187,7 +178,6 @@ export const FRANCE_2018: Squad = {
       offBall: 78,
       stamina: 74,
       composure: 70,
-      form: 76,
     },
     {
       id: "fra-2018-fekir",
@@ -203,7 +193,6 @@ export const FRANCE_2018: Squad = {
       pace: 82,
       stamina: 78,
       composure: 80,
-      form: 80,
     },
     {
       id: "fra-2018-kimpembe",
@@ -218,7 +207,6 @@ export const FRANCE_2018: Squad = {
       passing: 76,
       pace: 82,
       composure: 78,
-      form: 80,
     },
     {
       id: "fra-2018-tolisso",
@@ -233,7 +221,6 @@ export const FRANCE_2018: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 80,
-      form: 78,
     },
     {
       id: "fra-2018-sidibe",
@@ -249,7 +236,6 @@ export const FRANCE_2018: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 78,
-      form: 78,
     },
   ],
 };

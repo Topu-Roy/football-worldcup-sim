@@ -20,7 +20,6 @@ export const ITALY_2006: Squad = {
       positioning: 94,
       distribution: 82,
       composure: 95,
-      form: 97,
     },
     {
       id: "ita-2006-zambrotta",
@@ -49,7 +48,6 @@ export const ITALY_2006: Squad = {
       passing: 80,
       pace: 82,
       composure: 96,
-      form: 95,
     },
     {
       id: "ita-2006-materazzi",
@@ -78,7 +76,6 @@ export const ITALY_2006: Squad = {
       passing: 74,
       pace: 76,
       composure: 82,
-      form: 80,
     },
     {
       id: "ita-2006-grosso",
@@ -93,7 +90,6 @@ export const ITALY_2006: Squad = {
       passing: 82,
       pace: 84,
       composure: 90,
-      form: 88,
     },
     {
       id: "ita-2006-gattuso",
@@ -122,7 +118,6 @@ export const ITALY_2006: Squad = {
       workRate: 80,
       stamina: 86,
       composure: 94,
-      form: 93,
     },
     {
       id: "ita-2006-camoranesi",
@@ -165,7 +160,6 @@ export const ITALY_2006: Squad = {
       workRate: 72,
       stamina: 76,
       composure: 86,
-      form: 82,
     },
     {
       id: "ita-2006-toni",
@@ -181,7 +175,6 @@ export const ITALY_2006: Squad = {
       offBall: 86,
       stamina: 82,
       composure: 84,
-      form: 84,
     },
     {
       id: "ita-2006-del-piero",
@@ -198,7 +191,6 @@ export const ITALY_2006: Squad = {
       workRate: 74,
       stamina: 72,
       composure: 88,
-      form: 86,
     },
     {
       id: "ita-2006-iaquinta",
@@ -214,7 +206,6 @@ export const ITALY_2006: Squad = {
       aerial: 78,
       stamina: 76,
       composure: 78,
-      form: 78,
     },
     {
       id: "ita-2006-gilardino",
@@ -231,7 +222,6 @@ export const ITALY_2006: Squad = {
       dribble: 76,
       stamina: 78,
       composure: 82,
-      form: 82,
     },
     {
       id: "ita-2006-de-rossi",
@@ -246,7 +236,6 @@ export const ITALY_2006: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 82,
-      form: 82,
     },
   ],
 };

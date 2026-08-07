@@ -20,7 +20,6 @@ export const MOROCCO_2022: Squad = {
       positioning: 87,
       distribution: 85,
       composure: 91,
-      form: 92,
     },
     {
       id: "mar-2022-hakimi",
@@ -35,7 +34,6 @@ export const MOROCCO_2022: Squad = {
       passing: 82,
       pace: 94,
       composure: 86,
-      form: 86,
     },
     {
       id: "mar-2022-saiss",
@@ -50,7 +48,6 @@ export const MOROCCO_2022: Squad = {
       passing: 78,
       pace: 74,
       composure: 88,
-      form: 84,
     },
     {
       id: "mar-2022-aguerd",
@@ -65,7 +62,6 @@ export const MOROCCO_2022: Squad = {
       passing: 78,
       pace: 80,
       composure: 82,
-      form: 82,
     },
     {
       id: "mar-2022-mazraoui",
@@ -80,7 +76,6 @@ export const MOROCCO_2022: Squad = {
       passing: 80,
       pace: 86,
       composure: 82,
-      form: 80,
     },
     {
       id: "mar-2022-amrabat",
@@ -95,7 +90,6 @@ export const MOROCCO_2022: Squad = {
       workRate: 93,
       stamina: 93,
       composure: 86,
-      form: 92,
     },
     {
       id: "mar-2022-ounahi",
@@ -110,7 +104,6 @@ export const MOROCCO_2022: Squad = {
       workRate: 89,
       stamina: 91,
       composure: 83,
-      form: 88,
     },
     {
       id: "mar-2022-amallah",
@@ -125,7 +118,6 @@ export const MOROCCO_2022: Squad = {
       workRate: 80,
       stamina: 82,
       composure: 78,
-      form: 76,
     },
     {
       id: "mar-2022-ziyech",
@@ -141,7 +133,6 @@ export const MOROCCO_2022: Squad = {
       offBall: 82,
       stamina: 76,
       composure: 84,
-      form: 82,
     },
     {
       id: "mar-2022-en-nesyri",
@@ -157,7 +148,6 @@ export const MOROCCO_2022: Squad = {
       offBall: 89,
       stamina: 80,
       composure: 84,
-      form: 86,
     },
     {
       id: "mar-2022-boufal",
@@ -173,7 +163,6 @@ export const MOROCCO_2022: Squad = {
       offBall: 78,
       stamina: 80,
       composure: 80,
-      form: 82,
     },
     {
       id: "mar-2022-el-yamiq",
@@ -188,7 +177,6 @@ export const MOROCCO_2022: Squad = {
       passing: 70,
       pace: 74,
       composure: 74,
-      form: 72,
     },
     {
       id: "mar-2022-attiat-allah",
@@ -204,7 +192,6 @@ export const MOROCCO_2022: Squad = {
       stamina: 78,
       workRate: 76,
       composure: 72,
-      form: 74,
     },
     {
       id: "mar-2022-sabiri",
@@ -220,7 +207,6 @@ export const MOROCCO_2022: Squad = {
       stamina: 74,
       finishing: 74,
       composure: 74,
-      form: 74,
     },
     {
       id: "mar-2022-cheddira",
@@ -236,7 +222,6 @@ export const MOROCCO_2022: Squad = {
       pace: 80,
       stamina: 74,
       composure: 72,
-      form: 74,
     },
     {
       id: "mar-2022-aboukhlal",
@@ -252,7 +237,6 @@ export const MOROCCO_2022: Squad = {
       offBall: 74,
       stamina: 72,
       composure: 72,
-      form: 74,
     },
   ],
 };

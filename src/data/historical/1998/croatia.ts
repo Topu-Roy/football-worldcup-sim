@@ -20,7 +20,6 @@ export const CROATIA_1998: Squad = {
       positioning: 84,
       distribution: 64,
       composure: 82,
-      form: 86,
     },
     {
       id: "cro-1998-stimac",
@@ -49,7 +48,6 @@ export const CROATIA_1998: Squad = {
       passing: 76,
       pace: 72,
       composure: 86,
-      form: 88,
     },
     {
       id: "cro-1998-jarni",
@@ -64,7 +62,6 @@ export const CROATIA_1998: Squad = {
       passing: 82,
       pace: 90,
       composure: 84,
-      form: 86,
     },
     {
       id: "cro-1998-stanic",
@@ -135,7 +132,6 @@ export const CROATIA_1998: Squad = {
       workRate: 68,
       stamina: 72,
       composure: 84,
-      form: 88,
     },
     {
       id: "cro-1998-suker",
@@ -151,7 +147,6 @@ export const CROATIA_1998: Squad = {
       offBall: 92,
       stamina: 82,
       composure: 92,
-      form: 97,
     },
     {
       id: "cro-1998-vlaovic",
@@ -181,7 +176,6 @@ export const CROATIA_1998: Squad = {
       passing: 72,
       pace: 78,
       composure: 80,
-      form: 78,
     },
     {
       id: "cro-1998-jurcic",
@@ -196,7 +190,6 @@ export const CROATIA_1998: Squad = {
       stamina: 84,
       dribble: 74,
       composure: 78,
-      form: 76,
     },
     {
       id: "cro-1998-maric",
@@ -212,7 +205,6 @@ export const CROATIA_1998: Squad = {
       stamina: 82,
       finishing: 74,
       composure: 76,
-      form: 76,
     },
     {
       id: "cro-1998-krpan",
@@ -227,7 +219,6 @@ export const CROATIA_1998: Squad = {
       aerial: 80,
       pace: 74,
       composure: 72,
-      form: 74,
     },
     {
       id: "cro-1998-kozniku",
@@ -242,7 +233,6 @@ export const CROATIA_1998: Squad = {
       pace: 78,
       aerial: 78,
       composure: 74,
-      form: 74,
     },
   ],
 };

@@ -177,7 +177,6 @@ export const POLAND_1974: Squad = {
       workRate: 86,
       stamina: 86,
       composure: 78,
-      form: 76,
     },
     {
       id: "pol-1974-domarski",
@@ -193,7 +192,6 @@ export const POLAND_1974: Squad = {
       stamina: 82,
       finishing: 74,
       composure: 78,
-      form: 74,
     },
     {
       id: "pol-1974-bulzacki",
@@ -209,7 +207,6 @@ export const POLAND_1974: Squad = {
       stamina: 80,
       workRate: 80,
       composure: 76,
-      form: 74,
     },
     {
       id: "pol-1974-fischer",
@@ -223,7 +220,6 @@ export const POLAND_1974: Squad = {
       positioning: 78,
       distribution: 60,
       composure: 80,
-      form: 72,
     },
     {
       id: "pol-1974-kmiecik",
@@ -239,7 +235,6 @@ export const POLAND_1974: Squad = {
       dribble: 76,
       stamina: 78,
       composure: 76,
-      form: 74,
     },
   ],
 };

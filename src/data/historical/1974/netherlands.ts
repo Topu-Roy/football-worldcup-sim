@@ -177,7 +177,6 @@ export const NETHERLANDS_1974: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 80,
-      form: 78,
     },
     {
       id: "ned-1974-rene-van-de-kerkhof",
@@ -193,7 +192,6 @@ export const NETHERLANDS_1974: Squad = {
       offBall: 80,
       stamina: 82,
       composure: 78,
-      form: 80,
     },
     {
       id: "ned-1974-willy-van-de-kerkhof",
@@ -208,7 +206,6 @@ export const NETHERLANDS_1974: Squad = {
       workRate: 86,
       stamina: 86,
       composure: 82,
-      form: 80,
     },
     {
       id: "ned-1974-keizer",
@@ -224,7 +221,6 @@ export const NETHERLANDS_1974: Squad = {
       offBall: 80,
       stamina: 78,
       composure: 80,
-      form: 76,
     },
   ],
 };

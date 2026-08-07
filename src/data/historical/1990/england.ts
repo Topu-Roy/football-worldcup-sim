@@ -118,7 +118,6 @@ export const ENGLAND_1990: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 82,
-      form: 90,
     },
     {
       id: "eng-1990-barnes",
@@ -178,7 +177,6 @@ export const ENGLAND_1990: Squad = {
       stamina: 82,
       workRate: 84,
       composure: 76,
-      form: 76,
     },
     {
       id: "eng-1990-wright",
@@ -193,7 +191,6 @@ export const ENGLAND_1990: Squad = {
       passing: 68,
       pace: 70,
       composure: 82,
-      form: 78,
     },
     {
       id: "eng-1990-webb",
@@ -208,7 +205,6 @@ export const ENGLAND_1990: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 80,
-      form: 76,
     },
     {
       id: "eng-1990-stevens",
@@ -224,7 +220,6 @@ export const ENGLAND_1990: Squad = {
       stamina: 82,
       workRate: 80,
       composure: 78,
-      form: 76,
     },
   ],
 };

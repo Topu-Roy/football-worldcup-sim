@@ -176,7 +176,6 @@ export const NETHERLANDS_2010: Squad = {
       stamina: 78,
       finishing: 82,
       composure: 84,
-      form: 82,
     },
     {
       id: "ned-2010-huntelaar",
@@ -191,7 +190,6 @@ export const NETHERLANDS_2010: Squad = {
       aerial: 84,
       pace: 70,
       composure: 78,
-      form: 80,
     },
     {
       id: "ned-2010-afellay",
@@ -207,7 +205,6 @@ export const NETHERLANDS_2010: Squad = {
       workRate: 80,
       stamina: 80,
       composure: 80,
-      form: 80,
     },
     {
       id: "ned-2010-elia",
@@ -223,7 +220,6 @@ export const NETHERLANDS_2010: Squad = {
       offBall: 76,
       stamina: 78,
       composure: 76,
-      form: 78,
     },
     {
       id: "ned-2010-boulahrouz",
@@ -239,7 +235,6 @@ export const NETHERLANDS_2010: Squad = {
       passing: 74,
       workRate: 80,
       composure: 78,
-      form: 76,
     },
   ],
 };

@@ -162,7 +162,6 @@ export const ITALY_1990: Squad = {
       offBall: 88,
       stamina: 84,
       composure: 84,
-      form: 94,
     },
     {
       id: "ita-1990-baggio",
@@ -178,7 +177,6 @@ export const ITALY_1990: Squad = {
       offBall: 86,
       passing: 88,
       composure: 88,
-      form: 88,
     },
     {
       id: "ita-1990-mancini",
@@ -194,7 +192,6 @@ export const ITALY_1990: Squad = {
       offBall: 82,
       passing: 82,
       composure: 84,
-      form: 80,
     },
     {
       id: "ita-1990-carnevale",
@@ -209,7 +206,6 @@ export const ITALY_1990: Squad = {
       aerial: 82,
       pace: 80,
       composure: 76,
-      form: 74,
     },
     {
       id: "ita-1990-serena",
@@ -224,7 +220,6 @@ export const ITALY_1990: Squad = {
       pace: 78,
       stamina: 78,
       composure: 78,
-      form: 76,
     },
   ],
 };

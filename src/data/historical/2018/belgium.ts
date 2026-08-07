@@ -20,7 +20,6 @@ export const BELGIUM_2018: Squad = {
       positioning: 90,
       distribution: 82,
       composure: 90,
-      form: 92,
     },
     {
       id: "bel-2018-alderweireld",
@@ -63,7 +62,6 @@ export const BELGIUM_2018: Squad = {
       passing: 84,
       pace: 78,
       composure: 86,
-      form: 86,
     },
     {
       id: "bel-2018-meunier",
@@ -78,7 +76,6 @@ export const BELGIUM_2018: Squad = {
       workRate: 90,
       stamina: 86,
       composure: 82,
-      form: 86,
     },
     {
       id: "bel-2018-witsel",
@@ -107,7 +104,6 @@ export const BELGIUM_2018: Squad = {
       workRate: 86,
       stamina: 84,
       composure: 88,
-      form: 92,
     },
     {
       id: "bel-2018-chadli",
@@ -122,7 +118,6 @@ export const BELGIUM_2018: Squad = {
       workRate: 84,
       stamina: 78,
       composure: 82,
-      form: 84,
     },
     {
       id: "bel-2018-mertens",
@@ -137,7 +132,6 @@ export const BELGIUM_2018: Squad = {
       workRate: 82,
       stamina: 78,
       composure: 82,
-      form: 82,
     },
     {
       id: "bel-2018-hazard",
@@ -153,7 +147,6 @@ export const BELGIUM_2018: Squad = {
       offBall: 90,
       stamina: 84,
       composure: 92,
-      form: 94,
     },
     {
       id: "bel-2018-lukaku",
@@ -169,7 +162,6 @@ export const BELGIUM_2018: Squad = {
       offBall: 88,
       stamina: 82,
       composure: 84,
-      form: 92,
     },
     {
       id: "bel-2018-tielemans",
@@ -184,7 +176,6 @@ export const BELGIUM_2018: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 82,
-      form: 84,
     },
     {
       id: "bel-2018-carrasco",
@@ -201,7 +192,6 @@ export const BELGIUM_2018: Squad = {
       stamina: 84,
       workRate: 82,
       composure: 80,
-      form: 82,
     },
     {
       id: "bel-2018-fellaini",
@@ -217,7 +207,6 @@ export const BELGIUM_2018: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 78,
-      form: 80,
     },
     {
       id: "bel-2018-thorgan-hazard",
@@ -233,7 +222,6 @@ export const BELGIUM_2018: Squad = {
       passing: 80,
       stamina: 82,
       composure: 80,
-      form: 80,
     },
     {
       id: "bel-2018-batshuayi",
@@ -249,7 +237,6 @@ export const BELGIUM_2018: Squad = {
       dribble: 76,
       stamina: 74,
       composure: 76,
-      form: 80,
     },
   ],
 };
