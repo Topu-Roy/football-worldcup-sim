@@ -1,5 +1,6 @@
 <script lang="ts">
   import { chemistryBonus, countSameNation } from "../lib/team.js";
+  import { swapTargetsFor } from "../lib/draft.js";
   import type { Squad } from "../lib/types.js";
   import PitchView from "./PitchView.svelte";
 
@@ -8,24 +9,41 @@
     squad,
     onStart,
     onReset,
-    onAssignRole,
+    onSwap,
   }: {
     formationKey: string;
     squad: Squad;
     onStart: () => void;
     onReset: () => void;
-    onAssignRole: (playerId: string, role: string) => void;
+    onSwap: (playerId: string, slotIndex: number) => void;
   } = $props();
+
+  let selectedId = $state<string | null>(null);
 
   const drafted = $derived(squad.players);
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
+  const swapTargets = $derived(
+    selectedId
+      ? swapTargetsFor(drafted, formationKey, selectedId)
+      : null,
+  );
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-6 py-3 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
   const pillOutlineAlt =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-secondary border border-secondary rounded-full px-6 py-3 bg-transparent transition-all duration-150 hover:bg-secondary hover:text-black";
+
+  function toggleSelect(playerId: string) {
+    selectedId = selectedId === playerId ? null : playerId;
+  }
+
+  function handleSwapTarget(slotIndex: number) {
+    if (!selectedId) return;
+    onSwap(selectedId, slotIndex);
+    selectedId = null;
+  }
 </script>
 
 <section class="mx-auto max-w-3xl px-6 py-12">
@@ -36,8 +54,21 @@
   </h2>
 
   <div class="mt-8">
-    <PitchView players={drafted} {formationKey} {onAssignRole} />
+    <PitchView
+      players={drafted}
+      {formationKey}
+      {selectedId}
+      {swapTargets}
+      onPlayerClick={toggleSelect}
+      onSwapTarget={handleSwapTarget}
+    />
   </div>
+
+  {#if selectedId}
+    <p class="mt-4 text-center font-mono text-[11px] tracking-[1.5px] text-yellow uppercase">
+      Click a highlighted position to swap
+    </p>
+  {/if}
 
   <div class="mt-8 grid grid-cols-3 gap-4 text-center">
     <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">

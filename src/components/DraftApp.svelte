@@ -4,6 +4,7 @@
   import TeamReadyView from "./TeamReadyView.svelte";
   import TournamentView from "./TournamentView.svelte";
   import { buildUserSquad, DRAFT_ROUNDS } from "../lib/draft.js";
+  import { swapPlayers as applySwap } from "../lib/draft.js";
   import { createTournament } from "../lib/tournament.js";
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
@@ -34,6 +35,10 @@
     drafted = [...drafted, p];
   }
 
+  function handleSwapDrafted(next: Player[]) {
+    drafted = next;
+  }
+
   function startTournament() {
     if (!formation || !squad) return;
     tournament = createTournament(squad);
@@ -45,14 +50,18 @@
     tournament = createTournament(squad);
   }
 
-  function assignRole(playerId: string, role: string) {
-    if (!squad) return;
-    squad = {
-      ...squad,
-      players: squad.players.map((p) =>
-        p.id === playerId ? { ...p, assignedPosition: role } : p,
-      ),
-    };
+  function swapPlayers(playerId: string, slotIndex: number) {
+    if (!squad || !formationKey) return;
+    const from = squad.players.find((p) => p.id === playerId);
+    if (!from || from.assignedSlot === undefined) return;
+    const next = applySwap(
+      squad.players,
+      formationKey,
+      from.assignedSlot,
+      slotIndex,
+    );
+    if (!next) return;
+    squad = { ...squad, players: next };
   }
 
   $effect(() => {
@@ -67,14 +76,14 @@
   {#if step === "setup"}
     <FormationPicker onSelect={selectFormation} />
   {:else if step === "draft" && formation}
-    <DraftBoard {formation} {formationKey} onPick={handlePick} />
+    <DraftBoard {formation} {formationKey} onPick={handlePick} onSwapDrafted={handleSwapDrafted} />
   {:else if step === "ready" && formation && squad}
     <TeamReadyView
       {formationKey}
       {squad}
       onStart={startTournament}
       onReset={reset}
-      onAssignRole={assignRole}
+      onSwap={swapPlayers}
     />
   {:else if step === "tournament" && tournament}
     <TournamentView

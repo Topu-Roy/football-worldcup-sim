@@ -6,6 +6,10 @@ import {
   slotDepartment,
 } from "./roles.js";
 
+export function canPlayRole(p: Player, role: string): boolean {
+  return p.positions.some((r) => canonicalRole(r) === canonicalRole(role));
+}
+
 export interface PitchSlot {
   role: string;
   x: number;
@@ -106,5 +110,58 @@ export function assignSlots(
     const player = explicit ?? byRole ?? byDept ?? fallback ?? null;
     if (player) used.add(player.id);
     return { player, slot };
+  });
+}
+
+export function swapTargetsFor(
+  players: Player[],
+  formationKey: string,
+  playerId: string,
+): number[] {
+  const from = players.find((p) => p.id === playerId);
+  if (!from || from.assignedSlot === undefined) return [];
+  const current = assignedRole(from);
+  const slots = pitchSlots(formationKey);
+  const targets: number[] = [];
+  slots.forEach((slot, i) => {
+    if (i === from.assignedSlot) return;
+    const occupant = players.find((p) => p.assignedSlot === i);
+    const canTake = canPlayRole(from, slot.role);
+    if (!canTake) return;
+    if (!occupant) {
+      targets.push(i);
+      return;
+    }
+    if (canPlayRole(occupant, current)) targets.push(i);
+  });
+  return targets;
+}
+
+export function swapPlayers(
+  players: Player[],
+  formationKey: string,
+  fromIndex: number,
+  toIndex: number,
+): Player[] | null {
+  const from = players.find((p) => p.assignedSlot === fromIndex);
+  const target = players.find((p) => p.assignedSlot === toIndex);
+  if (!from || fromIndex === toIndex) return null;
+  const targetRole = pitchSlots(formationKey)[toIndex]?.role;
+  if (!targetRole || !canPlayRole(from, targetRole)) return null;
+  if (!target) {
+    return players.map((p) =>
+      p.id === from.id
+        ? { ...p, assignedPosition: targetRole, assignedSlot: toIndex }
+        : p,
+    );
+  }
+  const fromRole = assignedRole(from);
+  if (!canPlayRole(target, fromRole)) return null;
+  return players.map((p) => {
+    if (p.id === from.id)
+      return { ...p, assignedPosition: targetRole, assignedSlot: toIndex };
+    if (p.id === target.id)
+      return { ...p, assignedPosition: fromRole, assignedSlot: fromIndex };
+    return p;
   });
 }

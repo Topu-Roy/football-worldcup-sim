@@ -15,6 +15,8 @@
     slotDepartment,
     slotsLeft,
     squadOf,
+    swapPlayers as applySwap,
+    swapTargetsFor,
     validateDraft,
   } from "../lib/draft.js";
   import { countSameNation, chemistryBonus } from "../lib/team.js";
@@ -25,10 +27,12 @@
     formation,
     formationKey,
     onPick,
+    onSwapDrafted,
   }: {
     formation: Formation;
     formationKey: string;
     onPick: (p: Player) => void;
+    onSwapDrafted: (players: Player[]) => void;
   } = $props();
 
   let offer = $state<ReturnType<typeof makeOffer> | null>(null);
@@ -36,6 +40,7 @@
   let rerollsLeft = $state(MAX_REROLLS);
   let drafted = $state<Player[]>([]);
   let selected = $state<Player | null>(null);
+  let swapSelectedId = $state<string | null>(null);
 
   $effect(() => {
     if (!offer) {
@@ -63,6 +68,11 @@
       )
       .map((s) => s.slot.role);
   });
+  const swapTargets = $derived(
+    swapSelectedId
+      ? swapTargetsFor(drafted, formationKey, swapSelectedId)
+      : null,
+  );
   const offerPlayers = $derived(
     [...(offer?.players ?? [])].sort(
       (a, b) =>
@@ -122,6 +132,7 @@
   function toggleSelect(p: Player) {
     if (complete || left[slotDepartment(p)] <= 0 || !hasPlaceableSlot(p))
       return;
+    swapSelectedId = null;
     selected = selected?.id === p.id ? null : p;
   }
 
@@ -144,6 +155,27 @@
     if (!validateDraft(formation, next)) {
       newOffer();
     }
+  }
+
+  function toggleSwapSelect(playerId: string) {
+    selected = null;
+    swapSelectedId = swapSelectedId === playerId ? null : playerId;
+  }
+
+  function handleSwapTarget(slotIndex: number) {
+    if (!swapSelectedId) return;
+    const from = drafted.find((p) => p.id === swapSelectedId);
+    if (!from || from.assignedSlot === undefined) return;
+    const next = applySwap(
+      drafted,
+      formationKey,
+      from.assignedSlot,
+      slotIndex,
+    );
+    if (!next) return;
+    drafted = next;
+    onSwapDrafted(next);
+    swapSelectedId = null;
   }
 
   function statRows(p: Player): [string, number][] {
@@ -327,6 +359,10 @@
           onSlotClick={place}
           {selectableRoles}
           bestPosition={selected?.bestPosition ?? null}
+          selectedId={swapSelectedId}
+          {swapTargets}
+          onPlayerClick={toggleSwapSelect}
+          onSwapTarget={handleSwapTarget}
         />
       </div>
       {#if chemistry > 0}
