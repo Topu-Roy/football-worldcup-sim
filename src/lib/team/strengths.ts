@@ -1,6 +1,11 @@
 import type { Formation, Player, TeamStrengths } from "../types.js";
 import { chemistryBonus } from "./chemistry.js";
-import { roleNerf, slotDepartment } from "../draft/roles.js";
+import {
+  effectiveDepartment,
+  roleNerf,
+  roleRating,
+  slotDepartment,
+} from "../draft/roles.js";
 
 function applyChemistryAndForm(player: Player, bonus: number): Player {
   const chemistryMul = 1 + bonus;
@@ -45,16 +50,38 @@ export function validateFormation(
   );
 }
 
-export function computeTeamStrengths(
+export function applyTeamModifiers(
   players: Player[],
   isHistorical: boolean,
-): TeamStrengths {
+): Player[] {
   const bonus = chemistryBonus(players, isHistorical);
-  const boosted = players.map((p) => applyChemistryAndForm(p, bonus));
+  return players.map((p) => applyChemistryAndForm(p, bonus));
+}
+
+export function pickXI(players: Player[], formation: Formation): Player[] {
+  const byDept: Record<string, Player[]> = {
+    GK: [],
+    DEF: [],
+    MID: [],
+    ATT: [],
+  };
+  for (const p of players) byDept[slotDepartment(p)].push(p);
+  const xi: Player[] = [];
+  for (const dept of ["GK", "DEF", "MID", "ATT"]) {
+    const need = formation[dept as keyof Formation];
+    const sorted = [...byDept[dept]].sort(
+      (a, b) => roleRating(b, b.bestPosition) - roleRating(a, a.bestPosition),
+    );
+    xi.push(...sorted.slice(0, need));
+  }
+  return xi;
+}
+
+export function computeTeamStrengths(players: Player[]): TeamStrengths {
   const avg = (vals: number[]) =>
     vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
   const byPos = (pos: string) =>
-    boosted.filter((p) => slotDepartment(p) === pos);
+    players.filter((p) => effectiveDepartment(p) === pos);
 
   const gk = byPos("GK");
   const def = byPos("DEF");
@@ -87,8 +114,8 @@ export function computeTeamStrengths(
       ATT: avg(att.map((p) => p.composure ?? 0)),
     },
     avgStamina: avg(
-      boosted.map((p) => {
-        const dept = slotDepartment(p);
+      players.map((p) => {
+        const dept = effectiveDepartment(p);
         return dept === "GK" ? 80 : dept === "DEF" ? 75 : (p.stamina ?? 70);
       }),
     ),

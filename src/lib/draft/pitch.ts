@@ -80,9 +80,7 @@ export function assignSlots(
     const byRole = !explicit
       ? players.find(
           (p) =>
-            !used.has(p.id) &&
-            !committed(p) &&
-            assignedRole(p) === slot.role,
+            !used.has(p.id) && !committed(p) && assignedRole(p) === slot.role,
         )
       : undefined;
     const byDept =

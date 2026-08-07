@@ -7,8 +7,10 @@ import type {
   Squad,
 } from "../types.js";
 import {
+  applyTeamModifiers,
   computeTeamStrengths,
   decayRateFor,
+  pickXI,
   rollForms,
 } from "../team/index.js";
 import { BASE_MAX_SHOTS, MAX_SHOTS_CLAMP, SCALE } from "./config.js";
@@ -47,10 +49,16 @@ export function simulateMatchScript(
   const maxShotsClamp = config.maxShotsClamp ?? MAX_SHOTS_CLAMP;
   const regulationOnly = config.regulationOnly ?? false;
 
-  const playersA = rollForms(squadA.players);
-  const playersB = rollForms(squadB.players);
-  const strengthsA = computeTeamStrengths(playersA, squadA.isHistorical);
-  const strengthsB = computeTeamStrengths(playersB, squadB.isHistorical);
+  const playersA = applyTeamModifiers(
+    rollForms(pickXI(squadA.players, squadA.formation)),
+    squadA.isHistorical,
+  );
+  const playersB = applyTeamModifiers(
+    rollForms(pickXI(squadB.players, squadB.formation)),
+    squadB.isHistorical,
+  );
+  const strengthsA = computeTeamStrengths(playersA);
+  const strengthsB = computeTeamStrengths(playersB);
 
   const states: [TeamState, TeamState] = [
     {

@@ -42,6 +42,10 @@ export function slotDepartment(p: Player): Position {
   return departmentOf(p.bestPosition);
 }
 
+export function effectiveDepartment(p: Player): Position {
+  return departmentOf(assignedRole(p));
+}
+
 const ROLE_WEIGHTS: Record<string, [keyof Player, number][]> = {
   GK: [
     ["reflexes", 0.4],
@@ -189,7 +193,7 @@ export interface NerfResult {
 export function roleNerf(p: Player): NerfResult {
   const gap = roleGap(p);
   if (gap <= 0) return { factor: 1, keys: new Set() };
-  const pct = Math.min(10, gap * (5 + Math.random() * 5));
+  const pct = Math.min(10, gap * 7.5);
   const keys = new Set((ROLE_WEIGHTS[assignedRole(p)] ?? []).map(([k]) => k));
   return { factor: 1 - pct / 100, keys };
 }

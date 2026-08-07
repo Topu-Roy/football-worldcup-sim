@@ -4,6 +4,11 @@ export {
   chemistryBonus,
   countSameNation,
 } from "./chemistry.js";
-export { computeTeamStrengths, validateFormation } from "./strengths.js";
+export {
+  applyTeamModifiers,
+  computeTeamStrengths,
+  pickXI,
+  validateFormation,
+} from "./strengths.js";
 export { rollForms } from "./form.js";
 export { decayRateFor } from "./stamina.js";
