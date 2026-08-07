@@ -1,5 +1,10 @@
 import type { Player } from "../types.js";
-import { assignedRole, departmentOf, slotDepartment } from "./roles.js";
+import {
+  assignedRole,
+  canonicalRole,
+  departmentOf,
+  slotDepartment,
+} from "./roles.js";
 
 export interface PitchSlot {
   role: string;
@@ -80,7 +85,9 @@ export function assignSlots(
     const byRole = !explicit
       ? players.find(
           (p) =>
-            !used.has(p.id) && !committed(p) && assignedRole(p) === slot.role,
+            !used.has(p.id) &&
+            !committed(p) &&
+            canonicalRole(assignedRole(p)) === canonicalRole(slot.role),
         )
       : undefined;
     const byDept =

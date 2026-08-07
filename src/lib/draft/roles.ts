@@ -46,6 +46,11 @@ export function effectiveDepartment(p: Player): Position {
   return departmentOf(assignedRole(p));
 }
 
+export function canonicalRole(role: string): string {
+  if (role === "CF" || role === "SS") return "ST";
+  return role;
+}
+
 const ROLE_WEIGHTS: Record<string, [keyof Player, number][]> = {
   GK: [
     ["reflexes", 0.4],
@@ -173,8 +178,8 @@ export function assignedRole(p: Player): string {
 }
 
 export function roleGap(p: Player): number {
-  const best = p.bestPosition;
-  const assigned = assignedRole(p);
+  const best = canonicalRole(p.bestPosition);
+  const assigned = canonicalRole(assignedRole(p));
   if (best === assigned) return 0;
   const mode = DEPT_NERF_MODE[departmentOf(best)] ?? "forward";
   const diff = (ROLE_LEVEL[assigned] ?? 0) - (ROLE_LEVEL[best] ?? 0);

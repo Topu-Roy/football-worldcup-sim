@@ -3,6 +3,7 @@
     MAX_REROLLS,
     NATION_NAMES,
     assignSlots,
+    canonicalRole,
     draftableNations,
     fits,
     makeOffer,
@@ -55,7 +56,11 @@
     const sel = selected;
     if (!sel) return null;
     return draftSlots
-      .filter((s) => !s.player && sel.positions.includes(s.slot.role))
+      .filter(
+        (s) =>
+          !s.player &&
+          sel.positions.some((r) => canonicalRole(r) === s.slot.role),
+      )
       .map((s) => s.slot.role);
   });
   const offerPlayers = $derived(
@@ -109,7 +114,8 @@
 
   function hasPlaceableSlot(p: Player): boolean {
     return draftSlots.some(
-      (s) => !s.player && p.positions.includes(s.slot.role),
+      (s) =>
+        !s.player && p.positions.some((r) => canonicalRole(r) === s.slot.role),
     );
   }
 
@@ -124,7 +130,7 @@
     if (left[slotDepartment(selected)] <= 0) return;
     const slot = draftSlots[slotIndex];
     if (!slot || slot.player) return;
-    if (!selected.positions.includes(role)) return;
+    if (!selected.positions.some((r) => canonicalRole(r) === role)) return;
     const placed = {
       ...selected,
       assignedPosition: role,
@@ -319,7 +325,7 @@
           {formationKey}
           size="md"
           onSlotClick={place}
-          selectableRoles={selectableRoles}
+          {selectableRoles}
           bestPosition={selected?.bestPosition ?? null}
         />
       </div>

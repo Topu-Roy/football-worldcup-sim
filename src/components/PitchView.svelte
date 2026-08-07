@@ -3,6 +3,7 @@
     ROLE_LABELS,
     assignedRole,
     assignSlots,
+    canonicalRole,
     outOfPosition,
     playerRating,
     rolesForDepartment,
@@ -235,15 +236,15 @@
           <button
             type="button"
             disabled={placing && !enabled}
-            class="relative flex h-14 w-14 items-center justify-center rounded-full border-2 font-mono text-base font-bold uppercase tracking-wide {enabled
-              ? 'border-dashed border-mint/70 bg-mint/10 text-mint cursor-pointer hover:bg-mint/20'
+            class="relative flex h-14 w-14 items-center justify-center rounded-full border-2 font-mono text-base font-bold tracking-wide uppercase {enabled
+              ? 'cursor-pointer border-dashed border-mint/70 bg-mint/10 text-mint hover:bg-mint/20'
               : placing
-                ? 'border-dashed border-white/15 bg-white/5 text-white/25 cursor-not-allowed'
-                : 'border-dashed border-white/50 bg-mint/10 text-white/60 cursor-default'}"
+                ? 'cursor-not-allowed border-dashed border-white/15 bg-white/5 text-white/25'
+                : 'cursor-default border-dashed border-white/50 bg-mint/10 text-white/60'}"
             onclick={() => onSlotClick?.(s.slot.role, i)}
           >
             {s.slot.role}
-            {#if s.slot.role === bestPosition}
+            {#if bestPosition && canonicalRole(s.slot.role) === canonicalRole(bestPosition)}
               <span
                 class="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-yellow text-[10px] leading-none text-black"
                 >★</span
@@ -252,7 +253,7 @@
           </button>
         {:else}
           <div
-            class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-white/50 bg-mint/10 font-mono text-base font-bold uppercase tracking-wide text-white/60"
+            class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-white/50 bg-mint/10 font-mono text-base font-bold tracking-wide text-white/60 uppercase"
           >
             {s.slot.role}
           </div>

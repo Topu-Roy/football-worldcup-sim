@@ -24,6 +24,7 @@ export { assignSlots, pitchSlots } from "./pitch.js";
 export {
   ROLE_LABELS,
   assignedRole,
+  canonicalRole,
   departmentOf,
   outOfPosition,
   roleGap,
