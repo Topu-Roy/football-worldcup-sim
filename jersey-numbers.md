@@ -427,7 +427,7 @@
 - Preben Elkjær - 10
 - Michael Laudrup - 11
 - Jens Bertelsen - 12
-- Søren Frimann - 13
+- Per Frimann - 13
 - Allan Simonsen - 14
 - Frank Arnesen - 15
 - Ole Qvist - 16
@@ -812,25 +812,6 @@
 - Lee Chun-soo - 14
 - Lee Eul-yong - 13
 - Kim Sang-sik - not in team
-
-## ITA (2006)
-
-- Gianluigi Buffon - 1
-- Gianluca Zambrotta - 19
-- Fabio Cannavaro - 5
-- Marco Materazzi - 23
-- Fabio Grosso - 3
-- Gennaro Gattuso - 8
-- Andrea Pirlo - 21
-- Mauro Camoranesi - 16
-- Simone Perrotta - 20
-- Francesco Totti - 10
-- Luca Toni - 9
-- Alessandro Del Piero - 7
-- Filippo Inzaghi - 18
-- Vincenzo Iaquinta - 15
-- Daniele De Rossi - 4
-- Massimo Oddo - 22
 
 ## BRA (2006) - [Added team]
 
