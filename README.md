@@ -50,7 +50,6 @@ The 2026 squads are fictional/predicted rosters (Spain, Argentina, England, Fran
 
 - `concept.md` — the game design and match-engine specification (formulas, tuning knobs, calibration targets).
 - `DESIGN.md` — visual system: canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, pill cards, mono-uppercase labels.
-- `constants/teams.md` — World Cup results table used to select squads.
 
 ## Commands
 
