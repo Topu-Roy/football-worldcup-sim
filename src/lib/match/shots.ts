@@ -1,5 +1,10 @@
-import { logistic } from "../random.js";
-import { effectiveStats, maxShotsFor, type TeamState } from "./dynamics.js";
+import { logistic, clamp } from "../random.js";
+import {
+  effectivePossessionShare,
+  effectiveStats,
+  maxShotsFor,
+  type TeamState,
+} from "./dynamics.js";
 
 export interface SegmentShot {
   team: 0 | 1;
@@ -20,12 +25,13 @@ export function buildSegmentShots(
 ): SegmentShot[] {
   const t0 = states[0];
   const t1 = states[1];
-  const possession =
-    (t0.strengths.creativity + t0.strengths.defPassing) /
-    (t0.strengths.creativity +
-      t0.strengths.defPassing +
-      t1.strengths.creativity +
-      t1.strengths.defPassing);
+  const possession = effectivePossessionShare(
+    states,
+    score,
+    minute,
+    isET,
+    desperationScale,
+  );
 
   const s0 = effectiveStats(
     t0.strengths,
@@ -48,11 +54,15 @@ export function buildSegmentShots(
     desperationScale,
   );
 
-  const shots0 = Math.round(
-    possession * maxShotsFor(s0.attack, s1.defense, base, maxShotsClamp),
+  const shots0 = clamp(
+    Math.round(possession * maxShotsFor(s0.attack, s1.defense, base)),
+    maxShotsClamp[0],
+    maxShotsClamp[1],
   );
-  const shots1 = Math.round(
-    (1 - possession) * maxShotsFor(s1.attack, s0.defense, base, maxShotsClamp),
+  const shots1 = clamp(
+    Math.round((1 - possession) * maxShotsFor(s1.attack, s0.defense, base)),
+    maxShotsClamp[0],
+    maxShotsClamp[1],
   );
 
   const list: SegmentShot[] = [];

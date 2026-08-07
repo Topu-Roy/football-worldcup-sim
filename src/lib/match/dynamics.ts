@@ -1,6 +1,13 @@
 import type { TeamStrengths } from "../types.js";
 import { clamp } from "../random.js";
-import { CHAOS_FACTOR } from "./config.js";
+import {
+  CHAOS_FACTOR,
+  POSSESSION_CHAOS,
+  POSSESSION_LEAD_COMPOSURE_BONUS,
+  POSSESSION_SWING_BASE,
+  POSSESSION_SWING_MAX,
+  POSSESSION_SWING_PER_GAP,
+} from "./config.js";
 
 export interface TeamState {
   strengths: TeamStrengths;
@@ -29,28 +36,48 @@ export function desperation(
   scaleFactor = 1,
 ) {
   const tf = timeFactor(minute);
-  const result = { shotsBonus: 0, defenseBonus: 0, finishingPenalty: 0 };
+  const result = {
+    shotsBonus: 0,
+    defenseBonus: 0,
+    finishingPenalty: 0,
+    possessionBonus: 0,
+  };
 
   if (goalDiff < 0) {
     const gap = -goalDiff;
     result.shotsBonus = clamp(0.15 + 0.05 * (gap - 1), 0, 0.4) * tf;
     result.defenseBonus = -clamp(0.1 + 0.05 * (gap - 1), 0, 0.3) * tf;
     result.finishingPenalty = 0.1;
+    result.possessionBonus =
+      clamp(
+        POSSESSION_SWING_BASE + POSSESSION_SWING_PER_GAP * (gap - 1),
+        0,
+        POSSESSION_SWING_MAX,
+      ) * tf;
     if (trailing && composure < 60) {
       result.shotsBonus += 0.1;
       result.finishingPenalty += 0.05;
+      result.possessionBonus = 0;
     }
   } else if (goalDiff > 0) {
     result.shotsBonus = -0.15 * tf;
     result.defenseBonus = 0.1 * tf;
+    result.possessionBonus =
+      -clamp(
+        POSSESSION_SWING_BASE + POSSESSION_SWING_PER_GAP * (goalDiff - 1),
+        0,
+        POSSESSION_SWING_MAX,
+      ) * tf;
     if (!trailing && composure > 75) {
       result.defenseBonus += 0.05;
+      result.possessionBonus -= POSSESSION_LEAD_COMPOSURE_BONUS * tf;
     }
   }
   if (scaleFactor !== 1) {
     result.shotsBonus *= scaleFactor;
     result.defenseBonus *= scaleFactor;
     result.finishingPenalty *= scaleFactor;
+    result.possessionBonus *= scaleFactor;
   }
   return result;
 }
@@ -92,8 +119,38 @@ export function maxShotsFor(
   attack: number,
   oppDefense: number,
   base: number,
-  clampRange: [number, number],
 ): number {
-  const raw = base * (attack / Math.max(oppDefense, 1));
-  return clamp(raw, clampRange[0], clampRange[1]);
+  return base * (attack / Math.max(oppDefense, 1));
+}
+
+export function effectivePossessionShare(
+  states: [TeamState, TeamState],
+  score: [number, number],
+  minute: number,
+  isET: boolean,
+  desperationScale = 1,
+): number {
+  const power = states.map((state, i) => {
+    const goalDiff = score[i] - score[1 - i];
+    const staminaMult = clamp(state.stamina, 0, 1);
+    const d = desperation(
+      goalDiff,
+      minute,
+      state.strengths.composure.MID,
+      goalDiff < 0,
+      desperationScale,
+    );
+    let p =
+      (state.strengths.creativity + state.strengths.defPassing) *
+      staminaMult *
+      (1 + d.possessionBonus);
+    if (isET && state.stamina < 0.5) {
+      const chaos =
+        (1 - state.stamina) * POSSESSION_CHAOS * (Math.random() * 2 - 1);
+      p = p * (1 + chaos);
+    }
+    return p;
+  });
+  const total = power[0] + power[1];
+  return total === 0 ? 0.5 : power[0] / total;
 }

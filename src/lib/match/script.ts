@@ -12,7 +12,7 @@ import {
   rollForms,
 } from "../team/index.js";
 import { BASE_MAX_SHOTS, MAX_SHOTS_CLAMP, SCALE } from "./config.js";
-import { type TeamState } from "./dynamics.js";
+import { effectivePossessionShare, type TeamState } from "./dynamics.js";
 import { buildSegmentShots, simShots } from "./shots.js";
 import { pickScorer } from "./scorer.js";
 import { penaltyTakers, simPenalties } from "./penalties.js";
@@ -81,12 +81,13 @@ export function simulateMatchScript(
       desperationScale,
       maxShotsClamp,
     );
-    const poss =
-      (states[0].strengths.creativity + states[0].strengths.defPassing) /
-      (states[0].strengths.creativity +
-        states[0].strengths.defPassing +
-        states[1].strengths.creativity +
-        states[1].strengths.defPassing);
+    const poss = effectivePossessionShare(
+      states,
+      score,
+      minute,
+      isET,
+      desperationScale,
+    );
     possessionSum[0] += poss;
     possessionSum[1] += 1 - poss;
 
