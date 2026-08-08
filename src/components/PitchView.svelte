@@ -318,7 +318,7 @@
         {#if onSwapTarget && isTarget}
           <button
             type="button"
-            class="relative flex h-11 w-11 items-center justify-center rounded-full border-2 border-dashed font-mono text-sm font-bold tracking-wide text-black uppercase animate-pulse cursor-pointer bg-white shadow-[0_0_16px_rgba(60,255,208,0.7)] hover:bg-mint"
+            class="relative flex h-11 w-11 items-center justify-center rounded-full border-2 border-dashed border-orange-500 font-mono text-sm font-bold tracking-wide text-black uppercase animate-pulse cursor-pointer bg-white shadow-[0_0_16px_rgba(255,140,0,0.7)] hover:bg-orange-500"
             onclick={() => onSwapTarget?.(i)}
           >
             {s.slot.role}
@@ -334,7 +334,7 @@
             type="button"
             disabled={placing && !enabled}
             class="relative flex h-14 w-14 items-center justify-center rounded-full border-2 font-mono text-base font-bold tracking-wide uppercase {enabled
-              ? 'cursor-pointer border-dashed border-mint/70 bg-mint/10 text-mint hover:bg-mint/20'
+              ? 'cursor-pointer border-dashed border-orange-500 bg-orange-500/10 text-orange-500 hover:bg-orange-500/20'
               : placing
                 ? 'cursor-not-allowed border-dashed border-white/15 bg-white/5 text-white/25'
                 : 'cursor-default border-dashed border-white/50 bg-mint/10 text-white/60'}"
