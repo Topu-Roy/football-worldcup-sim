@@ -34,8 +34,8 @@ export function avgRating(p: Player): number {
 export type PlayerTier = "elite" | "star" | "standard";
 
 export function playerTier(p: Player): PlayerTier {
-  const avg = avgRating(p);
-  if (avg >= ELITE_RATING) return "elite";
-  if (avg >= STAR_RATING) return "star";
+  const r = playerRating(p);
+  if (r >= ELITE_RATING) return "elite";
+  if (r >= STAR_RATING) return "star";
   return "standard";
 }
