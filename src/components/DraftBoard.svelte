@@ -273,7 +273,7 @@
             <button
               type="button"
               class="{playerCard} {selected?.id === p.id
-                ? 'ring-2 ring-mint'
+                ? 'card-selected'
                 : ''} {tier === 'elite'
                 ? 'card-elite'
                 : tier === 'star'
@@ -440,5 +440,10 @@
   .card-star {
     border-color: rgb(255 210 60 / 0.4) !important;
     box-shadow: 0 0 16px rgb(255 210 60 / 0.12);
+  }
+
+  .card-selected {
+    outline: 2px solid #3cffd0;
+    outline-offset: 2px;
   }
 </style>
