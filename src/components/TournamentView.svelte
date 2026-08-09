@@ -98,6 +98,13 @@
     return "var(--color-secondary)";
   }
 
+  function outcomeLabel(o: string): string {
+    if (o === "W") return "WIN";
+    if (o === "L") return "LOSS";
+    if (o === "D") return "DRAW";
+    return "";
+  }
+
   function outcomeTitle(o: string): string {
     if (o === "champion") return "CHAMPION";
     if (o === "runners-up") return "RUNNERS-UP";
@@ -167,7 +174,7 @@
             <div class="flex items-center gap-4">
               {#if m.result}
                 <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
-                  >{outcomeBadge(m)}
+                  >{outcomeLabel(outcomeBadge(m))}
                   {m.result.score[0]}–{m.result.score[1]}</span
                 >
               {:else}
@@ -186,12 +193,11 @@
               {/if}
             </div>
           </div>
-          <div
-            class="border-t border-white/10 px-4 py-4"
-            class:hidden={expandedId !== m.id}
-          >
-            {@render MatchPanel(m)}
-          </div>
+          {#if expandedId === m.id}
+            <div class="border-t border-white/10 px-4 py-4">
+              {@render MatchPanel(m)}
+            </div>
+          {/if}
         </li>
       {/each}
     </ul>
@@ -240,12 +246,11 @@
     </div>
 
     {#each knockoutMatches.filter((m) => m.isUser) as m (m.id)}
-      <div
-        class="mt-6 rounded-3xl border border-white/15 bg-slate/20"
-        class:hidden={expandedId !== m.id}
-      >
+      {#if expandedId === m.id}
+      <div class="mt-6 rounded-3xl border border-white/15 bg-slate/20">
         {@render MatchPanel(m)}
       </div>
+    {/if}
     {/each}
 
     {#if !nextUserMatch(tournament)}
@@ -298,11 +303,7 @@
               <th class="pr-4 pb-3">Round</th>
               <th class="pr-4 pb-3">Opponent</th>
               <th class="pr-4 pb-3">Score</th>
-              <th class="pr-4 pb-3">Result</th>
-              <th class="pr-4 pb-3">Shots</th>
-              <th class="pr-4 pb-3">On target</th>
-              <th class="pr-4 pb-3">Possession</th>
-              <th class="pb-3">Notes</th>
+              <th class="pb-3">Result</th>
             </tr>
           </thead>
           <tbody>
@@ -316,24 +317,10 @@
                   >{sm.result.score[0]}–{sm.result.score[1]}</td
                 >
                 <td
-                  class="{mono} py-3 pr-4 text-[10px]"
-                  style:color={outcomeColor(sm.outcome)}>{sm.outcome}</td
+                  class="{mono} py-3 text-[10px]"
+                  style:color={outcomeColor(sm.outcome)}
+                >{outcomeLabel(sm.outcome)}</td
                 >
-                <td class="py-3 pr-4 font-mono"
-                  >{sm.result.shots[0]}–{sm.result.shots[1]}</td
-                >
-                <td class="py-3 pr-4 font-mono"
-                  >{sm.result.shotsOnTarget[0]}–{sm.result
-                    .shotsOnTarget[1]}</td
-                >
-                <td class="py-3 pr-4 font-mono"
-                  >{Math.round(sm.result.possession[0] * 100)}%</td
-                >
-                <td class="{mono} py-3 text-[10px] text-secondary">
-                  {sm.result.extraTime ? "ET" : ""}{sm.result.penalties
-                    ? "·PEN"
-                    : ""}
-                </td>
               </tr>
             {/each}
           </tbody>
