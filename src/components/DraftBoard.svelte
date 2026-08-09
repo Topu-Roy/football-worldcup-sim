@@ -42,6 +42,8 @@
   let selected = $state<Player | null>(null);
   let swapSelectedId = $state<string | null>(null);
 
+  const AUTO_REROLL_MAX = 15;
+
   $effect(() => {
     if (!offer) {
       const first = makeOffer(formation, drafted);
@@ -80,6 +82,27 @@
         positionOrder.indexOf(slotDepartment(b)),
     ),
   );
+
+  const offerUnplaceable = $derived(
+    offer != null &&
+      !complete &&
+      offerPlayers.length > 0 &&
+      !offerPlayers.some((p) => hasPlaceableSlot(p)),
+  );
+
+  let autoRerollCount = $state(0);
+
+  $effect(() => {
+    if (!offerUnplaceable) {
+      autoRerollCount = 0;
+      return;
+    }
+    if (autoRerollCount >= AUTO_REROLL_MAX) return;
+    autoRerollCount += 1;
+    selected = null;
+    swapSelectedId = null;
+    newOffer();
+  });
 
   const canSameNation = $derived.by(() => {
     const o = offer;
