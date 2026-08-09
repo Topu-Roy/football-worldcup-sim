@@ -129,7 +129,7 @@ export const COSTA_RICA_2014: Squad = {
       name: "Bryan Ruiz",
       nation: "CRC",
       wcYear: 2014,
-      positions: ["CAM", "SS"],
+      positions: ["CAM", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 10,
       passing: 82,

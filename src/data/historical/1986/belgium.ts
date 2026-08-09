@@ -96,7 +96,7 @@ export const BELGIUM_1986: Squad = {
       name: "Jan Ceulemans",
       nation: "BEL",
       wcYear: 1986,
-      positions: ["CAM", "CF"],
+      positions: ["CAM", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 11,
       passing: 80,

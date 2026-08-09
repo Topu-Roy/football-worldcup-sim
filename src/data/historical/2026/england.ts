@@ -168,7 +168,7 @@ export const ENGLAND_2026: Squad = {
       name: "Harry Kane",
       nation: "ENG",
       wcYear: 2026,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 9,
       finishing: 90,

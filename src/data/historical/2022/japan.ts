@@ -147,7 +147,7 @@ export const JAPAN_2022: Squad = {
       name: "Takumi Minamino",
       nation: "JPN",
       wcYear: 2022,
-      positions: ["CAM", "CF"],
+      positions: ["CAM", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 10,
       finishing: 76,

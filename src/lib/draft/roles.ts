@@ -11,8 +11,6 @@ export const ROLE_LABELS: Record<string, string> = {
   LM: "Left midfielder",
   RM: "Right midfielder",
   ST: "Striker",
-  CF: "Centre-forward",
-  SS: "Second striker",
   LW: "Left winger",
   RW: "Right winger",
 };
@@ -28,8 +26,6 @@ const DEPARTMENT_OF_ROLE: Record<string, Position> = {
   LM: "MID",
   RM: "MID",
   ST: "ATT",
-  CF: "ATT",
-  SS: "ATT",
   LW: "ATT",
   RW: "ATT",
 };
@@ -119,20 +115,6 @@ const ROLE_WEIGHTS: Record<string, [keyof Player, number][]> = {
     ["composure", 0.2],
     ["aerial", 0.15],
   ],
-  CF: [
-    ["finishing", 0.35],
-    ["offBall", 0.2],
-    ["dribble", 0.15],
-    ["passing", 0.15],
-    ["composure", 0.15],
-  ],
-  SS: [
-    ["finishing", 0.3],
-    ["dribble", 0.2],
-    ["passing", 0.2],
-    ["offBall", 0.15],
-    ["composure", 0.15],
-  ],
   LW: [
     ["pace", 0.3],
     ["dribble", 0.3],
@@ -157,8 +139,6 @@ export const ROLE_LEVEL: Record<string, number> = {
   LM: 4,
   RM: 4,
   CAM: 5,
-  SS: 6,
-  CF: 6,
   LW: 6,
   RW: 6,
   ST: 7,

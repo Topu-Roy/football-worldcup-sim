@@ -124,7 +124,7 @@ export const SPAIN_2026: Squad = {
       name: "Dani Olmo",
       nation: "ESP",
       wcYear: 2026,
-      positions: ["CAM", "LW", "CF"],
+      positions: ["CAM", "LW", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 10,
       passing: 86,

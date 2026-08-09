@@ -154,7 +154,7 @@ export const NETHERLANDS_1978: Squad = {
       name: "Rob Rensenbrink",
       nation: "NED",
       wcYear: 1978,
-      positions: ["LW", "SS"],
+      positions: ["LW", "ST"],
       bestPosition: "LW",
       jerseyNumber: 12,
       finishing: 90,

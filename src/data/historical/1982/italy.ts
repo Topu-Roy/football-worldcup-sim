@@ -127,7 +127,7 @@ export const ITALY_1982: Squad = {
       name: "Francesco Graziani",
       nation: "ITA",
       wcYear: 1982,
-      positions: ["ST", "SS"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 19,
       finishing: 82,

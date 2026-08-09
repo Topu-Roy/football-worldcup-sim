@@ -138,7 +138,7 @@ export const GERMANY_2014: Squad = {
       name: "Thomas Müller",
       nation: "GER",
       wcYear: 2014,
-      positions: ["CAM", "RW", "CF"],
+      positions: ["CAM", "RW", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 13,
       passing: 84,

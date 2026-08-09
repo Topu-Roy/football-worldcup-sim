@@ -110,7 +110,7 @@ export const SWEDEN_1994: Squad = {
       name: "Tomas Brolin",
       nation: "SWE",
       wcYear: 1994,
-      positions: ["CAM", "SS"],
+      positions: ["CAM", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 11,
       passing: 86,

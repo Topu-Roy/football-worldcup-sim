@@ -151,7 +151,7 @@ export const ARGENTINA_1994: Squad = {
       name: "Diego Maradona",
       nation: "ARG",
       wcYear: 1994,
-      positions: ["CAM", "AM"],
+      positions: ["CAM"],
       bestPosition: "CAM",
       jerseyNumber: 10,
       passing: 92,

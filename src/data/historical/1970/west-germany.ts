@@ -110,7 +110,7 @@ export const WEST_GERMANY_1970: Squad = {
       name: "Hannes Löhr",
       nation: "FRG",
       wcYear: 1970,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 17,
       passing: 80,

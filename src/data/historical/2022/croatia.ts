@@ -169,7 +169,7 @@ export const CROATIA_2022: Squad = {
       name: "Bruno Petković",
       nation: "CRO",
       wcYear: 2022,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 16,
       finishing: 79,

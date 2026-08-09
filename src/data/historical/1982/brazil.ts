@@ -128,7 +128,7 @@ export const BRAZIL_1982: Squad = {
       name: "Zico",
       nation: "BRA",
       wcYear: 1982,
-      positions: ["CAM", "CF"],
+      positions: ["CAM", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 10,
       finishing: 92,

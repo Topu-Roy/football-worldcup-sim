@@ -124,7 +124,7 @@ export const WEST_GERMANY_1986: Squad = {
       name: "Karl-Heinz Rummenigge",
       nation: "FRG",
       wcYear: 1986,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 11,
       finishing: 89,

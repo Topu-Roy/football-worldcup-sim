@@ -169,7 +169,7 @@ export const CROATIA_2018: Squad = {
       name: "Andrej Kramarić",
       nation: "CRO",
       wcYear: 2018,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 9,
       finishing: 82,

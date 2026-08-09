@@ -153,7 +153,7 @@ export const TURKEY_2002: Squad = {
       name: "Arif Erdem",
       nation: "TUR",
       wcYear: 2002,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 6,
       finishing: 74,

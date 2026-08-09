@@ -156,7 +156,7 @@ export const NORWAY_2026: Squad = {
       name: "Alexander Sørloth",
       nation: "NOR",
       wcYear: 2026,
-      positions: ["ST", "CF"],
+      positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 7,
       finishing: 82,
