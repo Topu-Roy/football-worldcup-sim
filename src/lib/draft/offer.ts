@@ -38,19 +38,39 @@ function combosFor(
   return placeable.length > 0 ? placeable : byDept;
 }
 
+function comboCoverage(c: Combo, roles: string[]): number {
+  const covered = new Set<string>();
+  for (const p of squadOf(c.nation, c.year)) {
+    for (const r of p.positions) {
+      const canon = canonicalRole(r);
+      if (roles.some((role) => canonicalRole(role) === canon)) {
+        covered.add(canon);
+      }
+    }
+  }
+  return covered.size;
+}
+
+function pickBest(combos: Combo[], roles: string[]): Combo {
+  const scored = combos.map((c) => ({ c, cover: comboCoverage(c, roles) }));
+  const max = Math.max(...scored.map((s) => s.cover));
+  return pick(scored.filter((s) => s.cover === max)).c;
+}
+
 export function makeOffer(
   formationKey: string,
   formation: Formation,
   drafted: Player[],
   history: Offer[] = [],
 ): Offer {
+  const roles = emptySlotRoles(formationKey, drafted);
   const combos = combosFor(formationKey, formation, drafted);
 
   const fresh = combos.filter(
     (c) => !history.some((o) => o.nation === c.nation && o.year === c.year),
   );
   const usable = fresh.length > 0 ? fresh : combos;
-  const chosen = pick(usable.length > 0 ? usable : combos);
+  const chosen = pickBest(usable.length > 0 ? usable : combos, roles);
 
   return {
     nation: chosen.nation,
@@ -79,16 +99,17 @@ export function sameNationReroll(
   current: Offer,
   history: Offer[],
 ): Offer | null {
+  const roles = emptySlotRoles(formationKey, drafted);
   const years = combosFor(formationKey, formation, drafted)
     .filter((c) => c.nation === current.nation)
-    .map((c) => c.year)
     .filter(
-      (y) =>
-        y !== current.year &&
-        !history.some((o) => o.nation === current.nation && o.year === y),
+      (c) =>
+        c.year !== current.year &&
+        !history.some((o) => o.nation === current.nation && o.year === c.year),
     );
   if (years.length === 0) return null;
-  return offerFor(current.nation, pick(years));
+  const chosen = pickBest(years, roles);
+  return offerFor(chosen.nation, chosen.year);
 }
 
 export function newNationReroll(
@@ -98,6 +119,7 @@ export function newNationReroll(
   current: Offer,
   history: Offer[],
 ): Offer | null {
+  const roles = emptySlotRoles(formationKey, drafted);
   const combos = combosFor(formationKey, formation, drafted).filter(
     (c) => c.nation !== current.nation,
   );
@@ -106,6 +128,6 @@ export function newNationReroll(
   );
   const usable = fresh.length > 0 ? fresh : combos;
   if (usable.length === 0) return null;
-  const chosen = pick(usable);
+  const chosen = pickBest(usable, roles);
   return offerFor(chosen.nation, chosen.year);
 }

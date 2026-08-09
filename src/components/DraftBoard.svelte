@@ -134,9 +134,18 @@
     );
   });
 
+  function offerUsable(o: ReturnType<typeof makeOffer>): boolean {
+    return o.players.some((p) => hasPlaceableSlot(p));
+  }
+
   function newOffer() {
     selected = null;
-    const next = makeOffer(formationKey, formation, drafted, offerHistory);
+    let next = makeOffer(formationKey, formation, drafted, offerHistory);
+    let guard = 0;
+    while (guard < 100 && !offerUsable(next)) {
+      next = makeOffer(formationKey, formation, drafted, offerHistory);
+      guard++;
+    }
     offer = next;
     offerHistory = [...offerHistory, next];
   }
