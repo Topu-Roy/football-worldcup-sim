@@ -128,91 +128,88 @@
     >
   </header>
 
-  {#if tournament.phase === "group"}
-    <div class="mt-10 rounded-3xl border border-white/15 bg-slate/30 p-6">
-      <p class="{mono} mb-4 text-secondary">GROUP STAGE</p>
-      {@render StandingsTable(standings, tournament.userSquad.id)}
-    </div>
+  {@render RunStats(stats)}
 
-    <div class="mt-6 rounded-3xl border border-white/15 p-6">
-      <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
-      <ul class="space-y-3">
-        {#each userGroupMatches as m (m.id)}
-          <li
-            class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
-            class:border-mint={expandedId === m.id}
-          >
-            <div
-              class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {m.result
-                ? 'cursor-pointer'
-                : ''}"
-              role="button"
-              tabindex="0"
-              onclick={() => {
+  <div class="mt-10 rounded-3xl border border-white/15 p-6">
+    <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
+    <ul class="space-y-3">
+      {#each userGroupMatches as m (m.id)}
+        <li
+          class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
+          class:border-mint={expandedId === m.id}
+        >
+          <div
+            class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {m.result
+              ? 'cursor-pointer'
+              : ''}"
+            role="button"
+            tabindex="0"
+            onclick={() => {
+              if (m.result) toggleMatch(m);
+            }}
+            onkeydown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
                 if (m.result) toggleMatch(m);
-              }}
-              onkeydown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  if (m.result) toggleMatch(m);
-                }
-              }}
-            >
-              <div>
-                <p class="font-bold">
-                  vs. {opponentOf(m).name}
-                  <span class="{mono} ml-2! text-secondary">
-                    {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
-                      m,
-                    ).wcYear}
-                  </span>
-                </p>
-              </div>
-              <div class="flex items-center gap-4">
-                {#if m.result}
-                  <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
-                    >{outcomeBadge(m)}
-                    {m.result.score[0]}–{m.result.score[1]}</span
-                  >
-                {:else}
-                  <span class="{mono} text-secondary">NOT PLAYED</span>
-                {/if}
-                {#if m.result}
-                  <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
-                {:else}
-                  <button
-                    type="button"
-                    class={pillSmall}
-                    onclick={() => playMatch(m)}
-                  >
-                    Play
-                  </button>
-                {/if}
-              </div>
-            </div>
-            <div
-              class="border-t border-white/10 px-4 py-4"
-              class:hidden={expandedId !== m.id}
-            >
-              {@render MatchPanel(m)}
-            </div>
-          </li>
-        {/each}
-      </ul>
-
-      {#if groupDoneNow}
-        <div class="mt-6 flex justify-center">
-          <button
-            type="button"
-            class={pillOutline}
-            onclick={() => advanceToKnockout(tournament)}
+              }
+            }}
           >
-            Proceed to knockouts
-          </button>
-        </div>
-      {/if}
-    </div>
-  {:else if tournament.phase === "knockout"}
+            <div>
+              <p class="font-bold">
+                vs. {opponentOf(m).name}
+                <span class="{mono} ml-2! text-secondary">
+                  {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
+                    m,
+                  ).wcYear}
+                </span>
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              {#if m.result}
+                <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
+                  >{outcomeBadge(m)}
+                  {m.result.score[0]}–{m.result.score[1]}</span
+                >
+              {:else}
+                <span class="{mono} text-secondary">NOT PLAYED</span>
+              {/if}
+              {#if m.result}
+                <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
+              {:else}
+                <button
+                  type="button"
+                  class={pillSmall}
+                  onclick={() => playMatch(m)}
+                >
+                  Play
+                </button>
+              {/if}
+            </div>
+          </div>
+          <div
+            class="border-t border-white/10 px-4 py-4"
+            class:hidden={expandedId !== m.id}
+          >
+            {@render MatchPanel(m)}
+          </div>
+        </li>
+      {/each}
+    </ul>
+
+    {#if groupDoneNow && tournament.phase === "group"}
+      <div class="mt-6 flex justify-center">
+        <button
+          type="button"
+          class={pillOutline}
+          onclick={() => advanceToKnockout(tournament)}
+        >
+          Proceed to knockouts
+        </button>
+      </div>
+    {/if}
+  </div>
+
+  {#if tournament.phase === "knockout"}
     <div class="mt-10 grid gap-6 lg:grid-cols-3">
       {#each knockoutByRound.sf as m (m.id)}
         <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
@@ -262,8 +259,19 @@
         </button>
       </div>
     {/if}
-  {:else}
+  {/if}
+
+  {#if tournament.phase === "ended"}
     <div class="mt-10 flex flex-col items-center gap-8">
+      {#if tournament.outcome === "eliminated"}
+        <div
+          class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-6"
+        >
+          <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
+          {@render StandingsTable(standings, tournament.userSquad.id)}
+        </div>
+      {/if}
+
       <div
         class="rounded-3xl border border-white/15 bg-slate/30 px-10 py-8 text-center"
       >
@@ -280,97 +288,57 @@
         </p>
       </div>
 
-      {#if tournament.outcome === "eliminated"}
-        <div
-          class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-6"
-        >
-          <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
-          {@render StandingsTable(standings, tournament.userSquad.id)}
-        </div>
-      {/if}
-
-      {#if stats}
-        <div class="w-full max-w-4xl">
-          <div class="grid grid-cols-3 gap-4 sm:grid-cols-6">
-            {@render Stat("Played", String(stats.played))}
-            {@render Stat("Won", String(stats.won))}
-            {@render Stat("Drawn", String(stats.drawn))}
-            {@render Stat("Lost", String(stats.lost))}
-            {@render Stat("Points", String(stats.points))}
-            {@render Stat("Goal diff", formatSigned(stats.gd))}
-          </div>
-
-          <div class="mt-6 rounded-3xl border border-white/15 p-6">
-            <p class="{mono} mb-4 text-secondary">MATCH RESULTS</p>
-            <div class="grid grid-cols-2 gap-4 text-center sm:grid-cols-4">
-              {@render Stat("Goals for", String(stats.gf))}
-              {@render Stat("Goals against", String(stats.ga))}
-              {@render Stat("Clean sheets", String(stats.cleanSheets))}
-              {@render Stat("Penalty wins", String(stats.penaltyWins))}
-              {@render Stat(
-                "Biggest win",
-                stats.biggestWin > 0 ? `+${stats.biggestWin}` : "–",
-              )}
-              {@render Stat(
-                "Biggest loss",
-                stats.biggestLoss > 0 ? `−${stats.biggestLoss}` : "–",
-              )}
-              {@render Stat("Avg goals/match", stats.avgGoalsFor.toFixed(2))}
-            </div>
-          </div>
-
-          <div
-            class="mt-6 overflow-x-auto rounded-3xl border border-white/15 p-6"
-          >
-            <table class="w-full text-left text-sm">
-              <thead>
-                <tr class="{mono} text-secondary">
-                  <th class="pr-4 pb-3">Round</th>
-                  <th class="pr-4 pb-3">Opponent</th>
-                  <th class="pr-4 pb-3">Score</th>
-                  <th class="pr-4 pb-3">Result</th>
-                  <th class="pr-4 pb-3">Shots</th>
-                  <th class="pr-4 pb-3">On target</th>
-                  <th class="pr-4 pb-3">Possession</th>
-                  <th class="pb-3">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {#each stats.matches as sm (sm.id)}
-                  <tr class="border-t border-white/10">
-                    <td class="{mono} py-3 pr-4 text-[10px] text-secondary"
-                      >{sm.roundLabel}</td
-                    >
-                    <td class="py-3 pr-4 font-bold">{sm.opponentName}</td>
-                    <td class="py-3 pr-4 font-mono"
-                      >{sm.result.score[0]}–{sm.result.score[1]}</td
-                    >
-                    <td
-                      class="{mono} py-3 pr-4 text-[10px]"
-                      style:color={outcomeColor(sm.outcome)}>{sm.outcome}</td
-                    >
-                    <td class="py-3 pr-4 font-mono"
-                      >{sm.result.shots[0]}–{sm.result.shots[1]}</td
-                    >
-                    <td class="py-3 pr-4 font-mono"
-                      >{sm.result.shotsOnTarget[0]}–{sm.result
-                        .shotsOnTarget[1]}</td
-                    >
-                    <td class="py-3 pr-4 font-mono"
-                      >{Math.round(sm.result.possession[0] * 100)}%</td
-                    >
-                    <td class="{mono} py-3 text-[10px] text-secondary">
-                      {sm.result.extraTime ? "ET" : ""}{sm.result.penalties
-                        ? "·PEN"
-                        : ""}
-                    </td>
-                  </tr>
-                {/each}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      {/if}
+      <div
+        class="w-full max-w-4xl overflow-x-auto rounded-3xl border border-white/15 p-6"
+      >
+        <p class="{mono} mb-4 text-secondary">MATCH RESULTS</p>
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="{mono} text-secondary">
+              <th class="pr-4 pb-3">Round</th>
+              <th class="pr-4 pb-3">Opponent</th>
+              <th class="pr-4 pb-3">Score</th>
+              <th class="pr-4 pb-3">Result</th>
+              <th class="pr-4 pb-3">Shots</th>
+              <th class="pr-4 pb-3">On target</th>
+              <th class="pr-4 pb-3">Possession</th>
+              <th class="pb-3">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {#each stats.matches as sm (sm.id)}
+              <tr class="border-t border-white/10">
+                <td class="{mono} py-3 pr-4 text-[10px] text-secondary"
+                  >{sm.roundLabel}</td
+                >
+                <td class="py-3 pr-4 font-bold">{sm.opponentName}</td>
+                <td class="py-3 pr-4 font-mono"
+                  >{sm.result.score[0]}–{sm.result.score[1]}</td
+                >
+                <td
+                  class="{mono} py-3 pr-4 text-[10px]"
+                  style:color={outcomeColor(sm.outcome)}>{sm.outcome}</td
+                >
+                <td class="py-3 pr-4 font-mono"
+                  >{sm.result.shots[0]}–{sm.result.shots[1]}</td
+                >
+                <td class="py-3 pr-4 font-mono"
+                  >{sm.result.shotsOnTarget[0]}–{sm.result
+                    .shotsOnTarget[1]}</td
+                >
+                <td class="py-3 pr-4 font-mono"
+                  >{Math.round(sm.result.possession[0] * 100)}%</td
+                >
+                <td class="{mono} py-3 text-[10px] text-secondary">
+                  {sm.result.extraTime ? "ET" : ""}{sm.result.penalties
+                    ? "·PEN"
+                    : ""}
+                </td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </div>
 
       <div class="flex gap-4">
         <button type="button" class={pillOutline} onclick={startNewTournament}
@@ -383,6 +351,19 @@
     </div>
   {/if}
 </section>
+
+{#snippet RunStats(stats: import("../lib/tournament.js").AggregateStats)}
+  <div class="mt-10 rounded-3xl border border-white/15 bg-slate/30 p-6">
+    <p class="{mono} mb-4 text-secondary">YOUR RUN</p>
+    <div class="grid grid-cols-5 gap-4">
+      {@render Stat("Won", String(stats.won))}
+      {@render Stat("Drawn", String(stats.drawn))}
+      {@render Stat("Lost", String(stats.lost))}
+      {@render Stat("Goals for", String(stats.gf))}
+      {@render Stat("Goals against", String(stats.ga))}
+    </div>
+  </div>
+{/snippet}
 
 {#snippet StandingsTable(
   rows: import("../lib/tournament.js").GroupStanding[],
