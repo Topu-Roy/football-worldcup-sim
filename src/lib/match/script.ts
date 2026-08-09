@@ -76,6 +76,7 @@ export function simulateMatchScript(
   const score: [number, number] = [0, 0];
   const shots: [number, number] = [0, 0];
   const shotsOnTarget: [number, number] = [0, 0];
+  const xg: [number, number] = [0, 0];
   const events: MatchEvent[] = [];
   const possessionSum: [number, number] = [0, 0];
 
@@ -99,7 +100,7 @@ export function simulateMatchScript(
     possessionSum[0] += poss;
     possessionSum[1] += 1 - poss;
 
-    const { goals, onTarget } = simShots(
+    const { goals, onTarget, xg: segXg } = simShots(
       segShots,
       scale,
       onTargetBias,
@@ -109,6 +110,7 @@ export function simulateMatchScript(
     for (const t of [0, 1] as const) {
       shots[t] += segShots.filter((s) => s.team === t).length;
       shotsOnTarget[t] += onTarget[t];
+      xg[t] += segXg[t];
       for (let i = 0; i < goals[t]; i++) {
         score[t] += 1;
         const scorer = pickScorer(t === 0 ? playersA : playersB);
@@ -134,6 +136,7 @@ export function simulateMatchScript(
       score: [score[0], score[1]],
       shots: [shots[0], shots[1]],
       shotsOnTarget: [shotsOnTarget[0], shotsOnTarget[1]],
+      xg: [xg[0], xg[1]],
       possession: [poss, 1 - poss],
       events: segEvents,
     };
@@ -184,6 +187,7 @@ export function simulateMatchScript(
     score,
     shots,
     shotsOnTarget,
+    xg,
     possession: [possessionSum[0] / totalPoss, possessionSum[1] / totalPoss],
     extraTime: extraTime !== undefined,
     penalties: penalties !== undefined,

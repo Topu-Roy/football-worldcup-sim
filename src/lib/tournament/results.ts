@@ -12,6 +12,7 @@ function normalizeResultForMatch(
     score: [result.score[1], result.score[0]],
     shots: [result.shots[1], result.shots[0]],
     shotsOnTarget: [result.shotsOnTarget[1], result.shotsOnTarget[0]],
+    xg: [result.xg[1], result.xg[0]],
     possession: [result.possession[1], result.possession[0]],
     winner: result.winner === null ? null : result.winner === 0 ? 1 : 0,
     events: result.events.map((ev) => ({

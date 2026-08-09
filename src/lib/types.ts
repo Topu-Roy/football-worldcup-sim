@@ -80,6 +80,7 @@ export interface MatchResult {
   score: [number, number];
   shots: [number, number];
   shotsOnTarget: [number, number];
+  xg: [number, number];
   possession: [number, number];
   extraTime: boolean;
   penalties: boolean;
@@ -94,6 +95,7 @@ export interface SegmentSnapshot {
   score: [number, number];
   shots: [number, number];
   shotsOnTarget: [number, number];
+  xg: [number, number];
   possession: [number, number];
   events: MatchEvent[];
 }

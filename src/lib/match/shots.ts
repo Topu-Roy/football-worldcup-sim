@@ -94,21 +94,24 @@ export function simShots(
   scale: number,
   onTargetBias: number,
   conversionBias: number,
-): { goals: [number, number]; onTarget: [number, number] } {
+): { goals: [number, number]; onTarget: [number, number]; xg: [number, number] } {
   const goals: [number, number] = [0, 0];
   const onTarget: [number, number] = [0, 0];
+  const xg: [number, number] = [0, 0];
   for (const s of shots) {
-    if (
-      Math.random() < logistic((s.attack - s.oppDefense) / scale - onTargetBias)
-    ) {
+    const onTargetRate = logistic(
+      (s.attack - s.oppDefense) / scale - onTargetBias,
+    );
+    const conversionRate = logistic(
+      (s.finishing - s.oppGk) / scale - conversionBias,
+    );
+    xg[s.team] += onTargetRate * conversionRate;
+    if (Math.random() < onTargetRate) {
       onTarget[s.team] += 1;
-      if (
-        Math.random() <
-        logistic((s.finishing - s.oppGk) / scale - conversionBias)
-      ) {
+      if (Math.random() < conversionRate) {
         goals[s.team] += 1;
       }
     }
   }
-  return { goals, onTarget };
+  return { goals, onTarget, xg };
 }

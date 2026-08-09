@@ -25,7 +25,7 @@
     onReset: () => void;
   } = $props();
 
-  let activeMatchId = $state<string | null>(null);
+  let expandedId = $state<string | null>(null);
 
   function formatSigned(n: number): string {
     if (n > 0) return `+${n}`;
@@ -34,15 +34,9 @@
   }
 
   function startNewTournament() {
-    activeMatchId = null;
+    expandedId = null;
     onNewTournament();
   }
-
-  const playing = $derived(
-    activeMatchId
-      ? (tournament.matches.find((m) => m.id === activeMatchId) ?? null)
-      : null,
-  );
 
   const userGroupMatches = $derived(
     tournament.matches.filter((m) => m.isUser && m.round === "group"),
@@ -76,25 +70,20 @@
     return `Group A · Match ${idx + 1} of 3`;
   }
 
-  function nextLabel(m: TournamentMatch): string {
-    if (m.round === "group") return "Back to group";
-    if (m.round === "final") return "See results";
-    return "Continue";
-  }
-
   function handleResult(m: TournamentMatch) {
     return (r: MatchResult) => {
       registerUserResult(tournament, m.id, r);
       if (tournament.phase === "knockout") resolveKnockout(tournament);
+      expandedId = null;
     };
   }
 
-  function handleNext() {
-    activeMatchId = null;
+  function playMatch(m: TournamentMatch) {
+    expandedId = m.id;
   }
 
-  function playMatch(m: TournamentMatch) {
-    activeMatchId = m.id;
+  function toggleMatch(m: TournamentMatch) {
+    expandedId = expandedId === m.id ? null : m.id;
   }
 
   function outcomeBadge(m: TournamentMatch): string {
@@ -140,24 +129,7 @@
     >
   </header>
 
-  {#if playing}
-    {@const teams = matchTeams(tournament, playing)}
-    <div class="mt-8">
-      <MatchView
-        userSquad={teams.home.id === tournament.userSquad.id
-          ? teams.home
-          : teams.away}
-        opponentSquad={teams.home.id === tournament.userSquad.id
-          ? teams.away
-          : teams.home}
-        roundLabel={roundLabel(playing)}
-        onResult={handleResult(playing)}
-        onNext={handleNext}
-        nextLabel={nextLabel(playing)}
-        regulationOnly={playing.round === "group"}
-      />
-    </div>
-  {:else if tournament.phase === "group"}
+  {#if tournament.phase === "group"}
     <div class="mt-10 grid gap-6 lg:grid-cols-2">
       <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
         <p class="{mono} mb-4 text-secondary">GROUP A</p>
@@ -174,35 +146,62 @@
       <ul class="space-y-3">
         {#each userGroupMatches as m (m.id)}
           <li
-            class="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-slate/20 px-4 py-3"
+            class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
+            class:border-mint={expandedId === m.id}
           >
-            <div>
-              <p class="font-bold">
-                vs. {opponentOf(m).name}
-                <span class="{mono} ml-2! text-secondary">
-                  {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
-                    m,
-                  ).wcYear}
-                </span>
-              </p>
+            <div
+              class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {m.result
+                ? 'cursor-pointer'
+                : ''}"
+              role="button"
+              tabindex="0"
+              onclick={() => {
+                if (m.result) toggleMatch(m);
+              }}
+              onkeydown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  if (m.result) toggleMatch(m);
+                }
+              }}
+            >
+              <div>
+                <p class="font-bold">
+                  vs. {opponentOf(m).name}
+                  <span class="{mono} ml-2! text-secondary">
+                    {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
+                      m,
+                    ).wcYear}
+                  </span>
+                </p>
+              </div>
+              <div class="flex items-center gap-4">
+                {#if m.result}
+                  <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
+                    >{outcomeBadge(m)}
+                    {m.result.score[0]}–{m.result.score[1]}</span
+                  >
+                {:else}
+                  <span class="{mono} text-secondary">NOT PLAYED</span>
+                {/if}
+                {#if m.result}
+                  <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
+                {:else}
+                  <button
+                    type="button"
+                    class={pillSmall}
+                    onclick={() => playMatch(m)}
+                  >
+                    Play
+                  </button>
+                {/if}
+              </div>
             </div>
-            <div class="flex items-center gap-4">
-              {#if m.result}
-                <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
-                  >{outcomeBadge(m)}
-                  {m.result.score[0]}–{m.result.score[1]}</span
-                >
-              {:else}
-                <span class="{mono} text-secondary">NOT PLAYED</span>
-              {/if}
-              <button
-                type="button"
-                class={pillSmall}
-                disabled={m.result !== null}
-                onclick={() => playMatch(m)}
-              >
-                {m.result ? "Played" : "Play"}
-              </button>
+            <div
+              class="border-t border-white/10 px-4 py-4"
+              class:hidden={expandedId !== m.id}
+            >
+              {@render MatchPanel(m)}
             </div>
           </li>
         {/each}
@@ -234,7 +233,11 @@
         </div>
       {/each}
       {#each knockoutByRound.final as m (m.id)}
-        <div class="rounded-3xl border border-yellow bg-yellow/10 p-6">
+        <div
+          class="rounded-3xl border border-yellow bg-yellow/10 p-6 {expandedId === m.id
+            ? 'ring-2 ring-yellow'
+            : ''}"
+        >
           <p class="{mono} mb-4 text-yellow">FINAL</p>
           {@render BracketMatch(
             m,
@@ -245,6 +248,15 @@
         </div>
       {/each}
     </div>
+
+    {#each knockoutMatches.filter((m) => m.isUser) as m (m.id)}
+      <div
+        class="mt-6 rounded-3xl border border-white/15 bg-slate/20"
+        class:hidden={expandedId !== m.id}
+      >
+        {@render MatchPanel(m)}
+      </div>
+    {/each}
 
     {#if !nextUserMatch(tournament)}
       <div class="mt-8 flex justify-center">
@@ -421,6 +433,25 @@
       {/each}
     </tbody>
   </table>
+{/snippet}
+
+{#snippet MatchPanel(m: TournamentMatch)}
+  {@const teams = matchTeams(tournament, m)}
+  <MatchView
+    userSquad={teams.home.id === tournament.userSquad.id
+      ? teams.home
+      : teams.away}
+    opponentSquad={teams.home.id === tournament.userSquad.id
+      ? teams.away
+      : teams.home}
+    roundLabel={roundLabel(m)}
+    onResult={handleResult(m)}
+    onNext={() => (expandedId = null)}
+    regulationOnly={m.round === "group"}
+    embedded
+    presetResult={m.result}
+    autoStart={expandedId === m.id && !m.result}
+  />
 {/snippet}
 
 {#snippet BracketMatch(
