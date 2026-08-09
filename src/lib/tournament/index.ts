@@ -1,4 +1,5 @@
 export { createTournament } from "./create.js";
+export { drawWeak, drawStrong } from "./matchmaking.js";
 export { standingsFor } from "./standings.js";
 export {
   groupDone,

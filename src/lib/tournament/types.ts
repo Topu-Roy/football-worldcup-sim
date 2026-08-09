@@ -5,7 +5,6 @@ export type MatchRound = "group" | "sf" | "final";
 export interface TournamentMatch {
   id: string;
   round: MatchRound;
-  group?: "A" | "B";
   home: string;
   away: string;
   result: MatchResult | null;
@@ -34,7 +33,7 @@ export interface Tournament {
   phase: "group" | "knockout" | "ended";
   userSquad: Squad;
   squads: Record<string, Squad>;
-  groups: { A: string[]; B: string[] };
+  group: string[];
   matches: TournamentMatch[];
   outcome?: TournamentOutcome;
 }

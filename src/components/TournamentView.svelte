@@ -44,8 +44,7 @@
 
   const groupDoneNow = $derived(groupDone(tournament));
 
-  const standingsA = $derived(standingsFor(tournament, "A"));
-  const standingsB = $derived(standingsFor(tournament, "B"));
+  const standings = $derived(standingsFor(tournament));
 
   const stats = $derived(aggregateStats(tournament));
 
@@ -67,7 +66,7 @@
     if (m.round === "sf") return "Semi-final";
     if (m.round === "final") return "Final";
     const idx = userGroupMatches.findIndex((x) => x.id === m.id);
-    return `Group A · Match ${idx + 1} of 3`;
+    return `Group stage · Match ${idx + 1} of 3`;
   }
 
   function handleResult(m: TournamentMatch) {
@@ -116,12 +115,12 @@
 <section class="mx-auto max-w-6xl px-6 py-12">
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p class="{mono} text-mint">Tournament · 8 teams</p>
+      <p class="{mono} text-mint">Tournament · 4 teams</p>
       <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
         World Cup Run
       </h2>
       <p class="{mono} mt-3 text-secondary">
-        Group A + Group B · top 2 advance to knockouts
+        Group stage · top 2 advance to knockouts
       </p>
     </div>
     <button type="button" class={pillOutline} onclick={onReset}
@@ -130,15 +129,9 @@
   </header>
 
   {#if tournament.phase === "group"}
-    <div class="mt-10 grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
-        <p class="{mono} mb-4 text-secondary">GROUP A</p>
-        {@render StandingsTable(standingsA, tournament.userSquad.id)}
-      </div>
-      <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
-        <p class="{mono} mb-4 text-secondary">GROUP B</p>
-        {@render StandingsTable(standingsB, null)}
-      </div>
+    <div class="mt-10 rounded-3xl border border-white/15 bg-slate/30 p-6">
+      <p class="{mono} mb-4 text-secondary">GROUP STAGE</p>
+      {@render StandingsTable(standings, tournament.userSquad.id)}
     </div>
 
     <div class="mt-6 rounded-3xl border border-white/15 p-6">
@@ -291,8 +284,8 @@
         <div
           class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-6"
         >
-          <p class="{mono} mb-4 text-secondary">FINAL GROUP A TABLE</p>
-          {@render StandingsTable(standingsA, tournament.userSquad.id)}
+          <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
+          {@render StandingsTable(standings, tournament.userSquad.id)}
         </div>
       {/if}
 

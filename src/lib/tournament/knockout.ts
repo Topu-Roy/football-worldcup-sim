@@ -1,20 +1,15 @@
-import type { MatchResult, Squad } from "../types.js";
 import { simulateMatch } from "../matchEngine.js";
 import type { MatchRound, Tournament, TournamentMatch } from "./types.js";
 import { groupDone } from "./queries.js";
 import { standingsFor } from "./standings.js";
-
-function simResult(home: Squad, away: Squad): MatchResult {
-  return simulateMatch(home, away);
-}
+import { drawStrong } from "./matchmaking.js";
 
 export function advanceToKnockout(state: Tournament): void {
   if (state.phase !== "group" || !groupDone(state)) return;
 
-  const a = standingsFor(state, "A");
-  const b = standingsFor(state, "B");
+  const table = standingsFor(state);
   const userQualified =
-    a.findIndex((s) => s.squadId === state.userSquad.id) < 2;
+    table.findIndex((s) => s.squadId === state.userSquad.id) < 2;
 
   if (!userQualified) {
     state.phase = "ended";
@@ -22,23 +17,22 @@ export function advanceToKnockout(state: Tournament): void {
     return;
   }
 
-  const a1 = a[0].squadId;
-  const a2 = a[1].squadId;
-  const b1 = b[0].squadId;
-  const b2 = b[1].squadId;
+  const strong = drawStrong(3);
+  for (const s of strong) state.squads[s.id] = s;
+  const [h1, h2, h3] = strong.map((s) => s.id);
 
   const sfPairs: [string, [string, string]][] = [
-    ["sf-1", [a1, b2]],
-    ["sf-2", [b1, a2]],
+    ["sf-1", [state.userSquad.id, h1]],
+    ["sf-2", [h2, h3]],
   ];
-  const sfMatches: TournamentMatch[] = sfPairs.map(([id, [h, away]]) => {
-    const isUser = h === state.userSquad.id || away === state.userSquad.id;
+  const sfMatches: TournamentMatch[] = sfPairs.map(([id, [home, away]]) => {
+    const isUser = home === state.userSquad.id || away === state.userSquad.id;
     return {
       id,
       round: "sf" as MatchRound,
-      home: h,
+      home,
       away,
-      result: isUser ? null : simResult(state.squads[h], state.squads[away]),
+      result: isUser ? null : simulateMatch(state.squads[home], state.squads[away]),
       isUser,
     };
   });
@@ -58,14 +52,14 @@ export function resolveKnockout(state: Tournament): void {
 
   const existingFinal = state.matches.find((m) => m.round === "final");
   if (!existingFinal) {
-    const [h, away] = sfWinners as [string, string];
-    const isUser = h === state.userSquad.id || away === state.userSquad.id;
+    const [home, away] = sfWinners as [string, string];
+    const isUser = home === state.userSquad.id || away === state.userSquad.id;
     state.matches.push({
       id: "final",
       round: "final",
-      home: h,
+      home,
       away,
-      result: isUser ? null : simResult(state.squads[h], state.squads[away]),
+      result: isUser ? null : simulateMatch(state.squads[home], state.squads[away]),
       isUser,
     });
   }

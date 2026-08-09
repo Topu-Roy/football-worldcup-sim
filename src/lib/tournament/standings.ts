@@ -74,9 +74,6 @@ function standingsForGroup(
   });
 }
 
-export function standingsFor(
-  state: Tournament,
-  group: "A" | "B",
-): GroupStanding[] {
-  return standingsForGroup(state.matches, state.groups[group], state.squads);
+export function standingsFor(state: Tournament): GroupStanding[] {
+  return standingsForGroup(state.matches, state.group, state.squads);
 }

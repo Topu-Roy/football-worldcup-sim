@@ -9,8 +9,8 @@ export function groupDone(state: Tournament): boolean {
 }
 
 export function userGroupStanding(state: Tournament): GroupStanding | null {
-  const a = standingsFor(state, "A");
-  return a.find((s) => s.squadId === state.userSquad.id) ?? null;
+  const table = standingsFor(state);
+  return table.find((s) => s.squadId === state.userSquad.id) ?? null;
 }
 
 export function nextUserMatch(state: Tournament): TournamentMatch | null {

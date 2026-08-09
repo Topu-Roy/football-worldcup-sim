@@ -27,5 +27,5 @@ export function chemistryBonus(
 ): number {
   if (isHistorical) return 0.2;
   const n = countSameNation(players);
-  return clamp(CHEMISTRY_CURVE[n] ?? 0, 0, CHEMISTRY_CAP);
+  return clamp(CHEMISTRY_CURVE[Math.min(n, 5)] ?? 0, 0, CHEMISTRY_CAP);
 }
