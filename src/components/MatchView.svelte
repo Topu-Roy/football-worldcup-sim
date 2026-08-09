@@ -1,5 +1,6 @@
 <script lang="ts">
   import { NATION_NAMES } from "../lib/draft.js";
+import { playerRating } from "../lib/draft.js";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import type {
     MatchResult,
@@ -35,6 +36,17 @@
   } = $props();
 
   const teamName = (t: 0 | 1) => (t === 0 ? "Your XI" : opponentSquad.name);
+
+  const teamAvg = (squad: Squad): number =>
+    squad.players.length > 0
+      ? Math.round(
+          squad.players.reduce((a, p) => a + playerRating(p), 0) /
+            squad.players.length,
+        )
+      : 0;
+
+  const userAvg = $derived(teamAvg(userSquad));
+  const oppAvg = $derived(teamAvg(opponentSquad));
 
   const preMatch: SegmentSnapshot = {
     minute: 0,
@@ -341,9 +353,9 @@
 
   {#if script || presetResult}
     <div
-      class="mt-8 overflow-hidden rounded-3xl border border-white/15 bg-slate/30"
+      class="mt-5 overflow-hidden rounded-3xl border border-white/15 bg-slate/30"
     >
-      <div class="flex items-center justify-between gap-4 border-b border-white/10 px-6 py-3">
+      <div class="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-2">
         <div class="flex items-center gap-3">
           <span
             class="{mono} text-[10px] {phase === 'play'
@@ -369,21 +381,21 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-6 py-6">
+      <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 py-4">
         <div class="flex flex-col items-end">
           <span
-            class="flex h-10 w-10 items-center justify-center rounded-full bg-mint font-display text-lg leading-none text-black"
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-mint font-display text-lg leading-none text-black"
             >XI</span
           >
-          <p class="mt-2 font-display text-2xl leading-none text-mint">Your XI</p>
-          <p class="{mono} mt-2 text-secondary">
-            {userSquad.players.length} players · {userNationCount} same nation
+          <p class="mt-1.5 font-display text-xl leading-none text-mint">Your XI</p>
+          <p class="{mono} mt-1.5 text-secondary">
+            {userSquad.players.length} players · {userNationCount} same nation · AVG {userAvg}
           </p>
         </div>
         <div class="min-w-40 text-center">
           {#key displayScore[0] + "-" + displayScore[1]}
             <p
-              class="score-bump font-mono text-6xl font-bold tracking-tight text-white"
+              class="score-bump font-mono text-5xl font-bold tracking-tight text-white"
             >
               {displayScore[0]}<span class="text-secondary">–</span
               >{displayScore[1]}
@@ -392,14 +404,14 @@
         </div>
         <div class="flex flex-col items-start">
           <span
-            class="flex h-10 w-10 items-center justify-center rounded-full bg-uv font-display text-lg leading-none text-white"
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-uv font-display text-lg leading-none text-white"
             >{opponentSquad.name.slice(0, 3).toUpperCase()}</span
           >
-          <p class="mt-2 font-display text-2xl leading-none text-secondary">
+          <p class="mt-1.5 font-display text-xl leading-none text-secondary">
             {opponentSquad.name}
           </p>
-          <p class="{mono} mt-2 text-secondary">
-            {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
+          <p class="{mono} mt-1.5 text-secondary">
+            {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear} · AVG {oppAvg}
           </p>
         </div>
       </div>
@@ -499,12 +511,12 @@
     {/if}
 
     {#if script && (phase === "pens" || (phase === "done" && script.result.penalties))}
-      <div class="mt-6 rounded-3xl border border-white/15 p-6">
-        <p class="{mono} mb-4 text-yellow">PENALTY SHOOTOUT</p>
-        <ul class="space-y-2">
+      <div class="mt-4 rounded-2xl border border-white/15 p-4">
+        <p class="{mono} mb-3 text-yellow">PENALTY SHOOTOUT</p>
+        <ul class="space-y-1.5">
           {#each visibleKicks as k, i (i)}
             <li
-              class="flex items-center gap-3 text-sm"
+              class="flex items-center gap-3 text-[13px]"
               class:text-mint={k.team === 0}
               class:text-uv={k.team === 1}
             >
@@ -529,21 +541,21 @@
     {/if}
 
     {#if commentary.length > 0}
-      <div class="mt-6 rounded-3xl border border-white/15 p-6">
+      <div class="mt-4 rounded-2xl border border-white/15 p-4">
         <div class="flex items-center justify-between">
-          <p class="{mono} mb-4 text-secondary">COMMENTARY</p>
-          <p class="{mono} mb-4 text-[10px] text-secondary"
-            >{segIndex}/{snaps.length} segments</p
+          <p class="{mono} mb-3 text-secondary">COMMENTARY</p>
+          <p class="{mono} mb-3 text-[10px] text-secondary"
+            >{segIndex}/{snaps.length} segments · {result?.events.length ?? 0} goals</p
           >
         </div>
         <ul
-          class="flex max-h-64 flex-col-reverse gap-1 overflow-y-auto pr-2"
+          class="flex max-h-48 flex-col-reverse gap-1 overflow-y-auto pr-2"
         >
           {#each [...commentary].reverse() as line (line.id)}
             <li
-              class="flex items-baseline gap-3 rounded-lg px-2 py-1.5 {line.text.includes('GOAL') && line.team !== undefined
+              class="flex items-baseline gap-3 rounded-lg px-2 py-1 {line.text.includes('GOAL') && line.team !== undefined
                 ? 'bg-mint/[0.08]'
-                : ''} text-sm"
+                : ''} text-[13px]"
               class:text-mint={line.team === 0}
               class:text-uv={line.team === 1}
               class:text-secondary={line.team === undefined}
@@ -560,39 +572,16 @@
       </div>
     {/if}
 
-    {#if phase === "done" && result && result.events.length > 0}
-      <div class="mt-6 rounded-3xl border border-white/15 p-6">
-        <p class="{mono} mb-4 text-secondary">SCORERS</p>
-        <ul class="space-y-2">
-          {#each result.events as ev, i (i)}
-            <li class="flex items-center gap-3 text-sm">
-              <span class="w-8 font-mono text-xs text-secondary"
-                >{ev.minute}'</span
-              >
-              <span
-                class="h-2 w-2 rounded-full"
-                style:background={ev.teamIndex === 0 ? "#3cffd0" : "#5200ff"}
-              ></span>
-              <span class="font-semibold text-white">{teamName(ev.teamIndex)}</span>
-              <span class="ml-auto text-secondary"
-                >{ev.scorerName ?? "Goal"}</span
-              >
-            </li>
-          {/each}
-        </ul>
-      </div>
-    {/if}
-
     {#if phase === "done" && result}
       <div
-        class="mt-6 overflow-hidden rounded-3xl border p-8 text-center {result.winner === 0
+        class="mt-4 overflow-hidden rounded-2xl border p-6 text-center {result.winner === 0
           ? 'border-mint bg-mint/10'
           : result.winner === 1
             ? 'border-pink bg-pink/10'
             : 'border-white/15 bg-slate/30'}"
       >
         <p
-          class="font-display text-6xl leading-[0.9] tracking-[1px] {result.winner === 0
+          class="font-display text-5xl leading-[0.9] tracking-[1px] {result.winner === 0
             ? 'text-mint'
             : result.winner === 1
               ? 'text-pink'
@@ -605,12 +594,12 @@
               : "DRAW"}
         </p>
         {#if result.extraTime}
-          <p class="{mono} mt-3 text-yellow">
+          <p class="{mono} mt-2 text-yellow">
             Extra time{result.penalties ? " · decided on penalties" : ""}
           </p>
         {/if}
         {#if result.penalties && result.penaltyScore}
-          <p class="mt-3 font-display text-5xl">
+          <p class="mt-2 font-display text-4xl">
             {result.penaltyScore[0]} : {result.penaltyScore[1]}
           </p>
         {/if}
