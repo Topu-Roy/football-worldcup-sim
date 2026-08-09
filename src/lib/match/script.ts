@@ -174,13 +174,17 @@ export function simulateMatchScript(
       );
       penalties = shootout.kicks;
       penaltyScore = shootout.score;
-      score[0] += penaltyScore[0];
-      score[1] += penaltyScore[1];
     }
   }
 
-  const winner: 0 | 1 | null =
-    score[0] === score[1] ? null : score[0] > score[1] ? 0 : 1;
+  let winner: 0 | 1 | null;
+  if (score[0] !== score[1]) {
+    winner = score[0] > score[1] ? 0 : 1;
+  } else if (penaltyScore) {
+    winner = penaltyScore[0] > penaltyScore[1] ? 0 : 1;
+  } else {
+    winner = null;
+  }
   const totalPoss = possessionSum[0] + possessionSum[1];
 
   const result: MatchResult = {
