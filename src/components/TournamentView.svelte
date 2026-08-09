@@ -52,6 +52,8 @@
     tournament.matches.filter((m) => m.round !== "group"),
   );
   const knockoutByRound = $derived({
+    r16: knockoutMatches.filter((m) => m.round === "r16"),
+    qf: knockoutMatches.filter((m) => m.round === "qf"),
     sf: knockoutMatches.filter((m) => m.round === "sf"),
     final: knockoutMatches.filter((m) => m.round === "final"),
   });
@@ -63,6 +65,8 @@
   }
 
   function roundLabel(m: TournamentMatch): string {
+    if (m.round === "r16") return "Round of 16";
+    if (m.round === "qf") return "Quarter-final";
     if (m.round === "sf") return "Semi-final";
     if (m.round === "final") return "Final";
     const idx = userGroupMatches.findIndex((x) => x.id === m.id);
@@ -109,6 +113,8 @@
     if (o === "champion") return "CHAMPION";
     if (o === "runners-up") return "RUNNERS-UP";
     if (o === "semi-final-exit") return "SEMI-FINAL EXIT";
+    if (o === "quarter-final-exit") return "QUARTER-FINAL EXIT";
+    if (o === "round-of-16-exit") return "ROUND OF 16 EXIT";
     return "ELIMINATED IN GROUP STAGE";
   }
 
@@ -216,34 +222,49 @@
   </div>
 
   {#if tournament.phase === "knockout"}
-    <div class="mt-10 grid gap-6 lg:grid-cols-3">
-      {#each knockoutByRound.sf as m (m.id)}
-        <div class="rounded-3xl border border-white/15 bg-slate/30 p-6">
-          <p class="{mono} mb-4 text-secondary">SEMI-FINAL</p>
-          {@render BracketMatch(
-            m,
-            tournament.userSquad.id,
-            tournament.squads,
-            () => playMatch(m),
-          )}
+    {#if knockoutByRound.r16.length > 0}
+      <div class="mt-10">
+        <p class="{mono} mb-3 text-secondary">ROUND OF 16</p>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {#each knockoutByRound.r16 as m (m.id)}
+            {@render KnockoutCard(m, "ROUND OF 16", false)}
+          {/each}
         </div>
-      {/each}
-      {#each knockoutByRound.final as m (m.id)}
-        <div
-          class="rounded-3xl border border-yellow bg-yellow/10 p-6 {expandedId === m.id
-            ? 'ring-2 ring-yellow'
-            : ''}"
-        >
-          <p class="{mono} mb-4 text-yellow">FINAL</p>
-          {@render BracketMatch(
-            m,
-            tournament.userSquad.id,
-            tournament.squads,
-            () => playMatch(m),
-          )}
+      </div>
+    {/if}
+
+    {#if knockoutByRound.qf.length > 0}
+      <div class="mt-10">
+        <p class="{mono} mb-3 text-secondary">QUARTER-FINALS</p>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {#each knockoutByRound.qf as m (m.id)}
+            {@render KnockoutCard(m, "QUARTER-FINAL", false)}
+          {/each}
         </div>
-      {/each}
-    </div>
+      </div>
+    {/if}
+
+    {#if knockoutByRound.sf.length > 0}
+      <div class="mt-10">
+        <p class="{mono} mb-3 text-secondary">SEMI-FINALS</p>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {#each knockoutByRound.sf as m (m.id)}
+            {@render KnockoutCard(m, "SEMI-FINAL", false)}
+          {/each}
+        </div>
+      </div>
+    {/if}
+
+    {#if knockoutByRound.final.length > 0}
+      <div class="mt-10">
+        <p class="{mono} mb-3 text-yellow">FINAL</p>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {#each knockoutByRound.final as m (m.id)}
+            {@render KnockoutCard(m, "FINAL", true)}
+          {/each}
+        </div>
+      </div>
+    {/if}
 
     {#each knockoutMatches.filter((m) => m.isUser) as m (m.id)}
       {#if expandedId === m.id}
@@ -413,6 +434,26 @@
     presetResult={m.result}
     autoStart={expandedId === m.id && !m.result}
   />
+{/snippet}
+
+{#snippet KnockoutCard(
+  m: TournamentMatch,
+  label: string,
+  accent: boolean,
+)}
+  <div
+    class="rounded-3xl border border-white/15 bg-slate/30 p-5 {accent
+      ? 'border-yellow bg-yellow/10'
+      : ''} {expandedId === m.id ? 'ring-2 ring-yellow' : ''}"
+  >
+    <p class="{mono} mb-4 {accent ? 'text-yellow' : 'text-secondary'}">{label}</p>
+    {@render BracketMatch(
+      m,
+      tournament.userSquad.id,
+      tournament.squads,
+      () => playMatch(m),
+    )}
+  </div>
 {/snippet}
 
 {#snippet BracketMatch(

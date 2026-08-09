@@ -14,10 +14,16 @@ export function userGroupStanding(state: Tournament): GroupStanding | null {
 }
 
 export function nextUserMatch(state: Tournament): TournamentMatch | null {
+  const pending = (round: string) =>
+    state.matches.find(
+      (m) => m.isUser && m.round === round && !m.result,
+    );
   return (
-    state.matches.find((m) => m.isUser && m.round === "group" && !m.result) ??
-    state.matches.find((m) => m.isUser && m.round === "sf" && !m.result) ??
-    state.matches.find((m) => m.isUser && m.round === "final" && !m.result) ??
+    pending("group") ??
+    pending("r16") ??
+    pending("qf") ??
+    pending("sf") ??
+    pending("final") ??
     null
   );
 }

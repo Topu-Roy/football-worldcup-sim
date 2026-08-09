@@ -1,6 +1,6 @@
 import type { MatchResult, Squad } from "../types.js";
 
-export type MatchRound = "group" | "sf" | "final";
+export type MatchRound = "group" | "r16" | "qf" | "sf" | "final";
 
 export interface TournamentMatch {
   id: string;
@@ -27,7 +27,12 @@ export interface GroupStanding {
 }
 
 export type TournamentOutcome =
-  "champion" | "runners-up" | "semi-final-exit" | "eliminated";
+  | "champion"
+  | "runners-up"
+  | "semi-final-exit"
+  | "quarter-final-exit"
+  | "round-of-16-exit"
+  | "eliminated";
 
 export interface Tournament {
   phase: "group" | "knockout" | "ended";

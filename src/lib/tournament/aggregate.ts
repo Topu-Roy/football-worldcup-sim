@@ -19,7 +19,15 @@ export function aggregateStats(state: Tournament): AggregateStats {
   };
 
   const roundLabel = (r: MatchRound): string =>
-    r === "group" ? "Group stage" : r === "sf" ? "Semi-final" : "Final";
+    r === "group"
+      ? "Group stage"
+      : r === "r16"
+        ? "Round of 16"
+        : r === "qf"
+          ? "Quarter-final"
+          : r === "sf"
+            ? "Semi-final"
+            : "Final";
 
   for (const m of state.matches.filter((x) => x.isUser && x.result)) {
     const opp =
