@@ -6,7 +6,6 @@
     aggregateStats,
     groupDone,
     matchTeams,
-    nextUserMatch,
     registerUserResult,
     resolveKnockout,
     standingsFor,
@@ -48,15 +47,12 @@
 
   const stats = $derived(aggregateStats(tournament));
 
-  const knockoutMatches = $derived(
-    tournament.matches.filter((m) => m.round !== "group"),
+  const knockoutOrder = ["r16", "qf", "sf", "final"];
+  const userKnockoutMatches = $derived(
+    knockoutOrder.flatMap((round) =>
+      tournament.matches.filter((m) => m.isUser && m.round === round),
+    ),
   );
-  const knockoutByRound = $derived({
-    r16: knockoutMatches.filter((m) => m.round === "r16"),
-    qf: knockoutMatches.filter((m) => m.round === "qf"),
-    sf: knockoutMatches.filter((m) => m.round === "sf"),
-    final: knockoutMatches.filter((m) => m.round === "final"),
-  });
 
   function opponentOf(m: TournamentMatch): Squad {
     return m.home === tournament.userSquad.id
@@ -76,7 +72,11 @@
   function handleResult(m: TournamentMatch) {
     return (r: MatchResult) => {
       registerUserResult(tournament, m.id, r);
-      if (tournament.phase === "knockout") resolveKnockout(tournament);
+      if (tournament.phase === "knockout") {
+        resolveKnockout(tournament);
+      } else if (groupDoneNow) {
+        advanceToKnockout(tournament);
+      }
       expandedId = null;
     };
   }
@@ -133,7 +133,9 @@
         World Cup Run
       </h2>
       <p class="{mono} mt-3 text-secondary">
-        Group stage · top 2 advance to knockouts
+        {tournament.phase === "group"
+          ? "Group stage · top 2 advance to knockouts"
+          : "Knockout · win to advance"}
       </p>
     </div>
     <button type="button" class={pillOutline} onclick={onReset}
@@ -147,144 +149,20 @@
     <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
     <ul class="space-y-3">
       {#each userGroupMatches as m (m.id)}
-        <li
-          class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
-          class:border-mint={expandedId === m.id}
-        >
-          <div
-            class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {m.result
-              ? 'cursor-pointer'
-              : ''}"
-            role="button"
-            tabindex="0"
-            onclick={() => {
-              if (m.result) toggleMatch(m);
-            }}
-            onkeydown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                if (m.result) toggleMatch(m);
-              }
-            }}
-          >
-            <div>
-              <p class="font-bold">
-                vs. {opponentOf(m).name}
-                <span class="{mono} ml-2! text-secondary">
-                  {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
-                    m,
-                  ).wcYear}
-                </span>
-              </p>
-            </div>
-            <div class="flex items-center gap-4">
-              {#if m.result}
-                <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
-                  >{outcomeLabel(outcomeBadge(m))}
-                  {m.result.score[0]}–{m.result.score[1]}</span
-                >
-              {:else}
-                <span class="{mono} text-secondary">NOT PLAYED</span>
-              {/if}
-              {#if m.result}
-                <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
-              {:else}
-                <button
-                  type="button"
-                  class={pillSmall}
-                  onclick={() => playMatch(m)}
-                >
-                  Play
-                </button>
-              {/if}
-            </div>
-          </div>
-          {#if expandedId === m.id}
-            <div class="border-t border-white/10 px-4 py-4">
-              {@render MatchPanel(m)}
-            </div>
-          {/if}
-        </li>
+        {@render MatchRow(m)}
       {/each}
     </ul>
-
-    {#if groupDoneNow && tournament.phase === "group"}
-      <div class="mt-6 flex justify-center">
-        <button
-          type="button"
-          class={pillOutline}
-          onclick={() => advanceToKnockout(tournament)}
-        >
-          Proceed to knockouts
-        </button>
-      </div>
-    {/if}
   </div>
 
-  {#if tournament.phase === "knockout"}
-    {#if knockoutByRound.r16.length > 0}
-      <div class="mt-10">
-        <p class="{mono} mb-3 text-secondary">ROUND OF 16</p>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {#each knockoutByRound.r16 as m (m.id)}
-            {@render KnockoutCard(m, "ROUND OF 16", false)}
-          {/each}
-        </div>
-      </div>
-    {/if}
-
-    {#if knockoutByRound.qf.length > 0}
-      <div class="mt-10">
-        <p class="{mono} mb-3 text-secondary">QUARTER-FINALS</p>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {#each knockoutByRound.qf as m (m.id)}
-            {@render KnockoutCard(m, "QUARTER-FINAL", false)}
-          {/each}
-        </div>
-      </div>
-    {/if}
-
-    {#if knockoutByRound.sf.length > 0}
-      <div class="mt-10">
-        <p class="{mono} mb-3 text-secondary">SEMI-FINALS</p>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {#each knockoutByRound.sf as m (m.id)}
-            {@render KnockoutCard(m, "SEMI-FINAL", false)}
-          {/each}
-        </div>
-      </div>
-    {/if}
-
-    {#if knockoutByRound.final.length > 0}
-      <div class="mt-10">
-        <p class="{mono} mb-3 text-yellow">FINAL</p>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {#each knockoutByRound.final as m (m.id)}
-            {@render KnockoutCard(m, "FINAL", true)}
-          {/each}
-        </div>
-      </div>
-    {/if}
-
-    {#each knockoutMatches.filter((m) => m.isUser) as m (m.id)}
-      {#if expandedId === m.id}
-      <div class="mt-6 rounded-3xl border border-white/15 bg-slate/20">
-        {@render MatchPanel(m)}
-      </div>
-    {/if}
-    {/each}
-
-    {#if !nextUserMatch(tournament)}
-      <div class="mt-8 flex justify-center">
-        <button
-          type="button"
-          class={pillOutline}
-          onclick={() => resolveKnockout(tournament)}
-        >
-          Finish tournament
-        </button>
-      </div>
-    {/if}
+  {#if userKnockoutMatches.length > 0}
+    <div class="mt-10 rounded-3xl border border-white/15 p-6">
+      <p class="{mono} mb-4 text-secondary">YOUR KNOCKOUT MATCHES</p>
+      <ul class="space-y-3">
+        {#each userKnockoutMatches as m (m.id)}
+          {@render MatchRow(m, roundLabel(m))}
+        {/each}
+      </ul>
+    </div>
   {/if}
 
   {#if tournament.phase === "ended"}
@@ -299,23 +177,24 @@
       {/if}
 
       <div
-        class="rounded-3xl border border-white/15 bg-slate/30 px-10 py-8 text-center"
+        class="w-full rounded-3xl border px-10 py-10 text-center {tournament.outcome ===
+        'champion'
+          ? 'border-mint bg-mint/10'
+          : 'border-pink/40 bg-pink/10'}"
       >
         <p class="{mono} text-secondary">TOURNAMENT OVER</p>
         <p
           class="mt-3 font-display text-6xl tracking-[1px]"
           style:color={tournament.outcome === "champion"
             ? "var(--color-mint)"
-            : tournament.outcome === "runners-up"
-              ? "var(--color-yellow)"
-              : "var(--color-secondary)"}
+            : "var(--color-pink)"}
         >
           {outcomeTitle(tournament.outcome ?? "")}
         </p>
       </div>
 
       <div
-        class="w-full max-w-4xl overflow-x-auto rounded-3xl border border-white/15 p-6"
+        class="w-full overflow-x-auto rounded-3xl border border-white/15 p-6"
       >
         <p class="{mono} mb-4 text-secondary">MATCH RESULTS</p>
         <table class="w-full text-left text-sm">
@@ -324,7 +203,8 @@
               <th class="pr-4 pb-3">Round</th>
               <th class="pr-4 pb-3">Opponent</th>
               <th class="pr-4 pb-3">Score</th>
-              <th class="pb-3">Result</th>
+              <th class="pr-4 pb-3">Result</th>
+              <th class="pb-3">Duration</th>
             </tr>
           </thead>
           <tbody>
@@ -338,9 +218,18 @@
                   >{sm.result.score[0]}–{sm.result.score[1]}</td
                 >
                 <td
-                  class="{mono} py-3 text-[10px]"
+                  class="{mono} py-3 pr-4 text-[10px]"
                   style:color={outcomeColor(sm.outcome)}
-                >{outcomeLabel(sm.outcome)}</td
+                >{outcomeLabel(sm.outcome)}{sm.result.penalties
+                  ? " (P)"
+                  : ""}</td
+                >
+                <td class="{mono} py-3 text-[10px] text-secondary"
+                  >{sm.result.penalties
+                    ? "pens"
+                    : sm.result.extraTime
+                      ? "ET"
+                      : "90'"}</td
                 >
               </tr>
             {/each}
@@ -417,6 +306,70 @@
   </table>
 {/snippet}
 
+{#snippet MatchRow(m: TournamentMatch, subtitle = "")}
+  <li
+    class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
+    class:border-mint={expandedId === m.id}
+  >
+    <div
+      class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {m.result
+        ? 'cursor-pointer'
+        : ''}"
+      role="button"
+      tabindex="0"
+      onclick={() => {
+        if (m.result) toggleMatch(m);
+      }}
+      onkeydown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (m.result) toggleMatch(m);
+        }
+      }}
+    >
+      <div>
+        <p class="font-bold">
+          vs. {opponentOf(m).name}
+          <span class="{mono} ml-2! text-secondary">
+            {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
+              m,
+            ).wcYear}
+          </span>
+        </p>
+        {#if subtitle}
+          <p class="{mono} mt-1 text-[10px] text-secondary">{subtitle}</p>
+        {/if}
+      </div>
+      <div class="flex items-center gap-4">
+        {#if m.result}
+          <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
+            >{outcomeLabel(outcomeBadge(m))}{m.result.penalties ? " (P)" : ""}
+            {m.result.score[0]}–{m.result.score[1]}</span
+          >
+        {:else}
+          <span class="{mono} text-secondary">NOT PLAYED</span>
+        {/if}
+        {#if m.result}
+          <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
+        {:else}
+          <button
+            type="button"
+            class={pillSmall}
+            onclick={() => playMatch(m)}
+          >
+            Play
+          </button>
+        {/if}
+      </div>
+    </div>
+    {#if expandedId === m.id}
+      <div class="border-t border-white/10 px-4 py-4">
+        {@render MatchPanel(m)}
+      </div>
+    {/if}
+  </li>
+{/snippet}
+
 {#snippet MatchPanel(m: TournamentMatch)}
   {@const teams = matchTeams(tournament, m)}
   <MatchView
@@ -434,58 +387,6 @@
     presetResult={m.result}
     autoStart={expandedId === m.id && !m.result}
   />
-{/snippet}
-
-{#snippet KnockoutCard(
-  m: TournamentMatch,
-  label: string,
-  accent: boolean,
-)}
-  <div
-    class="rounded-3xl border border-white/15 bg-slate/30 p-5 {accent
-      ? 'border-yellow bg-yellow/10'
-      : ''} {expandedId === m.id ? 'ring-2 ring-yellow' : ''}"
-  >
-    <p class="{mono} mb-4 {accent ? 'text-yellow' : 'text-secondary'}">{label}</p>
-    {@render BracketMatch(
-      m,
-      tournament.userSquad.id,
-      tournament.squads,
-      () => playMatch(m),
-    )}
-  </div>
-{/snippet}
-
-{#snippet BracketMatch(
-  m: TournamentMatch,
-  userId: string,
-  squads: Record<string, import("../lib/types.js").Squad>,
-  onPlay: () => void,
-)}
-  <div class="space-y-3">
-    {#each [m.home, m.away] as side, i (side + i)}
-      <div class="flex items-center justify-between gap-3">
-        <span class:font-bold={side === userId}>
-          {side === userId ? "You" : squads[side].name}
-        </span>
-        <span class="font-mono text-sm">
-          {m.result ? m.result.score[i] : "–"}
-        </span>
-      </div>
-    {/each}
-    <div class="mt-3 flex justify-center">
-      {#if m.isUser && !m.result}
-        <button type="button" class={pillSmall} onclick={onPlay}>Play</button>
-      {:else if m.result}
-        <span class="{mono} text-[10px] text-secondary">
-          {m.result.winner === 0 ? squads[m.home].name : squads[m.away].name} advance
-          {m.result.penalties ? " · pens" : m.result.extraTime ? " · ET" : ""}
-        </span>
-      {:else}
-        <span class="{mono} text-[10px] text-secondary">AUTO</span>
-      {/if}
-    </div>
-  </div>
 {/snippet}
 
 {#snippet Stat(label: string, value: string)}

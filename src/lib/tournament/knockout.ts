@@ -1,69 +1,27 @@
-import { simulateMatch } from "../matchEngine.js";
-import type { MatchRound, Tournament, TournamentMatch } from "./types.js";
+import type { MatchRound, Tournament } from "./types.js";
 import { groupDone } from "./queries.js";
 import { standingsFor } from "./standings.js";
 import { drawStrong } from "./matchmaking.js";
 
 const KNOCKOUT_ROUNDS: MatchRound[] = ["r16", "qf", "sf", "final"];
 
-function simulateFor(state: Tournament, home: string, away: string) {
-  return simulateMatch(state.squads[home], state.squads[away]);
-}
-
-function winnersOf(matches: TournamentMatch[]): string[] {
-  return matches.map((m) =>
-    m.result!.winner === 0 ? m.home : m.away,
-  );
-}
-
-function pairings(teams: string[]): [string, string][] {
-  const pairs: [string, string][] = [];
-  for (let i = 0; i < teams.length; i += 2) {
-    pairs.push([teams[i], teams[i + 1]]);
-  }
-  return pairs;
-}
-
-function hasRound(
-  state: Tournament,
-  round: MatchRound,
-): boolean {
-  return state.matches.some((m) => m.round === round);
-}
-
-function finishedRound(
-  state: Tournament,
-  round: MatchRound,
-): boolean {
-  const ms = state.matches.filter((m) => m.round === round);
-  return ms.length > 0 && ms.every((m) => m.result !== null);
-}
-
-function createRound(
-  state: Tournament,
-  round: MatchRound,
-  pairs: [string, string][],
-): void {
-  const existing = state.matches.some((m) => m.round === round);
-  if (existing) return;
-  pairs.forEach(([home, away], i) => {
-    const isUser =
-      home === state.userSquad.id || away === state.userSquad.id;
-    state.matches.push({
-      id: `${round}-${i + 1}`,
-      round,
-      home,
-      away,
-      result: isUser ? null : simulateFor(state, home, away),
-      isUser,
-    });
-  });
-}
-
 function resolveRoundExit(round: MatchRound): Tournament["outcome"] {
   if (round === "r16") return "round-of-16-exit";
   if (round === "qf") return "quarter-final-exit";
   return "semi-final-exit";
+}
+
+function createSingleMatch(state: Tournament, round: MatchRound): void {
+  const opponent = drawStrong(1)[0];
+  state.squads[opponent.id] = opponent;
+  state.matches.push({
+    id: `${round}-1`,
+    round,
+    home: state.userSquad.id,
+    away: opponent.id,
+    result: null,
+    isUser: true,
+  });
 }
 
 export function advanceToKnockout(state: Tournament): void {
@@ -79,53 +37,40 @@ export function advanceToKnockout(state: Tournament): void {
     return;
   }
 
-  const strong = drawStrong(15);
-  for (const s of strong) state.squads[s.id] = s;
-  const teams = [
-    state.userSquad.id,
-    ...strong.map((s) => s.id),
-  ];
-
-  createRound(state, "r16", pairings(teams));
   state.phase = "knockout";
-  resolveKnockout(state);
+  createSingleMatch(state, "r16");
 }
 
 export function resolveKnockout(state: Tournament): void {
   if (state.phase !== "knockout") return;
 
-  for (let r = 0; r < KNOCKOUT_ROUNDS.length; r++) {
-    const round = KNOCKOUT_ROUNDS[r];
-    if (!hasRound(state, round)) return;
-    if (!finishedRound(state, round)) return;
+  const pending = state.matches.find(
+    (m) => m.isUser && m.round !== "group" && !m.result,
+  );
+  if (pending) return;
 
-    const roundMatches = state.matches.filter((m) => m.round === round);
-    const userMatch = roundMatches.find((m) => m.isUser);
+  const playedMatches = state.matches.filter(
+    (m) => m.isUser && m.round !== "group" && m.result,
+  );
+  const played = playedMatches[playedMatches.length - 1];
+  if (!played || !played.result) return;
 
-    if (round !== "final" && userMatch) {
-      const userWon =
-        userMatch.result!.winner ===
-        (userMatch.home === state.userSquad.id ? 0 : 1);
-      if (!userWon) {
-        state.phase = "ended";
-        state.outcome = resolveRoundExit(round);
-        return;
-      }
-    }
+  const userWon =
+    played.result!.winner ===
+    (played.home === state.userSquad.id ? 0 : 1);
 
-    if (round === "final") {
-      state.phase = "ended";
-      const userWon =
-        userMatch!.result!.winner ===
-        (userMatch!.home === state.userSquad.id ? 0 : 1);
-      state.outcome = userWon ? "champion" : "runners-up";
-      return;
-    }
-
-    createRound(
-      state,
-      KNOCKOUT_ROUNDS[r + 1],
-      pairings(winnersOf(roundMatches)),
-    );
+  if (played.round === "final") {
+    state.phase = "ended";
+    state.outcome = userWon ? "champion" : "runners-up";
+    return;
   }
+
+  if (!userWon) {
+    state.phase = "ended";
+    state.outcome = resolveRoundExit(played.round);
+    return;
+  }
+
+  const next = KNOCKOUT_ROUNDS[KNOCKOUT_ROUNDS.indexOf(played.round) + 1];
+  createSingleMatch(state, next);
 }
