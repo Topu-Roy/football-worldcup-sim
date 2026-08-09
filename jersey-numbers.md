@@ -1465,3 +1465,197 @@
 - João Neves - 15
 - Rafael Leão - 17
 - Vitinha - 23
+
+## =========================[ Added Group stage teams ]=========================
+
+## IRN (2018)
+
+- Alireza Beiranvand - 1
+- Ehsan Hajsafi - 3
+- Milad Mohammadi - 5
+- Saeid Ezatolahi - 6
+- Masoud Shojaei - 7
+- Morteza Pouraliganji - 8
+- Omid Ebrahimi - 9
+- Karim Ansarifard - 10
+- Vahid Amiri - 11
+- Saman Ghoddos - 14
+- Pejman Montazeri - 15
+- Reza Ghoochannejhad - 16
+- Mehdi Taremi - 17
+- Alireza Jahanbakhsh - 18
+- Majid Hosseini - 19
+- Sardar Azmoun - 20
+- Ashkan Dejagah - 21
+- Ramin Rezaeian - 23
+
+## QAT (2022)
+
+- Saad Al-Sheeb - 1
+- Pedro Miguel - 2
+- Abdelkarim Hassan - 3
+- Mohammed Waad - 4
+- Tarek Salman - 5
+- Abdulaziz Hatem - 6
+- Ahmed Alaaeldin - 7
+- Ali Assadalla - 8
+- Mohammed Muntari - 9
+- Hassan Al-Haydos - 10
+- Akram Afif - 11
+- Karim Boudiaf - 12
+- Homam Ahmed - 14
+- Bassam Al-Rawi - 15
+- Boualem Khoukhi - 16
+- Almoez Ali - 19
+
+## EGY (2018)
+
+- Essam El Hadary - 1
+- Ali Gabr - 2
+- Ahmed Elmohamady - 3
+- Ahmed Hegazi - 6
+- Ahmed Fathy - 7
+- Tarek Hamed - 8
+- Mohamed Salah - 10
+- Kahraba - 11
+- Mohamed Abdel Shafy - 13
+- Ramadan Sobhi - 14
+- Mohamed Elneny - 17
+- Shikabala - 18
+- Abdallah El Said - 19
+- Trézéguet - 21
+- Amr Warda - 22
+- Mohamed El Shenawy - 23
+
+## TUN (2022)
+
+- Aymen Dahmen - 16
+- Montassar Talbi - 3
+- Yassine Meriah - 4
+- Dylan Bronn - 6
+- Ali Abdi - 24
+- Wajdi Kechrida - 21
+- Ellyes Skhiri - 17
+- Aïssa Laïdouni - 14
+- Ferjani Sassi - 13
+- Anis Ben Slimane - 25
+- Youssef Msakni - 7
+- Issam Jebali - 9
+- Wahbi Khazri - 10
+- Naïm Sliti - 23
+- Mohamed Dräger - 20
+- Taha Yassine Khenissi - 11
+
+## CHI (2010)
+
+- Claudio Bravo - 1
+- Ismael Fuentes - 2
+- Waldo Ponce - 3
+- Mauricio Isla - 4
+- Pablo Contreras - 5
+- Carlos Carmona - 6
+- Alexis Sánchez - 7
+- Arturo Vidal - 8
+- Humberto Suazo - 9
+- Jorge Valdivia - 10
+- Mark González - 11
+- Matías Fernández - 14
+- Jean Beausejour - 15
+- Gary Medel - 17
+- Gonzalo Jara - 18
+- Rodrigo Millar - 20
+
+## SEN (2002)
+
+- Tony Sylva - 1
+- Omar Daf - 2
+- Pape Sarr - 3
+- Pape Malick Diop - 4
+- Alassane N'Dour - 5
+- Aliou Cissé - 6
+- Henri Camara - 7
+- Khalilou Fadiga - 10
+- El Hadji Diouf - 11
+- Amdy Faye - 12
+- Lamine Diatta - 13
+- Moussa N'Diaye - 14
+- Salif Diao - 15
+- Ferdinand Coly - 17
+- Papa Bouba Diop - 19
+- Habib Beye - 21
+
+## RUS (2018)
+
+- Igor Akinfeev - 1
+- Mário Fernandes - 2
+- Ilya Kutepov - 3
+- Sergei Ignashevich - 4
+- Yury Gazinsky - 8
+- Roman Zobnin - 11
+- Aleksandr Golovin - 17
+- Denis Cheryshev - 6
+- Artem Dzyuba - 22
+- Aleksandr Samedov - 19
+- Yuri Zhirkov - 18
+- Fyodor Smolov - 10
+- Daler Kuzyayev - 7
+- Fyodor Kudryashov - 13
+- Vladimir Granat - 14
+- Alan Dzagoev - 9
+
+## USA (2010)
+
+- Tim Howard - 1
+- Jonathan Spector - 2
+- Carlos Bocanegra - 3
+- Michael Bradley - 4
+- Oguchi Onyewu - 5
+- Steve Cherundolo - 6
+- Clint Dempsey - 8
+- Landon Donovan - 10
+- DaMarcus Beasley - 7
+- Jay DeMerit - 15
+- Jonathan Bornstein - 12
+- Jozy Altidore - 17
+- Ricardo Clark - 13
+- Edson Buddle - 14
+- Maurice Edu - 19
+- Benny Feilhaber - 22
+
+## ALG (2014)
+
+- Rais M'Bolhi - 23
+- Madjid Bougherra - 2
+- Faouzi Ghoulam - 3
+- Essaïd Belkalem - 4
+- Rafik Halliche - 5
+- Djamel Mesbah - 6
+- Sofiane Feghouli - 10
+- Yacine Brahimi - 11
+- Carl Medjani - 12
+- Islam Slimani - 13
+- Nabil Bentaleb - 14
+- El Arbi Hillel Soudani - 15
+- Saphir Taïder - 19
+- Aïssa Mandi - 20
+- Riyad Mahrez - 21
+- Mehdi Mostefa - 22
+
+## URU (2010)
+
+- Fernando Muslera - 1
+- Diego Lugano - 2
+- Diego Godín - 3
+- Jorge Fucile - 4
+- Walter Gargano - 5
+- Edinson Cavani - 7
+- Luis Suárez - 9
+- Diego Forlán - 10
+- Álvaro Pereira - 11
+- Sebastián Abreu - 13
+- Nicolás Lodeiro - 14
+- Diego Pérez - 15
+- Maxi Pereira - 16
+- Egidio Arévalo Ríos - 17
+- Andrés Scotti - 19
+- Martín Cáceres - 22

@@ -1,4 +1,5 @@
 import { HISTORICAL_SQUADS } from "../src/data/historical/index.js";
+import { GROUP_STAGE_SQUADS } from "../src/data/group-stage/index.js";
 import type { Player } from "../src/lib/types.js";
 import { slotDepartment } from "../src/lib/draft/roles.js";
 
@@ -9,11 +10,13 @@ const STAT_KEYS: Record<string, string[]> = {
   ATT: ["finishing", "dribble", "pace", "offBall"],
 };
 
+const ALL_SQUADS = [...HISTORICAL_SQUADS, ...GROUP_STAGE_SQUADS];
+
 let errors = 0;
 const seenIds = new Set<string>();
 const seenSquadIds = new Set<string>();
 
-for (const squad of HISTORICAL_SQUADS) {
+for (const squad of ALL_SQUADS) {
   const tag = `${squad.id} (${squad.name})`;
   if (seenSquadIds.has(squad.id)) {
     console.error(`DUP SQUAD ID: ${squad.id}`);
@@ -87,7 +90,7 @@ for (const squad of HISTORICAL_SQUADS) {
   }
 }
 
-console.log(`Total squads: ${HISTORICAL_SQUADS.length}`);
+console.log(`Total squads: ${ALL_SQUADS.length}`);
 console.log(`Total players: ${seenIds.size}`);
 if (errors === 0) {
   console.log("VALIDATION PASSED");
