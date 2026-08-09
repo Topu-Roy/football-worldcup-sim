@@ -1,6 +1,7 @@
 import type { Formation, Player, Position } from "../types.js";
 import { DRAFT_ROUNDS } from "./constants.js";
 import { slotDepartment } from "./roles.js";
+import { assignSlots } from "./pitch.js";
 
 export function slotsLeft(
   formation: Formation,
@@ -22,6 +23,12 @@ export function candidateCount(left: Record<Position, number>): number {
 
 export function fits(p: Player, left: Record<Position, number>): boolean {
   return left[slotDepartment(p)] > 0;
+}
+
+export function emptySlotRoles(formationKey: string, drafted: Player[]): string[] {
+  return assignSlots(drafted, formationKey)
+    .filter((s) => !s.player)
+    .map((s) => s.slot.role);
 }
 
 export function validateDraft(

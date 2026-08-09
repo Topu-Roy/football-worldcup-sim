@@ -5,7 +5,7 @@
     assignSlots,
     canonicalRole,
     draftableNations,
-    fits,
+    emptySlotRoles,
     makeOffer,
     nationYears,
     newNationReroll,
@@ -46,7 +46,7 @@
 
   $effect(() => {
     if (!offer) {
-      const first = makeOffer(formation, drafted);
+      const first = makeOffer(formationKey, formation, drafted);
       offer = first;
       offerHistory = [first];
     }
@@ -104,6 +104,15 @@
     newOffer();
   });
 
+  const openRoles = $derived(emptySlotRoles(formationKey, drafted));
+
+  const squadCanPlace = (nation: string, year: number): boolean =>
+    squadOf(nation, year).some((p) =>
+      p.positions.some((r) =>
+        openRoles.some((role) => canonicalRole(role) === canonicalRole(r)),
+      ),
+    );
+
   const canSameNation = $derived.by(() => {
     const o = offer;
     if (!o) return false;
@@ -111,7 +120,7 @@
       (y) =>
         y !== o.year &&
         !offerHistory.some((h) => h.nation === o.nation && h.year === y) &&
-        squadOf(o.nation, y).some((p) => fits(p, left)),
+        squadCanPlace(o.nation, y),
     );
   });
 
@@ -121,13 +130,13 @@
     return draftableNations().some(
       (n) =>
         n !== o.nation &&
-        nationYears(n).some((y) => squadOf(n, y).some((p) => fits(p, left))),
+        nationYears(n).some((y) => squadCanPlace(n, y)),
     );
   });
 
   function newOffer() {
     selected = null;
-    const next = makeOffer(formation, drafted, offerHistory);
+    const next = makeOffer(formationKey, formation, drafted, offerHistory);
     offer = next;
     offerHistory = [...offerHistory, next];
   }
@@ -136,8 +145,20 @@
     if (rerollsLeft <= 0 || complete || !offer) return;
     const next =
       kind === "same"
-        ? sameNationReroll(formation, drafted, offer, offerHistory)
-        : newNationReroll(formation, drafted, offer, offerHistory);
+        ? sameNationReroll(
+            formationKey,
+            formation,
+            drafted,
+            offer,
+            offerHistory,
+          )
+        : newNationReroll(
+            formationKey,
+            formation,
+            drafted,
+            offer,
+            offerHistory,
+          );
     if (!next) return;
     selected = null;
     rerollsLeft -= 1;

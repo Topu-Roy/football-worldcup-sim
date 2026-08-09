@@ -10,7 +10,7 @@ export {
   nationYears,
   squadOf,
 } from "./pool.js";
-export { fits, slotsLeft, validateDraft } from "./slots.js";
+export { fits, slotsLeft, validateDraft, emptySlotRoles } from "./slots.js";
 export {
   makeOffer,
   newNationReroll,
