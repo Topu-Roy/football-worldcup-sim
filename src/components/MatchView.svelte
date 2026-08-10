@@ -39,6 +39,7 @@
 
   const teamName = (t: 0 | 1) => (t === 0 ? "Your XI" : opponentSquad.name);
 
+  // Mean player rating, used to weight the pre-match expected-strength summary.
   const teamAvg = (squad: Squad): number =>
     squad.players.length > 0
       ? Math.round(
@@ -63,17 +64,20 @@
     events: [],
   };
 
-  const shouldAutoStart = autoStart && !presetResult;
+  const shouldAutoStart = $derived(autoStart && !presetResult);
 
-  let script = $state<MatchScript | null>(
-    shouldAutoStart
-      ? simulateMatchScript(userSquad, opponentSquad, { regulationOnly })
-      : null,
-  );
+  let script = $state<MatchScript | null>(null);
   let segIndex = $state(0);
   let penIndex = $state(0);
-  let playing = $state(shouldAutoStart);
+  let playing = $state(false);
   let finished = $state(false);
+
+  // Auto-starting matches simulate the full script on mount so the first
+  // "Play" press (or auto-run) has everything it needs to start instantly.
+  // The playMatch guard makes any re-run of this effect a no-op.
+  $effect(() => {
+    if (shouldAutoStart && !script) playMatch();
+  });
 
   const snaps = $derived(
     script ? [...script.regulation, ...(script.extraTime ?? [])] : [],
@@ -155,6 +159,7 @@
     script?.penalties?.slice(0, penIndex) ?? [],
   );
 
+  /** Kick off the match: simulate the full script (regulation + pens) up front, then reveal it segment by segment. */
   function playMatch() {
     if (script) return;
     script = simulateMatchScript(userSquad, opponentSquad, { regulationOnly });
@@ -172,6 +177,7 @@
     segIndex = i;
   }
 
+  /** Advance one segment: regulation snap, penalty kick, or finish when the script is exhausted. */
   function advance() {
     if (!script || finished) return;
     if (segIndex < snaps.length) {
@@ -183,6 +189,7 @@
     }
   }
 
+  /** End the match and report the final result to the parent. */
   function finish() {
     if (finished || !script) return;
     finished = true;
@@ -190,6 +197,7 @@
     onResult(script.result);
   }
 
+  /** Restart playback from the opening whistle using the already-simulated script. */
   function replay() {
     if (!script) return;
     segIndex = 0;

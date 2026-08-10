@@ -24,6 +24,7 @@ function createSingleMatch(state: Tournament, round: MatchRound): void {
   });
 }
 
+/** Move to the knockout stage once the group is done: eliminate on failure to place top-2, else create the Round-of-16 match. */
 export function advanceToKnockout(state: Tournament): void {
   if (state.phase !== "group" || !groupDone(state)) return;
 
@@ -41,6 +42,7 @@ export function advanceToKnockout(state: Tournament): void {
   createSingleMatch(state, "r16");
 }
 
+/** Resolve the current knockout round: end the tournament (champion/runners-up or exit) or schedule the next round. */
 export function resolveKnockout(state: Tournament): void {
   if (state.phase !== "knockout") return;
 

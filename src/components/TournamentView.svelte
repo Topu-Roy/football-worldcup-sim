@@ -1,18 +1,18 @@
 <script lang="ts">
-  import MatchView from "./MatchView.svelte";
+  import TournamentMatchRow from "./TournamentMatchRow.svelte";
   import { NATION_NAMES } from "../lib/draft.js";
+  import { outcomeColor, outcomeLabel } from "../lib/outcome.js";
   import {
     advanceToKnockout,
     aggregateStats,
     groupDone,
-    matchTeams,
     registerUserResult,
     resolveKnockout,
     standingsFor,
     type Tournament,
     type TournamentMatch,
   } from "../lib/tournament.js";
-  import type { MatchResult, Squad } from "../lib/types.js";
+  import type { MatchResult } from "../lib/types.js";
 
   let {
     tournament,
@@ -26,6 +26,7 @@
 
   let expandedId = $state<string | null>(null);
 
+  /** Format a signed goal-difference value, e.g. +3, 0, −2. */
   function formatSigned(n: number): string {
     if (n > 0) return `+${n}`;
     if (n < 0) return `−${Math.abs(n)}`;
@@ -54,12 +55,7 @@
     ),
   );
 
-  function opponentOf(m: TournamentMatch): Squad {
-    return m.home === tournament.userSquad.id
-      ? tournament.squads[m.away]
-      : tournament.squads[m.home];
-  }
-
+  /** Human-readable round caption for a user match (knockout rounds or group match index). */
   function roundLabel(m: TournamentMatch): string {
     if (m.round === "r16") return "Round of 16";
     if (m.round === "qf") return "Quarter-final";
@@ -69,6 +65,7 @@
     return `Group stage · Match ${idx + 1} of 3`;
   }
 
+  /** Register the result, then advance the tournament phase (knockout resolution or group exit). */
   function handleResult(m: TournamentMatch) {
     return (r: MatchResult) => {
       registerUserResult(tournament, m.id, r);
@@ -81,34 +78,17 @@
     };
   }
 
+  /** Expand a match and let MatchView auto-start its simulation. */
   function playMatch(m: TournamentMatch) {
     expandedId = m.id;
   }
 
+  /** Expand/collapse a played match's result panel. */
   function toggleMatch(m: TournamentMatch) {
     expandedId = expandedId === m.id ? null : m.id;
   }
 
-  function outcomeBadge(m: TournamentMatch): string {
-    if (!m.result) return "";
-    if (m.result.winner === null) return "D";
-    const userHome = m.home === tournament.userSquad.id;
-    return m.result.winner === (userHome ? 0 : 1) ? "W" : "L";
-  }
-
-  function outcomeColor(o: string): string {
-    if (o === "W") return "var(--color-mint)";
-    if (o === "L") return "var(--color-pink)";
-    return "var(--color-secondary)";
-  }
-
-  function outcomeLabel(o: string): string {
-    if (o === "W") return "WIN";
-    if (o === "L") return "LOSS";
-    if (o === "D") return "DRAW";
-    return "";
-  }
-
+  /** Headline text for the tournament's final placement. */
   function outcomeTitle(o: string): string {
     if (o === "champion") return "CHAMPION";
     if (o === "runners-up") return "RUNNERS-UP";
@@ -121,8 +101,6 @@
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
-  const pillSmall =
-    "font-mono text-[11px] font-semibold tracking-[1.4px] uppercase text-mint border border-mint rounded-full py-1.5 px-3.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black disabled:opacity-30";
 </script>
 
 <section class="mx-auto max-w-6xl px-6 py-12">
@@ -147,7 +125,16 @@
     <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
     <ul class="space-y-3">
       {#each userGroupMatches as m (m.id)}
-        {@render MatchRow(m)}
+        <TournamentMatchRow
+          match={m}
+          {tournament}
+          roundLabel={roundLabel(m)}
+          expanded={expandedId === m.id}
+          onToggle={() => toggleMatch(m)}
+          onPlay={() => playMatch(m)}
+          onResult={handleResult(m)}
+          onClose={() => (expandedId = null)}
+        />
       {/each}
     </ul>
   </div>
@@ -157,7 +144,16 @@
       <p class="{mono} mb-4 text-secondary">YOUR KNOCKOUT MATCHES</p>
       <ul class="space-y-3">
         {#each userKnockoutMatches as m (m.id)}
-          {@render MatchRow(m, roundLabel(m))}
+          <TournamentMatchRow
+            match={m}
+            {tournament}
+            roundLabel={roundLabel(m)}
+            expanded={expandedId === m.id}
+            onToggle={() => toggleMatch(m)}
+            onPlay={() => playMatch(m)}
+            onResult={handleResult(m)}
+            onClose={() => (expandedId = null)}
+          />
         {/each}
       </ul>
     </div>
@@ -315,84 +311,4 @@
       {/each}
     </tbody>
   </table>
-{/snippet}
-
-{#snippet MatchRow(m: TournamentMatch, subtitle = "")}
-  <li
-    class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
-    class:border-mint={expandedId === m.id}
-  >
-    <div
-      class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {m.result
-        ? 'cursor-pointer'
-        : ''}"
-      role="button"
-      tabindex="0"
-      onclick={() => {
-        if (m.result) toggleMatch(m);
-      }}
-      onkeydown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          if (m.result) toggleMatch(m);
-        }
-      }}
-    >
-      <div>
-        <p class="font-bold">
-          vs. {opponentOf(m).name}
-          <span class="{mono} ml-2! text-secondary">
-            {NATION_NAMES[opponentOf(m).nation] ?? opponentOf(m).nation} · {opponentOf(
-              m,
-            ).wcYear}
-          </span>
-        </p>
-        {#if subtitle}
-          <p class="{mono} mt-1 text-[10px] text-secondary">{subtitle}</p>
-        {/if}
-      </div>
-      <div class="flex items-center gap-4">
-        {#if m.result}
-          <span class={mono} style:color={outcomeColor(outcomeBadge(m))}
-            >{outcomeLabel(outcomeBadge(m))}{m.result.penalties ? " (P)" : ""}
-            {m.result.score[0]}–{m.result.score[1]}</span
-          >
-        {:else}
-          <span class="{mono} text-secondary">NOT PLAYED</span>
-        {/if}
-        {#if m.result}
-          <span class="{mono} text-secondary"
-            >{expandedId === m.id ? "▴" : "▾"}</span
-          >
-        {:else if expandedId !== m.id}
-          <button type="button" class={pillSmall} onclick={() => playMatch(m)}>
-            Play
-          </button>
-        {/if}
-      </div>
-    </div>
-    {#if expandedId === m.id}
-      <div class="border-t border-white/10 px-4 py-4">
-        {@render MatchPanel(m)}
-      </div>
-    {/if}
-  </li>
-{/snippet}
-
-{#snippet MatchPanel(m: TournamentMatch)}
-  {@const teams = matchTeams(tournament, m)}
-  <MatchView
-    userSquad={teams.home.id === tournament.userSquad.id
-      ? teams.home
-      : teams.away}
-    opponentSquad={teams.home.id === tournament.userSquad.id
-      ? teams.away
-      : teams.home}
-    roundLabel={roundLabel(m)}
-    onResult={handleResult(m)}
-    onNext={() => (expandedId = null)}
-    regulationOnly={m.round === "group"}
-    presetResult={m.result}
-    autoStart={expandedId === m.id && !m.result}
-  />
 {/snippet}

@@ -22,6 +22,7 @@ function normalizeResultForMatch(
   };
 }
 
+/** Record the user's match result (flipping orientation so the user is always home). No-op if already recorded. */
 export function registerUserResult(
   state: Tournament,
   matchId: string,

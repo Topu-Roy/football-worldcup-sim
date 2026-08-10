@@ -13,6 +13,7 @@ function roundRobinPairs(teams: string[]): [string, string][] {
   return pairs;
 }
 
+/** Build a new tournament: draw 3 group opponents, pre-simulate all non-user group matches. */
 export function createTournament(userSquad: Squad): Tournament {
   const weak = drawWeak(3);
   const group = [userSquad.id, ...weak.map((s) => s.id)];

@@ -14,6 +14,7 @@ export interface SegmentShot {
   oppGk: number;
 }
 
+/** Build the shuffled list of shots for one segment, distributing drawn shot counts to each team. */
 export function buildSegmentShots(
   states: [TeamState, TeamState],
   score: [number, number],
@@ -89,6 +90,7 @@ export function buildSegmentShots(
   return list;
 }
 
+/** Resolve on-target and goal outcomes for a list of shots via logistic rates, accumulating goals, on-target, and xG. */
 export function simShots(
   shots: SegmentShot[],
   scale: number,

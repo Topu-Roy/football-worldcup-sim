@@ -22,12 +22,14 @@ export interface EffectiveStats {
   gk: number;
 }
 
+/** Pace multiplier that rises through the match (slow early, frantic late). */
 export function timeFactor(minute: number): number {
   if (minute < 30) return 0.5;
   if (minute >= 75) return 1.5;
   return 0.5 + (minute - 30) / 45;
 }
 
+/** Game-state effects on a team's output: trailing teams push harder, leaders defend their lead. */
 export function desperation(
   goalDiff: number,
   minute: number,
@@ -82,6 +84,7 @@ export function desperation(
   return result;
 }
 
+/** Effective match stats after applying desperation, stamina drain, and ET chaos. */
 export function effectiveStats(
   strengths: TeamStrengths,
   scoreDiff: number,
@@ -115,6 +118,7 @@ export function effectiveStats(
   };
 }
 
+/** Baseline shot count for a team from its attack vs the opposition's defense. */
 export function maxShotsFor(
   attack: number,
   oppDefense: number,
@@ -123,6 +127,7 @@ export function maxShotsFor(
   return base * (attack / Math.max(oppDefense, 1));
 }
 
+/** Team 0's share of possession (0–1) from creativity/defPassing, adjusted by game state, stamina, and ET chaos. */
 export function effectivePossessionShare(
   states: [TeamState, TeamState],
   score: [number, number],

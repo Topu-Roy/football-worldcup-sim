@@ -1,5 +1,6 @@
 import type { AggregateStats, MatchRound, Tournament } from "./types.js";
 
+/** Roll up all played user matches into tournament-wide stats, clean sheets, penalty wins, and biggest win/loss margins. */
 export function aggregateStats(state: Tournament): AggregateStats {
   const stats: AggregateStats = {
     matches: [],

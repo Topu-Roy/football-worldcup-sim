@@ -24,6 +24,7 @@
     step = "draft";
   }
 
+  /** Back to formation picker, clearing the draft and any tournament. */
   function reset() {
     drafted = [];
     squad = null;
@@ -39,17 +40,20 @@
     drafted = next;
   }
 
+  /** First-time entry into the tournament from the final draft squad. */
   function startTournament() {
     if (!formation || !squad) return;
     tournament = createTournament(squad);
     step = "tournament";
   }
 
+  /** Restart the tournament with the same squad (re-draws groups and the bracket). */
   function startNewTournament() {
     if (!squad) return;
     tournament = createTournament(squad);
   }
 
+  /** Swap two players between formation slots within the confirmed squad. */
   function swapPlayers(playerId: string, slotIndex: number) {
     if (!squad || !formationKey) return;
     const from = squad.players.find((p) => p.id === playerId);

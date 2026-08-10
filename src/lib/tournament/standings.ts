@@ -74,6 +74,7 @@ function standingsForGroup(
   });
 }
 
+/** Full group standings computed from played matches, sorted by points → GD → GF → name. */
 export function standingsFor(state: Tournament): GroupStanding[] {
   return standingsForGroup(state.matches, state.group, state.squads);
 }

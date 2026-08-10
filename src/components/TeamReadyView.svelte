@@ -35,10 +35,12 @@
   const pillOutlineAlt =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-secondary border border-secondary rounded-full px-6 py-3 bg-transparent transition-all duration-150 hover:bg-secondary hover:text-black";
 
+  /** Select/deselect a player as the source of a swap. */
   function toggleSelect(playerId: string) {
     selectedId = selectedId === playerId ? null : playerId;
   }
 
+  /** Commit the swap by moving the selected player into the clicked slot. */
   function handleSwapTarget(slotIndex: number) {
     if (!selectedId) return;
     onSwap(selectedId, slotIndex);

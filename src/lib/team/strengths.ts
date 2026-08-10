@@ -36,6 +36,7 @@ function applyChemistryAndForm(player: Player, bonus: number): Player {
   };
 }
 
+/** Whether the players match the formation's slot counts per department. */
 export function validateFormation(
   players: Player[],
   formation: Formation,
@@ -50,6 +51,7 @@ export function validateFormation(
   );
 }
 
+/** Bake chemistry bonus, out-of-position nerfs, and per-player form into each player's stats. */
 export function applyTeamModifiers(
   players: Player[],
   isHistorical: boolean,
@@ -58,6 +60,7 @@ export function applyTeamModifiers(
   return players.map((p) => applyChemistryAndForm(p, bonus));
 }
 
+/** Select the best-rated XI fitting the formation's per-department counts. */
 export function pickXI(players: Player[], formation: Formation): Player[] {
   const byDept: Record<string, Player[]> = {
     GK: [],
@@ -77,6 +80,7 @@ export function pickXI(players: Player[], formation: Formation): Player[] {
   return xi;
 }
 
+/** Derive match-facing team strength averages (attack, defense, GK, composure, stamina) from players in their effective roles. */
 export function computeTeamStrengths(players: Player[]): TeamStrengths {
   const avg = (vals: number[]) =>
     vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;

@@ -57,6 +57,7 @@ function pickBest(combos: Combo[], roles: string[]): Combo {
   return pick(scored.filter((s) => s.cover === max)).c;
 }
 
+/** Draw a fresh offer: pick a nation/year combo that can fill open roles, preferring combos not already offered, and shuffle its players. */
 export function makeOffer(
   formationKey: string,
   formation: Formation,
@@ -79,6 +80,7 @@ export function makeOffer(
   };
 }
 
+/** Convenience wrapper around makeOffer that always consults the full offer history. */
 export function rerollOffer(
   formationKey: string,
   formation: Formation,
@@ -92,6 +94,7 @@ function offerFor(nation: string, year: number): Offer {
   return { nation, year, players: shuffle(squadOf(nation, year)) };
 }
 
+/** Reroll within the same nation: pick a different, not-yet-seen year for it, or null if none qualifies. */
 export function sameNationReroll(
   formationKey: string,
   formation: Formation,
@@ -112,6 +115,7 @@ export function sameNationReroll(
   return offerFor(chosen.nation, chosen.year);
 }
 
+/** Reroll to a different nation (any year), preferring combos not already offered; null if none qualify. */
 export function newNationReroll(
   formationKey: string,
   formation: Formation,

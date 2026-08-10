@@ -30,18 +30,22 @@ const DEPARTMENT_OF_ROLE: Record<string, Position> = {
   RW: "ATT",
 };
 
+/** Department (GK/DEF/MID/ATT) a role belongs to; defaults to MID for unknown roles. */
 export function departmentOf(role: string): Position {
   return DEPARTMENT_OF_ROLE[role] ?? "MID";
 }
 
+/** Department of a player's natural best position. */
 export function slotDepartment(p: Player): Position {
   return departmentOf(p.bestPosition);
 }
 
+/** Department of the role the player is actually assigned to. */
 export function effectiveDepartment(p: Player): Position {
   return departmentOf(assignedRole(p));
 }
 
+/** Normalize role aliases (CF/SS → ST) so different labels compare equal. */
 export function canonicalRole(role: string): string {
   if (role === "CF" || role === "SS") return "ST";
   return role;
@@ -153,10 +157,12 @@ const DEPT_NERF_MODE: Record<Position, NerfMode> = {
   ATT: "both",
 };
 
+/** Role the player is effectively playing: assigned position or their best position. */
 export function assignedRole(p: Player): string {
   return p.assignedPosition ?? p.bestPosition;
 }
 
+/** Distance in role levels between best and assigned role (0 = natural position). */
 export function roleGap(p: Player): number {
   const best = canonicalRole(p.bestPosition);
   const assigned = canonicalRole(assignedRole(p));
@@ -166,6 +172,7 @@ export function roleGap(p: Player): number {
   return mode === "both" ? Math.abs(diff) : Math.max(0, diff);
 }
 
+/** Whether the player is currently playing out of position. */
 export function outOfPosition(p: Player): boolean {
   return roleGap(p) > 0;
 }
@@ -175,6 +182,7 @@ export interface NerfResult {
   keys: Set<string>;
 }
 
+/** Performance multiplier (≤1) and the stat keys affected when a player plays out of position. */
 export function roleNerf(p: Player): NerfResult {
   const gap = roleGap(p);
   if (gap <= 0) return { factor: 1, keys: new Set() };
@@ -183,12 +191,14 @@ export function roleNerf(p: Player): NerfResult {
   return { factor: 1 - pct / 100, keys };
 }
 
+/** All role labels belonging to a department. */
 export function rolesForDepartment(dept: Position): string[] {
   return (Object.keys(DEPARTMENT_OF_ROLE) as string[]).filter(
     (r) => DEPARTMENT_OF_ROLE[r] === dept,
   );
 }
 
+/** Weighted rating (50–99) for a player when playing a specific role. */
 export function roleRating(p: Player, role: string): number {
   const weights = ROLE_WEIGHTS[role];
   if (!weights) return 0;

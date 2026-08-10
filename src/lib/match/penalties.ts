@@ -2,6 +2,7 @@ import type { PenaltyKick, Player } from "../types.js";
 import { logistic } from "../random.js";
 import { effectiveDepartment } from "../draft/roles.js";
 
+/** Five best non-GK penalty takers, ranked by composure and finishing. */
 export function penaltyTakers(players: Player[]): Player[] {
   return [...players]
     .filter((p) => effectiveDepartment(p) !== "GK")
@@ -14,6 +15,7 @@ export function penaltyTakers(players: Player[]): Player[] {
     .slice(0, 5);
 }
 
+/** Simulate a shootout (best-of-5 then sudden death) and return the score plus each kick. */
 export function simPenalties(
   takersA: Player[],
   takersB: Player[],

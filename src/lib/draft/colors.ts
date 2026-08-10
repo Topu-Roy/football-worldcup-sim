@@ -1,5 +1,6 @@
 import type { Position } from "../types.js";
 
+/** Brand color per position department (GK mint, DEF purple, MID yellow, ATT pink). */
 export function positionColor(position: Position): string {
   switch (position) {
     case "GK":

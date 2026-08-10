@@ -6,6 +6,7 @@ import {
   slotDepartment,
 } from "./roles.js";
 
+/** Whether a player can play a given role (canonical roles compare equal, e.g. CF === ST). */
 export function canPlayRole(p: Player, role: string): boolean {
   return p.positions.some((r) => canonicalRole(r) === canonicalRole(role));
 }
@@ -71,10 +72,12 @@ const SLOTS: Record<string, PitchSlot[]> = {
   ],
 };
 
+/** Static slot positions (percentage coords) for a formation key; falls back to 4-3-3. */
 export function pitchSlots(formationKey: string): PitchSlot[] {
   return SLOTS[formationKey] ?? SLOTS["4-3-3"];
 }
 
+/** Assign players to slots: explicit assignedSlot first, then role match, then department, then any free player. */
 export function assignSlots(
   players: Player[],
   formationKey: string,
@@ -113,6 +116,7 @@ export function assignSlots(
   });
 }
 
+/** Slots a player can swap into: empty compatible slots, plus occupied slots whose player can take the swapper's current role. */
 export function swapTargetsFor(
   players: Player[],
   formationKey: string,
@@ -137,6 +141,7 @@ export function swapTargetsFor(
   return targets;
 }
 
+/** Move the player at fromIndex into toIndex (swapping occupants when occupied); null if not legal. */
 export function swapPlayers(
   players: Player[],
   formationKey: string,

@@ -36,6 +36,7 @@ const REGULATION_MINUTES = 90;
 const ET_SEGMENTS = 2;
 const ET_MINUTES = 30;
 
+/** Simulate a full match: regulation (and ET + penalties unless regulationOnly), returning the segmented script for playback. */
 export function simulateMatchScript(
   squadA: Squad,
   squadB: Squad,
@@ -203,6 +204,7 @@ export function simulateMatchScript(
   return { regulation, extraTime, penalties, result };
 }
 
+/** Simulate a match and return just the final result (no playback script). */
 export function simulateMatch(
   squadA: Squad,
   squadB: Squad,

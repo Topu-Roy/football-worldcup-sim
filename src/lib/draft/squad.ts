@@ -1,5 +1,6 @@
 import type { Formation, Player, Squad } from "../types.js";
 
+/** Assemble the final user Squad from the drafted players, filling assigned roles with best positions. */
 export function buildUserSquad(formation: Formation, drafted: Player[]): Squad {
   return {
     id: "user-squad",

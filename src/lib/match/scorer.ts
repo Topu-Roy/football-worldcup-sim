@@ -8,6 +8,7 @@ const POSITION_GOAL_WEIGHT: Record<string, number> = {
   GK: 0,
 };
 
+/** Pick a goal scorer weighted by position (attackers most likely) and finishing/composure. */
 export function pickScorer(team: Player[]): Player {
   const candidates = team.filter((p) => effectiveDepartment(p) !== "GK");
   if (candidates.length === 0) return team[0];

@@ -20,10 +20,12 @@ const STAT_KEYS = [
 export const ELITE_RATING = 90;
 export const STAR_RATING = 85;
 
+/** Overall rating using role-specific weights for the player's best position. */
 export function playerRating(p: Player): number {
   return roleRating(p, p.bestPosition);
 }
 
+/** Simple unweighted mean of all numeric attribute values. */
 export function avgRating(p: Player): number {
   const vals = STAT_KEYS.map((k) => p[k]).filter(
     (v): v is number => typeof v === "number",
@@ -33,6 +35,7 @@ export function avgRating(p: Player): number {
 
 export type PlayerTier = "elite" | "star" | "standard";
 
+/** Quality band based on playerRating thresholds. */
 export function playerTier(p: Player): PlayerTier {
   const r = playerRating(p);
   if (r >= ELITE_RATING) return "elite";

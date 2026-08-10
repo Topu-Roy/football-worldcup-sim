@@ -9,6 +9,7 @@ export const CHEMISTRY_CURVE: Record<number, number> = {
   5: 0.1,
 };
 
+/** Number of players sharing the most-common nation in the set. */
 export function countSameNation(players: Player[]): number {
   const counts = new Map<string, number>();
   for (const p of players) {
@@ -21,6 +22,7 @@ export function countSameNation(players: Player[]): number {
   return max;
 }
 
+/** Stat multiplier from squad chemistry: historical squads get a flat bonus, drafted squads scale with same-nation count. */
 export function chemistryBonus(
   players: Player[],
   isHistorical: boolean,
