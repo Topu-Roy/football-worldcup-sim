@@ -1,18 +1,21 @@
 <script lang="ts">
-  import TournamentMatchRow from "./TournamentMatchRow.svelte";
-  import { NATION_NAMES } from "../lib/draft.js";
-  import { outcomeColor, outcomeLabel } from "../lib/outcome.js";
-  import {
-    advanceToKnockout,
-    aggregateStats,
-    groupDone,
-    registerUserResult,
-    resolveKnockout,
-    standingsFor,
-    type Tournament,
-    type TournamentMatch,
-  } from "../lib/tournament.js";
-  import type { MatchResult } from "../lib/types.js";
+import TournamentMatchRow from "./TournamentMatchRow.svelte";
+import { NATION_NAMES } from "../lib/draft.js";
+import { simulateMatchScript } from "../lib/matchEngine.js";
+import { outcomeColor, outcomeLabel } from "../lib/outcome.js";
+import {
+  advanceToKnockout,
+  aggregateStats,
+  groupDone,
+  matchTeams,
+  nextUserMatch,
+  registerUserResult,
+  resolveKnockout,
+  standingsFor,
+  type Tournament,
+  type TournamentMatch,
+} from "../lib/tournament.js";
+import type { MatchResult, MatchScript } from "../lib/types.js";
 
   let {
     tournament,
@@ -26,6 +29,26 @@
 
   let expandedId = $state<string | null>(null);
 
+  // Auto-play run state: one match simulates (fast) at a time, advancing to the next when done.
+  let running = $state(false);
+  let activeId = $state<string | null>(null);
+  let activeScript = $state<MatchScript | null>(null);
+  let segIndex = $state(0);
+  let penIndex = $state(0);
+
+  const snaps = $derived(
+    activeScript
+      ? [...activeScript.regulation, ...(activeScript.extraTime ?? [])]
+      : [],
+  );
+  const liveScore = $derived<[number, number] | null>(
+    activeScript
+      ? segIndex > 0
+        ? snaps[segIndex - 1].score
+        : [0, 0]
+      : null,
+  );
+
   /** Format a signed goal-difference value, e.g. +3, 0, −2. */
   function formatSigned(n: number): string {
     if (n > 0) return `+${n}`;
@@ -34,9 +57,92 @@
   }
 
   function startNewTournament() {
+    stopRun();
     expandedId = null;
     onNewTournament();
   }
+
+  function handleReset() {
+    stopRun();
+    expandedId = null;
+    onReset();
+  }
+
+  /** Toggle the auto-play sequence: kicks off the next unplayed match, or pauses mid-run. */
+  function startRun() {
+    if (running) {
+      running = false;
+      return;
+    }
+    const next = nextUserMatch(tournament);
+    if (!next) return;
+    running = true;
+    startMatch(next.id);
+  }
+
+  /** Stop the run and drop all live-sim state. */
+  function stopRun() {
+    running = false;
+    activeId = null;
+    activeScript = null;
+    segIndex = 0;
+    penIndex = 0;
+  }
+
+  /** Simulate the full script for a match (user always on the home side) and begin stepping it. */
+  function startMatch(id: string) {
+    const m = tournament.matches.find((x) => x.id === id);
+    if (!m) return;
+    const teams = matchTeams(tournament, m);
+    const user = teams.home.id === tournament.userSquad.id ? teams.home : teams.away;
+    const opp = teams.home.id === tournament.userSquad.id ? teams.away : teams.home;
+    activeScript = simulateMatchScript(user, opp, {
+      regulationOnly: m.round === "group",
+    });
+    segIndex = 0;
+    penIndex = 0;
+    activeId = id;
+  }
+
+  /** Advance one segment of the active script: snapshot, penalty kick, or finish. */
+  function step() {
+    if (!running || !activeScript) return;
+    if (activeId && !tournament.matches.some((m) => m.id === activeId)) {
+      stopRun();
+      return;
+    }
+    if (segIndex < snaps.length) {
+      segIndex += 1;
+    } else if (activeScript.penalties && penIndex < activeScript.penalties.length) {
+      penIndex += 1;
+    } else {
+      finishMatch();
+    }
+  }
+
+  /** Record the finished result, advance the tournament phase, then start the next unplayed match. */
+  function finishMatch() {
+    if (!running || !activeScript || !activeId) return;
+    const result = activeScript.result;
+    registerUserResult(tournament, activeId, result);
+    if (tournament.phase === "knockout") {
+      resolveKnockout(tournament);
+    } else if (groupDoneNow) {
+      advanceToKnockout(tournament);
+    }
+    const next = nextUserMatch(tournament);
+    if (next) {
+      startMatch(next.id);
+    } else {
+      stopRun();
+    }
+  }
+
+  $effect(() => {
+    if (!running || !activeScript) return;
+    const id = setInterval(step, 250);
+    return () => clearInterval(id);
+  });
 
   const userGroupMatches = $derived(
     tournament.matches.filter((m) => m.isUser && m.round === "group"),
@@ -78,11 +184,6 @@
     };
   }
 
-  /** Expand a match and let MatchView auto-start its simulation. */
-  function playMatch(m: TournamentMatch) {
-    expandedId = m.id;
-  }
-
   /** Expand/collapse a played match's result panel. */
   function toggleMatch(m: TournamentMatch) {
     expandedId = expandedId === m.id ? null : m.id;
@@ -101,6 +202,8 @@
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
+  const pillSolid =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-black bg-mint border border-mint rounded-full px-5 py-2.5 transition-all duration-150 hover:brightness-110";
 </script>
 
 <section class="mx-auto max-w-6xl px-6 py-12">
@@ -116,9 +219,14 @@
           : "Knockout · win to advance"}
       </p>
     </div>
-    <button type="button" class={pillOutline} onclick={onReset}
-      >New draft</button
-    >
+    <div class="flex items-center gap-3">
+      <button type="button" class={pillSolid} onclick={startRun}>
+        {running ? "Pause" : "Play"}
+      </button>
+      <button type="button" class={pillOutline} onclick={handleReset}
+        >New draft</button
+      >
+    </div>
   </header>
 
   <div class="mt-10 rounded-3xl border border-white/15 p-6">
@@ -130,8 +238,9 @@
           {tournament}
           roundLabel={roundLabel(m)}
           expanded={expandedId === m.id}
+          active={activeId === m.id}
+          liveScore={activeId === m.id ? liveScore : null}
           onToggle={() => toggleMatch(m)}
-          onPlay={() => playMatch(m)}
           onResult={handleResult(m)}
           onClose={() => (expandedId = null)}
         />
@@ -149,8 +258,9 @@
             {tournament}
             roundLabel={roundLabel(m)}
             expanded={expandedId === m.id}
+            active={activeId === m.id}
+            liveScore={activeId === m.id ? liveScore : null}
             onToggle={() => toggleMatch(m)}
-            onPlay={() => playMatch(m)}
             onResult={handleResult(m)}
             onClose={() => (expandedId = null)}
           />
@@ -252,7 +362,7 @@
         <button type="button" class={pillOutline} onclick={startNewTournament}
           >New tournament (same XI)</button
         >
-        <button type="button" class={pillOutline} onclick={onReset}
+        <button type="button" class={pillOutline} onclick={handleReset}
           >New draft</button
         >
       </div>

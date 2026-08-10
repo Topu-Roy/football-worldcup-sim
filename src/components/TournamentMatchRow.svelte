@@ -10,8 +10,9 @@
     tournament,
     roundLabel,
     expanded,
+    active,
+    liveScore,
     onToggle,
-    onPlay,
     onResult,
     onClose,
   }: {
@@ -19,8 +20,9 @@
     tournament: Tournament;
     roundLabel: string;
     expanded: boolean;
+    active: boolean;
+    liveScore: [number, number] | null;
     onToggle: () => void;
-    onPlay: () => void;
     onResult: (r: MatchResult) => void;
     onClose: () => void;
   } = $props();
@@ -43,13 +45,11 @@
   const badge = $derived(outcomeBadge(match, tournament.userSquad.id));
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
-  const pillSmall =
-    "font-mono text-[11px] font-semibold tracking-[1.4px] uppercase text-mint border border-mint rounded-full py-1.5 px-3.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black disabled:opacity-30";
 </script>
 
 <li
-  class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
-  class:border-mint={expanded}
+  class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20 transition-colors duration-150"
+  class:border-mint={expanded || active}
 >
   <div
     class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {match.result
@@ -84,15 +84,24 @@
           >{outcomeLabel(badge)}{match.result.penalties ? " (P)" : ""}
           {match.result.score[0]}–{match.result.score[1]}</span
         >
+      {:else if active}
+        <span class="flex items-center gap-2">
+          <span
+            class="h-3.5 w-3.5 animate-spin rounded-full border-2 border-mint border-t-transparent"
+            aria-hidden="true"
+          ></span>
+          <span class="{mono} text-mint">PLAYING</span>
+          {#if liveScore}
+            <span class="font-mono text-sm font-bold text-white"
+              >{liveScore[0]}–{liveScore[1]}</span
+            >
+          {/if}
+        </span>
       {:else}
         <span class="{mono} text-secondary">NOT PLAYED</span>
       {/if}
       {#if match.result}
         <span class="{mono} text-secondary">{expanded ? "▴" : "▾"}</span>
-      {:else if !expanded}
-        <button type="button" class={pillSmall} onclick={onPlay}>
-          Play
-        </button>
       {/if}
     </div>
   </div>
@@ -107,7 +116,6 @@
         onNext={onClose}
         regulationOnly={match.round === "group"}
         presetResult={match.result}
-        autoStart={expanded && !match.result}
       />
     </div>
   {/if}

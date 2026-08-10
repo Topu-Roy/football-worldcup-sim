@@ -1,7 +1,7 @@
 {
   "name": "world-cup-simulation",
   "type": "module",
-  "version": "0.24.2",
+  "version": "0.25.0",
   "engines": {
     "node": ">=22.12.0"
   },
