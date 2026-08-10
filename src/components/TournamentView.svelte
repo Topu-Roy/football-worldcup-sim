@@ -235,9 +235,9 @@
                 <td
                   class="{mono} py-3 pr-4 text-[10px]"
                   style:color={outcomeColor(sm.outcome)}
-                >{outcomeLabel(sm.outcome)}{sm.result.penalties
-                  ? " (P)"
-                  : ""}</td
+                  >{outcomeLabel(sm.outcome)}{sm.result.penalties
+                    ? " (P)"
+                    : ""}</td
                 >
                 <td class="{mono} py-3 text-[10px] text-secondary"
                   >{sm.result.penalties
@@ -294,7 +294,7 @@
     </thead>
     <tbody>
       {#each rows as row, i (row.squadId)}
-        <tr class={row.squadId === userId ? "bg-mint/[0.08]" : ""}>
+        <tr class={row.squadId === userId ? "bg-mint/8" : ""}>
           <td class="py-2 pr-3 font-mono text-secondary">{i + 1}</td>
           <td class="py-2 pr-3 font-bold">
             {row.squadId === userId ? "You" : row.name}
@@ -361,13 +361,11 @@
           <span class="{mono} text-secondary">NOT PLAYED</span>
         {/if}
         {#if m.result}
-          <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
-        {:else if expandedId !== m.id}
-          <button
-            type="button"
-            class={pillSmall}
-            onclick={() => playMatch(m)}
+          <span class="{mono} text-secondary"
+            >{expandedId === m.id ? "▴" : "▾"}</span
           >
+        {:else if expandedId !== m.id}
+          <button type="button" class={pillSmall} onclick={() => playMatch(m)}>
             Play
           </button>
         {/if}
