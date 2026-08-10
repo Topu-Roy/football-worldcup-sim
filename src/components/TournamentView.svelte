@@ -362,7 +362,7 @@
         {/if}
         {#if m.result}
           <span class="{mono} text-secondary">{expandedId === m.id ? "▴" : "▾"}</span>
-        {:else}
+        {:else if expandedId !== m.id}
           <button
             type="button"
             class={pillSmall}
@@ -394,7 +394,6 @@
     onResult={handleResult(m)}
     onNext={() => (expandedId = null)}
     regulationOnly={m.round === "group"}
-    embedded
     presetResult={m.result}
     autoStart={expandedId === m.id && !m.result}
   />
