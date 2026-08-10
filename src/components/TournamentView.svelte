@@ -143,8 +143,6 @@
     >
   </header>
 
-  {@render RunStats(stats)}
-
   <div class="mt-10 rounded-3xl border border-white/15 p-6">
     <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
     <ul class="space-y-3">
@@ -192,6 +190,23 @@
           {outcomeTitle(tournament.outcome ?? "")}
         </p>
       </div>
+
+      {#if stats.played > 0}
+        <div class="w-full rounded-3xl border border-white/15 p-6">
+          <p class="{mono} mb-4 text-secondary">FINAL STATS</p>
+          <div class="grid grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-9">
+            {@render Stat("Won", String(stats.won))}
+            {@render Stat("Drawn", String(stats.drawn))}
+            {@render Stat("Lost", String(stats.lost))}
+            {@render Stat("Points", String(stats.points))}
+            {@render Stat("GF", String(stats.gf))}
+            {@render Stat("GA", String(stats.ga))}
+            {@render Stat("GD", String(stats.gd))}
+            {@render Stat("Clean Sheets", String(stats.cleanSheets))}
+            {@render Stat("Penalty Wins", String(stats.penaltyWins))}
+          </div>
+        </div>
+      {/if}
 
       <div
         class="w-full overflow-x-auto rounded-3xl border border-white/15 p-6"
@@ -249,16 +264,12 @@
   {/if}
 </section>
 
-{#snippet RunStats(stats: import("../lib/tournament.js").AggregateStats)}
-  <div class="mt-10 rounded-3xl border border-white/15 bg-slate/30 p-6">
-    <p class="{mono} mb-4 text-secondary">YOUR RUN</p>
-    <div class="grid grid-cols-5 gap-4">
-      {@render Stat("Won", String(stats.won))}
-      {@render Stat("Drawn", String(stats.drawn))}
-      {@render Stat("Lost", String(stats.lost))}
-      {@render Stat("Goals for", String(stats.gf))}
-      {@render Stat("Goals against", String(stats.ga))}
-    </div>
+{#snippet Stat(label: string, value: string)}
+  <div
+    class="rounded-2xl border border-white/10 bg-slate/20 px-3 py-2 text-center"
+  >
+    <p class="{mono} text-[9px] text-secondary">{label}</p>
+    <p class="mt-1 font-display text-xl">{value}</p>
   </div>
 {/snippet}
 
@@ -387,13 +398,4 @@
     presetResult={m.result}
     autoStart={expandedId === m.id && !m.result}
   />
-{/snippet}
-
-{#snippet Stat(label: string, value: string)}
-  <div
-    class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3 text-center"
-  >
-    <p class="{mono} text-[10px] text-secondary">{label}</p>
-    <p class="mt-1 font-display text-2xl">{value}</p>
-  </div>
 {/snippet}
