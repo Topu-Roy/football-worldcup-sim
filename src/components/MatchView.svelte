@@ -63,7 +63,6 @@ import { playerRating } from "../lib/draft.js";
   let segIndex = $state(0);
   let penIndex = $state(0);
   let playing = $state(false);
-  let speed = $state(1);
   let finished = $state(false);
 
   const snaps = $derived(
@@ -119,13 +118,6 @@ import { playerRating } from "../lib/draft.js";
     }
   }
 
-  function skip() {
-    if (!script || finished) return;
-    segIndex = snaps.length;
-    if (script.penalties) penIndex = script.penalties.length;
-    finish();
-  }
-
   function replay() {
     if (!script) return;
     segIndex = 0;
@@ -136,18 +128,24 @@ import { playerRating } from "../lib/draft.js";
 
   $effect(() => {
     if (!playing || finished) return;
-    const id = setInterval(advance, 550 / speed);
+    const id = setInterval(advance, 550);
     return () => clearInterval(id);
   });
 
   const clockLabel = $derived(
-    phase === "pre"
-      ? "KO"
-      : phase === "play"
-        ? `${currentSnap.minute}'${currentSnap.isET ? " ET" : ""}`
-        : phase === "pens"
-          ? `PENS ${penIndex}/${script?.penalties?.length ?? 0}`
-          : "",
+    done && result
+      ? result.penalties
+        ? "FT · PENS"
+        : result.extraTime
+          ? "ET"
+          : "FT"
+      : phase === "pre"
+        ? "KO"
+        : phase === "play"
+          ? `${currentSnap.minute}'${currentSnap.isET ? " ET" : ""}`
+          : phase === "pens"
+            ? `PENS ${penIndex}/${script?.penalties?.length ?? 0}`
+            : "",
   );
 
   const pensScore = $derived<[number, number]>(
@@ -176,56 +174,12 @@ import { playerRating } from "../lib/draft.js";
   );
   const displayXg = $derived(done && result ? result.xg : currentSnap.xg);
 
-  const commentary = $derived<{ id: string; text: string; team?: 0 | 1 }[]>(
-    (() => {
-      if (!script && !presetResult) return [];
-      const lines: { id: string; text: string; team?: 0 | 1 }[] = [];
-      for (let i = 0; i < Math.min(segIndex, snaps.length); i++) {
-        for (const ev of snaps[i].events) {
-          lines.push({
-            id: `g-${i}-${ev.minute}-${ev.teamIndex}`,
-            text: `${ev.minute}' GOAL ${teamName(ev.teamIndex)} — ${ev.scorerName ?? "Goal"}`,
-            team: ev.teamIndex,
-          });
-        }
-      }
-      if (script?.penalties) {
-        for (const k of script.penalties.slice(0, penIndex)) {
-          lines.push({
-            id: `p-${script.penalties.indexOf(k)}`,
-            text: `PEN ${teamName(k.team)} — ${k.takerName} ${k.scored ? "SCORED" : "SAVED"}`,
-            team: k.team,
-          });
-        }
-      }
-      if (done && result) {
-        const w = result.winner;
-        lines.push({
-          id: "ft",
-          text:
-            w === 0
-              ? `FULL TIME — YOUR XI WIN ${result.score[0]}–${result.score[1]}`
-              : w === 1
-                ? `FULL TIME — ${opponentSquad.name} WIN ${result.score[0]}–${result.score[1]}`
-                : `FULL TIME — DRAW ${result.score[0]}–${result.score[1]}`,
-        });
-      }
-      return lines;
-    })(),
+  const goalEvents = $derived(
+    (result?.events ?? []).slice().sort((a, b) => a.minute - b.minute),
   );
 
   const visibleKicks = $derived<PenaltyKick[]>(
     script?.penalties?.slice(0, penIndex) ?? [],
-  );
-  const speedOptions = [1, 2, 4];
-
-  const maxMinute = $derived(
-    snaps.length > 0 ? snaps[snaps.length - 1].minute : 90,
-  );
-  const progressPct = $derived(
-    done && !script
-      ? 100
-      : Math.min(100, (currentSnap.minute / Math.max(1, maxMinute)) * 100),
   );
 
   const liveStatus = $derived(
@@ -238,25 +192,11 @@ import { playerRating } from "../lib/draft.js";
           : "",
   );
 
-  const progressStatus = $derived(
-    done
-      ? result?.penalties
-        ? "FT · PENS"
-        : "FT"
-      : phase === "pens"
-        ? "PENS"
-        : currentSnap.isET
-          ? "ET"
-          : "90'",
-  );
-
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent whitespace-nowrap transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
   const pillSolid =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-black bg-mint border border-mint rounded-full px-5 py-2.5 whitespace-nowrap transition-all duration-150 hover:brightness-110";
-  const speedBtn =
-    "font-mono text-xs font-semibold px-3.5 py-2.5 text-mint bg-transparent transition-all duration-150";
 </script>
 
 <section class="{embedded ? 'w-full' : 'mx-auto max-w-4xl px-6 py-12'}">
@@ -286,16 +226,6 @@ import { playerRating } from "../lib/draft.js";
           >
             {playing ? "Pause" : "Play"}
           </button>
-          <div class="flex overflow-hidden rounded-full border border-mint">
-            {#each speedOptions as s (s)}
-              <button
-                type="button"
-                class={speed === s ? `${speedBtn} bg-mint text-black` : speedBtn}
-                onclick={() => (speed = s)}>{s}x</button
-              >
-            {/each}
-          </div>
-          <button type="button" class={pillOutline} onclick={skip}>Skip</button>
         </div>
       {:else if script}
         <div class="flex items-center gap-2">
@@ -330,16 +260,6 @@ import { playerRating } from "../lib/draft.js";
           >
             {playing ? "Pause" : "Play"}
           </button>
-          <div class="flex overflow-hidden rounded-full border border-mint">
-            {#each speedOptions as s (s)}
-              <button
-                type="button"
-                class={speed === s ? `${speedBtn} bg-mint text-black` : speedBtn}
-                onclick={() => (speed = s)}>{s}x</button
-              >
-            {/each}
-          </div>
-          <button type="button" class={pillOutline} onclick={skip}>Skip</button>
         </div>
       {:else if script}
         <div class="flex items-center gap-2">
@@ -416,92 +336,108 @@ import { playerRating } from "../lib/draft.js";
         </div>
       </div>
 
-      <div class="px-6 pb-5">
-        <p class="text-center text-lg font-bold text-white">Top stats</p>
-
-        <div class="mt-6">
-          <p class="text-center text-sm text-secondary">Ball possession</p>
-          <div class="relative mt-2 h-8 overflow-hidden rounded-full bg-white/5">
-            <div
-              class="absolute inset-y-0 left-0 rounded-full bg-white/15 transition-all duration-500"
-              style:width={`${displayPossession[0] * 100}%`}
-            ></div>
-            <div
-              class="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-white/20"
-            ></div>
-            <div class="absolute inset-y-0 flex w-full items-center px-4">
-              <span class="text-sm font-bold text-white"
-                >{Math.round(displayPossession[0] * 100)}%</span
-              >
-              <span class="ml-auto text-sm font-bold text-white/60"
-                >{Math.round(displayPossession[1] * 100)}%</span
-              >
-            </div>
-          </div>
+      <div class="grid gap-4 px-6 py-6 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-slate/20 p-4">
+          <p class="{mono} text-[10px] text-secondary">GOALS</p>
+          {#if goalEvents.length > 0}
+            <ul class="mt-3 space-y-2">
+              {#each goalEvents as ev (ev.minute + "-" + ev.teamIndex + "-" + (ev.scorerName ?? "goal"))}
+                <li class="flex items-center gap-3 text-[13px]">
+                  <span
+                    class="w-11 shrink-0 font-mono text-xs text-secondary"
+                    >{ev.minute}'{ev.minute > 90 ? " ET" : ""}</span
+                  >
+                  <span
+                    class="h-2 w-2 shrink-0 rounded-full"
+                    style:background={ev.teamIndex === 0 ? "#3cffd0" : "#5200ff"}
+                  ></span>
+                  <span
+                    class="min-w-0 truncate font-semibold"
+                    style:color={ev.teamIndex === 0 ? "#3cffd0" : "#5200ff"}
+                    >{teamName(ev.teamIndex)}</span
+                  >
+                  <span class="ml-auto truncate text-secondary"
+                    >{ev.scorerName ?? "Goal"}</span
+                  >
+                </li>
+              {/each}
+            </ul>
+          {:else}
+            <p class="{mono} mt-3 text-secondary">NO GOALS</p>
+          {/if}
         </div>
 
-        <div class="mt-7 space-y-5">
-          <div class="flex items-center gap-4">
-            <div class="w-16 shrink-0 text-left">
-              <span class="text-xl font-bold text-white"
-                >{displayXg[0].toFixed(2)}</span
-              >
-            </div>
-            <div class="min-w-0 flex-1 text-center">
-              <span class="text-sm text-secondary">Expected goals (xG)</span>
-            </div>
-            <div class="w-16 shrink-0 text-right">
-              <span class="text-xl font-bold text-white"
-                >{displayXg[1].toFixed(2)}</span
-              >
-            </div>
-          </div>
-
-          <div class="flex items-center gap-4">
-            <div class="w-16 shrink-0 text-left">
-              <span class="text-xl font-bold text-white">{displayShots[0]}</span>
-            </div>
-            <div class="min-w-0 flex-1 text-center">
-              <span class="text-sm text-secondary">Total shots</span>
-            </div>
-            <div class="w-16 shrink-0 text-right">
-              <span class="text-xl font-bold text-white">{displayShots[1]}</span>
+        <div class="rounded-2xl border border-white/10 bg-slate/20 p-4">
+          <div class="mt-6">
+            <p class="text-center text-sm text-secondary">Ball possession</p>
+            <div class="relative mt-2 h-8 overflow-hidden rounded-full bg-white/5">
+              <div
+                class="absolute inset-y-0 left-0 rounded-full bg-white/15 transition-all duration-500"
+                style:width={`${displayPossession[0] * 100}%`}
+              ></div>
+              <div
+                class="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-white/20"
+              ></div>
+              <div class="absolute inset-y-0 flex w-full items-center px-4">
+                <span class="text-sm font-bold text-white"
+                  >{Math.round(displayPossession[0] * 100)}%</span
+                >
+                <span class="ml-auto text-sm font-bold text-white/60"
+                  >{Math.round(displayPossession[1] * 100)}%</span
+                >
+              </div>
             </div>
           </div>
 
-          <div class="flex items-center gap-4">
-            <div class="w-16 shrink-0 text-left">
-              <span
-                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-sm font-bold text-white"
-                >{displayOnTarget[0]}</span
-              >
+          <div class="mt-7 space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-16 shrink-0 text-left">
+                <span class="text-xl font-bold text-white"
+                  >{displayXg[0].toFixed(2)}</span
+                >
+              </div>
+              <div class="min-w-0 flex-1 text-center">
+                <span class="text-sm text-secondary">Expected goals (xG)</span>
+              </div>
+              <div class="w-16 shrink-0 text-right">
+                <span class="text-xl font-bold text-white"
+                  >{displayXg[1].toFixed(2)}</span
+                >
+              </div>
             </div>
-            <div class="min-w-0 flex-1 text-center">
-              <span class="text-sm text-secondary">Shots on target</span>
-            </div>
-            <div class="w-16 shrink-0 text-right">
-              <span class="text-xl font-bold text-white"
-                >{displayOnTarget[1]}</span
-              >
-            </div>
-          </div>
-        </div>
 
-        <div class="mt-5">
-          <div class="flex items-center justify-between">
-            <p class="{mono} text-[10px] text-secondary">
-              {progressStatus}
-            </p>
-            <p class="{mono} text-[10px] text-secondary">MATCH PROGRESS</p>
-          </div>
-          <div class="relative mt-1.5 h-1.5 rounded-full bg-white/10">
-            <div
-              class="h-full rounded-full bg-white/40 transition-all duration-500"
-              style:width={`${progressPct}%`}
-            ></div>
+            <div class="flex items-center gap-4">
+              <div class="w-16 shrink-0 text-left">
+                <span class="text-xl font-bold text-white">{displayShots[0]}</span>
+              </div>
+              <div class="min-w-0 flex-1 text-center">
+                <span class="text-sm text-secondary">Total shots</span>
+              </div>
+              <div class="w-16 shrink-0 text-right">
+                <span class="text-xl font-bold text-white">{displayShots[1]}</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-16 shrink-0 text-left">
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-sm font-bold text-white"
+                  >{displayOnTarget[0]}</span
+                >
+              </div>
+              <div class="min-w-0 flex-1 text-center">
+                <span class="text-sm text-secondary">Shots on target</span>
+              </div>
+              <div class="w-16 shrink-0 text-right">
+                <span class="text-xl font-bold text-white"
+                  >{displayOnTarget[1]}</span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
     {#if phase === "pre"}
@@ -540,71 +476,6 @@ import { playerRating } from "../lib/draft.js";
       </div>
     {/if}
 
-    {#if commentary.length > 0}
-      <div class="mt-4 rounded-2xl border border-white/15 p-4">
-        <div class="flex items-center justify-between">
-          <p class="{mono} mb-3 text-secondary">COMMENTARY</p>
-          <p class="{mono} mb-3 text-[10px] text-secondary"
-            >{segIndex}/{snaps.length} segments · {result?.events.length ?? 0} goals</p
-          >
-        </div>
-        <ul
-          class="flex max-h-48 flex-col-reverse gap-1 overflow-y-auto pr-2"
-        >
-          {#each [...commentary].reverse() as line (line.id)}
-            <li
-              class="flex items-baseline gap-3 rounded-lg px-2 py-1 {line.text.includes('GOAL') && line.team !== undefined
-                ? 'bg-mint/[0.08]'
-                : ''} text-[13px]"
-              class:text-mint={line.team === 0}
-              class:text-uv={line.team === 1}
-              class:text-secondary={line.team === undefined}
-            >
-              <span class="w-7 shrink-0 font-mono text-[10px] text-secondary"
-                >{line.text.startsWith("PEN") || line.text.startsWith("FULL")
-                  ? line.text.split(" ")[0]
-                  : line.text.match(/^\d+'/)?.[0] ?? ""}</span
-              >
-              <span class="min-w-0">{line.text}</span>
-            </li>
-          {/each}
-        </ul>
-      </div>
-    {/if}
-
-    {#if phase === "done" && result}
-      <div
-        class="mt-4 overflow-hidden rounded-2xl border p-6 text-center {result.winner === 0
-          ? 'border-mint bg-mint/10'
-          : result.winner === 1
-            ? 'border-pink bg-pink/10'
-            : 'border-white/15 bg-slate/30'}"
-      >
-        <p
-          class="font-display text-5xl leading-[0.9] tracking-[1px] {result.winner === 0
-            ? 'text-mint'
-            : result.winner === 1
-              ? 'text-pink'
-              : 'text-secondary'}"
-        >
-          {result.winner === 0
-            ? "YOU WIN"
-            : result.winner === 1
-              ? "YOU LOSE"
-              : "DRAW"}
-        </p>
-        {#if result.extraTime}
-          <p class="{mono} mt-2 text-yellow">
-            Extra time{result.penalties ? " · decided on penalties" : ""}
-          </p>
-        {/if}
-        {#if result.penalties && result.penaltyScore}
-          <p class="mt-2 font-display text-4xl">
-            {result.penaltyScore[0]} : {result.penaltyScore[1]}
-          </p>
-        {/if}
-      </div>
-    {/if}
   {/if}
 </section>
 
