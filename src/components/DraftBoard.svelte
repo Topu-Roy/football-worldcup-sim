@@ -294,7 +294,7 @@
           </div>
         </div>
         <div
-          class="grid gap-4 overflow-y-auto pr-1 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid gap-4 overflow-y-auto pr-1 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
@@ -341,3 +341,27 @@
     </aside>
   </div>
 </section>
+
+<style>
+  .draft-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.15) transparent;
+  }
+
+  :global(.draft-scroll::-webkit-scrollbar) {
+    width: 8px;
+  }
+
+  :global(.draft-scroll::-webkit-scrollbar-track) {
+    background: transparent;
+  }
+
+  :global(.draft-scroll::-webkit-scrollbar-thumb) {
+    background: rgb(255 255 255 / 0.15);
+    border-radius: 999px;
+  }
+
+  :global(.draft-scroll::-webkit-scrollbar-thumb:hover) {
+    background: rgb(60 255 208 / 0.5);
+  }
+</style>
