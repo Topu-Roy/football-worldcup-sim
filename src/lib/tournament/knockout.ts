@@ -12,7 +12,13 @@ function resolveRoundExit(round: MatchRound): Tournament["outcome"] {
 }
 
 function createSingleMatch(state: Tournament, round: MatchRound): void {
-  const opponent = drawStrong(1)[0];
+  const usedNations = new Set<string>();
+  for (const m of state.matches.filter((x) => x.isUser)) {
+    const oppId = m.away === state.userSquad.id ? m.home : m.away;
+    const opp = state.squads[oppId];
+    if (opp) usedNations.add(opp.nation);
+  }
+  const opponent = drawStrong(1, [...usedNations])[0];
   state.squads[opponent.id] = opponent;
   state.matches.push({
     id: `${round}-1`,
