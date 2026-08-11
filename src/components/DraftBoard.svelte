@@ -107,8 +107,11 @@
 
   const openRoles = $derived(emptySlotRoles(formationKey, drafted));
 
+  const draftedNames = $derived(new Set(drafted.map((p) => p.name)));
+
   const squadCanPlace = (nation: string, year: number): boolean =>
     squadOf(nation, year).some((p) =>
+      !draftedNames.has(p.name) &&
       p.positions.some((r) =>
         openRoles.some((role) => canonicalRole(role) === canonicalRole(r)),
       ),
@@ -185,9 +188,14 @@
     );
   }
 
-  /** Select/deselect an offer player for placement (blocked when the squad is complete or the player can't be placed). */
+  /** Select/deselect an offer player for placement (blocked when the squad is complete, the player can't be placed, or the name is already drafted). */
   function toggleSelect(p: Player) {
-    if (complete || left[slotDepartment(p)] <= 0 || !hasPlaceableSlot(p))
+    if (
+      complete ||
+      left[slotDepartment(p)] <= 0 ||
+      !hasPlaceableSlot(p) ||
+      draftedNames.has(p.name)
+    )
       return;
     swapSelectedId = null;
     selected = selected?.id === p.id ? null : p;
@@ -197,6 +205,7 @@
   function place(role: string, slotIndex: number) {
     if (!selected) return;
     if (left[slotDepartment(selected)] <= 0) return;
+    if (draftedNames.has(selected.name)) return;
     const slot = draftSlots[slotIndex];
     if (!slot || slot.player) return;
     if (!selected.positions.some((r) => canonicalRole(r) === role)) return;
