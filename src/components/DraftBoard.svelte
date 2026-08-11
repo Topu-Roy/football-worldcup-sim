@@ -264,11 +264,11 @@
     </div>
   </header>
 
-  <div class="mt-8 grid gap-6 lg:grid-cols-2">
+  <div class="mt-8 grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
-      <div>
+      <div class="flex min-w-0 flex-col lg:sticky lg:top-6">
         <div
-          class="mb-5 flex items-center justify-between gap-4 font-display text-3xl text-white"
+          class="mb-5 flex shrink-0 items-center justify-between gap-4 font-display text-3xl text-white"
         >
           <span>
             {NATION_NAMES[offer.nation] ?? offer.nation}
@@ -293,7 +293,9 @@
             </button>
           </div>
         </div>
-        <div class="grid gap-4 sm:grid-cols-2">
+        <div
+          class="grid gap-4 overflow-y-auto pr-1 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
+        >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
               player={p}
