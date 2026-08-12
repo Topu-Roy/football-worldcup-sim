@@ -75,7 +75,7 @@
         class="flex h-9 w-9 items-center justify-center rounded-full bg-mint font-display text-lg leading-none text-black"
         >XI</span
       >
-      <p class="mt-1.5 font-display text-xl leading-none text-mint">Your XI</p>
+      <p class="mt-1.5 font-display text-xl leading-none text-mint">Your team</p>
       <p class="{mono} mt-1.5 text-secondary">
         {userSquad.players.length} players · {userNationCount} same nation · AVG {userAvg}
       </p>

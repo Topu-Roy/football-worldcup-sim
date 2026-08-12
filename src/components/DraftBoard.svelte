@@ -318,7 +318,7 @@
       class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
     >
       <p class="{mono} text-mint">
-        Your XI <span class="text-secondary">({drafted.length}/11)</span>
+        Your team <span class="text-secondary">({drafted.length}/11)</span>
       </p>
       <div class="mt-4">
         <PitchView

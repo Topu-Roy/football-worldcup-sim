@@ -37,7 +37,7 @@
     presetResult?: MatchResult | null;
   } = $props();
 
-  const teamName = (t: 0 | 1) => (t === 0 ? "Your XI" : opponentSquad.name);
+  const teamName = (t: 0 | 1) => (t === 0 ? "Your team" : opponentSquad.name);
 
   // Mean player rating, used to weight the pre-match expected-strength summary.
   const teamAvg = (squad: Squad): number =>

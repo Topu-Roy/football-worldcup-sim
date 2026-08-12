@@ -4,7 +4,7 @@ import type { Formation, Player, Squad } from "../types.js";
 export function buildUserSquad(formation: Formation, drafted: Player[]): Squad {
   return {
     id: "user-squad",
-    name: "Your XI",
+    name: "Your team",
     nation: "MIX",
     wcYear: 2026,
     formation,
