@@ -11,7 +11,6 @@
     newNationReroll,
     sameNationReroll,
     slotDepartment,
-    slotsLeft,
     squadOf,
     swapPlayers as applySwap,
     swapTargetsFor,
@@ -40,6 +39,7 @@
   let drafted = $state<Player[]>([]);
   let selected = $state<Player | null>(null);
   let swapSelectedId = $state<string | null>(null);
+  let offerScroll = $state<HTMLDivElement | null>(null);
 
   const AUTO_REROLL_MAX = 15;
 
@@ -51,7 +51,6 @@
     }
   });
 
-  const left = $derived(slotsLeft(formation, drafted));
   const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const round = $derived(drafted.length + 1);
   const complete = $derived(validateDraft(formation, drafted));
@@ -141,6 +140,11 @@
     return o.players.some((p) => hasPlaceableSlot(p));
   }
 
+  /** Bring the offer list back to the top so the new offer is in view. */
+  function scrollOfferToTop() {
+    offerScroll?.scrollTo({ top: 0 });
+  }
+
   /** Draw the next offer, retrying (bounded) until it contains a placeable player. */
   function newOffer() {
     selected = null;
@@ -152,6 +156,7 @@
     }
     offer = next;
     offerHistory = [...offerHistory, next];
+    scrollOfferToTop();
   }
 
   /** Spend a reroll to redraw the offer, optionally constrained to the same or a new nation. */
@@ -178,6 +183,7 @@
     rerollsLeft -= 1;
     offer = next;
     offerHistory = [...offerHistory, next];
+    scrollOfferToTop();
   }
 
   /** Whether a player fits any currently empty slot. */
@@ -192,7 +198,6 @@
   function toggleSelect(p: Player) {
     if (
       complete ||
-      left[slotDepartment(p)] <= 0 ||
       !hasPlaceableSlot(p) ||
       draftedNames.has(p.name)
     )
@@ -204,7 +209,6 @@
   /** Commit the selected player into a specific formation slot and refresh the offer. */
   function place(role: string, slotIndex: number) {
     if (!selected) return;
-    if (left[slotDepartment(selected)] <= 0) return;
     if (draftedNames.has(selected.name)) return;
     const slot = draftSlots[slotIndex];
     if (!slot || slot.player) return;
@@ -294,16 +298,15 @@
           </div>
         </div>
         <div
-          class="draft-scroll grid gap-4 overflow-y-auto pr-1 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
+          bind:this={offerScroll}
+          class="draft-scroll grid gap-4 overflow-y-auto p-1.5 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
               player={p}
               selected={selected?.id === p.id}
-              disabled={complete ||
-                left[slotDepartment(p)] <= 0 ||
-                !hasPlaceableSlot(p)}
-              full={left[slotDepartment(p)] <= 0}
+              disabled={complete || !hasPlaceableSlot(p)}
+              full={!hasPlaceableSlot(p)}
               onClick={() => toggleSelect(p)}
             />
           {/each}

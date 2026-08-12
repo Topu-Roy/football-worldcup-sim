@@ -68,7 +68,7 @@ export function pickXI(players: Player[], formation: Formation): Player[] {
     MID: [],
     ATT: [],
   };
-  for (const p of players) byDept[slotDepartment(p)].push(p);
+  for (const p of players) byDept[effectiveDepartment(p)].push(p);
   const xi: Player[] = [];
   for (const dept of ["GK", "DEF", "MID", "ATT"]) {
     const need = formation[dept as keyof Formation];
