@@ -133,43 +133,18 @@ const ROLE_WEIGHTS: Record<string, [keyof Player, number][]> = {
   ],
 };
 
-export const ROLE_LEVEL: Record<string, number> = {
-  GK: 0,
-  CB: 1,
-  LB: 2,
-  RB: 2,
-  CDM: 3,
-  CM: 4,
-  LM: 4,
-  RM: 4,
-  CAM: 5,
-  LW: 6,
-  RW: 6,
-  ST: 7,
-};
-
-type NerfMode = "both" | "forward";
-
-const DEPT_NERF_MODE: Record<Position, NerfMode> = {
-  GK: "both",
-  DEF: "both",
-  MID: "forward",
-  ATT: "both",
-};
-
 /** Role the player is effectively playing: assigned position or their best position. */
 export function assignedRole(p: Player): string {
   return p.assignedPosition ?? p.bestPosition;
 }
 
-/** Distance in role levels between best and assigned role (0 = natural position). */
+/** Rank of the assigned role in the player's positions list (0 = best, 1 = 2nd, ∞ = not listed). */
 export function roleGap(p: Player): number {
   const best = canonicalRole(p.bestPosition);
   const assigned = canonicalRole(assignedRole(p));
   if (best === assigned) return 0;
-  const mode = DEPT_NERF_MODE[departmentOf(best)] ?? "forward";
-  const diff = (ROLE_LEVEL[assigned] ?? 0) - (ROLE_LEVEL[best] ?? 0);
-  return mode === "both" ? Math.abs(diff) : Math.max(0, diff);
+  const idx = (p.positions ?? []).map(canonicalRole).indexOf(assigned);
+  return idx < 1 ? Infinity : idx;
 }
 
 /** Whether the player is currently playing out of position. */
@@ -185,8 +160,8 @@ export interface NerfResult {
 /** Performance multiplier (≤1) and the stat keys affected when a player plays out of position. */
 export function roleNerf(p: Player): NerfResult {
   const gap = roleGap(p);
-  if (gap <= 0) return { factor: 1, keys: new Set() };
-  const pct = Math.min(10, gap * 7.5);
+  if (!(gap > 0)) return { factor: 1, keys: new Set() };
+  const pct = gap === 1 ? 5 : 10;
   const keys = new Set((ROLE_WEIGHTS[assignedRole(p)] ?? []).map(([k]) => k));
   return { factor: 1 - pct / 100, keys };
 }

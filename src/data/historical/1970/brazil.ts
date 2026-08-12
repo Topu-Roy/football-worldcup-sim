@@ -110,7 +110,7 @@ export const BRAZIL_1970: Squad = {
       name: "Rivelino",
       nation: "BRA",
       wcYear: 1970,
-      positions: ["LW", "CAM"],
+      positions: ["CAM", "LW"],
       bestPosition: "CAM",
       jerseyNumber: 11,
       passing: 90,

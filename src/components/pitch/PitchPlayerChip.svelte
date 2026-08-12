@@ -3,7 +3,6 @@
     ROLE_LABELS,
     assignedRole,
     canonicalRole,
-    outOfPosition,
     roleNerf,
   } from "../../lib/draft.js";
   import type { Player } from "../../lib/types.js";
@@ -31,7 +30,7 @@
     onSelect: () => void;
   } = $props();
 
-const flagged = $derived(outOfPosition(player));
+const flagged = $derived(roleNerf(player).factor <= 0.9);
 const showStar = $derived(
     (isTarget || isSelected) &&
       !!selectedBest &&

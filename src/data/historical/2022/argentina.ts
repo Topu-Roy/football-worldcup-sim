@@ -139,7 +139,7 @@ export const ARGENTINA_2022: Squad = {
       name: "Lionel Messi",
       nation: "ARG",
       wcYear: 2022,
-      positions: ["RW", "ST", "CAM"],
+      positions: ["ST", "RW", "CAM"],
       bestPosition: "ST",
       jerseyNumber: 10,
       finishing: 96,

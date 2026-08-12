@@ -110,7 +110,7 @@ export const FRANCE_2026: Squad = {
       name: "Michael Olise",
       nation: "FRA",
       wcYear: 2026,
-      positions: ["RW", "CAM", "RM"],
+      positions: ["CAM", "RW", "RM"],
       bestPosition: "CAM",
       jerseyNumber: 11,
       passing: 88,

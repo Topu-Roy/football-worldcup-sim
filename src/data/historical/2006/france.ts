@@ -141,7 +141,7 @@ export const FRANCE_2006: Squad = {
       name: "Florent Malouda",
       nation: "FRA",
       wcYear: 2006,
-      positions: ["LW", "LM"],
+      positions: ["LM", "LW"],
       bestPosition: "LM",
       jerseyNumber: 7,
       passing: 80,
