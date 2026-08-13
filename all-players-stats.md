@@ -257,52 +257,70 @@ Stats: Passing 72 · Dribble 69 · Work Rate 78 · Stamina 79 · Composure 74
 Alberto Gómez (67) - [ST]
 Stats: Pace 72 · Dribble 68 · Stamina 73 · Finishing 72 · Off Ball 75 · Composure 72
 
-## West Germany 1974
+## Netherlands 1974
 
-Franz Beckenbauer (93) - [CB/CM]
-Stats: Tackling 93 · Aerial 88 · Passing 97 · Pace 85 · Dribble 91 · Work Rate 92 · Stamina 92 · Off Ball 94 · Composure 98
+Johan Cruyff (94) - [CAM/ST/LW/RW]
+Stats: Passing 95 · Pace 91 · Dribble 97 · Work Rate 95 · Stamina 92 · Finishing 92 · Off Ball 98 · Composure 97
 
-Gerd Müller (92) - [ST]
-Stats: Pace 80 · Dribble 74 · Stamina 78 · Finishing 94 · Off Ball 92 · Composure 88
+Johan Neeskens (92) - [CM/CDM]
+Stats: Tackling 89 · Passing 91 · Dribble 87 · Work Rate 98 · Stamina 97 · Finishing 93 · Off Ball 93 · Composure 94
 
-Sepp Maier (89) - [GK]
-Stats: Reflexes 92 · Positioning 90 · Distribution 78 · Composure 92
+Ruud Krol (90) - [LB/CB]
+Stats: Tackling 93 · Aerial 84 · Passing 93 · Pace 88 · Dribble 84 · Work Rate 95 · Stamina 95 · Off Ball 91 · Composure 94
 
-Wolfgang Overath (86) - [CM]
-Stats: Passing 90 · Dribble 80 · Work Rate 82 · Stamina 84 · Composure 88
+Johnny Rep (89) - [RW/ST]
+Stats: Pace 91 · Dribble 88 · Stamina 90 · Finishing 92 · Off Ball 94 · Composure 90
 
-Paul Breitner (85) - [LB]
-Stats: Tackling 80 · Aerial 74 · Passing 86 · Pace 86 · Composure 88
+Willem van Hanegem (89) - [CM]
+Stats: Passing 96 · Dribble 88 · Work Rate 90 · Stamina 89 · Off Ball 88 · Composure 95
 
-Rainer Bonhof (85) - [CM]
-Stats: Passing 86 · Dribble 78 · Work Rate 88 · Stamina 88 · Composure 84
+Rob Rensenbrink (88) - [LW/ST]
+Stats: Pace 89 · Dribble 92 · Stamina 88 · Finishing 89 · Off Ball 92 · Composure 92
 
-Berti Vogts (84) - [RB]
-Stats: Tackling 90 · Aerial 76 · Passing 72 · Pace 84 · Composure 88
+Arie Haan (87) - [CB/CM]
+Stats: Tackling 89 · Aerial 84 · Passing 90 · Pace 81 · Dribble 78 · Work Rate 92 · Stamina 92 · Composure 90
 
-Uli Hoeneß (84) - [CM/ST]
-Stats: Passing 80 · Dribble 80 · Work Rate 90 · Stamina 88 · Composure 82
+Wim Suurbier (87) - [RB]
+Stats: Tackling 88 · Aerial 79 · Passing 86 · Pace 92 · Dribble 80 · Work Rate 97 · Stamina 97 · Off Ball 91 · Composure 89
 
-Jürgen Grabowski (83) - [RW/RM]
-Stats: Pace 86 · Dribble 84 · Stamina 84 · Finishing 76 · Off Ball 82 · Composure 82
+Wim Jansen (86) - [CM/CDM]
+Stats: Tackling 87 · Passing 89 · Dribble 81 · Work Rate 97 · Stamina 96 · Off Ball 88 · Composure 90
 
-Herbert Wimmer (82) - [CM]
-Stats: Passing 80 · Dribble 76 · Work Rate 86 · Stamina 88 · Composure 82
+Wim Rijsbergen (84) - [CB]
+Stats: Tackling 88 · Aerial 87 · Passing 81 · Pace 79 · Work Rate 92 · Stamina 92 · Composure 88
 
-Bernd Cullmann (81) - [CM/CDM]
-Stats: Tackling 76 · Passing 78 · Dribble 70 · Work Rate 88 · Stamina 88 · Composure 82
+Jan Jongbloed (83) - [GK]
+Stats: Reflexes 82 · Positioning 84 · Distribution 93 · Composure 90
 
-Hans-Georg Schwarzenbeck (81) - [CB]
-Stats: Tackling 84 · Aerial 86 · Passing 66 · Pace 70 · Composure 80
+René van de Kerkhof (82) - [RW/RM]
+Stats: Pace 95 · Dribble 86 · Stamina 90 · Finishing 80 · Off Ball 85 · Composure 83
 
-Bernd Hölzenbein (80) - [LW/ST]
-Stats: Pace 84 · Dribble 82 · Stamina 82 · Finishing 74 · Off Ball 80 · Composure 78
+Theo de Jong (79) - [CM]
+Stats: Passing 83 · Dribble 77 · Work Rate 83 · Stamina 83 · Composure 81
 
-Horst-Dieter Höttges (80) - [RB]
-Stats: Tackling 80 · Aerial 78 · Passing 76 · Pace 82 · Work Rate 82 · Stamina 84 · Composure 80
+Rinus Israël (78) - [CB]
+Stats: Tackling 85 · Aerial 87 · Passing 76 · Pace 68 · Work Rate 78 · Stamina 80 · Composure 83
 
-Wolfgang Kleff (77) - [GK]
-Stats: Reflexes 78 · Positioning 80 · Distribution 64 · Composure 82
+Piet Schrijvers (76) - [GK]
+Stats: Reflexes 79 · Positioning 81 · Distribution 70 · Composure 82
+
+Piet Keizer (75) - [LW]
+Stats: Passing 84 · Pace 74 · Dribble 85 · Stamina 70 · Finishing 73 · Off Ball 77 · Composure 83
+
+Kees van Ierssel (74) - [RB]
+Stats: Tackling 79 · Aerial 74 · Passing 74 · Pace 77 · Work Rate 83 · Stamina 84 · Composure 76
+
+Willy van de Kerkhof (73) - [RM/CM]
+Stats: Pace 89 · Dribble 79 · Stamina 85 · Passing 76 · Work Rate 85 · Off Ball 84 · Composure 76
+
+Ruud Geels (72) - [ST]
+Stats: Pace 77 · Dribble 73 · Stamina 76 · Finishing 79 · Off Ball 81 · Composure 76
+
+Pleun Strik (71) - [CB]
+Stats: Tackling 79 · Aerial 82 · Passing 71 · Pace 68 · Work Rate 77 · Stamina 79 · Composure 77
+
+Eddy Treijtel (70) - [GK]
+Stats: Reflexes 75 · Positioning 76 · Distribution 69 · Composure 76
 
 ## West Germany 1974
 
@@ -2339,64 +2357,7 @@ Dariusz Wosz (69) - [CAM/LM]
 Stats: Passing 76 · Pace 74 · Dribble 82 · Work Rate 68 · Stamina 68 · Finishing 68 · Composure 76
 
 Hans-Jörg Butt (69) - [GK]
-Stats: Reflexes 73 · Positioning 72 · Distribution 76 · Composure 72## Turkey 2002
-
-Rüştü Reçber (85) - [GK]
-Stats: Reflexes 89 · Positioning 86 · Distribution 67 · Composure 89
-
-Tugay Kerimoğlu (85) - [CM/CDM]
-Stats: Passing 86 · Dribble 78 · Work Rate 87 · Stamina 87 · Composure 88
-
-Hasan Şaş (84) - [RM/LM/LW]
-Stats: Passing 81 · Pace 86 · Dribble 88 · Work Rate 84 · Stamina 86 · Finishing 78 · Off Ball 84 · Composure 84
-
-Bülent Korkmaz (82) - [CB]
-Stats: Tackling 84 · Aerial 87 · Passing 71 · Pace 67 · Work Rate 84 · Stamina 86 · Composure 86
-
-Yıldıray Baştürk (83) - [CAM/CM]
-Stats: Passing 86 · Dribble 84 · Work Rate 80 · Stamina 82 · Finishing 70 · Off Ball 80 · Composure 84
-
-Emre Belözoğlu (81) - [CM/CAM]
-Stats: Passing 83 · Dribble 82 · Work Rate 82 · Stamina 82 · Finishing 68 · Composure 81
-
-Hakan Şükür (80) - [ST]
-Stats: Pace 75 · Dribble 74 · Stamina 77 · Finishing 79 · Off Ball 82 · Composure 82
-
-Nihat Kahveci (78) - [ST]
-Stats: Pace 87 · Dribble 79 · Stamina 77 · Finishing 81 · Off Ball 81 · Composure 78
-
-İlhan Mansız (82) - [ST]
-Stats: Aerial 80 · Pace 85 · Dribble 80 · Stamina 78 · Finishing 84 · Off Ball 82 · Composure 81
-
-Ümit Davala (80) - [RM/RB]
-Stats: Tackling 72 · Passing 78 · Dribble 76 · Work Rate 87 · Stamina 87 · Finishing 70 · Composure 82
-
-Alpay Özalan (77) - [CB]
-Stats: Tackling 81 · Aerial 85 · Passing 67 · Pace 71 · Work Rate 82 · Stamina 84 · Composure 72
-
-Ergün Penbe (77) - [LM/LB]
-Stats: Passing 78 · Pace 77 · Dribble 75 · Work Rate 84 · Stamina 85 · Composure 79
-
-Hakan Ünsal (77) - [LB]
-Stats: Tackling 79 · Aerial 75 · Passing 73 · Pace 79 · Work Rate 83 · Stamina 84 · Composure 79
-
-Emre Aşık (75) - [CB]
-Stats: Tackling 79 · Aerial 83 · Passing 63 · Pace 69 · Work Rate 76 · Stamina 79 · Composure 72
-
-Fatih Akyel (77) - [RB/CB]
-Stats: Tackling 78 · Aerial 75 · Passing 71 · Pace 75 · Work Rate 84 · Stamina 82 · Composure 77
-
-Arif Erdem (72) - [ST]
-Stats: Pace 73 · Dribble 75 · Stamina 71 · Finishing 73 · Off Ball 74 · Composure 73
-
-Ömer Çatkıç (70) - [GK]
-Stats: Reflexes 75 · Positioning 73 · Distribution 64 · Composure 72
-
-Okan Buruk (76) - [RM/CM]
-Stats: Passing 78 · Pace 78 · Dribble 78 · Work Rate 82 · Stamina 83 · Finishing 67 · Composure 78
-
-Ceyhun Eriş (67) - [CM/CAM]
-Stats: Passing 70 · Dribble 72 · Work Rate 70 · Stamina 72 · Finishing 64 · Composure 68
+Stats: Reflexes 73 · Positioning 72 · Distribution 76 · Composure 72
 
 ## South Korea 2002
 
@@ -2462,6 +2423,47 @@ Stats: Aerial 76 · Pace 72 · Dribble 69 · Stamina 73 · Finishing 74 · Off B
 
 Jang Hyuk (68) - [CB]
 Stats: Tackling 69 · Aerial 75 · Passing 62 · Pace 68 · Work Rate 72 · Stamina 75 · Composure 69
+
+## Turkey 2002
+
+Rüştü Reçber (89) - [GK]
+Stats: Reflexes 92 · Positioning 90 · Distribution 84 · Composure 91
+
+Fatih Akyel (84) - [RB/CB]
+Stats: Tackling 87 · Aerial 78 · Passing 76 · Pace 82 · Work Rate 91 · Stamina 94 · Composure 84
+
+Tugay Kerimoğlu (85) - [CM/CDM]
+Stats: Tackling 76 · Passing 91 · Dribble 82 · Work Rate 91 · Stamina 88 · Composure 91
+
+Yıldıray Baştürk (85) - [CAM/CM]
+Stats: Passing 89 · Pace 80 · Dribble 89 · Work Rate 84 · Stamina 85 · Finishing 76 · Off Ball 87 · Composure 89
+
+Hakan Şükür (84) - [ST]
+Stats: Pace 76 · Dribble 72 · Stamina 85 · Finishing 86 · Off Ball 92 · Composure 86
+
+Hasan Şaş (84) - [RW/LW]
+Stats: Pace 87 · Dribble 89 · Stamina 89 · Finishing 78 · Off Ball 88 · Composure 84
+
+Ümit Davala (82) - [RB/RM]
+Stats: Tackling 81 · Aerial 76 · Passing 81 · Pace 79 · Dribble 80 · Work Rate 90 · Stamina 89 · Off Ball 83 · Composure 85
+
+Bülent Korkmaz (83) - [CB]
+Stats: Tackling 88 · Aerial 87 · Passing 72 · Pace 68 · Work Rate 90 · Stamina 88 · Composure 88
+
+Emre Belözoğlu (82) - [CM/CDM]
+Stats: Tackling 73 · Passing 88 · Dribble 86 · Work Rate 89 · Stamina 84 · Finishing 74 · Off Ball 81 · Composure 85
+
+Ergün Penbe (80) - [LB/LM]
+Stats: Tackling 81 · Aerial 73 · Passing 83 · Pace 77 · Dribble 75 · Work Rate 89 · Stamina 90 · Composure 83
+
+Alpay Özalan (81) - [CB]
+Stats: Tackling 85 · Aerial 88 · Passing 70 · Pace 75 · Work Rate 86 · Stamina 85 · Composure 82
+
+Hakan Ünsal (78) - [LB/LM]
+Stats: Tackling 79 · Aerial 74 · Passing 78 · Pace 80 · Dribble 73 · Work Rate 87 · Stamina 86 · Composure 80
+
+Emre Aşık (72) - [CB]
+Stats: Tackling 77 · Aerial 80 · Passing 67 · Pace 66 · Work Rate 76 · Stamina 78 · Composure 74
 
 ## Italy 2006
 
