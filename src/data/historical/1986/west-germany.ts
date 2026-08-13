@@ -82,7 +82,7 @@ export const WEST_GERMANY_1986: Squad = {
       name: "Lothar Matthäus",
       nation: "FRG",
       wcYear: 1986,
-      positions: ["CM"],
+      positions: ["CDM", "CM"],
       bestPosition: "CM",
       jerseyNumber: 8,
       passing: 86,

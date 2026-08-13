@@ -147,9 +147,9 @@ export const BRAZIL_1970: Squad = {
       jerseyNumber: 10,
       finishing: 96,
       dribble: 95,
-      pace: 88,
+      pace: 90,
       offBall: 96,
-      stamina: 86,
+      stamina: 92,
       composure: 96,
     },
     {
