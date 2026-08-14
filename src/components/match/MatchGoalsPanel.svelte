@@ -21,7 +21,7 @@
   </p>
   {#if sorted.length > 0}
     <ul class="mt-3 space-y-2">
-      {#each sorted as ev (ev.minute + "-" + ev.teamIndex + "-" + (ev.scorerName ?? "goal"))}
+      {#each sorted as ev, i (ev.minute + "-" + ev.teamIndex + "-" + i)}
         <li class="flex items-center gap-3 text-[13px]">
           <span class="w-11 shrink-0 font-mono text-xs text-secondary"
             >{ev.minute}'{ev.minute > 90 ? " ET" : ""}</span
