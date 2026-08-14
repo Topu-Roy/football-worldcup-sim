@@ -134,7 +134,7 @@
           },
           [0, 0] as [number, number],
         )
-      : [0, 0],
+      : (result?.penaltyScore ?? [0, 0]),
   );
 
   const displayScore = $derived(
@@ -156,7 +156,7 @@
   );
 
   const visibleKicks = $derived<PenaltyKick[]>(
-    script?.penalties?.slice(0, penIndex) ?? [],
+    script?.penalties?.slice(0, penIndex) ?? result?.penaltyKicks ?? [],
   );
 
   /** Kick off the match: simulate the full script (regulation + pens) up front, then reveal it segment by segment. */
@@ -239,7 +239,7 @@
       />
     </div>
 
-    {#if script && (phase === "pens" || (phase === "done" && script.result.penalties))}
+    {#if showPens}
       <MatchPenaltyPanel kicks={visibleKicks} />
     {/if}
   </MatchCard>

@@ -85,6 +85,7 @@ export interface MatchResult {
   extraTime: boolean;
   penalties: boolean;
   penaltyScore?: [number, number];
+  penaltyKicks?: PenaltyKick[];
   events: MatchEvent[];
   winner: 0 | 1 | null;
 }

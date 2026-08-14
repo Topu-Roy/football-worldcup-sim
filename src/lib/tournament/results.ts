@@ -15,6 +15,13 @@ function normalizeResultForMatch(
     xg: [result.xg[1], result.xg[0]],
     possession: [result.possession[1], result.possession[0]],
     winner: result.winner === null ? null : result.winner === 0 ? 1 : 0,
+    penaltyScore: result.penaltyScore
+      ? [result.penaltyScore[1], result.penaltyScore[0]]
+      : undefined,
+    penaltyKicks: result.penaltyKicks?.map((k) => ({
+      ...k,
+      team: k.team === 0 ? 1 : 0,
+    })),
     events: result.events.map((ev) => ({
       ...ev,
       teamIndex: ev.teamIndex === 0 ? 1 : 0,

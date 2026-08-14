@@ -196,6 +196,7 @@ export function simulateMatchScript(
     extraTime: extraTime !== undefined,
     penalties: penalties !== undefined,
     penaltyScore,
+    penaltyKicks: penalties,
     events,
     winner,
   };
