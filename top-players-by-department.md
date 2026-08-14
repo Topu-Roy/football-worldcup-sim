@@ -1,12 +1,12 @@
 # Highest-rated players by department
 
-All squads in the tournament opponent pool (9 group-stage + 76 historical), rated by OVR (`playerRating`).
+All squads in the tournament opponent pool (9 group-stage + 76 historical), rated by OVR (`playerRating`) ≥ 89.
 
-- Players listed: 1597
+- Players listed: 159
 
-## Goalkeepers (141)
+## Goalkeepers (19)
 
-Avg OVR **81.2**
+Avg OVR **91.1**
 
 | # | Name | OVR | Best | Squad | Nation | Year |
 |---|---|---|---|---|---|---|
@@ -29,16 +29,10 @@ Avg OVR **81.2**
 | 17 | Fabien Barthez | 89 | GK | France 1998 | FRA | 1998 |
 | 18 | Hugo Lloris | 89 | GK | France 2022 | FRA | 2022 |
 | 19 | Walter Zenga | 89 | GK | Italy 1990 | ITA | 1990 |
-| 20 | Dino Zoff | 88 | GK | Italy 1982 | ITA | 1982 |
-| 21 | Jordan Pickford | 88 | GK | England 2018 | ENG | 2018 |
-| 22 | Mike Maignan | 88 | GK | France 2026 | FRA | 2026 |
-| 23 | Sepp Maier | 88 | GK | West Germany 1970 | FRG | 1970 |
-| 24 | Alisson | 87 | GK | Brazil 2026 | BRA | 2026 |
-| 25 | Cláudio Taffarel | 87 | GK | Brazil 1998 | BRA | 1998 |
 
-## Defenders (547)
+## Defenders (34)
 
-Avg OVR **80.4**
+Avg OVR **89.9**
 
 | # | Name | OVR | Best | Squad | Nation | Year |
 |---|---|---|---|---|---|---|
@@ -67,10 +61,19 @@ Avg OVR **80.4**
 | 23 | Giacinto Facchetti | 89 | LB | Italy 1970 | ITA | 1970 |
 | 24 | Gianluca Zambrotta | 89 | RB | Italy 2006 | ITA | 2006 |
 | 25 | Joško Gvardiol | 89 | CB | Croatia 2022 | CRO | 2022 |
+| 26 | Laurent Blanc | 89 | CB | France 1998 | FRA | 1998 |
+| 27 | Lilian Thuram | 89 | CB | France 2006 | FRA | 2006 |
+| 28 | Marcel Desailly | 89 | CB | France 1998 | FRA | 1998 |
+| 29 | Philipp Lahm | 89 | RB | Germany 2010 | GER | 2010 |
+| 30 | Raphaël Varane | 89 | CB | France 2022 | FRA | 2022 |
+| 31 | Roberto Carlos | 89 | LB | Brazil 2002 | BRA | 2002 |
+| 32 | Toby Alderweireld | 89 | CB | Belgium 2018 | BEL | 2018 |
+| 33 | Virgil van Dijk | 89 | CB | Netherlands 2022 | NED | 2022 |
+| 34 | William Saliba | 89 | CB | France 2026 | FRA | 2026 |
 
-## Midfielders (492)
+## Midfielders (42)
 
-Avg OVR **82.1**
+Avg OVR **90.8**
 
 | # | Name | OVR | Best | Squad | Nation | Year |
 |---|---|---|---|---|---|---|
@@ -99,10 +102,27 @@ Avg OVR **82.1**
 | 23 | Ivan Rakitić | 90 | CM | Croatia 2018 | CRO | 2018 |
 | 24 | Jude Bellingham | 90 | CAM | England 2026 | ENG | 2026 |
 | 25 | Kevin De Bruyne | 90 | CM | Belgium 2018 | BEL | 2018 |
+| 26 | N'Golo Kanté | 90 | CDM | France 2018 | FRA | 2018 |
+| 27 | Osvaldo Ardiles | 90 | CM | Argentina 1978 | ARG | 1978 |
+| 28 | Pedri | 90 | CM | Spain 2026 | ESP | 2026 |
+| 29 | Rivaldo | 90 | CAM | Brazil 2002 | BRA | 2002 |
+| 30 | Zico | 90 | CAM | Brazil 1978 | BRA | 1978 |
+| 31 | Zico | 90 | CAM | Brazil 1982 | BRA | 1982 |
+| 32 | Claude Makélélé | 89 | CDM | France 2006 | FRA | 2006 |
+| 33 | Declan Rice | 89 | CDM | England 2026 | ENG | 2026 |
+| 34 | Frenkie de Jong | 89 | CM | Netherlands 2022 | NED | 2022 |
+| 35 | Gennaro Gattuso | 89 | CDM | Italy 2006 | ITA | 2006 |
+| 36 | Jean Tigana | 89 | CM | France 1986 | FRA | 1986 |
+| 37 | Marcelo Brozović | 89 | CDM | Croatia 2022 | CRO | 2022 |
+| 38 | Mateo Kovačić | 89 | CM | Croatia 2022 | CRO | 2022 |
+| 39 | Mesut Özil | 89 | CAM | Germany 2010 | GER | 2010 |
+| 40 | Nigel de Jong | 89 | CDM | Netherlands 2014 | NED | 2014 |
+| 41 | Sofyan Amrabat | 89 | CDM | Morocco 2022 | MAR | 2022 |
+| 42 | Tugay Kerimoğlu | 89 | CM | Turkey 2002 | TUR | 2002 |
 
-## Attackers (417)
+## Attackers (64)
 
-Avg OVR **82.5**
+Avg OVR **91.3**
 
 | # | Name | OVR | Best | Squad | Nation | Year |
 |---|---|---|---|---|---|---|
@@ -131,3 +151,42 @@ Avg OVR **82.5**
 | 23 | Miroslav Klose | 92 | ST | Germany 2006 | GER | 2006 |
 | 24 | Miroslav Klose | 92 | ST | Germany 2010 | GER | 2010 |
 | 25 | Roberto Baggio | 92 | ST | Italy 1994 | ITA | 1994 |
+| 26 | Ronaldo | 92 | ST | Brazil 1998 | BRA | 1998 |
+| 27 | Ángel Di María | 91 | RW | Argentina 2014 | ARG | 2014 |
+| 28 | Arjen Robben | 91 | RW | Netherlands 2010 | NED | 2010 |
+| 29 | Cristiano Ronaldo | 91 | ST | Portugal 2018 | POR | 2018 |
+| 30 | Eden Hazard | 91 | LW | Belgium 2018 | BEL | 2018 |
+| 31 | Gabriel Batistuta | 91 | ST | Argentina 1994 | ARG | 1994 |
+| 32 | Harry Kane | 91 | ST | England 2018 | ENG | 2018 |
+| 33 | Harry Kane | 91 | ST | England 2026 | ENG | 2026 |
+| 34 | Hristo Stoichkov | 91 | ST | Bulgaria 1994 | BUL | 1994 |
+| 35 | Lionel Messi | 91 | RW | Argentina 2026 | ARG | 2026 |
+| 36 | Mikel Oyarzabal | 91 | ST | Spain 2026 | ESP | 2026 |
+| 37 | Miroslav Klose | 91 | ST | Germany 2014 | GER | 2014 |
+| 38 | Neymar | 91 | LW | Brazil 2014 | BRA | 2014 |
+| 39 | Rob Rensenbrink | 91 | LW | Netherlands 1974 | NED | 1974 |
+| 40 | Robin van Persie | 91 | ST | Netherlands 2014 | NED | 2014 |
+| 41 | Vinícius Júnior | 91 | LW | Brazil 2026 | BRA | 2026 |
+| 42 | Bruno Conti | 90 | RW | Italy 1982 | ITA | 1982 |
+| 43 | Johnny Rep | 90 | RW | Netherlands 1974 | NED | 1974 |
+| 44 | Mohamed Salah | 90 | RW | Egypt 2018 | EGY | 2018 |
+| 45 | Ousmane Dembélé | 90 | RW | France 2026 | FRA | 2026 |
+| 46 | Rob Rensenbrink | 90 | LW | Netherlands 1978 | NED | 1978 |
+| 47 | Sergio Agüero | 90 | ST | Argentina 2014 | ARG | 2014 |
+| 48 | Thierry Henry | 90 | ST | France 2006 | FRA | 2006 |
+| 49 | Thomas Müller | 90 | ST | Germany 2014 | GER | 2014 |
+| 50 | Cristiano Ronaldo | 89 | LW | Portugal 2006 | POR | 2006 |
+| 51 | Cristiano Ronaldo | 89 | ST | Portugal 2026 | POR | 2026 |
+| 52 | Grzegorz Lato | 89 | RW | Poland 1974 | POL | 1974 |
+| 53 | Jairzinho | 89 | RW | Brazil 1970 | BRA | 1970 |
+| 54 | Juan Cuadrado | 89 | RW | Colombia 2014 | COL | 2014 |
+| 55 | Julián Álvarez | 89 | ST | Argentina 2022 | ARG | 2022 |
+| 56 | Karl-Heinz Rummenigge | 89 | ST | West Germany 1982 | FRG | 1982 |
+| 57 | Luca Toni | 89 | ST | Italy 2006 | ITA | 2006 |
+| 58 | Luigi Riva | 89 | ST | Italy 1970 | ITA | 1970 |
+| 59 | Luis Suárez | 89 | ST | Uruguay 2010 | URU | 2010 |
+| 60 | Nico Williams | 89 | LW | Spain 2026 | ESP | 2026 |
+| 61 | Olivier Giroud | 89 | ST | France 2022 | FRA | 2022 |
+| 62 | Rivaldo | 89 | LW | Brazil 1998 | BRA | 1998 |
+| 63 | Tostão | 89 | ST | Brazil 1970 | BRA | 1970 |
+| 64 | Uwe Seeler | 89 | ST | West Germany 1970 | FRG | 1970 |

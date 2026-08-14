@@ -12,7 +12,9 @@ import { GROUP_STAGE_SQUADS } from "../src/data/group-stage/index.js";
 import { HISTORICAL_SQUADS } from "../src/data/historical/index.js";
 import { playerRating } from "../src/lib/draft/rating.js";
 import { slotDepartment } from "../src/lib/draft/roles.js";
-import type { Player, Position } from "../src/lib/types.js";
+import type { Position } from "../src/lib/types.js";
+
+const THRESHOLD = 89;
 
 interface Entry {
   name: string;
@@ -38,6 +40,7 @@ for (const dept of DEPT_ORDER) byDept.set(dept, []);
 let total = 0;
 for (const squad of allSquads) {
   for (const p of squad.players) {
+    if (playerRating(p) < THRESHOLD) continue;
     const entry: Entry = {
       name: p.name,
       rating: playerRating(p),
@@ -62,7 +65,7 @@ const lines: string[] = [];
 lines.push("# Highest-rated players by department");
 lines.push("");
 lines.push(
-  `All squads in the tournament opponent pool (${GROUP_STAGE_SQUADS.length} group-stage + ${HISTORICAL_SQUADS.length} historical), rated by OVR (\`playerRating\`).`,
+  `All squads in the tournament opponent pool (${GROUP_STAGE_SQUADS.length} group-stage + ${HISTORICAL_SQUADS.length} historical), rated by OVR (\`playerRating\`) ≥ ${THRESHOLD}.`,
 );
 lines.push("");
 lines.push(`- Players listed: ${total}`);
@@ -76,7 +79,7 @@ for (const dept of DEPT_ORDER) {
   lines.push("");
   lines.push("| # | Name | OVR | Best | Squad | Nation | Year |");
   lines.push("|---|---|---|---|---|---|---|");
-  list.slice(0, 25).forEach((e, i) => {
+  list.forEach((e, i) => {
     lines.push(
       `| ${i + 1} | ${e.name} | ${e.rating} | ${e.bestPosition} | ${e.squadName} | ${e.nation} | ${e.wcYear} |`,
     );
