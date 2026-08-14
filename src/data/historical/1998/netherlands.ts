@@ -19,9 +19,9 @@ export const NETHERLANDS_1998: Squad = {
       pace: 83,
       dribble: 91,
       stamina: 79,
-      finishing: 93,
-      offBall: 93,
-      composure: 95,
+      finishing: 91,
+      offBall: 92,
+      composure: 94,
     },
     {
       id: "ned-1998-overmars",

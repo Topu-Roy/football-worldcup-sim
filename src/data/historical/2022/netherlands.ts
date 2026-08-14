@@ -47,7 +47,7 @@ export const NETHERLANDS_2022: Squad = {
       positions: ["CM", "CDM"],
       bestPosition: "CM",
       jerseyNumber: 21,
-      passing: 91,
+      passing: 90,
       dribble: 90,
       workRate: 84,
       stamina: 88,

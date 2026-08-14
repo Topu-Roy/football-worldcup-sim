@@ -34,7 +34,7 @@ export const URUGUAY_2010: Squad = {
       pace: 90,
       dribble: 90,
       stamina: 90,
-      finishing: 90,
+      finishing: 91,
       offBall: 90,
       composure: 88,
     },

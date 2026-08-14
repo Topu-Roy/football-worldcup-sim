@@ -20,9 +20,9 @@ export const PORTUGAL_2026: Squad = {
       pace: 58,
       dribble: 74,
       stamina: 50,
-      finishing: 90,
-      offBall: 86,
-      composure: 92,
+      finishing: 91,
+      offBall: 87,
+      composure: 93,
     },
     {
       id: "por-2026-ruben-dias",

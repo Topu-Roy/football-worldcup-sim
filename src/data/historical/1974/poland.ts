@@ -16,7 +16,7 @@ export const POLAND_1974: Squad = {
       positions: ["RW"],
       bestPosition: "RW",
       jerseyNumber: 16,
-      pace: 93,
+      pace: 94,
       dribble: 85,
       stamina: 90,
       finishing: 91,

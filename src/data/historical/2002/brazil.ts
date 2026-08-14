@@ -66,7 +66,7 @@ export const BRAZIL_2002: Squad = {
       positions: ["CAM", "LW", "ST"],
       bestPosition: "CAM",
       jerseyNumber: 10,
-      passing: 91,
+      passing: 90,
       pace: 78,
       dribble: 91,
       workRate: 79,

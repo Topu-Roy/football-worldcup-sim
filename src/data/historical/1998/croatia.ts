@@ -19,9 +19,9 @@ export const CROATIA_1998: Squad = {
       pace: 79,
       dribble: 87,
       stamina: 83,
-      finishing: 96,
-      offBall: 93,
-      composure: 93,
+      finishing: 95,
+      offBall: 92,
+      composure: 92,
     },
     {
       id: "cro-1998-bilic",

@@ -19,7 +19,7 @@ export const ITALY_1970: Squad = {
       pace: 89,
       dribble: 84,
       stamina: 84,
-      finishing: 92,
+      finishing: 93,
       offBall: 88,
       composure: 87,
     },

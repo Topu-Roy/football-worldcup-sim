@@ -19,8 +19,8 @@ export const BULGARIA_1994: Squad = {
       pace: 87,
       dribble: 90,
       stamina: 83,
-      finishing: 94,
-      offBall: 93,
+      finishing: 93,
+      offBall: 92,
       composure: 86,
     },
     {

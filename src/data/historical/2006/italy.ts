@@ -90,7 +90,7 @@ export const ITALY_2006: Squad = {
       positions: ["CDM", "CM", "RM"],
       bestPosition: "CDM",
       jerseyNumber: 8,
-      tackling: 91,
+      tackling: 90,
       passing: 77,
       dribble: 72,
       workRate: 96,

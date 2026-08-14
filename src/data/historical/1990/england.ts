@@ -19,7 +19,7 @@ export const ENGLAND_1990: Squad = {
       pace: 84,
       dribble: 79,
       stamina: 82,
-      finishing: 93,
+      finishing: 92,
       offBall: 92,
       composure: 90,
     },

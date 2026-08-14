@@ -37,9 +37,9 @@ export const WEST_GERMANY_1974: Squad = {
       pace: 80,
       dribble: 75,
       stamina: 78,
-      finishing: 95,
-      offBall: 95,
-      composure: 91,
+      finishing: 92,
+      offBall: 93,
+      composure: 89,
     },
     {
       id: "frg-1974-maier",

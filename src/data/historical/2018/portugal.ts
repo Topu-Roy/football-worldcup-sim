@@ -20,7 +20,7 @@ export const PORTUGAL_2018: Squad = {
       pace: 88,
       dribble: 88,
       stamina: 84,
-      finishing: 93,
+      finishing: 94,
       offBall: 90,
       composure: 93,
     },

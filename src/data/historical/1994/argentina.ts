@@ -20,7 +20,7 @@ export const ARGENTINA_1994: Squad = {
       pace: 83,
       dribble: 79,
       stamina: 82,
-      finishing: 93,
+      finishing: 92,
       offBall: 90,
       composure: 89,
     },

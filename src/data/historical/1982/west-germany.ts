@@ -19,7 +19,7 @@ export const WEST_GERMANY_1982: Squad = {
       pace: 89,
       dribble: 88,
       stamina: 86,
-      finishing: 91,
+      finishing: 92,
       offBall: 87,
       composure: 88,
     },

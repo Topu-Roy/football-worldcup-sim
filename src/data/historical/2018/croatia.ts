@@ -30,7 +30,7 @@ export const CROATIA_2018: Squad = {
       positions: ["CM", "CDM"],
       bestPosition: "CM",
       jerseyNumber: 7,
-      passing: 90,
+      passing: 89,
       dribble: 84,
       workRate: 92,
       stamina: 92,
