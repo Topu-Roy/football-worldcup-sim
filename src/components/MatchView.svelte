@@ -8,7 +8,6 @@
     SegmentSnapshot,
     Squad,
   } from "../lib/types.js";
-  import { countSameNation } from "../lib/team.js";
   import MatchCard from "./match/MatchCard.svelte";
   import MatchControls from "./match/MatchControls.svelte";
   import MatchGoalsPanel from "./match/MatchGoalsPanel.svelte";
@@ -50,8 +49,6 @@
 
   const userAvg = $derived(teamAvg(userSquad));
   const oppAvg = $derived(teamAvg(opponentSquad));
-
-  const userNationCount = $derived(countSameNation(userSquad.players));
 
   const preMatch: SegmentSnapshot = {
     minute: 0,
@@ -214,11 +211,10 @@
 </script>
 
 {#if script || presetResult}
-  <MatchCard
+    <MatchCard
     {userSquad}
     {opponentSquad}
     {roundLabel}
-    {userNationCount}
     {userAvg}
     {oppAvg}
     {liveStatus}

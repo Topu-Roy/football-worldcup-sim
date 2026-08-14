@@ -24,7 +24,7 @@
         <span>{k.takerName}</span>
         <span
           class="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10px] font-bold tracking-[1px] uppercase {k.scored
-            ? 'bg-mint/15 text-mint'
+            ? (k.team === 0 ? 'bg-mint/15 text-mint' : 'bg-uv/15 text-uv')
             : 'bg-white/5 text-secondary'}"
         >
           {#if k.scored}

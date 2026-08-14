@@ -8,7 +8,6 @@
     userSquad,
     opponentSquad,
     roundLabel,
-    userNationCount,
     userAvg,
     oppAvg,
     liveStatus,
@@ -23,7 +22,6 @@
     userSquad: Squad;
     opponentSquad: Squad;
     roundLabel: string;
-    userNationCount: number;
     userAvg: number;
     oppAvg: number;
     liveStatus: string;
@@ -82,7 +80,7 @@
         Your team
       </p>
       <p class="{mono} mt-1.5 text-secondary">
-        {userSquad.players.length} players · {userNationCount} same nation · AVG {userAvg}
+        {userSquad.players.length} players · AVG {userAvg}
       </p>
     </div>
     <div class="min-w-40 text-center">
