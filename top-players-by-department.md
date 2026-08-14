@@ -1,12 +1,12 @@
 # Highest-rated players by department
 
-All squads in the tournament opponent pool (9 group-stage + 76 historical), rated by OVR (`playerRating`) ≥ 89.
+All squads in the tournament opponent pool (9 group-stage + 77 historical), rated by OVR (`playerRating`) ≥ 89.
 
-- Players listed: 159
+- Players listed: 163
 
-## Goalkeepers (19)
+## Goalkeepers (20)
 
-Avg OVR **91.1**
+Avg OVR **91.0**
 
 | # | Name | OVR | Best | Squad | Nation | Year |
 |---|---|---|---|---|---|---|
@@ -19,18 +19,19 @@ Avg OVR **91.1**
 | 7 | Dino Zoff | 91 | GK | Italy 1978 | ITA | 1978 |
 | 8 | Emiliano Martínez | 91 | GK | Argentina 2022 | ARG | 2022 |
 | 9 | Ubaldo Fillol | 91 | GK | Argentina 1978 | ARG | 1978 |
-| 10 | Emiliano Martínez | 90 | GK | Argentina 2026 | ARG | 2026 |
-| 11 | Keylor Navas | 90 | GK | Costa Rica 2014 | CRC | 2014 |
-| 12 | Rüştü Reçber | 90 | GK | Turkey 2002 | TUR | 2002 |
-| 13 | Sepp Maier | 90 | GK | West Germany 1974 | FRG | 1974 |
-| 14 | Thibaut Courtois | 90 | GK | Belgium 2018 | BEL | 2018 |
-| 15 | Yassine Bounou | 90 | GK | Morocco 2022 | MAR | 2022 |
-| 16 | Edwin van der Sar | 89 | GK | Netherlands 1998 | NED | 1998 |
-| 17 | Fabien Barthez | 89 | GK | France 1998 | FRA | 1998 |
-| 18 | Hugo Lloris | 89 | GK | France 2022 | FRA | 2022 |
-| 19 | Walter Zenga | 89 | GK | Italy 1990 | ITA | 1990 |
+| 10 | Alisson | 90 | GK | Brazil 2018 | BRA | 2018 |
+| 11 | Emiliano Martínez | 90 | GK | Argentina 2026 | ARG | 2026 |
+| 12 | Keylor Navas | 90 | GK | Costa Rica 2014 | CRC | 2014 |
+| 13 | Rüştü Reçber | 90 | GK | Turkey 2002 | TUR | 2002 |
+| 14 | Sepp Maier | 90 | GK | West Germany 1974 | FRG | 1974 |
+| 15 | Thibaut Courtois | 90 | GK | Belgium 2018 | BEL | 2018 |
+| 16 | Yassine Bounou | 90 | GK | Morocco 2022 | MAR | 2022 |
+| 17 | Edwin van der Sar | 89 | GK | Netherlands 1998 | NED | 1998 |
+| 18 | Fabien Barthez | 89 | GK | France 1998 | FRA | 1998 |
+| 19 | Hugo Lloris | 89 | GK | France 2022 | FRA | 2022 |
+| 20 | Walter Zenga | 89 | GK | Italy 1990 | ITA | 1990 |
 
-## Defenders (34)
+## Defenders (35)
 
 Avg OVR **89.9**
 
@@ -53,27 +54,28 @@ Avg OVR **89.9**
 | 15 | Ruud Krol | 90 | LB | Netherlands 1978 | NED | 1978 |
 | 16 | Sergio Ramos | 90 | RB | Spain 2010 | ESP | 2010 |
 | 17 | Thiago Silva | 90 | CB | Brazil 2014 | BRA | 2014 |
-| 18 | Wim Suurbier | 90 | RB | Netherlands 1974 | NED | 1974 |
-| 19 | Achraf Hakimi | 89 | RB | Morocco 2022 | MAR | 2022 |
-| 20 | Carles Puyol | 89 | CB | Spain 2010 | ESP | 2010 |
-| 21 | Daniel Passarella | 89 | CB | Argentina 1978 | ARG | 1978 |
-| 22 | Franco Baresi | 89 | CB | Italy 1994 | ITA | 1994 |
-| 23 | Giacinto Facchetti | 89 | LB | Italy 1970 | ITA | 1970 |
-| 24 | Gianluca Zambrotta | 89 | RB | Italy 2006 | ITA | 2006 |
-| 25 | Joško Gvardiol | 89 | CB | Croatia 2022 | CRO | 2022 |
-| 26 | Laurent Blanc | 89 | CB | France 1998 | FRA | 1998 |
-| 27 | Lilian Thuram | 89 | CB | France 2006 | FRA | 2006 |
-| 28 | Marcel Desailly | 89 | CB | France 1998 | FRA | 1998 |
-| 29 | Philipp Lahm | 89 | RB | Germany 2010 | GER | 2010 |
-| 30 | Raphaël Varane | 89 | CB | France 2022 | FRA | 2022 |
-| 31 | Roberto Carlos | 89 | LB | Brazil 2002 | BRA | 2002 |
-| 32 | Toby Alderweireld | 89 | CB | Belgium 2018 | BEL | 2018 |
-| 33 | Virgil van Dijk | 89 | CB | Netherlands 2022 | NED | 2022 |
-| 34 | William Saliba | 89 | CB | France 2026 | FRA | 2026 |
+| 18 | Thiago Silva | 90 | CB | Brazil 2018 | BRA | 2018 |
+| 19 | Wim Suurbier | 90 | RB | Netherlands 1974 | NED | 1974 |
+| 20 | Achraf Hakimi | 89 | RB | Morocco 2022 | MAR | 2022 |
+| 21 | Carles Puyol | 89 | CB | Spain 2010 | ESP | 2010 |
+| 22 | Daniel Passarella | 89 | CB | Argentina 1978 | ARG | 1978 |
+| 23 | Franco Baresi | 89 | CB | Italy 1994 | ITA | 1994 |
+| 24 | Giacinto Facchetti | 89 | LB | Italy 1970 | ITA | 1970 |
+| 25 | Gianluca Zambrotta | 89 | RB | Italy 2006 | ITA | 2006 |
+| 26 | Joško Gvardiol | 89 | CB | Croatia 2022 | CRO | 2022 |
+| 27 | Laurent Blanc | 89 | CB | France 1998 | FRA | 1998 |
+| 28 | Lilian Thuram | 89 | CB | France 2006 | FRA | 2006 |
+| 29 | Marcel Desailly | 89 | CB | France 1998 | FRA | 1998 |
+| 30 | Philipp Lahm | 89 | RB | Germany 2010 | GER | 2010 |
+| 31 | Raphaël Varane | 89 | CB | France 2022 | FRA | 2022 |
+| 32 | Roberto Carlos | 89 | LB | Brazil 2002 | BRA | 2002 |
+| 33 | Toby Alderweireld | 89 | CB | Belgium 2018 | BEL | 2018 |
+| 34 | Virgil van Dijk | 89 | CB | Netherlands 2022 | NED | 2022 |
+| 35 | William Saliba | 89 | CB | France 2026 | FRA | 2026 |
 
-## Midfielders (42)
+## Midfielders (43)
 
-Avg OVR **90.8**
+Avg OVR **90.7**
 
 | # | Name | OVR | Best | Squad | Nation | Year |
 |---|---|---|---|---|---|---|
@@ -108,19 +110,20 @@ Avg OVR **90.8**
 | 29 | Rivaldo | 90 | CAM | Brazil 2002 | BRA | 2002 |
 | 30 | Zico | 90 | CAM | Brazil 1978 | BRA | 1978 |
 | 31 | Zico | 90 | CAM | Brazil 1982 | BRA | 1982 |
-| 32 | Claude Makélélé | 89 | CDM | France 2006 | FRA | 2006 |
-| 33 | Declan Rice | 89 | CDM | England 2026 | ENG | 2026 |
-| 34 | Frenkie de Jong | 89 | CM | Netherlands 2022 | NED | 2022 |
-| 35 | Gennaro Gattuso | 89 | CDM | Italy 2006 | ITA | 2006 |
-| 36 | Jean Tigana | 89 | CM | France 1986 | FRA | 1986 |
-| 37 | Marcelo Brozović | 89 | CDM | Croatia 2022 | CRO | 2022 |
-| 38 | Mateo Kovačić | 89 | CM | Croatia 2022 | CRO | 2022 |
-| 39 | Mesut Özil | 89 | CAM | Germany 2010 | GER | 2010 |
-| 40 | Nigel de Jong | 89 | CDM | Netherlands 2014 | NED | 2014 |
-| 41 | Sofyan Amrabat | 89 | CDM | Morocco 2022 | MAR | 2022 |
-| 42 | Tugay Kerimoğlu | 89 | CM | Turkey 2002 | TUR | 2002 |
+| 32 | Casemiro | 89 | CDM | Brazil 2018 | BRA | 2018 |
+| 33 | Claude Makélélé | 89 | CDM | France 2006 | FRA | 2006 |
+| 34 | Declan Rice | 89 | CDM | England 2026 | ENG | 2026 |
+| 35 | Frenkie de Jong | 89 | CM | Netherlands 2022 | NED | 2022 |
+| 36 | Gennaro Gattuso | 89 | CDM | Italy 2006 | ITA | 2006 |
+| 37 | Jean Tigana | 89 | CM | France 1986 | FRA | 1986 |
+| 38 | Marcelo Brozović | 89 | CDM | Croatia 2022 | CRO | 2022 |
+| 39 | Mateo Kovačić | 89 | CM | Croatia 2022 | CRO | 2022 |
+| 40 | Mesut Özil | 89 | CAM | Germany 2010 | GER | 2010 |
+| 41 | Nigel de Jong | 89 | CDM | Netherlands 2014 | NED | 2014 |
+| 42 | Sofyan Amrabat | 89 | CDM | Morocco 2022 | MAR | 2022 |
+| 43 | Tugay Kerimoğlu | 89 | CM | Turkey 2002 | TUR | 2002 |
 
-## Attackers (64)
+## Attackers (65)
 
 Avg OVR **91.3**
 
@@ -164,29 +167,30 @@ Avg OVR **91.3**
 | 36 | Mikel Oyarzabal | 91 | ST | Spain 2026 | ESP | 2026 |
 | 37 | Miroslav Klose | 91 | ST | Germany 2014 | GER | 2014 |
 | 38 | Neymar | 91 | LW | Brazil 2014 | BRA | 2014 |
-| 39 | Rob Rensenbrink | 91 | LW | Netherlands 1974 | NED | 1974 |
-| 40 | Robin van Persie | 91 | ST | Netherlands 2014 | NED | 2014 |
-| 41 | Vinícius Júnior | 91 | LW | Brazil 2026 | BRA | 2026 |
-| 42 | Bruno Conti | 90 | RW | Italy 1982 | ITA | 1982 |
-| 43 | Johnny Rep | 90 | RW | Netherlands 1974 | NED | 1974 |
-| 44 | Mohamed Salah | 90 | RW | Egypt 2018 | EGY | 2018 |
-| 45 | Ousmane Dembélé | 90 | RW | France 2026 | FRA | 2026 |
-| 46 | Rob Rensenbrink | 90 | LW | Netherlands 1978 | NED | 1978 |
-| 47 | Sergio Agüero | 90 | ST | Argentina 2014 | ARG | 2014 |
-| 48 | Thierry Henry | 90 | ST | France 2006 | FRA | 2006 |
-| 49 | Thomas Müller | 90 | ST | Germany 2014 | GER | 2014 |
-| 50 | Cristiano Ronaldo | 89 | LW | Portugal 2006 | POR | 2006 |
-| 51 | Cristiano Ronaldo | 89 | ST | Portugal 2026 | POR | 2026 |
-| 52 | Grzegorz Lato | 89 | RW | Poland 1974 | POL | 1974 |
-| 53 | Jairzinho | 89 | RW | Brazil 1970 | BRA | 1970 |
-| 54 | Juan Cuadrado | 89 | RW | Colombia 2014 | COL | 2014 |
-| 55 | Julián Álvarez | 89 | ST | Argentina 2022 | ARG | 2022 |
-| 56 | Karl-Heinz Rummenigge | 89 | ST | West Germany 1982 | FRG | 1982 |
-| 57 | Luca Toni | 89 | ST | Italy 2006 | ITA | 2006 |
-| 58 | Luigi Riva | 89 | ST | Italy 1970 | ITA | 1970 |
-| 59 | Luis Suárez | 89 | ST | Uruguay 2010 | URU | 2010 |
-| 60 | Nico Williams | 89 | LW | Spain 2026 | ESP | 2026 |
-| 61 | Olivier Giroud | 89 | ST | France 2022 | FRA | 2022 |
-| 62 | Rivaldo | 89 | LW | Brazil 1998 | BRA | 1998 |
-| 63 | Tostão | 89 | ST | Brazil 1970 | BRA | 1970 |
-| 64 | Uwe Seeler | 89 | ST | West Germany 1970 | FRG | 1970 |
+| 39 | Neymar | 91 | LW | Brazil 2018 | BRA | 2018 |
+| 40 | Rob Rensenbrink | 91 | LW | Netherlands 1974 | NED | 1974 |
+| 41 | Robin van Persie | 91 | ST | Netherlands 2014 | NED | 2014 |
+| 42 | Vinícius Júnior | 91 | LW | Brazil 2026 | BRA | 2026 |
+| 43 | Bruno Conti | 90 | RW | Italy 1982 | ITA | 1982 |
+| 44 | Johnny Rep | 90 | RW | Netherlands 1974 | NED | 1974 |
+| 45 | Mohamed Salah | 90 | RW | Egypt 2018 | EGY | 2018 |
+| 46 | Ousmane Dembélé | 90 | RW | France 2026 | FRA | 2026 |
+| 47 | Rob Rensenbrink | 90 | LW | Netherlands 1978 | NED | 1978 |
+| 48 | Sergio Agüero | 90 | ST | Argentina 2014 | ARG | 2014 |
+| 49 | Thierry Henry | 90 | ST | France 2006 | FRA | 2006 |
+| 50 | Thomas Müller | 90 | ST | Germany 2014 | GER | 2014 |
+| 51 | Cristiano Ronaldo | 89 | LW | Portugal 2006 | POR | 2006 |
+| 52 | Cristiano Ronaldo | 89 | ST | Portugal 2026 | POR | 2026 |
+| 53 | Grzegorz Lato | 89 | RW | Poland 1974 | POL | 1974 |
+| 54 | Jairzinho | 89 | RW | Brazil 1970 | BRA | 1970 |
+| 55 | Juan Cuadrado | 89 | RW | Colombia 2014 | COL | 2014 |
+| 56 | Julián Álvarez | 89 | ST | Argentina 2022 | ARG | 2022 |
+| 57 | Karl-Heinz Rummenigge | 89 | ST | West Germany 1982 | FRG | 1982 |
+| 58 | Luca Toni | 89 | ST | Italy 2006 | ITA | 2006 |
+| 59 | Luigi Riva | 89 | ST | Italy 1970 | ITA | 1970 |
+| 60 | Luis Suárez | 89 | ST | Uruguay 2010 | URU | 2010 |
+| 61 | Nico Williams | 89 | LW | Spain 2026 | ESP | 2026 |
+| 62 | Olivier Giroud | 89 | ST | France 2022 | FRA | 2022 |
+| 63 | Rivaldo | 89 | LW | Brazil 1998 | BRA | 1998 |
+| 64 | Tostão | 89 | ST | Brazil 1970 | BRA | 1970 |
+| 65 | Uwe Seeler | 89 | ST | West Germany 1970 | FRG | 1970 |
