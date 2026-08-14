@@ -48,13 +48,6 @@
     step = "tournament";
   }
 
-  /** Restart the tournament with the same squad (re-draws groups and the bracket). */
-  function startNewTournament() {
-    if (!squad) return;
-    tournament = createTournament(squad);
-    step = "tournament";
-  }
-
   /** Swap two players between formation slots within the confirmed squad. */
   function swapPlayers(playerId: string, slotIndex: number) {
     if (!squad || !formationKey) return;
@@ -101,11 +94,6 @@
       onReset={reset}
     />
   {:else if step === "results" && tournament}
-    <ResultsView
-      {tournament}
-      {formationKey}
-      onNewTournament={startNewTournament}
-      onReset={reset}
-    />
+    <ResultsView {tournament} {formationKey} onReset={reset} />
   {/if}
 </main>

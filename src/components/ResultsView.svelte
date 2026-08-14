@@ -13,17 +13,16 @@
     type TournamentMatch,
   } from "../lib/tournament.js";
   import type { Player } from "../lib/types.js";
+  import Confetti from "./Confetti.svelte";
   import PitchView from "./PitchView.svelte";
 
   let {
     tournament,
     formationKey,
-    onNewTournament,
     onReset,
   }: {
     tournament: Tournament;
     formationKey: string;
-    onNewTournament: () => void;
     onReset: () => void;
   } = $props();
 
@@ -130,6 +129,10 @@
 <section
   class="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-6 py-12"
 >
+  {#if tournament.outcome === "champion"}
+    <Confetti />
+  {/if}
+
   <header class="flex w-full flex-wrap items-end justify-between gap-4">
     <div>
       <p class="{mono} text-mint">Tournament · 4 teams</p>
@@ -139,9 +142,6 @@
       <p class="{mono} mt-3 text-secondary">Season complete</p>
     </div>
     <div class="flex items-center gap-3">
-      <button type="button" class={pillOutline} onclick={onNewTournament}
-        >New tournament (same XI)</button
-      >
       <button type="button" class={pillOutline} onclick={onReset}
         >New draft</button
       >
