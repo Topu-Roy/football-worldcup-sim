@@ -31,6 +31,7 @@ export {
   assignedRole,
   canonicalRole,
   departmentOf,
+  effectiveDepartment,
   outOfPosition,
   roleGap,
   roleNerf,

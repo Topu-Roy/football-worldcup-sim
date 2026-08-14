@@ -1,17 +1,13 @@
 <script lang="ts">
 import TournamentMatchRow from "./TournamentMatchRow.svelte";
-import { NATION_NAMES } from "../lib/draft.js";
 import { simulateMatchScript } from "../lib/matchEngine.js";
-import { outcomeColor, outcomeLabel } from "../lib/outcome.js";
 import {
   advanceToKnockout,
-  aggregateStats,
   groupDone,
   matchTeams,
   nextUserMatch,
   registerUserResult,
   resolveKnockout,
-  standingsFor,
   type Tournament,
   type TournamentMatch,
 } from "../lib/tournament.js";
@@ -19,11 +15,9 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
 
   let {
     tournament,
-    onNewTournament,
     onReset,
   }: {
     tournament: Tournament;
-    onNewTournament: () => void;
     onReset: () => void;
   } = $props();
 
@@ -48,19 +42,6 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
         : [0, 0]
       : null,
   );
-
-  /** Format a signed goal-difference value, e.g. +3, 0, −2. */
-  function formatSigned(n: number): string {
-    if (n > 0) return `+${n}`;
-    if (n < 0) return `−${Math.abs(n)}`;
-    return "0";
-  }
-
-  function startNewTournament() {
-    stopRun();
-    expandedId = null;
-    onNewTournament();
-  }
 
   function handleReset() {
     stopRun();
@@ -150,10 +131,6 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
 
   const groupDoneNow = $derived(groupDone(tournament));
 
-  const standings = $derived(standingsFor(tournament));
-
-  const stats = $derived(aggregateStats(tournament));
-
   const knockoutOrder = ["r16", "qf", "sf", "final"];
   const userKnockoutMatches = $derived(
     knockoutOrder.flatMap((round) =>
@@ -187,16 +164,6 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
   /** Expand/collapse a played match's result panel. */
   function toggleMatch(m: TournamentMatch) {
     expandedId = expandedId === m.id ? null : m.id;
-  }
-
-  /** Headline text for the tournament's final placement. */
-  function outcomeTitle(o: string): string {
-    if (o === "champion") return "CHAMPION";
-    if (o === "runners-up") return "RUNNERS-UP";
-    if (o === "semi-final-exit") return "SEMI-FINAL EXIT";
-    if (o === "quarter-final-exit") return "QUARTER-FINAL EXIT";
-    if (o === "round-of-16-exit") return "ROUND OF 16 EXIT";
-    return "ELIMINATED IN GROUP STAGE";
   }
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
@@ -268,157 +235,4 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
       </ul>
     </div>
   {/if}
-
-  {#if tournament.phase === "ended"}
-    <div class="mt-10 flex flex-col items-center gap-8">
-      {#if tournament.outcome === "eliminated"}
-        <div
-          class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-6"
-        >
-          <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
-          {@render StandingsTable(standings, tournament.userSquad.id)}
-        </div>
-      {/if}
-
-      <div
-        class="w-full rounded-3xl border px-10 py-10 text-center {tournament.outcome ===
-        'champion'
-          ? 'border-mint bg-mint/10'
-          : 'border-pink/40 bg-pink/10'}"
-      >
-        <p class="{mono} text-secondary">TOURNAMENT OVER</p>
-        <p
-          class="mt-3 font-display text-6xl tracking-[1px]"
-          style:color={tournament.outcome === "champion"
-            ? "var(--color-mint)"
-            : "var(--color-pink)"}
-        >
-          {outcomeTitle(tournament.outcome ?? "")}
-        </p>
-      </div>
-
-      {#if stats.played > 0}
-        <div class="w-full rounded-3xl border border-white/15 p-6">
-          <p class="{mono} mb-4 text-secondary">FINAL STATS</p>
-          <div class="grid grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-9">
-            {@render Stat("Won", String(stats.won))}
-            {@render Stat("Drawn", String(stats.drawn))}
-            {@render Stat("Lost", String(stats.lost))}
-            {@render Stat("Points", String(stats.points))}
-            {@render Stat("GF", String(stats.gf))}
-            {@render Stat("GA", String(stats.ga))}
-            {@render Stat("GD", String(stats.gd))}
-            {@render Stat("Clean Sheets", String(stats.cleanSheets))}
-            {@render Stat("Penalty Wins", String(stats.penaltyWins))}
-          </div>
-        </div>
-      {/if}
-
-      <div
-        class="w-full overflow-x-auto rounded-3xl border border-white/15 p-6"
-      >
-        <p class="{mono} mb-4 text-secondary">MATCH RESULTS</p>
-        <table class="w-full text-left text-sm">
-          <thead>
-            <tr class="{mono} text-secondary">
-              <th class="pr-4 pb-3">Round</th>
-              <th class="pr-4 pb-3">Opponent</th>
-              <th class="pr-4 pb-3">Score</th>
-              <th class="pr-4 pb-3">Result</th>
-              <th class="pb-3">Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            {#each stats.matches as sm (sm.id)}
-              <tr class="border-t border-white/10">
-                <td class="{mono} py-3 pr-4 text-[10px] text-secondary"
-                  >{sm.roundLabel}</td
-                >
-                <td class="py-3 pr-4 font-bold">{sm.opponentName}</td>
-                <td class="py-3 pr-4 font-mono"
-                  >{sm.result.score[0]}–{sm.result.score[1]}</td
-                >
-                <td
-                  class="{mono} py-3 pr-4 text-[10px]"
-                  style:color={outcomeColor(sm.outcome)}
-                  >{outcomeLabel(sm.outcome)}{sm.result.penalties
-                    ? " (P)"
-                    : ""}</td
-                >
-                <td class="{mono} py-3 text-[10px] text-secondary"
-                  >{sm.result.penalties
-                    ? "pens"
-                    : sm.result.extraTime
-                      ? "ET"
-                      : "90'"}</td
-                >
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="flex gap-4">
-        <button type="button" class={pillOutline} onclick={startNewTournament}
-          >New tournament (same XI)</button
-        >
-        <button type="button" class={pillOutline} onclick={handleReset}
-          >New draft</button
-        >
-      </div>
-    </div>
-  {/if}
 </section>
-
-{#snippet Stat(label: string, value: string)}
-  <div
-    class="rounded-2xl border border-white/10 bg-slate/20 px-3 py-2 text-center"
-  >
-    <p class="{mono} text-[9px] text-secondary">{label}</p>
-    <p class="mt-1 font-display text-xl">{value}</p>
-  </div>
-{/snippet}
-
-{#snippet StandingsTable(
-  rows: import("../lib/tournament.js").GroupStanding[],
-  userId: string | null,
-)}
-  <table class="w-full text-left text-sm">
-    <thead>
-      <tr class="{mono} text-secondary">
-        <th class="pr-3 pb-2">#</th>
-        <th class="pr-3 pb-2">Team</th>
-        <th class="pr-3 pb-2 text-center">P</th>
-        <th class="pr-3 pb-2 text-center">W</th>
-        <th class="pr-3 pb-2 text-center">D</th>
-        <th class="pr-3 pb-2 text-center">L</th>
-        <th class="pr-3 pb-2 text-center">GF</th>
-        <th class="pr-3 pb-2 text-center">GA</th>
-        <th class="pr-3 pb-2 text-center">GD</th>
-        <th class="pb-2 text-center">Pts</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each rows as row, i (row.squadId)}
-        <tr class={row.squadId === userId ? "bg-mint/8" : ""}>
-          <td class="py-2 pr-3 font-mono text-secondary">{i + 1}</td>
-          <td class="py-2 pr-3 font-bold">
-            {row.squadId === userId ? "You" : row.name}
-            <span class="{mono} ml-2! text-secondary">
-              {NATION_NAMES[row.nation] ?? row.nation}
-            </span>
-          </td>
-          <td class="py-2 pr-3 text-center font-mono">{row.played}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.won}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.drawn}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.lost}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.gf}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.ga}</td>
-          <td class="py-2 pr-3 text-center font-mono">{formatSigned(row.gd)}</td
-          >
-          <td class="py-2 text-center font-mono font-bold">{row.points}</td>
-        </tr>
-      {/each}
-    </tbody>
-  </table>
-{/snippet}

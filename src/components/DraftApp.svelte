@@ -1,6 +1,7 @@
 <script lang="ts">
   import FormationPicker from "./FormationPicker.svelte";
   import DraftBoard from "./DraftBoard.svelte";
+  import ResultsView from "./ResultsView.svelte";
   import TeamReadyView from "./TeamReadyView.svelte";
   import TournamentView from "./TournamentView.svelte";
   import { buildUserSquad, DRAFT_ROUNDS } from "../lib/draft.js";
@@ -9,7 +10,7 @@
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
 
-  type Step = "setup" | "draft" | "ready" | "tournament";
+  type Step = "setup" | "draft" | "ready" | "tournament" | "results";
 
   let step = $state<Step>("setup");
   let formation = $state<Formation | null>(null);
@@ -51,6 +52,7 @@
   function startNewTournament() {
     if (!squad) return;
     tournament = createTournament(squad);
+    step = "tournament";
   }
 
   /** Swap two players between formation slots within the confirmed squad. */
@@ -74,6 +76,10 @@
       step = "ready";
     }
   });
+
+  $effect(() => {
+    if (tournament?.phase === "ended") step = "results";
+  });
 </script>
 
 <main class="min-h-screen bg-canvas text-white">
@@ -92,6 +98,12 @@
   {:else if step === "tournament" && tournament}
     <TournamentView
       {tournament}
+      onReset={reset}
+    />
+  {:else if step === "results" && tournament}
+    <ResultsView
+      {tournament}
+      {formationKey}
       onNewTournament={startNewTournament}
       onReset={reset}
     />
