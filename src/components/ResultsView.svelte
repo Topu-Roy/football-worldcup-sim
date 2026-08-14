@@ -194,7 +194,13 @@
     </div>
 
     <div class="mt-6 grid items-start gap-6 lg:grid-cols-2">
-      <PitchView players={tournament.userSquad.players} {formationKey} />
+      <PitchView
+        players={[
+          ...tournament.userSquad.players,
+          ...(tournament.userSquad.bench ?? []),
+        ]}
+        {formationKey}
+      />
 
       <div>
         {#each squadByDept as group (group.dept)}
@@ -232,6 +238,35 @@
             {/each}
           </ul>
         {/each}
+        {#if (tournament.userSquad.bench ?? []).length > 0}
+          <p class="{mono} mb-2 pb-2 text-secondary">Bench</p>
+          <ul class="space-y-1.5">
+            {#each tournament.userSquad.bench ?? [] as p (p.id)}
+              <li
+                class="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5"
+              >
+                {#if p.jerseyNumber}
+                  <span
+                    class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-slate/30 font-mono text-[10px] font-semibold text-secondary"
+                    >{p.jerseyNumber}</span
+                  >
+                {/if}
+                <span class="min-w-28 truncate text-sm font-bold">{p.name}</span
+                >
+                <span class="ml-auto flex flex-wrap items-center gap-1.5">
+                  <span
+                    class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
+                    >{ROLE_LABELS[p.bestPosition] ?? p.bestPosition}</span
+                  >
+                  <span
+                    class="{mono} rounded-full bg-mint/15 px-1.5 py-0.5 text-[9px] text-mint"
+                    >OVR {playerRating(p)}</span
+                  >
+                </span>
+              </li>
+            {/each}
+          </ul>
+        {/if}
       </div>
     </div>
   </div>

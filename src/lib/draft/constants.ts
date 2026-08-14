@@ -30,4 +30,4 @@ export const POSITION_LABEL: Record<Position, string> = {
 };
 
 export const MAX_REROLLS = 3;
-export const DRAFT_ROUNDS = 11;
+export const DRAFT_ROUNDS = 12;

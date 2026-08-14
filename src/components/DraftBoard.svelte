@@ -1,6 +1,8 @@
 <script lang="ts">
   import { CalendarDays, Globe } from "@lucide/svelte";
   import {
+    BENCH_SLOT,
+    DRAFT_ROUNDS,
     MAX_REROLLS,
     NATION_NAMES,
     assignSlots,
@@ -109,7 +111,13 @@
 
   const draftedNames = $derived(new Set(drafted.map((p) => p.name)));
 
+  /** Whether the single bench slot is still open (capacity 1). */
+  const benchOpen = $derived(
+    !drafted.some((p) => p.assignedSlot === BENCH_SLOT),
+  );
+
   const squadCanPlace = (nation: string, year: number): boolean =>
+    openRoles.length === 0 ||
     squadOf(nation, year).some(
       (p) =>
         !draftedNames.has(p.name) &&
@@ -188,8 +196,9 @@
     scrollOfferToTop();
   }
 
-  /** Whether a player fits any currently empty slot. */
+  /** Whether a player fits any currently empty slot, including the open bench slot. */
   function hasPlaceableSlot(p: Player): boolean {
+    if (benchOpen) return true;
     return draftSlots.some(
       (s) =>
         !s.player && p.positions.some((r) => canonicalRole(r) === s.slot.role),
@@ -203,10 +212,27 @@
     selected = selected?.id === p.id ? null : p;
   }
 
-  /** Commit the selected player into a specific formation slot and refresh the offer. */
+  /** Commit the selected player into a specific formation slot (or the bench slot) and refresh the offer. */
   function place(role: string, slotIndex: number) {
     if (!selected) return;
     if (draftedNames.has(selected.name)) return;
+    if (slotIndex === BENCH_SLOT) {
+      if (!benchOpen) return;
+      const placed = {
+        ...selected,
+        assignedPosition: undefined,
+        assignedSlot: BENCH_SLOT,
+      };
+      const next = [...drafted, placed];
+      drafted = next;
+      selected = null;
+      onPick(placed);
+      rerollsLeft = MAX_REROLLS;
+      if (!validateDraft(formation, next)) {
+        newOffer();
+      }
+      return;
+    }
     const slot = draftSlots[slotIndex];
     if (!slot || slot.player) return;
     if (!selected.positions.some((r) => canonicalRole(r) === role)) return;
@@ -249,7 +275,7 @@
 <section class="mx-auto max-w-6xl px-6 py-12">
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p class="{mono} text-mint">Draft Round {round} / 11</p>
+      <p class="{mono} text-mint">Draft Round {round} / {DRAFT_ROUNDS}</p>
       <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
         {formationKey}
         <span class="text-secondary"
@@ -317,7 +343,9 @@
       class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
     >
       <p class="{mono} text-mint">
-        Your team <span class="text-secondary">({drafted.length}/11)</span>
+        Your team <span class="text-secondary"
+          >({drafted.length}/{DRAFT_ROUNDS})</span
+        >
       </p>
       <div class="mt-4">
         <PitchView

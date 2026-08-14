@@ -38,7 +38,9 @@ function combosFor(
   const byDept = all.filter((c) =>
     squadOf(c.nation, c.year).some((p) => fits(p, left)),
   );
-  return placeable.length > 0 ? placeable : byDept;
+  if (placeable.length > 0) return placeable;
+  if (roles.length === 0) return all;
+  return byDept;
 }
 
 function comboCoverage(c: Combo, roles: string[]): number {

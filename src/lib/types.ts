@@ -47,6 +47,8 @@ export interface Squad {
   wcYear: number;
   formation: Formation;
   players: Player[];
+  /** Reserve players (capacity 1) who don't take part in matches. */
+  bench?: Player[];
   isHistorical: boolean;
 }
 

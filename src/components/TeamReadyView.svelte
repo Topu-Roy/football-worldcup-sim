@@ -22,10 +22,12 @@
   let selectedId = $state<string | null>(null);
 
   const drafted = $derived(squad.players);
+  /** Pitch shows starters plus the bench player; stats stay on the starting XI only. */
+  const pitchPlayers = $derived([...squad.players, ...(squad.bench ?? [])]);
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
   const swapTargets = $derived(
-    selectedId ? swapTargetsFor(drafted, formationKey, selectedId) : null,
+    selectedId ? swapTargetsFor(pitchPlayers, formationKey, selectedId) : null,
   );
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
@@ -56,7 +58,7 @@
 
   <div class="mt-8">
     <PitchView
-      players={drafted}
+      players={pitchPlayers}
       {formationKey}
       {selectedId}
       {swapTargets}

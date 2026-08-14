@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { assignSlots } from "../lib/draft.js";
+  import { assignSlots, BENCH_SLOT } from "../lib/draft.js";
   import type { Player } from "../lib/types.js";
   import PitchBackground from "./pitch/PitchBackground.svelte";
   import PitchEmptySlot from "./pitch/PitchEmptySlot.svelte";
@@ -32,6 +32,14 @@
   const slots = $derived(assignSlots(players, formationKey));
   const widthClass = $derived(size === "sm" ? "max-w-64" : "max-w-md");
 
+  /** The single bench player (outside the pitch), if assigned. */
+  const benchPlayer = $derived(
+    players.find((p) => p.assignedSlot === BENCH_SLOT) ?? null,
+  );
+  const benchEmpty = $derived(benchPlayer === null);
+
+  const mono = "font-mono text-[10px] font-semibold tracking-[1.8px] uppercase";
+
   /** Best-position label of whichever player is currently selected (for placement or swap). */
   const selectionBest = $derived(
     selectedId
@@ -58,25 +66,67 @@
   });
 </script>
 
-<div class="relative mx-auto aspect-3/4 w-full {widthClass}">
-  <PitchBackground {formationKey} {size} />
+<div class="mx-auto w-full {widthClass}">
+  <div class="relative aspect-3/4 w-full">
+    <PitchBackground {formationKey} {size} />
 
-  {#each slots as s, i (i)}
-    <div
-      class="absolute -translate-x-1/2 -translate-y-1/2 text-center {openTipId ===
-      s.player?.id
-        ? 'z-40'
-        : 'z-10'}"
-      style:left={`${s.slot.x}%`}
-      style:top={`${s.slot.y}%`}
-    >
-      {#if s.player}
-        {@const player = s.player}
+    {#each slots as s, i (i)}
+      <div
+        class="absolute -translate-x-1/2 -translate-y-1/2 text-center {openTipId ===
+        s.player?.id
+          ? 'z-40'
+          : 'z-10'}"
+        style:left={`${s.slot.x}%`}
+        style:top={`${s.slot.y}%`}
+      >
+        {#if s.player}
+          {@const player = s.player}
+          <PitchPlayerChip
+            {player}
+            slotRole={s.slot.role}
+            slotIndex={i}
+            isTarget={swapTargets?.includes(i) ?? false}
+            isSelected={selectedId === player.id}
+            selectedBest={selectionBest}
+            showTip={openTipId === player.id}
+            onTipToggle={() =>
+              (openTipId = openTipId === player.id ? null : player.id)}
+            onSelect={() => {
+              openTipId = null;
+              if (swapTargets?.includes(i)) {
+                onSwapTarget?.(i);
+              } else {
+                onPlayerClick?.(player.id);
+              }
+            }}
+          />
+        {:else}
+          <PitchEmptySlot
+            role={s.slot.role}
+            slotIndex={i}
+            isSwapTarget={swapTargets?.includes(i) ?? false}
+            {onSwapTarget}
+            {selecting}
+            {placing}
+            enabled={placing && (selectableRoles ?? []).includes(s.slot.role)}
+            {onSlotClick}
+            starRole={selectionBest}
+          />
+        {/if}
+      </div>
+    {/each}
+  </div>
+
+  <div class="mt-5">
+    <p class="{mono} mb-2 text-center text-secondary">Bench</p>
+    <div class="flex justify-center">
+      {#if benchPlayer}
+        {@const player = benchPlayer}
         <PitchPlayerChip
           {player}
-          slotRole={s.slot.role}
-          slotIndex={i}
-          isTarget={swapTargets?.includes(i) ?? false}
+          slotRole={player.bestPosition}
+          slotIndex={BENCH_SLOT}
+          isTarget={swapTargets?.includes(BENCH_SLOT) ?? false}
           isSelected={selectedId === player.id}
           selectedBest={selectionBest}
           showTip={openTipId === player.id}
@@ -84,8 +134,8 @@
             (openTipId = openTipId === player.id ? null : player.id)}
           onSelect={() => {
             openTipId = null;
-            if (swapTargets?.includes(i)) {
-              onSwapTarget?.(i);
+            if (swapTargets?.includes(BENCH_SLOT)) {
+              onSwapTarget?.(BENCH_SLOT);
             } else {
               onPlayerClick?.(player.id);
             }
@@ -93,17 +143,17 @@
         />
       {:else}
         <PitchEmptySlot
-          role={s.slot.role}
-          slotIndex={i}
-          isSwapTarget={swapTargets?.includes(i) ?? false}
+          role="BENCH"
+          slotIndex={BENCH_SLOT}
+          isSwapTarget={swapTargets?.includes(BENCH_SLOT) ?? false}
           {onSwapTarget}
           {selecting}
           {placing}
-          enabled={placing && (selectableRoles ?? []).includes(s.slot.role)}
+          enabled={placing && benchEmpty}
           {onSlotClick}
-          starRole={selectionBest}
+          starRole={null}
         />
       {/if}
     </div>
-  {/each}
+  </div>
 </div>
