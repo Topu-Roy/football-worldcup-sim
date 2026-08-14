@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { MousePointerClick, Play, RotateCcw } from "@lucide/svelte";
   import { chemistryBonus, countSameNation } from "../lib/team.js";
   import { swapTargetsFor } from "../lib/draft.js";
   import type { Squad } from "../lib/types.js";
@@ -24,9 +25,7 @@
   const sameNation = $derived(countSameNation(drafted));
   const chemistry = $derived(chemistryBonus(drafted, false));
   const swapTargets = $derived(
-    selectedId
-      ? swapTargetsFor(drafted, formationKey, selectedId)
-      : null,
+    selectedId ? swapTargetsFor(drafted, formationKey, selectedId) : null,
   );
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
@@ -67,8 +66,10 @@
   </div>
 
   {#if selectedId}
-    <p class="mt-4 text-center font-mono text-[11px] tracking-[1.5px] text-yellow uppercase">
-      Click a highlighted position to swap
+    <p
+      class="mt-4 inline-flex items-center gap-1.5 text-center font-mono text-[11px] tracking-[1.5px] text-yellow uppercase"
+    >
+      <MousePointerClick class="h-3.5 w-3.5" /> Click a highlighted position to swap
     </p>
   {/if}
 
@@ -90,11 +91,19 @@
   </div>
 
   <div class="mt-10 flex flex-wrap justify-center gap-4">
-    <button type="button" class={pillOutline} onclick={onStart}
-      >Start tournament</button
+    <button
+      type="button"
+      class="{pillOutline} inline-flex items-center gap-2"
+      onclick={onStart}
     >
-    <button type="button" class={pillOutlineAlt} onclick={onReset}
-      >Start over</button
+      <Play class="h-3.5 w-3.5" /> Start tournament
+    </button>
+    <button
+      type="button"
+      class="{pillOutlineAlt} inline-flex items-center gap-2"
+      onclick={onReset}
     >
+      <RotateCcw class="h-3.5 w-3.5" /> Start over
+    </button>
   </div>
 </section>

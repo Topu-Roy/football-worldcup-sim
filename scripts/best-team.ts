@@ -43,12 +43,28 @@ const BEST_XI: { name: string; squad: string }[] = [
 ];
 
 /** Resolve the hard-coded XI to real Player records from the historical data. */
-function resolveBestXI(): { player: import("../src/lib/types.js").Player; slot: string }[] {
-  const slots = ["GK", "LB", "CB", "CB", "RB", "CDM", "CM", "CAM", "LW", "ST", "RW"];
+function resolveBestXI(): {
+  player: import("../src/lib/types.js").Player;
+  slot: string;
+}[] {
+  const slots = [
+    "GK",
+    "LB",
+    "CB",
+    "CB",
+    "RB",
+    "CDM",
+    "CM",
+    "CAM",
+    "LW",
+    "ST",
+    "RW",
+  ];
   return BEST_XI.map((entry, i) => {
     const squad = HISTORICAL_SQUADS.find((s) => s.name === entry.squad);
     const player = squad?.players.find((p) => p.name === entry.name);
-    if (!player) throw new Error(`Player not found: ${entry.name} (${entry.squad})`);
+    if (!player)
+      throw new Error(`Player not found: ${entry.name} (${entry.squad})`);
     return { player, slot: slots[i] };
   });
 }
@@ -132,9 +148,15 @@ for (let i = 0; i < N; i++) {
 
 const pct = (n: number) => `${((n / N) * 100).toFixed(0)}%`;
 console.log("\n=== Tournament (vs weak/good/elite group) ===");
-console.log(`  avg pts ${(acc.pts / N).toFixed(2)}   W-D-L ${(acc.won / N).toFixed(1)}-${(acc.drawn / N).toFixed(1)}-${(acc.lost / N).toFixed(1)}`);
-console.log(`  avg GF ${(acc.gf / N).toFixed(2)}  GA ${(acc.ga / N).toFixed(2)}  GD ${((acc.gf - acc.ga) / N).toFixed(1)}`);
-console.log(`  champion ${pct(acc.champion)} · runners-up ${pct(acc.runnersUp)} · eliminated ${pct(acc.eliminated)}`);
+console.log(
+  `  avg pts ${(acc.pts / N).toFixed(2)}   W-D-L ${(acc.won / N).toFixed(1)}-${(acc.drawn / N).toFixed(1)}-${(acc.lost / N).toFixed(1)}`,
+);
+console.log(
+  `  avg GF ${(acc.gf / N).toFixed(2)}  GA ${(acc.ga / N).toFixed(2)}  GD ${((acc.gf - acc.ga) / N).toFixed(1)}`,
+);
+console.log(
+  `  champion ${pct(acc.champion)} · runners-up ${pct(acc.runnersUp)} · eliminated ${pct(acc.eliminated)}`,
+);
 
 if (WRITE_MD) {
   const md: string[] = [
@@ -147,7 +169,9 @@ if (WRITE_MD) {
   ];
   for (const { player, slot } of resolveBestXI()) {
     const entry = BEST_XI.find((e) => e.name === player.name)!;
-    md.push(`| ${slot} | ${player.name} | ${playerRating(player)} | ${entry.squad} |`);
+    md.push(
+      `| ${slot} | ${player.name} | ${playerRating(player)} | ${entry.squad} |`,
+    );
   }
   md.push(
     "",

@@ -64,8 +64,7 @@ export function resolveKnockout(state: Tournament): void {
   if (!played || !played.result) return;
 
   const userWon =
-    played.result!.winner ===
-    (played.home === state.userSquad.id ? 0 : 1);
+    played.result!.winner === (played.home === state.userSquad.id ? 0 : 1);
 
   if (played.round === "final") {
     state.phase = "ended";

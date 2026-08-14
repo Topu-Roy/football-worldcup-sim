@@ -96,7 +96,11 @@ export function simShots(
   scale: number,
   onTargetBias: number,
   conversionBias: number,
-): { goals: [number, number]; onTarget: [number, number]; xg: [number, number] } {
+): {
+  goals: [number, number];
+  onTarget: [number, number];
+  xg: [number, number];
+} {
   const goals: [number, number] = [0, 0];
   const onTarget: [number, number] = [0, 0];
   const xg: [number, number] = [0, 0];

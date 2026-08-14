@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Crosshair } from "@lucide/svelte";
+
   let {
     possession,
     xg,
@@ -66,7 +68,8 @@
           >{shotsOnTarget[0]}</span
         >
       </div>
-      <div class="min-w-0 flex-1 text-center">
+      <div class="flex min-w-0 flex-1 items-center justify-center gap-1.5">
+        <Crosshair class="h-3.5 w-3.5 text-secondary" />
         <span class="text-sm text-secondary">Shots on target</span>
       </div>
       <div class="w-16 shrink-0 text-right">

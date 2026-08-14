@@ -29,7 +29,10 @@ export function fits(p: Player, left: Record<Position, number>): boolean {
 }
 
 /** Roles of slots that are currently empty for the formation. */
-export function emptySlotRoles(formationKey: string, drafted: Player[]): string[] {
+export function emptySlotRoles(
+  formationKey: string,
+  drafted: Player[],
+): string[] {
   return assignSlots(drafted, formationKey)
     .filter((s) => !s.player)
     .map((s) => s.slot.role);

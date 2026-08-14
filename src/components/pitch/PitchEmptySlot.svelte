@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Repeat } from "@lucide/svelte";
   import { canonicalRole } from "../../lib/draft.js";
 
   let {
@@ -34,10 +35,10 @@
 {#if isSwapTarget && onSwapTarget}
   <button
     type="button"
-    class="relative flex h-11 w-11 items-center justify-center rounded-full border-2 border-dashed border-orange-500 font-mono text-sm font-bold tracking-wide text-black uppercase animate-pulse cursor-pointer bg-white shadow-[0_0_16px_rgba(255,140,0,0.7)] hover:bg-orange-500"
+    class="relative flex h-11 w-11 animate-pulse cursor-pointer items-center justify-center rounded-full border-2 border-dashed border-orange-500 bg-white font-mono text-sm font-bold tracking-wide text-black uppercase shadow-[0_0_16px_rgba(255,140,0,0.7)] hover:bg-orange-500"
     onclick={() => onSwapTarget(slotIndex)}
   >
-    {role}
+    <Repeat class="h-4 w-4" />
     {#if starred}
       <span
         class="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-yellow text-[10px] leading-none text-black"

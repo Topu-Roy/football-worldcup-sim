@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Pause, Play, RotateCcw, SkipForward } from "@lucide/svelte";
+
   let {
     hasScript,
     hasResult,
@@ -28,12 +30,39 @@
 </script>
 
 {#if !hasScript && !hasResult}
-  <button type="button" class={pillSolid} onclick={onPlayMatch}>Play match</button>
+  <button
+    type="button"
+    class="{pillSolid} inline-flex items-center gap-2"
+    onclick={onPlayMatch}
+  >
+    <Play class="h-3.5 w-3.5" /> Play match
+  </button>
 {:else if hasScript && !finished}
-  <button type="button" class={pillOutline} onclick={onTogglePlay}>
-    {playing ? "Pause" : "Play"}
+  <button
+    type="button"
+    class="{pillOutline} inline-flex items-center gap-2"
+    onclick={onTogglePlay}
+  >
+    {#if playing}
+      <Pause class="h-3.5 w-3.5" /> Pause
+    {:else}
+      <Play class="h-3.5 w-3.5" /> Play
+    {/if}
   </button>
 {:else if hasScript}
-  <button type="button" class={pillOutline} onclick={onReplay}>Replay</button>
-  <button type="button" class={pillSolid} onclick={onNext}>{nextLabel}</button>
+  <button
+    type="button"
+    class="{pillOutline} inline-flex items-center gap-2"
+    onclick={onReplay}
+  >
+    <RotateCcw class="h-3.5 w-3.5" /> Replay
+  </button>
+  <button
+    type="button"
+    class="{pillSolid} inline-flex items-center gap-2"
+    onclick={onNext}
+  >
+    {nextLabel}
+    <SkipForward class="h-3.5 w-3.5" />
+  </button>
 {/if}

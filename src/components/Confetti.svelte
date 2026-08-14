@@ -10,7 +10,14 @@
     round: boolean;
   }
 
-  const COLORS = ["#3cffd0", "#ff4fd8", "#ffd166", "#60a5fa", "#a78bfa", "#ffffff"];
+  const COLORS = [
+    "#3cffd0",
+    "#ff4fd8",
+    "#ffd166",
+    "#60a5fa",
+    "#a78bfa",
+    "#ffffff",
+  ];
 
   const pieces = $state<Piece[]>(
     Array.from({ length: 140 }, () => ({

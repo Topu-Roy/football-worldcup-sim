@@ -53,13 +53,13 @@ The 2026 squads are fictional/predicted rosters (Spain, Argentina, England, Fran
 
 ## Commands
 
-| Command | Action |
-| :--- | :--- |
-| `bun run dev` | Start dev server (foreground) |
-| `bun run build` | Build to `./dist/` |
-| `bun run preview` | Preview the build |
-| `bun run lint` | ESLint + typecheck |
-| `bun run typecheck` | `astro check` + `svelte-check` |
-| `bun run format` | Prettier write |
-| `bun scripts/validate-data.ts` | Validate squad data |
-| `bun scripts/calibration.ts` | Calibration report |
+| Command                        | Action                         |
+| :----------------------------- | :----------------------------- |
+| `bun run dev`                  | Start dev server (foreground)  |
+| `bun run build`                | Build to `./dist/`             |
+| `bun run preview`              | Preview the build              |
+| `bun run lint`                 | ESLint + typecheck             |
+| `bun run typecheck`            | `astro check` + `svelte-check` |
+| `bun run format`               | Prettier write                 |
+| `bun scripts/validate-data.ts` | Validate squad data            |
+| `bun scripts/calibration.ts`   | Calibration report             |

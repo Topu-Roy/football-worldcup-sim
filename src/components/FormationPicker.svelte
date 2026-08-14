@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { ChevronRight } from "@lucide/svelte";
   import { formationOptions, POSITION_LABEL } from "../lib/draft.js";
   import type { Formation } from "../lib/types.js";
 
@@ -34,17 +35,22 @@
     {#each options as opt (opt.key)}
       <button
         type="button"
-        class="group rounded-3xl border border-white/15 bg-slate/40 p-6 text-left transition-colors duration-150 hover:border-mint"
+        class="group flex items-center justify-between rounded-3xl border border-white/15 bg-slate/40 p-6 text-left transition-colors duration-150 hover:border-mint"
         onclick={() => onSelect(opt.key, opt.formation)}
       >
-        <span class="font-display text-4xl text-white group-hover:text-mint"
-          >{opt.key}</span
-        >
-        <span
-          class="mt-3 block font-mono text-[11px] tracking-[1.8px] text-secondary uppercase"
-        >
-          {summary(opt.formation)}
+        <span>
+          <span class="font-display text-4xl text-white group-hover:text-mint"
+            >{opt.key}</span
+          >
+          <span
+            class="mt-3 block font-mono text-[11px] tracking-[1.8px] text-secondary uppercase"
+          >
+            {summary(opt.formation)}
+          </span>
         </span>
+        <ChevronRight
+          class="h-6 w-6 text-secondary transition-all duration-150 group-hover:translate-x-1 group-hover:text-mint"
+        />
       </button>
     {/each}
   </div>

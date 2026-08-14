@@ -6,10 +6,7 @@ import type { TournamentMatch } from "./tournament/types.js";
  * "W"/"L" are relative to the user's side (the squad with id `userId`),
  * "D" only when the winner is null (draw), "" when the match isn't played.
  */
-export function outcomeBadge(
-  match: TournamentMatch,
-  userId: string,
-): string {
+export function outcomeBadge(match: TournamentMatch, userId: string): string {
   if (!match.result) return "";
   if (match.result.winner === null) return "D";
   const userHome = match.home === userId;

@@ -14,7 +14,12 @@
 import { writeFileSync } from "node:fs";
 import { simulateMatch } from "../src/lib/matchEngine.js";
 import { playerRating } from "../src/lib/draft/rating.js";
-import { FORMATIONS, type Formation, type Player, type Position } from "../src/lib/types.js";
+import {
+  FORMATIONS,
+  type Formation,
+  type Player,
+  type Position,
+} from "../src/lib/types.js";
 import type { Squad } from "../src/lib/types.js";
 
 const N = Number(process.argv[2] ?? 400);
@@ -40,7 +45,10 @@ const ROLE_BY_DEPT: Record<Position, string> = {
 
 /** Strength with a small deterministic-ish jitter, clamped to the 30–99 range. */
 function jitter(strength: number): number {
-  return Math.max(30, Math.min(99, strength + Math.floor(Math.random() * 13) - 6));
+  return Math.max(
+    30,
+    Math.min(99, strength + Math.floor(Math.random() * 13) - 6),
+  );
 }
 
 /** Uniform sample in [min, max], inclusive. */
@@ -107,7 +115,10 @@ export function makeFormationSquad(
 ): Squad {
   const players: Player[] = [];
   let n = 0;
-  for (const [pos, count] of Object.entries(formation) as [Position, number][]) {
+  for (const [pos, count] of Object.entries(formation) as [
+    Position,
+    number,
+  ][]) {
     for (let i = 0; i < count; i++) {
       players.push(makePlayer(n++, pos, strength, min, max));
     }
@@ -143,7 +154,10 @@ interface GroupStanding {
 }
 
 /** Play the group, return sorted standings (points, GD, GF). */
-function playGroup(squads: Record<string, Squad>, ids: string[]): GroupStanding[] {
+function playGroup(
+  squads: Record<string, Squad>,
+  ids: string[],
+): GroupStanding[] {
   const table = new Map<string, GroupStanding>(
     ids.map((id) => [
       id,
@@ -151,7 +165,9 @@ function playGroup(squads: Record<string, Squad>, ids: string[]): GroupStanding[
     ]),
   );
   for (const [home, away] of roundRobin(ids)) {
-    const r = simulateMatch(squads[home], squads[away], { regulationOnly: true });
+    const r = simulateMatch(squads[home], squads[away], {
+      regulationOnly: true,
+    });
     const h = table.get(home)!;
     const a = table.get(away)!;
     h.played++;
@@ -184,7 +200,10 @@ function playGroup(squads: Record<string, Squad>, ids: string[]): GroupStanding[
 }
 
 /** Simulate one tournament for a user squad; return the user's placement. */
-export function simulateTournament(user: Squad, opps: Squad[]): {
+export function simulateTournament(
+  user: Squad,
+  opps: Squad[],
+): {
   outcome: "champion" | "runners-up" | "eliminated";
   pts: number;
   gf: number;
@@ -246,14 +265,22 @@ export function buildTierSquad(
 ): Squad {
   const [, a, b] = tier;
   return b !== undefined
-    ? makeFormationSquad(id, name, formation, a as number, a as number, b as number)
+    ? makeFormationSquad(
+        id,
+        name,
+        formation,
+        a as number,
+        a as number,
+        b as number,
+      )
     : makeFormationSquad(id, name, formation, a as number);
 }
 
 /** Mean playerRating of a squad. */
 export function avgSquadRating(squad: Squad): number {
   return squad.players.length
-    ? squad.players.reduce((sum, p) => sum + playerRating(p), 0) / squad.players.length
+    ? squad.players.reduce((sum, p) => sum + playerRating(p), 0) /
+        squad.players.length
     : 0;
 }
 
@@ -264,74 +291,74 @@ const USER_TIERS = TIERS;
 
 function main() {
   const md: string[] = [
-  "# Formation × Strength Tournament Benchmark",
-  "",
-  `Simulated ${N} tournaments per formation and strength tier. Each tournament is a 4-team group (user squad + one weak (${WEAK}), one good (${GOOD}), one elite (${ELITE}) opponent) with the top 2 advancing to a knockout final. The \`elite90\` tier is an all-85–90 rated squad (every stat in [85,90], so every player's overall rating lands 85–90).`,
-  "",
-  "| Formation | Tier | Rtg | Pts | W-D-L | GF | GA | GD | Champion | Runners-up | Eliminated |",
-  "|---|---|---|---|---|---|---|---|---|---|---|",
-];
+    "# Formation × Strength Tournament Benchmark",
+    "",
+    `Simulated ${N} tournaments per formation and strength tier. Each tournament is a 4-team group (user squad + one weak (${WEAK}), one good (${GOOD}), one elite (${ELITE}) opponent) with the top 2 advancing to a knockout final. The \`elite90\` tier is an all-85–90 rated squad (every stat in [85,90], so every player's overall rating lands 85–90).`,
+    "",
+    "| Formation | Tier | Rtg | Pts | W-D-L | GF | GA | GD | Champion | Runners-up | Eliminated |",
+    "|---|---|---|---|---|---|---|---|---|---|---|",
+  ];
 
-for (const [fKey, formation] of Object.entries(FORMATIONS)) {
-  console.log(`\n=== Formation ${fKey} ===`);
-  console.log(
-    `  tier      Rtg   pts   W-D-L       GF    GA    GD    champ  run-up  elim`,
-  );
-  for (const tier of USER_TIERS) {
-    const [label] = tier;
-    const user = buildTierSquad("user", "User", formation, tier);
-    const opps = POINT_TIERS.map((t) =>
-      buildTierSquad(`opp-${t[0]}`, `Opp-${t[0]}`, formation, t),
-    );
-    const rtg = avgSquadRating(user).toFixed(1);
-
-    const acc: Acc = {
-      pts: 0,
-      gf: 0,
-      ga: 0,
-      won: 0,
-      drawn: 0,
-      lost: 0,
-      champion: 0,
-      runnersUp: 0,
-      eliminated: 0,
-    };
-
-    for (let i = 0; i < N; i++) {
-      const r = simulateTournament(user, opps);
-      acc.pts += r.pts;
-      acc.gf += r.gf;
-      acc.ga += r.ga;
-      acc.won += r.won;
-      acc.drawn += r.drawn;
-      acc.lost += r.lost;
-      if (r.outcome === "champion") acc.champion++;
-      else if (r.outcome === "runners-up") acc.runnersUp++;
-      else acc.eliminated++;
-    }
-
-    const avgPts = (acc.pts / N).toFixed(2);
-    const avgGf = (acc.gf / N).toFixed(2);
-    const avgGa = (acc.ga / N).toFixed(2);
-    const gd = (acc.gf - acc.ga) / N;
-    const wdl = `${(acc.won / N).toFixed(1)}-${(acc.drawn / N).toFixed(1)}-${(acc.lost / N).toFixed(1)}`;
+  for (const [fKey, formation] of Object.entries(FORMATIONS)) {
+    console.log(`\n=== Formation ${fKey} ===`);
     console.log(
-      `  ${mono(label as string, 8)}  ${mono(rtg, 5)}  ${mono(avgPts, 6)}  ${mono(wdl, 11)}  ${mono(avgGf, 6)}  ${mono(avgGa, 6)}  ${mono(gd.toFixed(1), 5)}  ${mono(pct(acc.champion), 6)}  ${mono(pct(acc.runnersUp), 6)}  ${pct(acc.eliminated)}`,
+      `  tier      Rtg   pts   W-D-L       GF    GA    GD    champ  run-up  elim`,
     );
-    md.push(
-      `| ${fKey} | ${label} | ${rtg} | ${avgPts} | ${wdl} | ${avgGf} | ${avgGa} | ${gd.toFixed(1)} | ${pct(acc.champion)} | ${pct(acc.runnersUp)} | ${pct(acc.eliminated)} |`,
-    );
+    for (const tier of USER_TIERS) {
+      const [label] = tier;
+      const user = buildTierSquad("user", "User", formation, tier);
+      const opps = POINT_TIERS.map((t) =>
+        buildTierSquad(`opp-${t[0]}`, `Opp-${t[0]}`, formation, t),
+      );
+      const rtg = avgSquadRating(user).toFixed(1);
+
+      const acc: Acc = {
+        pts: 0,
+        gf: 0,
+        ga: 0,
+        won: 0,
+        drawn: 0,
+        lost: 0,
+        champion: 0,
+        runnersUp: 0,
+        eliminated: 0,
+      };
+
+      for (let i = 0; i < N; i++) {
+        const r = simulateTournament(user, opps);
+        acc.pts += r.pts;
+        acc.gf += r.gf;
+        acc.ga += r.ga;
+        acc.won += r.won;
+        acc.drawn += r.drawn;
+        acc.lost += r.lost;
+        if (r.outcome === "champion") acc.champion++;
+        else if (r.outcome === "runners-up") acc.runnersUp++;
+        else acc.eliminated++;
+      }
+
+      const avgPts = (acc.pts / N).toFixed(2);
+      const avgGf = (acc.gf / N).toFixed(2);
+      const avgGa = (acc.ga / N).toFixed(2);
+      const gd = (acc.gf - acc.ga) / N;
+      const wdl = `${(acc.won / N).toFixed(1)}-${(acc.drawn / N).toFixed(1)}-${(acc.lost / N).toFixed(1)}`;
+      console.log(
+        `  ${mono(label as string, 8)}  ${mono(rtg, 5)}  ${mono(avgPts, 6)}  ${mono(wdl, 11)}  ${mono(avgGf, 6)}  ${mono(avgGa, 6)}  ${mono(gd.toFixed(1), 5)}  ${mono(pct(acc.champion), 6)}  ${mono(pct(acc.runnersUp), 6)}  ${pct(acc.eliminated)}`,
+      );
+      md.push(
+        `| ${fKey} | ${label} | ${rtg} | ${avgPts} | ${wdl} | ${avgGf} | ${avgGa} | ${gd.toFixed(1)} | ${pct(acc.champion)} | ${pct(acc.runnersUp)} | ${pct(acc.eliminated)} |`,
+      );
+    }
   }
-}
 
-console.log(
-  `\n(${N} tournaments per formation × tier; opponents = one weak(${WEAK}) / good(${GOOD}) / elite(${ELITE}) team)`,
-);
+  console.log(
+    `\n(${N} tournaments per formation × tier; opponents = one weak(${WEAK}) / good(${GOOD}) / elite(${ELITE}) team)`,
+  );
 
-if (WRITE_MD) {
-  writeFileSync("formation-tournament.md", md.join("\n") + "\n", "utf8");
-  console.log("Wrote formation-tournament.md");
-}
+  if (WRITE_MD) {
+    writeFileSync("formation-tournament.md", md.join("\n") + "\n", "utf8");
+    console.log("Wrote formation-tournament.md");
+  }
 }
 
 if (import.meta.main) main();

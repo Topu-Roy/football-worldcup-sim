@@ -1,7 +1,12 @@
 <script lang="ts">
   import { NATION_NAMES } from "../lib/draft.js";
+  import { ChevronDown, ChevronUp } from "@lucide/svelte";
   import { outcomeBadge, outcomeColor, outcomeLabel } from "../lib/outcome.js";
-  import { matchTeams, type Tournament, type TournamentMatch } from "../lib/tournament.js";
+  import {
+    matchTeams,
+    type Tournament,
+    type TournamentMatch,
+  } from "../lib/tournament.js";
   import type { MatchResult, Squad } from "../lib/types.js";
   import MatchView from "./MatchView.svelte";
 
@@ -29,7 +34,7 @@
 
   const teams = $derived(matchTeams(tournament, match));
   // Resolve which side the user controls so MatchView always gets the user's XI on the home side.
-  const userSquad = $derived< Squad | null>(
+  const userSquad = $derived<Squad | null>(
     teams.home.id === tournament.userSquad.id ? teams.home : teams.away,
   );
   const opponentSquad = $derived<Squad | null>(
@@ -101,7 +106,13 @@
         <span class="{mono} text-secondary">NOT PLAYED</span>
       {/if}
       {#if match.result}
-        <span class="{mono} text-secondary">{expanded ? "▴" : "▾"}</span>
+        <span class="{mono} inline-flex items-center text-secondary">
+          {#if expanded}
+            <ChevronUp class="h-4 w-4" />
+          {:else}
+            <ChevronDown class="h-4 w-4" />
+          {/if}
+        </span>
       {/if}
     </div>
   </div>
@@ -109,8 +120,8 @@
   {#if expanded && userSquad && opponentSquad}
     <div class="border-t border-white/10 px-4 py-4">
       <MatchView
-        userSquad={userSquad}
-        opponentSquad={opponentSquad}
+        {userSquad}
+        {opponentSquad}
         {roundLabel}
         {onResult}
         onNext={onClose}

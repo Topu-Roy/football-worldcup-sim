@@ -21,11 +21,7 @@ export type { Offer } from "./offer.js";
 export { buildUserSquad } from "./squad.js";
 export { playerRating, avgRating, playerTier } from "./rating.js";
 export { assignSlots, pitchSlots } from "./pitch.js";
-export {
-  canPlayRole,
-  swapPlayers,
-  swapTargetsFor,
-} from "./pitch.js";
+export { canPlayRole, swapPlayers, swapTargetsFor } from "./pitch.js";
 export {
   ROLE_LABELS,
   assignedRole,

@@ -25,7 +25,9 @@ for (const squad of ALL_SQUADS) {
   seenSquadIds.add(squad.id);
 
   if (squad.players.length < 11) {
-    console.error(`${tag}: has ${squad.players.length} players, expected at least 11`);
+    console.error(
+      `${tag}: has ${squad.players.length} players, expected at least 11`,
+    );
     errors++;
   }
 
@@ -44,7 +46,11 @@ for (const squad of ALL_SQUADS) {
       errors++;
     }
 
-    if (p.jerseyNumber === undefined || p.jerseyNumber < 1 || p.jerseyNumber > 99) {
+    if (
+      p.jerseyNumber === undefined ||
+      p.jerseyNumber < 1 ||
+      p.jerseyNumber > 99
+    ) {
       console.error(`${tag}: ${p.name} missing or bad jerseyNumber`);
       errors++;
     }

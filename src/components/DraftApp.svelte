@@ -79,7 +79,12 @@
   {#if step === "setup"}
     <FormationPicker onSelect={selectFormation} />
   {:else if step === "draft" && formation}
-    <DraftBoard {formation} {formationKey} onPick={handlePick} onSwapDrafted={handleSwapDrafted} />
+    <DraftBoard
+      {formation}
+      {formationKey}
+      onPick={handlePick}
+      onSwapDrafted={handleSwapDrafted}
+    />
   {:else if step === "ready" && formation && squad}
     <TeamReadyView
       {formationKey}
@@ -89,10 +94,7 @@
       onSwap={swapPlayers}
     />
   {:else if step === "tournament" && tournament}
-    <TournamentView
-      {tournament}
-      onReset={reset}
-    />
+    <TournamentView {tournament} onReset={reset} />
   {:else if step === "results" && tournament}
     <ResultsView {tournament} {formationKey} onReset={reset} />
   {/if}

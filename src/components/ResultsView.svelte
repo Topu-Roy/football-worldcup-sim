@@ -15,6 +15,7 @@
   import type { Player } from "../lib/types.js";
   import Confetti from "./Confetti.svelte";
   import PitchView from "./PitchView.svelte";
+  import { RotateCcw, Trophy } from "@lucide/svelte";
 
   let {
     tournament,
@@ -142,9 +143,13 @@
       <p class="{mono} mt-3 text-secondary">Season complete</p>
     </div>
     <div class="flex items-center gap-3">
-      <button type="button" class={pillOutline} onclick={onReset}
-        >New draft</button
+      <button
+        type="button"
+        class="{pillOutline} inline-flex items-center gap-2"
+        onclick={onReset}
       >
+        <RotateCcw class="h-3.5 w-3.5" /> New draft
+      </button>
     </div>
   </header>
 
@@ -164,6 +169,9 @@
       : 'border-pink/40 bg-pink/10'}"
   >
     <p class="{mono} text-secondary">TOURNAMENT OVER</p>
+    {#if tournament.outcome === "champion"}
+      <Trophy class="mx-auto mt-4 h-10 w-10 text-mint" stroke-width={1.5} />
+    {/if}
     <p
       class="mt-3 font-display text-6xl tracking-[1px]"
       style:color={tournament.outcome === "champion"

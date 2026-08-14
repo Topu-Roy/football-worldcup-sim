@@ -35,7 +35,9 @@ export function createTournament(userSquad: Squad): Tournament {
       round: "group",
       home,
       away,
-      result: isUser ? null : simulateMatch(squads[home], squads[away], { regulationOnly: true }),
+      result: isUser
+        ? null
+        : simulateMatch(squads[home], squads[away], { regulationOnly: true }),
       isUser,
     });
   }

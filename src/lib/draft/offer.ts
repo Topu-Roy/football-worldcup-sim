@@ -28,12 +28,9 @@ function combosFor(
 
   const draftedNames = new Set(drafted.map((p) => p.name));
   const all = draftableNations()
-    .flatMap((nation) =>
-      nationYears(nation).map((year) => ({ nation, year })),
-    )
+    .flatMap((nation) => nationYears(nation).map((year) => ({ nation, year })))
     .filter(
-      (c) =>
-        !squadOf(c.nation, c.year).some((p) => draftedNames.has(p.name)),
+      (c) => !squadOf(c.nation, c.year).some((p) => draftedNames.has(p.name)),
     );
 
   const placeable = all.filter((c) => squadOf(c.nation, c.year).some(canPlace));

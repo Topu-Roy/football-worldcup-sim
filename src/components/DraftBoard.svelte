@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { CalendarDays, Globe } from "@lucide/svelte";
   import {
     MAX_REROLLS,
     NATION_NAMES,
@@ -109,11 +110,12 @@
   const draftedNames = $derived(new Set(drafted.map((p) => p.name)));
 
   const squadCanPlace = (nation: string, year: number): boolean =>
-    squadOf(nation, year).some((p) =>
-      !draftedNames.has(p.name) &&
-      p.positions.some((r) =>
-        openRoles.some((role) => canonicalRole(role) === canonicalRole(r)),
-      ),
+    squadOf(nation, year).some(
+      (p) =>
+        !draftedNames.has(p.name) &&
+        p.positions.some((r) =>
+          openRoles.some((role) => canonicalRole(role) === canonicalRole(r)),
+        ),
     );
 
   const canSameNation = $derived.by(() => {
@@ -196,12 +198,7 @@
 
   /** Select/deselect an offer player for placement (blocked when the squad is complete, the player can't be placed, or the name is already drafted). */
   function toggleSelect(p: Player) {
-    if (
-      complete ||
-      !hasPlaceableSlot(p) ||
-      draftedNames.has(p.name)
-    )
-      return;
+    if (complete || !hasPlaceableSlot(p) || draftedNames.has(p.name)) return;
     swapSelectedId = null;
     selected = selected?.id === p.id ? null : p;
   }
@@ -281,18 +278,20 @@
           <div class="flex shrink-0 flex-wrap justify-end gap-2">
             <button
               type="button"
-              class="{pillOutline} disabled:opacity-30"
+              class="{pillOutline} inline-flex items-center gap-1.5 disabled:opacity-30"
               disabled={!canSameNation || rerollsLeft <= 0 || complete}
               onclick={() => reroll("same")}
             >
+              <CalendarDays class="h-3.5 w-3.5" />
               Different year
             </button>
             <button
               type="button"
-              class="{pillOutline} disabled:opacity-30"
+              class="{pillOutline} inline-flex items-center gap-1.5 disabled:opacity-30"
               disabled={!canNewNation || rerollsLeft <= 0 || complete}
               onclick={() => reroll("new")}
             >
+              <Globe class="h-3.5 w-3.5" />
               Different nation
             </button>
           </div>

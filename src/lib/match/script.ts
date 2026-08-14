@@ -101,12 +101,11 @@ export function simulateMatchScript(
     possessionSum[0] += poss;
     possessionSum[1] += 1 - poss;
 
-    const { goals, onTarget, xg: segXg } = simShots(
-      segShots,
-      scale,
-      onTargetBias,
-      conversionBias,
-    );
+    const {
+      goals,
+      onTarget,
+      xg: segXg,
+    } = simShots(segShots, scale, onTargetBias, conversionBias);
     const segEvents: MatchEvent[] = [];
     for (const t of [0, 1] as const) {
       shots[t] += segShots.filter((s) => s.team === t).length;

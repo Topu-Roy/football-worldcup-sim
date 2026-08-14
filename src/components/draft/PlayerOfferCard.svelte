@@ -1,9 +1,6 @@
 <script lang="ts">
-  import {
-    playerRating,
-    playerTier,
-    slotDepartment,
-  } from "../../lib/draft.js";
+  import { Lock } from "@lucide/svelte";
+  import { playerRating, playerTier, slotDepartment } from "../../lib/draft.js";
   import type { Player, Position } from "../../lib/types.js";
 
   let {
@@ -109,7 +106,11 @@
       </div>
     </div>
     {#if full}
-      <span class="{pillTag} shrink-0 bg-slate text-secondary">FULL</span>
+      <span
+        class="{pillTag} inline-flex shrink-0 items-center gap-1 bg-slate text-secondary"
+      >
+        <Lock class="h-3 w-3" /> FULL
+      </span>
     {/if}
   </div>
   <dl class="mt-4 space-y-1.5">

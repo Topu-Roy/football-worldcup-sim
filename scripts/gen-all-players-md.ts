@@ -56,4 +56,6 @@ for (const squad of HISTORICAL_SQUADS) {
 
 const content = `# All player stats\n\n${lines.join("\n")}`;
 writeFileSync("all-players-stats.md", content, "utf8");
-console.log(`Wrote all-players-stats.md (${HISTORICAL_SQUADS.length} squads, ${total} players)`);
+console.log(
+  `Wrote all-players-stats.md (${HISTORICAL_SQUADS.length} squads, ${total} players)`,
+);

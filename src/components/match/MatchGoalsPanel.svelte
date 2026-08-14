@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Target } from "@lucide/svelte";
   import type { MatchEvent } from "../../lib/types.js";
 
   let {
@@ -9,15 +10,15 @@
     teamName: (t: 0 | 1) => string;
   } = $props();
 
-  const sorted = $derived(
-    events.slice().sort((a, b) => a.minute - b.minute),
-  );
+  const sorted = $derived(events.slice().sort((a, b) => a.minute - b.minute));
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
 </script>
 
 <div class="rounded-2xl border border-white/10 bg-slate/20 p-4">
-  <p class="{mono} text-[10px] text-secondary">GOALS</p>
+  <p class="{mono} inline-flex items-center gap-1.5 text-[10px] text-secondary">
+    <Target class="h-3.5 w-3.5" /> GOALS
+  </p>
   {#if sorted.length > 0}
     <ul class="mt-3 space-y-2">
       {#each sorted as ev (ev.minute + "-" + ev.teamIndex + "-" + (ev.scorerName ?? "goal"))}

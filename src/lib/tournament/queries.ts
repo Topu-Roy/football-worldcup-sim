@@ -18,9 +18,7 @@ export function userGroupStanding(state: Tournament): GroupStanding | null {
 /** The first unplayed user match in order of round, or null if none remain. */
 export function nextUserMatch(state: Tournament): TournamentMatch | null {
   const pending = (round: string) =>
-    state.matches.find(
-      (m) => m.isUser && m.round === round && !m.result,
-    );
+    state.matches.find((m) => m.isUser && m.round === round && !m.result);
   return (
     pending("group") ??
     pending("r16") ??

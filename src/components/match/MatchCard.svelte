@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Clock } from "@lucide/svelte";
   import type { Snippet } from "svelte";
   import type { Squad } from "../../lib/types.js";
   import { NATION_NAMES } from "../../lib/draft.js";
@@ -47,14 +48,16 @@
     <div class="flex items-center gap-3">
       <span class="{mono} text-[10px] text-mint">{roundLabel}</span>
       <span
-        class="{mono} text-[10px] {phase === 'play' ? 'text-mint' : 'text-secondary'}"
-        >{liveStatus}</span
+        class="{mono} text-[10px] {phase === 'play'
+          ? 'text-mint'
+          : 'text-secondary'}">{liveStatus}</span
       >
       {#if phase === "play"}
         <span class="h-2 w-2 animate-pulse rounded-full bg-mint"></span>
       {/if}
     </div>
-    <div class="text-center">
+    <div class="flex items-center gap-1.5">
+      <Clock class="h-3.5 w-3.5 text-secondary" />
       <p class="font-mono text-[15px] font-semibold text-white">{clockLabel}</p>
     </div>
     <div class="flex items-center gap-3">
@@ -75,15 +78,20 @@
         class="flex h-9 w-9 items-center justify-center rounded-full bg-mint font-display text-lg leading-none text-black"
         >XI</span
       >
-      <p class="mt-1.5 font-display text-xl leading-none text-mint">Your team</p>
+      <p class="mt-1.5 font-display text-xl leading-none text-mint">
+        Your team
+      </p>
       <p class="{mono} mt-1.5 text-secondary">
         {userSquad.players.length} players · {userNationCount} same nation · AVG {userAvg}
       </p>
     </div>
     <div class="min-w-40 text-center">
       {#key displayScore[0] + "-" + displayScore[1]}
-        <p class="score-bump font-mono text-5xl font-bold tracking-tight text-white">
-          {displayScore[0]}<span class="text-secondary">–</span>{displayScore[1]}
+        <p
+          class="score-bump font-mono text-5xl font-bold tracking-tight text-white"
+        >
+          {displayScore[0]}<span class="text-secondary">–</span
+          >{displayScore[1]}
         </p>
       {/key}
     </div>
@@ -96,7 +104,8 @@
         {opponentSquad.name}
       </p>
       <p class="{mono} mt-1.5 text-secondary">
-        {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear} · AVG {oppAvg}
+        {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
+        · AVG {oppAvg}
       </p>
     </div>
   </div>

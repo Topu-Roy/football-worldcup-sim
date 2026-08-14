@@ -80,13 +80,22 @@ const total = [...byYear.values()].reduce(
   0,
 );
 
-const header = ["Name", "OVR", "Best", "Positions", "#", ...STAT_KEYS.map((k) => LABELS[k])];
+const header = [
+  "Name",
+  "OVR",
+  "Best",
+  "Positions",
+  "#",
+  ...STAT_KEYS.map((k) => LABELS[k]),
+];
 
 const lines: string[] = [];
 lines.push("# Good players by tournament year");
 lines.push("");
 lines.push(`Draft pool (historical squads), rating ≥ ${THRESHOLD}.`);
-lines.push("**★** = elite (≥90, gold card) · no ★ = star (85–89, yellow card).");
+lines.push(
+  "**★** = elite (≥90, gold card) · no ★ = star (85–89, yellow card).",
+);
 lines.push("");
 lines.push(`- Players listed: ${total}`);
 lines.push(`- Years covered: ${years.length}`);
@@ -95,8 +104,13 @@ lines.push("");
 for (const year of years) {
   const nations = byYear.get(year)!;
   const nationNames = [...nations.keys()].sort();
-  const yearTotal = nationNames.reduce((n, nat) => n + nations.get(nat)!.length, 0);
-  lines.push(`## WC ${year} — ${yearTotal} player${yearTotal === 1 ? "" : "s"}`);
+  const yearTotal = nationNames.reduce(
+    (n, nat) => n + nations.get(nat)!.length,
+    0,
+  );
+  lines.push(
+    `## WC ${year} — ${yearTotal} player${yearTotal === 1 ? "" : "s"}`,
+  );
   lines.push("");
 
   for (const nat of nationNames) {
@@ -114,7 +128,9 @@ for (const year of years) {
         e.best,
         e.positions.join("/"),
         String(e.jersey),
-        ...STAT_KEYS.map((k) => (e.stats[k] !== undefined ? String(e.stats[k]) : "")),
+        ...STAT_KEYS.map((k) =>
+          e.stats[k] !== undefined ? String(e.stats[k]) : "",
+        ),
       ];
       lines.push(`| ${row.join(" | ")} |`);
     }

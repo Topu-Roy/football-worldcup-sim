@@ -1,17 +1,18 @@
 <script lang="ts">
-import TournamentMatchRow from "./TournamentMatchRow.svelte";
-import { simulateMatchScript } from "../lib/matchEngine.js";
-import {
-  advanceToKnockout,
-  groupDone,
-  matchTeams,
-  nextUserMatch,
-  registerUserResult,
-  resolveKnockout,
-  type Tournament,
-  type TournamentMatch,
-} from "../lib/tournament.js";
-import type { MatchResult, MatchScript } from "../lib/types.js";
+  import { Pause, Play, RotateCcw } from "@lucide/svelte";
+  import TournamentMatchRow from "./TournamentMatchRow.svelte";
+  import { simulateMatchScript } from "../lib/matchEngine.js";
+  import {
+    advanceToKnockout,
+    groupDone,
+    matchTeams,
+    nextUserMatch,
+    registerUserResult,
+    resolveKnockout,
+    type Tournament,
+    type TournamentMatch,
+  } from "../lib/tournament.js";
+  import type { MatchResult, MatchScript } from "../lib/types.js";
 
   let {
     tournament,
@@ -36,11 +37,7 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
       : [],
   );
   const liveScore = $derived<[number, number] | null>(
-    activeScript
-      ? segIndex > 0
-        ? snaps[segIndex - 1].score
-        : [0, 0]
-      : null,
+    activeScript ? (segIndex > 0 ? snaps[segIndex - 1].score : [0, 0]) : null,
   );
 
   function handleReset() {
@@ -75,8 +72,10 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
     const m = tournament.matches.find((x) => x.id === id);
     if (!m) return;
     const teams = matchTeams(tournament, m);
-    const user = teams.home.id === tournament.userSquad.id ? teams.home : teams.away;
-    const opp = teams.home.id === tournament.userSquad.id ? teams.away : teams.home;
+    const user =
+      teams.home.id === tournament.userSquad.id ? teams.home : teams.away;
+    const opp =
+      teams.home.id === tournament.userSquad.id ? teams.away : teams.home;
     activeScript = simulateMatchScript(user, opp, {
       regulationOnly: m.round === "group",
     });
@@ -94,7 +93,10 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
     }
     if (segIndex < snaps.length) {
       segIndex += 1;
-    } else if (activeScript.penalties && penIndex < activeScript.penalties.length) {
+    } else if (
+      activeScript.penalties &&
+      penIndex < activeScript.penalties.length
+    ) {
       penIndex += 1;
     } else {
       finishMatch();
@@ -187,11 +189,22 @@ import type { MatchResult, MatchScript } from "../lib/types.js";
       </p>
     </div>
     <div class="flex items-center gap-3">
-      <button type="button" class={pillSolid} onclick={startRun}>
-        {running ? "Pause" : "Play"}
+      <button
+        type="button"
+        class="{pillSolid} inline-flex items-center gap-2"
+        onclick={startRun}
+      >
+        {#if running}
+          <Pause class="h-3.5 w-3.5" /> Pause
+        {:else}
+          <Play class="h-3.5 w-3.5" /> Play
+        {/if}
       </button>
-      <button type="button" class={pillOutline} onclick={handleReset}
-        >New draft</button
+      <button
+        type="button"
+        class="{pillOutline} inline-flex items-center gap-2"
+        onclick={handleReset}
+        ><RotateCcw class="h-3.5 w-3.5" /> New draft</button
       >
     </div>
   </header>

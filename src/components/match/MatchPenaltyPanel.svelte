@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Check, X } from "@lucide/svelte";
   import type { PenaltyKick } from "../../lib/types.js";
 
   let { kicks }: { kicks: PenaltyKick[] } = $props();
@@ -22,11 +23,17 @@
         ></span>
         <span>{k.takerName}</span>
         <span
-          class="ml-auto rounded-full px-2 py-0.5 font-mono text-[10px] font-bold tracking-[1px] uppercase {k.scored
+          class="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10px] font-bold tracking-[1px] uppercase {k.scored
             ? 'bg-mint/15 text-mint'
             : 'bg-white/5 text-secondary'}"
-          >{k.scored ? "SCORED" : "SAVED"}</span
         >
+          {#if k.scored}
+            <Check class="h-3 w-3" />
+          {:else}
+            <X class="h-3 w-3" />
+          {/if}
+          {k.scored ? "SCORED" : "SAVED"}
+        </span>
       </li>
     {/each}
   </ul>
