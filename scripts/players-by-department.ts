@@ -76,7 +76,7 @@ for (const dept of DEPT_ORDER) {
   lines.push("");
   lines.push("| # | Name | OVR | Best | Squad | Nation | Year |");
   lines.push("|---|---|---|---|---|---|---|");
-  list.slice(0, 15).forEach((e, i) => {
+  list.slice(0, 25).forEach((e, i) => {
     lines.push(
       `| ${i + 1} | ${e.name} | ${e.rating} | ${e.bestPosition} | ${e.squadName} | ${e.nation} | ${e.wcYear} |`,
     );
