@@ -3,6 +3,9 @@ export {
   CHEMISTRY_CURVE,
   chemistryBonus,
   countSameNation,
+  nationClusters,
+  playerBonus,
+  type NationCluster,
 } from "./chemistry.js";
 export {
   applyTeamModifiers,

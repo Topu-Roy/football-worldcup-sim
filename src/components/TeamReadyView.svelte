@@ -1,7 +1,7 @@
 <script lang="ts">
   import { MousePointerClick, Play, RotateCcw } from "@lucide/svelte";
-  import { chemistryBonus, countSameNation } from "../lib/team.js";
-  import { swapTargetsFor } from "../lib/draft.js";
+  import { computeTeamStrengths, nationClusters } from "../lib/team.js";
+  import { NATION_NAMES, playerRating, swapTargetsFor } from "../lib/draft.js";
   import type { Squad } from "../lib/types.js";
   import PitchView from "./PitchView.svelte";
   import SquadStatsList from "./SquadStatsList.svelte";
@@ -25,8 +25,22 @@
   const drafted = $derived(squad.players);
   /** Pitch shows starters plus the bench player; stats stay on the starting XI only. */
   const pitchPlayers = $derived([...squad.players, ...(squad.bench ?? [])]);
-  const sameNation = $derived(countSameNation(drafted));
-  const chemistry = $derived(chemistryBonus(drafted, false));
+  const clusters = $derived(nationClusters(drafted));
+  const linkedClusters = $derived(clusters.filter((c) => c.bonus > 0));
+  const soloCount = $derived(
+    clusters
+      .filter((c) => c.bonus <= 0)
+      .reduce((n, c) => n + c.players.length, 0),
+  );
+  const strengths = $derived(computeTeamStrengths(drafted));
+  const teamAvg = $derived(
+    Math.round(
+      drafted.reduce((sum, p) => sum + playerRating(p), 0) /
+        Math.max(drafted.length, 1),
+    ),
+  );
+  const attack = $derived(Math.round(strengths.attack));
+  const defense = $derived(Math.round(strengths.defense));
   const swapTargets = $derived(
     selectedId ? swapTargetsFor(pitchPlayers, formationKey, selectedId) : null,
   );
@@ -81,7 +95,11 @@
       <p class="{mono} text-secondary">Your squad</p>
       <p class="{mono} text-[10px] text-secondary">
         {formationKey}
-        <span class="text-mint">· {drafted.length} players</span>
+        <span
+          class="ml-2 inline-flex items-center gap-1 rounded-full bg-mint px-3 py-1 font-display text-lg leading-none font-semibold text-black"
+        >
+          AVG {teamAvg}
+        </span>
       </p>
     </div>
     <div class="grid items-start gap-6 lg:grid-cols-2">
@@ -108,52 +126,68 @@
     </p>
   {/if}
 
-  <div class="mt-8 grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
-    <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">
-      <p class="{mono} text-[10px] text-secondary">PLAYERS</p>
-      <p class="mt-1 font-display text-3xl">{drafted.length}</p>
-    </div>
-    <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">
-      <p class="{mono} text-[10px] text-secondary">BENCHED</p>
-      <p class="mt-1 font-display text-3xl">{(squad.bench ?? []).length}</p>
+  <div class="mt-8 grid grid-cols-2 gap-4">
+    <div
+      class="rounded-2xl border border-orange/30 bg-orange/10 px-4 py-3 text-center"
+    >
+      <p class="{mono} text-[10px] text-orange">Attack power</p>
+      <p class="mt-1 font-display text-4xl text-orange">{attack}</p>
     </div>
     <div
-      class="group relative cursor-help rounded-2xl border border-mint bg-mint/10 px-4 py-3"
+      class="rounded-2xl border border-blue/30 bg-blue/10 px-4 py-3 text-center"
     >
-      <p class="{mono} text-[10px] text-mint">SYNERGY</p>
-      <p class="mt-1 font-display text-3xl text-mint">
-        +{Math.round(chemistry * 100)}%
-      </p>
-
-      <div
-        class="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 hidden w-64 -translate-x-1/2 rounded-xl border border-white/15 bg-slate p-3 text-left shadow-xl group-hover:block"
-      >
-        <p class="{mono} text-[10px] text-mint">Synergy</p>
-        <p class="mt-1.5 text-xs leading-snug text-white">
-          Players from the same nation link up, adding a flat stat boost to the
-          whole squad.
-        </p>
-        <p class="{mono} mt-2 text-[10px] text-secondary">SAME NATION</p>
-        <p class="font-display text-xl text-white">{sameNation}</p>
-        <p class="{mono} mt-2 mb-1 text-[10px] text-secondary">BOOST TIERS</p>
-        <ul class="space-y-0.5 font-mono text-[10px]">
-          <li class="flex justify-between text-secondary">
-            <span>2 same nation</span><span class="text-mint">+3%</span>
-          </li>
-          <li class="flex justify-between text-secondary">
-            <span>3 same nation</span><span class="text-mint">+5%</span>
-          </li>
-          <li class="flex justify-between text-secondary">
-            <span>4 same nation</span><span class="text-mint">+8%</span>
-          </li>
-          <li class="flex justify-between text-secondary">
-            <span>5+ same nation</span><span class="text-mint">+10%</span>
-          </li>
-        </ul>
-        <p class="{mono} mt-2 border-t border-white/10 pt-1.5 text-[10px] text-mint">
-          Current boost +{Math.round(chemistry * 100)}%
-        </p>
-      </div>
+      <p class="{mono} text-[10px] text-blue">Defense power</p>
+      <p class="mt-1 font-display text-4xl text-blue">{defense}</p>
     </div>
+  </div>
+
+  <div class="mt-8 w-full rounded-3xl border border-white/15 p-6">
+    <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+      <p class="{mono} text-secondary">Synergy breakdown</p>
+      <p class="{mono} text-[10px] text-secondary">passing + off-ball boost</p>
+    </div>
+
+    {#if linkedClusters.length > 0}
+      <div class="grid gap-3 sm:grid-cols-2">
+        {#each linkedClusters as c (c.nation)}
+          <div class="rounded-2xl border border-white/10 bg-slate/20 p-4">
+            <div class="flex items-baseline justify-between gap-2">
+              <p class="font-display text-2xl">
+                {NATION_NAMES[c.nation] ?? c.nation}
+              </p>
+              <p class="{mono} text-[10px] text-secondary">
+                {c.players.length} players
+              </p>
+            </div>
+            <p class="{mono} mt-1 inline-flex items-center gap-1 text-mint">
+              <span
+                class="rounded-full bg-mint px-2 py-0.5 text-[10px] font-bold text-black"
+                >+{Math.round(c.bonus * 100)}%</span
+              >
+              passing + off-ball
+            </p>
+            <ul class="mt-3 flex flex-wrap gap-1">
+              {#each c.players as p (p.id)}
+                <li
+                  class="rounded-full border border-white/15 px-2 py-0.5 text-[11px] font-semibold"
+                >
+                  {p.name}
+                </li>
+              {/each}
+            </ul>
+          </div>
+        {/each}
+      </div>
+      {#if soloCount > 0}
+        <p class="{mono} mt-4 text-[10px] text-secondary">
+          Solo (no boost): {soloCount} player{soloCount === 1 ? "" : "s"}
+        </p>
+      {/if}
+    {:else}
+      <p class="text-sm text-secondary">
+        No same-nation links — pick players from the same nation to unlock
+        synergy boosts.
+      </p>
+    {/if}
   </div>
 </section>

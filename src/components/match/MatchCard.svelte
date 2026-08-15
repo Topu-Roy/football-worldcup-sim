@@ -8,8 +8,6 @@
     userSquad,
     opponentSquad,
     roundLabel,
-    userAvg,
-    oppAvg,
     liveStatus,
     clockLabel,
     phase,
@@ -22,8 +20,6 @@
     userSquad: Squad;
     opponentSquad: Squad;
     roundLabel: string;
-    userAvg: number;
-    oppAvg: number;
     liveStatus: string;
     clockLabel: string;
     phase: "pre" | "play" | "pens" | "done";
@@ -54,11 +50,13 @@
         <span class="h-2 w-2 animate-pulse rounded-full bg-mint"></span>
       {/if}
     </div>
-    <div class="flex items-center gap-1.5">
-      <Clock class="h-3.5 w-3.5 text-secondary" />
-      <p class="font-mono text-[15px] font-semibold text-white">{clockLabel}</p>
-    </div>
     <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1.5">
+        <Clock class="h-3.5 w-3.5 text-secondary" />
+        <p class="font-mono text-[15px] font-semibold text-white">
+          {clockLabel}
+        </p>
+      </div>
       {#if showPens}
         <span class="{mono} text-[10px] text-yellow"
           >PENS {pensScore[0]} : {pensScore[1]}</span
@@ -80,7 +78,7 @@
         Your team
       </p>
       <p class="{mono} mt-1.5 text-secondary">
-        {userSquad.players.length} players · AVG {userAvg}
+        {userSquad.players.length} players
       </p>
     </div>
     <div class="min-w-40 text-center">
@@ -103,7 +101,6 @@
       </p>
       <p class="{mono} mt-1.5 text-secondary">
         {NATION_NAMES[opponentSquad.nation] ?? opponentSquad.nation} · {opponentSquad.wcYear}
-        · AVG {oppAvg}
       </p>
     </div>
   </div>

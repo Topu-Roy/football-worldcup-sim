@@ -79,11 +79,11 @@
           {NATION_NAMES[opponent.nation] ?? opponent.nation} · {opponent.wcYear}
         </span>
       </p>
-      {#if roundLabel}
-        <p class="{mono} mt-1 text-[10px] text-secondary">{roundLabel}</p>
-      {/if}
     </div>
-    <div class="flex items-center gap-4">
+    <div class="flex flex-wrap items-center justify-end gap-4">
+      {#if roundLabel}
+        <p class="{mono} text-[10px] text-secondary">{roundLabel}</p>
+      {/if}
       {#if match.result}
         <span class={mono} style:color={outcomeColor(badge)}
           >{outcomeLabel(badge)}{match.result.penalties ? " (P)" : ""}

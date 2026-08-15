@@ -1,5 +1,5 @@
 import type { Formation, Player, TeamStrengths } from "../types.js";
-import { chemistryBonus } from "./chemistry.js";
+import { playerBonus } from "./chemistry.js";
 import {
   effectiveDepartment,
   roleNerf,
@@ -51,13 +51,14 @@ export function validateFormation(
   );
 }
 
-/** Bake chemistry bonus, out-of-position nerfs, and per-player form into each player's stats. */
+/** Bake per-player chemistry bonus, out-of-position nerfs, and per-player form into each player's stats. */
 export function applyTeamModifiers(
   players: Player[],
   isHistorical: boolean,
 ): Player[] {
-  const bonus = chemistryBonus(players, isHistorical);
-  return players.map((p) => applyChemistryAndForm(p, bonus));
+  return players.map((p) =>
+    applyChemistryAndForm(p, playerBonus(p, players, isHistorical)),
+  );
 }
 
 /** Select the best-rated XI fitting the formation's per-department counts. */

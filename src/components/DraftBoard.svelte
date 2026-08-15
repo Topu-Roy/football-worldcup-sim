@@ -19,7 +19,8 @@
     swapTargetsFor,
     validateDraft,
   } from "../lib/draft.js";
-  import { countSameNation, chemistryBonus } from "../lib/team.js";
+  import { countSameNation } from "../lib/team.js";
+  import { nationClusters } from "../lib/team.js";
   import type { Formation, Player, Position } from "../lib/types.js";
   import PitchView from "./PitchView.svelte";
   import PlayerOfferCard from "./draft/PlayerOfferCard.svelte";
@@ -58,7 +59,8 @@
   const round = $derived(drafted.length + 1);
   const complete = $derived(validateDraft(formation, drafted));
   const sameNation = $derived(countSameNation(drafted));
-  const chemistry = $derived(chemistryBonus(drafted, false));
+  const clusters = $derived(nationClusters(drafted));
+  const linkedClusters = $derived(clusters.filter((c) => c.bonus > 0));
   const draftSlots = $derived(assignSlots(drafted, formationKey));
   const selectableRoles = $derived.by(() => {
     const sel = selected;
@@ -361,11 +363,19 @@
           onSwapTarget={handleSwapTarget}
         />
       </div>
-      {#if chemistry > 0}
-        <div class="mt-6 rounded-full border border-mint px-4 py-2 text-center">
-          <span class="{mono} text-[10px] text-mint"
-            >CHEMISTRY +{Math.round(chemistry * 100)}%</span
-          >
+      {#if linkedClusters.length > 0}
+        <div class="mt-6 rounded-2xl border border-mint bg-mint/5 p-3">
+          <p class="{mono} mb-2 text-[10px] text-mint">Synergy</p>
+          <ul class="space-y-1 font-mono text-[10px]">
+            {#each linkedClusters as c (c.nation)}
+              <li class="flex items-center justify-between gap-2">
+                <span class="text-secondary">
+                  {NATION_NAMES[c.nation] ?? c.nation} ×{c.players.length}
+                </span>
+                <span class="text-mint">+{Math.round(c.bonus * 100)}%</span>
+              </li>
+            {/each}
+          </ul>
         </div>
       {/if}
     </aside>

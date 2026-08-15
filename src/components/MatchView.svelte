@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { playerRating } from "../lib/draft.js";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import type {
     MatchResult,
@@ -37,18 +36,6 @@
   } = $props();
 
   const teamName = (t: 0 | 1) => (t === 0 ? "Your team" : opponentSquad.name);
-
-  // Mean player rating, used to weight the pre-match expected-strength summary.
-  const teamAvg = (squad: Squad): number =>
-    squad.players.length > 0
-      ? Math.round(
-          squad.players.reduce((a, p) => a + playerRating(p), 0) /
-            squad.players.length,
-        )
-      : 0;
-
-  const userAvg = $derived(teamAvg(userSquad));
-  const oppAvg = $derived(teamAvg(opponentSquad));
 
   const preMatch: SegmentSnapshot = {
     minute: 0,
@@ -211,12 +198,10 @@
 </script>
 
 {#if script || presetResult}
-    <MatchCard
+  <MatchCard
     {userSquad}
     {opponentSquad}
     {roundLabel}
-    {userAvg}
-    {oppAvg}
     {liveStatus}
     {clockLabel}
     {phase}
