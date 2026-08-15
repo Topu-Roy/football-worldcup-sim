@@ -4,6 +4,7 @@
   import { swapTargetsFor } from "../lib/draft.js";
   import type { Squad } from "../lib/types.js";
   import PitchView from "./PitchView.svelte";
+  import SquadStatsList from "./SquadStatsList.svelte";
 
   let {
     formationKey,
@@ -49,22 +50,54 @@
   }
 </script>
 
-<section class="mx-auto max-w-3xl px-6 py-12">
-  <p class="{mono} text-mint">Team complete</p>
-  <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
-    {formationKey}
-    <span class="text-secondary">· {drafted.length} players</span>
-  </h2>
+<section class="mx-auto max-w-6xl px-6 py-12">
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <h2 class="font-display text-6xl leading-[0.85] tracking-[1px]">
+        Ready to start
+      </h2>
+      <p class="{mono} mt-3 text-mint">Team complete</p>
+    </div>
+    <div class="flex flex-wrap gap-4">
+      <button
+        type="button"
+        class="{pillOutline} inline-flex items-center gap-2"
+        onclick={onStart}
+      >
+        <Play class="h-3.5 w-3.5" /> Start tournament
+      </button>
+      <button
+        type="button"
+        class="{pillOutlineAlt} inline-flex items-center gap-2"
+        onclick={onReset}
+      >
+        <RotateCcw class="h-3.5 w-3.5" /> Start over
+      </button>
+    </div>
+  </div>
 
-  <div class="mt-8">
-    <PitchView
-      players={pitchPlayers}
-      {formationKey}
-      {selectedId}
-      {swapTargets}
-      onPlayerClick={toggleSelect}
-      onSwapTarget={handleSwapTarget}
-    />
+  <div class="mt-8 w-full rounded-3xl border border-white/15 p-6">
+    <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+      <p class="{mono} text-secondary">Your squad</p>
+      <p class="{mono} text-[10px] text-secondary">
+        {formationKey}
+        <span class="text-mint">· {drafted.length} players</span>
+      </p>
+    </div>
+    <div class="grid items-start gap-6 lg:grid-cols-2">
+      <PitchView
+        players={pitchPlayers}
+        {formationKey}
+        {selectedId}
+        {swapTargets}
+        onPlayerClick={toggleSelect}
+        onSwapTarget={handleSwapTarget}
+      />
+
+      <div>
+        <SquadStatsList {squad} />
+      </div>
+    </div>
   </div>
 
   {#if selectedId}
@@ -75,37 +108,52 @@
     </p>
   {/if}
 
-  <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+  <div class="mt-8 grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
     <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">
       <p class="{mono} text-[10px] text-secondary">PLAYERS</p>
       <p class="mt-1 font-display text-3xl">{drafted.length}</p>
     </div>
     <div class="rounded-2xl border border-white/10 bg-slate/20 px-4 py-3">
-      <p class="{mono} text-[10px] text-secondary">SAME NATION</p>
-      <p class="mt-1 font-display text-3xl">{sameNation}</p>
+      <p class="{mono} text-[10px] text-secondary">BENCHED</p>
+      <p class="mt-1 font-display text-3xl">{(squad.bench ?? []).length}</p>
     </div>
-    <div class="rounded-2xl border border-mint bg-mint/10 px-4 py-3">
-      <p class="{mono} text-[10px] text-mint">CHEMISTRY</p>
+    <div
+      class="group relative cursor-help rounded-2xl border border-mint bg-mint/10 px-4 py-3"
+    >
+      <p class="{mono} text-[10px] text-mint">SYNERGY</p>
       <p class="mt-1 font-display text-3xl text-mint">
         +{Math.round(chemistry * 100)}%
       </p>
-    </div>
-  </div>
 
-  <div class="mt-10 flex flex-wrap justify-center gap-4">
-    <button
-      type="button"
-      class="{pillOutline} inline-flex items-center gap-2"
-      onclick={onStart}
-    >
-      <Play class="h-3.5 w-3.5" /> Start tournament
-    </button>
-    <button
-      type="button"
-      class="{pillOutlineAlt} inline-flex items-center gap-2"
-      onclick={onReset}
-    >
-      <RotateCcw class="h-3.5 w-3.5" /> Start over
-    </button>
+      <div
+        class="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 hidden w-64 -translate-x-1/2 rounded-xl border border-white/15 bg-slate p-3 text-left shadow-xl group-hover:block"
+      >
+        <p class="{mono} text-[10px] text-mint">Synergy</p>
+        <p class="mt-1.5 text-xs leading-snug text-white">
+          Players from the same nation link up, adding a flat stat boost to the
+          whole squad.
+        </p>
+        <p class="{mono} mt-2 text-[10px] text-secondary">SAME NATION</p>
+        <p class="font-display text-xl text-white">{sameNation}</p>
+        <p class="{mono} mt-2 mb-1 text-[10px] text-secondary">BOOST TIERS</p>
+        <ul class="space-y-0.5 font-mono text-[10px]">
+          <li class="flex justify-between text-secondary">
+            <span>2 same nation</span><span class="text-mint">+3%</span>
+          </li>
+          <li class="flex justify-between text-secondary">
+            <span>3 same nation</span><span class="text-mint">+5%</span>
+          </li>
+          <li class="flex justify-between text-secondary">
+            <span>4 same nation</span><span class="text-mint">+8%</span>
+          </li>
+          <li class="flex justify-between text-secondary">
+            <span>5+ same nation</span><span class="text-mint">+10%</span>
+          </li>
+        </ul>
+        <p class="{mono} mt-2 border-t border-white/10 pt-1.5 text-[10px] text-mint">
+          Current boost +{Math.round(chemistry * 100)}%
+        </p>
+      </div>
+    </div>
   </div>
 </section>
