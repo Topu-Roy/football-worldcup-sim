@@ -78,6 +78,12 @@
   $effect(() => {
     if (tournament?.phase === "ended") step = "results";
   });
+
+  $effect(() => {
+    const onReset = () => reset();
+    window.addEventListener("wc:reset", onReset);
+    return () => window.removeEventListener("wc:reset", onReset);
+  });
 </script>
 
 <main class="min-h-screen bg-canvas text-white">

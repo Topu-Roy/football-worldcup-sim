@@ -1,0 +1,67 @@
+---
+---
+
+<footer class="site-footer">
+  <div class="inner">
+    <p class="credits">World Cup Draft Simulator &middot; v0.30.0</p>
+    <button type="button" class="to-top" id="footer-back-to-top">Back to Top</button>
+  </div>
+</footer>
+
+<script>
+  const backToTop = document.getElementById("footer-back-to-top");
+  backToTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<style>
+  .site-footer {
+    background: #131313;
+    border-top: 1px solid #2d2d2d;
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .credits {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #949494;
+    margin: 0;
+  }
+
+  .to-top {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3cffd0;
+    background: transparent;
+    border: 1px solid #3cffd0;
+    border-radius: 40px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background 150ms ease, color 150ms ease;
+  }
+
+  .to-top:hover {
+    background: #3cffd0;
+    color: #000000;
+  }
+
+  .to-top:focus-visible {
+    outline: 1px solid #1eaedb;
+  }
+</style>
