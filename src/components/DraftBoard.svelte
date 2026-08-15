@@ -269,46 +269,37 @@
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
-    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
+    "font-mono text-[11px] font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-4 py-1.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
 </script>
 
 <section class="mx-auto max-w-6xl px-6 py-12">
-  <header class="flex flex-wrap items-end justify-between gap-4">
-    <div>
-      <p class="{mono} text-mint">Draft Round {round} / {DRAFT_ROUNDS}</p>
-      <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
-        {formationKey}
-        <span class="text-secondary"
-          >{sameNation > 1 ? ` · ${sameNation} same nation` : ""}</span
-        >
-      </h2>
-    </div>
-    <div class="flex items-center">
-      <div class="text-right">
-        <p class="{mono} text-secondary">REROLLS LEFT</p>
-        <p class="font-display text-3xl">{rerollsLeft}</p>
-      </div>
-    </div>
-  </header>
-
-  <div class="mt-8 grid items-start gap-6 lg:grid-cols-2">
+  <div class="grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
       <div class="flex min-w-0 flex-col lg:sticky lg:top-6">
-        <div
-          class="mb-5 flex shrink-0 items-center justify-between gap-4 font-display text-3xl text-white"
-        >
-          <span>
-            {NATION_NAMES[offer.nation] ?? offer.nation}
-            <span class="text-mint">{offer.year}</span>
-          </span>
-          <div class="flex shrink-0 flex-wrap justify-end gap-2">
+        <div class="mb-5 flex shrink-0 items-end justify-between gap-4">
+          <div class="min-w-0">
+            <p class="{mono} text-mint">
+              Draft Round {round} / {DRAFT_ROUNDS}
+            </p>
+            <div
+              class="font-display text-xl leading-[0.9] tracking-[1px] text-white"
+            >
+              {NATION_NAMES[offer.nation] ?? offer.nation}
+              <span class="text-mint">{offer.year}</span>
+            </div>
+          </div>
+          <div class="flex shrink-0 flex-col items-end gap-2">
+            <p class="{mono} text-[10px] text-secondary">
+              REROLLS LEFT · {rerollsLeft}
+            </p>
+            <div class="flex flex-wrap justify-end gap-2">
             <button
               type="button"
               class="{pillOutline} inline-flex items-center gap-1.5 disabled:opacity-30"
               disabled={!canSameNation || rerollsLeft <= 0 || complete}
               onclick={() => reroll("same")}
             >
-              <CalendarDays class="h-3.5 w-3.5" />
+              <CalendarDays class="h-3 w-3" />
               Different year
             </button>
             <button
@@ -317,14 +308,15 @@
               disabled={!canNewNation || rerollsLeft <= 0 || complete}
               onclick={() => reroll("new")}
             >
-              <Globe class="h-3.5 w-3.5" />
+              <Globe class="h-3 w-3" />
               Different nation
             </button>
           </div>
         </div>
+        </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid gap-4 overflow-y-auto p-1.5 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid gap-4 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
@@ -342,11 +334,19 @@
     <aside
       class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
     >
-      <p class="{mono} text-mint">
-        Your team <span class="text-secondary"
-          >({drafted.length}/{DRAFT_ROUNDS})</span
-        >
-      </p>
+      <div class="flex items-center justify-between gap-2">
+        <p class="{mono} text-mint">
+          Your team <span class="text-secondary"
+            >({drafted.length}/{DRAFT_ROUNDS})</span
+          >
+        </p>
+        <p class="{mono} text-[10px] text-secondary">
+          {formationKey}
+          {#if sameNation > 1}
+            <span class="text-mint">· {sameNation}</span>
+          {/if}
+        </p>
+      </div>
       <div class="mt-4">
         <PitchView
           players={drafted}
