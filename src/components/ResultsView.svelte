@@ -10,16 +10,18 @@
   import Confetti from "./Confetti.svelte";
   import PitchView from "./PitchView.svelte";
   import SquadStatsList from "./SquadStatsList.svelte";
-  import { RotateCcw, Trophy } from "@lucide/svelte";
+  import { RotateCcw, Trophy, Play } from "@lucide/svelte";
 
   let {
     tournament,
     formationKey,
     onReset,
+    onRerun,
   }: {
     tournament: Tournament;
     formationKey: string;
     onReset: () => void;
+    onRerun: () => void;
   } = $props();
 
   let expandedId = $state<string | null>(null);
@@ -84,6 +86,8 @@
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
+  const pillSolid =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-black bg-mint border border-mint rounded-full px-5 py-2.5 transition-all duration-150 hover:brightness-110";
 </script>
 
 <section
@@ -102,6 +106,15 @@
       <p class="{mono} mt-3 text-secondary">Season complete</p>
     </div>
     <div class="flex items-center gap-3">
+      {#if tournament.outcome !== "champion"}
+        <button
+          type="button"
+          class="{pillSolid} inline-flex items-center gap-2"
+          onclick={onRerun}
+        >
+          <Play class="h-3.5 w-3.5" /> Play again
+        </button>
+      {/if}
       <button
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"

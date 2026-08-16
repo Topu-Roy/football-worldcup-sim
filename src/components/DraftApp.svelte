@@ -48,6 +48,13 @@
     step = "tournament";
   }
 
+  /** Re-enter a fresh tournament with the same squad after a losing outcome. */
+  function rerunTournament() {
+    if (!squad) return;
+    tournament = createTournament(squad);
+    step = "tournament";
+  }
+
   /** Swap two players between formation slots (or the bench) within the confirmed squad. */
   function swapPlayers(playerId: string, slotIndex: number) {
     if (!squad || !formationKey) return;
@@ -110,6 +117,11 @@
   {:else if step === "tournament" && tournament}
     <TournamentView {tournament} onReset={reset} />
   {:else if step === "results" && tournament}
-    <ResultsView {tournament} {formationKey} onReset={reset} />
+    <ResultsView
+      {tournament}
+      {formationKey}
+      onReset={reset}
+      onRerun={rerunTournament}
+    />
   {/if}
 </main>
