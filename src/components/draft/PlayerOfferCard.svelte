@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Lock } from "@lucide/svelte";
+  import { ChevronDown, Lock } from "@lucide/svelte";
   import { playerRating, playerTier, slotDepartment } from "../../lib/draft.js";
   import type { Player, Position } from "../../lib/types.js";
 
@@ -22,7 +22,7 @@
   const rating = $derived(playerRating(player));
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const playerCard =
-    "border border-white/15 rounded-[20px] bg-[#1a1a1a] p-5 transition-all duration-150 enabled:hover:border-mint enabled:hover:-translate-y-0.5 disabled:opacity-45 disabled:cursor-not-allowed";
+    "border border-white/15 rounded-[20px] bg-[#1a1a1a] p-3 transition-all duration-150 enabled:hover:border-mint enabled:hover:-translate-y-0.5 disabled:opacity-45 disabled:cursor-not-allowed sm:p-5";
   const pillTag =
     "font-mono text-[10px] font-semibold tracking-[1.5px] uppercase rounded-full py-1 px-2.5";
 
@@ -59,38 +59,29 @@
       (player[key as keyof Player] as number) ?? 0,
     ]),
   );
+
+  /** On small screens stats are hidden behind an accordion; always visible from sm up. */
+  let expanded = $state(false);
 </script>
 
-<button
-  type="button"
+<div
   class="{playerCard} {selected ? 'card-selected' : ''} {tier === 'elite'
     ? 'card-elite'
     : tier === 'star'
       ? 'card-star'
       : ''} text-left"
-  {disabled}
-  onclick={onClick}
 >
   <div class="flex items-start justify-between gap-2">
-    <div class="min-w-0 flex-1">
-      <div class="flex items-baseline justify-between gap-2">
-        <p class="min-w-0 flex-1 truncate text-lg font-bold">{player.name}</p>
-        {#if tier === "elite"}
-          <span
-            class="flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full border border-transparent bg-gradient-to-br from-[#ffd700] to-[#b45309] px-1.5 font-mono text-xs font-bold text-black"
-            >★{rating}</span
-          >
-        {:else if tier === "star"}
-          <span
-            class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#ffd23c]/60 bg-slate font-mono text-xs font-bold text-[#ffd23c]"
-            >{rating}</span
-          >
-        {:else}
-          <span
-            class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint"
-            >{rating}</span
-          >
-        {/if}
+    <button
+      type="button"
+      class="min-w-0 flex-1 text-left {disabled
+        ? 'cursor-not-allowed opacity-45'
+        : 'cursor-pointer'}"
+      {disabled}
+      onclick={onClick}
+    >
+      <div class="min-w-0">
+        <p class="truncate text-lg font-bold">{player.name}</p>
       </div>
       <div class="mt-1 flex flex-wrap items-center gap-1">
         {#each player.positions as role (role)}
@@ -104,16 +95,48 @@
           </span>
         {/each}
       </div>
-    </div>
-    {#if full}
-      <span
-        class="{pillTag} inline-flex shrink-0 items-center gap-1 bg-slate text-secondary"
+    </button>
+
+    <div class="flex shrink-0 flex-col items-end gap-2">
+      {#if full}
+        <span
+          class="{pillTag} inline-flex shrink-0 items-center gap-1 bg-slate text-secondary"
+        >
+          <Lock class="h-3 w-3" /> FULL
+        </span>
+      {/if}
+      {#if tier === "elite"}
+        <span
+          class="flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full border border-transparent bg-gradient-to-br from-[#ffd700] to-[#b45309] px-1.5 font-mono text-xs font-bold text-black"
+          >★{rating}</span
+        >
+      {:else if tier === "star"}
+        <span
+          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#ffd23c]/60 bg-slate font-mono text-xs font-bold text-[#ffd23c]"
+          >{rating}</span
+        >
+      {:else}
+        <span
+          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint"
+          >{rating}</span
+        >
+      {/if}
+      <button
+        type="button"
+        class="inline-flex shrink-0 items-center justify-center p-1 text-secondary transition-colors duration-150 hover:text-mint sm:hidden"
+        aria-label="Toggle player stats"
+        aria-expanded={expanded}
+        onclick={() => (expanded = !expanded)}
       >
-        <Lock class="h-3 w-3" /> FULL
-      </span>
-    {/if}
+        <ChevronDown
+          class="h-4 w-4 transition-transform duration-150 {expanded
+            ? 'rotate-180'
+            : ''}"
+        />
+      </button>
+    </div>
   </div>
-  <dl class="mt-4 space-y-1.5">
+  <dl class="mt-4 space-y-1.5 {expanded ? 'block' : 'hidden sm:block'}">
     {#each statRows as [label, val] (label)}
       <div class="flex items-center gap-3">
         <dt
@@ -126,7 +149,7 @@
       </div>
     {/each}
   </dl>
-</button>
+</div>
 
 <style>
   @property --elite-angle {
