@@ -175,11 +175,11 @@
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-black bg-mint border border-mint rounded-full px-5 py-2.5 transition-all duration-150 hover:brightness-110";
 </script>
 
-<section class="mx-auto max-w-6xl px-6 py-12">
+<section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
       <p class="{mono} text-mint">Tournament · 4 teams</p>
-      <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
+      <h2 class="font-display text-4xl leading-[0.85] tracking-[1px] sm:text-5xl">
         World Cup Run
       </h2>
       <p class="{mono} mt-3 text-secondary">
@@ -209,7 +209,7 @@
     </div>
   </header>
 
-  <div class="mt-10 rounded-3xl border border-white/15 p-6">
+  <div class="mt-10 rounded-3xl border border-white/15 p-4 sm:p-6">
     <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
     <ul class="space-y-3">
       {#each userGroupMatches as m (m.id)}
@@ -229,7 +229,7 @@
   </div>
 
   {#if userKnockoutMatches.length > 0}
-    <div class="mt-10 rounded-3xl border border-white/15 p-6">
+    <div class="mt-10 rounded-3xl border border-white/15 p-4 sm:p-6">
       <p class="{mono} mb-4 text-secondary">YOUR KNOCKOUT MATCHES</p>
       <ul class="space-y-3">
         {#each userKnockoutMatches as m (m.id)}

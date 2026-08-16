@@ -274,51 +274,51 @@
     "font-mono text-[11px] font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-4 py-1.5 bg-transparent transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
 </script>
 
-<section class="mx-auto max-w-6xl px-6 py-12">
+<section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <div class="grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
       <div class="flex min-w-0 flex-col lg:sticky lg:top-6">
-        <div class="mb-5 flex shrink-0 items-end justify-between gap-4">
+        <div class="mb-5 flex shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
           <div class="min-w-0">
             <p class="{mono} text-mint">
               Draft Round {round} / {DRAFT_ROUNDS}
             </p>
             <div
-              class="font-display text-xl leading-[0.9] tracking-[1px] text-white"
+              class="mt-1 truncate font-display text-xl leading-[0.9] tracking-[1px] text-white sm:text-2xl"
             >
               {NATION_NAMES[offer.nation] ?? offer.nation}
               <span class="text-mint">{offer.year}</span>
             </div>
           </div>
-          <div class="flex shrink-0 flex-col items-end gap-2">
+          <div class="flex shrink-0 flex-col items-stretch gap-2 sm:items-end">
             <p class="{mono} text-[10px] text-secondary">
               REROLLS LEFT · {rerollsLeft}
             </p>
-            <div class="flex flex-wrap justify-end gap-2">
-            <button
-              type="button"
-              class="{pillOutline} inline-flex items-center gap-1.5 disabled:opacity-30"
-              disabled={!canSameNation || rerollsLeft <= 0 || complete}
-              onclick={() => reroll("same")}
-            >
-              <CalendarDays class="h-3 w-3" />
-              Different year
-            </button>
-            <button
-              type="button"
-              class="{pillOutline} inline-flex items-center gap-1.5 disabled:opacity-30"
-              disabled={!canNewNation || rerollsLeft <= 0 || complete}
-              onclick={() => reroll("new")}
-            >
-              <Globe class="h-3 w-3" />
-              Different nation
-            </button>
+            <div class="grid grid-cols-2 gap-2 sm:flex sm:justify-end">
+              <button
+                type="button"
+                class="{pillOutline} inline-flex w-full items-center justify-center gap-1.5 disabled:opacity-30 sm:w-auto"
+                disabled={!canSameNation || rerollsLeft <= 0 || complete}
+                onclick={() => reroll("same")}
+              >
+                <CalendarDays class="h-3 w-3" />
+                Different year
+              </button>
+              <button
+                type="button"
+                class="{pillOutline} inline-flex w-full items-center justify-center gap-1.5 disabled:opacity-30 sm:w-auto"
+                disabled={!canNewNation || rerollsLeft <= 0 || complete}
+                onclick={() => reroll("new")}
+              >
+                <Globe class="h-3 w-3" />
+                Different nation
+              </button>
+            </div>
           </div>
-        </div>
         </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid gap-4 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid grid-cols-1 gap-4 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:grid-cols-2 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
@@ -334,7 +334,7 @@
     {/if}
 
     <aside
-      class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-6 lg:sticky lg:top-6"
+      class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6 lg:sticky lg:top-6"
     >
       <div class="flex items-center justify-between gap-2">
         <p class="{mono} text-mint">

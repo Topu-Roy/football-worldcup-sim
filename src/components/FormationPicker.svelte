@@ -19,10 +19,10 @@
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
 </script>
 
-<section class="mx-auto max-w-3xl px-6 py-16">
+<section class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
   <p class="{mono} mb-4 text-mint">World Cup Draft Simulator</p>
   <h1
-    class="font-display text-6xl leading-[0.85] tracking-[1.07px] md:text-7xl"
+    class="font-display text-5xl leading-[0.85] tracking-[1.07px] sm:text-6xl md:text-7xl"
   >
     Pick your<br />formation
   </h1>
@@ -35,11 +35,11 @@
     {#each options as opt (opt.key)}
       <button
         type="button"
-        class="group flex items-center justify-between rounded-3xl border border-white/15 bg-slate/40 p-6 text-left transition-colors duration-150 hover:border-mint"
+        class="group flex items-center justify-between rounded-3xl border border-white/15 bg-slate/40 p-5 text-left transition-colors duration-150 hover:border-mint sm:p-6"
         onclick={() => onSelect(opt.key, opt.formation)}
       >
         <span>
-          <span class="font-display text-4xl text-white group-hover:text-mint"
+          <span class="font-display text-3xl text-white group-hover:text-mint sm:text-4xl"
             >{opt.key}</span
           >
           <span

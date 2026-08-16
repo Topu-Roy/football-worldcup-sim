@@ -30,7 +30,9 @@
   } = $props();
 
   const slots = $derived(assignSlots(players, formationKey));
-  const widthClass = $derived(size === "sm" ? "max-w-64" : "max-w-md");
+  const widthClass = $derived(
+    size === "sm" ? "max-w-56 sm:max-w-64" : "max-w-sm sm:max-w-md",
+  );
 
   /** The single bench player (outside the pitch), if assigned. */
   const benchPlayer = $derived(

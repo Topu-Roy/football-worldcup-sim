@@ -37,7 +37,7 @@
   class="mt-5 overflow-hidden rounded-3xl border border-white/15 bg-slate/30"
 >
   <div
-    class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-5 py-2"
+    class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-4 py-2 sm:px-5"
   >
     <div class="flex items-center gap-3">
       <span class="{mono} text-[10px] text-mint">{roundLabel}</span>
@@ -50,7 +50,7 @@
         <span class="h-2 w-2 animate-pulse rounded-full bg-mint"></span>
       {/if}
     </div>
-    <div class="flex items-center gap-3">
+    <div class="flex flex-wrap items-center justify-end gap-3">
       <div class="flex items-center gap-1.5">
         <Clock class="h-3.5 w-3.5 text-secondary" />
         <p class="font-mono text-[15px] font-semibold text-white">
@@ -68,35 +68,41 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 py-4">
-    <div class="flex flex-col items-end">
+  <div
+    class="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-4 sm:gap-3 sm:px-5"
+  >
+    <div class="flex min-w-0 flex-col items-end">
       <span
-        class="flex h-9 w-9 items-center justify-center rounded-full bg-mint font-display text-lg leading-none text-black"
+        class="flex h-8 w-8 items-center justify-center rounded-full bg-mint font-display text-base leading-none text-black sm:h-9 sm:w-9 sm:text-lg"
         >XI</span
       >
-      <p class="mt-1.5 font-display text-xl leading-none text-mint">
+      <p
+        class="mt-1.5 truncate font-display text-lg leading-none text-mint sm:text-xl"
+      >
         Your team
       </p>
       <p class="{mono} mt-1.5 text-secondary">
         {userSquad.players.length} players
       </p>
     </div>
-    <div class="min-w-40 text-center">
+    <div class="min-w-28 text-center sm:min-w-40">
       {#key displayScore[0] + "-" + displayScore[1]}
         <p
-          class="score-bump font-mono text-5xl font-bold tracking-tight text-white"
+          class="score-bump font-mono text-4xl font-bold tracking-tight text-white sm:text-5xl"
         >
           {displayScore[0]}<span class="text-secondary">–</span
           >{displayScore[1]}
         </p>
       {/key}
     </div>
-    <div class="flex flex-col items-start">
+    <div class="flex min-w-0 flex-col items-start">
       <span
-        class="flex h-9 w-9 items-center justify-center rounded-full bg-uv font-display text-lg leading-none text-white"
+        class="flex h-8 w-8 items-center justify-center rounded-full bg-uv font-display text-base leading-none text-white sm:h-9 sm:w-9 sm:text-lg"
         >{opponentSquad.name.slice(0, 3).toUpperCase()}</span
       >
-      <p class="mt-1.5 font-display text-xl leading-none text-secondary">
+      <p
+        class="mt-1.5 w-full truncate font-display text-lg leading-none text-secondary sm:text-xl"
+      >
         {opponentSquad.name}
       </p>
       <p class="{mono} mt-1.5 text-secondary">
@@ -105,7 +111,7 @@
     </div>
   </div>
 
-  <div class="px-6 py-3">
+  <div class="px-4 py-3 sm:px-6">
     {@render children()}
   </div>
 </div>

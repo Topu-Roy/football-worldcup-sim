@@ -72,8 +72,8 @@
       }
     }}
   >
-    <div>
-      <p class="font-bold">
+    <div class="min-w-0">
+      <p class="truncate font-bold">
         vs. {opponent.name}
         <span class="{mono} ml-2! text-secondary">
           {NATION_NAMES[opponent.nation] ?? opponent.nation} · {opponent.wcYear}

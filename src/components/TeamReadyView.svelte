@@ -64,10 +64,10 @@
   }
 </script>
 
-<section class="mx-auto max-w-6xl px-6 py-12">
+<section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <div class="flex flex-wrap items-center justify-between gap-4">
     <div>
-      <h2 class="font-display text-6xl leading-[0.85] tracking-[1px]">
+      <h2 class="font-display text-5xl leading-[0.85] tracking-[1px] sm:text-6xl">
         Ready to start
       </h2>
       <p class="{mono} mt-3 text-mint">Team complete</p>
@@ -90,7 +90,7 @@
     </div>
   </div>
 
-  <div class="mt-8 w-full rounded-3xl border border-white/15 p-6">
+  <div class="mt-8 w-full rounded-3xl border border-white/15 p-4 sm:p-6">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
       <p class="{mono} text-secondary">Your squad</p>
       <p class="{mono} text-[10px] text-secondary">
@@ -141,7 +141,7 @@
     </div>
   </div>
 
-  <div class="mt-8 w-full rounded-3xl border border-white/15 p-6">
+  <div class="mt-8 w-full rounded-3xl border border-white/15 p-4 sm:p-6">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
       <p class="{mono} text-secondary">Synergy breakdown</p>
       <p class="{mono} text-[10px] text-secondary">passing + off-ball boost</p>

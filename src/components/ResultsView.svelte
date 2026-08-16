@@ -79,7 +79,7 @@
 </script>
 
 <section
-  class="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-6 py-12"
+  class="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-4 py-8 sm:px-6 sm:py-12"
 >
   {#if tournament.outcome === "champion"}
     <Confetti />
@@ -88,7 +88,7 @@
   <header class="flex w-full flex-wrap items-end justify-between gap-4">
     <div>
       <p class="{mono} text-mint">Tournament · 4 teams</p>
-      <h2 class="font-display text-5xl leading-[0.85] tracking-[1px]">
+      <h2 class="font-display text-4xl leading-[0.85] tracking-[1px] sm:text-5xl">
         World Cup Results
       </h2>
       <p class="{mono} mt-3 text-secondary">Season complete</p>
@@ -106,15 +106,17 @@
 
   {#if tournament.outcome === "eliminated"}
     <div
-      class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-6"
+      class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6"
     >
       <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
-      {@render StandingsTable(standings, tournament.userSquad.id)}
+      <div class="overflow-x-auto">
+        {@render StandingsTable(standings, tournament.userSquad.id)}
+      </div>
     </div>
   {/if}
 
   <div
-    class="w-full rounded-3xl border px-10 py-10 text-center {tournament.outcome ===
+    class="w-full rounded-3xl border px-6 py-8 text-center sm:px-10 sm:py-10 {tournament.outcome ===
     'champion'
       ? 'border-mint bg-mint/10'
       : 'border-pink/40 bg-pink/10'}"
@@ -124,7 +126,7 @@
       <Trophy class="mx-auto mt-4 h-10 w-10 text-mint" stroke-width={1.5} />
     {/if}
     <p
-      class="mt-3 font-display text-6xl tracking-[1px]"
+      class="mt-3 font-display text-4xl tracking-[1px] sm:text-5xl md:text-6xl"
       style:color={tournament.outcome === "champion"
         ? "var(--color-mint)"
         : "var(--color-pink)"}
@@ -133,7 +135,7 @@
     </p>
   </div>
 
-  <div class="w-full rounded-3xl border border-white/15 p-6">
+  <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
     <p class="{mono} mb-4 text-secondary">YOUR SQUAD</p>
     <div class="flex flex-wrap items-baseline justify-between gap-2">
       <p class="font-display text-2xl">{tournament.userSquad.name}</p>
@@ -160,7 +162,7 @@
   </div>
 
   {#if stats.played > 0}
-    <div class="w-full rounded-3xl border border-white/15 p-6">
+    <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
       <p class="{mono} mb-4 text-secondary">FINAL STATS</p>
       <div class="grid grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-9">
         {@render Stat("Won", String(stats.won))}
@@ -177,7 +179,7 @@
   {/if}
 
   {#if allUserMatches.length > 0}
-    <div class="w-full rounded-3xl border border-white/15 p-6">
+    <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
       <p class="{mono} mb-4 text-secondary">MATCH CARDS</p>
       <ul class="space-y-3">
         {#each allUserMatches as m (m.id)}
