@@ -146,8 +146,16 @@
     if (m.round === "qf") return "Quarter-final";
     if (m.round === "sf") return "Semi-final";
     if (m.round === "final") return "Final";
-    const idx = userGroupMatches.findIndex((x) => x.id === m.id);
-    return `Group stage · Match ${idx + 1} of 3`;
+    return "Group stage";
+  }
+
+  /** Compact round caption for small screens (full label stays on larger screens). */
+  function roundShort(m: TournamentMatch): string {
+    if (m.round === "r16") return "R16";
+    if (m.round === "qf") return "QF";
+    if (m.round === "sf") return "SF";
+    if (m.round === "final") return "Final";
+    return "Group";
   }
 
   /** Register the result, then advance the tournament phase (knockout resolution or group exit). */
@@ -217,6 +225,7 @@
           match={m}
           {tournament}
           roundLabel={roundLabel(m)}
+          roundShort={roundShort(m)}
           expanded={expandedId === m.id}
           active={activeId === m.id}
           liveScore={activeId === m.id ? liveScore : null}
@@ -237,6 +246,7 @@
             match={m}
             {tournament}
             roundLabel={roundLabel(m)}
+            roundShort={roundShort(m)}
             expanded={expandedId === m.id}
             active={activeId === m.id}
             liveScore={activeId === m.id ? liveScore : null}

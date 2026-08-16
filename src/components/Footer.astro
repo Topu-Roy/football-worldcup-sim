@@ -65,4 +65,18 @@
   .to-top:focus-visible {
     outline: 1px solid #1eaedb;
   }
+
+  @media (max-width: 549px) {
+    .inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 16px;
+    }
+
+    .to-top {
+      width: 100%;
+      text-align: center;
+    }
+  }
 </style>

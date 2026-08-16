@@ -58,16 +58,32 @@
   <ul class="mb-4 space-y-1.5">
     {#each group.players as p (p.id)}
       <li
-        class="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5"
+        class="rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5"
       >
-        {#if p.jerseyNumber}
+        <div class="flex items-center gap-2 sm:gap-3">
+          {#if p.jerseyNumber}
+            <span
+              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-slate/30 font-mono text-[10px] font-semibold text-secondary"
+              >{p.jerseyNumber}</span
+            >
+          {/if}
+          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span>
+          <span class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex">
+            {#each DEPT_STATS[group.dept] ?? [] as [label, key] (label)}
+              {#if p[key] != null}
+                <span
+                  class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
+                  >{label} {p[key]}</span
+                >
+              {/if}
+            {/each}
+          </span>
           <span
-            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-slate/30 font-mono text-[10px] font-semibold text-secondary"
-            >{p.jerseyNumber}</span
+            class="{mono} shrink-0 rounded-full bg-mint/15 px-1.5 py-0.5 text-[9px] text-mint"
+            >OVR {playerRating(p)}</span
           >
-        {/if}
-        <span class="min-w-28 truncate text-sm font-bold">{p.name}</span>
-        <span class="ml-auto flex flex-wrap items-center gap-1.5">
+        </div>
+        <div class="mt-1.5 flex flex-wrap items-center gap-1.5 sm:hidden">
           {#each DEPT_STATS[group.dept] ?? [] as [label, key] (label)}
             {#if p[key] != null}
               <span
@@ -76,11 +92,7 @@
               >
             {/if}
           {/each}
-          <span
-            class="{mono} rounded-full bg-mint/15 px-1.5 py-0.5 text-[9px] text-mint"
-            >OVR {playerRating(p)}</span
-          >
-        </span>
+        </div>
       </li>
     {/each}
   </ul>
@@ -90,26 +102,40 @@
   <p class="{mono} mb-2 pb-2 text-secondary">Bench</p>
   <ul class="space-y-1.5">
     {#each squad.bench ?? [] as p (p.id)}
-      <li
-        class="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5"
-      >
-        {#if p.jerseyNumber}
+      <li class="rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5">
+        <div class="flex items-center gap-2 sm:gap-3">
+          {#if p.jerseyNumber}
+            <span
+              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-slate/30 font-mono text-[10px] font-semibold text-secondary"
+              >{p.jerseyNumber}</span
+            >
+          {/if}
+          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span>
+          <span class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex">
+            {#each DEPT_STATS[effectiveDepartment(p)] ?? [] as [label, key] (label)}
+              {#if p[key] != null}
+                <span
+                  class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
+                  >{label} {p[key]}</span
+                >
+              {/if}
+            {/each}
+          </span>
           <span
-            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-slate/30 font-mono text-[10px] font-semibold text-secondary"
-            >{p.jerseyNumber}</span
-          >
-        {/if}
-        <span class="min-w-28 truncate text-sm font-bold">{p.name}</span>
-        <span class="ml-auto flex flex-wrap items-center gap-1.5">
-          <span
-            class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
-            >{ROLE_LABELS[p.bestPosition] ?? p.bestPosition}</span
-          >
-          <span
-            class="{mono} rounded-full bg-mint/15 px-1.5 py-0.5 text-[9px] text-mint"
+            class="{mono} shrink-0 rounded-full bg-mint/15 px-1.5 py-0.5 text-[9px] text-mint"
             >OVR {playerRating(p)}</span
           >
-        </span>
+        </div>
+        <div class="mt-1.5 flex flex-wrap items-center gap-1.5 sm:hidden">
+          {#each DEPT_STATS[effectiveDepartment(p)] ?? [] as [label, key] (label)}
+            {#if p[key] != null}
+              <span
+                class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
+                >{label} {p[key]}</span
+              >
+            {/if}
+          {/each}
+        </div>
       </li>
     {/each}
   </ul>

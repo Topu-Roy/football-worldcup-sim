@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { NATION_NAMES } from "../lib/draft.js";
   import { ChevronDown, ChevronUp } from "@lucide/svelte";
   import { outcomeBadge, outcomeColor, outcomeLabel } from "../lib/outcome.js";
   import {
@@ -14,6 +13,7 @@
     match,
     tournament,
     roundLabel,
+    roundShort,
     expanded,
     active,
     liveScore,
@@ -24,6 +24,7 @@
     match: TournamentMatch;
     tournament: Tournament;
     roundLabel: string;
+    roundShort: string;
     expanded: boolean;
     active: boolean;
     liveScore: [number, number] | null;
@@ -47,6 +48,9 @@
       : tournament.squads[match.home],
   );
 
+  /** Squad names embed the year ("Colombia 2014"); show just the nation name. */
+  const opponentName = $derived(opponent.name.replace(/\s+\d{4}$/, ""));
+
   const badge = $derived(outcomeBadge(match, tournament.userSquad.id));
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
@@ -57,9 +61,9 @@
   class:border-mint={expanded || active}
 >
   <div
-    class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 {match.result
+    class="flex items-center justify-between gap-2 px-3 py-2.5 {match.result
       ? 'cursor-pointer'
-      : ''}"
+      : ''} sm:gap-3 sm:px-4 sm:py-3"
     role="button"
     tabindex="0"
     onclick={() => {
@@ -72,17 +76,17 @@
       }
     }}
   >
-    <div class="min-w-0">
+    <div class="min-w-0 flex-1">
       <p class="truncate font-bold">
-        vs. {opponent.name}
-        <span class="{mono} ml-2! text-secondary">
-          {NATION_NAMES[opponent.nation] ?? opponent.nation} · {opponent.wcYear}
-        </span>
+        vs. {opponentName}
       </p>
     </div>
-    <div class="flex flex-wrap items-center justify-end gap-4">
+    <div class="flex shrink-0 items-center justify-end gap-2 whitespace-nowrap sm:gap-4">
       {#if roundLabel}
-        <p class="{mono} text-[10px] text-secondary">{roundLabel}</p>
+        <p class="{mono} text-[10px] text-secondary sm:hidden">{roundShort}</p>
+        <p class="{mono} hidden text-[10px] text-secondary sm:block"
+          >{roundLabel}</p
+        >
       {/if}
       {#if match.result}
         <span class={mono} style:color={outcomeColor(badge)}
@@ -118,7 +122,7 @@
   </div>
 
   {#if expanded && userSquad && opponentSquad}
-    <div class="border-t border-white/10 px-4 py-4">
+    <div class="border-t border-white/10 px-3 py-3 sm:px-4 sm:py-4">
       <MatchView
         {userSquad}
         {opponentSquad}

@@ -47,8 +47,16 @@
     if (m.round === "qf") return "Quarter-final";
     if (m.round === "sf") return "Semi-final";
     if (m.round === "final") return "Final";
-    const idx = userGroupMatches.findIndex((x) => x.id === m.id);
-    return `Group stage · Match ${idx + 1} of 3`;
+    return "Group stage";
+  }
+
+  /** Compact round caption for small screens (full label stays on larger screens). */
+  function roundShort(m: TournamentMatch): string {
+    if (m.round === "r16") return "R16";
+    if (m.round === "qf") return "QF";
+    if (m.round === "sf") return "SF";
+    if (m.round === "final") return "Final";
+    return "Group";
   }
 
   /** Expand/collapse a match card. */
@@ -136,7 +144,6 @@
   </div>
 
   <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
-    <p class="{mono} mb-4 text-secondary">YOUR SQUAD</p>
     <div class="flex flex-wrap items-baseline justify-between gap-2">
       <p class="font-display text-2xl">{tournament.userSquad.name}</p>
       <p class="{mono} text-secondary">
@@ -181,12 +188,13 @@
   {#if allUserMatches.length > 0}
     <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
       <p class="{mono} mb-4 text-secondary">MATCH CARDS</p>
-      <ul class="space-y-3">
+      <ul class="space-y-2 sm:space-y-3">
         {#each allUserMatches as m (m.id)}
           <TournamentMatchRow
             match={m}
             {tournament}
             roundLabel={roundLabel(m)}
+            roundShort={roundShort(m)}
             expanded={expandedId === m.id}
             active={false}
             liveScore={null}

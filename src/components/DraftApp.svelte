@@ -72,6 +72,9 @@
     if (step === "draft" && formation && drafted.length === DRAFT_ROUNDS) {
       squad = buildUserSquad(formation, drafted);
       step = "ready";
+      requestAnimationFrame(() =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
     }
   });
 

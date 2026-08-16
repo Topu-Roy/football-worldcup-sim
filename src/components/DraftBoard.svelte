@@ -385,7 +385,7 @@
         </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid grid-cols-1 scroll-mt-16 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid grid-cols-1 scroll-mt-16 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 max-h-[50vh] sm:max-h-none sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard

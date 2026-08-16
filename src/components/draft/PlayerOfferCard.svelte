@@ -65,90 +65,99 @@
 </script>
 
 <div
-  class="{playerCard} {selected ? 'card-selected' : ''} {tier === 'elite'
+  class="relative {playerCard} {selected ? 'card-selected' : ''} {tier === 'elite'
     ? 'card-elite'
     : tier === 'star'
       ? 'card-star'
-      : ''} text-left"
+      : ''} text-left {disabled ? 'opacity-45' : ''}"
 >
-  <div class="flex items-start justify-between gap-2">
-    <button
-      type="button"
-      class="min-w-0 flex-1 text-left {disabled
-        ? 'cursor-not-allowed opacity-45'
-        : 'cursor-pointer'}"
-      {disabled}
-      onclick={onClick}
-    >
-      <div class="min-w-0">
-        <p class="truncate text-lg font-bold">{player.name}</p>
-      </div>
-      <div class="mt-1 flex flex-wrap items-center gap-1">
-        {#each player.positions as role (role)}
-          <span
-            class="rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-[1px] uppercase {role ===
-            player.bestPosition
-              ? 'bg-mint text-black'
-              : 'border border-white/15 text-secondary'}"
-          >
-            {role}
-          </span>
-        {/each}
-      </div>
-    </button>
+  <button
+    type="button"
+    class="absolute inset-0 z-0 cursor-pointer rounded-[20px]"
+    aria-label={`Select ${player.name}`}
+    {disabled}
+    onclick={onClick}
+  ></button>
 
-    <div class="flex shrink-0 flex-col items-end gap-2">
-      {#if full}
-        <span
-          class="{pillTag} inline-flex shrink-0 items-center gap-1 bg-slate text-secondary"
-        >
-          <Lock class="h-3 w-3" /> FULL
+  <div class="pointer-events-none relative z-10">
+    <div class="flex items-center gap-2 sm:items-start">
+      <div class="min-w-0 flex-1">
+        <span class="flex min-w-0 items-center gap-1.5">
+          <span class="min-w-0 truncate text-lg font-bold">{player.name}</span>
+          <span
+            class="truncate font-mono text-[10px] font-semibold tracking-[1px] text-secondary uppercase sm:hidden"
+            >({player.positions.join(" · ")})</span
+          >
         </span>
-      {/if}
-      {#if tier === "elite"}
-        <span
-          class="flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full border border-transparent bg-gradient-to-br from-[#ffd700] to-[#b45309] px-1.5 font-mono text-xs font-bold text-black"
-          >★{rating}</span
-        >
-      {:else if tier === "star"}
-        <span
-          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#ffd23c]/60 bg-slate font-mono text-xs font-bold text-[#ffd23c]"
-          >{rating}</span
-        >
-      {:else}
-        <span
-          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint"
-          >{rating}</span
-        >
-      {/if}
-      <button
-        type="button"
-        class="inline-flex shrink-0 items-center justify-center p-1 text-secondary transition-colors duration-150 hover:text-mint sm:hidden"
-        aria-label="Toggle player stats"
-        aria-expanded={expanded}
-        onclick={() => (expanded = !expanded)}
-      >
-        <ChevronDown
-          class="h-4 w-4 transition-transform duration-150 {expanded
-            ? 'rotate-180'
-            : ''}"
-        />
-      </button>
-    </div>
-  </div>
-  <dl class="mt-4 space-y-1.5 {expanded ? 'block' : 'hidden sm:block'}">
-    {#each statRows as [label, val] (label)}
-      <div class="flex items-center gap-3">
-        <dt
-          class="{mono} min-w-0 flex-1 truncate text-[10px] leading-none text-secondary"
-        >
-          {label}
-        </dt>
-        <div class="h-px flex-1 bg-white/15"></div>
-        <dd class="text-right font-mono text-xs">{val}</dd>
+        <div class="mt-1 hidden flex-wrap items-center gap-1 sm:flex">
+          {#each player.positions as role (role)}
+            <span
+              class="rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-[1px] uppercase {role ===
+              player.bestPosition
+                ? 'bg-mint text-black'
+                : 'border border-white/15 text-secondary'}"
+            >
+              {role}
+            </span>
+          {/each}
+        </div>
       </div>
-    {/each}
-  </dl>
+
+      <div class="flex shrink-0 items-center gap-2 sm:flex-col sm:items-end">
+        {#if full}
+          <span
+            class="{pillTag} hidden shrink-0 items-center gap-1 bg-slate text-secondary sm:inline-flex"
+          >
+            <Lock class="h-3 w-3" /> FULL
+          </span>
+        {/if}
+        {#if tier === "elite"}
+          <span
+            class="flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full border border-transparent bg-gradient-to-br from-[#ffd700] to-[#b45309] px-1 font-mono text-xs font-bold text-black sm:h-7 sm:min-w-7 sm:px-1.5"
+            >★{rating}</span
+          >
+        {:else if tier === "star"}
+          <span
+            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#ffd23c]/60 bg-slate font-mono text-xs font-bold text-[#ffd23c] sm:h-7 sm:w-7"
+            >{rating}</span
+          >
+        {:else}
+          <span
+            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-mint/30 bg-slate font-mono text-xs text-mint sm:h-7 sm:w-7"
+            >{rating}</span
+          >
+        {/if}
+        <button
+          type="button"
+          class="pointer-events-auto inline-flex shrink-0 items-center justify-center p-1 text-secondary transition-colors duration-150 hover:text-mint sm:hidden"
+          aria-label="Toggle player stats"
+          aria-expanded={expanded}
+          onclick={() => (expanded = !expanded)}
+        >
+          <ChevronDown
+            class="h-4 w-4 transition-transform duration-150 {expanded
+              ? 'rotate-180'
+              : ''}"
+          />
+        </button>
+      </div>
+    </div>
+    <dl
+      class="mt-3 space-y-1.5 {expanded ? 'block' : 'hidden sm:block'} sm:mt-4"
+    >
+      {#each statRows as [label, val] (label)}
+        <div class="flex items-center gap-3">
+          <dt
+            class="{mono} min-w-0 flex-1 truncate text-[10px] leading-none text-secondary"
+          >
+            {label}
+          </dt>
+          <div class="h-px flex-1 bg-white/15"></div>
+          <dd class="text-right font-mono text-xs">{val}</dd>
+        </div>
+      {/each}
+    </dl>
+  </div>
 </div>
 
 <style>
@@ -163,7 +172,7 @@
     overflow: hidden;
     border: 2px solid transparent !important;
     background:
-      linear-gradient(#161616, #161616) padding-box,
+      linear-gradient(#1a1a1a, #1a1a1a) padding-box,
       conic-gradient(
           from var(--elite-angle),
           #ffd700,
