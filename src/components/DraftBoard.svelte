@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CalendarDays, Globe } from "@lucide/svelte";
+  import { ArrowUp, CalendarDays, Globe } from "@lucide/svelte";
   import {
     BENCH_SLOT,
     DRAFT_ROUNDS,
@@ -46,6 +46,66 @@
   let offerScroll = $state<HTMLDivElement | null>(null);
 
   const AUTO_REROLL_MAX = 15;
+
+  let pitchRef = $state<HTMLElement | null>(null);
+  let draftHeaderRef = $state<HTMLElement | null>(null);
+  let showScrollTop = $state(false);
+
+  /** True when the pitch column sits below the draft list (stacked, single-column). */
+  function isVerticalLayout(): boolean {
+    const o = offerScroll?.getBoundingClientRect();
+    const p = pitchRef?.getBoundingClientRect();
+    if (!o || !p) return false;
+    return p.top >= o.bottom - 1;
+  }
+
+  function pitchInViewport(): boolean {
+    const p = pitchRef?.getBoundingClientRect();
+    if (!p) return false;
+    return p.top < window.innerHeight && p.bottom > 0;
+  }
+
+  /** Smooth-scroll to an element only when pitch and draft are stacked vertically. */
+  function scrollToElement(el: HTMLElement | null | undefined) {
+    if (!el || !isVerticalLayout()) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({
+      behavior: reduced ? "auto" : "smooth",
+      block: "start",
+    });
+  }
+
+  function scrollToPitch() {
+    requestAnimationFrame(() => scrollToElement(pitchRef));
+  }
+
+  function scrollToDraft() {
+    requestAnimationFrame(() => scrollToElement(draftHeaderRef));
+  }
+
+  // Show the floating "back to draft" button only in stacked layout while the
+  // pitch is on screen. Re-evaluates on intersection, resize and breakpoint
+  // changes so a stale button never lingers on desktop.
+  $effect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const update = () => {
+      showScrollTop =
+        mq.matches && isVerticalLayout() && pitchInViewport();
+    };
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined" && pitchRef) {
+      observer = new IntersectionObserver(update);
+      observer.observe(pitchRef);
+    }
+    const onChange = () => update();
+    mq.addEventListener("change", onChange);
+    window.addEventListener("resize", update);
+    return () => {
+      observer?.disconnect();
+      mq.removeEventListener("change", onChange);
+      window.removeEventListener("resize", update);
+    };
+  });
 
   $effect(() => {
     if (!offer) {
@@ -211,7 +271,9 @@
   function toggleSelect(p: Player) {
     if (complete || !hasPlaceableSlot(p) || draftedNames.has(p.name)) return;
     swapSelectedId = null;
-    selected = selected?.id === p.id ? null : p;
+    const wasSelected = selected?.id === p.id;
+    selected = wasSelected ? null : p;
+    if (!wasSelected) scrollToPitch();
   }
 
   /** Commit the selected player into a specific formation slot (or the bench slot) and refresh the offer. */
@@ -233,6 +295,7 @@
       if (!validateDraft(formation, next)) {
         newOffer();
       }
+      scrollToDraft();
       return;
     }
     const slot = draftSlots[slotIndex];
@@ -251,6 +314,7 @@
     if (!validateDraft(formation, next)) {
       newOffer();
     }
+    scrollToDraft();
   }
 
   function toggleSwapSelect(playerId: string) {
@@ -278,7 +342,10 @@
   <div class="grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
       <div class="flex min-w-0 flex-col lg:sticky lg:top-6">
-        <div class="mb-5 flex shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
+        <div
+          bind:this={draftHeaderRef}
+          class="mb-5 flex scroll-mt-16 shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
+        >
           <div class="min-w-0">
             <p class="{mono} text-mint">
               Draft Round {round} / {DRAFT_ROUNDS}
@@ -318,7 +385,7 @@
         </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid grid-cols-1 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid grid-cols-1 scroll-mt-16 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
@@ -334,7 +401,8 @@
     {/if}
 
     <aside
-      class="h-fit rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6 lg:sticky lg:top-6"
+      bind:this={pitchRef}
+      class="h-fit scroll-mt-16 rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6 lg:sticky lg:top-6"
     >
       <div class="flex items-center justify-between gap-2">
         <p class="{mono} text-mint">
@@ -380,6 +448,17 @@
       {/if}
     </aside>
   </div>
+
+  {#if showScrollTop}
+    <button
+      type="button"
+      class="fixed right-5 bottom-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-mint text-black shadow-lg transition-transform duration-150 hover:scale-105 active:scale-95 lg:hidden"
+      aria-label="Back to draft"
+      onclick={scrollToDraft}
+    >
+      <ArrowUp class="h-5 w-5" />
+    </button>
+  {/if}
 </section>
 
 <style>
