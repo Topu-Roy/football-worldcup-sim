@@ -127,6 +127,11 @@
     return () => clearInterval(id);
   });
 
+  /** Auto-start the run as soon as the tournament view opens. */
+  $effect(() => {
+    startRun();
+  });
+
   const userGroupMatches = $derived(
     tournament.matches.filter((m) => m.isUser && m.round === "group"),
   );
