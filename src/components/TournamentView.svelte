@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Pause, Play, RotateCcw } from "@lucide/svelte";
+  import { untrack } from "svelte";
   import TournamentMatchRow from "./TournamentMatchRow.svelte";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import {
@@ -127,9 +128,9 @@
     return () => clearInterval(id);
   });
 
-  /** Auto-start the run as soon as the tournament view opens. */
+  /** Auto-start the run once on mount (untracked so the read/write of `running` can't re-trigger the effect). */
   $effect(() => {
-    startRun();
+    untrack(startRun);
   });
 
   const userGroupMatches = $derived(
