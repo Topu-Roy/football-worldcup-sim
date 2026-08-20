@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page Not Found — Fantasy World Cup Simulator"
+  description="That page doesn't exist. Find every World Cup team (1970-2026) or head back and play the fantasy draft simulator."
+  noindex
+>
+  <main class="flex min-h-[70vh] flex-col items-center justify-center px-4 py-16 text-center">
+    <p class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
+      404
+    </p>
+    <h1 class="mt-4 font-display text-5xl leading-[0.9] tracking-[1.07px] sm:text-7xl">
+      Offside
+    </h1>
+    <p class="mt-4 max-w-md text-secondary">
+      The page you're looking for doesn't exist — like a goal that got
+      disallowed. Let's get you back on the pitch.
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a
+        href="/game"
+        class="rounded-full bg-mint px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+      >
+        Play
+      </a>
+      <a
+        href="/teams/"
+        class="rounded-full border border-white/15 px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+      >
+        All teams
+      </a>
+      <a
+        href="/"
+        class="rounded-full border border-white/15 px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+      >
+        Home
+      </a>
+    </div>
+  </main>
+</Layout>
