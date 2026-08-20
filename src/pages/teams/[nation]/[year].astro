@@ -47,7 +47,7 @@ const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
   .sort();
 ---
 
-<Layout title={title} description={description} canonical={`/squads/${slug}/${squad.wcYear}/`}>
+<Layout title={title} description={description} canonical={`/teams/${slug}/${squad.wcYear}/`}>
   <main class="min-h-screen bg-canvas text-white">
     <section class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
       <p class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
@@ -70,10 +70,10 @@ const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
           Draft this squad
         </a>
         <a
-          href="/squads"
+          href="/teams"
           class="rounded-full border border-white/15 px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
         >
-          All squads
+          All teams
         </a>
       </div>
 
@@ -86,7 +86,7 @@ const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
             .filter((y) => y !== squad.wcYear)
             .map((y) => (
               <a
-                href={`/squads/${slug}/${y}/`}
+                href={`/teams/${slug}/${y}/`}
                 class="rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
               >
                 {nationName} {y}
