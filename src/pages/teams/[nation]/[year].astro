@@ -58,8 +58,12 @@ const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
       </h1>
       <p class="mt-4 max-w-2xl text-secondary">
         The {nationName} World Cup {squad.wcYear} squad — formation
-        {formationLabel(squad)}, with player ratings for every member. Take
-        them into the draft and see how they fare against the all-time greats.
+        {formationLabel(squad)}, with player ratings for every member. Led by
+        {sorted[0].name} at {playerRating(sorted[0])} overall, this is the
+        roster as it stood at the tournament, rated player by player on a
+        single scale so you can compare it against every team in World Cup
+        history. Take them into the draft and see how they fare against the
+        all-time greats.
       </p>
 
       <div class="mt-6 flex flex-wrap items-center gap-3">
@@ -67,7 +71,7 @@ const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
           href="/game"
           class="rounded-full bg-mint px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
         >
-          Draft this squad
+          Play
         </a>
         <a
           href="/teams"
@@ -133,5 +137,91 @@ const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
         })}
       </ul>
     </section>
+
+    <section class="border-t border-white/10 bg-slate/20">
+      <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-16">
+        <div class="read-more">
+          <h2 class="font-display text-2xl tracking-[0.5px] sm:text-3xl">
+            {nationName} at the {squad.wcYear} World Cup
+          </h2>
+          <div class="clamp mt-5 space-y-4 text-sm leading-relaxed text-secondary">
+            <p>
+              {nationName} arrived at the {squad.wcYear} World Cup with a
+              squad built around {sorted[0].name}, the side's highest-rated
+              player at {playerRating(sorted[0])} overall. In a
+              {formationLabel(squad)} shape, the group mixed proven leaders
+              with emerging talent, and the ratings above show exactly where
+              the team's strength sat — and where it thinned out.
+            </p>
+            <p>
+              Average rating only tells part of the story. Tournaments are
+              won on form, fixture luck and fine margins, which is why the
+              same roster can be devastating in one simulation and knocked
+              out early in the next. That unpredictability is the heart of a
+              fantasy World Cup: picking a star-studded side is no guarantee,
+              and backing a gritty underdog can pay off.
+            </p>
+            <p>
+              You can compare {nationName} {squad.wcYear} against every other
+              squad in the index, from Brazil 1970 to Argentina 2022. Use the
+              year navigation above to jump between {nationName}'s other
+              World Cup appearances and see how the squad evolved from
+              tournament to tournament.
+            </p>
+            <p>
+              When you're ready, draft this squad — or build your own XI from
+              the whole of World Cup history — and take it through a full
+              tournament in the simulator.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="read-more-btn mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/15 px-4 py-2 font-mono text-[10px] font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+            aria-expanded="false"
+            data-read-more
+          >
+            Read more
+            <span class="chev">▾</span>
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>("[data-read-more]");
+  const root = btn?.closest(".read-more");
+  const clamp = root?.querySelector(".clamp");
+  const chev = root?.querySelector(".chev");
+  if (btn && root && clamp) {
+    btn.addEventListener("click", () => {
+      const open = root.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      btn.firstChild!.textContent = open ? "Show less " : "Read more ";
+      if (chev) chev.textContent = open ? "▴" : "▾";
+    });
+  }
+</script>
+
+<style>
+  .clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+  }
+
+  .read-more.is-open .clamp {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .clamp {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+    }
+  }
+</style>
