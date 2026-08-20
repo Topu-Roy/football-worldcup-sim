@@ -35,6 +35,8 @@ export type TournamentOutcome =
   | "eliminated";
 
 export interface Tournament {
+  /** Unique id for this run (groups its matches together in match history). */
+  id: string;
   phase: "group" | "knockout" | "ended";
   userSquad: Squad;
   squads: Record<string, Squad>;

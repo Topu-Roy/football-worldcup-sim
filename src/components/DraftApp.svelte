@@ -6,6 +6,7 @@
   import { buildUserSquad, DRAFT_ROUNDS, BENCH_SLOT } from "../lib/draft.js";
   import { swapPlayers as applySwap } from "../lib/draft.js";
   import { createTournament } from "../lib/tournament.js";
+  import { upsertTournamentRecord } from "../lib/history.js";
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
 
@@ -82,7 +83,10 @@
   });
 
   $effect(() => {
-    if (tournament?.phase === "ended") step = "results";
+    if (tournament?.phase === "ended") {
+      upsertTournamentRecord(tournament);
+      step = "results";
+    }
   });
 
   $effect(() => {

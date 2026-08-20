@@ -1,5 +1,6 @@
 import type { MatchResult } from "../types.js";
 import type { Tournament, TournamentMatch } from "./types.js";
+import { upsertTournamentRecord } from "../history.js";
 
 function normalizeResultForMatch(
   state: Tournament,
@@ -38,4 +39,5 @@ export function registerUserResult(
   const m = state.matches.find((x) => x.id === matchId);
   if (!m || m.result) return;
   m.result = normalizeResultForMatch(state, m, result);
+  upsertTournamentRecord(state);
 }

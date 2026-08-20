@@ -1,0 +1,12 @@
+---
+import HistoryView from "../components/HistoryView.svelte";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Match History — Your Fantasy World Cup Results"
+  description="Every match you've played in the fantasy World Cup simulator, stored on your device: results, scores, penalty shootouts and your W/D/L record across all runs."
+  noindex
+>
+  <HistoryView client:only="svelte" />
+</Layout>
