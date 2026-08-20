@@ -2,6 +2,7 @@ export {
   DRAFT_ROUNDS,
   MAX_REROLLS,
   NATION_NAMES,
+  NATION_SLUGS,
   POSITION_LABEL,
 } from "./constants.js";
 export {

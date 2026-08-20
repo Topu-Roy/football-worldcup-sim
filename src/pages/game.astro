@@ -1,0 +1,12 @@
+---
+import GameShell from "../components/GameShell.svelte";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Play — Fantasy Football World Cup Draft Simulator"
+  description="Pick your formation, draft a fantasy World Cup XI from 100+ historical squads (1970-2026), then run it through a simulated knockout tournament with penalty shootouts."
+  noindex
+>
+  <GameShell client:only="svelte" />
+</Layout>

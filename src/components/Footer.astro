@@ -1,9 +1,14 @@
 ---
 ---
-
 <footer class="site-footer">
   <div class="inner">
-    <p class="credits">World Cup Draft Simulator &middot; v0.30.0</p>
+    <p class="credits">World Cup Draft Simulator &middot; v0.36.1</p>
+    <nav class="legal" aria-label="Footer">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
     <button type="button" class="to-top" id="footer-back-to-top">Back to Top</button>
   </div>
 </footer>
@@ -40,6 +45,28 @@
     text-transform: uppercase;
     color: #949494;
     margin: 0;
+  }
+
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .legal a {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #949494;
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .legal a:hover {
+    color: #3cffd0;
   }
 
   .to-top {

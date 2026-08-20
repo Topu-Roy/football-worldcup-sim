@@ -1,5 +1,4 @@
 <script lang="ts">
-  import FormationPicker from "./FormationPicker.svelte";
   import DraftBoard from "./DraftBoard.svelte";
   import ResultsView from "./ResultsView.svelte";
   import TeamReadyView from "./TeamReadyView.svelte";
@@ -10,27 +9,22 @@
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
 
-  type Step = "setup" | "draft" | "ready" | "tournament" | "results";
+  type Step = "draft" | "ready" | "tournament" | "results";
 
-  let step = $state<Step>("setup");
-  let formation = $state<Formation | null>(null);
-  let formationKey = $state("");
+  let { formation, formationKey, onBack }: { formation: Formation; formationKey: string; onBack?: () => void } =
+    $props();
+
+  let step = $state<Step>("draft");
   let drafted = $state<Player[]>([]);
   let squad = $state<Squad | null>(null);
   let tournament = $state<TournamentState | null>(null);
 
-  function selectFormation(key: string, f: Formation) {
-    formation = f;
-    formationKey = key;
-    step = "draft";
-  }
-
-  /** Back to formation picker, clearing the draft and any tournament. */
+  /** Back to a fresh draft, clearing any squad and tournament. */
   function reset() {
     drafted = [];
     squad = null;
     tournament = null;
-    step = "setup";
+    step = "draft";
   }
 
   function handlePick(p: Player) {
@@ -43,7 +37,7 @@
 
   /** First-time entry into the tournament from the final draft squad. */
   function startTournament() {
-    if (!formation || !squad) return;
+    if (!squad) return;
     tournament = createTournament(squad);
     step = "tournament";
   }
@@ -57,16 +51,11 @@
 
   /** Swap two players between formation slots (or the bench) within the confirmed squad. */
   function swapPlayers(playerId: string, slotIndex: number) {
-    if (!squad || !formationKey) return;
+    if (!squad) return;
     const combined = [...squad.players, ...(squad.bench ?? [])];
     const from = combined.find((p) => p.id === playerId);
     if (!from || from.assignedSlot === undefined) return;
-    const next = applySwap(
-      combined,
-      formationKey,
-      from.assignedSlot,
-      slotIndex,
-    );
+    const next = applySwap(combined, formationKey, from.assignedSlot, slotIndex);
     if (!next) return;
     squad = {
       ...squad,
@@ -75,8 +64,15 @@
     };
   }
 
+  /** Restart the draft whenever the formation changes. */
   $effect(() => {
-    if (step === "draft" && formation && drafted.length === DRAFT_ROUNDS) {
+    void formation;
+    void formationKey;
+    reset();
+  });
+
+  $effect(() => {
+    if (step === "draft" && drafted.length === DRAFT_ROUNDS) {
       squad = buildUserSquad(formation, drafted);
       step = "ready";
       requestAnimationFrame(() =>
@@ -96,17 +92,16 @@
   });
 </script>
 
-<main class="min-h-screen bg-canvas text-white">
-  {#if step === "setup"}
-    <FormationPicker onSelect={selectFormation} />
-  {:else if step === "draft" && formation}
+<div class="min-h-screen bg-canvas text-white">
+  {#if step === "draft"}
     <DraftBoard
       {formation}
       {formationKey}
+      {onBack}
       onPick={handlePick}
       onSwapDrafted={handleSwapDrafted}
     />
-  {:else if step === "ready" && formation && squad}
+  {:else if step === "ready" && squad}
     <TeamReadyView
       {formationKey}
       {squad}
@@ -124,4 +119,4 @@
       onRerun={rerunTournament}
     />
   {/if}
-</main>
+</div>

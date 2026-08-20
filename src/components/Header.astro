@@ -1,11 +1,12 @@
 ---
 ---
-
 <header class="site-header">
   <div class="inner">
     <a href="/" class="wordmark">WORLD CUP <span>/</span> SIM</a>
     <nav class="nav" aria-label="Primary">
-      <a href="/" class="nav-link" id="new-draft">New Draft</a>
+      <a href="/squads/" class="nav-link">Squads</a>
+      <a href="/how-to-play/" class="nav-link">How to Play</a>
+      <a href="/game" class="nav-link" id="new-draft">New Draft</a>
     </nav>
   </div>
 </header>
@@ -14,7 +15,12 @@
   const newDraft = document.getElementById("new-draft");
   newDraft?.addEventListener("click", (e) => {
     e.preventDefault();
-    window.dispatchEvent(new CustomEvent("wc:reset"));
+    const onGame = window.location.pathname.startsWith("/game");
+    if (onGame) {
+      window.dispatchEvent(new CustomEvent("wc:reset"));
+    } else {
+      window.location.href = "/game";
+    }
   });
 </script>
 
@@ -105,6 +111,11 @@
 
     .nav-link {
       letter-spacing: 1px;
+      padding: 6px 6px;
+    }
+
+    #new-draft {
+      margin-left: 4px;
     }
   }
 </style>

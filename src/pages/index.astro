@@ -1,8 +1,148 @@
 ---
-import DraftApp from "../components/DraftApp.svelte";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-  <DraftApp client:only="svelte" />
-</Layout>
+<Layout
+  title="Fantasy Football World Cup — Draft & Simulate | World Cup Simulator"
+  description="Build your fantasy World Cup dream team from 100+ historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free browser game, no download."
+/>
+
+<main class="min-h-screen bg-canvas text-white">
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute -top-48 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-mint/15 blur-[120px]"
+    ></div>
+    <div
+      class="pointer-events-none absolute top-24 -left-32 h-64 w-64 rounded-full bg-uv/20 blur-[100px]"
+    ></div>
+
+    <div class="relative mx-auto max-w-5xl px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16">
+      <p class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
+        World Cup Draft Simulator
+      </p>
+      <h1 class="mt-4 font-display text-6xl leading-[0.85] tracking-[1.07px] text-white sm:text-7xl md:text-8xl">
+        Draft the dream XI.
+        <span class="block text-mint">Simulate the Cup.</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-secondary">
+        Pick your formation and build a fantasy World Cup team from 100+
+        historical squads — Brazil 1970, France 1998, Argentina 2022 and
+        every semifinalist in between. Then run your XI through a simulated
+        group stage and knockout tournament against the all-time greats,
+        penalties and all. Free, browser-based, no download.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="/game"
+          class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+        >
+          Start drafting
+        </a>
+        <a
+          href="/how-to-play"
+          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+        >
+          How to play
+        </a>
+      </div>
+
+      <ul class="mt-10 flex flex-wrap items-center justify-center gap-2">
+        {[
+          "1970-2026",
+          "100+ squads",
+          "12 draft rounds",
+          "Group → knockout",
+          "Penalty shootouts",
+        ].map((s) => (
+          <li class="rounded-full border border-white/15 bg-slate/40 px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
+            {s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-white/10 bg-slate/20">
+    <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+      <p class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
+        How it works
+      </p>
+      <h2 class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl">
+        Four rounds to glory
+      </h2>
+      <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="flex flex-col rounded-2xl border border-white/10 bg-slate/40 p-5">
+          <span class="flex items-center justify-between">
+            <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint">01</span>
+          </span>
+          <span class="mt-4 block font-display text-xl tracking-[0.5px]">Pick your shape</span>
+          <span class="mt-2 block text-xs leading-relaxed text-secondary">
+            Choose from 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. This locks the slot
+            limits for all 12 draft rounds.
+          </span>
+        </li>
+        <li class="flex flex-col rounded-2xl border border-white/10 bg-slate/40 p-5">
+          <span class="flex items-center justify-between">
+            <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint">02</span>
+          </span>
+          <span class="mt-4 block font-display text-xl tracking-[0.5px]">Draft your XI</span>
+          <span class="mt-2 block text-xs leading-relaxed text-secondary">
+            Twelve rounds of picks from 100+ historical World Cup squads. Chase
+            stars, patch gaps, keep one on the bench.
+          </span>
+        </li>
+        <li class="flex flex-col rounded-2xl border border-white/10 bg-slate/40 p-5">
+          <span class="flex items-center justify-between">
+            <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint">03</span>
+          </span>
+          <span class="mt-4 block font-display text-xl tracking-[0.5px]">Auto-run the cup</span>
+          <span class="mt-2 block text-xs leading-relaxed text-secondary">
+            Your tournament simulates itself — group stage, knockout bracket,
+            extra time and penalty shootouts.
+          </span>
+        </li>
+        <li class="flex flex-col rounded-2xl border border-white/10 bg-slate/40 p-5">
+          <span class="flex items-center justify-between">
+            <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint">04</span>
+          </span>
+          <span class="mt-4 block font-display text-xl tracking-[0.5px]">Replay &amp; results</span>
+          <span class="mt-2 block text-xs leading-relaxed text-secondary">
+            Rewatch goals, compare squad stats, and lift the trophy when it's
+            all over.
+          </span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="border-t border-white/10">
+    <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+      <p class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
+        The squads
+      </p>
+      <h2 class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl">
+        Every World Cup great, one pool
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-secondary">
+        Draft from the semifinalists of every World Cup from 1970 to 2026.
+        Browse the full squad pages with player ratings, then take them into
+        the draft.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="/squads"
+          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+        >
+          Browse all squads
+        </a>
+        <a
+          href="/game"
+          class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+        >
+          Play now
+        </a>
+      </div>
+    </div>
+  </section>
+</main>

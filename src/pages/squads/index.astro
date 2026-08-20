@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { HISTORICAL_SQUADS } from "../../data/historical/index.js";
+import { NATION_NAMES, NATION_SLUGS } from "../../lib/draft.js";
+
+const byYear = [...HISTORICAL_SQUADS]
+  .sort((a, b) => a.wcYear - b.wcYear)
+  .reduce<Record<number, typeof HISTORICAL_SQUADS>>((acc, s) => {
+    (acc[s.wcYear] ??= []).push(s);
+    return acc;
+  }, {});
+
+const years = Object.keys(byYear)
+  .map(Number)
+  .sort();
+---
+
+<Layout
+  title="All World Cup Squads 1970-2026 — Historical Teams & Player Ratings"
+  description="Browse all 100+ historical World Cup squads from 1970 to 2026 with player ratings. Every semifinalist team, from Brazil 1970 to Argentina 2022."
+  canonical="/squads/"
+>
+  <main class="min-h-screen bg-canvas text-white">
+    <section class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+      <p class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
+        Squad index
+      </p>
+      <h1 class="mt-4 font-display text-5xl leading-[0.9] tracking-[1.07px] sm:text-7xl">
+        Every World Cup squad
+      </h1>
+      <p class="mt-4 max-w-2xl text-secondary">
+        All {HISTORICAL_SQUADS.length} historical World Cup squads from 1970 to
+        2026, with full rosters and player ratings. Pick a team to view, then
+        draft them in the fantasy World Cup simulator.
+      </p>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-4 pb-20 sm:px-6">
+      {years.map((year) => (
+        <div class:mt-10={year !== years[0]}>
+          <h2 class="font-display text-3xl tracking-[0.5px]">{year}</h2>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {byYear[year]
+              .sort((a, b) =>
+                (NATION_NAMES[a.nation] ?? a.nation).localeCompare(
+                  NATION_NAMES[b.nation] ?? b.nation,
+                ),
+              )
+              .map((s) => {
+                const slug = NATION_SLUGS[s.nation] ?? s.nation.toLowerCase();
+                return (
+                  <li>
+                    <a
+                      href={`/squads/${slug}/${s.wcYear}/`}
+                      class="group flex items-center justify-between rounded-2xl border border-white/10 bg-slate/40 px-5 py-4 transition-all duration-150 hover:-translate-y-0.5 hover:border-mint hover:bg-slate/60"
+                    >
+                      <span class="font-display text-xl tracking-[0.5px]">
+                        {NATION_NAMES[s.nation] ?? s.nation}
+                      </span>
+                      <span class="font-mono text-[11px] font-semibold tracking-[1.5px] text-secondary transition-colors duration-150 group-hover:text-mint uppercase">
+                        {s.players.length} players →
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+      ))}
+    </section>
+  </main>
+</Layout>

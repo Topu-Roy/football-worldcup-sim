@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ArrowUp, CalendarDays, Globe } from "@lucide/svelte";
+  import { ArrowUp, CalendarDays, ChevronLeft, Globe } from "@lucide/svelte";
   import {
     BENCH_SLOT,
     DRAFT_ROUNDS,
@@ -30,11 +30,13 @@
     formationKey,
     onPick,
     onSwapDrafted,
+    onBack,
   }: {
     formation: Formation;
     formationKey: string;
     onPick: (p: Player) => void;
     onSwapDrafted: (players: Player[]) => void;
+    onBack?: () => void;
   } = $props();
 
   let offer = $state<ReturnType<typeof makeOffer> | null>(null);
@@ -342,6 +344,16 @@
   <div class="grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
       <div class="flex min-w-0 flex-col lg:sticky lg:top-6">
+        {#if onBack}
+          <button
+            type="button"
+            class="back-btn mb-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors duration-150"
+            onclick={onBack}
+          >
+            <ChevronLeft class="h-4 w-4" />
+            <span class="{mono}">Formations</span>
+          </button>
+        {/if}
         <div
           bind:this={draftHeaderRef}
           class="mb-5 flex scroll-mt-16 shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
@@ -462,6 +474,14 @@
 </section>
 
 <style>
+  .back-btn {
+    color: #949494;
+  }
+
+  .back-btn:hover {
+    color: #3cffd0;
+  }
+
   .draft-scroll {
     scrollbar-width: thin;
     scrollbar-color: rgb(255 255 255 / 0.15) transparent;
