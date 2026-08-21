@@ -30,4 +30,5 @@ body {
   background: #131313;
   color: #ffffff;
   font-family: var(--font-sans);
+  overflow-x: clip;
 }
