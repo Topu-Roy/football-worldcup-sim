@@ -4,6 +4,8 @@ export const home = {
     hero: "World Cup Draft Simulator is a free browser soccer game. It is a fantasy football world cup game. You draft a dream team from 100+ old World Cup squads. Pick Brazil 1970, France 1998 or Argentina 2022. Then the game simulates a full tournament for you. You get group games, a knockout bracket and penalty shootouts. It is a soccer simulator and a football draft simulator. You play it online. No download. No sign-up. In the US, people call it a soccer draft game or online soccer game. It is also a free soccer simulation game. The world cup simulator 2026 mode adds new squads. You can predict your own tournament today. Pick a formation, build your squad, and watch the cup.",
     ctaPlay: "Play Now",
     ctaHow: "How to play",
+    showMore: "Show more",
+    showLess: "Show less",
     preview: {
       eyebrow: "Game preview",
       title: "Legends, on the pitch",
@@ -80,6 +82,8 @@ export const home = {
     hero: "World Cup Draft Simulator ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel. Du stellst ein Traumteam aus über 100 alten WM-Kadern auf. Wähle Brasilien 1970, Frankreich 1998 oder Argentinien 2022. Dann simuliert das Spiel ein komplettes Turnier für dich. Du bekommst Gruppenspiele, ein K.-o.-Baum und Elfmeterschießen. Es ist ein Fußballsimulator und ein Draft-Simulator. Du spielst es online. Kein Download. Keine Anmeldung. In den USA nennt man es Soccer-Draft-Spiel oder Online-Soccer-Spiel. Es ist auch ein kostenloses Fußball-Simulationsspiel. Der WM-Simulator-2026-Modus fügt neue Kadern hinzu. Du kannst dein eigenes Turnier noch heute vorhersagen. Wähle eine Formation, stelle dein Team auf und schau das Turnier.",
     ctaPlay: "Jetzt spielen",
     ctaHow: "Anleitung",
+    showMore: "Mehr anzeigen",
+    showLess: "Weniger anzeigen",
     preview: {
       eyebrow: "Spielvorschau",
       title: "Legenden auf dem Platz",
@@ -156,6 +160,8 @@ export const home = {
     hero: "World Cup Draft Simulator est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy. Vous composez une équipe de rêve à partir de plus de 100 anciens effectifs de Coupe du Monde. Choisissez le Brésil 1970, la France 1998 ou l'Argentine 2022. Ensuite, le jeu simule un tournoi complet pour vous. Vous avez des matchs de groupe, un arbre à élimination et des tirs au but. C'est un simulateur de football et un simulateur de draft. Vous jouez en ligne. Sans téléchargement. Sans inscription. Aux États-Unis, on l'appelle jeu de draft soccer ou soccer en ligne. C'est aussi un jeu de simulation de football gratuit. Le mode simulateur de Coupe du Monde 2026 ajoute de nouveaux effectifs. Vous pouvez prédire votre propre tournoi dès aujourd'hui. Choisissez une formation, construisez votre équipe et regardez le tournoi.",
     ctaPlay: "Jouer",
     ctaHow: "Comment jouer",
+    showMore: "Voir plus",
+    showLess: "Voir moins",
     preview: {
       eyebrow: "Aperçu du jeu",
       title: "Les légendes sur le terrain",
@@ -232,6 +238,8 @@ export const home = {
     hero: "World Cup Draft Simulatorは無料のブラウザサッカーゲーム。Fantasy Football ワールドカップのゲームだ。1970年から2026年までの歴代チーム100以上から夢のチームをドラフトする。ブラジル1970、フランス1998、アルゼンチン2022から選ぼう。するとゲームが大会全体をシミュレートしてくれる。グループリーグ、決勝トーナメント、PK戦がある。これはサッカーシミュレーターであり、フットボールドラフトシミュレーターだ。ブラウザで遊ぶ。ダウンロード不要。登録不要。アメリカではサッカードラフトゲームやオンラインサッカーゲームと呼ばれる。これは無料のサッカーシミュレーションゲームでもある。ワールドカップシミュレーター2026モードで新チームが加わる。今日から自分の大会を予想できる。フォーメーションを選び、チームを作り、大会を見よう。",
     ctaPlay: "今すぐプレイ",
     ctaHow: "遊び方",
+    showMore: "もっと見る",
+    showLess: "閉じる",
     preview: {
       eyebrow: "ゲームプレビュー",
       title: "伝説たちがピッチに",
@@ -308,6 +316,8 @@ export const home = {
     hero: "World Cup Draft Simulator es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy. Armas un equipo de ensueño con más de 100 plantillas históricas del Mundial. Elige el Brasil 1970, Francia 1998 o Argentina 2022. Luego el juego simula un torneo completo para ti. Tienes partidos de grupo, un cuadro de eliminación y penales. Es un simulador de fútbol y un simulador de draft. Juegas en línea. Sin descargas. Sin registro. En EE. UU. lo llaman juego de draft soccer o soccer en línea. También es un juego de simulación de fútbol gratuito. El modo simulador del Mundial 2026 añade nuevas plantillas. Puedes predecir tu propio torneo hoy. Elige una formación, arma tu equipo y mira el torneo.",
     ctaPlay: "Jugar",
     ctaHow: "Cómo jugar",
+    showMore: "Ver más",
+    showLess: "Ver menos",
     preview: {
       eyebrow: "Vista previa",
       title: "Leyendas, en la cancha",

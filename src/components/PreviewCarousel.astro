@@ -11,7 +11,7 @@ const { slides } = Astro.props;
 
 {
   slides.length > 0 && (
-    <div class="relative mx-auto w-full max-w-[420px]" id="preview-carousel">
+    <div class="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] xl:max-w-[640px]" id="preview-carousel">
       <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate/30">
         <div class="carousel-track flex">
           {slides.map((s, i) => (
@@ -21,7 +21,7 @@ const { slides } = Astro.props;
               aria-roledescription="slide"
               aria-hidden={i === 0 ? "false" : "true"}
             >
-              <div class="relative mx-auto aspect-3/4 w-full max-w-[280px] sm:max-w-xs">
+               <div class="relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
                 <PitchGraphic id={s.id} />
                 {s.players.map((p) => (
                   <div class="chip" style={`left:${p.x}%; top:${p.y}%`}>
@@ -79,7 +79,7 @@ const { slides } = Astro.props;
     flex-direction: column;
     align-items: center;
     gap: 1px;
-    width: 78px;
+    width: clamp(52px, 15vw, 86px);
     text-align: center;
     pointer-events: none;
   }
@@ -88,15 +88,15 @@ const { slides } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
+    width: clamp(20px, 6vw, 28px);
+    height: clamp(20px, 6vw, 28px);
     border-radius: 9999px;
     background: #ffffff;
     color: #000000;
     border: 2px solid #ffffff;
     font-family: var(--font-mono);
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: clamp(0.55rem, 1.7vw, 0.72rem);
     line-height: 1;
   }
 
@@ -111,11 +111,11 @@ const { slides } = Astro.props;
 
   .chip-name {
     margin-top: 1px;
-    max-width: 78px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 0.58rem;
+    font-size: clamp(0.46rem, 1.5vw, 0.62rem);
     font-weight: 700;
     line-height: 1.1;
     color: #ffffff;
@@ -124,7 +124,7 @@ const { slides } = Astro.props;
 
   .chip-rating {
     font-family: var(--font-mono);
-    font-size: 0.52rem;
+    font-size: clamp(0.42rem, 1.3vw, 0.56rem);
     font-weight: 700;
     color: #3cffd0;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
@@ -161,33 +161,33 @@ const { slides } = Astro.props;
         .querySelector(".carousel-prev")
         ?.addEventListener("click", () => {
           go(i - 1);
-          restart();
+          start();
         });
       root
         .querySelector(".carousel-next")
         ?.addEventListener("click", () => {
           go(i + 1);
-          restart();
+          start();
         });
       dots.forEach((d, idx) =>
         d.addEventListener("click", () => {
           go(idx);
-          restart();
+          start();
         }),
       );
 
-      let timer: number | undefined;
+      let timer: number | null = null;
+      const stop = () => {
+        if (timer !== null) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+      };
       const start = () => {
+        stop();
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           timer = window.setInterval(() => go(i + 1), 5000);
         }
-      };
-      const stop = () => {
-        if (timer !== undefined) window.clearInterval(timer);
-      };
-      const restart = () => {
-        stop();
-        start();
       };
 
       root.addEventListener("mouseenter", stop);

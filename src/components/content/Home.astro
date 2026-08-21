@@ -45,9 +45,23 @@ const previewSlides = buildPreviewSlides();
             >
               {c.h1}
             </h1>
-            <p class="mx-auto mt-6 max-w-2xl text-secondary lg:mx-0">
+            <p
+              id="hero-desc"
+              class="mx-auto mt-6 max-w-2xl text-secondary line-clamp-3 lg:line-clamp-none lg:mx-0"
+            >
               {c.hero}
             </p>
+            <button
+              type="button"
+              id="hero-toggle"
+              data-more={c.showMore}
+              data-less={c.showLess}
+              aria-expanded="false"
+              aria-controls="hero-desc"
+              class="mx-auto mt-2 block font-mono text-[11px] font-semibold tracking-[1.5px] text-mint uppercase transition-colors hover:text-white lg:hidden"
+            >
+              {c.showMore}
+            </button>
 
             <div
               class="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
@@ -195,3 +209,18 @@ const previewSlides = buildPreviewSlides();
     </section>
   </main>
 </Layout>
+
+<script>
+  const btn = document.getElementById("hero-toggle");
+  const desc = document.getElementById("hero-desc");
+  if (btn && desc) {
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      desc.classList.toggle("line-clamp-3");
+      btn.textContent = expanded
+        ? (btn.dataset.more ?? "Show more")
+        : (btn.dataset.less ?? "Show less");
+    });
+  }
+</script>
