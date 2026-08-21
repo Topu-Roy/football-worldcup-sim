@@ -9,52 +9,126 @@ interface Props {
 
 const { lang } = Astro.props;
 const path = Astro.url.pathname;
+
+const options = locales.map((loc) => ({
+  code: loc,
+  label: languages[loc],
+  href: switchLocaleHref(path, loc),
+}));
 ---
 
-<div class="locale-switcher" role="group" aria-label="Language">
-  {locales.map((loc) => (
-    <a
-      href={switchLocaleHref(path, loc)}
-      hreflang={loc}
-      lang={loc}
-      class={`ls-link ${loc === lang ? "is-active" : ""}`}
-      aria-current={loc === lang ? "true" : undefined}
-    >
-      {languages[loc]}
-    </a>
-  ))}
+<div class="locale-switcher">
+  <label for="locale-select" class="sr-only">Language</label>
+  <span class="ls-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z" />
+    </svg>
+  </span>
+  <select id="locale-select" class="ls-select" aria-label="Language">
+    {
+      options.map((opt) => (
+        <option value={opt.href} selected={opt.code === lang}>
+          {opt.label}
+        </option>
+      ))
+    }
+  </select>
+  <span class="ls-caret" aria-hidden="true">
+    <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 1l4 4 4-4" />
+    </svg>
+  </span>
 </div>
 
 <style>
   .locale-switcher {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    gap: 2px;
     margin-left: 8px;
     padding-left: 8px;
     border-left: 1px solid #2d2d2d;
   }
 
-  .ls-link {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .ls-icon,
+  .ls-caret {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    color: #6f6f6f;
+    pointer-events: none;
+    transition: color 150ms ease;
+  }
+
+  .ls-icon {
+    left: 18px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .ls-caret {
+    right: 12px;
+    width: 10px;
+    height: 6px;
+  }
+
+  .ls-icon svg,
+  .ls-caret svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ls-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #2d2d2d;
+    border-radius: 999px;
+    color: #cfcfcf;
     font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    text-decoration: none;
-    color: #9a9a9a;
-    padding: 4px 6px;
-    border-radius: 8px;
-    transition: color 150ms ease, background 150ms ease;
+    padding: 7px 30px 7px 38px;
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
   }
 
-  .ls-link:hover {
+  .ls-select:hover,
+  .ls-select:focus-visible {
+    color: #3cffd0;
+    border-color: rgba(60, 255, 208, 0.6);
+    background: rgba(60, 255, 208, 0.06);
+    box-shadow: 0 0 0 3px rgba(60, 255, 208, 0.12);
+    outline: none;
+  }
+
+  .locale-switcher:hover .ls-icon,
+  .locale-switcher:focus-within .ls-icon,
+  .locale-switcher:hover .ls-caret,
+  .locale-switcher:focus-within .ls-caret {
     color: #3cffd0;
   }
 
-  .ls-link.is-active {
-    color: #3cffd0;
-    background: rgba(60, 255, 208, 0.12);
+  .ls-select option {
+    background-color: #131313;
+    color: #ffffff;
+    text-transform: uppercase;
   }
 
   @media (max-width: 549px) {
@@ -62,8 +136,15 @@ const path = Astro.url.pathname;
       margin-left: 0;
       padding-left: 0;
       border-left: none;
-      justify-content: flex-start;
-      flex-wrap: wrap;
     }
   }
 </style>
+
+<script>
+  const select = document.getElementById("locale-select") as HTMLSelectElement | null;
+  if (select) {
+    select.addEventListener("change", () => {
+      window.location.href = select.value;
+    });
+  }
+</script>
