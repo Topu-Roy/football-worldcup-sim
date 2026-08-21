@@ -14,6 +14,10 @@ export default defineConfig({
   site: "https://example.com",
   integrations: [svelte(), partytown(), sitemap()],
 
+  redirects: {
+    "/terms": "/terms-and-conditions",
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
