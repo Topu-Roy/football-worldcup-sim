@@ -1,156 +1,70 @@
 ---
 import PitchGraphic from "./PitchGraphic.astro";
-import { localizedPath } from "../i18n/t";
-import type { Locale } from "../i18n/config";
 import type { PreviewSlide } from "../data/preview-squads";
 
 interface Props {
   slides: PreviewSlide[];
-  eyebrow: string;
-  title: string;
-  caption: string;
-  ctaBrowse: string;
-  ctaPlay: string;
-  lang: Locale;
 }
 
-const { slides, eyebrow, title, caption, ctaBrowse, ctaPlay, lang } = Astro.props;
-const browseHref = localizedPath("/teams", lang);
-const playHref = "/game";
+const { slides } = Astro.props;
 ---
 
-<section class="border-t border-white/10 bg-canvas">
-  <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
-    <p class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
-      {eyebrow}
-    </p>
-    <h2
-      class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
-    >
-      {title}
-    </h2>
-    <p class="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-secondary">
-      {caption}
-    </p>
-
-    {
-      slides.length > 0 && (
-        <div class="relative mt-10" id="preview-carousel">
-          <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate/30">
-            <div class="carousel-track flex">
-              {slides.map((s, i) => (
-                <div
-                  class="carousel-slide w-full shrink-0"
-                  data-index={i}
-                  aria-roledescription="slide"
-                  aria-hidden={i === 0 ? "false" : "true"}
-                >
-                  <div class="flex flex-col items-center gap-6 p-6 sm:flex-row sm:items-center sm:gap-10 sm:p-10">
-                    <div class="relative mx-auto aspect-3/4 w-full max-w-[260px] sm:max-w-xs">
-                      <PitchGraphic id={s.id} />
-                      {s.players.map((p) => (
-                        <div
-                          class="chip"
-                          style={`left:${p.x}%; top:${p.y}%`}
-                        >
-                          <span class={`chip-ball ${p.tier}`}>{p.jersey}</span>
-                          <span class="chip-name">{p.name}</span>
-                          <span class="chip-rating">{p.rating}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div class="w-full max-w-sm text-center sm:text-left">
-                      <p class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint uppercase">
-                        {s.formationLabel}
-                      </p>
-                      <h3 class="mt-2 font-display text-3xl tracking-[0.5px]">
-                        {s.team}
-                      </h3>
-                      <p class="mt-2 text-sm text-secondary">
-                        {s.nation} · Top rated:{" "}
-                        <span class="font-semibold text-white">{s.topName}</span>{" "}
-                        <span class="font-mono text-mint">{s.topRating}</span>
-                      </p>
-
-                      <ul class="mt-4 flex flex-wrap justify-center gap-1.5 sm:justify-start">
-                        {s.players
-                          .slice()
-                          .sort((a, b) => b.rating - a.rating)
-                          .slice(0, 6)
-                          .map((p) => (
-                            <li
-                              class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] font-semibold tracking-[1px] text-secondary"
-                            >
-                              {p.name}{" "}
-                              <span
-                                class:list={[
-                                  "ml-1",
-                                  p.tier === "elite"
-                                    ? "text-mint"
-                                    : p.tier === "star"
-                                      ? "text-white"
-                                      : "text-secondary",
-                                ]}
-                              >
-                                {p.rating}
-                              </span>
-                            </li>
-                          ))}
-                      </ul>
-                    </div>
+{
+  slides.length > 0 && (
+    <div class="relative mx-auto w-full max-w-[420px]" id="preview-carousel">
+      <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate/30">
+        <div class="carousel-track flex">
+          {slides.map((s, i) => (
+            <div
+              class="carousel-slide w-full shrink-0 p-4 sm:p-6"
+              data-index={i}
+              aria-roledescription="slide"
+              aria-hidden={i === 0 ? "false" : "true"}
+            >
+              <div class="relative mx-auto aspect-3/4 w-full max-w-[280px] sm:max-w-xs">
+                <PitchGraphic id={s.id} />
+                {s.players.map((p) => (
+                  <div class="chip" style={`left:${p.x}%; top:${p.y}%`}>
+                    <span class={`chip-ball ${p.tier}`}>{p.jersey}</span>
+                    <span class="chip-name">{p.name}</span>
+                    <span class="chip-rating">{p.rating}</span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-
-          <button
-            type="button"
-            class="carousel-prev absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
-            aria-label="Previous team"
-          >
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
-          <button
-            type="button"
-            class="carousel-next absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
-            aria-label="Next team"
-          >
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-
-          <div class="mt-5 flex items-center justify-center gap-2">
-            {slides.map((_, i) => (
-              <button
-                type="button"
-                class="carousel-dot h-2 w-2 rounded-full bg-white/25 transition-colors hover:bg-white/50"
-                data-index={i}
-                aria-label={`Go to slide ${i + 1}`}
-                aria-current={i === 0 ? "true" : "false"}
-              />
-            ))}
-          </div>
+          ))}
         </div>
-      )
-    }
+      </div>
 
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a
-        href={playHref}
-        class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+      <button
+        type="button"
+        class="carousel-prev absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+        aria-label="Previous team"
       >
-        {ctaPlay}
-      </a>
-      <a
-        href={browseHref}
-        class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <button
+        type="button"
+        class="carousel-next absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+        aria-label="Next team"
       >
-        {ctaBrowse}
-      </a>
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+
+      <div class="mt-4 flex items-center justify-center gap-2">
+        {slides.map((_, i) => (
+          <button
+            type="button"
+            class="carousel-dot h-2 w-2 rounded-full bg-white/25 transition-colors hover:bg-white/50"
+            data-index={i}
+            aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === 0 ? "true" : "false"}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  )
+}
 
 <style>
   .carousel-track {

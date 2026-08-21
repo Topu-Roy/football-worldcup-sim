@@ -16,7 +16,6 @@ const { lang, path } = Astro.props;
 const c = home[lang];
 const m = meta[lang].home;
 const previewSlides = buildPreviewSlides();
-const p = c.preview;
 ---
 
 <Layout lang={lang} path={path} title={m.title} description={m.description}>
@@ -32,56 +31,60 @@ const p = c.preview;
       </div>
 
       <div
-        class="relative mx-auto max-w-5xl px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16"
+        class="relative mx-auto max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-24 sm:pb-16"
       >
-        <p
-          class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
-        >
-          World Cup Draft Simulator
-        </p>
-        <h1
-          class="mt-4 font-display text-6xl leading-[0.85] tracking-[1.07px] text-balance text-mint sm:text-7xl md:text-8xl"
-        >
-          {c.h1}
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-secondary">{c.hero}</p>
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="text-center lg:text-left">
+            <p
+              class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+            >
+              World Cup Draft Simulator
+            </p>
+            <h1
+              class="mt-4 font-display text-6xl text-balance text-mint sm:text-7xl md:text-6xl"
+            >
+              {c.h1}
+            </h1>
+            <p class="mx-auto mt-6 max-w-2xl text-secondary lg:mx-0">
+              {c.hero}
+            </p>
 
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="/game"
-            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
-          >
-            {c.ctaPlay}
-          </a>
-          <a
-            href={localizedPath("/how-to-play", lang)}
-            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-          >
-            {c.ctaHow}
-          </a>
+            <div
+              class="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+            >
+              <a
+                href="/game"
+                class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+              >
+                {c.ctaPlay}
+              </a>
+              <a
+                href={localizedPath("/how-to-play", lang)}
+                class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+              >
+                {c.ctaHow}
+              </a>
+            </div>
+
+            <ul
+              class="mt-10 flex flex-wrap items-center justify-center gap-2 lg:justify-start"
+            >
+              {
+                c.chips.map((s) => (
+                  <li class="rounded-full border border-white/15 bg-slate/40 px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
+                    {s}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div class="flex justify-center lg:justify-end">
+            <PreviewCarousel slides={previewSlides} />
+          </div>
         </div>
-
-        <ul class="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {
-            c.chips.map((s) => (
-              <li class="rounded-full border border-white/15 bg-slate/40 px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
-                {s}
-              </li>
-            ))
-          }
-        </ul>
       </div>
     </section>
-
-    <PreviewCarousel
-      slides={previewSlides}
-      eyebrow={p.eyebrow}
-      title={p.title}
-      caption={p.caption}
-      ctaPlay={c.ctaPlay}
-      ctaBrowse={c.squadsCta1}
-      lang={lang}
-    />
 
     <section class="border-t border-white/10 bg-slate/20">
       <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
