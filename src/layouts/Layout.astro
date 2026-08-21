@@ -15,13 +15,40 @@ const {
   title,
   description = "Draft a fantasy World Cup XI from 100+ historical squads (1970-2026) and run it through a simulated group stage and knockout tournament.",
   canonical = Astro.url.pathname,
-  ogImage = "/favicon.svg",
+  ogImage = "/og-image.svg",
   noindex = false,
 } = Astro.props;
 
 const siteUrl = "https://example.com";
 const fullUrl = new URL(canonical, siteUrl).toString();
 const fullImage = new URL(ogImage, siteUrl).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "World Cup Draft Simulator",
+      url: siteUrl,
+      logo: `${siteUrl}/favicon.svg`,
+      description:
+        "A free browser-based fantasy football World Cup draft and tournament simulation game. Draft a dream XI from 100+ historical squads and simulate the cup.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "World Cup Draft Simulator",
+      publisher: { "@id": `${siteUrl}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${siteUrl}/teams/#search`,
+        "query-input": "required name=search",
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -42,10 +69,11 @@ const fullImage = new URL(ogImage, siteUrl).toString();
     <meta property="og:description" content={description} />
     <meta property="og:url" content={fullUrl} />
     <meta property="og:image" content={fullImage} />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <Header />
