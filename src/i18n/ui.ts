@@ -1,0 +1,150 @@
+import type { Locale } from "./config";
+
+export const ui = {
+  en: {
+    nav: {
+      teams: "Teams",
+      howToPlay: "How to Play",
+      history: "History",
+      about: "About",
+      privacy: "Privacy",
+      terms: "Terms",
+      contact: "Contact",
+      newDraft: "New Draft",
+      menuToggle: "Toggle menu",
+    },
+    footer: {
+      tagline: "Free browser soccer game — draft & simulate your World Cup",
+      backToTop: "Back to Top",
+    },
+    switcher: { label: "Language" },
+    cta: {
+      playNow: "Play now",
+      fullGuide: "Full guide",
+      startDrafting: "Start drafting",
+      browseAllSquads: "Browse all squads",
+      emailUs: "Email us",
+      getInTouch: "Get in touch",
+      viewTeam: "View team",
+    },
+    team: { historicalSquad: "Historical Squad" },
+  },
+  de: {
+    nav: {
+      teams: "Mannschaften",
+      howToPlay: "Anleitung",
+      history: "Historie",
+      about: "Über",
+      privacy: "Datenschutz",
+      terms: "AGB",
+      contact: "Kontakt",
+      newDraft: "Neuer Entwurf",
+      menuToggle: "Menü umschalten",
+    },
+    footer: {
+      tagline:
+        "Kostenloses Browser-Fußballspiel — stelle deinen World Cup auf und simuliere ihn",
+      backToTop: "Nach oben",
+    },
+    switcher: { label: "Sprache" },
+    cta: {
+      playNow: "Jetzt spielen",
+      fullGuide: "Komplette Anleitung",
+      startDrafting: "Draft starten",
+      browseAllSquads: "Alle Mannschaften",
+      emailUs: "E-Mail senden",
+      getInTouch: "Kontakt aufnehmen",
+      viewTeam: "Team ansehen",
+    },
+    team: { historicalSquad: "Historische Mannschaft" },
+  },
+  fr: {
+    nav: {
+      teams: "Équipes",
+      howToPlay: "Comment jouer",
+      history: "Historique",
+      about: "À propos",
+      privacy: "Confidentialité",
+      terms: "Conditions",
+      contact: "Contact",
+      newDraft: "Nouveau tirage",
+      menuToggle: "Basculer le menu",
+    },
+    footer: {
+      tagline:
+        "Jeu de football gratuit dans le navigateur — composez et simulez votre Coupe du Monde",
+      backToTop: "Haut de page",
+    },
+    switcher: { label: "Langue" },
+    cta: {
+      playNow: "Jouer",
+      fullGuide: "Guide complet",
+      startDrafting: "Commencer le tirage",
+      browseAllSquads: "Toutes les équipes",
+      emailUs: "Nous écrire",
+      getInTouch: "Contactez-nous",
+      viewTeam: "Voir l'équipe",
+    },
+    team: { historicalSquad: "Équipe historique" },
+  },
+  ja: {
+    nav: {
+      teams: "チーム",
+      howToPlay: "遊び方",
+      history: "履歴",
+      about: "概要",
+      privacy: "プライバシー",
+      terms: "利用規約",
+      contact: "お問い合わせ",
+      newDraft: "新規ドラフト",
+      menuToggle: "メニューを開く",
+    },
+    footer: {
+      tagline:
+        "無料ブラウザサッカーゲーム — ワールドカップをドラフトしてシミュレート",
+      backToTop: "トップへ",
+    },
+    switcher: { label: "言語" },
+    cta: {
+      playNow: "今すぐプレイ",
+      fullGuide: "詳しいガイド",
+      startDrafting: "ドラフト開始",
+      browseAllSquads: "全チーム",
+      emailUs: "メールする",
+      getInTouch: "お問い合わせ",
+      viewTeam: "チームを見る",
+    },
+    team: { historicalSquad: "歴代チーム" },
+  },
+  es: {
+    nav: {
+      teams: "Equipos",
+      howToPlay: "Cómo jugar",
+      history: "Historial",
+      about: "Acerca de",
+      privacy: "Privacidad",
+      terms: "Términos",
+      contact: "Contacto",
+      newDraft: "Nuevo draft",
+      menuToggle: "Alternar menú",
+    },
+    footer: {
+      tagline:
+        "Juego de fútbol gratuito en el navegador — arma y simula tu Copa del Mundo",
+      backToTop: "Volver arriba",
+    },
+    switcher: { label: "Idioma" },
+    cta: {
+      playNow: "Jugar",
+      fullGuide: "Guía completa",
+      startDrafting: "Empezar el draft",
+      browseAllSquads: "Todos los equipos",
+      emailUs: "Envíanos un correo",
+      getInTouch: "Contáctanos",
+      viewTeam: "Ver equipo",
+    },
+    team: { historicalSquad: "Equipo histórico" },
+  },
+};
+
+export type UIDictionary = (typeof ui)[Locale];

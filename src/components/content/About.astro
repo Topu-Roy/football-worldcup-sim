@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { about } from "../../i18n/content/about";
+import { meta } from "../../i18n/meta";
+import { localizedPath } from "../../i18n/t";
+import type { Locale } from "../../i18n/config";
+
+interface Props {
+  lang: Locale;
+  path: string;
+}
+
+const { lang, path } = Astro.props;
+const c = about[lang];
+const m = meta[lang].about;
+---
+
+<Layout lang={lang} path={path} title={m.title} description={m.description}>
+  <main class="min-h-screen bg-canvas text-white">
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+        <h1
+          class="font-display text-5xl leading-[0.9] tracking-[0.5px] text-mint sm:text-6xl"
+        >
+          {c.h1}
+        </h1>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.hero.map((p) => <p>{p}</p>)}
+        </div>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.tickTitle}</h2>
+        <ul class="mt-6 space-y-4">
+          {
+            c.tickItems.map((item) => (
+              <li class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                <span class="block font-display text-xl tracking-[0.5px]">
+                  {item.title}
+                </span>
+                <span class="mt-2 block text-sm leading-relaxed text-secondary">
+                  {item.body}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.greatestTitle}
+        </h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.greatest.map((p) => <p>{p}</p>)}
+        </div>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">Systems</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.systems.map((p) => <p>{p}</p>)}
+        </div>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.dataTitle}</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.data.map((p) => <p>{p}</p>)}
+        </div>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.contactTitle}</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.contact.map((p) => <p>{p}</p>)}
+        </div>
+        <div class="mt-8">
+          <a
+            href={localizedPath("/contact", lang)}
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            {c.contactCta}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

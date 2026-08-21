@@ -14,6 +14,14 @@ export default defineConfig({
   site: "https://example.com",
   integrations: [svelte(), partytown(), sitemap()],
 
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "de", "fr", "ja", "es"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   redirects: {
     "/terms": "/terms-and-conditions",
   },

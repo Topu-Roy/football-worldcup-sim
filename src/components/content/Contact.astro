@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { contact } from "../../i18n/content/contact";
+import { meta } from "../../i18n/meta";
+import type { Locale } from "../../i18n/config";
+
+interface Props {
+  lang: Locale;
+  path: string;
+}
+
+const { lang, path } = Astro.props;
+const c = contact[lang];
+const m = meta[lang].contact;
+const EMAIL = "hello@worldcupdraftsimulator.com";
+---
+
+<Layout lang={lang} path={path} title={m.title} description={m.description}>
+  <main class="min-h-screen bg-canvas text-white">
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+        <h1
+          class="font-display text-5xl leading-[0.9] tracking-[0.5px] text-mint sm:text-6xl"
+        >
+          {c.h1}
+        </h1>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.hero.map((p) => <p>{p}</p>)}
+        </div>
+
+        <div class="mt-8">
+          <a
+            href={`mailto:${EMAIL}`}
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            {c.ctaEmail}
+          </a>
+        </div>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.bodyTitle}</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
+          {c.body.map((p) => <p>{p}</p>)}
+        </div>
+
+        <div class="mt-8">
+          <a
+            href={`mailto:${EMAIL}`}
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            {c.contactCta}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

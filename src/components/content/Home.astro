@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { home } from "../../i18n/content/home";
+import { meta } from "../../i18n/meta";
+import { localizedPath } from "../../i18n/t";
+import type { Locale } from "../../i18n/config";
+
+interface Props {
+  lang: Locale;
+  path: string;
+}
+
+const { lang, path } = Astro.props;
+const c = home[lang];
+const m = meta[lang].home;
+---
+
+<Layout lang={lang} path={path} title={m.title} description={m.description}>
+  <main class="min-h-screen bg-canvas text-white">
+    <section class="relative overflow-hidden">
+      <div
+        class="pointer-events-none absolute -top-48 left-1/2 h-96 w-2xl -translate-x-1/2 rounded-full bg-mint/15 blur-[120px]"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute top-24 -left-32 h-64 w-64 rounded-full bg-uv/20 blur-[100px]"
+      >
+      </div>
+
+      <div
+        class="relative mx-auto max-w-5xl px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16"
+      >
+        <p
+          class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+        >
+          World Cup Draft Simulator
+        </p>
+        <h1
+          class="mt-4 font-display text-6xl leading-[0.85] tracking-[1.07px] text-balance text-mint sm:text-7xl md:text-8xl"
+        >
+          {c.h1}
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-secondary">{c.hero}</p>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/game"
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            {c.ctaPlay}
+          </a>
+          <a
+            href={localizedPath("/how-to-play", lang)}
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            {c.ctaHow}
+          </a>
+        </div>
+
+        <ul class="mt-10 flex flex-wrap items-center justify-center gap-2">
+          {
+            c.chips.map((s) => (
+              <li class="rounded-full border border-white/15 bg-slate/40 px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
+                {s}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-slate/20">
+      <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+        <p
+          class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+        >
+          {c.stepsEyebrow}
+        </p>
+        <h2
+          class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+        >
+          {c.stepsTitle}
+        </h2>
+        <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            c.steps.map((step) => (
+              <li class="flex flex-col rounded-2xl border border-white/10 bg-slate/40 p-5">
+                <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint">
+                  {step.n}
+                </span>
+                <span class="mt-4 block font-display text-xl tracking-[0.5px]">
+                  {step.title}
+                </span>
+                <span class="mt-2 block text-xs leading-relaxed text-secondary">
+                  {step.body}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+
+        <div
+          class="mx-auto mt-10 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          {c.loop.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+        <p
+          class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+        >
+          {c.squadsEyebrow}
+        </p>
+        <h2
+          class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+        >
+          {c.squadsTitle}
+        </h2>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={localizedPath("/teams", lang)}
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            {c.squadsCta1}
+          </a>
+          <a
+            href="/game"
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            {c.squadsCta2}
+          </a>
+        </div>
+
+        <div
+          class="mx-auto mt-10 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          {c.squads.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+        <p
+          class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+        >
+          {c.playEyebrow}
+        </p>
+        <h2
+          class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+        >
+          {c.playTitle}
+        </h2>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={localizedPath("/how-to-play", lang)}
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            {c.playCta1}
+          </a>
+          <a
+            href="/game"
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            {c.playCta2}
+          </a>
+        </div>
+
+        <div
+          class="mx-auto mt-10 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          {c.play.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

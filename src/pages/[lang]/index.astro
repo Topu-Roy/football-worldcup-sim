@@ -1,0 +1,17 @@
+---
+import Home from "../../components/content/Home.astro";
+import { locales } from "../../i18n/config";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const l of locales) {
+    if (l === "en") continue;
+    paths.push({ params: { lang: l } });
+  }
+  return paths;
+}
+
+const { lang } = Astro.params;
+---
+
+<Home lang={lang} path="/" />

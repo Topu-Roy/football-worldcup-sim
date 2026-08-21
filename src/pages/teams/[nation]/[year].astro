@@ -1,227 +1,69 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { HISTORICAL_SQUADS } from "../../../data/historical/index.js";
-import { NATION_NAMES, NATION_SLUGS } from "../../../lib/draft.js";
-import { playerRating, playerTier } from "../../../lib/draft.js";
-import type { Squad } from "../../../lib/types.js";
+import TeamDetail from "../../../components/content/TeamDetail.astro";
+import { HISTORICAL_SQUADS } from "../../../data/historical/index";
+import { playerRating } from "../../../lib/draft/rating";
+import { FORMATIONS } from "../../../lib/types";
 
 export function getStaticPaths() {
-  return HISTORICAL_SQUADS.map((squad) => {
-    const slug = NATION_SLUGS[squad.nation] ?? squad.nation.toLowerCase();
-    return {
-      params: { nation: slug, year: String(squad.wcYear) },
-      props: { squad },
-    };
-  });
-}
-
-const { squad }: { squad: Squad } = Astro.props;
-const nationName = NATION_NAMES[squad.nation] ?? squad.nation;
-const slug = NATION_SLUGS[squad.nation] ?? squad.nation.toLowerCase();
-const title = `${nationName} ${squad.wcYear} Squad — World Cup ${squad.wcYear} Team & Player Ratings`;
-const description = `See the ${nationName} ${squad.wcYear} World Cup squad: full roster, player ratings and formation. Draft this historical ${nationName} team in the fantasy World Cup simulator.`;
-
-const sorted = [...squad.players].sort(
-  (a, b) => playerRating(b) - playerRating(a),
-);
-
-const tierColor: Record<string, string> = {
-  elite: "bg-mint text-black",
-  star: "bg-yellow text-black",
-  standard: "bg-slate text-secondary",
-};
-
-const tierLabel: Record<string, string> = {
-  elite: "ELITE",
-  star: "STAR",
-  standard: "STD",
-};
-
-const formationLabel = (s: Squad) =>
-  [["GK", s.formation.GK], ["DEF", s.formation.DEF], ["MID", s.formation.MID], ["ATT", s.formation.ATT]]
-    .map(([k, n]) => `${n} ${k}`)
-    .join(" · ");
-
-const years = HISTORICAL_SQUADS.filter((s) => s.nation === squad.nation)
-  .map((s) => s.wcYear)
-  .sort();
----
-
-<Layout title={title} description={description} canonical={`/teams/${slug}/${squad.wcYear}/`}>
-  <main class="min-h-screen bg-canvas text-white">
-    <section class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
-      <p class="font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
-        Historical Squad
-      </p>
-      <h1 class="mt-4 font-display text-5xl leading-[0.9] tracking-[1.07px] sm:text-7xl">
-        {nationName} {squad.wcYear}
-      </h1>
-      <p class="mt-4 max-w-2xl text-secondary">
-        The {nationName} World Cup {squad.wcYear} squad — formation
-        {formationLabel(squad)}, with player ratings for every member. Led by
-        {sorted[0].name} at {playerRating(sorted[0])} overall, this is the
-        roster as it stood at the tournament, rated player by player on a
-        single scale so you can compare it against every team in World Cup
-        history. Take them into the draft and see how they fare against the
-        all-time greats.
-      </p>
-
-      <div class="mt-6 flex flex-wrap items-center gap-3">
-        <a
-          href="/game"
-          class="rounded-full bg-mint px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
-        >
-          Play
-        </a>
-        <a
-          href="/teams"
-          class="rounded-full border border-white/15 px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-        >
-          All teams
-        </a>
-      </div>
-
-      {years.length > 1 && (
-        <div class="mt-6 flex flex-wrap items-center gap-2">
-          <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
-            Other {nationName} squads:
-          </span>
-          {years
-            .filter((y) => y !== squad.wcYear)
-            .map((y) => (
-              <a
-                href={`/teams/${slug}/${y}/`}
-                class="rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-              >
-                {nationName} {y}
-              </a>
-            ))}
-        </div>
-      )}
-    </section>
-
-    <section class="mx-auto max-w-5xl px-4 pb-20 sm:px-6">
-      <h2 class="font-display text-3xl tracking-[0.5px]">
-        Roster &amp; ratings
-      </h2>
-      <ul class="mt-6 overflow-hidden rounded-3xl border border-white/10">
-        {sorted.map((p, i) => {
-          const tier = playerTier(p);
-          return (
-            <li
-              class={i > 0
-                ? "flex items-center gap-4 border-t border-white/10 bg-slate/40 px-4 py-3 sm:px-6"
-                : "flex items-center gap-4 bg-slate/40 px-4 py-3 sm:px-6"}
-            >
-              <span class="w-8 shrink-0 font-mono text-[11px] font-semibold text-secondary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span class="min-w-0 flex-1">
-                <span class="block truncate font-display text-lg tracking-[0.5px]">
-                  {p.name}
-                </span>
-                <span class="block font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
-                  {p.bestPosition}
-                </span>
-              </span>
-              <span
-                class={`rounded-full px-2.5 py-1 font-mono text-[9px] font-semibold tracking-[1.5px] uppercase ${tierColor[tier]}`}
-              >
-                {tierLabel[tier]}
-              </span>
-              <span class="w-10 shrink-0 text-right font-display text-lg text-mint">
-                {playerRating(p)}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-
-    <section class="border-t border-white/10 bg-slate/20">
-      <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-16">
-        <div class="read-more">
-          <h2 class="font-display text-2xl tracking-[0.5px] sm:text-3xl">
-            {nationName} at the {squad.wcYear} World Cup
-          </h2>
-          <div class="clamp mt-5 space-y-4 text-sm leading-relaxed text-secondary">
-            <p>
-              {nationName} arrived at the {squad.wcYear} World Cup with a
-              squad built around {sorted[0].name}, the side's highest-rated
-              player at {playerRating(sorted[0])} overall. In a
-              {formationLabel(squad)} shape, the group mixed proven leaders
-              with emerging talent, and the ratings above show exactly where
-              the team's strength sat — and where it thinned out.
-            </p>
-            <p>
-              Average rating only tells part of the story. Tournaments are
-              won on form, fixture luck and fine margins, which is why the
-              same roster can be devastating in one simulation and knocked
-              out early in the next. That unpredictability is the heart of a
-              fantasy World Cup: picking a star-studded side is no guarantee,
-              and backing a gritty underdog can pay off.
-            </p>
-            <p>
-              You can compare {nationName} {squad.wcYear} against every other
-              squad in the index, from Brazil 1970 to Argentina 2022. Use the
-              year navigation above to jump between {nationName}'s other
-              World Cup appearances and see how the squad evolved from
-              tournament to tournament.
-            </p>
-            <p>
-              When you're ready, draft this squad — or build your own XI from
-              the whole of World Cup history — and take it through a full
-              tournament in the simulator.
-            </p>
-          </div>
-          <button
-            type="button"
-            class="read-more-btn mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/15 px-4 py-2 font-mono text-[10px] font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-            aria-expanded="false"
-            data-read-more
-          >
-            Read more
-            <span class="chev">▾</span>
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
-</Layout>
-
-<script>
-  const btn = document.querySelector<HTMLButtonElement>("[data-read-more]");
-  const root = btn?.closest(".read-more");
-  const clamp = root?.querySelector(".clamp");
-  const chev = root?.querySelector(".chev");
-  if (btn && root && clamp) {
-    btn.addEventListener("click", () => {
-      const open = root.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", String(open));
-      btn.firstChild!.textContent = open ? "Show less " : "Read more ";
-      if (chev) chev.textContent = open ? "▴" : "▾";
+  const paths = [];
+  for (const s of HISTORICAL_SQUADS) {
+    const slug = s.nation.toLowerCase();
+    const year = String(s.wcYear);
+    const ratings = s.players.map((p) => playerRating(p));
+    const avg = Math.round(ratings.reduce((a, b) => a + b, 0) / ratings.length);
+    let top = s.players[0];
+    for (const p of s.players) {
+      if (playerRating(p) > playerRating(top)) top = p;
+    }
+    const display = s.name.replace(/\s+\d{4}$/, "");
+    const formationKeys = Object.keys(FORMATIONS);
+    let fl = "4-3-3";
+    for (let i = 0; i < formationKeys.length; i++) {
+      const k = formationKeys[i];
+      const v = FORMATIONS[k];
+      if (
+        v.GK === s.formation.GK &&
+        v.DEF === s.formation.DEF &&
+        v.MID === s.formation.MID &&
+        v.ATT === s.formation.ATT
+      ) {
+        fl = k;
+        break;
+      }
+    }
+    const players = s.players.map((p) => {
+      return {
+        name: p.name,
+        rating: Math.round(playerRating(p)),
+        pos: p.bestPosition,
+      };
+    });
+    const yearList = [];
+    for (const o of HISTORICAL_SQUADS) {
+      if (o.nation === s.nation && String(o.wcYear) !== year) {
+        yearList.push({ year: String(o.wcYear), slug: o.nation.toLowerCase() });
+      }
+    }
+    paths.push({
+      params: { nation: slug, year },
+      props: {
+        nation: display,
+        year,
+        formationLabel: fl,
+        topName: top.name,
+        topRating: Math.round(playerRating(top)),
+        avgRating: avg,
+        players,
+        yearList,
+      },
     });
   }
-</script>
+  return paths;
+}
+---
 
-<style>
-  .clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    overflow: hidden;
-  }
-
-  .read-more.is-open .clamp {
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .clamp {
-      -webkit-line-clamp: unset;
-      line-clamp: unset;
-    }
-  }
-</style>
+<TeamDetail
+  lang="en"
+  path={`/teams/${Astro.params.nation}/${Astro.params.year}`}
+  {...Astro.props}
+/>

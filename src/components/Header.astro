@@ -1,10 +1,16 @@
 ---
 import { Menu, X } from "@lucide/astro";
+import { getLocale, localizedPath } from "../i18n/t";
+import { ui } from "../i18n/ui";
+import LocaleSwitcher from "./LocaleSwitcher.astro";
+
+const locale = getLocale(Astro.url.pathname);
+const labels = ui[locale];
 ---
 
 <header class="site-header">
   <div class="inner">
-    <a href="/" class="wordmark">WORLD CUP <span>/</span> SIM</a>
+    <a href={localizedPath("/", locale)} class="wordmark">WORLD CUP <span>/</span> SIM</a>
     <button
       type="button"
       class="menu-toggle"
@@ -17,14 +23,15 @@ import { Menu, X } from "@lucide/astro";
       <X class="icon-close" data-icon-close />
     </button>
     <nav class="nav" id="primary-nav" aria-label="Primary">
-      <a href="/teams/" class="nav-link">Teams</a>
-      <a href="/how-to-play/" class="nav-link">How to Play</a>
-      <a href="/history/" class="nav-link">History</a>
-      <a href="/about/" class="nav-link">About</a>
-      <a href="/privacy/" class="nav-link">Privacy</a>
-      <a href="/terms-and-conditions/" class="nav-link">Terms</a>
-      <a href="/contact/" class="nav-link">Contact</a>
-      <a href="/game" class="nav-link nav-link-cta" id="new-draft">New Draft</a>
+      <a href={localizedPath("/teams", locale)} class="nav-link">{labels.nav.teams}</a>
+      <a href={localizedPath("/how-to-play", locale)} class="nav-link">{labels.nav.howToPlay}</a>
+      <a href="/history/" class="nav-link">{labels.nav.history}</a>
+      <a href={localizedPath("/about", locale)} class="nav-link">{labels.nav.about}</a>
+      <a href="/privacy/" class="nav-link">{labels.nav.privacy}</a>
+      <a href="/terms-and-conditions/" class="nav-link">{labels.nav.terms}</a>
+      <a href={localizedPath("/contact", locale)} class="nav-link">{labels.nav.contact}</a>
+      <LocaleSwitcher lang={locale} />
+      <a href="/game" class="nav-link nav-link-cta" id="new-draft">{labels.nav.newDraft}</a>
     </nav>
   </div>
 </header>
