@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BarChart3, ChevronRight, LayoutGrid, Play, Trophy } from "@lucide/svelte";
+  import { ChartColumn, ChevronRight, LayoutGrid, Play, Trophy } from "@lucide/svelte";
   import { formationOptions, POSITION_LABEL } from "../lib/draft.js";
   import type { Formation } from "../lib/types.js";
 
@@ -49,7 +49,7 @@
       text: "Your tournament simulates itself, match by match. Pause any game and take over.",
     },
     {
-      icon: BarChart3,
+      icon: ChartColumn,
       title: "Replay & results",
       text: "Rewatch goals, compare squad stats, and lift the trophy when it's all over.",
     },
