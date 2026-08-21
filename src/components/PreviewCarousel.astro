@@ -1,0 +1,288 @@
+---
+import PitchGraphic from "./PitchGraphic.astro";
+import { localizedPath } from "../i18n/t";
+import type { Locale } from "../i18n/config";
+import type { PreviewSlide } from "../data/preview-squads";
+
+interface Props {
+  slides: PreviewSlide[];
+  eyebrow: string;
+  title: string;
+  caption: string;
+  ctaBrowse: string;
+  ctaPlay: string;
+  lang: Locale;
+}
+
+const { slides, eyebrow, title, caption, ctaBrowse, ctaPlay, lang } = Astro.props;
+const browseHref = localizedPath("/teams", lang);
+const playHref = "/game";
+---
+
+<section class="border-t border-white/10 bg-canvas">
+  <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+    <p class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase">
+      {eyebrow}
+    </p>
+    <h2
+      class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+    >
+      {title}
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-secondary">
+      {caption}
+    </p>
+
+    {
+      slides.length > 0 && (
+        <div class="relative mt-10" id="preview-carousel">
+          <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate/30">
+            <div class="carousel-track flex">
+              {slides.map((s, i) => (
+                <div
+                  class="carousel-slide w-full shrink-0"
+                  data-index={i}
+                  aria-roledescription="slide"
+                  aria-hidden={i === 0 ? "false" : "true"}
+                >
+                  <div class="flex flex-col items-center gap-6 p-6 sm:flex-row sm:items-center sm:gap-10 sm:p-10">
+                    <div class="relative mx-auto aspect-3/4 w-full max-w-[260px] sm:max-w-xs">
+                      <PitchGraphic id={s.id} />
+                      {s.players.map((p) => (
+                        <div
+                          class="chip"
+                          style={`left:${p.x}%; top:${p.y}%`}
+                        >
+                          <span class={`chip-ball ${p.tier}`}>{p.jersey}</span>
+                          <span class="chip-name">{p.name}</span>
+                          <span class="chip-rating">{p.rating}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div class="w-full max-w-sm text-center sm:text-left">
+                      <p class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint uppercase">
+                        {s.formationLabel}
+                      </p>
+                      <h3 class="mt-2 font-display text-3xl tracking-[0.5px]">
+                        {s.team}
+                      </h3>
+                      <p class="mt-2 text-sm text-secondary">
+                        {s.nation} · Top rated:{" "}
+                        <span class="font-semibold text-white">{s.topName}</span>{" "}
+                        <span class="font-mono text-mint">{s.topRating}</span>
+                      </p>
+
+                      <ul class="mt-4 flex flex-wrap justify-center gap-1.5 sm:justify-start">
+                        {s.players
+                          .slice()
+                          .sort((a, b) => b.rating - a.rating)
+                          .slice(0, 6)
+                          .map((p) => (
+                            <li
+                              class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] font-semibold tracking-[1px] text-secondary"
+                            >
+                              {p.name}{" "}
+                              <span
+                                class:list={[
+                                  "ml-1",
+                                  p.tier === "elite"
+                                    ? "text-mint"
+                                    : p.tier === "star"
+                                      ? "text-white"
+                                      : "text-secondary",
+                                ]}
+                              >
+                                {p.rating}
+                              </span>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="carousel-prev absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+            aria-label="Previous team"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <button
+            type="button"
+            class="carousel-next absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+            aria-label="Next team"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+          </button>
+
+          <div class="mt-5 flex items-center justify-center gap-2">
+            {slides.map((_, i) => (
+              <button
+                type="button"
+                class="carousel-dot h-2 w-2 rounded-full bg-white/25 transition-colors hover:bg-white/50"
+                data-index={i}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={i === 0 ? "true" : "false"}
+              />
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a
+        href={playHref}
+        class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+      >
+        {ctaPlay}
+      </a>
+      <a
+        href={browseHref}
+        class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+      >
+        {ctaBrowse}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .carousel-track {
+    transition: transform 400ms ease;
+    will-change: transform;
+  }
+
+  .chip {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    width: 78px;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .chip-ball {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .chip-ball.elite {
+    border-color: #3cffd0;
+    box-shadow: 0 0 10px rgba(60, 255, 208, 0.7);
+  }
+
+  .chip-ball.star {
+    border-color: rgba(60, 255, 208, 0.55);
+  }
+
+  .chip-name {
+    margin-top: 1px;
+    max-width: 78px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.58rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+
+  .chip-rating {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    font-weight: 700;
+    color: #3cffd0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+
+  .carousel-dot.is-active {
+    background: #3cffd0;
+    width: 1.5rem;
+  }
+</style>
+
+<script>
+  const root = document.getElementById("preview-carousel");
+  if (root) {
+    const track = root.querySelector<HTMLElement>(".carousel-track");
+    const slides = Array.from(root.querySelectorAll<HTMLElement>(".carousel-slide"));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>(".carousel-dot"));
+    const total = slides.length;
+    if (track && total > 0) {
+      let i = 0;
+      const go = (n: number) => {
+        i = (n + total) % total;
+        track.style.transform = `translateX(-${i * 100}%)`;
+        slides.forEach((s, idx) =>
+          s.setAttribute("aria-hidden", idx === i ? "false" : "true"),
+        );
+        dots.forEach((d, idx) => {
+          d.setAttribute("aria-current", idx === i ? "true" : "false");
+          d.classList.toggle("is-active", idx === i);
+        });
+      };
+
+      root
+        .querySelector(".carousel-prev")
+        ?.addEventListener("click", () => {
+          go(i - 1);
+          restart();
+        });
+      root
+        .querySelector(".carousel-next")
+        ?.addEventListener("click", () => {
+          go(i + 1);
+          restart();
+        });
+      dots.forEach((d, idx) =>
+        d.addEventListener("click", () => {
+          go(idx);
+          restart();
+        }),
+      );
+
+      let timer: number | undefined;
+      const start = () => {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          timer = window.setInterval(() => go(i + 1), 5000);
+        }
+      };
+      const stop = () => {
+        if (timer !== undefined) window.clearInterval(timer);
+      };
+      const restart = () => {
+        stop();
+        start();
+      };
+
+      root.addEventListener("mouseenter", stop);
+      root.addEventListener("mouseleave", start);
+      root.addEventListener("focusin", stop);
+      root.addEventListener("focusout", start);
+
+      go(0);
+      start();
+    }
+  }
+</script>
