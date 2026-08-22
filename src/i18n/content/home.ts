@@ -1,7 +1,7 @@
 export const home = {
   en: {
     h1: "Fantasy Football World Cup: Simulate the World Cup",
-    hero: "World Cup Draft Simulator is a free browser soccer game. It is a fantasy football world cup game. You draft a dream team from 100+ old World Cup squads. Pick Brazil 1970, France 1998 or Argentina 2022. Then the game simulates a full tournament for you. You get group games, a knockout bracket and penalty shootouts. It is a soccer simulator and a football draft simulator. You play it online. No download. No sign-up. In the US, people call it a soccer draft game or online soccer game. It is also a free soccer simulation game. The world cup simulator 2026 mode adds new squads. You can predict your own tournament today. Pick a formation, build your squad, and watch the cup.",
+    hero: "A free browser soccer game with one goal: you draft a fantasy football world cup dream team from 100+ historical squads and watch it chase the trophy. Pick Brazil 1970, France 1998 or Argentina 2022, then simulate the full tournament - group games, a knockout bracket and penalty shootouts included. It works as a soccer simulator, a football draft simulator and a world cup predictor for your own 2026 draw. Everything runs online in your browser. No download. No sign-up. Pick a formation, build your squad, and watch the cup.",
     ctaPlay: "Play Now",
     ctaHow: "How to play",
     showMore: "Show more",
@@ -44,7 +44,7 @@ export const home = {
       },
     ],
     loop: [
-      "World Cup Draft Simulator is a fantasy football world cup game. It is easy to replay. The game has one simple loop.",
+      "One simple loop makes this fantasy football world cup game easy to replay.",
       "First, you pick your formation. You can pick 4-3-3 for attack. Or 4-4-2 for balance. Or 3-5-2 for the midfield. Or 4-2-3-1 for control. Your choice locks the slots. You must fill them over 12 draft rounds.",
       "Next, the football draft simulator shows you squads. These are old World Cup teams from 1970 to 2026. You build your dream XI one pick at a time. You chase the best players. You fill the gaps. You keep one player on the bench.",
       "When your squad is ready, the soccer simulator takes over. Your team joins a group with three AI teams. The match engine plays each group game. It shows possession, shots and chances. The knockout bracket runs by itself. You get the round of 16, the quarter-final, the semi-final and the final.",

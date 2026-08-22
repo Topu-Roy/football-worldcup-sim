@@ -2,7 +2,7 @@ export const about = {
   en: {
     h1: "What is the Fantasy Football World Cup Draft Simulator?",
     hero: [
-      "World Cup Draft Simulator is a free browser soccer game. It is a fantasy football world cup game for fans of World Cup history. It is the world cup dream team builder. You draft a dream XI from the teams of 1970 to 2026. Pick Pelé's Brazil 1970, Zidane's France 1998 or Messi's Argentina 2022. Then the game simulates a group stage and a knockout tournament.",
+      "This free browser soccer game is made for fans of World Cup history. It is a fantasy football world cup game and the world cup dream team builder in one: you draft a dream XI from the teams of 1970 to 2026 - Pelé's Brazil 1970, Zidane's France 1998, Messi's Argentina 2022 - then the game simulates a group stage and a knockout tournament.",
       "Think of it as a soccer simulator. It is also a football draft simulator and a world cup fantasy game. You pick a formation. You draft your players. The match engine simulates the cup with penalties. In the US, it is a soccer draft game, an online soccer game or a free soccer simulation game. Around the world, it is the fantasy soccer draft fans return to. No download. No sign-up. It is the easiest interactive soccer simulator to open between matches.",
       "Call it a world cup simulator. Or call it a soccer game with no download. Or just the world cup fantasy game. The promise is the same. Build your team. Watch the app simulate your result.",
     ],

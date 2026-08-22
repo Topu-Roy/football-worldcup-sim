@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { contact } from "../../i18n/content/contact";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
+import { ui } from "../../i18n/ui";
 import type { Locale } from "../../i18n/config";
 import { SITE_URL as siteUrl } from "../../lib/site";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
@@ -15,6 +16,7 @@ interface Props {
 
 const { lang, path } = Astro.props;
 const c = contact[lang];
+const t = ui[lang];
 const m = meta[lang].contact;
 const EMAIL = "hello@worldcupdraftsimulator.com";
 
@@ -65,6 +67,50 @@ const pageLd = {
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.body.map((p) => <p>{p}</p>)}
         </div>
+
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.exploreTitle}</h2>
+        <ul class="mt-4 flex flex-col gap-2 text-sm">
+          <li>
+            <a
+              href={localizedPath("/game", lang)}
+              class="text-mint transition-colors hover:text-white"
+            >
+              {t.seoLinks.game}
+            </a>
+          </li>
+          <li>
+            <a
+              href={localizedPath("/how-to-play", lang)}
+              class="text-mint transition-colors hover:text-white"
+            >
+              {t.seoLinks.howToPlay}
+            </a>
+          </li>
+          <li>
+            <a
+              href={localizedPath("/teams", lang)}
+              class="text-mint transition-colors hover:text-white"
+            >
+              {t.seoLinks.teams}
+            </a>
+          </li>
+          <li>
+            <a
+              href={localizedPath("/blog", lang)}
+              class="text-mint transition-colors hover:text-white"
+            >
+              {t.seoLinks.blog}
+            </a>
+          </li>
+          <li>
+            <a
+              href={localizedPath("/about", lang)}
+              class="text-mint transition-colors hover:text-white"
+            >
+              {t.nav.about}
+            </a>
+          </li>
+        </ul>
 
         <div class="mt-8">
           <a

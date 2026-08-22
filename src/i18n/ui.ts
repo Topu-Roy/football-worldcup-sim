@@ -29,6 +29,12 @@ export const ui = {
       viewTeam: "View team",
     },
     team: { historicalSquad: "Historical Squad" },
+    seoLinks: {
+      game: "Draft your World Cup XI",
+      howToPlay: "How to play the Fantasy Football World Cup",
+      teams: "Browse historical World Cup teams",
+      blog: "World Cup simulator guides on the blog",
+    },
   },
   de: {
     nav: {
@@ -59,6 +65,12 @@ export const ui = {
       viewTeam: "Team ansehen",
     },
     team: { historicalSquad: "Historische Mannschaft" },
+    seoLinks: {
+      game: "Stelle dein WM-XI auf",
+      howToPlay: "Fantasy Football World Cup spielen",
+      teams: "Historische World-Cup-Mannschaften ansehen",
+      blog: "Simulator-Guides im Blog",
+    },
   },
   fr: {
     nav: {
@@ -89,6 +101,12 @@ export const ui = {
       viewTeam: "Voir l'équipe",
     },
     team: { historicalSquad: "Équipe historique" },
+    seoLinks: {
+      game: "Composez votre XI du Mondial",
+      howToPlay: "Comment jouer au Fantasy Football World Cup",
+      teams: "Parcourir les équipes historiques de Coupe du Monde",
+      blog: "Guides du simulateur",
+    },
   },
   ja: {
     nav: {
@@ -119,6 +137,12 @@ export const ui = {
       viewTeam: "チームを見る",
     },
     team: { historicalSquad: "歴代チーム" },
+    seoLinks: {
+      game: "夢のイレブンをドラフト",
+      howToPlay: "Fantasy Football World Cup の遊び方",
+      teams: "歴代ワールドカップチームを見る",
+      blog: "シミュレーターガイド",
+    },
   },
   es: {
     nav: {
@@ -149,6 +173,12 @@ export const ui = {
       viewTeam: "Ver equipo",
     },
     team: { historicalSquad: "Equipo histórico" },
+    seoLinks: {
+      game: "Arma tu once del Mundial",
+      howToPlay: "Cómo jugar al Fantasy Football World Cup",
+      teams: "Explora los equipos históricos del Mundial",
+      blog: "Guías del simulador",
+    },
   },
 };
 

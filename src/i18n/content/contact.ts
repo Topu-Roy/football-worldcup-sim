@@ -1,12 +1,13 @@
-export const contact = {
+﻿export const contact = {
   en: {
     h1: "Get in touch",
     hero: [
-      "Feedback, bug reports, ideas or questions? World Cup Draft Simulator is a free online soccer game and a browser soccer game. You draft and simulate your own World Cup. We would love to hear from you. This is a fantasy football world cup project built by fans. Every message shapes what the soccer simulator becomes next.",
+      "Feedback, bug reports, ideas or questions? This free online soccer game lets you draft and simulate your own World Cup, and we would love to hear from you. It is a fantasy football world cup project built by fans. Every message shapes what the soccer simulator becomes next.",
       "You may have found us as a soccer draft game, a free soccer simulation game or an interactive soccer simulator. The door is open. Tell us a squad that feels wrong. Tell us a match that swung too far. Or tell us a feature the football draft simulator should add. There is no account. No download to reinstall. Reaching out is as quick as playing a round.",
     ],
     ctaEmail: "Email us",
     bodyTitle: "Email",
+    exploreTitle: "Explore the game",
     body: [
       "When you write in, a few details help us act fast. If a match in the world cup simulation felt off, tell us the formations. Tell us the round — group stage or knockout bracket. Then we can see how the match engine decided it. If a player rating looks wrong, name the squad and the position. The football simulator compares every draft on one scale. One wrong rating can tilt a tournament.",
       "Feature ideas are welcome too. More old squads. Extra football formations. A deeper penalty shootout simulator. Or a way to share your finished cup. All are on the table for a world cup fantasy game that keeps growing. We also love hearing from communities. Groups that run a fantasy soccer draft. Coaches of a youth side. Anyone who wants a free browser soccer game for the classroom or the locker room.",
@@ -23,6 +24,7 @@ export const contact = {
     ],
     ctaEmail: "E-Mail senden",
     bodyTitle: "E-Mail",
+    exploreTitle: "Das Spiel entdecken",
     body: [
       "Wenn du schreibst, helfen uns ein paar Details, schnell zu handeln. Wenn ein Spiel in der WM-Simulation falsch wirkte, sag uns die Formationen. Sag uns die Runde — Gruppenphase oder K.-o.-Baum. Dann sehen wir, wie die Spielengine entschieden hat. Wenn eine Spielerbewertung falsch wirkt, nenne Kader und Position. Der Fußballsimulator vergleicht jeden Draft auf einer Skala. Eine falsche Bewertung kann ein Turnier kippen.",
       "Funktionsideen sind ebenfalls willkommen. Mehr alte Kadern. Extra Football-Formationen. Ein tieferer Elfmeter-Simulator. Oder eine Möglichkeit, deinen fertigen Pokal zu teilen. Alles ist auf dem Tisch für ein WM-Fantasy-Spiel, das wächst. Wir hören gern von Communities. Gruppen, die einen Fantasy-Football-Draft betreiben. Trainer einer Jugendmannschaft. Jeder, der ein kostenloses Browser-Fußballspiel für Klassenzimmer oder Umkleideraum will.",
@@ -39,6 +41,7 @@ export const contact = {
     ],
     ctaEmail: "Nous écrire",
     bodyTitle: "E-mail",
+    exploreTitle: "Découvrir le jeu",
     body: [
       "Quand vous écrivez, quelques détails nous aident à agir vite. Si un match dans la simulation de Coupe du Monde a semblé bizarre, dites les formations. Dites le tour — phase de groupes ou arbre à élimination. Nous verrons alors comment le moteur a décidé. Si une note de joueur semble fausse, nommez l'effectif et le poste. Le simulateur de football compare chaque draft sur une même échelle. Une mauvaise note peut pencher un tournoi.",
       "Les idées de fonctionnalités sont les bienvenues aussi. Plus d'anciens effectifs. Des formations de football en plus. Un simulateur de tirs au but plus profond. Ou un moyen de partager votre coupe finie. Tout est sur la table pour un jeu de Coupe du Monde fantasy qui grandit. Nous aimons aussi entendre les communautés. Groupes qui font un draft de Coupe du Monde fantasy. Entraîneurs d'équipe de jeunes. Chacun qui veut un jeu de football gratuit dans le navigateur pour la classe ou le vestiaire.",
@@ -55,6 +58,7 @@ export const contact = {
     ],
     ctaEmail: "メールする",
     bodyTitle: "メール",
+    exploreTitle: "ゲームを探検する",
     body: [
       "書くとき、いくつかの詳細があれば早く対応できる。ワールドカップシミュレーションで試合がおかしかったら、フォーメーションを教えて。ラウンド（グループリーグか決勝トーナメント）を教えて。そうすればマッチエンジンがどう決めたか分かる。選手レーティングが違っていたら、チームとポジションを名乗ってほしい。フットボールシミュレーターはすべてのドラフトを1つの尺度で比べる。1つの誤ったレーティングが大会を傾けることがある。",
       "機能アイデアも歓迎。歴代チームをもっと。フットボールフォーメーションを追加。より深いPKシミュレーター。あるいは完成杯を共有する方法。成長し続けるワールドカップファンタジーゲームのために全部あり。コミュニティの声も大歓迎。Fantasy Football ドラフトを運営するグループ。ユースチームのコーチ。教室やロッカールームに無料ブラウザサッカーゲームを欲しい人。",
@@ -71,6 +75,7 @@ export const contact = {
     ],
     ctaEmail: "Envíanos un correo",
     bodyTitle: "Correo",
+    exploreTitle: "Explora el juego",
     body: [
       "Cuando escribes, unos detalles nos ayudan a actuar rápido. Si un partido en la simulación del Mundial se sintió raro, dinos las formaciones. Dinos la ronda — fase de grupos o cuadro de eliminación. Así vemos cómo decidió el motor. Si una valoración de jugador parece mala, nombra la plantilla y el puesto. El simulador de fútbol compara cada draft en una misma escala. Una mala valoración puede inclinar un torneo.",
       "Las ideas de funciones también son bienvenidas. Más plantillas viejas. Formaciones de fútbol extra. Un simulador de penales más profundo. O una forma de compartir tu copa terminada. Todo está sobre la mesa para un juego de Copa del Mundo fantasy que sigue creciendo. También nos gusta oír a las comunidades. Grupos que corren un draft de Copa del Mundo fantasy. Entrenadores de un equipo juvenil. Cualquiera que quiera un juego de fútbol gratuito del navegador para el aula o el vestuario.",
