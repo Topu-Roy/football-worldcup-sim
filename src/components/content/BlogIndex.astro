@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { blog } from "../../i18n/content/blog";
+import { localizedPath } from "../../i18n/t";
+import type { Locale } from "../../i18n/config";
+
+interface Props {
+  lang: Locale;
+  path: string;
+}
+
+const { lang, path } = Astro.props;
+const c = blog[lang];
+---
+
+<Layout lang={lang} path={path} title={c.index.title} description={c.index.intro}>
+  <main class="min-h-screen bg-canvas text-white">
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+        <h1
+          class="font-display text-5xl leading-[0.9] tracking-[0.5px] text-mint sm:text-6xl"
+        >
+          {c.index.title}
+        </h1>
+        <p class="mt-6 text-sm leading-relaxed text-secondary">{c.index.intro}</p>
+
+        <ul class="mt-12 grid gap-6">
+          {
+            c.posts.map((p) => (
+              <li>
+                <a
+                  href={localizedPath("/blog/" + p.slug, lang)}
+                  class="block rounded-2xl border border-white/10 bg-slate/40 p-6 transition-colors hover:border-mint"
+                >
+                  <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint uppercase">
+                    {p.date}
+                  </span>
+                  <span class="mt-2 block font-display text-2xl tracking-[0.5px] text-white">
+                    {p.title}
+                  </span>
+                  <span class="mt-2 block text-sm leading-relaxed text-secondary">
+                    {p.excerpt}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>

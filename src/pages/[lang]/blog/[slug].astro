@@ -1,0 +1,20 @@
+---
+import BlogPost from "../../../components/content/BlogPost.astro";
+import { blogSlugs } from "../../../i18n/content/blog";
+import { locales } from "../../../i18n/config";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const l of locales) {
+    if (l === "en") continue;
+    for (const slug of blogSlugs) {
+      paths.push({ params: { lang: l, slug } });
+    }
+  }
+  return paths;
+}
+
+const { lang, slug } = Astro.params;
+---
+
+<BlogPost lang={lang} path={`/blog/${slug}`} slug={slug} />

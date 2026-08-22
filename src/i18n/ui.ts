@@ -5,6 +5,7 @@ export const ui = {
     nav: {
       teams: "Teams",
       howToPlay: "How to Play",
+      blog: "Blog",
       history: "History",
       about: "About",
       privacy: "Privacy",
@@ -33,6 +34,7 @@ export const ui = {
     nav: {
       teams: "Mannschaften",
       howToPlay: "Anleitung",
+      blog: "Blog",
       history: "Historie",
       about: "Über",
       privacy: "Datenschutz",
@@ -62,6 +64,7 @@ export const ui = {
     nav: {
       teams: "Équipes",
       howToPlay: "Comment jouer",
+      blog: "Blog",
       history: "Historique",
       about: "À propos",
       privacy: "Confidentialité",
@@ -91,6 +94,7 @@ export const ui = {
     nav: {
       teams: "チーム",
       howToPlay: "遊び方",
+      blog: "ブログ",
       history: "履歴",
       about: "概要",
       privacy: "プライバシー",
@@ -120,6 +124,7 @@ export const ui = {
     nav: {
       teams: "Equipos",
       howToPlay: "Cómo jugar",
+      blog: "Blog",
       history: "Historial",
       about: "Acerca de",
       privacy: "Privacidad",
