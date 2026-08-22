@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { locales, defaultLocale } from "../i18n/config";
 import type { Locale } from "../i18n/config";
 import { localizedPath, stripLocale } from "../i18n/t";
+import { SITE_URL as siteUrl, SITE_NAME as siteName, ogLocale } from "../lib/site";
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   path?: string;
   lang?: Locale;
   ogImage?: string;
+  ogType?: "website" | "article";
   noindex?: boolean;
 }
 
@@ -21,10 +23,10 @@ const {
   lang = defaultLocale,
   path = stripLocale(Astro.url.pathname, lang),
   ogImage = "/og-image.svg",
+  ogType = "website",
   noindex = false,
 } = Astro.props;
 
-const siteUrl = "https://example.com";
 const canonical = localizedPath(path, lang);
 const fullUrl = new URL(canonical, siteUrl).toString();
 const fullImage = new URL(ogImage, siteUrl).toString();
@@ -35,7 +37,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "World Cup Draft Simulator",
+      name: siteName,
       url: siteUrl,
       logo: `${siteUrl}/favicon.svg`,
       description:
@@ -45,7 +47,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "World Cup Draft Simulator",
+      name: siteName,
       publisher: { "@id": `${siteUrl}/#organization` },
       potentialAction: {
         "@type": "SearchAction",
@@ -73,15 +75,15 @@ const jsonLd = {
       <link rel="alternate" hreflang={loc} href={new URL(localizedPath(path, loc), siteUrl).toString()} />
     ))}
     <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(path, defaultLocale), siteUrl).toString()} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="World Cup Draft Simulator" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={fullUrl} />
     <meta property="og:image" content={fullImage} />
-    <meta property="og:locale" content={lang} />
+    <meta property="og:locale" content={ogLocale(lang)} />
     {locales.filter((l) => l !== lang).map((l) => (
-      <meta property="og:locale:alternate" content={l} />
+      <meta property="og:locale:alternate" content={ogLocale(l)} />
     ))}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
