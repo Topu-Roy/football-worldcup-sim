@@ -2,6 +2,7 @@ export const teamsIndex = {
   en: {
     eyebrow: "Team index",
     h1: "Every Fantasy Football World Cup team",
+    blogLink: "New here? Read the simulator guides on the blog",
     intro: (count: number) =>
       `All ${count} historical World Cup teams from 1970 to 2026, ranked by average player rating and ready to draft in the fantasy World Cup simulator. This is the squad library behind the whole football simulator. The world cup winners, top scorers and best players of five decades are all here. They are rated on one scale. So your dream XI and the AI teams are fair. Browse any roster — Brazil 1970, France 1998, Germany 2014, Argentina 2022. Study the player ratings. Then take that into the soccer draft game and run your own soccer simulation. It is the easiest way to meet the greatest world cup teams before you put them on the pitch. This is a free browser soccer game. It is an interactive soccer simulator you play online. No download. No sign-up.`,
     rankingTitle: "Every World Cup squad, ranked and ready to draft",
@@ -17,6 +18,7 @@ export const teamsIndex = {
   de: {
     eyebrow: "Team-Index",
     h1: "Jedes Fantasy-Football-Weltcup-Team",
+    blogLink: "Neu hier? Lies die Simulator-Guides im Blog",
     intro: (count: number) =>
       `Alle ${count} historischen WM-Teams von 1970 bis 2026, nach durchschnittlicher Spielerbewertung gereiht und bereit zum Draften im Fantasy-WM-Simulator. Das ist die Kaderbibliothek hinter dem ganzen Fußballsimulator. Die WM-Sieger, Torschützenkönige und besten Spieler von fünf Jahrzehnten sind hier. Sie sind auf einer Skala bewertet. Damit sind dein Traumteam und die KI-Teams fair. Stöbere durch jeden Kader — Brasilien 1970, Frankreich 1998, Deutschland 2014, Argentinien 2022. Studiere die Spielerbewertungen. Dann nimm das ins Soccer-Draft-Spiel und starte deine eigene Fußballsimulation. Es ist der einfachste Weg, die größten WM-Teams kennenzulernen, bevor du sie auf den Platz stellst. Das ist ein kostenloses Browser-Fußballspiel. Es ist ein interaktiver Fußballsimulator, den du online spielst. Kein Download. Keine Anmeldung.`,
     rankingTitle: "Jeder WM-Kader, gereiht und draftbereit",
@@ -32,6 +34,7 @@ export const teamsIndex = {
   fr: {
     eyebrow: "Index des équipes",
     h1: "Chaque équipe de Coupe du Monde fantasy",
+    blogLink: "Nouveau ici ? Découvrez les guides du simulateur sur le blog",
     intro: (count: number) =>
       `Toutes les ${count} équipes historiques de Coupe du Monde de 1970 à 2026, classées par note moyenne des joueurs et prêtes à draftz dans le simulateur de Coupe du Monde fantasy. C'est la bibliothèque d'effectifs derrière tout le simulateur de football. Les vainqueurs, meilleurs buteurs et meilleurs joueurs de cinq décennies sont là. Ils sont notés sur une même échelle. Ainsi votre XI de rêve et les équipes IA sont équitables. Parcourez chaque effectif — Brésil 1970, France 1998, Allemagne 2014, Argentine 2022. Étudiez les notes. Puis emportez-les dans le jeu de draft soccer et lancez votre propre simulation. C'est le plus simple moyen de rencontrer les plus grandes équipes de Coupe du Monde avant de les mettre sur le terrain. C'est un jeu de football gratuit dans le navigateur. C'est un simulateur de football interactif que vous jouez en ligne. Sans téléchargement. Sans inscription.`,
     rankingTitle: "Chaque effectif de Coupe du Monde, classé et prêt à draftz",
@@ -47,6 +50,7 @@ export const teamsIndex = {
   ja: {
     eyebrow: "チーム索引",
     h1: "すべてのFantasy Football ワールドカップチーム",
+    blogLink: "はじめての方はブログのガイドをどうぞ",
     intro: (count: number) =>
       `1970年から2026年までの歴代ワールドカップチーム${count}を、選手平均レーティング順に並べ、Fantasy Football ワールドカップシミュレーターでドラフト可能。これはフットボールシミュレーター全体のチームライブラリだ。5十年の優勝国、得点王、最高の選手はすべてここに。同じ尺度で評価されているから、あなたの夢のXIもAIチームも公平だ。ブラジル1970、フランス1998、ドイツ2014、アルゼンチン2022、どのロースターも見られる。選手レーティングを研究しよう。そしてサッカードラフトゲームに持ち込み、自分のサッカーシミュレーションを走らせる。ピッチに並べる前に歴代最強チームに会う一番簡単な方法だ。これは無料ブラウザサッカーゲーム。オンラインで遊ぶインタラクティブなサッカーシミュレーター。ダウンロード不要。登録不要。`,
     rankingTitle: "すべてのワールドカップチームをランク、ドラフト準備完了",
@@ -62,6 +66,7 @@ export const teamsIndex = {
   es: {
     eyebrow: "Índice de equipos",
     h1: "Cada equipo de la Copa del Mundo fantasy",
+    blogLink: "¿Nuevo por aquí? Lee las guías del simulador en el blog",
     intro: (count: number) =>
       `Todos los ${count} equipos históricos del Mundial de 1970 a 2026, rankeados por valoración media de jugadores y listos para draftar en el simulador de Copa del Mundo fantasy. Esta es la biblioteca de plantillas detrás de todo el simulador de fútbol. Los campeones, goleadores y mejores jugadores de cinco décadas están aquí. Se valoran en una misma escala. Así tu XI de ensueño y los equipos IA son justos. Revisa cualquier plantilla — Brasil 1970, Francia 1998, Alemania 2014, Argentina 2022. Estudia las valoraciones. Llévalo al juego de draft soccer y corre tu propia simulación. Es la forma más fácil de conocer los grandes equipos del Mundial antes de ponerlos en la cancha. Es un juego de fútbol gratuito en el navegador. Es un simulador de fútbol interactivo que juegas en línea. Sin descargas. Sin registro.`,
     rankingTitle: "Cada plantilla del Mundial, rankeada y lista para draftar",

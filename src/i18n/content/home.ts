@@ -63,6 +63,7 @@ export const home = {
     ],
     squadsCta1: "Browse all squads",
     squadsCta2: "Play now",
+    blogCta: "Read the blog",
     playEyebrow: "How to play",
     playTitle: "Your world cup simulator, step by step",
     play: [
@@ -141,6 +142,7 @@ export const home = {
     ],
     squadsCta1: "Alle Mannschaften",
     squadsCta2: "Jetzt spielen",
+    blogCta: "Zum Blog",
     playEyebrow: "Anleitung",
     playTitle: "Dein WM-Simulator, Schritt für Schritt",
     play: [
@@ -219,6 +221,7 @@ export const home = {
     ],
     squadsCta1: "Toutes les équipes",
     squadsCta2: "Jouer",
+    blogCta: "Lire le blog",
     playEyebrow: "Comment jouer",
     playTitle: "Votre simulateur de Coupe du Monde, étape par étape",
     play: [
@@ -297,6 +300,7 @@ export const home = {
     ],
     squadsCta1: "全チーム",
     squadsCta2: "今すぐプレイ",
+    blogCta: "ブログを読む",
     playEyebrow: "遊び方",
     playTitle: "ワールドカップシミュレーター、ステップ順",
     play: [
@@ -375,6 +379,7 @@ export const home = {
     ],
     squadsCta1: "Todos los equipos",
     squadsCta2: "Jugar",
+    blogCta: "Leer el blog",
     playEyebrow: "Cómo jugar",
     playTitle: "Tu simulador del Mundial, paso a paso",
     play: [

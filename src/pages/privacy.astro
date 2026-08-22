@@ -1,10 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { meta } from "../i18n/meta";
+import { SITE_URL as siteUrl } from "../lib/site";
+import { breadcrumbLd } from "../lib/breadcrumbs";
+import { ogImageFor } from "../lib/og";
+
+const m = meta.en.privacy;
+
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: m.title,
+  description: m.description,
+  inLanguage: "en",
+  url: new URL("/privacy", siteUrl).toString(),
+  isPartOf: { "@id": `${siteUrl}/#website` },
+};
 ---
 
 <Layout
-  title="Privacy Policy — World Cup Draft Simulator"
-  description="Privacy policy for World Cup Draft Simulator. Explains what data is collected when you use the fantasy football draft simulator website."
+  title={m.title}
+  description={m.description}
+  ogImage={ogImageFor("/privacy")}
+  jsonLd={[breadcrumbLd("en", [
+    { name: "Home", path: "/" },
+    { name: "Privacy Policy", path: "/privacy" },
+  ]), pageLd]}
 >
 
 <main class="min-h-screen bg-canvas text-white">

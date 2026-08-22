@@ -4,6 +4,9 @@ import { teamDetail } from "../../i18n/content/teamDetail";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
+import { SITE_URL as siteUrl } from "../../lib/site";
+import { breadcrumbLd } from "../../lib/breadcrumbs";
+import { ogImageFor } from "../../lib/og";
 
 interface PlayerRow {
   name: string;
@@ -31,9 +34,30 @@ const m = meta[lang].team(nation, year);
 
 const introArgs = { nation, year, formation: formationLabel, top: topName, rating: topRating };
 const h1 = `${nation} ${year} Team - Fantasy Football World Cup`;
+
+const teamLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsTeam",
+  name: `${nation} ${year}`,
+  sport: "Football",
+  url: new URL(localizedPath(path, lang), siteUrl).toString(),
+  description: m.description,
+  inLanguage: lang,
+};
 ---
 
-<Layout lang={lang} path={path} title={m.title} description={m.description}>
+<Layout
+  lang={lang}
+  path={path}
+  title={m.title}
+  description={m.description}
+  ogImage={ogImageFor(path)}
+  jsonLd={[breadcrumbLd(lang, [
+    { name: "Home", path: "/" },
+    { name: "Teams", path: "/teams" },
+    { name: `${nation} ${year}`, path },
+  ]), teamLd]}
+>
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
       <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">

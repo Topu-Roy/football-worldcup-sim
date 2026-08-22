@@ -2,7 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 import { howToPlay } from "../../i18n/content/howToPlay";
 import { meta } from "../../i18n/meta";
+import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
+import { SITE_URL as siteUrl } from "../../lib/site";
+import { breadcrumbLd } from "../../lib/breadcrumbs";
+import { ogImageFor } from "../../lib/og";
 
 interface Props {
   lang: Locale;
@@ -12,9 +16,33 @@ interface Props {
 const { lang, path } = Astro.props;
 const c = howToPlay[lang];
 const m = meta[lang].howToPlay;
+
+const articleLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: m.title,
+  description: m.description,
+  inLanguage: lang,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": new URL(localizedPath(path, lang), siteUrl).toString(),
+  },
+  isPartOf: { "@id": `${siteUrl}/#website` },
+  publisher: { "@id": `${siteUrl}/#organization` },
+};
 ---
 
-<Layout lang={lang} path={path} title={m.title} description={m.description}>
+<Layout
+  lang={lang}
+  path={path}
+  title={m.title}
+  description={m.description}
+  ogImage={ogImageFor(path)}
+  jsonLd={[breadcrumbLd(lang, [
+    { name: "Home", path: "/" },
+    { name: "How to play", path: "/how-to-play" },
+  ]), articleLd]}
+>
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
       <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">

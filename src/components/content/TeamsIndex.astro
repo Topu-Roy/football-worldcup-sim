@@ -6,6 +6,9 @@ import { localizedPath } from "../../i18n/t";
 import { HISTORICAL_SQUADS } from "../../data/historical/index";
 import { playerRating } from "../../lib/draft/rating";
 import type { Locale } from "../../i18n/config";
+import { SITE_URL as siteUrl } from "../../lib/site";
+import { breadcrumbLd } from "../../lib/breadcrumbs";
+import { ogImageFor } from "../../lib/og";
 
 interface Props {
   lang: Locale;
@@ -33,9 +36,41 @@ const cards = HISTORICAL_SQUADS.map((s) => {
     topRating: Math.round(playerRating(top)),
   };
 }).sort((a, b) => b.avg - a.avg);
+
+const collectionLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: m.title,
+  description: m.description,
+  url: new URL(localizedPath("/teams", lang), siteUrl).toString(),
+  inLanguage: lang,
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: cards.length,
+    itemListElement: cards.map((card, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${card.name} ${card.year}`,
+      url: new URL(
+        localizedPath(`/teams/${card.slug}/${card.year}`, lang),
+        siteUrl,
+      ).toString(),
+    })),
+  },
+};
 ---
 
-<Layout lang={lang} path={path} title={m.title} description={m.description}>
+<Layout
+  lang={lang}
+  path={path}
+  title={m.title}
+  description={m.description}
+  ogImage={ogImageFor(path)}
+  jsonLd={[breadcrumbLd(lang, [
+    { name: "Home", path: "/" },
+    { name: "Teams", path: "/teams" },
+  ]), collectionLd]}
+>
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
       <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
@@ -80,6 +115,15 @@ const cards = HISTORICAL_SQUADS.map((s) => {
             ))
           }
         </ul>
+
+        <p class="mt-10 text-sm text-secondary">
+          <a
+            href={localizedPath("/blog", lang)}
+            class="text-mint transition-colors hover:text-white"
+          >
+            {c.blogLink}
+          </a>
+        </p>
       </div>
     </section>
   </main>

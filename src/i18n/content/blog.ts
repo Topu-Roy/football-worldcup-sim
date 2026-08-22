@@ -9,7 +9,7 @@ export interface BlogPostData {
 }
 
 export interface BlogLocale {
-  index: { title: string; intro: string };
+  index: { title: string; seoTitle: string; intro: string };
   posts: BlogPostData[];
 }
 
@@ -17,6 +17,8 @@ export const blog: Record<Locale, BlogLocale> = {
   en: {
     index: {
       title: "Blog",
+      seoTitle:
+        "World Cup Draft Simulator Blog — Guides, Tips & Simulator Notes",
       intro:
         "Guides and notes on World Cup Draft Simulator - the free browser soccer game where you draft a fantasy World Cup XI and simulate the cup.",
     },
@@ -279,6 +281,8 @@ export const blog: Record<Locale, BlogLocale> = {
   de: {
     index: {
       title: "Blog",
+      seoTitle:
+        "World Cup Draft Simulator Blog — Anleitungen, Tipps & Notizen",
       intro:
         "Guides und Notizen zu World Cup Draft Simulator - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
     },
@@ -540,6 +544,8 @@ export const blog: Record<Locale, BlogLocale> = {
   fr: {
     index: {
       title: "Blog",
+      seoTitle:
+        "Blog World Cup Draft Simulator — Guides, astuces et notes du simulateur",
       intro: "Guides et notes sur World Cup Draft Simulator - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
     },
     posts: [
@@ -794,6 +800,8 @@ export const blog: Record<Locale, BlogLocale> = {
   ja: {
     index: {
       title: "ブログ",
+      seoTitle:
+        "ワールドカップ ドラフトシミュレーター ブログ — ガイドとヒント",
       intro: "World Cup Draft Simulator についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
     },
     posts: [
@@ -1048,6 +1056,8 @@ export const blog: Record<Locale, BlogLocale> = {
   es: {
     index: {
       title: "Blog",
+      seoTitle:
+        "Blog de World Cup Draft Simulator — Guías y consejos del simulador",
       intro: "Guías y notas sobre World Cup Draft Simulator - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
     },
     posts: [

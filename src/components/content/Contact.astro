@@ -2,7 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 import { contact } from "../../i18n/content/contact";
 import { meta } from "../../i18n/meta";
+import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
+import { SITE_URL as siteUrl } from "../../lib/site";
+import { breadcrumbLd } from "../../lib/breadcrumbs";
+import { ogImageFor } from "../../lib/og";
 
 interface Props {
   lang: Locale;
@@ -13,9 +17,29 @@ const { lang, path } = Astro.props;
 const c = contact[lang];
 const m = meta[lang].contact;
 const EMAIL = "hello@worldcupdraftsimulator.com";
+
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: m.title,
+  description: m.description,
+  inLanguage: lang,
+  url: new URL(localizedPath(path, lang), siteUrl).toString(),
+  isPartOf: { "@id": `${siteUrl}/#website` },
+};
 ---
 
-<Layout lang={lang} path={path} title={m.title} description={m.description}>
+<Layout
+  lang={lang}
+  path={path}
+  title={m.title}
+  description={m.description}
+  ogImage={ogImageFor(path)}
+  jsonLd={[breadcrumbLd(lang, [
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ]), pageLd]}
+>
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
       <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">

@@ -4,6 +4,8 @@ import { blog } from "../../i18n/content/blog";
 import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
 import { SITE_URL as siteUrl, SITE_NAME } from "../../lib/site";
+import { breadcrumbLd } from "../../lib/breadcrumbs";
+import { ogImageFor } from "../../lib/og";
 
 interface Props {
   lang: Locale;
@@ -32,7 +34,7 @@ const articleLd = {
     name: SITE_NAME,
     logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.svg` },
   },
-  image: `${siteUrl}/og-image.svg`,
+  image: `${siteUrl}/og/blog/${slug}/index.png`,
 };
 ---
 
@@ -42,6 +44,12 @@ const articleLd = {
   title={post.title}
   description={post.excerpt}
   ogType="article"
+  ogImage={ogImageFor(path)}
+  jsonLd={[breadcrumbLd(lang, [
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: post.title, path },
+  ]), articleLd]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">

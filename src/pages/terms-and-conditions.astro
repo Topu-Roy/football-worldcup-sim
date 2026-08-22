@@ -1,10 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { meta } from "../i18n/meta";
+import { SITE_URL as siteUrl } from "../lib/site";
+import { breadcrumbLd } from "../lib/breadcrumbs";
+import { ogImageFor } from "../lib/og";
+
+const m = meta.en.terms;
+
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: m.title,
+  description: m.description,
+  inLanguage: "en",
+  url: new URL("/terms-and-conditions", siteUrl).toString(),
+  isPartOf: { "@id": `${siteUrl}/#website` },
+};
 ---
 
 <Layout
-  title="Terms &amp; Conditions — World Cup Draft Simulator"
-  description="Terms and conditions for using World Cup Draft Simulator, the fantasy football World Cup draft and tournament simulation game."
+  title={m.title}
+  description={m.description}
+  ogImage={ogImageFor("/terms-and-conditions")}
+  jsonLd={[breadcrumbLd("en", [
+    { name: "Home", path: "/" },
+    { name: "Terms & Conditions", path: "/terms-and-conditions" },
+  ]), pageLd]}
 >
 
 <main class="min-h-screen bg-canvas text-white">
