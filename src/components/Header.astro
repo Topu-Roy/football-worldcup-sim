@@ -17,7 +17,7 @@ const labels = ui[locale];
       type="button"
       class="menu-toggle"
       id="menu-toggle"
-      aria-label="Toggle menu"
+      aria-label={labels.nav.menuToggle}
       aria-expanded="false"
       aria-controls="primary-nav"
     >
@@ -61,12 +61,21 @@ const labels = ui[locale];
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
     };
+    const closeAndRefocus = () => {
+      if (nav.classList.contains("is-open")) {
+        close();
+        toggle.focus();
+      }
+    };
     toggle.addEventListener("click", () => {
       const open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(open));
     });
     nav.addEventListener("click", (e) => {
       if ((e.target as HTMLElement).closest("a")) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAndRefocus();
     });
   }
 
@@ -160,7 +169,8 @@ const labels = ui[locale];
   }
 
   .nav-link:focus-visible {
-    outline: 1px solid #1eaedb;
+    outline: 2px solid #1eaedb;
+    outline-offset: 2px;
   }
 
   @media (max-width: 1079px) {

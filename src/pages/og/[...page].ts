@@ -18,6 +18,7 @@ function buildPaths() {
     ["/contact", m.contact.title],
     ["/privacy", m.privacy.title],
     ["/terms-and-conditions", m.terms.title],
+    ["/history", "Match History — Your Fantasy World Cup Results"],
     ["/teams", m.teams(0).title],
     ["/blog", blog[defaultLocale].index.seoTitle],
   ];

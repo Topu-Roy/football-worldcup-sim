@@ -1,5 +1,10 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { defaultLocale, isLocale, type Locale } from "./config";
+import {
+  defaultLocale,
+  isLocale,
+  SINGLE_LOCALE_PATHS,
+  type Locale,
+} from "./config";
 
 export function getLocale(value: string | undefined): Locale {
   if (value) {
@@ -26,4 +31,13 @@ export function stripLocale(pathname: string, locale: Locale): string {
 export function switchLocaleHref(pathname: string, target: Locale): string {
   const current = getLocale(pathname);
   return getRelativeLocaleUrl(target, stripLocale(pathname, current));
+}
+
+/** Whether a translation of the given (raw or canonical) path actually exists. */
+export function supportsPath(rawPath: string, locale: Locale): boolean {
+  if (locale === defaultLocale) return true;
+  let path = stripLocale(rawPath, getLocale(rawPath));
+  path = path.split(/[?#]/)[0];
+  if (path.length > 1) path = path.replace(/\/+$/, "") || "/";
+  return !SINGLE_LOCALE_PATHS.includes(path);
 }

@@ -19,3 +19,15 @@ export function isLocale(value: string): value is Locale {
 export function localeStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
+
+/**
+ * Canonical paths that are built for the default locale only.
+ * hreflang tags and the locale switcher must never advertise translations
+ * of these pages because they would 404.
+ */
+export const SINGLE_LOCALE_PATHS: readonly string[] = [
+  "/game",
+  "/history",
+  "/privacy",
+  "/terms-and-conditions",
+];

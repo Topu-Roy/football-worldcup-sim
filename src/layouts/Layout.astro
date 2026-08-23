@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { locales, defaultLocale } from "../i18n/config";
 import type { Locale } from "../i18n/config";
-import { localizedPath, stripLocale } from "../i18n/t";
+import { localizedPath, stripLocale, supportsPath } from "../i18n/t";
 import {
   SITE_URL as siteUrl,
   SITE_NAME as siteName,
@@ -43,6 +43,9 @@ const canonical = localizedPath(path, lang);
 const fullUrl = new URL(canonical, siteUrl).toString();
 const fullImage = new URL(ogImage, siteUrl).toString();
 
+// Only advertise locales whose version of this page actually exists.
+const availableLocales = locales.filter((loc) => supportsPath(path, loc));
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -61,11 +64,6 @@ const jsonLd = {
       url: siteUrl,
       name: siteName,
       publisher: { "@id": `${siteUrl}/#organization` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${siteUrl}/teams/#search`,
-        "query-input": "required name=search",
-      },
     },
   ],
 };
@@ -75,7 +73,10 @@ const jsonLd = {
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -84,7 +85,7 @@ const jsonLd = {
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={fullUrl} />
     {
-      locales.map((loc) => (
+      availableLocales.map((loc) => (
         <link
           rel="alternate"
           hreflang={loc}
@@ -108,7 +109,7 @@ const jsonLd = {
     <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={ogLocale(lang)} />
     {
-      locales
+      availableLocales
         .filter((l) => l !== lang)
         .map((l) => (
           <meta property="og:locale:alternate" content={ogLocale(l)} />
@@ -150,5 +151,11 @@ const jsonLd = {
 
   html {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 </style>

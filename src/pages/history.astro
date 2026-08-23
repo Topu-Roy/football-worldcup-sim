@@ -1,12 +1,65 @@
 ---
 import HistoryView from "../components/HistoryView.svelte";
 import Layout from "../layouts/Layout.astro";
+import { ogImageFor } from "../lib/og";
 ---
 
 <Layout
   title="Match History — Your Fantasy World Cup Results"
   description="Every match you've played in the fantasy World Cup simulator, stored on your device: results, scores, penalty shootouts and your W/D/L record across all runs."
-  noindex
+  ogImage={ogImageFor("/history")}
 >
   <HistoryView client:only="svelte" />
+
+  <section
+    class="border-t border-white/10 bg-slate/20"
+    aria-labelledby="about-history"
+  >
+    <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+      <p
+        class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+      >
+        Match History
+      </p>
+      <h1
+        id="about-history"
+        class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+      >
+        Every World Cup run you simulate, saved on your device
+      </h1>
+      <div
+        class="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+      >
+        <p>
+          Finish a tournament in the fantasy World Cup simulator and the whole
+          run lands here — one record per tournament with your squad, every
+          simulated result, penalty shootouts and your final placement.
+        </p>
+        <p>
+          Each entry tracks your matches round by round: group stage results,
+          knockout ties, goals for and against, clean sheets and your W/D/L
+          record. Expand any run to relive the bracket and see which historical
+          squad carried you to the trophy.
+        </p>
+        <p>
+          Everything is stored locally in your browser — no account, no
+          upload, nothing leaves your device.
+        </p>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="/game"
+          class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+        >
+          Play a tournament
+        </a>
+        <a
+          href="/teams/"
+          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+        >
+          Browse all squads
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

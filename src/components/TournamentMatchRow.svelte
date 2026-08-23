@@ -60,35 +60,28 @@
   class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20 transition-colors duration-150"
   class:border-mint={expanded || active}
 >
-  <div
-    class="flex items-center justify-between gap-2 px-3 py-2.5 {match.result
-      ? 'cursor-pointer'
-      : ''} sm:gap-3 sm:px-4 sm:py-3"
-    role="button"
-    tabindex="0"
+  <button
+    type="button"
+    class="flex w-full items-center justify-between gap-2 px-3 py-2.5 text-left transition-colors duration-150 hover:bg-slate/30 sm:gap-3 sm:px-4 sm:py-3"
+    aria-expanded={expanded}
+    disabled={!match.result}
     onclick={() => {
       if (match.result) onToggle();
     }}
-    onkeydown={(e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        if (match.result) onToggle();
-      }
-    }}
   >
-    <div class="min-w-0 flex-1">
-      <p class="truncate font-bold">
-        vs. {opponentName}
-      </p>
-    </div>
-    <div
+    <span class="min-w-0 flex-1">
+      <span class="block truncate font-bold">vs. {opponentName}</span>
+    </span>
+    <span
       class="flex shrink-0 items-center justify-end gap-2 whitespace-nowrap sm:gap-4"
     >
       {#if roundLabel}
-        <p class="{mono} text-[10px] text-secondary sm:hidden">{roundShort}</p>
-        <p class="{mono} hidden text-[10px] text-secondary sm:block">
+        <span class="{mono} block text-[10px] text-secondary sm:hidden"
+          >{roundShort}</span
+        >
+        <span class="{mono} hidden text-[10px] text-secondary sm:block">
           {roundLabel}
-        </p>
+        </span>
       {/if}
       {#if match.result}
         <span class={mono} style:color={outcomeColor(badge)}
@@ -120,8 +113,8 @@
           {/if}
         </span>
       {/if}
-    </div>
-  </div>
+    </span>
+  </button>
 
   {#if expanded && userSquad && opponentSquad}
     <div class="border-t border-white/10">
