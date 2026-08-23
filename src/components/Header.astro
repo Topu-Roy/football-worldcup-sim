@@ -10,7 +10,9 @@ const labels = ui[locale];
 
 <header class="site-header">
   <div class="inner">
-    <a href={localizedPath("/", locale)} class="wordmark">WORLD CUP <span>/</span> SIM</a>
+    <a href={localizedPath("/", locale)} class="wordmark"
+      >WORLD CUP <span>/</span> SIM</a
+    >
     <button
       type="button"
       class="menu-toggle"
@@ -23,16 +25,28 @@ const labels = ui[locale];
       <X class="icon-close" data-icon-close />
     </button>
     <nav class="nav" id="primary-nav" aria-label="Primary">
-      <a href={localizedPath("/teams", locale)} class="nav-link">{labels.nav.teams}</a>
-      <a href={localizedPath("/how-to-play", locale)} class="nav-link">{labels.nav.howToPlay}</a>
-      <a href={localizedPath("/blog", locale)} class="nav-link">{labels.nav.blog}</a>
+      <a href={localizedPath("/teams", locale)} class="nav-link"
+        >{labels.nav.teams}</a
+      >
+      <a href={localizedPath("/how-to-play", locale)} class="nav-link"
+        >{labels.nav.howToPlay}</a
+      >
+      <a href={localizedPath("/blog", locale)} class="nav-link"
+        >{labels.nav.blog}</a
+      >
       <a href="/history/" class="nav-link">{labels.nav.history}</a>
-      <a href={localizedPath("/about", locale)} class="nav-link">{labels.nav.about}</a>
+      <a href={localizedPath("/about", locale)} class="nav-link"
+        >{labels.nav.about}</a
+      >
       <a href="/privacy/" class="nav-link">{labels.nav.privacy}</a>
       <a href="/terms-and-conditions/" class="nav-link">{labels.nav.terms}</a>
-      <a href={localizedPath("/contact", locale)} class="nav-link">{labels.nav.contact}</a>
+      <a href={localizedPath("/contact", locale)} class="nav-link"
+        >{labels.nav.contact}</a
+      >
       <LocaleSwitcher lang={locale} />
-      <a href="/game" class="nav-link nav-link-cta" id="new-draft">{labels.nav.newDraft}</a>
+      <a href="/game" class="nav-link nav-link-cta" id="new-draft"
+        >{labels.nav.newDraft}</a
+      >
     </nav>
   </div>
 </header>
@@ -135,7 +149,9 @@ const labels = ui[locale];
     color: #000000;
     background: #3cffd0;
     margin-left: 8px;
-    transition: background 180ms ease, color 180ms ease;
+    transition:
+      background 180ms ease,
+      color 180ms ease;
   }
 
   .nav-link-cta:hover {
@@ -168,7 +184,9 @@ const labels = ui[locale];
       border: 1px solid #2d2d2d;
       border-radius: 10px;
       cursor: pointer;
-      transition: color 150ms ease, border-color 150ms ease;
+      transition:
+        color 150ms ease,
+        border-color 150ms ease;
     }
 
     .menu-toggle:hover {

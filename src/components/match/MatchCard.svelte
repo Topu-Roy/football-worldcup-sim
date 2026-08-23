@@ -7,14 +7,8 @@
   let {
     userSquad,
     opponentSquad,
-    roundLabel,
-    liveStatus,
     clockLabel,
-    phase,
-    showPens,
-    pensScore,
     displayScore,
-    controls,
     children,
   }: {
     userSquad: Squad;
@@ -33,44 +27,19 @@
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
 </script>
 
-<div
-  class="mt-5 overflow-hidden rounded-3xl border border-white/15 bg-slate/30"
->
+<div>
   <div
-    class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-4 py-2 sm:px-5"
+    class="relative grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-4 sm:gap-3 sm:px-5"
   >
-    <div class="flex items-center gap-3">
-      <span class="{mono} text-[10px] text-mint">{roundLabel}</span>
-      <span
-        class="{mono} text-[10px] {phase === 'play'
-          ? 'text-mint'
-          : 'text-secondary'}">{liveStatus}</span
-      >
-      {#if phase === "play"}
-        <span class="h-2 w-2 animate-pulse rounded-full bg-mint"></span>
-      {/if}
+    <div
+      class="absolute top-2 left-1/2 flex -translate-x-1/2 items-center gap-1.5"
+    >
+      <Clock class="h-3.5 w-3.5 text-secondary" />
+      <p class="font-mono text-[15px] font-semibold text-white">
+        {clockLabel}
+      </p>
     </div>
-    <div class="flex flex-wrap items-center justify-end gap-3">
-      <div class="flex items-center gap-1.5">
-        <Clock class="h-3.5 w-3.5 text-secondary" />
-        <p class="font-mono text-[15px] font-semibold text-white">
-          {clockLabel}
-        </p>
-      </div>
-      {#if showPens}
-        <span class="{mono} text-[10px] text-yellow"
-          >PENS {pensScore[0]} : {pensScore[1]}</span
-        >
-      {/if}
-      {#if controls}
-        {@render controls()}
-      {/if}
-    </div>
-  </div>
 
-  <div
-    class="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-4 sm:gap-3 sm:px-5"
-  >
     <div class="flex min-w-0 flex-col items-end">
       <span
         class="flex h-8 w-8 items-center justify-center rounded-full bg-mint font-display text-base leading-none text-black sm:h-9 sm:w-9 sm:text-lg"

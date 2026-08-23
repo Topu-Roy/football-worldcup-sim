@@ -47,11 +47,14 @@ const articleLd = {
   description={post.excerpt}
   ogType="article"
   ogImage={ogImageFor(path)}
-  jsonLd={[breadcrumbLd(lang, [
-    { name: "Home", path: "/" },
-    { name: "Blog", path: "/blog" },
-    { name: post.title, path },
-  ]), articleLd]}
+  jsonLd={[
+    breadcrumbLd(lang, [
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+      { name: post.title, path },
+    ]),
+    articleLd,
+  ]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">

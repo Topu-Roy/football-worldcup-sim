@@ -10,7 +10,12 @@
   import type { TournamentOutcome } from "../lib/tournament.js";
 
   const formationLabel = (f: HistoryRecord["formation"]) =>
-    [["GK", f.GK], ["DEF", f.DEF], ["MID", f.MID], ["ATT", f.ATT]]
+    [
+      ["GK", f.GK],
+      ["DEF", f.DEF],
+      ["MID", f.MID],
+      ["ATT", f.ATT],
+    ]
       .map(([k, n]) => `${n} ${k}`)
       .join(" · ");
 
@@ -86,7 +91,9 @@
   }
 
   function sortedPlayers(r: HistoryRecord) {
-    return [...r.squad.players].sort((a, b) => playerRating(b) - playerRating(a));
+    return [...r.squad.players].sort(
+      (a, b) => playerRating(b) - playerRating(a),
+    );
   }
 
   refresh();
@@ -95,7 +102,9 @@
 <section class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-14">
   <header>
     <p class="{mono} text-[10px] text-mint sm:text-[11px]">Match history</p>
-    <h1 class="mt-2 font-display text-3xl leading-[0.95] tracking-[1px] sm:mt-3 sm:text-5xl">
+    <h1
+      class="mt-2 font-display text-3xl leading-[0.95] tracking-[1px] sm:mt-3 sm:text-5xl"
+    >
       Your World Cup runs
     </h1>
     <p class="mt-2 max-w-md text-sm text-secondary sm:mt-3">
@@ -114,7 +123,9 @@
   </header>
 
   {#if records.length === 0}
-    <div class="mt-10 rounded-3xl border border-white/10 bg-slate/20 px-5 py-14 text-center sm:mt-12 sm:px-6 sm:py-16">
+    <div
+      class="mt-10 rounded-3xl border border-white/10 bg-slate/20 px-5 py-14 text-center sm:mt-12 sm:px-6 sm:py-16"
+    >
       <p class="font-display text-xl tracking-[0.5px] sm:text-2xl">
         No tournaments played yet
       </p>
@@ -133,7 +144,9 @@
   {:else}
     <ul class="mt-8 space-y-3 sm:mt-10">
       {#each records as r (r.id)}
-        <li class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20">
+        <li
+          class="overflow-hidden rounded-2xl border border-white/10 bg-slate/20"
+        >
           <button
             type="button"
             class="flex w-full items-center gap-3 px-4 py-3.5 text-left transition-colors duration-150 hover:bg-slate/30 sm:px-5 sm:py-4"
@@ -182,16 +195,19 @@
           </button>
 
           {#if expandedId === r.id}
-            <div class="border-t border-white/10 px-4 pb-6 pt-4 sm:px-5">
+            <div class="border-t border-white/10 px-4 pt-4 pb-6 sm:px-5">
               <div class="grid gap-6 md:grid-cols-2 md:gap-5">
                 <div>
                   <p class="{mono} text-[10px] text-mint">
                     Your team · {formationLabel(r.formation)}
                   </p>
-                  <ul class="mt-3 overflow-hidden rounded-xl border border-white/10">
+                  <ul
+                    class="mt-3 overflow-hidden rounded-xl border border-white/10"
+                  >
                     {#each sortedPlayers(r) as p, i (p.id)}
                       <li
-                        class="flex items-center gap-3 border-t border-white/10 px-3 py-2 first:border-t-0 {i % 2
+                        class="flex items-center gap-3 border-t border-white/10 px-3 py-2 first:border-t-0 {i %
+                        2
                           ? 'bg-slate/40'
                           : ''}"
                       >
@@ -201,7 +217,9 @@
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span class="min-w-0 flex-1">
-                          <span class="block truncate text-sm font-semibold">{p.name}</span>
+                          <span class="block truncate text-sm font-semibold"
+                            >{p.name}</span
+                          >
                           <span
                             class="block font-mono text-[9px] font-semibold tracking-[1.5px] text-secondary uppercase"
                           >
@@ -219,30 +237,62 @@
                 <div>
                   <p class="{mono} text-[10px] text-mint">Tournament results</p>
                   <div class="mt-3 grid grid-cols-4 gap-2">
-                    <div class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center">
+                    <div
+                      class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center"
+                    >
                       <p class="font-display text-lg text-mint">{r.stats.gf}</p>
-                      <p class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase">GF</p>
+                      <p
+                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                      >
+                        GF
+                      </p>
                     </div>
-                    <div class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center">
-                      <p class="font-display text-lg text-white">{r.stats.ga}</p>
-                      <p class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase">GA</p>
+                    <div
+                      class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center"
+                    >
+                      <p class="font-display text-lg text-white">
+                        {r.stats.ga}
+                      </p>
+                      <p
+                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                      >
+                        GA
+                      </p>
                     </div>
-                    <div class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center">
-                      <p class="font-display text-lg text-yellow">{r.stats.points}</p>
-                      <p class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase">PTS</p>
+                    <div
+                      class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center"
+                    >
+                      <p class="font-display text-lg text-yellow">
+                        {r.stats.points}
+                      </p>
+                      <p
+                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                      >
+                        PTS
+                      </p>
                     </div>
-                    <div class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center">
-                      <p class="font-display text-lg text-secondary">{r.stats.gd > 0 ? "+" : ""}{r.stats.gd}</p>
-                      <p class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase">GD</p>
+                    <div
+                      class="rounded-xl border border-white/10 bg-slate/40 px-1 py-2.5 text-center"
+                    >
+                      <p class="font-display text-lg text-secondary">
+                        {r.stats.gd > 0 ? "+" : ""}{r.stats.gd}
+                      </p>
+                      <p
+                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                      >
+                        GD
+                      </p>
                     </div>
                   </div>
 
-                  <ul class="mt-3 overflow-hidden rounded-xl border border-white/10">
+                  <ul
+                    class="mt-3 overflow-hidden rounded-xl border border-white/10"
+                  >
                     {#each r.matches as m, i (i)}
                       <li
                         class="flex items-center justify-between gap-3 border-t border-white/10 px-3 py-2.5 first:border-t-0"
                       >
-                        <span class="min-w-0 flex items-center gap-2.5">
+                        <span class="flex min-w-0 items-center gap-2.5">
                           <span
                             class="inline-flex w-8 shrink-0 items-center justify-center rounded-full border border-white/15 py-0.5 font-mono text-[9px] font-semibold tracking-[1px] uppercase"
                             style:color={outcomeColor(m.outcome)}
@@ -264,19 +314,26 @@
                         <span
                           class="shrink-0 font-mono text-base font-bold tracking-tight text-white"
                         >
-                          {m.score[0]}<span class="text-secondary">–</span>{m.score[1]}
+                          {m.score[0]}<span class="text-secondary">–</span>{m
+                            .score[1]}
                         </span>
                       </li>
                     {/each}
                   </ul>
 
                   <p
-                    class="mt-3 font-mono text-[9px] font-semibold leading-relaxed tracking-[1.5px] text-secondary uppercase sm:text-[10px]"
+                    class="mt-3 font-mono text-[9px] leading-relaxed font-semibold tracking-[1.5px] text-secondary uppercase sm:text-[10px]"
                   >
-                    <span class="text-mint">{r.stats.cleanSheets}</span> clean sheets ·
-                    <span class="text-yellow">{r.stats.penaltyWins}</span> penalty wins ·
-                    {#if r.stats.biggestWin > 0}<span class="text-mint">win by {r.stats.biggestWin}</span>{:else}<span>no win</span>{/if} ·
-                    {#if r.stats.biggestLoss > 0}<span class="text-pink">lost by {r.stats.biggestLoss}</span>{/if}
+                    <span class="text-mint">{r.stats.cleanSheets}</span> clean
+                    sheets ·
+                    <span class="text-yellow">{r.stats.penaltyWins}</span>
+                    penalty wins ·
+                    {#if r.stats.biggestWin > 0}<span class="text-mint"
+                        >win by {r.stats.biggestWin}</span
+                      >{:else}<span>no win</span>{/if} ·
+                    {#if r.stats.biggestLoss > 0}<span class="text-pink"
+                        >lost by {r.stats.biggestLoss}</span
+                      >{/if}
                   </p>
                 </div>
               </div>

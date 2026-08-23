@@ -27,12 +27,28 @@ interface Props {
   yearList: { year: string; slug: string }[];
 }
 
-const { lang, path, nation, year, formationLabel, topName, topRating, avgRating, players, yearList } =
-  Astro.props;
+const {
+  lang,
+  path,
+  nation,
+  year,
+  formationLabel,
+  topName,
+  topRating,
+  avgRating,
+  players,
+  yearList,
+} = Astro.props;
 const c = teamDetail[lang];
 const m = meta[lang].team(nation, year);
 
-const introArgs = { nation, year, formation: formationLabel, top: topName, rating: topRating };
+const introArgs = {
+  nation,
+  year,
+  formation: formationLabel,
+  top: topName,
+  rating: topRating,
+};
 const h1 = `${nation} ${year} Team - Fantasy Football World Cup`;
 
 const teamLd = {
@@ -52,11 +68,14 @@ const teamLd = {
   title={m.title}
   description={m.description}
   ogImage={ogImageFor(path)}
-  jsonLd={[breadcrumbLd(lang, [
-    { name: "Home", path: "/" },
-    { name: "Teams", path: "/teams" },
-    { name: `${nation} ${year}`, path },
-  ]), teamLd]}
+  jsonLd={[
+    breadcrumbLd(lang, [
+      { name: "Home", path: "/" },
+      { name: "Teams", path: "/teams" },
+      { name: `${nation} ${year}`, path },
+    ]),
+    teamLd,
+  ]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
@@ -72,7 +91,9 @@ const teamLd = {
           {h1}
         </h1>
 
-        <p class="mt-6 text-sm leading-relaxed text-secondary">{c.intro(introArgs)}</p>
+        <p class="mt-6 text-sm leading-relaxed text-secondary">
+          {c.intro(introArgs)}
+        </p>
 
         <div class="mt-8 flex flex-wrap items-center gap-3">
           <a
@@ -114,12 +135,19 @@ const teamLd = {
         <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
           {c.wcHeading(nation, year)}
         </h2>
-        <p class="mt-2 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
-          {formationLabel} · {avgRating} OVR · {topName} {topRating}
+        <p
+          class="mt-2 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase"
+        >
+          {formationLabel} · {avgRating} OVR · {topName}
+          {topRating}
         </p>
 
-        <h3 class="mt-8 font-display text-2xl tracking-[0.5px]">{c.rosterTitle}</h3>
-        <ul class="mt-4 divide-y divide-white/10 rounded-2xl border border-white/10 bg-slate/40">
+        <h3 class="mt-8 font-display text-2xl tracking-[0.5px]">
+          {c.rosterTitle}
+        </h3>
+        <ul
+          class="mt-4 divide-y divide-white/10 rounded-2xl border border-white/10 bg-slate/40"
+        >
           {
             players.map((p) => (
               <li class="flex items-center justify-between px-5 py-3">
@@ -137,7 +165,7 @@ const teamLd = {
           }
         </ul>
 
-        <details class="mt-10 group">
+        <details class="group mt-10">
           <summary
             class="cursor-pointer font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
           >

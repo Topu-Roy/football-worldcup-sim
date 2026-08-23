@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { ROLE_LABELS, effectiveDepartment, playerRating } from "../lib/draft.js";
+  import {
+    ROLE_LABELS,
+    effectiveDepartment,
+    playerRating,
+  } from "../lib/draft.js";
   import type { Player, Squad } from "../lib/types.js";
 
   let { squad }: { squad: Squad } = $props();
@@ -57,9 +61,7 @@
   </p>
   <ul class="mb-4 space-y-1.5">
     {#each group.players as p (p.id)}
-      <li
-        class="rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5"
-      >
+      <li class="rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5">
         <div class="flex items-center gap-2 sm:gap-3">
           {#if p.jerseyNumber}
             <span
@@ -67,8 +69,11 @@
               >{p.jerseyNumber}</span
             >
           {/if}
-          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span>
-          <span class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex">
+          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span
+          >
+          <span
+            class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex"
+          >
             {#each DEPT_STATS[group.dept] ?? [] as [label, key] (label)}
               {#if p[key] != null}
                 <span
@@ -110,8 +115,11 @@
               >{p.jerseyNumber}</span
             >
           {/if}
-          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span>
-          <span class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex">
+          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span
+          >
+          <span
+            class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex"
+          >
             {#each DEPT_STATS[effectiveDepartment(p)] ?? [] as [label, key] (label)}
               {#if p[key] != null}
                 <span

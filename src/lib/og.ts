@@ -18,8 +18,18 @@ let fontsCache: FontOptions[] | undefined;
 function fonts(): FontOptions[] {
   if (!fontsCache) {
     fontsCache = [
-      { name: "Inter", data: loadFont("Inter-Regular.ttf"), weight: 400, style: "normal" },
-      { name: "Inter", data: loadFont("Inter-Bold.ttf"), weight: 700, style: "normal" },
+      {
+        name: "Inter",
+        data: loadFont("Inter-Regular.ttf"),
+        weight: 400,
+        style: "normal",
+      },
+      {
+        name: "Inter",
+        data: loadFont("Inter-Bold.ttf"),
+        weight: 700,
+        style: "normal",
+      },
     ];
   }
   return fontsCache;

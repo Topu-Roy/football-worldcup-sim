@@ -11,7 +11,10 @@ const { slides } = Astro.props;
 
 {
   slides.length > 0 && (
-    <div class="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] xl:max-w-[640px]" id="preview-carousel">
+    <div
+      class="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] xl:max-w-[640px]"
+      id="preview-carousel"
+    >
       <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate/30">
         <div class="carousel-track flex">
           {slides.map((s, i) => (
@@ -21,7 +24,7 @@ const { slides } = Astro.props;
               aria-roledescription="slide"
               aria-hidden={i === 0 ? "false" : "true"}
             >
-               <div class="relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
+              <div class="relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
                 <PitchGraphic id={s.id} />
                 {s.players.map((p) => (
                   <div class="chip" style={`left:${p.x}%; top:${p.y}%`}>
@@ -38,17 +41,37 @@ const { slides } = Astro.props;
 
       <button
         type="button"
-        class="carousel-prev absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+        class="carousel-prev absolute top-1/2 left-2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
         aria-label="Previous team"
       >
-        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+        <svg
+          viewBox="0 0 24 24"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
       </button>
       <button
         type="button"
-        class="carousel-next absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+        class="carousel-next absolute top-1/2 right-2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
         aria-label="Next team"
       >
-        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+        <svg
+          viewBox="0 0 24 24"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M9 18l6-6-6-6" />
+        </svg>
       </button>
 
       <div class="mt-4 flex items-center justify-center gap-2">
@@ -140,8 +163,12 @@ const { slides } = Astro.props;
   const root = document.getElementById("preview-carousel");
   if (root) {
     const track = root.querySelector<HTMLElement>(".carousel-track");
-    const slides = Array.from(root.querySelectorAll<HTMLElement>(".carousel-slide"));
-    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>(".carousel-dot"));
+    const slides = Array.from(
+      root.querySelectorAll<HTMLElement>(".carousel-slide"),
+    );
+    const dots = Array.from(
+      root.querySelectorAll<HTMLButtonElement>(".carousel-dot"),
+    );
     const total = slides.length;
     if (track && total > 0) {
       let i = 0;
@@ -157,18 +184,14 @@ const { slides } = Astro.props;
         });
       };
 
-      root
-        .querySelector(".carousel-prev")
-        ?.addEventListener("click", () => {
-          go(i - 1);
-          start();
-        });
-      root
-        .querySelector(".carousel-next")
-        ?.addEventListener("click", () => {
-          go(i + 1);
-          start();
-        });
+      root.querySelector(".carousel-prev")?.addEventListener("click", () => {
+        go(i - 1);
+        start();
+      });
+      root.querySelector(".carousel-next")?.addEventListener("click", () => {
+        go(i + 1);
+        start();
+      });
       dots.forEach((d, idx) =>
         d.addEventListener("click", () => {
           go(idx);

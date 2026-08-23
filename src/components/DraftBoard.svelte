@@ -70,7 +70,9 @@
   /** Smooth-scroll to an element only when pitch and draft are stacked vertically. */
   function scrollToElement(el: HTMLElement | null | undefined) {
     if (!el || !isVerticalLayout()) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     el.scrollIntoView({
       behavior: reduced ? "auto" : "smooth",
       block: "start",
@@ -91,8 +93,7 @@
   $effect(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
     const update = () => {
-      showScrollTop =
-        mq.matches && isVerticalLayout() && pitchInViewport();
+      showScrollTop = mq.matches && isVerticalLayout() && pitchInViewport();
     };
     let observer: IntersectionObserver | null = null;
     if (typeof IntersectionObserver !== "undefined" && pitchRef) {
@@ -351,12 +352,12 @@
             onclick={onBack}
           >
             <ChevronLeft class="h-4 w-4" />
-            <span class="{mono}">Formations</span>
+            <span class={mono}>Formations</span>
           </button>
         {/if}
         <div
           bind:this={draftHeaderRef}
-          class="mb-5 flex scroll-mt-16 shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
+          class="mb-5 flex shrink-0 scroll-mt-16 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
         >
           <div class="min-w-0">
             <p class="{mono} text-mint">
@@ -397,7 +398,7 @@
         </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid grid-cols-1 scroll-mt-16 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 max-h-[50vh] sm:max-h-none sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid max-h-[50vh] scroll-mt-16 grid-cols-1 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:max-h-none sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard

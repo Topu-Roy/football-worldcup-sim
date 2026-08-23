@@ -66,10 +66,13 @@ const collectionLd = {
   title={m.title}
   description={m.description}
   ogImage={ogImageFor(path)}
-  jsonLd={[breadcrumbLd(lang, [
-    { name: "Home", path: "/" },
-    { name: "Teams", path: "/teams" },
-  ]), collectionLd]}
+  jsonLd={[
+    breadcrumbLd(lang, [
+      { name: "Home", path: "/" },
+      { name: "Teams", path: "/teams" },
+    ]),
+    collectionLd,
+  ]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
@@ -88,7 +91,9 @@ const collectionLd = {
           {c.intro(cards.length)}
         </p>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.rankingTitle}</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.rankingTitle}
+        </h2>
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.ranking.map((p) => <p>{p}</p>)}
         </div>

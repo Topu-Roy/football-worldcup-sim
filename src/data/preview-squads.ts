@@ -125,7 +125,12 @@ function buildTeam(
 function evaluate(
   remaining: Player[],
   formationKey: string,
-): { team: ReturnType<typeof buildTeam>; atBest: number; outPenalty: number; total: number } | null {
+): {
+  team: ReturnType<typeof buildTeam>;
+  atBest: number;
+  outPenalty: number;
+  total: number;
+} | null {
   const team = buildTeam(remaining, formationKey);
   if (!team) return null;
   let atBest = 0;
@@ -136,7 +141,12 @@ function evaluate(
     const playable = canPlayRole(p, role);
     if (canonicalRole(role) === canonicalRole(p.bestPosition)) atBest++;
     if (!playable) {
-      outPenalty += playerTier(p) === "elite" ? 60000 : playerTier(p) === "star" ? 25000 : 5000;
+      outPenalty +=
+        playerTier(p) === "elite"
+          ? 60000
+          : playerTier(p) === "star"
+            ? 25000
+            : 5000;
     }
     total += rate(p);
   });
@@ -198,7 +208,9 @@ export function buildPreviewSlides(): PreviewSlide[] {
       const pickedIds = new Set(chosen.players.map((p) => p.id));
       remaining = remaining.filter((p) => !pickedIds.has(p.id));
 
-      const qualityLeft = remaining.filter((p) => playerTier(p) !== "standard").length;
+      const qualityLeft = remaining.filter(
+        (p) => playerTier(p) !== "standard",
+      ).length;
       if (t === maxTeams || remaining.length < 11 || qualityLeft < 8) break;
     }
   }

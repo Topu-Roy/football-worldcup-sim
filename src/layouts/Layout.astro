@@ -5,7 +5,11 @@ import Footer from "../components/Footer.astro";
 import { locales, defaultLocale } from "../i18n/config";
 import type { Locale } from "../i18n/config";
 import { localizedPath, stripLocale } from "../i18n/t";
-import { SITE_URL as siteUrl, SITE_NAME as siteName, ogLocale } from "../lib/site";
+import {
+  SITE_URL as siteUrl,
+  SITE_NAME as siteName,
+  ogLocale,
+} from "../lib/site";
 
 interface Props {
   title: string;
@@ -79,10 +83,20 @@ const jsonLd = {
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={fullUrl} />
-    {locales.map((loc) => (
-      <link rel="alternate" hreflang={loc} href={new URL(localizedPath(path, loc), siteUrl).toString()} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(path, defaultLocale), siteUrl).toString()} />
+    {
+      locales.map((loc) => (
+        <link
+          rel="alternate"
+          hreflang={loc}
+          href={new URL(localizedPath(path, loc), siteUrl).toString()}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localizedPath(path, defaultLocale), siteUrl).toString()}
+    />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
@@ -93,17 +107,31 @@ const jsonLd = {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={ogLocale(lang)} />
-    {locales.filter((l) => l !== lang).map((l) => (
-      <meta property="og:locale:alternate" content={ogLocale(l)} />
-    ))}
+    {
+      locales
+        .filter((l) => l !== lang)
+        .map((l) => (
+          <meta property="og:locale:alternate" content={ogLocale(l)} />
+        ))
+    }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullImage} />
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-    {extraJsonLd.map((ld) => (
-      <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
-    ))}
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(jsonLd)}
+    />
+    {
+      extraJsonLd.map((ld) => (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(ld)}
+        />
+      ))
+    }
   </head>
   <body>
     <Header />

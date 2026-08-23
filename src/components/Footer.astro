@@ -5,6 +5,7 @@ import { ui } from "../i18n/ui";
 const locale = getLocale(Astro.url.pathname);
 const labels = ui[locale];
 ---
+
 <footer class="site-footer">
   <div class="inner">
     <p class="credits">World Cup Draft Simulator &middot; v0.43.0</p>
@@ -15,7 +16,9 @@ const labels = ui[locale];
       <a href="/privacy/">{labels.nav.privacy}</a>
       <a href="/terms-and-conditions/">{labels.nav.terms}</a>
     </nav>
-    <button type="button" class="to-top" id="footer-back-to-top">{labels.footer.backToTop}</button>
+    <button type="button" class="to-top" id="footer-back-to-top"
+      >{labels.footer.backToTop}</button
+    >
   </div>
 </footer>
 
@@ -87,7 +90,9 @@ const labels = ui[locale];
     border-radius: 40px;
     padding: 8px 20px;
     cursor: pointer;
-    transition: background 150ms ease, color 150ms ease;
+    transition:
+      background 150ms ease,
+      color 150ms ease;
   }
 
   .to-top:hover {

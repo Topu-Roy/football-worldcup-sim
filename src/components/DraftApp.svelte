@@ -12,7 +12,11 @@
 
   type Step = "draft" | "ready" | "tournament" | "results";
 
-  let { formation, formationKey, onBack }: { formation: Formation; formationKey: string; onBack?: () => void } =
+  let {
+    formation,
+    formationKey,
+    onBack,
+  }: { formation: Formation; formationKey: string; onBack?: () => void } =
     $props();
 
   let step = $state<Step>("draft");
@@ -56,7 +60,12 @@
     const combined = [...squad.players, ...(squad.bench ?? [])];
     const from = combined.find((p) => p.id === playerId);
     if (!from || from.assignedSlot === undefined) return;
-    const next = applySwap(combined, formationKey, from.assignedSlot, slotIndex);
+    const next = applySwap(
+      combined,
+      formationKey,
+      from.assignedSlot,
+      slotIndex,
+    );
     if (!next) return;
     squad = {
       ...squad,

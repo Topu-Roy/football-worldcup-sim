@@ -20,10 +20,17 @@ const options = locales.map((loc) => ({
 <div class="locale-switcher">
   <label for="locale-select" class="sr-only">Language</label>
   <span class="ls-icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18" />
-      <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"></path>
     </svg>
   </span>
   <select id="locale-select" class="ls-select" aria-label="Language">
@@ -36,8 +43,15 @@ const options = locales.map((loc) => ({
     }
   </select>
   <span class="ls-caret" aria-hidden="true">
-    <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M1 1l4 4 4-4" />
+    <svg
+      viewBox="0 0 10 6"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M1 1l4 4 4-4"></path>
     </svg>
   </span>
 </div>
@@ -106,7 +120,11 @@ const options = locales.map((loc) => ({
     text-transform: uppercase;
     padding: 7px 30px 7px 38px;
     cursor: pointer;
-    transition: color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    transition:
+      color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      background 160ms ease;
   }
 
   .ls-select:hover,
@@ -141,7 +159,9 @@ const options = locales.map((loc) => ({
 </style>
 
 <script>
-  const select = document.getElementById("locale-select") as HTMLSelectElement | null;
+  const select = document.getElementById(
+    "locale-select",
+  ) as HTMLSelectElement | null;
   if (select) {
     select.addEventListener("change", () => {
       window.location.href = select.value;

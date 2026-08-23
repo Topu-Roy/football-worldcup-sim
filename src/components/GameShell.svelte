@@ -14,7 +14,11 @@
       formation === null ||
       formationKey !== key ||
       JSON.stringify(formation) !== JSON.stringify(f);
-    if (formation && changed && !confirm("Changing formation restarts your draft. Continue?")) {
+    if (
+      formation &&
+      changed &&
+      !confirm("Changing formation restarts your draft. Continue?")
+    ) {
       return;
     }
     if (changed) {
@@ -50,7 +54,9 @@
     {#if formation && formationKey}
       <DraftApp {formation} {formationKey} onBack={goToFormations} />
     {:else}
-      <div class="flex min-h-[50vh] flex-col items-center justify-center gap-4 px-4 text-center">
+      <div
+        class="flex min-h-[50vh] flex-col items-center justify-center gap-4 px-4 text-center"
+      >
         <p class="font-display text-3xl tracking-[0.5px]">No formation yet</p>
         <p class="max-w-md text-secondary">
           Pick a formation to unlock the draft. Your XI's shape locks the

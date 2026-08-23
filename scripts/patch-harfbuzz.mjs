@@ -22,7 +22,10 @@ const resvgTarget = path.join(
   "resvgjs.win32-x64-msvc.node",
 );
 const resvgVendor = path.join(root, "vendor", "resvgjs.win32-x64-msvc.node");
-if (existsSync(path.dirname(resvgTarget)) && statSize(resvgTarget) !== statSize(resvgVendor)) {
+if (
+  existsSync(path.dirname(resvgTarget)) &&
+  statSize(resvgTarget) !== statSize(resvgVendor)
+) {
   copyFileSync(resvgVendor, resvgTarget);
   console.log("patched @resvg/resvg-js: restored win32-x64 binary");
 }

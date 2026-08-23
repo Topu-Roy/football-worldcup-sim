@@ -67,7 +67,9 @@
 <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <div class="flex flex-wrap items-center justify-between gap-4">
     <div>
-      <h2 class="font-display text-5xl leading-[0.85] tracking-[1px] sm:text-6xl">
+      <h2
+        class="font-display text-5xl leading-[0.85] tracking-[1px] sm:text-6xl"
+      >
         Ready to start
       </h2>
       <p class="{mono} mt-3 text-mint">Team complete</p>

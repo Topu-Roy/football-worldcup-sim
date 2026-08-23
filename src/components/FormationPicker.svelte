@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { ChartColumn, ChevronRight, LayoutGrid, Play, Trophy } from "@lucide/svelte";
+  import {
+    ChartColumn,
+    ChevronRight,
+    LayoutGrid,
+    Play,
+    Trophy,
+  } from "@lucide/svelte";
   import { formationOptions, POSITION_LABEL } from "../lib/draft.js";
   import type { Formation } from "../lib/types.js";
 
@@ -55,7 +61,12 @@
     },
   ];
 
-  const stats = ["4 teams", "12 draft rounds", "Group → knockout", "Replay any match"];
+  const stats = [
+    "4 teams",
+    "12 draft rounds",
+    "Group → knockout",
+    "Replay any match",
+  ];
 
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
 </script>
@@ -68,7 +79,9 @@
     class="pointer-events-none absolute top-24 -left-32 h-64 w-64 rounded-full bg-uv/20 blur-[100px]"
   ></div>
 
-  <div class="relative mx-auto max-w-5xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24 sm:pb-14">
+  <div
+    class="relative mx-auto max-w-5xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24 sm:pb-14"
+  >
     <p class="{mono} text-mint">World Cup Draft Simulator</p>
     <h1
       class="mt-4 font-display text-6xl leading-[0.85] tracking-[1.07px] text-white sm:text-7xl md:text-8xl"
@@ -107,7 +120,8 @@
               <span class="flex items-center justify-center gap-1">
                 {#each Array(opt.formation[dept as keyof Formation]) as _, i (dept + i)}
                   <span
-                    class="h-1.5 w-1.5 rounded-full {deptDot[dept]}" aria-hidden="true"
+                    class="h-1.5 w-1.5 rounded-full {deptDot[dept]}"
+                    aria-hidden="true"
                   ></span>
                 {/each}
               </span>

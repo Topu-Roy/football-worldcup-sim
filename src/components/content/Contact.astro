@@ -37,10 +37,13 @@ const pageLd = {
   title={m.title}
   description={m.description}
   ogImage={ogImageFor(path)}
-  jsonLd={[breadcrumbLd(lang, [
-    { name: "Home", path: "/" },
-    { name: "Contact", path: "/contact" },
-  ]), pageLd]}
+  jsonLd={[
+    breadcrumbLd(lang, [
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+    ]),
+    pageLd,
+  ]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
@@ -63,12 +66,16 @@ const pageLd = {
           </a>
         </div>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.bodyTitle}</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.bodyTitle}
+        </h2>
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.body.map((p) => <p>{p}</p>)}
         </div>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.exploreTitle}</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.exploreTitle}
+        </h2>
         <ul class="mt-4 flex flex-col gap-2 text-sm">
           <li>
             <a

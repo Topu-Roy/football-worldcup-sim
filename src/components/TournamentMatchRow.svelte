@@ -81,12 +81,14 @@
         vs. {opponentName}
       </p>
     </div>
-    <div class="flex shrink-0 items-center justify-end gap-2 whitespace-nowrap sm:gap-4">
+    <div
+      class="flex shrink-0 items-center justify-end gap-2 whitespace-nowrap sm:gap-4"
+    >
       {#if roundLabel}
         <p class="{mono} text-[10px] text-secondary sm:hidden">{roundShort}</p>
-        <p class="{mono} hidden text-[10px] text-secondary sm:block"
-          >{roundLabel}</p
-        >
+        <p class="{mono} hidden text-[10px] text-secondary sm:block">
+          {roundLabel}
+        </p>
       {/if}
       {#if match.result}
         <span class={mono} style:color={outcomeColor(badge)}
@@ -122,7 +124,7 @@
   </div>
 
   {#if expanded && userSquad && opponentSquad}
-    <div class="border-t border-white/10 px-3 py-3 sm:px-4 sm:py-4">
+    <div class="border-t border-white/10">
       <MatchView
         {userSquad}
         {opponentSquad}

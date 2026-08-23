@@ -49,7 +49,8 @@ export const meta: Record<
 > = {
   en: {
     home: {
-      title: "Fantasy Football World Cup — Draft & Simulate | World Cup Simulator",
+      title:
+        "Fantasy Football World Cup — Draft & Simulate | World Cup Simulator",
       description:
         "Build your fantasy World Cup dream team from 100+ historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free world cup 2026 simulator in your browser — no download.",
     },
@@ -92,7 +93,8 @@ export const meta: Record<
   },
   de: {
     home: {
-      title: "Fantasy Football World Cup — Draft & Simulation | World Cup Simulator",
+      title:
+        "Fantasy Football World Cup — Draft & Simulation | World Cup Simulator",
       description:
         "Stelle dein Fantasy-World-Cup-Traumteam aus über 100 historischen Mannschaften (1970-2026) zusammen und sieh ihm in einem simulierten K.-o.-Turnier gegen die Besten aller Zeiten zu. Kostenloser World-Cup-2026-Simulator im Browser — kein Download.",
     },
@@ -122,7 +124,8 @@ export const meta: Record<
         "Allgemeine Geschäftsbedingungen für die Nutzung von World Cup Draft Simulator, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
     },
     teams: (count) => ({
-      title: "World Cup Teams 1970-2026 — Historische Mannschaften & Spielerbewertungen",
+      title:
+        "World Cup Teams 1970-2026 — Historische Mannschaften & Spielerbewertungen",
       description: `Stöbere durch alle ${count} historischen World-Cup-Mannschaften von 1970 bis 2026 mit Spielerbewertungen, von Brasilien 1970 bis Argentinien 2022. Stelle im Fantasy-World-Cup-Simulator jede Mannschaft auf.`,
     }),
     team: (nation, year) => {
@@ -135,12 +138,14 @@ export const meta: Record<
   },
   fr: {
     home: {
-      title: "Coupe du Monde Fantasy — Draft & Simulation | Simulateur de Coupe du Monde",
+      title:
+        "Coupe du Monde Fantasy — Draft & Simulation | Simulateur de Coupe du Monde",
       description:
         "Composez votre équipe de rêve de Coupe du Monde fantasy parmi plus de 100 équipes historiques (1970-2026), puis regardez-la affronter les plus grands de l'histoire dans un tournoi à élimination directe simulé. Simulateur Coupe du Monde 2026 gratuit dans le navigateur, sans téléchargement.",
     },
     about: {
-      title: "Qu'est-ce que World Cup Draft Simulator ? Créez votre équipe type",
+      title:
+        "Qu'est-ce que World Cup Draft Simulator ? Créez votre équipe type",
       description:
         "World Cup Draft Simulator est un jeu gratuit dans le navigateur où vous composez un onze de Coupe du Monde fantasy parmi plus de 100 équipes historiques (1970-2026) et le faites jouer dans un tournoi simulé.",
     },
@@ -165,7 +170,8 @@ export const meta: Record<
         "Conditions générales d'utilisation de World Cup Draft Simulator, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
     },
     teams: (count) => ({
-      title: "Équipes de Coupe du Monde 1970-2026 — Équipes historiques et notes des joueurs",
+      title:
+        "Équipes de Coupe du Monde 1970-2026 — Équipes historiques et notes des joueurs",
       description: `Parcourez toutes les ${count} équipes historiques de Coupe du Monde de 1970 à 2026 avec les notes des joueurs, du Brésil 1970 à l'Argentine 2022. Composez n'importe quelle équipe dans le simulateur.`,
     }),
     team: (nation, year) => {
@@ -178,7 +184,8 @@ export const meta: Record<
   },
   ja: {
     home: {
-      title: "Fantasy Football World Cup — ドラフト＆シミュレート | World Cup Simulator",
+      title:
+        "Fantasy Football World Cup — ドラフト＆シミュレート | World Cup Simulator",
       description:
         "1970〜2026年の歴代チーム100以上からワールドカップの夢のチームを作り、シミュレートされた決勝トーナメントで史上最強チームと対戦。ブラウザで使える無料のワールドカップ2026シミュレーター。ダウンロード不要。",
     },
@@ -221,7 +228,8 @@ export const meta: Record<
   },
   es: {
     home: {
-      title: "Fantasy Football World Cup — Draft y Simulación | World Cup Simulator",
+      title:
+        "Fantasy Football World Cup — Draft y Simulación | World Cup Simulator",
       description:
         "Arma tu equipo de ensueño de la Copa del Mundo fantasy con más de 100 equipos históricos (1970-2026) y míralo enfrentarse a los mejores de la historia en un torneo de eliminación simulado. Simulador Mundial 2026 gratis en el navegador, sin descargas.",
     },
@@ -251,7 +259,8 @@ export const meta: Record<
         "Términos y condiciones de uso de World Cup Draft Simulator, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
     },
     teams: (count) => ({
-      title: "Equipos del Mundial 1970-2026 — Plantillas históricas y valoraciones",
+      title:
+        "Equipos del Mundial 1970-2026 — Plantillas históricas y valoraciones",
       description: `Explora los ${count} equipos históricos del Mundial de 1970 a 2026 con valoraciones, del Brasil 1970 a la Argentina 2022. Arma cualquier equipo en el simulador.`,
     }),
     team: (nation, year) => {

@@ -23,12 +23,11 @@ export const blog: Record<Locale, BlogLocale> = {
         "Guides and notes on World Cup Draft Simulator - the free browser soccer game where you draft a fantasy World Cup XI and simulate the cup.",
     },
     posts: [
-{
-          slug: "world-cup-predictor-2026",
-          title:
-            "World Cup Predictor 2026 — Simulate Your Own Draw & Tournament",
-          excerpt:
-            "Free world cup predictor for 2026. Pick any historical squad, draft your XI and simulate the whole tournament in the browser — no download, no sign-up. Here is how World Cup Draft Simulator works as a world cup simulator 2026.",
+      {
+        slug: "world-cup-predictor-2026",
+        title: "World Cup Predictor 2026 — Simulate Your Own Draw & Tournament",
+        excerpt:
+          "Free world cup predictor for 2026. Pick any historical squad, draft your XI and simulate the whole tournament in the browser — no download, no sign-up. Here is how World Cup Draft Simulator works as a world cup simulator 2026.",
         date: "2026-08-22",
         sections: [
           {
@@ -196,8 +195,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "what-it-is-most-fun",
-        title:
-          "What World Cup Draft Simulator Is - and Why It's the Most Fun",
+        title: "What World Cup Draft Simulator Is - and Why It's the Most Fun",
         excerpt:
           "A fantasy football World Cup where you build the dream XI and watch legends clash. Here is what it is and why it is addictive.",
         date: "2026-08-22",
@@ -281,16 +279,14 @@ export const blog: Record<Locale, BlogLocale> = {
   de: {
     index: {
       title: "Blog",
-      seoTitle:
-        "World Cup Draft Simulator Blog — Anleitungen, Tipps & Notizen",
+      seoTitle: "World Cup Draft Simulator Blog — Anleitungen, Tipps & Notizen",
       intro:
         "Guides und Notizen zu World Cup Draft Simulator - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
     },
     posts: [
       {
         slug: "world-cup-predictor-2026",
-        title:
-          "WM-Prognose 2026 — Simuliere dein eigenes Turnier",
+        title: "WM-Prognose 2026 — Simuliere dein eigenes Turnier",
         excerpt:
           "Kostenloser World-Cup-Predictor für 2026. Wähle eine historische Mannschaft, stelle dein XI auf und simuliere das ganze Turnier im Browser — ohne Download, ohne Anmeldung.",
         date: "2026-08-22",
@@ -331,7 +327,7 @@ export const blog: Record<Locale, BlogLocale> = {
               "Durch diese Segment-by-Segment-Anpassung entwickelt sich das Spiel organisch - frühe Führung kann zu defensiverem Spiel führen, während ein Rückstand später im Turnier aggressiveres Angriffsspiel begünstigt, was jedes Turnier einzigartig macht.",
             ],
           },
-{
+          {
             h2: "Echte Bewertungen machen faire Spiele",
             body: [
               "Jeder Spieler trägt eine Bewertung aus echten WM-Leistungen, plus eine Bestposition und eine Stufe. Die Spiele-Engine respektiert diese Zahlen, also kann ein gut gebautes XI ein Team aus größeren Namen schlagen, die nicht zusammenpassen.",
@@ -461,8 +457,10 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "what-it-is-most-fun",
-        title: "Was World Cup Draft Simulator ist - und warum es am meisten Spaß macht",
-        excerpt: "Ein Fantasy-Fußball-WM, in dem du das Traum-XI baust und Legenden aufeinanderprallen siehst. Hier ist, was es ist und warum es süchtig macht.",
+        title:
+          "Was World Cup Draft Simulator ist - und warum es am meisten Spaß macht",
+        excerpt:
+          "Ein Fantasy-Fußball-WM, in dem du das Traum-XI baust und Legenden aufeinanderprallen siehst. Hier ist, was es ist und warum es süchtig macht.",
         date: "2026-08-22",
         sections: [
           {
@@ -546,13 +544,15 @@ export const blog: Record<Locale, BlogLocale> = {
       title: "Blog",
       seoTitle:
         "Blog World Cup Draft Simulator — Guides, astuces et notes du simulateur",
-      intro: "Guides et notes sur World Cup Draft Simulator - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
+      intro:
+        "Guides et notes sur World Cup Draft Simulator - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
     },
     posts: [
       {
         slug: "world-cup-predictor-2026",
         title: "Pronostic Coupe du Monde 2026 — Simulez votre propre tournoi",
-        excerpt: "Pronostic Coupe du Monde 2026 gratuit. Choisissez une équipe historique, composez votre XI et simulez tout le tournoi dans le navigateur — sans téléchargement, sans inscription.",
+        excerpt:
+          "Pronostic Coupe du Monde 2026 gratuit. Choisissez une équipe historique, composez votre XI et simulez tout le tournoi dans le navigateur — sans téléchargement, sans inscription.",
         date: "2026-08-22",
         sections: [
           {
@@ -638,7 +638,8 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "how-it-works",
         title: "Comment fonctionne World Cup Draft Simulator",
-        excerpt: "Cinq gestes vous menent d'un terrain vide a une finale de Coupe du Monde simulee. Voici la boucle complete.",
+        excerpt:
+          "Cinq gestes vous menent d'un terrain vide a une finale de Coupe du Monde simulee. Voici la boucle complete.",
         date: "2026-08-22",
         sections: [
           {
@@ -717,8 +718,10 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "what-it-is-most-fun",
-        title: "Qu'est-ce que World Cup Draft Simulator - et pourquoi c'est le plus fun",
-        excerpt: "Un fantasy football Coupe du Monde ou vous construisez le XI de reve et voyez les legendes s'affronter. Voici ce que c'est et pourquoi ca accroche.",
+        title:
+          "Qu'est-ce que World Cup Draft Simulator - et pourquoi c'est le plus fun",
+        excerpt:
+          "Un fantasy football Coupe du Monde ou vous construisez le XI de reve et voyez les legendes s'affronter. Voici ce que c'est et pourquoi ca accroche.",
         date: "2026-08-22",
         sections: [
           {
@@ -800,15 +803,16 @@ export const blog: Record<Locale, BlogLocale> = {
   ja: {
     index: {
       title: "ブログ",
-      seoTitle:
-        "ワールドカップ ドラフトシミュレーター ブログ — ガイドとヒント",
-      intro: "World Cup Draft Simulator についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
+      seoTitle: "ワールドカップ ドラフトシミュレーター ブログ — ガイドとヒント",
+      intro:
+        "World Cup Draft Simulator についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
     },
     posts: [
       {
         slug: "world-cup-predictor-2026",
         title: "ワールドカップ2026予想 — 自分だけのトーナメントをシミュレート",
-        excerpt: "無料のワールドカップ2026予想シミュレーター。歴代チームを選び、XIをドラフトして、大会全体をブラウザーでシミュレート。ダウンロードも登録も不要。",
+        excerpt:
+          "無料のワールドカップ2026予想シミュレーター。歴代チームを選び、XIをドラフトして、大会全体をブラウザーでシミュレート。ダウンロードも登録も不要。",
         date: "2026-08-22",
         sections: [
           {
@@ -894,7 +898,8 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "how-it-works",
         title: "World Cup Draft Simulator の仕組み",
-        excerpt: "空のピッチからシミュレートされたワールドカップ決勝まで、たった五つの手順。完全なループはこれだ。",
+        excerpt:
+          "空のピッチからシミュレートされたワールドカップ決勝まで、たった五つの手順。完全なループはこれだ。",
         date: "2026-08-22",
         sections: [
           {
@@ -973,8 +978,10 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "what-it-is-most-fun",
-        title: "World Cup Draft Simulator とは何か——そしてなぜもっとも面白いのか",
-        excerpt: "夢の XI を組み、レジェンドが激突するファンタジー・フットボールW杯。それが何か、そしてなぜ病みつきになるのか。",
+        title:
+          "World Cup Draft Simulator とは何か——そしてなぜもっとも面白いのか",
+        excerpt:
+          "夢の XI を組み、レジェンドが激突するファンタジー・フットボールW杯。それが何か、そしてなぜ病みつきになるのか。",
         date: "2026-08-22",
         sections: [
           {
@@ -1027,7 +1034,7 @@ export const blog: Record<Locale, BlogLocale> = {
             body: [
               "グループの波乱、延長の劇的な敗退、PK——ワールドカップの感情の弧はすべてそこにある。あなたが作った番狂わせが巨人を倒す。",
               "シミュレーションが調子とケミストリーを尊重するから、ドラマはでたらめではなくもっともらしい。本物のように喜び、呪うだろう。",
-                            "感情の弧はグループの波乱からノックアウトの緊張、延長の疲労、そして PK 戦の悲劇まで続く。各段階が調子・スタミナ・ケミストリーを重み付けし、大会一本が完結した物語になる。",
+              "感情の弧はグループの波乱からノックアウトの緊張、延長の疲労、そして PK 戦の悲劇まで続く。各段階が調子・スタミナ・ケミストリーを重み付けし、大会一本が完結した物語になる。",
               "この完全な感情体験こそファンが戻ってくる理由だ。ゲームプレイのためだけでなく、W杯シミュレーターにしか語れない物語のために。",
             ],
           },
@@ -1058,13 +1065,15 @@ export const blog: Record<Locale, BlogLocale> = {
       title: "Blog",
       seoTitle:
         "Blog de World Cup Draft Simulator — Guías y consejos del simulador",
-      intro: "Guías y notas sobre World Cup Draft Simulator - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
+      intro:
+        "Guías y notas sobre World Cup Draft Simulator - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
     },
     posts: [
       {
         slug: "world-cup-predictor-2026",
         title: "Pronóstico Mundial 2026 — Simula tu propio torneo",
-        excerpt: "Pronóstico del Mundial 2026 gratis. Elige un equipo histórico, arma tu once y simula el torneo completo en el navegador — sin descargas, sin registro.",
+        excerpt:
+          "Pronóstico del Mundial 2026 gratis. Elige un equipo histórico, arma tu once y simula el torneo completo en el navegador — sin descargas, sin registro.",
         date: "2026-08-22",
         sections: [
           {
@@ -1150,7 +1159,8 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "how-it-works",
         title: "Cómo funciona World Cup Draft Simulator",
-        excerpt: "Cinco movimientos te llevan de una cancha vacía a una final del Mundial simulada. Aquí está el bucle completo.",
+        excerpt:
+          "Cinco movimientos te llevan de una cancha vacía a una final del Mundial simulada. Aquí está el bucle completo.",
         date: "2026-08-22",
         sections: [
           {
@@ -1229,8 +1239,10 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "what-it-is-most-fun",
-        title: "Qué es World Cup Draft Simulator - y por qué es el más divertido",
-        excerpt: "Una Copa del Mundo fantasy donde construyes el XI de ensueño y ves chocar a las leyendas. Aquí está qué es y por qué engancha.",
+        title:
+          "Qué es World Cup Draft Simulator - y por qué es el más divertido",
+        excerpt:
+          "Una Copa del Mundo fantasy donde construyes el XI de ensueño y ves chocar a las leyendas. Aquí está qué es y por qué engancha.",
         date: "2026-08-22",
         sections: [
           {

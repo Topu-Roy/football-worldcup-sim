@@ -49,10 +49,14 @@ const faqLd = {
   title={m.title}
   description={m.description}
   ogImage={ogImageFor(path)}
-  jsonLd={[breadcrumbLd(lang, [
-    { name: "Home", path: "/" },
-    { name: "How to play", path: "/how-to-play" },
-  ]), articleLd, faqLd]}
+  jsonLd={[
+    breadcrumbLd(lang, [
+      { name: "Home", path: "/" },
+      { name: "How to play", path: "/how-to-play" },
+    ]),
+    articleLd,
+    faqLd,
+  ]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
@@ -66,7 +70,9 @@ const faqLd = {
           {c.hero.map((p) => <p>{p}</p>)}
         </div>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.stepsTitle}</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.stepsTitle}
+        </h2>
         <ol class="mt-6 grid gap-4 sm:grid-cols-2">
           {
             c.steps.map((step) => (
@@ -85,12 +91,16 @@ const faqLd = {
           }
         </ol>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.loopTitle}</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.loopTitle}
+        </h2>
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.loop.map((p) => <p>{p}</p>)}
         </div>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">{c.faqTitle}</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.faqTitle}
+        </h2>
         <div class="mt-6 space-y-4">
           {
             c.faq.map((f) => (

@@ -193,7 +193,9 @@
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
       <p class="{mono} text-mint">Tournament · 4 teams</p>
-      <h2 class="font-display text-4xl leading-[0.85] tracking-[1px] sm:text-5xl">
+      <h2
+        class="font-display text-4xl leading-[0.85] tracking-[1px] sm:text-5xl"
+      >
         World Cup Run
       </h2>
       <p class="{mono} mt-3 text-secondary">

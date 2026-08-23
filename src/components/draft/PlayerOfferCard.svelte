@@ -65,7 +65,8 @@
 </script>
 
 <div
-  class="relative {playerCard} {selected ? 'card-selected' : ''} {tier === 'elite'
+  class="relative {playerCard} {selected ? 'card-selected' : ''} {tier ===
+  'elite'
     ? 'card-elite'
     : tier === 'star'
       ? 'card-star'

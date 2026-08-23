@@ -50,8 +50,7 @@ export function nationClusters(players: Player[]): NationCluster[] {
     }))
     .sort(
       (a, b) =>
-        b.players.length - a.players.length ||
-        a.nation.localeCompare(b.nation),
+        b.players.length - a.players.length || a.nation.localeCompare(b.nation),
     );
 }
 

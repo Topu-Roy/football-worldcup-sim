@@ -15,7 +15,8 @@ export const teamDetail = {
     ctaAll: "All teams",
     other: (nation: string) => `Other ${nation} squads:`,
     rosterTitle: "Roster & ratings",
-    wcHeading: (nation: string, year: string) => `${nation} at the ${year} World Cup`,
+    wcHeading: (nation: string, year: string) =>
+      `${nation} at the ${year} World Cup`,
     readMore: ({ nation, year, formation, top, rating }: TeamArgs) => [
       `${nation} arrived at the ${year} World Cup with a squad built around ${top}, the side's highest-rated player at ${rating} overall. In a ${formation} shape, the group mixed proven leaders with emerging talent, and the ratings above show exactly where the team's strength sat — and where it thinned out.`,
       `Average rating only tells part of the story. Tournaments are won on form, fixture luck and fine margins, which is why the same roster can be devastating in one simulation and knocked out early in the next. That unpredictability is the heart of a fantasy World Cup: picking a star-studded side is no guarantee, and backing a gritty underdog can pay off.`,
@@ -51,7 +52,8 @@ export const teamDetail = {
     ctaAll: "Toutes les équipes",
     other: (nation: string) => `Autres effectifs ${nation} :`,
     rosterTitle: "Effectif & notes",
-    wcHeading: (nation: string, year: string) => `${nation} à la Coupe du Monde ${year}`,
+    wcHeading: (nation: string, year: string) =>
+      `${nation} à la Coupe du Monde ${year}`,
     readMore: ({ nation, year, formation, top, rating }: TeamArgs) => [
       `${nation} est arrivé à la Coupe du Monde ${year} avec un effectif construit autour de ${top}, le joueur le mieux noté de l'équipe à ${rating} global. Dans une forme ${formation}, le groupe a mêlé des leaders éprouvés et des talents émergents, et les notes ci-dessus montrent exactement où était la force de l'équipe — et où elle s'est amincie.`,
       `La note moyenne ne dit qu'une partie de l'histoire. Les tournois se gagnent sur la forme, la chance du tirage et les petites marges, c'est pourquoi le même effectif peut être dévastateur dans une simulation et éliminé tôt dans la suivante. Cette imprévisibilité est le cœur d'une Coupe du Monde fantasy : choisir une équipe pleine d'étoiles n'est pas une garantie, et parier sur un petit outsider peut payer.`,
@@ -69,7 +71,8 @@ export const teamDetail = {
     ctaAll: "全チーム",
     other: (nation: string) => `他の${nation}チーム：`,
     rosterTitle: "ロースター＆レーティング",
-    wcHeading: (nation: string, year: string) => `${nation}のワールドカップ${year}`,
+    wcHeading: (nation: string, year: string) =>
+      `${nation}のワールドカップ${year}`,
     readMore: ({ nation, year, formation, top, rating }: TeamArgs) => [
       `${nation}は総合${rating}で最高の${top}を中心に組まれたチームでワールドカップ${year}にやって来た。${formation}の形で、実績あるリーダーと若手を混ぜ、上のレーティングはチームの強みがどこにあり、どこが薄かったかを正確に示す。`,
       `平均レーティングは話の一部に過ぎない。大会は調子、抽選の運、僅差で勝つ。だから同じロースターが1つのシミュレーションでは破壊的でも、次では早く敗退する。この予測不能さがFantasy Football ワールドカップの心だ。スター揃いのチームでも保証はなく、粘り強いアンダードッグを推すと報われることもある。`,
@@ -87,7 +90,8 @@ export const teamDetail = {
     ctaAll: "Todos los equipos",
     other: (nation: string) => `Otros plantillas de ${nation}:`,
     rosterTitle: "Plantilla y valoraciones",
-    wcHeading: (nation: string, year: string) => `${nation} en el Mundial ${year}`,
+    wcHeading: (nation: string, year: string) =>
+      `${nation} en el Mundial ${year}`,
     readMore: ({ nation, year, formation, top, rating }: TeamArgs) => [
       `${nation} llegó al Mundial ${year} con una plantilla construida en torno a ${top}, el jugador mejor valorado del lado con ${rating} global. En una forma ${formation}, el grupo mezcló líderes probados con talento emergente, y las valoraciones de arriba muestran exactamente dónde estaba la fuerza del equipo — y dónde se adelgazó.`,
       `La valoración media solo cuenta parte de la historia. Los torneos se ganan por forma, suerte en el sorteo y márgenes finos, por eso el mismo plantel puede ser devastador en una simulación y eliminado temprano en la siguiente. Esa imprevisibilidad es el corazón de un Mundial fantasy: elegir un equipo lleno de estrellas no garantiza nada, y apoyar a un cabeza dura puede pagar.`,
