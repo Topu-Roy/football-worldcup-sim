@@ -220,7 +220,7 @@
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
         onclick={handleReset}
-        ><RotateCcw class="h-3.5 w-3.5" /> New draft</button
+        ><RotateCcw class="h-3.5 w-3.5" /> Play</button
       >
     </div>
   </header>

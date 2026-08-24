@@ -11,7 +11,7 @@ export const ui = {
       privacy: "Privacy",
       terms: "Terms",
       contact: "Contact",
-      newDraft: "New Draft",
+      newDraft: "Play",
       menuToggle: "Toggle menu",
     },
     footer: {
@@ -46,7 +46,7 @@ export const ui = {
       privacy: "Datenschutz",
       terms: "AGB",
       contact: "Kontakt",
-      newDraft: "Neuer Entwurf",
+      newDraft: "Spielen",
       menuToggle: "Menü umschalten",
     },
     footer: {
@@ -82,7 +82,7 @@ export const ui = {
       privacy: "Confidentialité",
       terms: "Conditions",
       contact: "Contact",
-      newDraft: "Nouveau tirage",
+      newDraft: "Jouer",
       menuToggle: "Basculer le menu",
     },
     footer: {
@@ -118,7 +118,7 @@ export const ui = {
       privacy: "プライバシー",
       terms: "利用規約",
       contact: "お問い合わせ",
-      newDraft: "新規ドラフト",
+      newDraft: "プレイ",
       menuToggle: "メニューを開く",
     },
     footer: {
@@ -154,7 +154,7 @@ export const ui = {
       privacy: "Privacidad",
       terms: "Términos",
       contact: "Contacto",
-      newDraft: "Nuevo draft",
+      newDraft: "Jugar",
       menuToggle: "Alternar menú",
     },
     footer: {
