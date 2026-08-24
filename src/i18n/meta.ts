@@ -50,9 +50,9 @@ export const meta: Record<
   en: {
     home: {
       title:
-        "Fantasy Football World Cup — Draft & Simulate | World Cup Simulator",
+        "Fantasy Football World Cup - Draft & Simulate | World Cup Simulator",
       description:
-        "Build your fantasy World Cup dream team from 100+ historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free world cup 2026 simulator in your browser — no download.",
+        "Build your fantasy World Cup dream team from 100+ historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free world cup 2026 simulator in your browser - no download.",
     },
     about: {
       title: "What Is Eleven Fantasy? Dream Team Builder",
@@ -65,28 +65,28 @@ export const meta: Record<
         "Learn how to draft a fantasy World Cup XI from historical squads, pick a formation, and run your team through a simulated knockout tournament with penalty shootouts.",
     },
     contact: {
-      title: "Contact — Eleven Fantasy",
+      title: "Contact - Eleven Fantasy",
       description:
         "Contact Eleven Fantasy with feedback, bug reports and questions about the fantasy football World Cup draft simulation game.",
     },
     privacy: {
-      title: "Privacy Policy — Eleven Fantasy",
+      title: "Privacy Policy - Eleven Fantasy",
       description:
         "Privacy policy for Eleven Fantasy. Explains what data is collected when you use the fantasy football draft simulator website.",
     },
     terms: {
-      title: "Terms & Conditions — Eleven Fantasy",
+      title: "Terms & Conditions - Eleven Fantasy",
       description:
         "Terms and conditions for using Eleven Fantasy, the fantasy football World Cup draft and tournament simulation game.",
     },
     teams: (count) => ({
-      title: "World Cup Teams 1970-2026 — Historical Squads & Player Ratings",
+      title: "World Cup Teams 1970-2026 - Historical Squads & Player Ratings",
       description: `Browse all ${count} historical World Cup teams from 1970 to 2026 with player ratings, from Brazil 1970 to Argentina 2022. Draft any team in the fantasy World Cup simulator.`,
     }),
     team: (nation, year) => {
       const { names, form } = teamExtras(nation, year);
       return {
-        title: `${nation} ${year} Squad — World Cup ${year} Team & Player Ratings`,
+        title: `${nation} ${year} Squad - World Cup ${year} Team & Player Ratings`,
         description: `See the ${nation} ${year} World Cup squad${names.length ? `: ${names.join(", ")}` : ""}. Full roster, player ratings and a ${form} formation. Draft this historical team in the fantasy World Cup simulator.`,
       };
     },
@@ -94,9 +94,9 @@ export const meta: Record<
   de: {
     home: {
       title:
-        "Fantasy Football World Cup — Draft & Simulation | World Cup Simulator",
+        "Fantasy Football World Cup - Draft & Simulation | World Cup Simulator",
       description:
-        "Stelle dein Fantasy-World-Cup-Traumteam aus über 100 historischen Mannschaften (1970-2026) zusammen und sieh ihm in einem simulierten K.-o.-Turnier gegen die Besten aller Zeiten zu. Kostenloser World-Cup-2026-Simulator im Browser — kein Download.",
+        "Stelle dein Fantasy-World-Cup-Traumteam aus über 100 historischen Mannschaften (1970-2026) zusammen und sieh ihm in einem simulierten K.-o.-Turnier gegen die Besten aller Zeiten zu. Kostenloser World-Cup-2026-Simulator im Browser - kein Download.",
     },
     about: {
       title: "Was ist der Eleven Fantasy? Traumteam bauen",
@@ -109,29 +109,29 @@ export const meta: Record<
         "Erfahre, wie du ein Fantasy-World-Cup-Team aus historischen Mannschaften aufstellst, eine Formation wählst und dein Team in einem simulierten K.-o.-Turnier mit Elfmeterschießen antreten lässt.",
     },
     contact: {
-      title: "Kontakt — Eleven Fantasy",
+      title: "Kontakt - Eleven Fantasy",
       description:
         "Kontaktiere Eleven Fantasy mit Feedback, Fehlermeldungen und Fragen zum Fantasy-World-Cup-Draft-Simulationsspiel.",
     },
     privacy: {
-      title: "Datenschutz — Eleven Fantasy",
+      title: "Datenschutz - Eleven Fantasy",
       description:
         "Datenschutzerklärung für Eleven Fantasy. Erklärt, welche Daten beim Nutzen der Fantasy-Football-Draft-Simulator-Website erhoben werden.",
     },
     terms: {
-      title: "AGB — Eleven Fantasy",
+      title: "AGB - Eleven Fantasy",
       description:
         "Allgemeine Geschäftsbedingungen für die Nutzung von Eleven Fantasy, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
     },
     teams: (count) => ({
       title:
-        "World Cup Teams 1970-2026 — Historische Mannschaften & Spielerbewertungen",
+        "World Cup Teams 1970-2026 - Historische Mannschaften & Spielerbewertungen",
       description: `Stöbere durch alle ${count} historischen World-Cup-Mannschaften von 1970 bis 2026 mit Spielerbewertungen, von Brasilien 1970 bis Argentinien 2022. Stelle im Fantasy-World-Cup-Simulator jede Mannschaft auf.`,
     }),
     team: (nation, year) => {
       const { names, form } = teamExtras(nation, year);
       return {
-        title: `${nation} ${year} — World-Cup-${year}-Team & Spielerbewertungen`,
+        title: `${nation} ${year} - World-Cup-${year}-Team & Spielerbewertungen`,
         description: `${nation} ${year}: WM-Kader${names.length ? ` mit ${names.join(", ")}` : ""}. Voller Kader, Spielerbewertungen und ${form}-Formation. Stelle dieses historische ${nation}-Team im Fantasy-World-Cup-Simulator auf.`,
       };
     },
@@ -139,13 +139,12 @@ export const meta: Record<
   fr: {
     home: {
       title:
-        "Coupe du Monde Fantasy — Draft & Simulation | Simulateur de Coupe du Monde",
+        "Coupe du Monde Fantasy - Draft & Simulation | Simulateur de Coupe du Monde",
       description:
         "Composez votre équipe de rêve de Coupe du Monde fantasy parmi plus de 100 équipes historiques (1970-2026), puis regardez-la affronter les plus grands de l'histoire dans un tournoi à élimination directe simulé. Simulateur Coupe du Monde 2026 gratuit dans le navigateur, sans téléchargement.",
     },
     about: {
-      title:
-        "Qu'est-ce que Eleven Fantasy ? Créez votre équipe type",
+      title: "Qu'est-ce que Eleven Fantasy ? Créez votre équipe type",
       description:
         "Eleven Fantasy est un jeu gratuit dans le navigateur où vous composez un onze de Coupe du Monde fantasy parmi plus de 100 équipes historiques (1970-2026) et le faites jouer dans un tournoi simulé.",
     },
@@ -160,24 +159,24 @@ export const meta: Record<
         "Contactez Eleven Fantasy pour vos retours, bugs et questions sur le jeu de simulation de draft de Coupe du Monde fantasy.",
     },
     privacy: {
-      title: "Confidentialité — Eleven Fantasy",
+      title: "Confidentialité - Eleven Fantasy",
       description:
         "Politique de confidentialité de Eleven Fantasy. Explique les données collectées sur le site de simulation de draft de Coupe du Monde fantasy.",
     },
     terms: {
-      title: "Conditions — Eleven Fantasy",
+      title: "Conditions - Eleven Fantasy",
       description:
         "Conditions générales d'utilisation de Eleven Fantasy, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
     },
     teams: (count) => ({
       title:
-        "Équipes de Coupe du Monde 1970-2026 — Équipes historiques et notes des joueurs",
+        "Équipes de Coupe du Monde 1970-2026 - Équipes historiques et notes des joueurs",
       description: `Parcourez toutes les ${count} équipes historiques de Coupe du Monde de 1970 à 2026 avec les notes des joueurs, du Brésil 1970 à l'Argentine 2022. Composez n'importe quelle équipe dans le simulateur.`,
     }),
     team: (nation, year) => {
       const { names, form } = teamExtras(nation, year);
       return {
-        title: `Équipe ${nation} ${year} — Coupe du Monde ${year} : notes des joueurs`,
+        title: `Équipe ${nation} ${year} - Coupe du Monde ${year} : notes des joueurs`,
         description: `${nation} ${year} : l'équipe du Mondial${names.length ? ` avec ${names.join(", ")}` : ""}. Effectif complet, notes des joueurs et formation ${form}. Composez cette équipe historique dans le simulateur.`,
       };
     },
@@ -185,7 +184,7 @@ export const meta: Record<
   ja: {
     home: {
       title:
-        "Fantasy Football World Cup — ドラフト＆シミュレート | World Cup Simulator",
+        "Fantasy Football World Cup - ドラフト＆シミュレート | World Cup Simulator",
       description:
         "1970〜2026年の歴代チーム100以上からワールドカップの夢のチームを作り、シミュレートされた決勝トーナメントで史上最強チームと対戦。ブラウザで使える無料のワールドカップ2026シミュレーター。ダウンロード不要。",
     },
@@ -200,28 +199,28 @@ export const meta: Record<
         "歴代チームからワールドカップの夢のチームをドラフトする方法、フォーメーションの選び方、PK付きのシミュレートされたトーナメントの進め方を学びます。",
     },
     contact: {
-      title: "お問い合わせ — Eleven Fantasy",
+      title: "お問い合わせ - Eleven Fantasy",
       description:
         "Fantasy Football World Cup ドラフトシミュレーションゲームについてのフィードバック、不具合報告、質問は Eleven Fantasy へ。",
     },
     privacy: {
-      title: "プライバシー — Eleven Fantasy",
+      title: "プライバシー - Eleven Fantasy",
       description:
         "Eleven Fantasy のプライバシーポリシー。Fantasy Football ドラフトシミュレーターサイトの利用時に収集するデータを説明します。",
     },
     terms: {
-      title: "利用規約 — Eleven Fantasy",
+      title: "利用規約 - Eleven Fantasy",
       description:
         "Eleven Fantasy（Fantasy Football ワールドカップのドラフト・トーナメントシミュレーションゲーム）の利用規約。",
     },
     teams: (count) => ({
-      title: "ワールドカップチーム 1970-2026 — 歴代チーム＆選手レーティング",
+      title: "ワールドカップチーム 1970-2026 - 歴代チーム＆選手レーティング",
       description: `1970年から2026年までの歴代ワールドカップチーム${count}を選手レーティング付きで見る。ブラジル1970からアルゼンチン2022まで。シミュレーターで任意のチームをドラフト。`,
     }),
     team: (nation, year) => {
       const { names, form } = teamExtras(nation, year);
       return {
-        title: `${nation} ${year} 代表 — ワールドカップ${year}チーム＆選手レーティング`,
+        title: `${nation} ${year} 代表 - ワールドカップ${year}チーム＆選手レーティング`,
         description: `${nation} ${year} ワールドカップ代表${names.length ? `：${names.join("、")}ら` : ""}。全選手とレーティング、${form}フォーメーション。この歴代チームをシミュレーターでドラフト。`,
       };
     },
@@ -229,7 +228,7 @@ export const meta: Record<
   es: {
     home: {
       title:
-        "Fantasy Football World Cup — Draft y Simulación | World Cup Simulator",
+        "Fantasy Football World Cup - Draft y Simulación | World Cup Simulator",
       description:
         "Arma tu equipo de ensueño de la Copa del Mundo fantasy con más de 100 equipos históricos (1970-2026) y míralo enfrentarse a los mejores de la historia en un torneo de eliminación simulado. Simulador Mundial 2026 gratis en el navegador, sin descargas.",
     },
@@ -244,29 +243,29 @@ export const meta: Record<
         "Aprende a armar un once de la Copa del Mundo fantasy con equipos históricos, elegir una formación y enfrentar a tu equipo en un torneo simulado con penales.",
     },
     contact: {
-      title: "Contacto — Eleven Fantasy",
+      title: "Contacto - Eleven Fantasy",
       description:
         "Contacta con Eleven Fantasy con comentarios, errores y preguntas sobre el juego de simulación de draft de la Copa del Mundo fantasy.",
     },
     privacy: {
-      title: "Privacidad — Eleven Fantasy",
+      title: "Privacidad - Eleven Fantasy",
       description:
         "Política de privacidad de Eleven Fantasy. Explica qué datos se recogen al usar el sitio del simulador de draft de la Copa del Mundo fantasy.",
     },
     terms: {
-      title: "Términos — Eleven Fantasy",
+      title: "Términos - Eleven Fantasy",
       description:
         "Términos y condiciones de uso de Eleven Fantasy, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
     },
     teams: (count) => ({
       title:
-        "Equipos del Mundial 1970-2026 — Plantillas históricas y valoraciones",
+        "Equipos del Mundial 1970-2026 - Plantillas históricas y valoraciones",
       description: `Explora los ${count} equipos históricos del Mundial de 1970 a 2026 con valoraciones, del Brasil 1970 a la Argentina 2022. Arma cualquier equipo en el simulador.`,
     }),
     team: (nation, year) => {
       const { names, form } = teamExtras(nation, year);
       return {
-        title: `Equipo ${nation} ${year} — Mundial ${year}: valoraciones`,
+        title: `Equipo ${nation} ${year} - Mundial ${year}: valoraciones`,
         description: `${nation} ${year}: el equipo del Mundial${names.length ? ` con ${names.join(", ")}` : ""}. Plantilla completa, valoraciones y formación ${form}. Arma este histórico equipo en el simulador.`,
       };
     },
