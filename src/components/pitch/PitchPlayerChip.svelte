@@ -4,8 +4,10 @@
     ROLE_LABELS,
     assignedRole,
     canonicalRole,
+    playerRating,
     roleNerf,
   } from "../../lib/draft.js";
+  import { shortName } from "../../lib/shortName";
   import type { Player } from "../../lib/types.js";
 
   let {
@@ -37,6 +39,7 @@
       !!selectedBest &&
       canonicalRole(slotRole) === canonicalRole(selectedBest),
   );
+  const rating = $derived(Math.round(playerRating(player)));
 </script>
 
 <div class="relative flex flex-col items-center gap-1">
@@ -84,7 +87,13 @@
         ? 'text-yellow'
         : 'text-white'}"
   >
-    {player.name}
+    {shortName(player.name)}
+  </span>
+
+  <span
+    class="font-mono text-[10px] font-bold leading-none text-mint [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]"
+  >
+    {rating}
   </span>
 
   {#if showTip && flagged}

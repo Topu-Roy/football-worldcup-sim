@@ -1,6 +1,7 @@
 ---
 import PitchGraphic from "./PitchGraphic.astro";
 import type { PreviewSlide } from "../data/preview-squads";
+import { shortName } from "../lib/shortName";
 
 interface Props {
   slides: PreviewSlide[];
@@ -25,7 +26,7 @@ const { slides } = Astro.props;
               aria-label={`${s.team} — ${s.formationLabel} formation`}
               aria-hidden={i === 0 ? "false" : "true"}
             >
-              <div class="relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
+              <div class="pitch-wrap relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
                 <PitchGraphic id={s.id} />
                 {s.players.map((p) => (
                   <div
@@ -34,7 +35,7 @@ const { slides } = Astro.props;
                     aria-label={`${p.name}, rating ${p.rating}`}
                   >
                     <span class={`chip-ball ${p.tier}`}>{p.jersey}</span>
-                    <span class="chip-name">{p.name}</span>
+                    <span class="chip-name">{shortName(p.name)}</span>
                     <span class="chip-rating">{p.rating}</span>
                   </div>
                 ))}
@@ -100,6 +101,10 @@ const { slides } = Astro.props;
     will-change: transform;
   }
 
+  .pitch-wrap {
+    container-type: inline-size;
+  }
+
   .chip {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -107,7 +112,7 @@ const { slides } = Astro.props;
     flex-direction: column;
     align-items: center;
     gap: 1px;
-    width: clamp(52px, 15vw, 86px);
+    width: clamp(52px, 18cqw, 100px);
     text-align: center;
     pointer-events: none;
   }
@@ -116,15 +121,15 @@ const { slides } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(20px, 6vw, 28px);
-    height: clamp(20px, 6vw, 28px);
+    width: clamp(20px, 8cqw, 44px);
+    height: clamp(20px, 8cqw, 44px);
     border-radius: 9999px;
     background: #ffffff;
     color: #000000;
     border: 2px solid #ffffff;
     font-family: var(--font-mono);
     font-weight: 700;
-    font-size: clamp(0.55rem, 1.7vw, 0.72rem);
+    font-size: clamp(0.5rem, 2.8cqw, 0.9rem);
     line-height: 1;
   }
 
@@ -138,12 +143,12 @@ const { slides } = Astro.props;
   }
 
   .chip-name {
-    margin-top: 1px;
+    margin-top: 3px;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: clamp(0.46rem, 1.5vw, 0.62rem);
+    font-size: clamp(0.5rem, 2.6cqw, 0.85rem);
     font-weight: 700;
     line-height: 1.1;
     color: #ffffff;
@@ -152,7 +157,7 @@ const { slides } = Astro.props;
 
   .chip-rating {
     font-family: var(--font-mono);
-    font-size: clamp(0.42rem, 1.3vw, 0.56rem);
+    font-size: clamp(0.45rem, 2.2cqw, 0.72rem);
     font-weight: 700;
     color: #3cffd0;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
