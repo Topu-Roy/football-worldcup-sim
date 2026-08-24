@@ -28,7 +28,7 @@ const articleLd = {
   headline: post.title,
   description: post.excerpt,
   datePublished: post.date,
-  dateModified: post.date,
+  dateModified: post.updated ?? post.date,
   mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
   author: { "@type": "Organization", name: SITE_NAME, url: siteUrl },
   publisher: {

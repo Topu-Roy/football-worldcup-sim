@@ -22,12 +22,17 @@ const { slides } = Astro.props;
               class="carousel-slide w-full shrink-0 p-4 sm:p-6"
               data-index={i}
               aria-roledescription="slide"
+              aria-label={`${s.team} — ${s.formationLabel} formation`}
               aria-hidden={i === 0 ? "false" : "true"}
             >
               <div class="relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
                 <PitchGraphic id={s.id} />
                 {s.players.map((p) => (
-                  <div class="chip" style={`left:${p.x}%; top:${p.y}%`}>
+                  <div
+                    class="chip"
+                    style={`left:${p.x}%; top:${p.y}%`}
+                    aria-label={`${p.name}, rating ${p.rating}`}
+                  >
                     <span class={`chip-ball ${p.tier}`}>{p.jersey}</span>
                     <span class="chip-name">{p.name}</span>
                     <span class="chip-rating">{p.rating}</span>

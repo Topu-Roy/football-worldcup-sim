@@ -1,6 +1,6 @@
 export const about = {
   en: {
-    h1: "What is the Fantasy Football Eleven Fantasy?",
+    h1: "What Is Eleven Fantasy?",
     hero: [
       "This free browser soccer game is made for fans of World Cup history. It is a fantasy football world cup game and the world cup dream team builder in one: you draft a dream XI from the teams of 1970 to 2026 - Pelé's Brazil 1970, Zidane's France 1998, Messi's Argentina 2022 - then the game simulates a group stage and a knockout tournament.",
       "Think of it as a soccer simulator. It is also a football draft simulator and a world cup fantasy game. You pick a formation. You draft your players. The match engine simulates the cup with penalties. In the US, it is a soccer draft game, an online soccer game or a free soccer simulation game. Around the world, it is the fantasy soccer draft fans return to. No download. No sign-up. It is the easiest interactive soccer simulator to open between matches.",
@@ -50,7 +50,7 @@ export const about = {
   },
 
   de: {
-    h1: "Was ist der Fantasy Football Eleven Fantasy?",
+    h1: "Was ist Eleven Fantasy?",
     hero: [
       "Eleven Fantasy ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel für Fans der WM-Geschichte. Es ist der WM-Traumteam-Builder. Du stellst ein Traumteam aus Teams von 1970 bis 2026 auf. Wähle Pelés Brasilien 1970, Zidanes Frankreich 1998 oder Messis Argentinien 2022. Dann simuliert das Spiel eine Gruppenphase und ein K.-o.-Turnier.",
       "Denk an es als Fußballsimulator. Es ist auch ein Football-Draft-Simulator und ein WM-Fantasy-Spiel. Du wählst eine Formation. Du draftest deine Spieler. Die Spielengine simuliert den Pokal mit Elfern. In den USA ist es Soccer-Draft-Spiel, Online-Soccer-Spiel oder kostenloses Fußball-Simulationsspiel. Weltweit ist es der Fantasy-Football-Draft, zu dem Fans zurückkehren. Kein Download. Keine Anmeldung. Es ist der einfachste interaktive Fußballsimulator, den man zwischen Spielen öffnet.",
@@ -100,7 +100,7 @@ export const about = {
   },
 
   fr: {
-    h1: "Qu'est-ce que le Fantasy Football Eleven Fantasy ?",
+    h1: "Qu'est-ce qu'Eleven Fantasy ?",
     hero: [
       "Eleven Fantasy est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy pour les fans de l'histoire de la Coupe. C'est le constructeur d'équipe de rêve de la Coupe du Monde. Vous composez un XI de rêve à partir des équipes de 1970 à 2026. Choisissez le Brésil 1970 de Pelé, la France 1998 de Zidane ou l'Argentine 2022 de Messi. Ensuite, le jeu simule une phase de groupes et un tournoi à élimination.",
       "Voyez-le comme un simulateur de football. C'est aussi un simulateur de draft de football et un jeu de Coupe du Monde fantasy. Vous choisissez une formation. Vous draftz vos joueurs. Le moteur de match simule la coupe avec les tirs au but. Aux États-Unis, c'est un jeu de draft soccer, un soccer en ligne ou un jeu de simulation de football gratuit. Dans le monde, c'est le draft de Coupe du Monde fantasy auquel les fans reviennent. Sans téléchargement. Sans inscription. C'est le simulateur de football interactif le plus simple à ouvrir entre deux matchs.",
@@ -150,7 +150,7 @@ export const about = {
   },
 
   ja: {
-    h1: "Fantasy Football Eleven Fantasy とは？",
+    h1: "Eleven Fantasy とは？",
     hero: [
       "Eleven Fantasyは無料のブラウザサッカーゲーム。ワールドカップの歴史を愛するファンのためのFantasy Football ワールドカップゲームだ。ワールドカップの夢のチームビルダー。1970年から2026年までのチームから夢のXIをドラフトする。ペレのブラジル1970、ジダンのフランス1998、メッシのアルゼンチン2022から選ぼう。するとゲームがグループリーグと決勝トーナメントをシミュレートする。",
       "サッカーシミュレーターと考えよう。これはフットボールドラフトシミュレーターであり、ワールドカップファンタジーゲームでもある。フォーメーションを選ぶ。選手をドラフトする。マッチエンジンがPK付きで杯をシミュレートする。アメリカではサッカードラフトゲーム、オンラインサッカーゲーム、無料サッカーシミュレーションゲームと呼ばれる。世界中ではファンが戻るFantasy Football ドラフトだ。ダウンロード不要。登録不要。試合の合間に開く一番簡単なインタラクティブなサッカーシミュレーターだ。",
@@ -200,7 +200,7 @@ export const about = {
   },
 
   es: {
-    h1: "¿Qué es el Fantasy Football Eleven Fantasy?",
+    h1: "¿Qué es Eleven Fantasy?",
     hero: [
       "Eleven Fantasy es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy para fans de la historia del Mundial. Es el constructor de equipo de ensueño del Mundial. Armas un XI de ensueño con equipos de 1970 a 2026. Elige el Brasil 1970 de Pelé, la Francia 1998 de Zidane o la Argentina 2022 de Messi. Luego el juego simula una fase de grupos y un torneo de eliminación.",
       "Piénsalo como un simulador de fútbol. También es un simulador de draft de fútbol y un juego de Copa del Mundo fantasy. Elijes una formación. Draftas tus jugadores. El motor de partido simula la copa con penales. En EE. UU. es un juego de draft soccer, un soccer en línea o un juego de simulación de fútbol gratuito. En el mundo, es el draft de Copa del Mundo fantasy al que vuelven los fans. Sin descargas. Sin registro. Es el simulador de fútbol interactivo más fácil de abrir entre partidos.",

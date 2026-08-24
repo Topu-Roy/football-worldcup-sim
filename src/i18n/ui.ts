@@ -31,7 +31,7 @@ export const ui = {
     team: { historicalSquad: "Historical Squad" },
     seoLinks: {
       game: "Draft your World Cup XI",
-      howToPlay: "How to play the Fantasy Football World Cup",
+      howToPlay: "How to Play Eleven Fantasy",
       teams: "Browse historical World Cup teams",
       blog: "World Cup simulator guides on the blog",
     },
@@ -67,7 +67,7 @@ export const ui = {
     team: { historicalSquad: "Historische Mannschaft" },
     seoLinks: {
       game: "Stelle dein WM-XI auf",
-      howToPlay: "Fantasy Football World Cup spielen",
+      howToPlay: "Eleven Fantasy spielen",
       teams: "Historische World-Cup-Mannschaften ansehen",
       blog: "Simulator-Guides im Blog",
     },
@@ -103,7 +103,7 @@ export const ui = {
     team: { historicalSquad: "Équipe historique" },
     seoLinks: {
       game: "Composez votre XI du Mondial",
-      howToPlay: "Comment jouer au Fantasy Football World Cup",
+      howToPlay: "Comment jouer à Eleven Fantasy",
       teams: "Parcourir les équipes historiques de Coupe du Monde",
       blog: "Guides du simulateur",
     },
@@ -139,7 +139,7 @@ export const ui = {
     team: { historicalSquad: "歴代チーム" },
     seoLinks: {
       game: "夢のイレブンをドラフト",
-      howToPlay: "Fantasy Football World Cup の遊び方",
+      howToPlay: "Eleven Fantasy の遊び方",
       teams: "歴代ワールドカップチームを見る",
       blog: "シミュレーターガイド",
     },
@@ -175,7 +175,7 @@ export const ui = {
     team: { historicalSquad: "Equipo histórico" },
     seoLinks: {
       game: "Arma tu once del Mundial",
-      howToPlay: "Cómo jugar al Fantasy Football World Cup",
+      howToPlay: "Cómo jugar a Eleven Fantasy",
       teams: "Explora los equipos históricos del Mundial",
       blog: "Guías del simulador",
     },

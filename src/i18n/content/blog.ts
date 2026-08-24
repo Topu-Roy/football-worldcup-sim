@@ -5,6 +5,7 @@ export interface BlogPostData {
   title: string;
   excerpt: string;
   date: string;
+  updated?: string;
   sections: { h2: string; body: string[] }[];
 }
 
@@ -803,7 +804,7 @@ export const blog: Record<Locale, BlogLocale> = {
   ja: {
     index: {
       title: "ブログ",
-      seoTitle: "ワールドカップ ドラフトシミュレーター ブログ — ガイドとヒント",
+      seoTitle: "Eleven Fantasy ブログ — ガイドとヒント",
       intro:
         "Eleven Fantasy についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
     },

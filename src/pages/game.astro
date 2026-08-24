@@ -2,12 +2,32 @@
 import GameShell from "../components/GameShell.svelte";
 import Layout from "../layouts/Layout.astro";
 import { ogImageFor } from "../lib/og";
+import { SITE_NAME as siteName, SITE_URL as siteUrl } from "../lib/site";
+
+const webAppLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: siteName,
+  url: new URL("/game", siteUrl).toString(),
+  applicationCategory: "GameApplication",
+  operatingSystem: "Web",
+  browserRequirements: "Requires JavaScript",
+  description:
+    "Pick your formation, draft a fantasy World Cup XI from 100+ historical squads (1970-2026), then run it through a simulated knockout tournament with penalty shootouts.",
+  inLanguage: "en",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+};
 ---
 
 <Layout
   title="Play — Eleven Fantasy"
   description="Pick your formation, draft a fantasy World Cup XI from 100+ historical squads (1970-2026), then run it through a simulated knockout tournament with penalty shootouts."
   ogImage={ogImageFor("/")}
+  jsonLd={webAppLd}
 >
   <GameShell client:only="svelte" />
 
@@ -16,7 +36,7 @@ import { ogImageFor } from "../lib/og";
       <p
         class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
       >
-        Fantasy World Cup Simulator
+        Eleven Fantasy
       </p>
       <h1
         id="about-game"
