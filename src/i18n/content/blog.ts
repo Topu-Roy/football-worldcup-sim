@@ -18,22 +18,22 @@ export const blog: Record<Locale, BlogLocale> = {
     index: {
       title: "Blog",
       seoTitle:
-        "World Cup Draft Simulator Blog — Guides, Tips & Simulator Notes",
+        "Eleven Fantasy Blog — Guides, Tips & Simulator Notes",
       intro:
-        "Guides and notes on World Cup Draft Simulator - the free browser soccer game where you draft a fantasy World Cup XI and simulate the cup.",
+        "Guides and notes on Eleven Fantasy - the free browser soccer game where you draft a fantasy World Cup XI and simulate the cup.",
     },
     posts: [
       {
         slug: "world-cup-predictor-2026",
         title: "World Cup Predictor 2026 — Simulate Your Own Draw & Tournament",
         excerpt:
-          "Free world cup predictor for 2026. Pick any historical squad, draft your XI and simulate the whole tournament in the browser — no download, no sign-up. Here is how World Cup Draft Simulator works as a world cup simulator 2026.",
+          "Free world cup predictor for 2026. Pick any historical squad, draft your XI and simulate the whole tournament in the browser — no download, no sign-up. Here is how Eleven Fantasy works as a world cup simulator 2026.",
         date: "2026-08-22",
         sections: [
           {
             h2: "Your 2026 world cup predictor, built on real history",
             body: [
-              "Unlike arcade football games with invented stats, World Cup Draft Simulator uses real ratings drawn from more than 100 historical World Cup squads (1970-2026). Brazil 1970, France 1998, Argentina 2022 - the numbers come from players who actually played.",
+              "Unlike arcade football games with invented stats, Eleven Fantasy uses real ratings drawn from more than 100 historical World Cup squads (1970-2026). Brazil 1970, France 1998, Argentina 2022 - the numbers come from players who actually played.",
               "That means your draft rests on real football history. When you pick Pele, Maradona, or Messi, you are drafting the real thing, not a random card. The legends you grew up watching become the spine of your team.",
               "Because the data comes from actual tournaments, the game feels grounded - this is not a made-up fantasy but a respectful tribute to football history. That is why it is the best fantasy football simulator for fans who value authenticity.",
               "The historical range 1970-2026 covers 14 World Cup tournaments, giving you access to decades of football evolution. From the attacking brilliance of Brazil 1970 to the tactical mastery of Italy 2006, each era offers different player profiles and tactical ideas for your draft.",
@@ -45,7 +45,7 @@ export const blog: Record<Locale, BlogLocale> = {
               "Most online football simulators drop you straight into a match. Here you build first: choose a formation, draft your XI across 12 rounds, chase stars, plug gaps. The team you create is yours.",
               "Every pick has to fill a slot, so the side you line up has a real shape - 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1 - not a pile of names. You make the tactical calls; the engine just plays them out.",
               "Unlike games that throw random players at you, this draft forces you to think about position and chemistry. Each slot matters, and the 12-round structure means you are building a complete XI, not just collecting names.",
-              "While other games treat the XI as a static set of names, World Cup Draft Simulator makes each pick permanent across the 12-round draft. Chemistry grows as same-nation players appear, rewarding strategic planning over simply collecting stars.",
+              "While other games treat the XI as a static set of names, Eleven Fantasy makes each pick permanent across the 12-round draft. Chemistry grows as same-nation players appear, rewarding strategic planning over simply collecting stars.",
             ],
           },
           {
@@ -78,7 +78,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Why it beats the alternatives",
             body: [
-              "Paid football games lock you into downloads, accounts, and season passes. Arcade sims invent stats that reward button-mashing. World Cup Draft Simulator is free, honest about its data, and about decisions, not reflexes.",
+              "Paid football games lock you into downloads, accounts, and season passes. Arcade sims invent stats that reward button-mashing. Eleven Fantasy is free, honest about its data, and about decisions, not reflexes.",
               "If you want the most fun online football simulator that respects football history and your time, this is it. Draft, simulate, repeat - no wallet, no wait.",
               "Because it runs in the browser there is nothing to install - just open a tab and play. It works on phone, laptop, or desktop, making it an online soccer game for anyone, anywhere.",
               "While other fantasy world cup simulator games rely on made-up stats, this one uses real ratings from 1970-2026 squads. It is a world cup fantasy game where your decisions about formation and chemistry matter more than random chance, and the seasonal updates keep the experience fresh.",
@@ -114,7 +114,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "how-it-works",
-        title: "How World Cup Draft Simulator Works",
+        title: "How Eleven Fantasy Works",
         excerpt:
           "Five moves take you from an empty pitch to a simulated World Cup final. Here is the full loop.",
         date: "2026-08-22",
@@ -195,7 +195,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "what-it-is-most-fun",
-        title: "What World Cup Draft Simulator Is - and Why It's the Most Fun",
+        title: "What Eleven Fantasy Is - and Why It's the Most Fun",
         excerpt:
           "A fantasy football World Cup where you build the dream XI and watch legends clash. Here is what it is and why it is addictive.",
         date: "2026-08-22",
@@ -279,9 +279,9 @@ export const blog: Record<Locale, BlogLocale> = {
   de: {
     index: {
       title: "Blog",
-      seoTitle: "World Cup Draft Simulator Blog — Anleitungen, Tipps & Notizen",
+      seoTitle: "Eleven Fantasy Blog — Anleitungen, Tipps & Notizen",
       intro:
-        "Guides und Notizen zu World Cup Draft Simulator - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
+        "Guides und Notizen zu Eleven Fantasy - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
     },
     posts: [
       {
@@ -294,7 +294,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Auf echter WM-Geschichte aufgebaut",
             body: [
-              "Anders als Arcade-Fußballspiele mit erfundenen Statistiken nutzt World Cup Draft Simulator echte Bewertungen aus mehr als 100 historischen WM-Kadern (1970-2026). Brasilien 1970, Frankreich 1998, Argentinien 2022 - die Zahlen stammen von Spielern, die wirklich gespielt haben.",
+              "Anders als Arcade-Fußballspiele mit erfundenen Statistiken nutzt Eleven Fantasy echte Bewertungen aus mehr als 100 historischen WM-Kadern (1970-2026). Brasilien 1970, Frankreich 1998, Argentinien 2022 - die Zahlen stammen von Spielern, die wirklich gespielt haben.",
               "Das bedeutet: Dein Draft ruht auf echter Fußballgeschichte. Wenn du Pele, Maradona oder Messi wählst, draftest du das Original, keine zufällige Karte. Die Legenden, mit denen du aufgewachsen bist, werden zum Rückgrat deines Teams.",
               "Da die Daten aus tatsächlichen Turnieren stammen, fühlt sich das Spiel verankert - das ist kein erfundenes Fantasy-Spiel, sondern ein respektvoller Tribut zur Fußballgeschichte. Deshalb ist es der beste Fantasy-Fußball-Simulator für Fans, die Authentizität schätzen.",
               "Der historische Bereich 1970-2026 umfasst 14 WM-Turniere, gibt dir Zugang zu Jahrzehnten der Fußball-Entwicklung. Vom Angriffswilligen Brasilien 1970 bis zur taktischen Meisterschaft Italiens 2006 bietet jede Epoche unterschiedliche Spielerprofile und taktische Ideen für deinen Draft.",
@@ -306,7 +306,7 @@ export const blog: Record<Locale, BlogLocale> = {
               "Die meisten Online-Fußballsimulatoren werfen dich direkt ins Spiel. Hier baust du zuerst: Wähle eine Formation, draft dein XI über 12 Runden, jage Stars, füll Lücken. Das Team, das du erstellst, ist deins.",
               "Jede Wahl muss einen Platz füllen, also hat die Mannschaft, die du aufstellst, eine echte Form - 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1 - kein Haufen Namen. Du triffst die taktischen Entscheidungen; die Engine spielt sie nur aus.",
               "Im Gegensatz zu Spielen, die dir zufällige Spieler präsentieren, zwingt dieser Draft dich, über Position und Chemie nachzudenken. Jeder Slot zählt, und die 12-Runden-Struktur bedeutet, dass du ein komplettes XI baust, nicht nur eine Sammlung von Namen.",
-              "Während andere Spiele das XI als statischen Namen-Set behandeln, macht World Cup Draft Simulator jeden Zug dauerhaft über die 12-Runden-Draft hinaus. Chemie wächst, wenn same-nation-Spieler erscheinen, und belohnt strategische Planung über das bloße Sammeln von Stars hinaus.",
+              "Während andere Spiele das XI als statischen Namen-Set behandeln, macht Eleven Fantasy jeden Zug dauerhaft über die 12-Runden-Draft hinaus. Chemie wächst, wenn same-nation-Spieler erscheinen, und belohnt strategische Planung über das bloße Sammeln von Stars hinaus.",
             ],
           },
           {
@@ -339,7 +339,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Warum es die Alternativen schlägt",
             body: [
-              "Kostenpflichtige Fußballspiele sperren dich in Downloads, Accounts und Saisonpässe. Arcade-Sims erfinden Statistiken, die Tastendrücken belohnen. World Cup Draft Simulator ist kostenlos, ehrlich zu seinen Daten und geht um Entscheidungen, nicht Reflexe.",
+              "Kostenpflichtige Fußballspiele sperren dich in Downloads, Accounts und Saisonpässe. Arcade-Sims erfinden Statistiken, die Tastendrücken belohnen. Eleven Fantasy ist kostenlos, ehrlich zu seinen Daten und geht um Entscheidungen, nicht Reflexe.",
               "Wenn du den lustigsten Online-Fußballsimulator willst, der Fußballgeschichte und deine Zeit respektiert, ist es das hier. Draften, simulieren, wiederholen - kein Geldbeutel, kein Warten.",
               "Da es browser-basiert ist, ist wirklich kein Soccer-Game-No-Download von überall auf der Welt erforderlich - öffne einfach einen Tab am Handy, Laptop oder Desktop und spiele sofort. Es ist ein kostenloses Soccer-Simulation-Spiel, das weltweit für jeden zugänglich ist.",
               "Während andere Fantasy-World-Cup-Simulator-Spiele auf erfundenen Stats basieren, nutzt dieses echte Bewertungen von 1970-2026 Kadern. Es ist ein World-Cup-Fantasy-Spiel, in dem deine Entscheidungen zu Formation und Chemie mehr zählen als zufälliger Zufall, und saisonale Updates halten das Erlebnis frisch.",
@@ -376,7 +376,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "how-it-works",
-        title: "Wie World Cup Draft Simulator funktioniert",
+        title: "Wie Eleven Fantasy funktioniert",
         excerpt:
           "Fünf Schritte bringen dich von einer leeren Mitte zu einem simulierten WM-Finale. Hier ist der komplette Ablauf.",
         date: "2026-08-22",
@@ -458,7 +458,7 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "what-it-is-most-fun",
         title:
-          "Was World Cup Draft Simulator ist - und warum es am meisten Spaß macht",
+          "Was Eleven Fantasy ist - und warum es am meisten Spaß macht",
         excerpt:
           "Ein Fantasy-Fußball-WM, in dem du das Traum-XI baust und Legenden aufeinanderprallen siehst. Hier ist, was es ist und warum es süchtig macht.",
         date: "2026-08-22",
@@ -543,9 +543,9 @@ export const blog: Record<Locale, BlogLocale> = {
     index: {
       title: "Blog",
       seoTitle:
-        "Blog World Cup Draft Simulator — Guides, astuces et notes du simulateur",
+        "Blog Eleven Fantasy — Guides, astuces et notes du simulateur",
       intro:
-        "Guides et notes sur World Cup Draft Simulator - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
+        "Guides et notes sur Eleven Fantasy - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
     },
     posts: [
       {
@@ -558,7 +558,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Basé sur la vraie histoire de la Coupe du Monde",
             body: [
-              "Contrairement aux jeux de football arcade aux statistiques inventees, World Cup Draft Simulator utilise de vraies notes tirees de plus de 100 selections historiques de Coupe du Monde (1970-2026). Bresil 1970, France 1998, Argentine 2022 - les chiffres viennent de joueurs qui ont vraiment joue.",
+              "Contrairement aux jeux de football arcade aux statistiques inventees, Eleven Fantasy utilise de vraies notes tirees de plus de 100 selections historiques de Coupe du Monde (1970-2026). Bresil 1970, France 1998, Argentine 2022 - les chiffres viennent de joueurs qui ont vraiment joue.",
               "Cela signifie que votre draft repose sur la vraie histoire du football. Quand vous choisissez Pele, Maradona ou Messi, vous draftez le vrai, pas une carte au hasard. Les legendes avec lesquelles vous avez grandi deviennent la colonne vertebrale de votre equipe.",
               "Chaque selection historique est documentee : annee, effectif, style de jeu. Le simulateur de football en ligne transforme ces donnees reelles en cartes jouables, pour un fantasy football coupe du monde fidele a l'histoire.",
               "Les notes viennent des performances reelles en Coupe du Monde, pas d'opinions. Un champion du monde de 1970 vaut ce qu'il a montre sur le terrain - c'est ce qui distingue un vrai simulateur de football d'un simple jeu de cartes.",
@@ -608,7 +608,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Pourquoi il bat les alternatives",
             body: [
-              "Les jeux de football payants vous enf ferment dans telechargements, comptes et passes saisonniers. Les sims arcade inventent des stats qui recompense les reflexes. World Cup Draft Simulator est gratuit, honnete sur ses donnees, et repose sur les decisions, pas les doigts.",
+              "Les jeux de football payants vous enf ferment dans telechargements, comptes et passes saisonniers. Les sims arcade inventent des stats qui recompense les reflexes. Eleven Fantasy est gratuit, honnete sur ses donnees, et repose sur les decisions, pas les doigts.",
               "Si vous voulez le simulateur de football en ligne le plus fun qui respecte l'histoire du football et votre temps, c'est lui. Draft, simule, rejoue - sans portefeuille, sans attente.",
               "Les jeux payants multiplient les monétisations : passes saisonniers, packs de cartes, publicites. Ici rien de tout cela - le simulateur Coupe du Monde 2026 est entierement gratuit, sans limite de parties.",
               "Les sims d'arcade recompensent les reflexes ; ici vos decisions construisent l'equipe et le moteur joue le match. Le resultat depend du draft et de la tactique, pas de votre vitesse de doigt.",
@@ -637,7 +637,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "how-it-works",
-        title: "Comment fonctionne World Cup Draft Simulator",
+        title: "Comment fonctionne Eleven Fantasy",
         excerpt:
           "Cinq gestes vous menent d'un terrain vide a une finale de Coupe du Monde simulee. Voici la boucle complete.",
         date: "2026-08-22",
@@ -719,7 +719,7 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "what-it-is-most-fun",
         title:
-          "Qu'est-ce que World Cup Draft Simulator - et pourquoi c'est le plus fun",
+          "Qu'est-ce que Eleven Fantasy - et pourquoi c'est le plus fun",
         excerpt:
           "Un fantasy football Coupe du Monde ou vous construisez le XI de reve et voyez les legendes s'affronter. Voici ce que c'est et pourquoi ca accroche.",
         date: "2026-08-22",
@@ -805,7 +805,7 @@ export const blog: Record<Locale, BlogLocale> = {
       title: "ブログ",
       seoTitle: "ワールドカップ ドラフトシミュレーター ブログ — ガイドとヒント",
       intro:
-        "World Cup Draft Simulator についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
+        "Eleven Fantasy についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
     },
     posts: [
       {
@@ -818,7 +818,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "本物のワールドカップ史に基づく",
             body: [
-              "でたらめな数字のアーケード・サッカーゲームと違い、World Cup Draft Simulator は 100 を超える歴代ワールドカップ代表（1970〜2026）の本物のレーティングを使う。1970 年ブラジル、1998 年フランス、2022 年アルゼンチン——数字は実際にプレーした選手から来ている。",
+              "でたらめな数字のアーケード・サッカーゲームと違い、Eleven Fantasy は 100 を超える歴代ワールドカップ代表（1970〜2026）の本物のレーティングを使う。1970 年ブラジル、1998 年フランス、2022 年アルゼンチン——数字は実際にプレーした選手から来ている。",
               "つまりあなたのドラフトは本物のサッカー史に根ざす。ペレ、マラドーナ、メッシを選ぶとき、あなたが指名するのは本物であり、適当なカードではない。子どもの頃に見たレジェンドがチームの柱になる。",
               "各歴代代表は年、メンバー、スタイルまで記録されている。W杯シミュレーターはこうした実データをプレイ可能なカードに変え、歴史に忠実なファンタジーW杯を実現する。",
               "レーティングは意見ではなく実績から作られる。1970 年の王者はピッチで示した通りの価値を持つ——これこそ本物のサッカーシミュレーターと単なるカードゲームの違いだ。",
@@ -868,7 +868,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "なぜ他より優れているか",
             body: [
-              "有料のサッカーゲームはダウンロード、アカウント、シーズンパスに縛る。アーケード系は反射神経を褒めるでたらめな数字をでっち上げる。World Cup Draft Simulator は無料で、データに正直で、求めるのは判断であって反射ではない。",
+              "有料のサッカーゲームはダウンロード、アカウント、シーズンパスに縛る。アーケード系は反射神経を褒めるでたらめな数字をでっち上げる。Eleven Fantasy は無料で、データに正直で、求めるのは判断であって反射ではない。",
               "サッカー史とあなたの時間を尊重する、もっとも面白いオンライン・フットボール・シミュレーターが欲しければ、それはこれだ。ドラフトし、シミュレートし、繰り返す——財布も待ち時間もなし。",
               "有料ゲームは課金を重ねる。シーズンパス、カードパック、広告。ここには何もない——W杯シミュレーター 2026 は完全無料で、プレイ回数の上限もない。",
               "アーケード系は反射神経を褒める。ここではあなたの判断がチームを作り、エンジンが試合を演じる。結果は指の速さではなく、ドラフトと戦術で決まる。",
@@ -897,7 +897,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "how-it-works",
-        title: "World Cup Draft Simulator の仕組み",
+        title: "Eleven Fantasy の仕組み",
         excerpt:
           "空のピッチからシミュレートされたワールドカップ決勝まで、たった五つの手順。完全なループはこれだ。",
         date: "2026-08-22",
@@ -979,7 +979,7 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "what-it-is-most-fun",
         title:
-          "World Cup Draft Simulator とは何か——そしてなぜもっとも面白いのか",
+          "Eleven Fantasy とは何か——そしてなぜもっとも面白いのか",
         excerpt:
           "夢の XI を組み、レジェンドが激突するファンタジー・フットボールW杯。それが何か、そしてなぜ病みつきになるのか。",
         date: "2026-08-22",
@@ -1064,9 +1064,9 @@ export const blog: Record<Locale, BlogLocale> = {
     index: {
       title: "Blog",
       seoTitle:
-        "Blog de World Cup Draft Simulator — Guías y consejos del simulador",
+        "Blog de Eleven Fantasy — Guías y consejos del simulador",
       intro:
-        "Guías y notas sobre World Cup Draft Simulator - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
+        "Guías y notas sobre Eleven Fantasy - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
     },
     posts: [
       {
@@ -1079,7 +1079,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Basado en la verdadera historia del Mundial",
             body: [
-              "A diferencia de los juegos de fútbol arcade con estadísticas inventadas, World Cup Draft Simulator usa valoraciones reales de más de 100 plantillas históricas del Mundial (1970-2026). Brasil 1970, Francia 1998, Argentina 2022 - los números vienen de jugadores que realmente jugaron.",
+              "A diferencia de los juegos de fútbol arcade con estadísticas inventadas, Eleven Fantasy usa valoraciones reales de más de 100 plantillas históricas del Mundial (1970-2026). Brasil 1970, Francia 1998, Argentina 2022 - los números vienen de jugadores que realmente jugaron.",
               "Eso significa que tu draft se apoya en la realidad del fútbol. Cuando eliges a Pelé, Maradona o Messi, draftas al verdadero, no a una carta al azar. Las leyendas con las que creciste se vuelven la columna de tu equipo.",
               "Cada selección histórica está documentada: año, plantilla y estilo. El simulador de fútbol en línea convierte esos datos reales en cartas jugables, para un fantasy fútbol Copa del Mundo fiel a la historia.",
               "Las valoraciones vienen de actuaciones reales en Mundiales, no de opiniones. Un campeón de 1970 vale lo que mostró en la cancha - eso separa un verdadero simulador de fútbol de un simple juego de cartas.",
@@ -1129,7 +1129,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Por qué vence a las alternativas",
             body: [
-              "Los juegos de fútbol de pago te encierran en descargas, cuentas y pases de temporada. Los sims arcade inventan estadísticas que premian los reflejos. World Cup Draft Simulator es gratis, honesto con sus datos y va de decisiones, no de dedos.",
+              "Los juegos de fútbol de pago te encierran en descargas, cuentas y pases de temporada. Los sims arcade inventan estadísticas que premian los reflejos. Eleven Fantasy es gratis, honesto con sus datos y va de decisiones, no de dedos.",
               "Si quieres el simulador de fútbol en línea más divertido que respeta la historia del fútbol y tu tiempo, es este. Draft, simula, repite - sin billetera, sin espera.",
               "Los juegos de pago multiplican cobros: pases de temporada, paquetes de cartas, publicidad. Aquí nada de eso - el simulador Copa del Mundo 2026 es gratis por completo, sin límite de partidas.",
               "Los sims arcade premian reflejos; aquí tus decisiones arman el equipo y el motor juega el partido. El resultado depende del draft y la táctica, no de la velocidad de tus dedos.",
@@ -1158,7 +1158,7 @@ export const blog: Record<Locale, BlogLocale> = {
       },
       {
         slug: "how-it-works",
-        title: "Cómo funciona World Cup Draft Simulator",
+        title: "Cómo funciona Eleven Fantasy",
         excerpt:
           "Cinco movimientos te llevan de una cancha vacía a una final del Mundial simulada. Aquí está el bucle completo.",
         date: "2026-08-22",
@@ -1240,7 +1240,7 @@ export const blog: Record<Locale, BlogLocale> = {
       {
         slug: "what-it-is-most-fun",
         title:
-          "Qué es World Cup Draft Simulator - y por qué es el más divertido",
+          "Qué es Eleven Fantasy - y por qué es el más divertido",
         excerpt:
           "Una Copa del Mundo fantasy donde construyes el XI de ensueño y ves chocar a las leyendas. Aquí está qué es y por qué engancha.",
         date: "2026-08-22",

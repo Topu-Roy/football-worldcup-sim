@@ -55,9 +55,9 @@ export const meta: Record<
         "Build your fantasy World Cup dream team from 100+ historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free world cup 2026 simulator in your browser — no download.",
     },
     about: {
-      title: "What Is World Cup Draft Simulator? Dream Team Builder",
+      title: "What Is Eleven Fantasy? Dream Team Builder",
       description:
-        "World Cup Draft Simulator is a free browser game where you draft a fantasy World Cup XI from 100+ historical squads (1970-2026) and run them through a simulated knockout tournament.",
+        "Eleven Fantasy is a free browser game where you draft a fantasy World Cup XI from 100+ historical squads (1970-2026) and run them through a simulated knockout tournament.",
     },
     howToPlay: {
       title: "How to Play the Fantasy Football World Cup (Free Guide)",
@@ -65,19 +65,19 @@ export const meta: Record<
         "Learn how to draft a fantasy World Cup XI from historical squads, pick a formation, and run your team through a simulated knockout tournament with penalty shootouts.",
     },
     contact: {
-      title: "Contact — World Cup Draft Simulator",
+      title: "Contact — Eleven Fantasy",
       description:
-        "Contact World Cup Draft Simulator with feedback, bug reports and questions about the fantasy football World Cup draft simulation game.",
+        "Contact Eleven Fantasy with feedback, bug reports and questions about the fantasy football World Cup draft simulation game.",
     },
     privacy: {
-      title: "Privacy Policy — World Cup Draft Simulator",
+      title: "Privacy Policy — Eleven Fantasy",
       description:
-        "Privacy policy for World Cup Draft Simulator. Explains what data is collected when you use the fantasy football draft simulator website.",
+        "Privacy policy for Eleven Fantasy. Explains what data is collected when you use the fantasy football draft simulator website.",
     },
     terms: {
-      title: "Terms & Conditions — World Cup Draft Simulator",
+      title: "Terms & Conditions — Eleven Fantasy",
       description:
-        "Terms and conditions for using World Cup Draft Simulator, the fantasy football World Cup draft and tournament simulation game.",
+        "Terms and conditions for using Eleven Fantasy, the fantasy football World Cup draft and tournament simulation game.",
     },
     teams: (count) => ({
       title: "World Cup Teams 1970-2026 — Historical Squads & Player Ratings",
@@ -99,9 +99,9 @@ export const meta: Record<
         "Stelle dein Fantasy-World-Cup-Traumteam aus über 100 historischen Mannschaften (1970-2026) zusammen und sieh ihm in einem simulierten K.-o.-Turnier gegen die Besten aller Zeiten zu. Kostenloser World-Cup-2026-Simulator im Browser — kein Download.",
     },
     about: {
-      title: "Was ist der World Cup Draft Simulator? Traumteam bauen",
+      title: "Was ist der Eleven Fantasy? Traumteam bauen",
       description:
-        "World Cup Draft Simulator ist ein kostenloses Browser-Spiel, in dem du ein Fantasy-World-Cup-Team aus über 100 historischen Mannschaften (1970-2026) aufstellst und in einem simulierten K.-o.-Turnier antreten lässt.",
+        "Eleven Fantasy ist ein kostenloses Browser-Spiel, in dem du ein Fantasy-World-Cup-Team aus über 100 historischen Mannschaften (1970-2026) aufstellst und in einem simulierten K.-o.-Turnier antreten lässt.",
     },
     howToPlay: {
       title: "Fantasy Football World Cup spielen – kostenlose Anleitung",
@@ -109,19 +109,19 @@ export const meta: Record<
         "Erfahre, wie du ein Fantasy-World-Cup-Team aus historischen Mannschaften aufstellst, eine Formation wählst und dein Team in einem simulierten K.-o.-Turnier mit Elfmeterschießen antreten lässt.",
     },
     contact: {
-      title: "Kontakt — World Cup Draft Simulator",
+      title: "Kontakt — Eleven Fantasy",
       description:
-        "Kontaktiere World Cup Draft Simulator mit Feedback, Fehlermeldungen und Fragen zum Fantasy-World-Cup-Draft-Simulationsspiel.",
+        "Kontaktiere Eleven Fantasy mit Feedback, Fehlermeldungen und Fragen zum Fantasy-World-Cup-Draft-Simulationsspiel.",
     },
     privacy: {
-      title: "Datenschutz — World Cup Draft Simulator",
+      title: "Datenschutz — Eleven Fantasy",
       description:
-        "Datenschutzerklärung für World Cup Draft Simulator. Erklärt, welche Daten beim Nutzen der Fantasy-Football-Draft-Simulator-Website erhoben werden.",
+        "Datenschutzerklärung für Eleven Fantasy. Erklärt, welche Daten beim Nutzen der Fantasy-Football-Draft-Simulator-Website erhoben werden.",
     },
     terms: {
-      title: "AGB — World Cup Draft Simulator",
+      title: "AGB — Eleven Fantasy",
       description:
-        "Allgemeine Geschäftsbedingungen für die Nutzung von World Cup Draft Simulator, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
+        "Allgemeine Geschäftsbedingungen für die Nutzung von Eleven Fantasy, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
     },
     teams: (count) => ({
       title:
@@ -145,9 +145,9 @@ export const meta: Record<
     },
     about: {
       title:
-        "Qu'est-ce que World Cup Draft Simulator ? Créez votre équipe type",
+        "Qu'est-ce que Eleven Fantasy ? Créez votre équipe type",
       description:
-        "World Cup Draft Simulator est un jeu gratuit dans le navigateur où vous composez un onze de Coupe du Monde fantasy parmi plus de 100 équipes historiques (1970-2026) et le faites jouer dans un tournoi simulé.",
+        "Eleven Fantasy est un jeu gratuit dans le navigateur où vous composez un onze de Coupe du Monde fantasy parmi plus de 100 équipes historiques (1970-2026) et le faites jouer dans un tournoi simulé.",
     },
     howToPlay: {
       title: "Comment jouer au Fantasy Football World Cup (guide gratuit)",
@@ -155,19 +155,19 @@ export const meta: Record<
         "Découvrez comment composer un onze de Coupe du Monde fantasy à partir d'équipes historiques, choisir une formation et faire jouer votre équipe dans un tournoi simulé avec tirs au but.",
     },
     contact: {
-      title: "Contacter World Cup Draft Simulator",
+      title: "Contacter Eleven Fantasy",
       description:
-        "Contactez World Cup Draft Simulator pour vos retours, bugs et questions sur le jeu de simulation de draft de Coupe du Monde fantasy.",
+        "Contactez Eleven Fantasy pour vos retours, bugs et questions sur le jeu de simulation de draft de Coupe du Monde fantasy.",
     },
     privacy: {
-      title: "Confidentialité — World Cup Draft Simulator",
+      title: "Confidentialité — Eleven Fantasy",
       description:
-        "Politique de confidentialité de World Cup Draft Simulator. Explique les données collectées sur le site de simulation de draft de Coupe du Monde fantasy.",
+        "Politique de confidentialité de Eleven Fantasy. Explique les données collectées sur le site de simulation de draft de Coupe du Monde fantasy.",
     },
     terms: {
-      title: "Conditions — World Cup Draft Simulator",
+      title: "Conditions — Eleven Fantasy",
       description:
-        "Conditions générales d'utilisation de World Cup Draft Simulator, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
+        "Conditions générales d'utilisation de Eleven Fantasy, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
     },
     teams: (count) => ({
       title:
@@ -190,9 +190,9 @@ export const meta: Record<
         "1970〜2026年の歴代チーム100以上からワールドカップの夢のチームを作り、シミュレートされた決勝トーナメントで史上最強チームと対戦。ブラウザで使える無料のワールドカップ2026シミュレーター。ダウンロード不要。",
     },
     about: {
-      title: "World Cup Draft Simulatorとは？夢のチームを作ろう",
+      title: "Eleven Fantasyとは？夢のチームを作ろう",
       description:
-        "World Cup Draft Simulatorは無料のブラウザゲーム。1970〜2026年の歴代チーム100以上からワールドカップの夢のチームをドラフトし、シミュレートされたトーナメントで戦わせます。",
+        "Eleven Fantasyは無料のブラウザゲーム。1970〜2026年の歴代チーム100以上からワールドカップの夢のチームをドラフトし、シミュレートされたトーナメントで戦わせます。",
     },
     howToPlay: {
       title: "Fantasy Football World Cup の遊び方（無料ガイド）",
@@ -200,19 +200,19 @@ export const meta: Record<
         "歴代チームからワールドカップの夢のチームをドラフトする方法、フォーメーションの選び方、PK付きのシミュレートされたトーナメントの進め方を学びます。",
     },
     contact: {
-      title: "お問い合わせ — World Cup Draft Simulator",
+      title: "お問い合わせ — Eleven Fantasy",
       description:
-        "Fantasy Football World Cup ドラフトシミュレーションゲームについてのフィードバック、不具合報告、質問は World Cup Draft Simulator へ。",
+        "Fantasy Football World Cup ドラフトシミュレーションゲームについてのフィードバック、不具合報告、質問は Eleven Fantasy へ。",
     },
     privacy: {
-      title: "プライバシー — World Cup Draft Simulator",
+      title: "プライバシー — Eleven Fantasy",
       description:
-        "World Cup Draft Simulator のプライバシーポリシー。Fantasy Football ドラフトシミュレーターサイトの利用時に収集するデータを説明します。",
+        "Eleven Fantasy のプライバシーポリシー。Fantasy Football ドラフトシミュレーターサイトの利用時に収集するデータを説明します。",
     },
     terms: {
-      title: "利用規約 — World Cup Draft Simulator",
+      title: "利用規約 — Eleven Fantasy",
       description:
-        "World Cup Draft Simulator（Fantasy Football ワールドカップのドラフト・トーナメントシミュレーションゲーム）の利用規約。",
+        "Eleven Fantasy（Fantasy Football ワールドカップのドラフト・トーナメントシミュレーションゲーム）の利用規約。",
     },
     teams: (count) => ({
       title: "ワールドカップチーム 1970-2026 — 歴代チーム＆選手レーティング",
@@ -234,9 +234,9 @@ export const meta: Record<
         "Arma tu equipo de ensueño de la Copa del Mundo fantasy con más de 100 equipos históricos (1970-2026) y míralo enfrentarse a los mejores de la historia en un torneo de eliminación simulado. Simulador Mundial 2026 gratis en el navegador, sin descargas.",
     },
     about: {
-      title: "Qué es World Cup Draft Simulator? Crea tu equipo ideal",
+      title: "Qué es Eleven Fantasy? Crea tu equipo ideal",
       description:
-        "World Cup Draft Simulator es un juego gratuito en el navegador donde armas un once de la Copa del Mundo fantasy con más de 100 equipos históricos (1970-2026) y lo enfrentas en un torneo simulado.",
+        "Eleven Fantasy es un juego gratuito en el navegador donde armas un once de la Copa del Mundo fantasy con más de 100 equipos históricos (1970-2026) y lo enfrentas en un torneo simulado.",
     },
     howToPlay: {
       title: "Cómo jugar al Fantasy Football World Cup (guía gratis)",
@@ -244,19 +244,19 @@ export const meta: Record<
         "Aprende a armar un once de la Copa del Mundo fantasy con equipos históricos, elegir una formación y enfrentar a tu equipo en un torneo simulado con penales.",
     },
     contact: {
-      title: "Contacto — World Cup Draft Simulator",
+      title: "Contacto — Eleven Fantasy",
       description:
-        "Contacta con World Cup Draft Simulator con comentarios, errores y preguntas sobre el juego de simulación de draft de la Copa del Mundo fantasy.",
+        "Contacta con Eleven Fantasy con comentarios, errores y preguntas sobre el juego de simulación de draft de la Copa del Mundo fantasy.",
     },
     privacy: {
-      title: "Privacidad — World Cup Draft Simulator",
+      title: "Privacidad — Eleven Fantasy",
       description:
-        "Política de privacidad de World Cup Draft Simulator. Explica qué datos se recogen al usar el sitio del simulador de draft de la Copa del Mundo fantasy.",
+        "Política de privacidad de Eleven Fantasy. Explica qué datos se recogen al usar el sitio del simulador de draft de la Copa del Mundo fantasy.",
     },
     terms: {
-      title: "Términos — World Cup Draft Simulator",
+      title: "Términos — Eleven Fantasy",
       description:
-        "Términos y condiciones de uso de World Cup Draft Simulator, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
+        "Términos y condiciones de uso de Eleven Fantasy, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
     },
     teams: (count) => ({
       title:

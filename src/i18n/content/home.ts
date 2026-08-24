@@ -55,7 +55,7 @@ export const home = {
     squadsEyebrow: "The squads",
     squadsTitle: "Every World Cup great, one pool",
     squads: [
-      "The squads are the heart of World Cup Draft Simulator. They make this football simulator special. Every team is a real World Cup semifinalist from 1970 to 2026. All teams use the same rating scale. So your draft and the AI teams are fair.",
+      "The squads are the heart of Eleven Fantasy. They make this football simulator special. Every team is a real World Cup semifinalist from 1970 to 2026. All teams use the same rating scale. So your draft and the AI teams are fair.",
       "The world cup winners, top scorers and best players are all here. You can pick them. Brazil 1970 was a great attacking team. Netherlands 1974 played total football. Argentina 1978 was strong. Italy 1982 was tough. France 1982 had skill. West Germany ruled the 1980s. Argentina 1986 had Maradona. Italy 1990 was solid. Brazil 1994 won. France 1998 had Zidane. Brazil 2002 had the three R's. Germany 2002 was good. Italy 2006 was defence. Spain 2010 played tiki-taka. Germany 2014 was a machine. France 2018 was young. Argentina 2022 had Messi.",
       "Each squad has player ratings. The ratings cover reflexes, tackling, passing, finishing, pace and vision. The ratings drive the world cup simulation. Draft players from the same nation. They get a chemistry boost. This helps your team. You can build the best world cup team of all time. Stack Brazil 1970 or Argentina 2022. The engine sees the bond.",
       "You can browse every roster first. Check the average rating. Find the best player. Then take that into the soccer draft game. The app is like a museum of greatest world cup teams. You put them on the pitch. Pit Maradona's Argentina against Messi's. Or Brazil 1970 against France 2022. It all happens inside the simulator.",
@@ -80,7 +80,7 @@ export const home = {
 
   de: {
     h1: "Fantasy Football World Cup: Simuliere die Weltmeisterschaft",
-    hero: "World Cup Draft Simulator ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel. Du stellst ein Traumteam aus über 100 alten WM-Kadern auf. Wähle Brasilien 1970, Frankreich 1998 oder Argentinien 2022. Dann simuliert das Spiel ein komplettes Turnier für dich. Du bekommst Gruppenspiele, ein K.-o.-Baum und Elfmeterschießen. Es ist ein Fußballsimulator und ein Draft-Simulator. Du spielst es online. Kein Download. Keine Anmeldung. In den USA nennt man es Soccer-Draft-Spiel oder Online-Soccer-Spiel. Es ist auch ein kostenloses Fußball-Simulationsspiel. Der WM-Simulator-2026-Modus fügt neue Kadern hinzu. Du kannst dein eigenes Turnier noch heute vorhersagen. Wähle eine Formation, stelle dein Team auf und schau das Turnier.",
+    hero: "Eleven Fantasy ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel. Du stellst ein Traumteam aus über 100 alten WM-Kadern auf. Wähle Brasilien 1970, Frankreich 1998 oder Argentinien 2022. Dann simuliert das Spiel ein komplettes Turnier für dich. Du bekommst Gruppenspiele, ein K.-o.-Baum und Elfmeterschießen. Es ist ein Fußballsimulator und ein Draft-Simulator. Du spielst es online. Kein Download. Keine Anmeldung. In den USA nennt man es Soccer-Draft-Spiel oder Online-Soccer-Spiel. Es ist auch ein kostenloses Fußball-Simulationsspiel. Der WM-Simulator-2026-Modus fügt neue Kadern hinzu. Du kannst dein eigenes Turnier noch heute vorhersagen. Wähle eine Formation, stelle dein Team auf und schau das Turnier.",
     ctaPlay: "Jetzt spielen",
     ctaHow: "Anleitung",
     showMore: "Mehr anzeigen",
@@ -123,7 +123,7 @@ export const home = {
       },
     ],
     loop: [
-      "World Cup Draft Simulator ist ein Fantasy-Football-Weltcup-Spiel. Es lässt sich leicht wiederholen. Das Spiel hat eine einfache Schleife.",
+      "Eleven Fantasy ist ein Fantasy-Football-Weltcup-Spiel. Es lässt sich leicht wiederholen. Das Spiel hat eine einfache Schleife.",
       "Zuerst wählst du deine Formation. Du kannst 4-3-3 für den Angriff nehmen. Oder 4-4-2 für die Balance. Oder 3-5-2 für das Mittelfeld. Oder 4-2-3-1 für die Kontrolle. Deine Wahl sperrt die Plätze. Du musst sie in 12 Draft-Runden füllen.",
       "Als nächstes zeigt der Football-Draft-Simulator dir Kadern. Das sind alte WM-Teams von 1970 bis 2026. Du baust dein Traumteam Pick für Pick auf. Du jagst die besten Spieler. Du füllst die Lücken. Du behältst einen Spieler auf der Bank.",
       "Wenn dein Kader bereit ist, übernimmt der Fußballsimulator. Dein Team kommt in eine Gruppe mit drei KI-Teams. Die Spielengine spielt jedes Gruppenspiel. Sie zeigt Ballbesitz, Schüsse und Chancen. Das K.-o.-Baum läuft von selbst. Du bekommst Achtelfinale, Viertelfinale, Halbfinale und Finale.",
@@ -134,7 +134,7 @@ export const home = {
     squadsEyebrow: "Die Kadern",
     squadsTitle: "Jeder WM-Große in einem Pool",
     squads: [
-      "Die Kadern sind das Herz von World Cup Draft Simulator. Sie machen diesen Fußballsimulator besonders. Jedes Team ist ein echter WM-Halbfinalist von 1970 bis 2026. Alle Teams nutzen dieselbe Bewertungsskala. Damit sind dein Draft und die KI-Teams fair.",
+      "Die Kadern sind das Herz von Eleven Fantasy. Sie machen diesen Fußballsimulator besonders. Jedes Team ist ein echter WM-Halbfinalist von 1970 bis 2026. Alle Teams nutzen dieselbe Bewertungsskala. Damit sind dein Draft und die KI-Teams fair.",
       "Die WM-Sieger, Torschützenkönige und besten Spieler sind alle da. Du kannst sie wählen. Brasilien 1970 war eine großartige Angriffsmannschaft. Niederlande 1974 spielte Total Football. Argentinien 1978 war stark. Italien 1982 war zäh. Frankreich 1982 hatte Klasse. Westdeutschland beherrschte die 1980er. Argentinien 1986 hatte Maradona. Italien 1990 war solide. Brasilien 1994 gewann. Frankreich 1998 hatte Zidane. Brasilien 2002 hatte die drei R's. Deutschland 2002 war gut. Italien 2006 war Defensive. Spanien 2010 spielte Tiki-Taka. Deutschland 2014 war eine Maschine. Frankreich 2018 war jung. Argentinien 2022 hatte Messi.",
       "Jeder Kader hat Spielerbewertungen. Sie umfassen Reflexe, Zweikampf, Passspiel, Abschluss, Tempo und Übersicht. Die Bewertungen treiben die WM-Simulation. Draftest du Spieler derselben Nation, bekommen sie einen Chemie-Bonus. Das hilft deinem Team. Du kannst das beste WM-Team aller Zeiten aufbauen. Staple Brasilien 1970 oder Argentinien 2022. Die Engine sieht die Verbindung.",
       "Du kannst zuerst jeden Kader durchsuchen. Prüfe die Durchschnittsbewertung. Finde den besten Spieler. Dann nimm das in das Soccer-Draft-Spiel. Die App ist wie ein Museum der größten WM-Teams. Du stellst sie auf den Platz. Lass Maradonas Argentinien gegen Messis antreten. Oder Brasilien 1970 gegen Frankreich 2022. Es passiert alles im Simulator.",
@@ -159,7 +159,7 @@ export const home = {
 
   fr: {
     h1: "Fantasy Football World Cup : simulez la Coupe du Monde",
-    hero: "World Cup Draft Simulator est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy. Vous composez une équipe de rêve à partir de plus de 100 anciens effectifs de Coupe du Monde. Choisissez le Brésil 1970, la France 1998 ou l'Argentine 2022. Ensuite, le jeu simule un tournoi complet pour vous. Vous avez des matchs de groupe, un arbre à élimination et des tirs au but. C'est un simulateur de football et un simulateur de draft. Vous jouez en ligne. Sans téléchargement. Sans inscription. Aux États-Unis, on l'appelle jeu de draft soccer ou soccer en ligne. C'est aussi un jeu de simulation de football gratuit. Le mode simulateur de Coupe du Monde 2026 ajoute de nouveaux effectifs. Vous pouvez prédire votre propre tournoi dès aujourd'hui. Choisissez une formation, construisez votre équipe et regardez le tournoi.",
+    hero: "Eleven Fantasy est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy. Vous composez une équipe de rêve à partir de plus de 100 anciens effectifs de Coupe du Monde. Choisissez le Brésil 1970, la France 1998 ou l'Argentine 2022. Ensuite, le jeu simule un tournoi complet pour vous. Vous avez des matchs de groupe, un arbre à élimination et des tirs au but. C'est un simulateur de football et un simulateur de draft. Vous jouez en ligne. Sans téléchargement. Sans inscription. Aux États-Unis, on l'appelle jeu de draft soccer ou soccer en ligne. C'est aussi un jeu de simulation de football gratuit. Le mode simulateur de Coupe du Monde 2026 ajoute de nouveaux effectifs. Vous pouvez prédire votre propre tournoi dès aujourd'hui. Choisissez une formation, construisez votre équipe et regardez le tournoi.",
     ctaPlay: "Jouer",
     ctaHow: "Comment jouer",
     showMore: "Voir plus",
@@ -202,7 +202,7 @@ export const home = {
       },
     ],
     loop: [
-      "World Cup Draft Simulator est un jeu de Coupe du Monde fantasy. Il se rejoue facilement. Le jeu a une boucle simple.",
+      "Eleven Fantasy est un jeu de Coupe du Monde fantasy. Il se rejoue facilement. Le jeu a une boucle simple.",
       "D'abord, vous choisissez votre formation. Vous pouvez prendre 4-3-3 pour l'attaque. Ou 4-4-2 pour l'équilibre. Ou 3-5-2 pour le milieu. Ou 4-2-3-1 pour le contrôle. Votre choix verrouille les postes. Vous devez les remplir sur 12 tours de draft.",
       "Ensuite, le simulateur de draft de football vous montre des effectifs. Ce sont d'anciennes équipes de Coupe du Monde de 1970 à 2026. Vous construisez votre XI de rêve pick après pick. Vous courez après les meilleurs joueurs. Vous comblez les trous. Vous gardez un joueur sur le banc.",
       "Quand votre équipe est prête, le simulateur de football prend le relais. Votre équipe rejoint un groupe avec trois équipes IA. Le moteur de match joue chaque match de groupe. Il montre la possession, les tirs et les occasions. L'arbre à élimination tourne seul. Vous avez les huitièmes, les quarts, les demi-finales et la finale.",
@@ -213,7 +213,7 @@ export const home = {
     squadsEyebrow: "Les effectifs",
     squadsTitle: "Chaque grand de la Coupe du Monde, un seul pool",
     squads: [
-      "Les effectifs sont le cœur de World Cup Draft Simulator. Ils rendent ce simulateur de football spécial. Chaque équipe est un vrai demi-finaliste de Coupe du Monde de 1970 à 2026. Toutes les équipes utilisent la même échelle de notes. Ainsi votre draft et les équipes IA sont équitables.",
+      "Les effectifs sont le cœur de Eleven Fantasy. Ils rendent ce simulateur de football spécial. Chaque équipe est un vrai demi-finaliste de Coupe du Monde de 1970 à 2026. Toutes les équipes utilisent la même échelle de notes. Ainsi votre draft et les équipes IA sont équitables.",
       "Les vainqueurs, meilleurs buteurs et meilleurs joueurs de la Coupe du Monde sont tous là. Vous pouvez les choisir. Le Brésil 1970 était une grande équipe d'attaque. Les Pays-Bas 1974 jouaient le football total. L'Argentine 1978 était forte. L'Italie 1982 était dure. La France 1982 avait de la classe. L'Allemagne de l'Ouest dominait les années 1980. L'Argentine 1986 avait Maradona. L'Italie 1990 était solide. Le Brésil 1994 a gagné. La France 1998 avait Zidane. Le Brésil 2002 avait les trois R. L'Allemagne 2002 était bonne. L'Italie 2006 était défensive. L'Espagne 2010 jouait le tiki-taka. L'Allemagne 2014 était une machine. La France 2018 était jeune. L'Argentine 2022 avait Messi.",
       "Chaque effectif a des notes de joueurs. Elles couvrent les réflexes, les tacles, la passe, la finition, la vitesse et la vision. Les notes pilotent la simulation de Coupe du Monde. Si vous draftz des joueurs de la même nation, ils obtiennent un bonus de chimie. Cela aide votre équipe. Vous pouvez construire la meilleure équipe de Coupe du Monde de tous les temps. Empilez le Brésil 1970 ou l'Argentine 2022. Le moteur voit le lien.",
       "Vous pouvez d'abord parcourir chaque effectif. Vérifiez la note moyenne. Trouvez le meilleur joueur. Puis emportez-le dans le jeu de draft soccer. L'application ressemble à un musée des plus grandes équipes de Coupe du Monde. Vous les mettez sur le terrain. Opposez l'Argentine de Maradona à celle de Messi. Ou le Brésil 1970 à la France 2022. Tout se passe dans le simulateur.",
@@ -238,7 +238,7 @@ export const home = {
 
   ja: {
     h1: "Fantasy Football World Cup：ワールドカップをシミュレート",
-    hero: "World Cup Draft Simulatorは無料のブラウザサッカーゲーム。Fantasy Football ワールドカップのゲームだ。1970年から2026年までの歴代チーム100以上から夢のチームをドラフトする。ブラジル1970、フランス1998、アルゼンチン2022から選ぼう。するとゲームが大会全体をシミュレートしてくれる。グループリーグ、決勝トーナメント、PK戦がある。これはサッカーシミュレーターであり、フットボールドラフトシミュレーターだ。ブラウザで遊ぶ。ダウンロード不要。登録不要。アメリカではサッカードラフトゲームやオンラインサッカーゲームと呼ばれる。これは無料のサッカーシミュレーションゲームでもある。ワールドカップシミュレーター2026モードで新チームが加わる。今日から自分の大会を予想できる。フォーメーションを選び、チームを作り、大会を見よう。",
+    hero: "Eleven Fantasyは無料のブラウザサッカーゲーム。Fantasy Football ワールドカップのゲームだ。1970年から2026年までの歴代チーム100以上から夢のチームをドラフトする。ブラジル1970、フランス1998、アルゼンチン2022から選ぼう。するとゲームが大会全体をシミュレートしてくれる。グループリーグ、決勝トーナメント、PK戦がある。これはサッカーシミュレーターであり、フットボールドラフトシミュレーターだ。ブラウザで遊ぶ。ダウンロード不要。登録不要。アメリカではサッカードラフトゲームやオンラインサッカーゲームと呼ばれる。これは無料のサッカーシミュレーションゲームでもある。ワールドカップシミュレーター2026モードで新チームが加わる。今日から自分の大会を予想できる。フォーメーションを選び、チームを作り、大会を見よう。",
     ctaPlay: "今すぐプレイ",
     ctaHow: "遊び方",
     showMore: "もっと見る",
@@ -275,7 +275,7 @@ export const home = {
       },
     ],
     loop: [
-      "World Cup Draft SimulatorはFantasy Football ワールドカップのゲーム。繰り返し遊びやすい。ゲームは1つのシンプルなループだ。",
+      "Eleven FantasyはFantasy Football ワールドカップのゲーム。繰り返し遊びやすい。ゲームは1つのシンプルなループだ。",
       "まずフォーメーションを選ぶ。攻撃なら4-3-3。バランスなら4-4-2。中盤なら3-5-2。コントロールなら4-2-3-1。選ぶとポジションが固定される。12回のドラフトで埋める必要がある。",
       "次にフットボールドラフトシミュレーターがチームを表示する。これらは1970年から2026年までの歴代ワールドカップチームだ。指名ごとに夢のXIを作る。最高の選手を追い、穴を埋め、1人をベンチに残す。",
       "チームができたらサッカーシミュレーターが動き出す。チームは3つのAIチームと同じグループに入る。マッチエンジンが各グループリーグをプレイする。ボール保持率、シュート、チャンスを見せる。決勝トーナメントは自動で進む。ラウンド16、準々決勝、準決勝、決勝がある。",
@@ -286,7 +286,7 @@ export const home = {
     squadsEyebrow: "チーム",
     squadsTitle: "歴代のすべての名選手が1つのプール",
     squads: [
-      "チームこそWorld Cup Draft Simulatorの心臓。このフットボールシミュレーターを特別にする。各チームは1970年から2026年までの本物のワールドカップ準決勝進出チーム。すべてのチームが同じレーティング尺度を使う。だからドラフトもAIチームも公平だ。",
+      "チームこそEleven Fantasyの心臓。このフットボールシミュレーターを特別にする。各チームは1970年から2026年までの本物のワールドカップ準決勝進出チーム。すべてのチームが同じレーティング尺度を使う。だからドラフトもAIチームも公平だ。",
       "ワールドカップ優勝国、得点王、最高の選手はすべてここにいる。指名できる。ブラジル1970は素晴らしい攻撃チームだった。オランダ1974はトータルフットボール。アルゼンチン1978は強かった。イタリア1982は堅かった。フランス1982は技巧があった。西ドイツは1980年代を支配した。アルゼンチン1986はマラドーナがいた。イタリア1990は安定していた。ブラジル1994は優勝。フランス1998はジダンがいた。ブラジル2002は3R。ドイツ2002は良かった。イタリア2006は守備。スペイン2010はティキタカ。ドイツ2014は機械のようだった。フランス2018は若かった。アルゼンチン2022はメッシがいた。",
       "各チームに選手レーティングがある。反射、タックル、パス、フィニッシュ、スピード、視野を含む。レーティングがワールドカップシミュレーションを動かす。同じ国の選手をドラフトするとケミストリーボーナスが出る。チームの助けになる。史上最強のワールドカップチームを作れる。ブラジル1970やアルゼンチン2022を重ねよう。エンジンはつながりを見る。",
       "まず全ロースターを眺められる。平均レーティングを確認。最高の選手を見つける。そしてサッカードラフトゲームに持ち込む。このアプリは歴代ワールドカップチームの博物館のようだ。ピッチに並べる。マラドーナのアルゼンチンとメッシのアルゼンチンを対戦させよう。ブラジル1970とフランス2022でもいい。すべてシミュレーターの中で起きる。",
@@ -311,7 +311,7 @@ export const home = {
 
   es: {
     h1: "Fantasy Football World Cup: simula el Mundial",
-    hero: "World Cup Draft Simulator es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy. Armas un equipo de ensueño con más de 100 plantillas históricas del Mundial. Elige el Brasil 1970, Francia 1998 o Argentina 2022. Luego el juego simula un torneo completo para ti. Tienes partidos de grupo, un cuadro de eliminación y penales. Es un simulador de fútbol y un simulador de draft. Juegas en línea. Sin descargas. Sin registro. En EE. UU. lo llaman juego de draft soccer o soccer en línea. También es un juego de simulación de fútbol gratuito. El modo simulador del Mundial 2026 añade nuevas plantillas. Puedes predecir tu propio torneo hoy. Elige una formación, arma tu equipo y mira el torneo.",
+    hero: "Eleven Fantasy es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy. Armas un equipo de ensueño con más de 100 plantillas históricas del Mundial. Elige el Brasil 1970, Francia 1998 o Argentina 2022. Luego el juego simula un torneo completo para ti. Tienes partidos de grupo, un cuadro de eliminación y penales. Es un simulador de fútbol y un simulador de draft. Juegas en línea. Sin descargas. Sin registro. En EE. UU. lo llaman juego de draft soccer o soccer en línea. También es un juego de simulación de fútbol gratuito. El modo simulador del Mundial 2026 añade nuevas plantillas. Puedes predecir tu propio torneo hoy. Elige una formación, arma tu equipo y mira el torneo.",
     ctaPlay: "Jugar",
     ctaHow: "Cómo jugar",
     showMore: "Ver más",
@@ -354,7 +354,7 @@ export const home = {
       },
     ],
     loop: [
-      "World Cup Draft Simulator es un juego de Copa del Mundo fantasy. Se repite con facilidad. El juego tiene un bucle simple.",
+      "Eleven Fantasy es un juego de Copa del Mundo fantasy. Se repite con facilidad. El juego tiene un bucle simple.",
       "Primero eliges tu formación. Puedes tomar 4-3-3 para atacar. O 4-4-2 para equilibrar. O 3-5-2 para el medio. O 4-2-3-1 para controlar. Tu elección bloquea los puestos. Debes llenarlos en 12 rondas de draft.",
       "Luego el simulador de draft de fútbol te muestra plantillas. Son viejos equipos del Mundial de 1970 a 2026. Construyes tu XI de ensueño elección por elección. Persigues a los mejores. Rellenas huecos. Dejas un jugador en el banco.",
       "Cuando tu equipo está listo, el simulador de fútbol toma el control. Tu equipo entra en un grupo con tres equipos IA. El motor de partido juega cada partido de grupo. Muestra posesión, tiros y ocasiones. El cuadro de eliminación corre solo. Tienes octavos, cuartos, semifinales y final.",
@@ -365,7 +365,7 @@ export const home = {
     squadsEyebrow: "Las plantillas",
     squadsTitle: "Cada grande del Mundial, un solo pool",
     squads: [
-      "Las plantillas son el corazón de World Cup Draft Simulator. Hacen especial a este simulador de fútbol. Cada equipo es un semifinalista real del Mundial de 1970 a 2026. Todos usan la misma escala de valoraciones. Así tu draft y los equipos IA son justos.",
+      "Las plantillas son el corazón de Eleven Fantasy. Hacen especial a este simulador de fútbol. Cada equipo es un semifinalista real del Mundial de 1970 a 2026. Todos usan la misma escala de valoraciones. Así tu draft y los equipos IA son justos.",
       "Los campeones, goleadores y mejores jugadores del Mundial están todos ahí. Puedes elegirlos. El Brasil 1970 fue un gran equipo de ataque. Países Bajos 1974 jugó fútbol total. Argentina 1978 fue fuerte. Italia 1982 fue dura. Francia 1982 tuvo clase. Alemania Occidental dominó los 80. Argentina 1986 tuvo a Maradona. Italia 1990 fue sólida. Brasil 1994 ganó. Francia 1998 tuvo a Zidane. Brasil 2002 tuvo las tres R. Alemania 2002 fue buena. Italia 2006 fue defensa. España 2010 jugó tiki-taka. Alemania 2014 fue una máquina. Francia 2018 fue joven. Argentina 2022 tuvo a Messi.",
       "Cada plantilla tiene valoraciones de jugadores. Cubren reflejos, entradas, pase, definición, velocidad y visión. Las valoraciones mueven la simulación del Mundial. Si draftas jugadores de la misma nación, ganan un bonus de química. Eso ayuda a tu equipo. Puedes armar el mejor equipo del Mundial de la historia. Apila Brasil 1970 o Argentina 2022. El motor ve el vínculo.",
       "Puedes revisar cada plantilla primero. Mira la valoración media. Encuentra al mejor jugador. Llévalo al juego de draft soccer. La app es como un museo de los grandes equipos del Mundial. Los pones en la cancha. Enfrenta la Argentina de Maradona contra la de Messi. O Brasil 1970 contra Francia 2022. Todo pasa en el simulador.",

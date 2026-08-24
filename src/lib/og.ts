@@ -88,7 +88,7 @@ export async function renderOgPng(title: string): Promise<Buffer> {
                     letterSpacing: "6px",
                     textTransform: "uppercase",
                   },
-                  children: "World Cup Draft Simulator",
+                  children: "Eleven Fantasy",
                 },
               },
             ],

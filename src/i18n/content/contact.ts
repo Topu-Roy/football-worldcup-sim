@@ -19,7 +19,7 @@
   de: {
     h1: "Kontakt aufnehmen",
     hero: [
-      "Feedback, Fehlermeldungen, Ideen oder Fragen? World Cup Draft Simulator ist ein kostenloses Online-Soccer-Spiel und ein Browser-Fußballspiel. Du draftest und simulierst deine eigene WM. Wir hören gern von dir. Dies ist ein Fantasy-Football-Weltcup-Projekt von Fans. Jede Nachricht formt, was der Fußballsimulator als Nächstes wird.",
+      "Feedback, Fehlermeldungen, Ideen oder Fragen? Eleven Fantasy ist ein kostenloses Online-Soccer-Spiel und ein Browser-Fußballspiel. Du draftest und simulierst deine eigene WM. Wir hören gern von dir. Dies ist ein Fantasy-Football-Weltcup-Projekt von Fans. Jede Nachricht formt, was der Fußballsimulator als Nächstes wird.",
       "Du hast uns vielleicht als Soccer-Draft-Spiel, kostenloses Fußball-Simulationsspiel oder interaktiver Fußballsimulator gefunden. Die Tür ist offen. Sag uns einen Kader, der falsch wirkt. Sag uns ein Spiel, das zu weit kippte. Oder eine Funktion, die der Football-Draft-Simulator haben sollte. Kein Konto. Kein Download zum Neuinstallieren. Eine Nachricht zu senden geht so schnell wie eine Runde spielen.",
     ],
     ctaEmail: "E-Mail senden",
@@ -36,7 +36,7 @@
   fr: {
     h1: "Contactez-nous",
     hero: [
-      "Retours, bugs, idées ou questions ? World Cup Draft Simulator est un jeu de soccer en ligne gratuit et un jeu de football dans le navigateur. Vous draftz et simulez votre propre Coupe du Monde. Nous serions ravis de vous lire. C'est un projet de Coupe du Monde fantasy construit par des fans. Chaque message façonne ce que le simulateur de football deviendra.",
+      "Retours, bugs, idées ou questions ? Eleven Fantasy est un jeu de soccer en ligne gratuit et un jeu de football dans le navigateur. Vous draftz et simulez votre propre Coupe du Monde. Nous serions ravis de vous lire. C'est un projet de Coupe du Monde fantasy construit par des fans. Chaque message façonne ce que le simulateur de football deviendra.",
       "Vous nous avez peut-être trouvés comme jeu de draft soccer, jeu de simulation de football gratuit ou simulateur de football interactif. La porte est ouverte. Dites-nous un effectif qui semble faux. Dites-nous un match qui a trop basculé. Ou une fonction que le simulateur de draft de football devrait ajouter. Pas de compte. Pas de téléchargement à réinstaller. Écrire va aussi vite qu'une manche.",
     ],
     ctaEmail: "Nous écrire",
@@ -53,7 +53,7 @@
   ja: {
     h1: "お問い合わせ",
     hero: [
-      "フィードバック、不具合報告、アイデア、質問？World Cup Draft Simulatorは無料のオンラインサッカーゲームであり、ブラウザサッカーゲーム。自分のワールドカップをドラフトしてシミュレートする。ぜひ声を聞かせてほしい。これはファンが作るFantasy Football ワールドカッププロジェクト。すべてのメッセージがサッカーシミュレーターの次の姿を形作る。",
+      "フィードバック、不具合報告、アイデア、質問？Eleven Fantasyは無料のオンラインサッカーゲームであり、ブラウザサッカーゲーム。自分のワールドカップをドラフトしてシミュレートする。ぜひ声を聞かせてほしい。これはファンが作るFantasy Football ワールドカッププロジェクト。すべてのメッセージがサッカーシミュレーターの次の姿を形作る。",
       "サッカードラフトゲーム、無料サッカーシミュレーションゲーム、インタラクティブなサッカーシミュレーターとして見つけたかもしれない。扉は開いている。おかしいチームを教えて。ぶれすぎた試合を教えて。フットボールドラフトシミュレーターに欲しい機能を教えて。アカウント不要。再インストールするダウンロード不要。連絡は1ラウンド遊ぶのと同じくらい早い。",
     ],
     ctaEmail: "メールする",
@@ -70,7 +70,7 @@
   es: {
     h1: "Contáctanos",
     hero: [
-      "¿Comentarios, errores, ideas o preguntas? World Cup Draft Simulator es un juego de soccer en línea gratuito y un juego de fútbol del navegador. Draftas y simulas tu propia Copa del Mundo. Nos encantaría saber de ti. Este es un proyecto de Copa del Mundo fantasy hecho por fans. Cada mensaje moldea lo que el simulador de fútbol será después.",
+      "¿Comentarios, errores, ideas o preguntas? Eleven Fantasy es un juego de soccer en línea gratuito y un juego de fútbol del navegador. Draftas y simulas tu propia Copa del Mundo. Nos encantaría saber de ti. Este es un proyecto de Copa del Mundo fantasy hecho por fans. Cada mensaje moldea lo que el simulador de fútbol será después.",
       "Quizá nos encontraste como juego de draft soccer, juego de simulación de fútbol gratuito o simulador de fútbol interactivo. La puerta está abierta. Dinos un plantilla que se sienta mal. Dinos un partido que se inclinó de más. O una función que el simulador de draft de fútbol debería añadir. Sin cuenta. Sin descarga que reinstalar. Escribir es tan rápido como jugar una ronda.",
     ],
     ctaEmail: "Envíanos un correo",
