@@ -4,7 +4,7 @@
   import ResultsView from "./ResultsView.svelte";
   import TeamReadyView from "./TeamReadyView.svelte";
   import TournamentView from "./TournamentView.svelte";
-  import { buildUserSquad, DRAFT_ROUNDS, BENCH_SLOT } from "../lib/draft.js";
+  import { buildUserSquad, DRAFT_ROUNDS } from "../lib/draft.js";
   import { swapPlayers as applySwap } from "../lib/draft.js";
   import { createTournament } from "../lib/tournament.js";
   import { upsertTournamentRecord } from "../lib/history.js";
@@ -40,6 +40,7 @@
   let draftState = $state<SavedDraft | null>(
     untrack(() => initial?.draft ?? null),
   );
+  let hasRerun = $state(untrack(() => initial?.hasRerun ?? false));
 
   /** Back to a fresh draft, clearing any squad and tournament. */
   function reset() {
@@ -47,6 +48,7 @@
     squad = null;
     tournament = null;
     draftState = null;
+    hasRerun = false;
     step = "draft";
   }
 
@@ -71,29 +73,26 @@
 
   /** Re-enter a fresh tournament with the same squad after a losing outcome. */
   function rerunTournament() {
+    if (hasRerun) return;
     if (!squad) return;
+    hasRerun = true;
     tournament = createTournament(squad);
     step = "tournament";
   }
 
-  /** Swap two players between formation slots (or the bench) within the confirmed squad. */
+  /** Swap two players between formation slots within the confirmed squad. */
   function swapPlayers(playerId: string, slotIndex: number) {
     if (!squad) return;
-    const combined = [...squad.players, ...(squad.bench ?? [])];
-    const from = combined.find((p) => p.id === playerId);
+    const from = squad.players.find((p) => p.id === playerId);
     if (!from || from.assignedSlot === undefined) return;
     const next = applySwap(
-      combined,
+      squad.players,
       formationKey,
       from.assignedSlot,
       slotIndex,
     );
     if (!next) return;
-    squad = {
-      ...squad,
-      players: next.filter((p) => p.assignedSlot !== BENCH_SLOT),
-      bench: next.filter((p) => p.assignedSlot === BENCH_SLOT),
-    };
+    squad = { ...squad, players: next };
   }
 
   /** Persist the in-progress game whenever any meaningful state changes. */
@@ -108,6 +107,7 @@
       squad,
       tournament,
       draft: draftState,
+      hasRerun,
     });
   });
 
@@ -162,6 +162,7 @@
       {formationKey}
       onReset={reset}
       onRerun={rerunTournament}
+      canRerun={!hasRerun}
     />
   {/if}
 </div>

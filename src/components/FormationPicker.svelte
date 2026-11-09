@@ -51,7 +51,7 @@
     {
       icon: Trophy,
       title: "Draft your XI",
-      text: "Twelve rounds of picks. Chase stars, patch gaps, and stash one player on the bench.",
+      text: "Eleven rounds of picks. Chase stars, patch gaps, and fill every slot.",
     },
     {
       icon: Play,
@@ -67,7 +67,7 @@
 
   const stats = [
     "4 teams",
-    "12 draft rounds",
+    "11 draft rounds",
     "Group → knockout",
     "Replay any match",
   ];
@@ -94,7 +94,7 @@
     </h1>
     <p class="mx-auto mt-6 max-w-xl text-secondary">
       Every XI needs a shape. Choose how many defenders, midfielders and
-      attackers you'll draft — this sets the position limits across all 12
+      attackers you'll draft — this sets the position limits across all 11
       rounds.
     </p>
 

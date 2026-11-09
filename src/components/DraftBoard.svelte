@@ -2,7 +2,6 @@
   import { untrack } from "svelte";
   import { ArrowUp, CalendarDays, ChevronLeft, Globe } from "@lucide/svelte";
   import {
-    BENCH_SLOT,
     DRAFT_ROUNDS,
     MAX_REROLLS,
     NATION_NAMES,
@@ -140,12 +139,9 @@
   const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const round = $derived(drafted.length + 1);
   const complete = $derived(validateDraft(formation, drafted));
-  // Chemistry only counts the starting XI; the bench player is excluded.
-  const starters = $derived(
-    drafted.filter((p) => p.assignedSlot !== BENCH_SLOT),
-  );
-  const sameNation = $derived(countSameNation(starters));
-  const clusters = $derived(nationClusters(starters));
+  // Every drafted player is a starter, so chemistry counts the whole squad.
+  const sameNation = $derived(countSameNation(drafted));
+  const clusters = $derived(nationClusters(drafted));
   const linkedClusters = $derived(clusters.filter((c) => c.bonus > 0));
   const draftSlots = $derived(assignSlots(drafted, formationKey));
   const selectableRoles = $derived.by(() => {
@@ -198,11 +194,6 @@
   const openRoles = $derived(emptySlotRoles(formationKey, drafted));
 
   const draftedNames = $derived(new Set(drafted.map((p) => p.name)));
-
-  /** Whether the single bench slot is still open (capacity 1). */
-  const benchOpen = $derived(
-    !drafted.some((p) => p.assignedSlot === BENCH_SLOT),
-  );
 
   const squadCanPlace = (nation: string, year: number): boolean =>
     openRoles.length === 0 ||
@@ -284,9 +275,8 @@
     scrollOfferToTop();
   }
 
-  /** Whether a player fits any currently empty slot, including the open bench slot. */
+  /** Whether a player fits any currently empty formation slot. */
   function hasPlaceableSlot(p: Player): boolean {
-    if (benchOpen) return true;
     return draftSlots.some(
       (s) =>
         !s.player && p.positions.some((r) => canonicalRole(r) === s.slot.role),
@@ -302,27 +292,10 @@
     if (!wasSelected) scrollToPitch();
   }
 
-  /** Commit the selected player into a specific formation slot (or the bench slot) and refresh the offer. */
+  /** Commit the selected player into a specific formation slot and refresh the offer. */
   function place(role: string, slotIndex: number) {
     if (!selected) return;
     if (draftedNames.has(selected.name)) return;
-    if (slotIndex === BENCH_SLOT) {
-      if (!benchOpen) return;
-      const placed = {
-        ...selected,
-        assignedPosition: undefined,
-        assignedSlot: BENCH_SLOT,
-      };
-      const next = [...drafted, placed];
-      drafted = next;
-      selected = null;
-      onPick(placed);
-      if (!validateDraft(formation, next)) {
-        newOffer();
-      }
-      scrollToDraft();
-      return;
-    }
     const slot = draftSlots[slotIndex];
     if (!slot || slot.player) return;
     if (!selected.positions.some((r) => canonicalRole(r) === role)) return;

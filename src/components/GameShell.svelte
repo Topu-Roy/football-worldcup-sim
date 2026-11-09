@@ -77,7 +77,7 @@
         <p class="font-display text-3xl tracking-[0.5px]">No formation yet</p>
         <p class="max-w-md text-secondary">
           Pick a formation to unlock the draft. Your XI's shape locks the
-          position limits for all 12 rounds.
+          position limits for all 11 rounds.
         </p>
       </div>
     {/if}

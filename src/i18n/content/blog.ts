@@ -40,7 +40,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "1. Pick your formation",
             body: [
-              "Choose 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Your shape locks the slot limits for the 12 draft rounds, so you always know how many defenders, midfielders, and forwards you need.",
+              "Choose 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Your shape locks the slot limits for the 11 draft rounds, so you always know how many defenders, midfielders, and forwards you need.",
               "Formations are not just cosmetics. They decide where your stars can play and how your chemistry forms. A 4-3-3 leans on wingers; a 3-5-2 leans on wing-backs and a strong midfield.",
               "Your formation choice affects every subsequent phase of the tournament - from draft strategy to in-match tactical adjustments. A 4-3-3 attacking formation creates different match dynamics than a 3-5-2 defensive setup.",
             ],
@@ -48,7 +48,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "2. Draft your XI",
             body: [
-              "Twelve rounds, 11 starters plus one sub. Each round you get a board of nation + year filtered to your remaining slots. You have 3 rerolls for the whole draft to swap a bad board before you pick.",
+              "Eleven rounds, a full XI. Each round you get a board of nation + year filtered to your remaining slots. You have 3 rerolls for the whole draft to swap a bad board before you pick.",
               "Place each player in their best slot - starred slots are ideal - and watch chemistry climb. Same-nation players give a chemistry bonus, so a coherent draft beats a rabble of stars.",
               "Each round presents a random nation + year roster filtered to your remaining slots, so draft strategy must balance immediate need with long-term chemistry building.",
             ],
@@ -129,7 +129,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Football formations & penalty shootouts",
             body: [
-              "Formation choice dictates your positional constraints across 12 draft rounds: 4-3-3 needs 3 attackers, 4-4-2 pairs strikers, 3-5-2 emphasizes wing-backs and a strong midfield, and 4-2-3-1 balances with a single striker. Each formation affects how chemistry develops and how positions interrelate during the simulation.",
+              "Formation choice dictates your positional constraints across 11 draft rounds: 4-3-3 needs 3 attackers, 4-4-2 pairs strikers, 3-5-2 emphasizes wing-backs and a strong midfield, and 4-2-3-1 balances with a single striker. Each formation affects how chemistry develops and how positions interrelate during the simulation.",
               "Penalty shootout simulator outcomes depend on taker composure + finishing vs goalkeeper reflexes + form. Top 5 takers are selected by 0.5×composure + 0.5×finishing weighted average. Each kick probability rolls by logistic((0.5×composure + 0.5×finishing − GK_reflexes × GK_form_mult) / 20). Best-of-5, sudden death after tied matches produce realistic penalty rates around 13.8% in calibration data.",
               "Understanding both formation strategy and penalty mechanics gives you complete tournament preparation - from draft through to the final, including potential shootouts.",
               "Formation choice and penalty readiness are complementary strategic elements - a well-drafted XI that also prepares for potential shootouts has a complete tournament gameplan from groups through final, with the world cup penalty shootouts that decide tight knockouts covered too.",
@@ -172,7 +172,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Wähle deine Formation",
             body: [
-              "Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Deine Form fixiert die Platzgrenzen für die 12 Draftrunden, also weißt du immer, wie viele Verteidiger, Mittelfelder und Stürmer du brauchst.",
+              "Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Deine Form fixiert die Platzgrenzen für die 11 Draftrunden, also weißt du immer, wie viele Verteidiger, Mittelfelder und Stürmer du brauchst.",
               "Formationen sind nicht nur Kosmetik. Sie entscheiden, wo deine Stars spielen können und wie deine Chemie entsteht. Ein 4-3-3 lebt von Flügeln; ein 3-5-2 von Außenverteidigern und einem starken Mittelfeld.",
               "Die Formation ist dein erster taktischer Zug im WM-Simulator: Sie legt fest, welche Positionen das Draft-Brett anbietet und wie viel Flexibilität du später beim Setzen der Spieler hast.",
             ],
@@ -180,7 +180,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Draft dein XI",
             body: [
-              "Zwölf Runden, 11 Stammspieler plus ein Ersatz. Jede Runde bekommst du ein Brett aus Nation + Jahr, gefiltert auf deine freien Plätze. Du hast 3 Rerolls für den gesamten Draft, um ein schlechtes Brett vor der Wahl zu tauschen.",
+              "Elf Runden, ein volles XI. Jede Runde bekommst du ein Brett aus Nation + Jahr, gefiltert auf deine freien Plätze. Du hast 3 Rerolls für den gesamten Draft, um ein schlechtes Brett vor der Wahl zu tauschen.",
               "Setze jeden Spieler auf seinen besten Platz - sterne Plätze sind ideal - und sieh die Chemie steigen. Spieler derselben Nation geben einen Chemiebonus, also schlägt ein kohärenter Draft ein Starengemisch.",
               "Das Draft-Board zeigt dir zu jeder Karte Bewertung, Bestposition und Nation, so wie du es von einem guten Fußball Draft Simulator erwartest - alle Infos auf einen Blick, keine versteckten Werte.",
             ],
@@ -261,7 +261,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Fußball-Formationen & Elfmeterschießen",
             body: [
-              "Die Formation bestimmt deine Positionspflichten über alle 12 Draftrunden: 4-3-3 braucht 3 Angreifer, 4-4-2 paart Stürmer, 3-5-2 setzt auf Außenverteidiger und starkes Mittelfeld, 4-2-3-1 balanciert mit hängender Spitze. Jede Formation beeinflusst, wie Chemie entsteht und wie Positionen im Spiel zusammenwirken.",
+              "Die Formation bestimmt deine Positionspflichten über alle 11 Draftrunden: 4-3-3 braucht 3 Angreifer, 4-4-2 paart Stürmer, 3-5-2 setzt auf Außenverteidiger und starkes Mittelfeld, 4-2-3-1 balanciert mit hängender Spitze. Jede Formation beeinflusst, wie Chemie entsteht und wie Positionen im Spiel zusammenwirken.",
               "Im Elfmeterschießen zählen Nerven und Abschluss gegen Reflexe und Form des Keepers. Die besten 5 Schützen werden nach gewichtetem Durchschnitt aus Composure und Finishing gewählt; jeder Schuss rollt gegen die Reaktion des Torwarts. Best-of-5, danach Sudden Death - die Trefferquote liegt in den Kalibrierungsdaten bei realistischen Werten.",
               "Formation und Elfmeter-Vorbereitung gehören zusammen: Wer früh weiß, welche Schützen Composure und Finishing mitbringen, draftet im Zweifel den kühleren Kopf statt dem reinen Torschützen.",
               "Verstehst du beides - Formationswahl und Elfmeter-Mechanik - bist du vom Draft bis zum möglichen Sudden Death voll vorbereitet. Genau diese Tiefe macht den Fußball Simulator online so wiederspielbar.",
@@ -304,7 +304,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Choisissez votre formation",
             body: [
-              "Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Votre forme fixe les limites de postes pour les 12 tours de draft, donc vous savez toujours combien de defenseurs, milieux et attaquants il vous faut.",
+              "Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Votre forme fixe les limites de postes pour les 11 tours de draft, donc vous savez toujours combien de defenseurs, milieux et attaquants il vous faut.",
               "Les formations ne sont pas cosmetiques. Elles decident ou vos stars peuvent jouer et comment votre chimie se forme. Un 4-3-3 vit des ailiers ; un 3-5-2 des lateraux et d'un milieu fort.",
               "La formation est votre premier geste tactique dans ce simulateur de football : elle definit les postes proposes par les plateaux de draft et votre flexibilite pour placer les joueurs ensuite.",
             ],
@@ -312,7 +312,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Draft votre XI",
             body: [
-              "Douze tours, 11 titulaires plus un remplacant. Chaque tour vous donne un plateau nation + annee filtre sur vos postes restants. Vous disposez de 3 rerolls pour tout le draft pour changer un mauvais plateau avant de choisir.",
+              "Onze tours, un XI complet. Chaque tour vous donne un plateau nation + annee filtre sur vos postes restants. Vous disposez de 3 rerolls pour tout le draft pour changer un mauvais plateau avant de choisir.",
               "Placez chaque joueur a son meilleur poste - les postes etoile sont ideaux - et voyez la chimie monter. Les joueurs d'une meme nation donnent un bonus de chimie, donc un draft coherent bat un melange de stars.",
               "Le plateau affiche note, meilleur poste et nation de chaque carte - toutes les infos d'un bon draft football game, sans valeurs cachees.",
             ],
@@ -385,7 +385,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Formations & tirs au but",
             body: [
-              "La formation fixe vos obligations de postes sur les 12 tours : le 4-3-3 reclame 3 attaquants, le 4-4-2 associe deux avant-centres, le 3-5-2 mise sur lateraux et milieu, le 4-2-3-1 equilibre avec un pivot unique.",
+              "La formation fixe vos obligations de postes sur les 11 tours : le 4-3-3 reclame 3 attaquants, le 4-4-2 associe deux avant-centres, le 3-5-2 mise sur lateraux et milieu, le 4-2-3-1 equilibre avec un pivot unique.",
               "Aux tirs au but, sang-froid et finition du tireur s'opposent aux reflexes et a la forme du gardien. Les 5 meilleurs tireurs sortent d'une moyenne ponderee ; chaque tir roule contre la reaction du gardien. Best-of-5 puis mort subite - des taux de reussite realistes.",
               "Formation et preparation aux tirs au but se completent : reperer les tireurs a sang-froid pendant le draft fait gagner la seance decisive.",
               "Maitriser formation et tirs au but vous couvre du premier match de groupe jusqu'a la finale, mort subite comprise - c'est cette profondeur qui rend le simulateur si rejouable.",
@@ -420,7 +420,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "フォーメーションを選ぶ",
             body: [
-              "4-3-3、4-4-2、3-5-2、4-2-3-1 から選ぶ。フォーメーションは 12 ラウンドのドラフトのポジション上限を固定するから、必要なDF・MF・FWの数が常に分かる。",
+              "4-3-3、4-4-2、3-5-2、4-2-3-1 から選ぶ。フォーメーションは 11 ラウンドのドラフトのポジション上限を固定するから、必要なDF・MF・FWの数が常に分かる。",
               "フォーメーションは単なる見た目ではない。どこでスターがプレーできるか、ケミストリーがどう生まれるかを決める。4-3-3 はウイング頼り、3-5-2 はウイングバックと強い中盤頼りだ。",
               "フォーメーション選択は W杯シミュレーターでの最初の戦術判断だ。ドラフトボードに提示されるポジションと、後の選手配置の自由度をここで決めることになる。",
             ],
@@ -428,7 +428,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "XI をドラフトする",
             body: [
-              "12 ラウンド、先発 11 人に加え控え 1 人。各ラウンドには残りポジションで絞った「国＋年」のボードが出る。リロールはドラフト全体で 3 回、選ぶ前に悪いボードを替えられる。",
+              "11 ラウンド、先発 XI。各ラウンドには残りポジションで絞った「国＋年」のボードが出る。リロールはドラフト全体で 3 回、選ぶ前に悪いボードを替えられる。",
               "各選手を得意ポジションに置け——星付きポジションが理想——ケミストリーが上がるのを見よう。同じ国の選手はケミストリー・ボーナスを得るから、まとまりのあるドラフトはスターの寄せ集めに勝つ。",
               "ボードには各カードのレーティング、得意ポジション、国が表示される。隠れた数値のない、良いサッカードラフトゲームに求める情報設計だ。",
             ],
@@ -501,7 +501,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "フォーメーションと PK 戦の仕組み",
             body: [
-              "フォーメーションが 12 ラウンドのポジション制約を決める。4-3-3 は FW 3、4-4-2 は 2 top、3-5-2 はウイングバックと中盤重視、4-2-3-1 は単発柱で均衡。各フォーメーションはケミストリーの生まれ方と試合中の連携にも影響する。",
+              "フォーメーションが 11 ラウンドのポジション制約を決める。4-3-3 は FW 3、4-4-2 は 2 top、3-5-2 はウイングバックと中盤重視、4-2-3-1 は単発柱で均衡。各フォーメーションはケミストリーの生まれ方と試合中の連携にも影響する。",
               "PK 戦シミュレーションではキッカーの冷静さ＋フィニッシュが GK のリフレックス＋フォームと対峙する。上位 5 キッカーは 0.5×冷静さ + 0.5×フィニッシュの加重平均で選出。各キックはロジスティック式で判定、5 回戦後サドンデス——較正データでも現実的な成功率だ。",
               "フォーメーション戦略と PK 準備は補完関係にある。冷静なキッカーをドラフト時に把握しておけば、決勝トーナメントでのセッションに完全に対策できる。",
               "両方を理解すれば、グループから決勝、サドンデスまで完全な大会準備が整う。これがこのサッカーゲームの深みであり、再プレイ性の源泉だ。",
@@ -536,7 +536,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Elige tu formación",
             body: [
-              "Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Tu forma bloquea los límites de puestos para las 12 rondas de draft, así siempre sabes cuántos defensas, mediocampistas y delanteros necesitas.",
+              "Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Tu forma bloquea los límites de puestos para las 11 rondas de draft, así siempre sabes cuántos defensas, mediocampistas y delanteros necesitas.",
               "Las formaciones no son solo estética. Deciden dónde pueden jugar tus estrellas y cómo se forma tu química. Un 4-3-3 vive de las bandas; un 3-5-2 de los carrileros y un mediocampo fuerte.",
               "La formación es tu primer movimiento táctico en el simulador de fútbol: define qué puestos ofrece el tablero de draft y tu flexibilidad para colocar jugadores después.",
             ],
@@ -544,7 +544,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Draftas tu XI",
             body: [
-              "Doce rondas, 11 titulares más 1 banco. Cada ronda recibes una plantilla de nación + año filtrada a tus puestos restantes. Tienes 3 rerolls para todo el draft para cambiar un mal tablero antes de elegir.",
+              "Once rondas, un XI completo. Cada ronda recibes una plantilla de nación + año filtrada a tus puestos restantes. Tienes 3 rerolls para todo el draft para cambiar un mal tablero antes de elegir.",
               "Coloca cada jugador en su mejor puesto - los puestos con estrella son ideales - y ve subir la química. Los de la misma nación dan un bonus de química, así un draft listo vence a un equipo de estrellas sueltas.",
               "El tablero muestra valoración, mejor puesto y nación de cada carta - toda la información que esperas de un buen draft fútbol juego, sin valores ocultos.",
             ],
@@ -617,7 +617,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Formaciones y penales: la preparación completa",
             body: [
-              "La formación dicta tus restricciones de puesto en 12 rondas: 4-3-3 exige 3 atacantes, 4-4-2 empareja delanteros, 3-5-2 refuerza carrileros y mediocampo, 4-2-3-1 equilibra con punta único. Cada formación afecta cómo nace la química y cómo interactúan las posiciones.",
+              "La formación dicta tus restricciones de puesto en 11 rondas: 4-3-3 exige 3 atacantes, 4-4-2 empareja delanteros, 3-5-2 refuerza carrileros y mediocampo, 4-2-3-1 equilibra con punta único. Cada formación afecta cómo nace la química y cómo interactúan las posiciones.",
               "En la tanda de penales, sangre fría + definición del tirador se enfrentan a reflejos + forma del portero. Los 5 tiradores salen del promedio 0.5×sangre fría + 0.5×definición; cada penal se resuelve contra la reacción del arquero. Mejor de 5, muerte súbita después - tasas realistas en datos de calibración.",
               "Formación y preparación de penales son complementarias: identificar tiradores fríos durante el draft te da plan completo para la tanda decisiva.",
               "Entender ambas te deja listo del draft al posible desempate: grupos, eliminatorias y final cubiertos. Esa profundidad es la fuente de rejugabilidad del simulador.",

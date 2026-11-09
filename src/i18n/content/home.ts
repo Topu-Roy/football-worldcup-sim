@@ -15,7 +15,7 @@ export const home = {
     chips: [
       "1970-2026",
       "86 squads",
-      "12 draft rounds",
+      "11 draft rounds",
       "Group → knockout",
       "Penalty shootouts",
     ],
@@ -25,12 +25,12 @@ export const home = {
       {
         n: "01",
         title: "Pick your shape",
-        body: "Choose from 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. This locks the slot limits for all 12 draft rounds.",
+        body: "Choose from 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. This locks the slot limits for all 11 draft rounds.",
       },
       {
         n: "02",
         title: "Draft your XI",
-        body: "Twelve rounds of picks from 86 historical World Cup squads. Chase stars, patch gaps, keep one on the bench.",
+        body: "Eleven rounds of picks from 86 historical World Cup squads. Chase stars, patch gaps, fill every slot.",
       },
       {
         n: "03",
@@ -45,8 +45,8 @@ export const home = {
     ],
     loop: [
       "One simple loop makes this fantasy football world cup game easy to replay.",
-      "First, you pick your formation. You can pick 4-3-3 for attack. Or 4-4-2 for balance. Or 3-5-2 for the midfield. Or 4-2-3-1 for control. Your choice locks the slots. You must fill them over 12 draft rounds.",
-      "Next, the football draft simulator shows you squads. These are old World Cup teams from 1970 to 2026. You build your dream XI one pick at a time. You chase the best players. You fill the gaps. You keep one player on the bench.",
+      "First, you pick your formation. You can pick 4-3-3 for attack. Or 4-4-2 for balance. Or 3-5-2 for the midfield. Or 4-2-3-1 for control. Your choice locks the slots. You must fill them over 11 draft rounds.",
+      "Next, the football draft simulator shows you squads. These are old World Cup teams from 1970 to 2026. You build your dream XI one pick at a time. You chase the best players. You fill the gaps. You fill every slot in your XI.",
       "When your squad is ready, the soccer simulator takes over. Your team joins a group with three AI teams. The match engine plays each group game. It shows possession, shots and chances. The knockout bracket runs by itself. You get the round of 16, the quarter-final, the semi-final and the final.",
       "Ties go to extra time. Then a penalty shootout simulator decides the winner. Each side takes five kicks. After that, it is sudden death. No two runs are the same. A Brazil 1970 attack can lose to a strong Germany 2014 defence. A weak draft can beat the top seeds.",
       "Players call it a soccer draft game and a world cup predictor. You are not predicting real results. You are predicting your own cup. When the final ends, you can replay any match. You can compare squad stats and player ratings. Then you can start a new draft.",
@@ -68,7 +68,7 @@ export const home = {
     playTitle: "Your world cup simulator, step by step",
     play: [
       "Your world cup simulator is easy to start. That is the point of an online soccer game in the browser. Open the app. One click and you can draft. No install. No account. No waiting.",
-      "First, pick your formation. The soccer simulator respects positions. Your shape decides how many defenders, midfielders and attackers you take. You pick over 12 rounds. Then the football draft simulator shows offers. Each offer is a nation and a year. Brazil 1970 one pick. Germany 2014 the next. You place each player in the best slot. You watch chemistry update. You get a few rerolls if the board is bad.",
+      "First, pick your formation. The soccer simulator respects positions. Your shape decides how many defenders, midfielders and attackers you take. You pick over 11 rounds. Then the football draft simulator shows offers. Each offer is a nation and a year. Brazil 1970 one pick. Germany 2014 the next. You place each player in the best slot. You watch chemistry update. You get a few rerolls if the board is bad.",
       "When your XI is done, the match engine simulates the group stage. It plays live, part by part. The rest of the bracket is pre-simulated. So the whole world cup simulation ends fast. Knockout ties go to extra time. Then a penalty shootout simulator decides. Five kicks each. Then sudden death. This is the drama fans love.",
       "You are not predicting real 2026 results. You use the world cup simulator 2026 mode to predict your own cup. Players call it a world cup predictor for their cup. It is a free soccer simulation game. It is a soccer game with no download. It runs on a laptop, tablet or phone. Your save stays on your device.",
       "Want the long version? The how-to-play guide explains formations, drafting, chemistry and the bracket. The FAQ shows how the football simulation works. It shows how penalty shootouts work. Call it fantasy soccer. Call it an interactive soccer simulator. Or call it the world cup fantasy game. The path is the same.",
@@ -80,7 +80,7 @@ export const home = {
 
   de: {
     h1: "Eleven Fantasy: Historische Kader draften, WM simulieren",
-    hero: "Eleven Fantasy ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel. Du stellst ein Traumteam aus über 100 alten WM-Kadern auf. Wähle Brasilien 1970, Frankreich 1998 oder Argentinien 2022. Dann simuliert das Spiel ein komplettes Turnier für dich. Du bekommst Gruppenspiele, ein K.-o.-Baum und Elfmeterschießen. Es ist ein Fußballsimulator und ein Draft-Simulator. Du spielst es online. Kein Download. Keine Anmeldung. In den USA nennt man es Soccer-Draft-Spiel oder Online-Soccer-Spiel. Es ist auch ein kostenloses Fußball-Simulationsspiel. Der WM-Simulator-2026-Modus fügt neue Kadern hinzu. Du kannst dein eigenes Turnier noch heute vorhersagen. Wähle eine Formation, stelle dein Team auf und schau das Turnier.",
+    hero: "Eleven Fantasy ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel. Du stellst ein Traumteam aus 86 alten WM-Kadern auf. Wähle Brasilien 1970, Frankreich 1998 oder Argentinien 2022. Dann simuliert das Spiel ein komplettes Turnier für dich. Du bekommst Gruppenspiele, ein K.-o.-Baum und Elfmeterschießen. Es ist ein Fußballsimulator und ein Draft-Simulator. Du spielst es online. Kein Download. Keine Anmeldung. In den USA nennt man es Soccer-Draft-Spiel oder Online-Soccer-Spiel. Es ist auch ein kostenloses Fußball-Simulationsspiel. Der WM-Simulator-2026-Modus fügt neue Kadern hinzu. Du kannst dein eigenes Turnier noch heute vorhersagen. Wähle eine Formation, stelle dein Team auf und schau das Turnier.",
     ctaPlay: "Jetzt spielen",
     ctaHow: "Anleitung",
     showMore: "Mehr anzeigen",
@@ -94,7 +94,7 @@ export const home = {
     chips: [
       "1970-2026",
       "86 Mannschaften",
-      "12 Draft-Runden",
+      "11 Draft-Runden",
       "Gruppe → K.-o.",
       "Elfmeterschießen",
     ],
@@ -104,12 +104,12 @@ export const home = {
       {
         n: "01",
         title: "Form wählen",
-        body: "Wähle aus 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Das legt die Platzgrenzen für alle 12 Draft-Runden fest.",
+        body: "Wähle aus 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Das legt die Platzgrenzen für alle 11 Draft-Runden fest.",
       },
       {
         n: "02",
         title: "Draft dein Team",
-        body: "Zwölf Runden voller Picks aus über 100 historischen WM-Kadern. Jag den Stars nach, schließe Lücken, behalte einen auf der Bank.",
+        body: "Elf Runden voller Picks aus 86 historischen WM-Kadern. Jag den Stars nach, schließe Lücken, fülle jeden Platz.",
       },
       {
         n: "03",
@@ -124,8 +124,8 @@ export const home = {
     ],
     loop: [
       "Eleven Fantasy ist ein Fantasy-Football-Weltcup-Spiel. Es lässt sich leicht wiederholen. Das Spiel hat eine einfache Schleife.",
-      "Zuerst wählst du deine Formation. Du kannst 4-3-3 für den Angriff nehmen. Oder 4-4-2 für die Balance. Oder 3-5-2 für das Mittelfeld. Oder 4-2-3-1 für die Kontrolle. Deine Wahl sperrt die Plätze. Du musst sie in 12 Draft-Runden füllen.",
-      "Als nächstes zeigt der Football-Draft-Simulator dir Kadern. Das sind alte WM-Teams von 1970 bis 2026. Du baust dein Traumteam Pick für Pick auf. Du jagst die besten Spieler. Du füllst die Lücken. Du behältst einen Spieler auf der Bank.",
+      "Zuerst wählst du deine Formation. Du kannst 4-3-3 für den Angriff nehmen. Oder 4-4-2 für die Balance. Oder 3-5-2 für das Mittelfeld. Oder 4-2-3-1 für die Kontrolle. Deine Wahl sperrt die Plätze. Du musst sie in 11 Draft-Runden füllen.",
+      "Als nächstes zeigt der Football-Draft-Simulator dir Kadern. Das sind alte WM-Teams von 1970 bis 2026. Du baust dein Traumteam Pick für Pick auf. Du jagst die besten Spieler. Du füllst die Lücken. Du füllst jeden Platz in deinem XI.",
       "Wenn dein Kader bereit ist, übernimmt der Fußballsimulator. Dein Team kommt in eine Gruppe mit drei KI-Teams. Die Spielengine spielt jedes Gruppenspiel. Sie zeigt Ballbesitz, Schüsse und Chancen. Das K.-o.-Baum läuft von selbst. Du bekommst Achtelfinale, Viertelfinale, Halbfinale und Finale.",
       "Unentschieden geht in die Verlängerung. Dann entscheidet ein Elfmeter-Simulator. Jede Seite schießt fünfmal. Danach ist es Sudden Death. Keine zwei Läufe sind gleich. Ein Angriff von Brasilien 1970 kann an einer starken Abwehr von Deutschland 2014 scheitern. Ein schwacher Draft kann die Top-Saat schlagen.",
       "Spieler nennen es Soccer-Draft-Spiel und WM-Vorhersage. Du sagst keine echten Ergebnisse voraus. Du sagst deinen eigenen Pokal voraus. Wenn das Finale endet, kannst du jedes Spiel wiederholen. Du kannst Kaderstatistiken und Spielerbewertungen vergleichen. Dann kannst du einen neuen Draft starten.",
@@ -147,7 +147,7 @@ export const home = {
     playTitle: "Dein WM-Simulator, Schritt für Schritt",
     play: [
       "Dein WM-Simulator ist leicht zu starten. Das ist der Sinn eines Online-Soccer-Spiels im Browser. Öffne die App. Mit einem Klick kannst du draften. Keine Installation. Kein Konto. Kein Warten.",
-      "Wähle zuerst deine Formation. Der Fußballsimulator achtet auf Positionen. Deine Form entscheidet, wie viele Verteidiger, Mittelfeldspieler und Stürmer du nimmst. Du wählst über 12 Runden. Dann zeigt der Football-Draft-Simulator Angebote. Jedes Angebot ist eine Nation und ein Jahr. Brasilien 1970 ein Pick. Deutschland 2014 der nächste. Du setzt jeden Spieler auf den besten Platz. Du siehst die Chemie aktualisieren. Bei schlechtem Brett bekommst du ein paar Neuwürfe.",
+      "Wähle zuerst deine Formation. Der Fußballsimulator achtet auf Positionen. Deine Form entscheidet, wie viele Verteidiger, Mittelfeldspieler und Stürmer du nimmst. Du wählst über 11 Runden. Dann zeigt der Football-Draft-Simulator Angebote. Jedes Angebot ist eine Nation und ein Jahr. Brasilien 1970 ein Pick. Deutschland 2014 der nächste. Du setzt jeden Spieler auf den besten Platz. Du siehst die Chemie aktualisieren. Bei schlechtem Brett bekommst du ein paar Neuwürfe.",
       "Wenn dein Team fertig ist, simuliert die Spielengine die Gruppenphase. Sie spielt live, Stück für Stück. Der Rest des Baums ist vor_simuliert. So endet die ganze WM-Simulation schnell. K.-o.-Unentschieden geht in die Verlängerung. Dann entscheidet ein Elfmeter-Simulator. Fünf pro Seite. Dann Sudden Death. Das ist das Drama, das Fans lieben.",
       "Du sagst keine echten 2026-Ergebnisse voraus. Du nutzt den WM-Simulator-2026-Modus, um deinen eigenen Pokal vorauszusagen. Spieler nennen es WM-Vorhersage für ihren Pokal. Es ist ein kostenloses Fußball-Simulationsspiel. Es ist ein Soccer-Spiel ohne Download. Es läuft auf Laptop, Tablet oder Handy. Dein Spielstand bleibt auf deinem Gerät.",
       "Willst du die lange Version? Die Anleitung erklärt Formationen, Draft, Chemie und das Baum. Die FAQ zeigt, wie die Fußballsimulation funktioniert. Sie zeigt, wie Elfmeterschießen funktionieren. Nenn es Fantasy-Football. Nenn es interaktiver Fußballsimulator. Oder nenn es WM-Fantasy-Spiel. Der Weg ist derselbe.",
@@ -159,7 +159,7 @@ export const home = {
 
   fr: {
     h1: "Eleven Fantasy : composez votre équipe, simulez la Coupe du Monde",
-    hero: "Eleven Fantasy est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy. Vous composez une équipe de rêve à partir de plus de 100 anciens effectifs de Coupe du Monde. Choisissez le Brésil 1970, la France 1998 ou l'Argentine 2022. Ensuite, le jeu simule un tournoi complet pour vous. Vous avez des matchs de groupe, un arbre à élimination et des tirs au but. C'est un simulateur de football et un simulateur de draft. Vous jouez en ligne. Sans téléchargement. Sans inscription. Aux États-Unis, on l'appelle jeu de draft soccer ou soccer en ligne. C'est aussi un jeu de simulation de football gratuit. Le mode simulateur de Coupe du Monde 2026 ajoute de nouveaux effectifs. Vous pouvez prédire votre propre tournoi dès aujourd'hui. Choisissez une formation, construisez votre équipe et regardez le tournoi.",
+    hero: "Eleven Fantasy est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy. Vous composez une équipe de rêve à partir de 86 anciens effectifs de Coupe du Monde. Choisissez le Brésil 1970, la France 1998 ou l'Argentine 2022. Ensuite, le jeu simule un tournoi complet pour vous. Vous avez des matchs de groupe, un arbre à élimination et des tirs au but. C'est un simulateur de football et un simulateur de draft. Vous jouez en ligne. Sans téléchargement. Sans inscription. Aux États-Unis, on l'appelle jeu de draft soccer ou soccer en ligne. C'est aussi un jeu de simulation de football gratuit. Le mode simulateur de Coupe du Monde 2026 ajoute de nouveaux effectifs. Vous pouvez prédire votre propre tournoi dès aujourd'hui. Choisissez une formation, construisez votre équipe et regardez le tournoi.",
     ctaPlay: "Jouer",
     ctaHow: "Comment jouer",
     showMore: "Voir plus",
@@ -173,7 +173,7 @@ export const home = {
     chips: [
       "1970-2026",
       "86 équipes",
-      "12 tours de draft",
+      "11 tours de draft",
       "Groupes → élim.",
       "Tirs au but",
     ],
@@ -183,12 +183,12 @@ export const home = {
       {
         n: "01",
         title: "Choisissez la forme",
-        body: "Choisissez parmi 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Cela verrouille les limites de postes pour les 12 tours de draft.",
+        body: "Choisissez parmi 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Cela verrouille les limites de postes pour les 11 tours de draft.",
       },
       {
         n: "02",
         title: "Composez votre XI",
-        body: "Douze tours de picks parmi plus de 100 équipes historiques de Coupe du Monde. Courez après les stars, comblez les trous, gardez-en un sur le banc.",
+        body: "Onze tours de picks parmi 86 équipes historiques de Coupe du Monde. Courez après les stars, comblez les trous, remplissez chaque poste.",
       },
       {
         n: "03",
@@ -203,8 +203,8 @@ export const home = {
     ],
     loop: [
       "Eleven Fantasy est un jeu de Coupe du Monde fantasy. Il se rejoue facilement. Le jeu a une boucle simple.",
-      "D'abord, vous choisissez votre formation. Vous pouvez prendre 4-3-3 pour l'attaque. Ou 4-4-2 pour l'équilibre. Ou 3-5-2 pour le milieu. Ou 4-2-3-1 pour le contrôle. Votre choix verrouille les postes. Vous devez les remplir sur 12 tours de draft.",
-      "Ensuite, le simulateur de draft de football vous montre des effectifs. Ce sont d'anciennes équipes de Coupe du Monde de 1970 à 2026. Vous construisez votre XI de rêve pick après pick. Vous courez après les meilleurs joueurs. Vous comblez les trous. Vous gardez un joueur sur le banc.",
+      "D'abord, vous choisissez votre formation. Vous pouvez prendre 4-3-3 pour l'attaque. Ou 4-4-2 pour l'équilibre. Ou 3-5-2 pour le milieu. Ou 4-2-3-1 pour le contrôle. Votre choix verrouille les postes. Vous devez les remplir sur 11 tours de draft.",
+      "Ensuite, le simulateur de draft de football vous montre des effectifs. Ce sont d'anciennes équipes de Coupe du Monde de 1970 à 2026. Vous construisez votre XI de rêve pick après pick. Vous courez après les meilleurs joueurs. Vous comblez les trous. Vous remplissez chaque poste de votre XI.",
       "Quand votre équipe est prête, le simulateur de football prend le relais. Votre équipe rejoint un groupe avec trois équipes IA. Le moteur de match joue chaque match de groupe. Il montre la possession, les tirs et les occasions. L'arbre à élimination tourne seul. Vous avez les huitièmes, les quarts, les demi-finales et la finale.",
       "Les nuls vont en prolongation. Puis un simulateur de tirs au but décide. Cinq par côté. Ensuite, c'est la mort subite. Aucune partie ne se ressemble. Une attaque du Brésil 1970 peut perdre contre une forte défense de l'Allemagne 2014. Un draft faible peut battre les têtes de série.",
       "Les joueurs l'appellent jeu de draft soccer et pronostic de Coupe du Monde. Vous ne prévoyez pas de vrais résultats. Vous prévoyez votre propre coupe. Quand la finale se termine, vous pouvez rejouer chaque match. Vous pouvez comparer les stats d'équipe et les notes des joueurs. Puis vous pouvez lancer un nouveau draft.",
@@ -226,7 +226,7 @@ export const home = {
     playTitle: "Votre simulateur de Coupe du Monde, étape par étape",
     play: [
       "Votre simulateur de Coupe du Monde est facile à démarrer. C'est le sens d'un soccer en ligne dans le navigateur. Ouvrez l'appli. En un clic, vous pouvez draftz. Sans installation. Sans compte. Sans attente.",
-      "D'abord, choisissez votre formation. Le simulateur de football respecte les postes. Votre forme décide combien de défenseurs, milieux et attaquants vous prenez. Vous choisissez sur 12 tours. Puis le simulateur de draft de football montre des offres. Chaque offre est une nation et une année. Brésil 1970 un pick. Allemagne 2014 le suivant. Vous placez chaque joueur au meilleur poste. Vous voyez la chimie se mettre à jour. Vous avez quelques relances si le plateau est mauvais.",
+      "D'abord, choisissez votre formation. Le simulateur de football respecte les postes. Votre forme décide combien de défenseurs, milieux et attaquants vous prenez. Vous choisissez sur 11 tours. Puis le simulateur de draft de football montre des offres. Chaque offre est une nation et une année. Brésil 1970 un pick. Allemagne 2014 le suivant. Vous placez chaque joueur au meilleur poste. Vous voyez la chimie se mettre à jour. Vous avez quelques relances si le plateau est mauvais.",
       "Quand votre XI est prêt, le moteur de match simule la phase de groupes. Il joue en direct, morceau par morceau. Le reste de l'arbre est pré-simulé. Ainsi toute la simulation de Coupe du Monde finit vite. Les nuls à élimination vont en prolongation. Puis un simulateur de tirs au but décide. Cinq par côté. Puis la mort subite. C'est le drame que les fans aiment.",
       "Vous ne prévoyez pas de vrais résultats 2026. Vous utilisez le mode simulateur de Coupe du Monde 2026 pour prévoir votre propre coupe. Les joueurs l'appellent pronostic de Coupe du Monde pour leur coupe. C'est un jeu de simulation de football gratuit. C'est un jeu soccer sans téléchargement. Il tourne sur ordinateur, tablette ou téléphone. Votre sauvegarde reste sur votre appareil.",
       "Vous voulez la version longue ? Le guide explique les formations, le draft, la chimie et l'arbre. La FAQ montre comment fonctionne la simulation de football. Elle montre comment fonctionnent les tirs au but. Appelez-le Coupe du Monde fantasy. Appelez-le simulateur de football interactif. Ou appelez-le jeu de Coupe du Monde fantasy. Le chemin est le même.",
@@ -238,7 +238,7 @@ export const home = {
 
   ja: {
     h1: "Eleven Fantasy：歴代チームをドラフト、ワールドカップをシミュレート",
-    hero: "Eleven Fantasyは無料のブラウザサッカーゲーム。Fantasy Football ワールドカップのゲームだ。1970年から2026年までの歴代チーム100以上から夢のチームをドラフトする。ブラジル1970、フランス1998、アルゼンチン2022から選ぼう。するとゲームが大会全体をシミュレートしてくれる。グループリーグ、決勝トーナメント、PK戦がある。これはサッカーシミュレーターであり、フットボールドラフトシミュレーターだ。ブラウザで遊ぶ。ダウンロード不要。登録不要。アメリカではサッカードラフトゲームやオンラインサッカーゲームと呼ばれる。これは無料のサッカーシミュレーションゲームでもある。ワールドカップシミュレーター2026モードで新チームが加わる。今日から自分の大会を予想できる。フォーメーションを選び、チームを作り、大会を見よう。",
+    hero: "Eleven Fantasyは無料のブラウザサッカーゲーム。Fantasy Football ワールドカップのゲームだ。1970年から2026年までの歴代チーム86から夢のチームをドラフトする。ブラジル1970、フランス1998、アルゼンチン2022から選ぼう。するとゲームが大会全体をシミュレートしてくれる。グループリーグ、決勝トーナメント、PK戦がある。これはサッカーシミュレーターであり、フットボールドラフトシミュレーターだ。ブラウザで遊ぶ。ダウンロード不要。登録不要。アメリカではサッカードラフトゲームやオンラインサッカーゲームと呼ばれる。これは無料のサッカーシミュレーションゲームでもある。ワールドカップシミュレーター2026モードで新チームが加わる。今日から自分の大会を予想できる。フォーメーションを選び、チームを作り、大会を見よう。",
     ctaPlay: "今すぐプレイ",
     ctaHow: "遊び方",
     showMore: "もっと見る",
@@ -249,19 +249,19 @@ export const home = {
       caption:
         "サッカー史上最強の国々から最高のXIを、実際のワールドカップ選手レーティングで構成。ドラフトして杯をシミュレート。",
     },
-    chips: ["1970-2026", "チーム86", "ドラフト12回", "グループ→決勝", "PK戦"],
+    chips: ["1970-2026", "チーム86", "ドラフト11回", "グループ→決勝", "PK戦"],
     stepsEyebrow: "遊び方",
     stepsTitle: "栄光までの4ラウンド",
     steps: [
       {
         n: "01",
         title: "フォーメーションを選ぶ",
-        body: "4-3-3、4-4-2、3-5-2、4-2-3-1から選ぶ。これで12回のドラフト全体のポジション上限が決まる。",
+        body: "4-3-3、4-4-2、3-5-2、4-2-3-1から選ぶ。これで11回のドラフト全体のポジション上限が決まる。",
       },
       {
         n: "02",
         title: "ドラフトでXIを作る",
-        body: "1970年から2026年までの歴代ワールドカップチーム100以上から12回指名。スターを狙い、穴を埋め、1人をベンチに。",
+        body: "1970年から2026年までの歴代ワールドカップチーム86から11回指名。スターを狙い、穴を埋め、XIの全ポジションを埋める。",
       },
       {
         n: "03",
@@ -276,8 +276,8 @@ export const home = {
     ],
     loop: [
       "Eleven FantasyはFantasy Football ワールドカップのゲーム。繰り返し遊びやすい。ゲームは1つのシンプルなループだ。",
-      "まずフォーメーションを選ぶ。攻撃なら4-3-3。バランスなら4-4-2。中盤なら3-5-2。コントロールなら4-2-3-1。選ぶとポジションが固定される。12回のドラフトで埋める必要がある。",
-      "次にフットボールドラフトシミュレーターがチームを表示する。これらは1970年から2026年までの歴代ワールドカップチームだ。指名ごとに夢のXIを作る。最高の選手を追い、穴を埋め、1人をベンチに残す。",
+      "まずフォーメーションを選ぶ。攻撃なら4-3-3。バランスなら4-4-2。中盤なら3-5-2。コントロールなら4-2-3-1。選ぶとポジションが固定される。11回のドラフトで埋める必要がある。",
+      "次にフットボールドラフトシミュレーターがチームを表示する。これらは1970年から2026年までの歴代ワールドカップチームだ。指名ごとに夢のXIを作る。最高の選手を追い、穴を埋め、全ポジションを埋める。",
       "チームができたらサッカーシミュレーターが動き出す。チームは3つのAIチームと同じグループに入る。マッチエンジンが各グループリーグをプレイする。ボール保持率、シュート、チャンスを見せる。決勝トーナメントは自動で進む。ラウンド16、準々決勝、準決勝、決勝がある。",
       "引き分けは延長へ。そしてPKシミュレーターが決める。各側5本。その後はサドンデス。2回として同じにはならない。ブラジル1970の攻撃がドイツ2014の強力な守備に負けることもある。弱いドラフトがトップシードを倒すこともある。",
       "プレイヤーはこれをサッカードラフトゲームやワールドカップ予想と呼ぶ。予想しているのは本当の結果ではない。自分の杯だ。決勝が終わったら任意の試合を再再生できる。チーム統計や選手レーティングを比べられる。 then新しいドラフトを始められる。",
@@ -299,7 +299,7 @@ export const home = {
     playTitle: "ワールドカップシミュレーター、ステップ順",
     play: [
       "ワールドカップシミュレーターは始めやすい。それがブラウザのオンラインサッカーゲームの意味だ。アプリを開く。ワンクリックでドラフトできる。インストール不要。アカウント不要。待つ必要なし。",
-      "まずフォーメーションを選ぶ。サッカーシミュレーターはポジションを守る。フォーメーションでDF、MF、FWの数が決まる。12回指名する。次にフットボールドラフトシミュレーターがオファーを表示する。各オファーは国と年。ブラジル1970が1つ。ドイツ2014が次。各選手を最良の枠へ。ケミストリーが更新されるのを見る。盤面が悪ければ何度かリロールできる。",
+      "まずフォーメーションを選ぶ。サッカーシミュレーターはポジションを守る。フォーメーションでDF、MF、FWの数が決まる。11回指名する。次にフットボールドラフトシミュレーターがオファーを表示する。各オファーは国と年。ブラジル1970が1つ。ドイツ2014が次。各選手を最良の枠へ。ケミストリーが更新されるのを見る。盤面が悪ければ何度かリロールできる。",
       "XIができたらマッチエンジンがグループリーグをシミュレートする。生中継のように少しずつ進む。残りのトーナメントは事前シミュレート。だからワールドカップシミュレーション全体が早く終わる。決勝の引き分けは延長へ。そしてPKシミュレーターが決める。各側5本。その後サドンデス。これがファンが愛するドラマだ。",
       "本当の2026結果を予想しているのではない。ワールドカップシミュレーター2026モードで自分の杯を予想する。プレイヤーは自分の杯のワールドカップ予想と呼ぶ。これは無料のサッカーシミュレーションゲーム。ダウンロード不要のサッカーゲーム。PC、タブレット、スマホで動く。保存は端末に残る。",
       "長い版が欲しい？ガイドはフォーメーション、ドラフト、ケミストリー、トーナメントを説明する。FAQはフットボールシミュレーションの仕組みとPKの仕組みを示す。Fantasy Footballと呼んでもいい。インタラクティブなサッカーシミュレーターと呼んでもいい。ワールドカップファンタジーゲームと呼んでもいい。道順は同じだ。",
@@ -311,7 +311,7 @@ export const home = {
 
   es: {
     h1: "Eleven Fantasy: arma tu equipo, simula el Mundial",
-    hero: "Eleven Fantasy es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy. Armas un equipo de ensueño con más de 100 plantillas históricas del Mundial. Elige el Brasil 1970, Francia 1998 o Argentina 2022. Luego el juego simula un torneo completo para ti. Tienes partidos de grupo, un cuadro de eliminación y penales. Es un simulador de fútbol y un simulador de draft. Juegas en línea. Sin descargas. Sin registro. En EE. UU. lo llaman juego de draft soccer o soccer en línea. También es un juego de simulación de fútbol gratuito. El modo simulador del Mundial 2026 añade nuevas plantillas. Puedes predecir tu propio torneo hoy. Elige una formación, arma tu equipo y mira el torneo.",
+    hero: "Eleven Fantasy es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy. Armas un equipo de ensueño con 86 plantillas históricas del Mundial. Elige el Brasil 1970, Francia 1998 o Argentina 2022. Luego el juego simula un torneo completo para ti. Tienes partidos de grupo, un cuadro de eliminación y penales. Es un simulador de fútbol y un simulador de draft. Juegas en línea. Sin descargas. Sin registro. En EE. UU. lo llaman juego de draft soccer o soccer en línea. También es un juego de simulación de fútbol gratuito. El modo simulador del Mundial 2026 añade nuevas plantillas. Puedes predecir tu propio torneo hoy. Elige una formación, arma tu equipo y mira el torneo.",
     ctaPlay: "Jugar",
     ctaHow: "Cómo jugar",
     showMore: "Ver más",
@@ -325,7 +325,7 @@ export const home = {
     chips: [
       "1970-2026",
       "86 equipos",
-      "12 rondas de draft",
+      "11 rondas de draft",
       "Grupos → elim.",
       "Tiros penales",
     ],
@@ -335,12 +335,12 @@ export const home = {
       {
         n: "01",
         title: "Elige tu forma",
-        body: "Elige entre 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Esto bloquea los límites de puestos para las 12 rondas de draft.",
+        body: "Elige entre 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Esto bloquea los límites de puestos para las 11 rondas de draft.",
       },
       {
         n: "02",
         title: "Arma tu XI",
-        body: "Doce rondas de elecciones entre más de 100 plantillas históricas del Mundial. Persigue estrellas, tapa huecos, deja una en el banco.",
+        body: "Once rondas de elecciones entre 86 plantillas históricas del Mundial. Persigue estrellas, tapa huecos, llena cada puesto.",
       },
       {
         n: "03",
@@ -355,8 +355,8 @@ export const home = {
     ],
     loop: [
       "Eleven Fantasy es un juego de Copa del Mundo fantasy. Se repite con facilidad. El juego tiene un bucle simple.",
-      "Primero eliges tu formación. Puedes tomar 4-3-3 para atacar. O 4-4-2 para equilibrar. O 3-5-2 para el medio. O 4-2-3-1 para controlar. Tu elección bloquea los puestos. Debes llenarlos en 12 rondas de draft.",
-      "Luego el simulador de draft de fútbol te muestra plantillas. Son viejos equipos del Mundial de 1970 a 2026. Construyes tu XI de ensueño elección por elección. Persigues a los mejores. Rellenas huecos. Dejas un jugador en el banco.",
+      "Primero eliges tu formación. Puedes tomar 4-3-3 para atacar. O 4-4-2 para equilibrar. O 3-5-2 para el medio. O 4-2-3-1 para controlar. Tu elección bloquea los puestos. Debes llenarlos en 11 rondas de draft.",
+      "Luego el simulador de draft de fútbol te muestra plantillas. Son viejos equipos del Mundial de 1970 a 2026. Construyes tu XI de ensueño elección por elección. Persigues a los mejores. Rellenas huecos. Llenas cada puesto de tu XI.",
       "Cuando tu equipo está listo, el simulador de fútbol toma el control. Tu equipo entra en un grupo con tres equipos IA. El motor de partido juega cada partido de grupo. Muestra posesión, tiros y ocasiones. El cuadro de eliminación corre solo. Tienes octavos, cuartos, semifinales y final.",
       "Los empates van a prórroga. Luego un simulador de penales decide. Cinco por lado. Después, muerte súbita. Ninguna jugada es igual. Un ataque del Brasil 1970 puede perder contra una defensa fuerte de Alemania 2014. Un draft débil puede vencer a los mejores sembrados.",
       "Los jugadores lo llaman juego de draft soccer y pronóstico del Mundial. No predices resultados reales. Predices tu propia copa. Cuando acaba la final, puedes repetir cualquier partido. Puedes comparar stats del equipo y valoraciones. Luego puedes iniciar un draft nuevo.",
@@ -378,7 +378,7 @@ export const home = {
     playTitle: "Tu simulador del Mundial, paso a paso",
     play: [
       "Tu simulador del Mundial es fácil de empezar. Ese es el punto de un soccer en línea en el navegador. Abre la app. Con un clic puedes draftar. Sin instalar. Sin cuenta. Sin esperar.",
-      "Primero elige tu formación. El simulador de fútbol respeta los puestos. Tu forma decide cuántos defensas, medios y delanteros tomas. Tomas en 12 rondas. Luego el simulador de draft de fútbol muestra ofertas. Cada oferta es una nación y un año. Brasil 1970 una elección. Alemania 2014 la siguiente. Colocas a cada jugador en el mejor puesto. Ves la química actualizarse. Si el tablero es malo, tienes unos rerolls.",
+      "Primero elige tu formación. El simulador de fútbol respeta los puestos. Tu forma decide cuántos defensas, medios y delanteros tomas. Tomas en 11 rondas. Luego el simulador de draft de fútbol muestra ofertas. Cada oferta es una nación y un año. Brasil 1970 una elección. Alemania 2014 la siguiente. Colocas a cada jugador en el mejor puesto. Ves la química actualizarse. Si el tablero es malo, tienes unos rerolls.",
       "Cuando tu XI está listo, el motor de partido simula la fase de grupos. Juega en vivo, parte por parte. El resto del cuadro se pre-simula. Así toda la simulación del Mundial termina rápido. Los empates de eliminación van a prórroga. Luego un simulador de penales decide. Cinco por lado. Luego muerte súbita. Este es el drama que aman los fans.",
       "No predices resultados reales de 2026. Usas el modo simulador del Mundial 2026 para predecir tu propia copa. Los jugadores lo llaman pronóstico del Mundial para su copa. Es un juego de simulación de fútbol gratuito. Es un juego soccer sin descargas. Funciona en laptop, tablet o móvil. Tu guardado queda en tu dispositivo.",
       "¿Quieres la versión larga? La guía explica formaciones, draft, química y el cuadro. La FAQ muestra cómo funciona la simulación de fútbol. Muestra cómo funcionan los penales. Llámalo Copa del Mundo fantasy. Llámalo simulador de fútbol interactivo. O llámalo juego de Copa del Mundo fantasy. El camino es el mismo.",

@@ -1,7 +1,7 @@
 import type { Formation, Player, Position } from "../types.js";
 import { DRAFT_ROUNDS } from "./constants.js";
 import { slotDepartment } from "./roles.js";
-import { assignSlots, BENCH_SLOT } from "./pitch.js";
+import { assignSlots } from "./pitch.js";
 
 /** Remaining open slots per department after the drafted players are placed. */
 export function slotsLeft(
@@ -15,7 +15,6 @@ export function slotsLeft(
     ATT: formation.ATT,
   };
   for (const p of drafted) {
-    if (p.assignedSlot === BENCH_SLOT) continue;
     left[slotDepartment(p)] -= 1;
   }
   return left;
@@ -41,13 +40,12 @@ export function emptySlotRoles(
     .map((s) => s.slot.role);
 }
 
-/** True when the draft has all DRAFT_ROUNDS players, every formation slot is filled, and the single bench slot is occupied. */
+/** True when the draft has all DRAFT_ROUNDS players and every formation slot is filled. */
 export function validateDraft(
   formation: Formation,
   drafted: Player[],
 ): boolean {
   if (drafted.length !== DRAFT_ROUNDS) return false;
   const left = slotsLeft(formation, drafted);
-  if (candidateCount(left) !== 0) return false;
-  return drafted.filter((p) => p.assignedSlot === BENCH_SLOT).length === 1;
+  return candidateCount(left) === 0;
 }

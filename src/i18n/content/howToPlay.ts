@@ -16,12 +16,12 @@ export const howToPlay = {
       {
         n: "2",
         title: "Draft your XI",
-        body: "The draft runs 12 rounds: 11 starters plus 1 bench spot. Each round you're offered a random nation + year roster filtered to your remaining slots. You have 3 rerolls for the whole draft (same nation, different year / different nation) — spend them carefully. Place each player onto a pitch slot — best-position slots are starred. Players carry tier badges (elite / star / standard) and chemistry updates as your squad forms.",
+        body: "The draft runs 11 rounds: a full XI. Each round you're offered a random nation + year roster filtered to your remaining slots. You have 3 rerolls for the whole draft (same nation, different year / different nation) — spend them carefully. Place each player onto a pitch slot — best-position slots are starred. Players carry tier badges (elite / star / standard) and chemistry updates as your squad forms.",
       },
       {
         n: "3",
         title: "Review your squad",
-        body: "Inspect the XI on the pitch, swap players between slots or the bench, then start. Roles come from your formation slots — playing out of position is penalized, and same-nation players get a chemistry boost.",
+        body: "Inspect the XI on the pitch, swap players between slots, then start. Roles come from your formation slots — playing out of position is penalized, and same-nation players get a chemistry boost.",
       },
       {
         n: "4",
@@ -36,7 +36,7 @@ export const howToPlay = {
     ],
     loopTitle: "Your world cup simulator, step by step",
     loop: [
-      "The full loop of Eleven Fantasy is short. That is the appeal of a free browser soccer game. You start by choosing a football formation. The soccer simulator respects positions. Your choice locks how many defenders, midfielders and attackers you can draft. You pick over 12 rounds. A 4-3-3 leans attack. A 3-5-2 owns the middle. A 4-4-2 balances. A 4-2-3-1 controls the game.",
+      "The full loop of Eleven Fantasy is short. That is the appeal of a free browser soccer game. You start by choosing a football formation. The soccer simulator respects positions. Your choice locks how many defenders, midfielders and attackers you can draft. You pick over 11 rounds. A 4-3-3 leans attack. A 3-5-2 owns the middle. A 4-4-2 balances. A 4-2-3-1 controls the game.",
       "Next, the football draft simulator shows you old World Cup squads. You place each player in the best slot. You watch chemistry update. You get a few rerolls if the board is bad. Same-nation picks get a chemistry boost. So a smart world cup dream team builder beats a team of stars.",
       "When your XI is set, the match engine simulates the group stage. It plays live, part by part. The rest of the bracket is pre-simulated. So the whole world cup simulation ends fast. Knockout ties go to extra time. Then a penalty shootout simulator decides. Five kicks each. Then sudden death. This is the drama fans love.",
       "You are not predicting real 2026 results. You use the world cup simulator 2026 mode to predict your own cup. Players call it a world cup predictor for their cup. It is a soccer game with no download. It runs on any device. Your save stays on your device. It is a fantasy soccer draft where the draft matters most.",
@@ -54,7 +54,7 @@ export const howToPlay = {
       },
       {
         q: "What formations can I draft?",
-        a: "Four shapes work: 4-3-3, 4-4-2, 3-5-2 and 4-2-3-1. Your formation locks the defender, midfielder and attacker slots. You fill them over 12 draft rounds.",
+        a: "Four shapes work: 4-3-3, 4-4-2, 3-5-2 and 4-2-3-1. Your formation locks the defender, midfielder and attacker slots. You fill them over 11 draft rounds.",
       },
       {
         q: "How do penalty shootouts work?",
@@ -85,12 +85,12 @@ export const howToPlay = {
       {
         n: "2",
         title: "Draft dein XI",
-        body: "Der Draft läuft 12 Runden: 11 Starter plus 1 Bankplatz. Jede Runde wird dir ein zufälliger Kader aus Nation + Jahr angeboten, gefiltert auf deine freien Plätze. Du hast 3 Neuwürfe für den gesamten Draft (gleiche Nation, anderes Jahr / andere Nation) — setze sie gezielt ein. Setze jeden Spieler auf einen Platz — Bestpositionen sind sternmarkiert. Spieler haben Tier-Badges (elite / star / standard) und die Chemie aktualisiert sich, während dein Kader entsteht.",
+        body: "Der Draft läuft 11 Runden: ein volles XI. Jede Runde wird dir ein zufälliger Kader aus Nation + Jahr angeboten, gefiltert auf deine freien Plätze. Du hast 3 Neuwürfe für den gesamten Draft (gleiche Nation, anderes Jahr / andere Nation) — setze sie gezielt ein. Setze jeden Spieler auf einen Platz — Bestpositionen sind sternmarkiert. Spieler haben Tier-Badges (elite / star / standard) und die Chemie aktualisiert sich, während dein Kader entsteht.",
       },
       {
         n: "3",
         title: "Kader prüfen",
-        body: "Sieh dir das XI auf dem Platz an, tausche Spieler zwischen Plätzen oder Bank, dann starte. Rollen kommen aus deinen Formationsplätzen — falsche Position wird bestraft, und Spieler derselben Nation bekommen einen Chemie-Bonus.",
+        body: "Sieh dir das XI auf dem Platz an, tausche Spieler zwischen Plätzen, dann starte. Rollen kommen aus deinen Formationsplätzen — falsche Position wird bestraft, und Spieler derselben Nation bekommen einen Chemie-Bonus.",
       },
       {
         n: "4",
@@ -105,7 +105,7 @@ export const howToPlay = {
     ],
     loopTitle: "Dein WM-Simulator, Schritt für Schritt",
     loop: [
-      "Die ganze Schleife von Eleven Fantasy ist kurz. Das ist der Reiz eines kostenlosen Browser-Fußballspiels. Du beginnst mit einer Football-Formation. Der Fußballsimulator achtet auf Positionen. Deine Wahl sperrt, wie viele Verteidiger, Mittelfeldspieler und Stürmer du draften kannst. Du wählst über 12 Runden. 4-3-3 ist offensiv. 3-5-2 beherrscht die Mitte. 4-4-2 balanciert. 4-2-3-1 kontrolliert das Spiel.",
+      "Die ganze Schleife von Eleven Fantasy ist kurz. Das ist der Reiz eines kostenlosen Browser-Fußballspiels. Du beginnst mit einer Football-Formation. Der Fußballsimulator achtet auf Positionen. Deine Wahl sperrt, wie viele Verteidiger, Mittelfeldspieler und Stürmer du draften kannst. Du wählst über 11 Runden. 4-3-3 ist offensiv. 3-5-2 beherrscht die Mitte. 4-4-2 balanciert. 4-2-3-1 kontrolliert das Spiel.",
       "Dann zeigt der Football-Draft-Simulator dir alte WM-Kadern. Du setzt jeden Spieler auf den besten Platz. Du siehst die Chemie aktualisieren. Bei schlechtem Brett bekommst du ein paar Neuwürfe. Picks derselben Nation bekommen einen Chemie-Bonus. So schlägt ein schlauer WM-Traumteam-Builder ein Team voller Stars.",
       "Wenn dein XI steht, simuliert die Spielengine die Gruppenphase. Sie spielt live, Stück für Stück. Der Rest des Baums ist vor_simuliert. So endet die ganze WM-Simulation schnell. K.-o.-Unentschieden geht in Verlängerung. Dann entscheidet ein Elfmeter-Simulator. Fünf pro Seite. Dann Sudden Death. Das ist das Drama, das Fans lieben.",
       "Du sagst keine echten 2026-Ergebnisse voraus. Du nutzt den WM-Simulator-2026-Modus, um deinen eigenen Pokal vorauszusagen. Spieler nennen es WM-Vorhersage für ihren Pokal. Es ist ein Soccer-Spiel ohne Download. Es läuft auf jedem Gerät. Dein Spielstand bleibt auf deinem Gerät. Es ist ein Fantasy-Football-Draft, bei dem der Draft am meisten zählt.",
@@ -123,7 +123,7 @@ export const howToPlay = {
       },
       {
         q: "Welche Formationen kann ich draften?",
-        a: "Vier Formen gehen: 4-3-3, 4-4-2, 3-5-2 und 4-2-3-1. Deine Formation sperrt die Verteidiger-, Mittelfeld- und Stürmerplätze. Du füllst sie über 12 Draft-Runden.",
+        a: "Vier Formen gehen: 4-3-3, 4-4-2, 3-5-2 und 4-2-3-1. Deine Formation sperrt die Verteidiger-, Mittelfeld- und Stürmerplätze. Du füllst sie über 11 Draft-Runden.",
       },
       {
         q: "Wie funktionieren Elfmeterschießen?",
@@ -154,12 +154,12 @@ export const howToPlay = {
       {
         n: "2",
         title: "Draftz votre XI",
-        body: "Le draft dure 12 tours : 11 titulaires plus 1 banc. Chaque tour propose un effectif aléatoire nation + année filtré sur vos places restantes. Vous disposez de 3 relances pour tout le draft (même nation, autre année / autre nation) — utilisez-les avec soin. Placez chaque joueur sur un emplacement — les meilleurs postes sont étoilés. Les joueurs ont des badges de tier (elite / star / standard) et la chimie se met à jour.",
+        body: "Le draft dure 11 tours : un XI complet. Chaque tour propose un effectif aléatoire nation + année filtré sur vos places restantes. Vous disposez de 3 relances pour tout le draft (même nation, autre année / autre nation) — utilisez-les avec soin. Placez chaque joueur sur un emplacement — les meilleurs postes sont étoilés. Les joueurs ont des badges de tier (elite / star / standard) et la chimie se met à jour.",
       },
       {
         n: "3",
         title: "Vérifiez votre équipe",
-        body: "Inspectez le XI sur le terrain, échangez des joueurs entre postes ou banc, puis démarrez. Les rôles viennent de vos postes de formation — jouer hors poste est pénalisé, et les joueurs de même nation gagnent un bonus de chimie.",
+        body: "Inspectez le XI sur le terrain, échangez des joueurs entre postes, puis démarrez. Les rôles viennent de vos postes de formation — jouer hors poste est pénalisé, et les joueurs de même nation gagnent un bonus de chimie.",
       },
       {
         n: "4",
@@ -174,7 +174,7 @@ export const howToPlay = {
     ],
     loopTitle: "Votre simulateur de Coupe du Monde, étape par étape",
     loop: [
-      "La boucle complète de Eleven Fantasy est courte. C'est l'attrait d'un jeu de football gratuit dans le navigateur. Vous commencez par choisir une formation de football. Le simulateur de football respecte les postes. Votre choix verrouille combien de défenseurs, milieux et attaquants vous pouvez draftz. Vous choisissez sur 12 tours. 4-3-3 penche attaque. 3-5-2 possède le milieu. 4-4-2 équilibre. 4-2-3-1 contrôle le jeu.",
+      "La boucle complète de Eleven Fantasy est courte. C'est l'attrait d'un jeu de football gratuit dans le navigateur. Vous commencez par choisir une formation de football. Le simulateur de football respecte les postes. Votre choix verrouille combien de défenseurs, milieux et attaquants vous pouvez draftz. Vous choisissez sur 11 tours. 4-3-3 penche attaque. 3-5-2 possède le milieu. 4-4-2 équilibre. 4-2-3-1 contrôle le jeu.",
       "Ensuite, le simulateur de draft de football vous montre d'anciens effectifs de Coupe du Monde. Vous placez chaque joueur au meilleur poste. Vous voyez la chimie se mettre à jour. Vous avez quelques relances si le plateau est mauvais. Les picks de même nation gagnent un bonus de chimie. Ainsi un malin constructeur d'équipe de rêve bat une équipe de stars.",
       "Quand votre XI est prêt, le moteur de match simule la phase de groupes. Il joue en direct, morceau par morceau. Le reste de l'arbre est pré-simulé. Ainsi toute la simulation de Coupe du Monde finit vite. Les nuls à élimination vont en prolongation. Puis un simulateur de tirs au but décide. Cinq par côté. Puis mort subite. C'est le drame que les fans aiment.",
       "Vous ne prévoyez pas de vrais résultats 2026. Vous utilisez le mode simulateur de Coupe du Monde 2026 pour prévoir votre propre coupe. Les joueurs l'appellent pronostic de Coupe du Monde pour leur coupe. C'est un jeu soccer sans téléchargement. Il tourne sur tout appareil. Votre sauvegarde reste sur votre appareil. C'est un draft de Coupe du Monde fantasy où le draft compte le plus.",
@@ -192,7 +192,7 @@ export const howToPlay = {
       },
       {
         q: "Quelles formations puis-je draftz ?",
-        a: "Quatre formes marchent : 4-3-3, 4-4-2, 3-5-2 et 4-2-3-1. Votre formation verrouille les postes de défenseur, milieu et attaquant. Vous les remplissez sur 12 tours de draft.",
+        a: "Quatre formes marchent : 4-3-3, 4-4-2, 3-5-2 et 4-2-3-1. Votre formation verrouille les postes de défenseur, milieu et attaquant. Vous les remplissez sur 11 tours de draft.",
       },
       {
         q: "Comment fonctionnent les tirs au but ?",
@@ -223,12 +223,12 @@ export const howToPlay = {
       {
         n: "2",
         title: "XIをドラフト",
-        body: "ドラフトは12回：先発11人＋ベンチ1。各ラウンド、残り枠に応じて国＋年のロースターがランダム提示される。リロールはドラフト全体で3回（同じ国の別年／別の国）——使いどころを選ぼう。各選手を枠へ。最良ポジションは星印。選手はティアバッジ（elite/star/standard）を持ち、ケミストリーはチーム形成で更新される。",
+        body: "ドラフトは11回：先発XI。各ラウンド、残り枠に応じて国＋年のロースターがランダム提示される。リロールはドラフト全体で3回（同じ国の別年／別の国）——使いどころを選ぼう。各選手を枠へ。最良ポジションは星印。選手はティアバッジ（elite/star/standard）を持ち、ケミストリーはチーム形成で更新される。",
       },
       {
         n: "3",
         title: "チームを確認",
-        body: "ピッチ上のXIを確認し、枠やベンチ間で選手を入れ替えてから開始。役割はフォーメーション枠から。ポジション違いはペナルティ、同じ国の選手はケミストリーボーナス。",
+        body: "ピッチ上のXIを確認し、枠間で選手を入れ替えてから開始。役割はフォーメーション枠から。ポジション違いはペナルティ、同じ国の選手はケミストリーボーナス。",
       },
       {
         n: "4",
@@ -243,7 +243,7 @@ export const howToPlay = {
     ],
     loopTitle: "ワールドカップシミュレーター、ステップ順",
     loop: [
-      "Eleven Fantasyの全体ループは短い。それが無料ブラウザサッカーゲームの魅力だ。まずフットボールフォーメーションを選ぶ。サッカーシミュレーターはポジションを守る。選ぶとドラフトできるDF、MF、FWの数が固定される。12回指名する。4-3-3は攻撃。3-5-2は中盤。4-4-2はバランス。4-2-3-1はコントロール。",
+      "Eleven Fantasyの全体ループは短い。それが無料ブラウザサッカーゲームの魅力だ。まずフットボールフォーメーションを選ぶ。サッカーシミュレーターはポジションを守る。選ぶとドラフトできるDF、MF、FWの数が固定される。11回指名する。4-3-3は攻撃。3-5-2は中盤。4-4-2はバランス。4-2-3-1はコントロール。",
       "次にフットボールドラフトシミュレーターが歴代ワールドカップチームを表示する。各選手を最良の枠へ。ケミストリーが更新されるのを見る。盤面が悪ければ数回リロール。同じ国の指名はケミストリーボーナス。だから賢いワールドカップ夢チームビルダーがスターのチームに勝つ。",
       "XIが決まったらマッチエンジンがグループリーグをシミュレートする。生中継のように少しずつ。残りのトーナメントは事前シミュレート。だからワールドカップシミュレーション全体が早く終わる。決勝の引き分けは延長へ。そしてPKシミュレーターが決める。各側5本。その後サドンデス。これがファンが愛するドラマだ。",
       "本当の2026結果を予想しているのではない。ワールドカップシミュレーター2026モードで自分の杯を予想する。プレイヤーは自分の杯のワールドカップ予想と呼ぶ。これはダウンロード不要のサッカーゲーム。どの端末でも動く。保存は端末に残る。ドラフトが最も重要なFantasy Football ドラフトだ。",
@@ -261,7 +261,7 @@ export const howToPlay = {
       },
       {
         q: "どのフォーメーションをドラフトできる？",
-        a: "4つ：4-3-3、4-4-2、3-5-2、4-2-3-1。フォーメーションでDF、MF、FWの枠が固定される。12回のドラフトで埋める。",
+        a: "4つ：4-3-3、4-4-2、3-5-2、4-2-3-1。フォーメーションでDF、MF、FWの枠が固定される。11回のドラフトで埋める。",
       },
       {
         q: "PK戦の仕組みは？",
@@ -292,12 +292,12 @@ export const howToPlay = {
       {
         n: "2",
         title: "Drafta tu XI",
-        body: "El draft dura 12 rondas: 11 titulares más 1 banco. Cada ronda se ofrece un plantilla aleatoria nación + año filtrada a tus puestos libres. Tienes 3 rerolls para todo el draft (misma nación, otro año / otra nación) — úsalos con cuidado. Coloca a cada jugador en un casillero — los mejores puestos tienen estrella. Los jugadores traen badges de tier (elite / star / standard) y la química se actualiza.",
+        body: "El draft dura 11 rondas: un XI completo. Cada ronda se ofrece un plantilla aleatoria nación + año filtrada a tus puestos libres. Tienes 3 rerolls para todo el draft (misma nación, otro año / otra nación) — úsalos con cuidado. Coloca a cada jugador en un casillero — los mejores puestos tienen estrella. Los jugadores traen badges de tier (elite / star / standard) y la química se actualiza.",
       },
       {
         n: "3",
         title: "Revisa tu equipo",
-        body: "Inspecciona el XI en el campo, cambia jugadores entre puestos o banco, luego empieza. Los roles vienen de tus puestos de formación — jugar fuera de posición se penaliza, y los jugadores de la misma nación ganan bonus de química.",
+        body: "Inspecciona el XI en el campo, cambia jugadores entre puestos, luego empieza. Los roles vienen de tus puestos de formación — jugar fuera de posición se penaliza, y los jugadores de la misma nación ganan bonus de química.",
       },
       {
         n: "4",
@@ -312,7 +312,7 @@ export const howToPlay = {
     ],
     loopTitle: "Tu simulador del Mundial, paso a paso",
     loop: [
-      "El bucle completo de Eleven Fantasy es corto. Ese es el atractivo de un juego de fútbol gratuito en el navegador. Empiezas eligiendo una formación de fútbol. El simulador de fútbol respeta los puestos. Tu elección bloquea cuántos defensas, medios y delanteros puedes draftar. Tomas en 12 rondas. 4-3-3 va al ataque. 3-5-2 domina el medio. 4-4-2 equilibra. 4-2-3-1 controla el juego.",
+      "El bucle completo de Eleven Fantasy es corto. Ese es el atractivo de un juego de fútbol gratuito en el navegador. Empiezas eligiendo una formación de fútbol. El simulador de fútbol respeta los puestos. Tu elección bloquea cuántos defensas, medios y delanteros puedes draftar. Tomas en 11 rondas. 4-3-3 va al ataque. 3-5-2 domina el medio. 4-4-2 equilibra. 4-2-3-1 controla el juego.",
       "Luego el simulador de draft de fútbol te muestra viejas plantillas del Mundial. Colocas a cada jugador en el mejor puesto. Ves la química actualizarse. Si el tablero es malo, tienes unos rerolls. Las elecciones de la misma nación ganan bonus de química. Así un listo constructor de equipo de ensueño vence a un equipo de estrellas.",
       "Cuando tu XI está listo, el motor de partido simula la fase de grupos. Juega en vivo, parte por parte. El resto del cuadro se pre-simula. Así toda la simulación del Mundial termina rápido. Los empates de eliminación van a prórroga. Luego un simulador de penales decide. Cinco por lado. Luego muerte súbita. Este es el drama que aman los fans.",
       "No predices resultados reales de 2026. Usas el modo simulador del Mundial 2026 para predecir tu propia copa. Los jugadores lo llaman pronóstico del Mundial para su copa. Es un juego soccer sin descargas. Funciona en cualquier dispositivo. Tu guardado queda en tu dispositivo. Es un draft de Copa del Mundo fantasy donde el draft cuenta más.",
@@ -330,7 +330,7 @@ export const howToPlay = {
       },
       {
         q: "¿Qué formaciones puedo draftar?",
-        a: "Cuatro formas: 4-3-3, 4-4-2, 3-5-2 y 4-2-3-1. Tu formación bloquea los puestos de defensa, medio y delantero. Los llenas en 12 rondas de draft.",
+        a: "Cuatro formas: 4-3-3, 4-4-2, 3-5-2 y 4-2-3-1. Tu formación bloquea los puestos de defensa, medio y delantero. Los llenas en 11 rondas de draft.",
       },
       {
         q: "¿Cómo funcionan los penales?",

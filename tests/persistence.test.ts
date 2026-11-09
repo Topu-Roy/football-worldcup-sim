@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { clearGame, loadGame, saveGame } from "../src/lib/gameSession.js";
 import type { SavedGame } from "../src/lib/gameSession.js";
+import type { Player } from "../src/lib/types.js";
 
 let originalWindow: unknown;
 
@@ -41,6 +42,11 @@ describe("game session persistence", () => {
     expect(loadGame()).toEqual(game);
   });
 
+  test("preserves the one-rerun flag", () => {
+    saveGame({ ...game, hasRerun: true });
+    expect(loadGame()?.hasRerun).toBe(true);
+  });
+
   test("clears the saved game", () => {
     saveGame(game);
     clearGame();
@@ -50,5 +56,31 @@ describe("game session persistence", () => {
   test("rejects an invalid saved step", () => {
     saveGame({ ...game, step: "nonsense" as SavedGame["step"] });
     expect(loadGame()).toBeNull();
+  });
+
+  test("drops the old twelfth bench pick when loading", () => {
+    const oldPlayers = Array.from({ length: 12 }, (_, i) => ({
+      id: `p${i}`,
+      name: `P${i}`,
+      nation: "BRA",
+      wcYear: 1970,
+      positions: ["ST"],
+      bestPosition: "ST",
+      composure: 80,
+      assignedSlot: i,
+    })) as Player[];
+    saveGame({
+      ...game,
+      drafted: oldPlayers,
+      draft: {
+        offer: null,
+        offerHistory: [],
+        rerollsLeft: 3,
+        drafted: oldPlayers,
+      },
+    });
+    const loaded = loadGame();
+    expect(loaded?.drafted).toHaveLength(11);
+    expect(loaded?.draft?.drafted).toHaveLength(11);
   });
 });

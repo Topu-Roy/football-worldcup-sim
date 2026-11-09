@@ -77,9 +77,6 @@ export function pitchSlots(formationKey: string): PitchSlot[] {
   return SLOTS[formationKey] ?? SLOTS["4-3-3"];
 }
 
-/** Sentinel assignedSlot index for the single bench slot (outside the pitch). */
-export const BENCH_SLOT = 11;
-
 /** Assign players to slots: explicit assignedSlot first, then role match, then department, then any free player. */
 export function assignSlots(
   players: Player[],
@@ -119,7 +116,7 @@ export function assignSlots(
   });
 }
 
-/** Slots a player can swap into: empty compatible slots, plus occupied slots whose player can take the swapper's current role. Includes the bench slot when a bench player can take the swapper's role. */
+/** Slots a player can swap into: empty compatible slots, plus occupied slots whose player can take the swapper's current role. */
 export function swapTargetsFor(
   players: Player[],
   formationKey: string,
@@ -130,7 +127,6 @@ export function swapTargetsFor(
   const current = assignedRole(from);
   const slots = pitchSlots(formationKey);
   const targets: number[] = [];
-  const onBench = from.assignedSlot === BENCH_SLOT;
   slots.forEach((slot, i) => {
     if (i === from.assignedSlot) return;
     const occupant = players.find((p) => p.assignedSlot === i);
@@ -142,15 +138,10 @@ export function swapTargetsFor(
     }
     if (canPlayRole(occupant, current)) targets.push(i);
   });
-  const benchOccupant = onBench
-    ? null
-    : players.find((p) => p.assignedSlot === BENCH_SLOT);
-  if (!onBench && (!benchOccupant || canPlayRole(benchOccupant, current)))
-    targets.push(BENCH_SLOT);
   return targets;
 }
 
-/** Move the player at fromIndex into toIndex (swapping occupants when occupied). Handles the bench slot (index BENCH_SLOT); null if not legal. */
+/** Move the player at fromIndex into toIndex (swapping occupants when occupied); null if not legal. */
 export function swapPlayers(
   players: Player[],
   formationKey: string,
@@ -159,52 +150,6 @@ export function swapPlayers(
 ): Player[] | null {
   const from = players.find((p) => p.assignedSlot === fromIndex);
   if (!from || fromIndex === toIndex) return null;
-
-  // Starter -> bench, bench player -> starter's slot. An empty bench accepts the
-  // starter outright; an occupied bench swaps only when the bench player can take
-  // the starter's slot role (the bench has no role of its own).
-  if (toIndex === BENCH_SLOT) {
-    const fromRole = pitchSlots(formationKey)[fromIndex]?.role;
-    if (!fromRole) return null;
-    const target = players.find((p) => p.assignedSlot === BENCH_SLOT);
-    if (!target) {
-      return players.map((p) =>
-        p.id === from.id
-          ? { ...p, assignedPosition: undefined, assignedSlot: BENCH_SLOT }
-          : p,
-      );
-    }
-    if (!canPlayRole(target, fromRole)) return null;
-    return players.map((p) => {
-      if (p.id === from.id)
-        return { ...p, assignedPosition: undefined, assignedSlot: BENCH_SLOT };
-      if (p.id === target.id)
-        return { ...p, assignedPosition: fromRole, assignedSlot: fromIndex };
-      return p;
-    });
-  }
-
-  // Bench player -> starter's slot (swapping with the occupant, who needs no
-  // role), or into an empty compatible slot (bench empties).
-  if (fromIndex === BENCH_SLOT) {
-    const targetRole = pitchSlots(formationKey)[toIndex]?.role;
-    if (!targetRole || !canPlayRole(from, targetRole)) return null;
-    const target = players.find((p) => p.assignedSlot === toIndex);
-    if (!target) {
-      return players.map((p) =>
-        p.id === from.id
-          ? { ...p, assignedPosition: targetRole, assignedSlot: toIndex }
-          : p,
-      );
-    }
-    return players.map((p) => {
-      if (p.id === from.id)
-        return { ...p, assignedPosition: targetRole, assignedSlot: toIndex };
-      if (p.id === target.id)
-        return { ...p, assignedPosition: undefined, assignedSlot: BENCH_SLOT };
-      return p;
-    });
-  }
 
   const targetRole = pitchSlots(formationKey)[toIndex]?.role;
   if (!targetRole || !canPlayRole(from, targetRole)) return null;

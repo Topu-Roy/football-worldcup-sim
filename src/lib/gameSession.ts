@@ -20,6 +20,8 @@ export interface SavedGame {
   squad: Squad | null;
   tournament: Tournament | null;
   draft: SavedDraft | null;
+  /** True once the same squad has been replayed after a loss. */
+  hasRerun?: boolean;
 }
 
 const KEY = "wc:game:v1";
@@ -50,7 +52,19 @@ export function loadGame(): SavedGame | null {
     ) {
       return null;
     }
-    return parsed as SavedGame;
+    // Older saves may contain the removed twelfth pick at slot 11.
+    const starters = (players: unknown): Player[] =>
+      Array.isArray(players)
+        ? (players as Player[]).filter((p) => p.assignedSlot !== 11)
+        : [];
+    const saved = parsed as SavedGame;
+    return {
+      ...saved,
+      drafted: starters(saved.drafted),
+      draft: saved.draft
+        ? { ...saved.draft, drafted: starters(saved.draft.drafted) }
+        : null,
+    };
   } catch {
     return null;
   }

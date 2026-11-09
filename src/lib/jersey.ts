@@ -1,5 +1,5 @@
 import type { Player } from "./types.js";
-import { BENCH_SLOT, pitchSlots } from "./draft/pitch.js";
+import { pitchSlots } from "./draft/pitch.js";
 
 /**
  * Conventional shirt numbers by role, used only when a player has no explicit
@@ -43,7 +43,7 @@ export function jerseyNumbersFor(
   for (const player of players) {
     if (numbers.has(player.id)) continue;
     const slot =
-      player.assignedSlot !== undefined && player.assignedSlot !== BENCH_SLOT
+      player.assignedSlot !== undefined
         ? slots[player.assignedSlot]
         : undefined;
     const role = slot?.role ?? player.bestPosition;

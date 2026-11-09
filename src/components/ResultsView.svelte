@@ -17,11 +17,13 @@
     formationKey,
     onReset,
     onRerun,
+    canRerun,
   }: {
     tournament: Tournament;
     formationKey: string;
     onReset: () => void;
     onRerun: () => void;
+    canRerun: boolean;
   } = $props();
 
   let expandedId = $state<string | null>(null);
@@ -108,7 +110,7 @@
       <p class="{mono} mt-3 text-secondary">Season complete</p>
     </div>
     <div class="flex items-center gap-3">
-      {#if tournament.outcome !== "champion"}
+      {#if tournament.outcome !== "champion" && canRerun}
         <button
           type="button"
           class="{pillSolid} inline-flex items-center gap-2"
@@ -120,11 +122,7 @@
       <button
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
-        onclick={() => {
-          if (confirm("Start a new draft? This clears the current team.")) {
-            onReset();
-          }
-        }}
+        onclick={onReset}
       >
         <RotateCcw class="h-3.5 w-3.5" /> New draft
       </button>
@@ -173,13 +171,7 @@
     </div>
 
     <div class="mt-6 grid items-start gap-6 lg:grid-cols-2">
-      <PitchView
-        players={[
-          ...tournament.userSquad.players,
-          ...(tournament.userSquad.bench ?? []),
-        ]}
-        {formationKey}
-      />
+      <PitchView players={tournament.userSquad.players} {formationKey} />
 
       <div>
         <SquadStatsList squad={tournament.userSquad} />

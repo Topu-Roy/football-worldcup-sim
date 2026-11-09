@@ -23,8 +23,8 @@
   let selectedId = $state<string | null>(null);
 
   const drafted = $derived(squad.players);
-  /** Pitch shows starters plus the bench player; stats stay on the starting XI only. */
-  const pitchPlayers = $derived([...squad.players, ...(squad.bench ?? [])]);
+  /** The pitch shows the starting XI (every drafted player is a starter). */
+  const pitchPlayers = $derived(squad.players);
   const clusters = $derived(nationClusters(drafted));
   const linkedClusters = $derived(clusters.filter((c) => c.bonus > 0));
   const soloCount = $derived(

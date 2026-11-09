@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { assignSlots, BENCH_SLOT } from "../lib/draft.js";
+  import { assignSlots } from "../lib/draft.js";
   import { jerseyNumbersFor } from "../lib/jersey.js";
   import type { Player } from "../lib/types.js";
   import PitchBackground from "./pitch/PitchBackground.svelte";
@@ -35,14 +35,6 @@
   const widthClass = $derived(
     size === "sm" ? "max-w-56 sm:max-w-64" : "max-w-sm sm:max-w-md",
   );
-
-  /** The single bench player (outside the pitch), if assigned. */
-  const benchPlayer = $derived(
-    players.find((p) => p.assignedSlot === BENCH_SLOT) ?? null,
-  );
-  const benchEmpty = $derived(benchPlayer === null);
-
-  const mono = "font-mono text-[10px] font-semibold tracking-[1.8px] uppercase";
 
   /** Best-position label of whichever player is currently selected (for placement or swap). */
   const selectionBest = $derived(
@@ -119,45 +111,5 @@
         {/if}
       </div>
     {/each}
-  </div>
-
-  <div class="mt-5">
-    <p class="{mono} mb-2 text-center text-secondary">Bench</p>
-    <div class="flex justify-center">
-      {#if benchPlayer}
-        {@const player = benchPlayer}
-        <PitchPlayerChip
-          {player}
-          slotRole={player.bestPosition}
-          number={numbers.get(player.id) ?? 0}
-          isTarget={swapTargets?.includes(BENCH_SLOT) ?? false}
-          isSelected={selectedId === player.id}
-          selectedBest={selectionBest}
-          showTip={openTipId === player.id}
-          onTipToggle={() =>
-            (openTipId = openTipId === player.id ? null : player.id)}
-          onSelect={() => {
-            openTipId = null;
-            if (swapTargets?.includes(BENCH_SLOT)) {
-              onSwapTarget?.(BENCH_SLOT);
-            } else {
-              onPlayerClick?.(player.id);
-            }
-          }}
-        />
-      {:else}
-        <PitchEmptySlot
-          role="BENCH"
-          slotIndex={BENCH_SLOT}
-          isSwapTarget={swapTargets?.includes(BENCH_SLOT) ?? false}
-          {onSwapTarget}
-          {selecting}
-          {placing}
-          enabled={placing && benchEmpty}
-          {onSlotClick}
-          starRole={null}
-        />
-      {/if}
-    </div>
   </div>
 </div>
