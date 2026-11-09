@@ -93,13 +93,15 @@
 </script>
 
 <section
-  class="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-4 py-8 sm:px-6 sm:py-12"
+  class="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-4 py-8 sm:px-6 sm:py-12 lg:grid lg:grid-cols-2 lg:items-start"
 >
   {#if tournament.outcome === "champion"}
     <Confetti />
   {/if}
 
-  <header class="flex w-full flex-wrap items-end justify-between gap-4">
+  <header
+    class="flex w-full flex-wrap items-end justify-between gap-4 lg:col-span-2"
+  >
     <div>
       <p class="{mono} text-mint">Tournament · 4 teams</p>
       <h2
@@ -113,10 +115,10 @@
       {#if tournament.outcome !== "champion" && canRerun}
         <button
           type="button"
-          class="{pillSolid} inline-flex items-center gap-2"
+          class="{pillSolid} hidden items-center gap-2 lg:inline-flex"
           onclick={onRerun}
         >
-          <Play class="h-3.5 w-3.5" /> Play again
+          <Play class="h-3.5 w-3.5" /> Retry
         </button>
       {/if}
       <button
@@ -124,14 +126,14 @@
         class="{pillOutline} inline-flex items-center gap-2"
         onclick={onReset}
       >
-        <RotateCcw class="h-3.5 w-3.5" /> New draft
+        <RotateCcw class="h-3.5 w-3.5" /> Play again
       </button>
     </div>
   </header>
 
   {#if tournament.outcome === "eliminated"}
     <div
-      class="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6"
+      class="order-2 mx-auto w-full max-w-2xl rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6 lg:col-span-2"
     >
       <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
       <div class="overflow-x-auto">
@@ -141,7 +143,7 @@
   {/if}
 
   <div
-    class="w-full rounded-3xl border px-6 py-8 text-center sm:px-10 sm:py-10 {tournament.outcome ===
+    class="order-1 w-full rounded-3xl border px-6 py-8 text-center sm:px-10 sm:py-10 lg:col-span-2 {tournament.outcome ===
     'champion'
       ? 'border-mint bg-mint/10'
       : 'border-pink/40 bg-pink/10'}"
@@ -160,7 +162,9 @@
     </p>
   </div>
 
-  <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
+  <div
+    class="order-4 w-full rounded-3xl border border-white/15 p-4 sm:p-6 lg:order-3"
+  >
     <div class="flex flex-wrap items-baseline justify-between gap-2">
       <p class="font-display text-2xl">{tournament.userSquad.name}</p>
       <p class="{mono} text-secondary">
@@ -170,17 +174,41 @@
       </p>
     </div>
 
-    <div class="mt-6 grid items-start gap-6 lg:grid-cols-2">
+    <div class="mt-6">
       <PitchView players={tournament.userSquad.players} {formationKey} />
-
-      <div>
-        <SquadStatsList squad={tournament.userSquad} />
-      </div>
     </div>
   </div>
 
+  <div
+    class="order-6 w-full rounded-3xl border border-white/15 p-4 sm:p-6 lg:order-4"
+  >
+    <p class="{mono} mb-4 text-secondary">PLAYER STATS</p>
+    <SquadStatsList squad={tournament.userSquad} />
+  </div>
+
+  <div class="order-7 flex w-full flex-col gap-3 lg:hidden">
+    {#if tournament.outcome !== "champion" && canRerun}
+      <button
+        type="button"
+        class="{pillSolid} flex w-full items-center justify-center gap-2"
+        onclick={onRerun}
+      >
+        <Play class="h-3.5 w-3.5" /> Retry
+      </button>
+    {/if}
+    <button
+      type="button"
+      class="{pillOutline} flex w-full items-center justify-center gap-2"
+      onclick={onReset}
+    >
+      <RotateCcw class="h-3.5 w-3.5" /> Play again
+    </button>
+  </div>
+
   {#if stats.played > 0}
-    <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
+    <div
+      class="order-3 w-full rounded-3xl border border-white/15 p-4 sm:p-6 lg:order-5 lg:col-span-2"
+    >
       <p class="{mono} mb-4 text-secondary">FINAL STATS</p>
       <div class="grid grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-9">
         {@render Stat("Won", String(stats.won))}
@@ -197,7 +225,9 @@
   {/if}
 
   {#if allUserMatches.length > 0}
-    <div class="w-full rounded-3xl border border-white/15 p-4 sm:p-6">
+    <div
+      class="order-5 w-full rounded-3xl border border-white/15 p-4 sm:p-6 lg:order-6 lg:col-span-2"
+    >
       <p class="{mono} mb-4 text-secondary">MATCH CARDS</p>
       <ul class="space-y-2 sm:space-y-3">
         {#each allUserMatches as m (m.id)}
