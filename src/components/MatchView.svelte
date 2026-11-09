@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from "svelte";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import type {
     MatchResult,
@@ -23,16 +24,18 @@
     regulationOnly = false,
     autoStart = false,
     presetResult = null,
+    presetScript = null,
   }: {
     userSquad: Squad;
     opponentSquad: Squad;
     roundLabel: string;
-    onResult: (r: MatchResult) => void;
+    onResult: (r: MatchResult, script?: MatchScript) => void;
     onNext: () => void;
     nextLabel?: string;
     regulationOnly?: boolean;
     autoStart?: boolean;
     presetResult?: MatchResult | null;
+    presetScript?: MatchScript | null;
   } = $props();
 
   const teamName = (t: 0 | 1) => (t === 0 ? "Your team" : opponentSquad.name);
@@ -50,11 +53,13 @@
 
   const shouldAutoStart = $derived(autoStart && !presetResult);
 
-  let script = $state<MatchScript | null>(null);
+  // A stored script lets the card replay the exact match that was played. The
+  // initial read is intentional: the card is mounted once per expanded match.
+  let script = $state<MatchScript | null>(untrack(() => presetScript ?? null));
   let segIndex = $state(0);
-  let penIndex = $state(0);
+  let penIndex = $state(untrack(() => presetScript?.penalties?.length ?? 0));
   let playing = $state(false);
-  let finished = $state(false);
+  let finished = $state(untrack(() => !!presetScript));
 
   // Auto-starting matches simulate the full script on mount so the first
   // "Play" press (or auto-run) has everything it needs to start instantly.
@@ -73,7 +78,9 @@
     done
       ? "done"
       : segIndex >= snaps.length
-        ? "pens"
+        ? script?.penalties?.length
+          ? "pens"
+          : "done"
         : segIndex > 0
           ? "play"
           : "pre",
@@ -135,8 +142,12 @@
   );
   const displayXg = $derived(done && result ? result.xg : currentSnap.xg);
 
+  // Reveal goals segment by segment while a script is playing; the full list
+  // only appears once the match is done.
   const goalEvents = $derived(
-    (result?.events ?? []).slice().sort((a, b) => a.minute - b.minute),
+    done && result
+      ? result.events.slice().sort((a, b) => a.minute - b.minute)
+      : snaps.slice(0, segIndex).flatMap((s) => s.events),
   );
 
   const visibleKicks = $derived<PenaltyKick[]>(
@@ -166,6 +177,8 @@
     if (!script || finished) return;
     if (segIndex < snaps.length) {
       reachIndex(segIndex + 1);
+      // No shootout to reveal: finish as soon as the last segment is shown.
+      if (segIndex >= snaps.length && !script.penalties?.length) finish();
     } else if (script.penalties && penIndex < script.penalties.length) {
       penIndex += 1;
     } else {
@@ -173,12 +186,12 @@
     }
   }
 
-  /** End the match and report the final result to the parent. */
+  /** End the match and report the final result to the parent. Replaying a stored result must not re-register it. */
   function finish() {
     if (finished || !script) return;
     finished = true;
     playing = false;
-    onResult(script.result);
+    if (!presetResult) onResult(script.result, script);
   }
 
   /** Restart playback from the opening whistle using the already-simulated script. */

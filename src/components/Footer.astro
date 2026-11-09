@@ -1,6 +1,7 @@
 ---
 import { getLocale, localizedPath } from "../i18n/t";
 import { ui } from "../i18n/ui";
+import { version } from "../../package.json";
 
 const locale = getLocale(Astro.url.pathname);
 const labels = ui[locale];
@@ -8,7 +9,7 @@ const labels = ui[locale];
 
 <footer class="site-footer">
   <div class="inner">
-    <p class="credits">Eleven Fantasy &middot; v0.43.0</p>
+    <p class="credits">Eleven Fantasy &middot; v{version}</p>
     <p class="credits">{labels.footer.tagline}</p>
     <nav class="legal" aria-label="Footer">
       <a href={localizedPath("/about", locale)}>{labels.nav.about}</a>

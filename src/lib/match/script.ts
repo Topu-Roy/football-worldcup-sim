@@ -10,8 +10,8 @@ import {
   applyTeamModifiers,
   computeTeamStrengths,
   decayRateFor,
-  pickXI,
   rollForms,
+  startingXI,
 } from "../team/index.js";
 import { BASE_MAX_SHOTS, MAX_SHOTS_CLAMP, SCALE } from "./config.js";
 import { effectivePossessionShare, type TeamState } from "./dynamics.js";
@@ -45,17 +45,19 @@ export function simulateMatchScript(
   const scale = config.scale ?? SCALE;
   const base = config.baseMaxShots ?? BASE_MAX_SHOTS;
   const onTargetBias = config.onTargetBias ?? 0.6;
-  const conversionBias = config.conversionBias ?? 0.9;
+  const conversionBias = config.conversionBias ?? 0.8;
   const desperationScale = config.desperationScale ?? 0.5;
   const maxShotsClamp = config.maxShotsClamp ?? MAX_SHOTS_CLAMP;
   const regulationOnly = config.regulationOnly ?? false;
 
+  // A user squad is already exactly its starting XI. Historical squads carry
+  // full tournament rosters, so they still need the best-XI selection.
   const playersA = applyTeamModifiers(
-    rollForms(pickXI(squadA.players, squadA.formation)),
+    rollForms(startingXI(squadA)),
     squadA.isHistorical,
   );
   const playersB = applyTeamModifiers(
-    rollForms(pickXI(squadB.players, squadB.formation)),
+    rollForms(startingXI(squadB)),
     squadB.isHistorical,
   );
   const strengthsA = computeTeamStrengths(playersA);
@@ -90,6 +92,7 @@ export function simulateMatchScript(
       isET,
       desperationScale,
       maxShotsClamp,
+      config.chaosFactor,
     );
     const poss = effectivePossessionShare(
       states,

@@ -82,9 +82,26 @@ const labels = ui[locale];
   newDraft?.addEventListener("click", (e) => {
     e.preventDefault();
     const onGame = window.location.pathname.startsWith("/game");
+    let hasSaved = false;
+    try {
+      hasSaved = !!window.localStorage.getItem("wc:game:v1");
+    } catch {
+      // Storage unavailable: no saved run to confirm.
+    }
+    if (
+      hasSaved &&
+      !confirm("Start a new draft? This clears the current run.")
+    ) {
+      return;
+    }
     if (onGame) {
       window.dispatchEvent(new CustomEvent("wc:reset"));
     } else {
+      try {
+        window.localStorage.removeItem("wc:game:v1");
+      } catch {
+        // Storage unavailable: navigation still starts a fresh client.
+      }
       window.location.href = "/game";
     }
   });

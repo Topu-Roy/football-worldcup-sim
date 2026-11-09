@@ -11,6 +11,7 @@ export {
   applyTeamModifiers,
   computeTeamStrengths,
   pickXI,
+  startingXI,
   validateFormation,
 } from "./strengths.js";
 export { rollForms } from "./form.js";

@@ -1,5 +1,6 @@
 import type { Player } from "../lib/types.js";
 import { HISTORICAL_SQUADS } from "./historical/index.js";
+import { jerseyNumbersFor } from "../lib/jersey.js";
 import {
   playerRating,
   playerTier,
@@ -183,11 +184,12 @@ export function buildPreviewSlides(): PreviewSlide[] {
       }
       if (!chosen) break;
 
+      const numbers = jerseyNumbersFor(chosen.players, chosenKey);
       const players: PreviewPlayer[] = chosen.players.map((p, i) => ({
         name: p.name,
         rating: Math.round(rate(p)),
         tier: playerTier(p),
-        jersey: p.jerseyNumber ?? i + 1,
+        jersey: numbers.get(p.id) ?? i + 1,
         x: chosen.slots[i].x,
         y: chosen.slots[i].y,
       }));

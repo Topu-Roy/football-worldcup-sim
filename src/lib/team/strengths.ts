@@ -1,4 +1,4 @@
-import type { Formation, Player, TeamStrengths } from "../types.js";
+import type { Formation, Player, Squad, TeamStrengths } from "../types.js";
 import { playerBonus } from "./chemistry.js";
 import {
   effectiveDepartment,
@@ -81,12 +81,24 @@ export function pickXI(players: Player[], formation: Formation): Player[] {
   return xi;
 }
 
+/**
+ * The XI that takes the pitch: a user squad is already exactly its starters,
+ * while historical squads carry larger tournament rosters and need selection.
+ */
+export function startingXI(squad: Squad): Player[] {
+  return squad.isHistorical
+    ? pickXI(squad.players, squad.formation)
+    : squad.players;
+}
+
 /** Derive match-facing team strength averages (attack, defense, GK, composure, stamina) from players in their effective roles. */
 export function computeTeamStrengths(players: Player[]): TeamStrengths {
   const avg = (vals: number[]) =>
     vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
   const byPos = (pos: string) =>
     players.filter((p) => effectiveDepartment(p) === pos);
+  const stat = (value: number | undefined, player: Player): number =>
+    value ?? player.composure ?? 60;
 
   const gk = byPos("GK");
   const def = byPos("DEF");
@@ -96,20 +108,33 @@ export function computeTeamStrengths(players: Player[]): TeamStrengths {
   return {
     attack: avg(
       att.map((p) =>
-        avg([p.finishing ?? 0, p.dribble ?? 0, p.pace ?? 0, p.offBall ?? 0]),
+        avg([
+          stat(p.finishing, p),
+          stat(p.dribble, p),
+          stat(p.pace, p),
+          stat(p.offBall, p),
+        ]),
       ),
     ),
     defense: avg(
-      def.map((p) => avg([p.tackling ?? 0, p.aerial ?? 0, p.pace ?? 0])),
+      def.map((p) =>
+        avg([stat(p.tackling, p), stat(p.aerial, p), stat(p.pace, p)]),
+      ),
     ),
     creativity: avg(
-      mid.map((p) => avg([p.passing ?? 0, p.dribble ?? 0, p.workRate ?? 0])),
+      mid.map((p) =>
+        avg([stat(p.passing, p), stat(p.dribble, p), stat(p.workRate, p)]),
+      ),
     ),
-    finishing: avg(att.map((p) => p.finishing ?? 0)),
-    defPassing: avg(def.map((p) => p.passing ?? 0)),
+    finishing: avg(att.map((p) => stat(p.finishing, p))),
+    defPassing: avg(def.map((p) => stat(p.passing, p))),
     gk: avg(
       gk.map((p) =>
-        avg([p.reflexes ?? 0, p.positioning ?? 0, p.distribution ?? 0]),
+        avg([
+          stat(p.reflexes, p),
+          stat(p.positioning, p),
+          stat(p.distribution, p),
+        ]),
       ),
     ),
     composure: {

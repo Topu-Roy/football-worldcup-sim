@@ -16,21 +16,22 @@ astro dev stop           # shut it down
 
 ## Commands
 
-| Command                        | Action                         |
-| :----------------------------- | :----------------------------- |
-| `bun run dev`                  | Start dev server (foreground)  |
-| `bun run build`                | Build to `./dist/`             |
-| `bun run preview`              | Preview the build              |
-| `bun run lint`                 | ESLint + typecheck             |
-| `bun run typecheck`            | `astro check` + `svelte-check` |
-| `bun run format`               | Prettier write                 |
-| `bun scripts/validate-data.ts` | Validate squad data            |
-| `bun scripts/calibration.ts`   | Calibration report             |
+| Command                        | Action                          |
+| :----------------------------- | :------------------------------ |
+| `bun run dev`                  | Start dev server (foreground)   |
+| `bun run build`                | Build to `./dist/`              |
+| `bun run preview`              | Preview the build               |
+| `bun run lint`                 | ESLint + typecheck + data check |
+| `bun run typecheck`            | `astro check` + `svelte-check`  |
+| `bun test`                     | Unit and distribution tests     |
+| `bun run format`               | Prettier write                  |
+| `bun scripts/validate-data.ts` | Validate squad data             |
+| `bun scripts/calibration.ts`   | Calibration report              |
 
 ## Game flow
 
 1. **Formation** — pick 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Slot counts lock the draft.
-2. **Draft** — 12 rounds: 11 starters plus 1 bench spot. Each round offers a random nation/year roster filtered to open slots. Up to 3 rerolls per offer. Players carry tier badges and live chemistry.
+2. **Draft** — 12 rounds: 11 starters plus 1 bench spot. Each round offers a random nation/year roster filtered to open slots. You get 3 rerolls for the whole draft. Players carry tier badges and live chemistry.
 3. **Team ready** — review the XI, swap players between slots or the bench, then start. Out-of-position players are penalized.
 4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. Top 2 advance to R16 → QF → SF → final against fresh opponents.
 5. **Results** — final placement, squad stats, replayable match cards. Losing allows "Play again" with the same squad; champions get one shot only.

@@ -214,6 +214,8 @@ export const ARGENTINA_1986: Squad = {
       stamina: 80,
       finishing: 76,
       offBall: 78,
+      passing: 77,
+      workRate: 82,
       composure: 78,
     },
     {

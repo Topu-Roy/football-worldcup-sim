@@ -21,31 +21,38 @@ function combosFor(
   drafted: Player[],
 ): Combo[] {
   const roles = emptySlotRoles(formationKey, drafted);
+  const draftedNames = new Set(drafted.map((p) => p.name));
+  const available = (nation: string, year: number): Player[] =>
+    squadOf(nation, year).filter((p) => !draftedNames.has(p.name));
   const canPlace = (p: Player): boolean =>
     p.positions.some((r) =>
       roles.some((role) => canonicalRole(role) === canonicalRole(r)),
     );
 
-  const draftedNames = new Set(drafted.map((p) => p.name));
   const all = draftableNations()
     .flatMap((nation) => nationYears(nation).map((year) => ({ nation, year })))
-    .filter(
-      (c) => !squadOf(c.nation, c.year).some((p) => draftedNames.has(p.name)),
-    );
+    .filter((c) => available(c.nation, c.year).length > 0);
 
-  const placeable = all.filter((c) => squadOf(c.nation, c.year).some(canPlace));
+  const placeable = all.filter((c) =>
+    available(c.nation, c.year).some(canPlace),
+  );
   const left = slotsLeft(formation, drafted);
   const byDept = all.filter((c) =>
-    squadOf(c.nation, c.year).some((p) => fits(p, left)),
+    available(c.nation, c.year).some((p) => fits(p, left)),
   );
   if (placeable.length > 0) return placeable;
   if (roles.length === 0) return all;
-  return byDept;
+  return byDept.length > 0 ? byDept : all;
 }
 
-function comboCoverage(c: Combo, roles: string[]): number {
+function comboCoverage(
+  c: Combo,
+  roles: string[],
+  draftedNames: Set<string>,
+): number {
   const covered = new Set<string>();
   for (const p of squadOf(c.nation, c.year)) {
+    if (draftedNames.has(p.name)) continue;
     for (const r of p.positions) {
       const canon = canonicalRole(r);
       if (roles.some((role) => canonicalRole(role) === canon)) {
@@ -56,13 +63,17 @@ function comboCoverage(c: Combo, roles: string[]): number {
   return covered.size;
 }
 
-function pickBest(combos: Combo[], roles: string[]): Combo {
-  const scored = combos.map((c) => ({ c, cover: comboCoverage(c, roles) }));
+function pickBest(combos: Combo[], roles: string[], drafted: Player[]): Combo {
+  const draftedNames = new Set(drafted.map((p) => p.name));
+  const scored = combos.map((c) => ({
+    c,
+    cover: comboCoverage(c, roles, draftedNames),
+  }));
   const max = Math.max(...scored.map((s) => s.cover));
   return pick(scored.filter((s) => s.cover === max)).c;
 }
 
-/** Draw a fresh offer: pick a nation/year combo that can fill open roles, preferring combos not already offered, and shuffle its players. */
+/** Draw a fresh offer: pick a nation/year combo that can fill open roles, preferring combos not already offered. */
 export function makeOffer(
   formationKey: string,
   formation: Formation,
@@ -72,17 +83,20 @@ export function makeOffer(
   const roles = emptySlotRoles(formationKey, drafted);
   const combos = combosFor(formationKey, formation, drafted);
 
+  // Defensive fallback: every available player has been drafted.
+  if (combos.length === 0) {
+    const nation = draftableNations()[0];
+    const year = nationYears(nation)[0];
+    return offerFor(nation, year, drafted);
+  }
+
   const fresh = combos.filter(
     (c) => !history.some((o) => o.nation === c.nation && o.year === c.year),
   );
   const usable = fresh.length > 0 ? fresh : combos;
-  const chosen = pickBest(usable.length > 0 ? usable : combos, roles);
+  const chosen = pickBest(usable, roles, drafted);
 
-  return {
-    nation: chosen.nation,
-    year: chosen.year,
-    players: shuffle(squadOf(chosen.nation, chosen.year)),
-  };
+  return offerFor(chosen.nation, chosen.year, drafted);
 }
 
 /** Convenience wrapper around makeOffer that always consults the full offer history. */
@@ -95,8 +109,15 @@ export function rerollOffer(
   return makeOffer(formationKey, formation, drafted, history);
 }
 
-function offerFor(nation: string, year: number): Offer {
-  return { nation, year, players: shuffle(squadOf(nation, year)) };
+function offerFor(nation: string, year: number, drafted: Player[]): Offer {
+  const draftedNames = new Set(drafted.map((p) => p.name));
+  return {
+    nation,
+    year,
+    players: shuffle(
+      squadOf(nation, year).filter((p) => !draftedNames.has(p.name)),
+    ),
+  };
 }
 
 /** Reroll within the same nation: pick a different, not-yet-seen year for it, or null if none qualifies. */
@@ -116,8 +137,8 @@ export function sameNationReroll(
         !history.some((o) => o.nation === current.nation && o.year === c.year),
     );
   if (years.length === 0) return null;
-  const chosen = pickBest(years, roles);
-  return offerFor(chosen.nation, chosen.year);
+  const chosen = pickBest(years, roles, drafted);
+  return offerFor(chosen.nation, chosen.year, drafted);
 }
 
 /** Reroll to a different nation (any year), preferring combos not already offered; null if none qualify. */
@@ -137,6 +158,6 @@ export function newNationReroll(
   );
   const usable = fresh.length > 0 ? fresh : combos;
   if (usable.length === 0) return null;
-  const chosen = pickBest(usable, roles);
-  return offerFor(chosen.nation, chosen.year);
+  const chosen = pickBest(usable, roles, drafted);
+  return offerFor(chosen.nation, chosen.year, drafted);
 }

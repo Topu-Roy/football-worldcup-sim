@@ -42,15 +42,21 @@
   );
 
   function handleReset() {
+    if (!confirm("Quit this run and start a new draft?")) return;
     stopRun();
     expandedId = null;
     onReset();
   }
 
-  /** Toggle the auto-play sequence: kicks off the next unplayed match, or pauses mid-run. */
+  /** Toggle the auto-play sequence: kicks off the next unplayed match, resumes a paused one, or pauses mid-run. */
   function startRun() {
     if (running) {
       running = false;
+      return;
+    }
+    // Resume the paused script instead of re-simulating and resetting it.
+    if (activeId && activeScript) {
+      running = true;
       return;
     }
     const next = nextUserMatch(tournament);
@@ -108,7 +114,7 @@
   function finishMatch() {
     if (!running || !activeScript || !activeId) return;
     const result = activeScript.result;
-    registerUserResult(tournament, activeId, result);
+    registerUserResult(tournament, activeId, result, activeScript);
     if (tournament.phase === "knockout") {
       resolveKnockout(tournament);
     } else if (groupDoneNow) {
@@ -166,8 +172,8 @@
 
   /** Register the result, then advance the tournament phase (knockout resolution or group exit). */
   function handleResult(m: TournamentMatch) {
-    return (r: MatchResult) => {
-      registerUserResult(tournament, m.id, r);
+    return (r: MatchResult, script?: MatchScript) => {
+      registerUserResult(tournament, m.id, r, script);
       if (tournament.phase === "knockout") {
         resolveKnockout(tournament);
       } else if (groupDoneNow) {
@@ -220,7 +226,7 @@
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
         onclick={handleReset}
-        ><RotateCcw class="h-3.5 w-3.5" /> Play</button
+        ><RotateCcw class="h-3.5 w-3.5" /> Quit run</button
       >
     </div>
   </header>

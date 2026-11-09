@@ -200,6 +200,7 @@ export const ARGENTINA_1990: Squad = {
       workRate: 85,
       stamina: 86,
       tackling: 76,
+      aerial: 74,
       composure: 77,
     },
     {
@@ -215,6 +216,8 @@ export const ARGENTINA_1990: Squad = {
       workRate: 83,
       stamina: 84,
       tackling: 76,
+      aerial: 74,
+      pace: 78,
       composure: 78,
     },
     {
@@ -230,6 +233,8 @@ export const ARGENTINA_1990: Squad = {
       workRate: 79,
       stamina: 80,
       tackling: 72,
+      aerial: 75,
+      pace: 76,
       composure: 75,
     },
     {

@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { blog } from "../../i18n/content/blog";
-import { localizedPath } from "../../i18n/t";
+import { linkFor, localizedPath } from "../../i18n/t";
 import { ui } from "../../i18n/ui";
 import type { Locale } from "../../i18n/config";
 import { SITE_URL as siteUrl, SITE_NAME } from "../../lib/site";
@@ -94,7 +94,7 @@ const articleLd = {
           <ul class="flex flex-col gap-2 text-sm">
             <li>
               <a
-                href={localizedPath("/game", lang)}
+                href={linkFor("/game", lang)}
                 class="text-mint transition-colors hover:text-white"
               >
                 {t.seoLinks.game}

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { assignSlots, BENCH_SLOT } from "../lib/draft.js";
+  import { jerseyNumbersFor } from "../lib/jersey.js";
   import type { Player } from "../lib/types.js";
   import PitchBackground from "./pitch/PitchBackground.svelte";
   import PitchEmptySlot from "./pitch/PitchEmptySlot.svelte";
@@ -30,6 +31,7 @@
   } = $props();
 
   const slots = $derived(assignSlots(players, formationKey));
+  const numbers = $derived(jerseyNumbersFor(players, formationKey));
   const widthClass = $derived(
     size === "sm" ? "max-w-56 sm:max-w-64" : "max-w-sm sm:max-w-md",
   );
@@ -86,7 +88,7 @@
           <PitchPlayerChip
             {player}
             slotRole={s.slot.role}
-            slotIndex={i}
+            number={numbers.get(player.id) ?? 0}
             isTarget={swapTargets?.includes(i) ?? false}
             isSelected={selectedId === player.id}
             selectedBest={selectionBest}
@@ -127,7 +129,7 @@
         <PitchPlayerChip
           {player}
           slotRole={player.bestPosition}
-          slotIndex={BENCH_SLOT}
+          number={numbers.get(player.id) ?? 0}
           isTarget={swapTargets?.includes(BENCH_SLOT) ?? false}
           isSelected={selectedId === player.id}
           selectedBest={selectionBest}

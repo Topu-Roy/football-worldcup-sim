@@ -6,7 +6,11 @@
     Play,
     Trophy,
   } from "@lucide/svelte";
-  import { formationOptions, POSITION_LABEL } from "../lib/draft.js";
+  import {
+    formationOptions,
+    DRAFT_ROUNDS,
+    POSITION_LABEL,
+  } from "../lib/draft.js";
   import type { Formation } from "../lib/types.js";
 
   let { onSelect }: { onSelect: (key: string, formation: Formation) => void } =
@@ -42,7 +46,7 @@
     {
       icon: LayoutGrid,
       title: "Pick your shape",
-      text: "Choose from 4 classic formations. This locks the slot limits for all 11 draft rounds.",
+      text: `Choose from 4 classic formations. This locks the slot limits for all ${DRAFT_ROUNDS} draft rounds.`,
     },
     {
       icon: Trophy,

@@ -227,6 +227,7 @@ export const URUGUAY_1970: Squad = {
       pace: 70,
       workRate: 88,
       stamina: 88,
+      dribble: 72,
       composure: 82,
     },
     {

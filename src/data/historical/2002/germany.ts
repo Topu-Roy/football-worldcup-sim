@@ -282,6 +282,7 @@ export const GERMANY_2002: Squad = {
       pace: 70,
       workRate: 79,
       stamina: 81,
+      dribble: 71,
       composure: 76,
     },
     {
@@ -312,6 +313,7 @@ export const GERMANY_2002: Squad = {
       dribble: 72,
       workRate: 80,
       stamina: 82,
+      aerial: 74,
       composure: 73,
     },
     {

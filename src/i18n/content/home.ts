@@ -1,7 +1,7 @@
 export const home = {
   en: {
     h1: "Eleven Fantasy: Draft Historical Squads, Simulate the World Cup",
-    hero: "A free browser soccer game with one goal: you draft a fantasy football world cup dream team from 100+ historical squads and watch it chase the trophy. Pick Brazil 1970, France 1998 or Argentina 2022, then simulate the full tournament - group games, a knockout bracket and penalty shootouts included. It works as a soccer simulator, a football draft simulator and a world cup predictor for your own 2026 draw. Everything runs online in your browser. No download. No sign-up. Pick a formation, build your squad, and watch the cup.",
+    hero: "A free browser soccer game with one goal: you draft a fantasy football world cup dream team from 86 historical squads and watch it chase the trophy. Pick Brazil 1970, France 1998 or Argentina 2022, then simulate the full tournament - group games, a knockout bracket and penalty shootouts included. It works as a soccer simulator, a football draft simulator and a world cup predictor for your own 2026 draw. Everything runs online in your browser. No download. No sign-up. Pick a formation, build your squad, and watch the cup.",
     ctaPlay: "Play Now",
     ctaHow: "How to play",
     showMore: "Show more",
@@ -14,7 +14,7 @@ export const home = {
     },
     chips: [
       "1970-2026",
-      "100+ squads",
+      "86 squads",
       "12 draft rounds",
       "Group → knockout",
       "Penalty shootouts",
@@ -30,7 +30,7 @@ export const home = {
       {
         n: "02",
         title: "Draft your XI",
-        body: "Twelve rounds of picks from 100+ historical World Cup squads. Chase stars, patch gaps, keep one on the bench.",
+        body: "Twelve rounds of picks from 86 historical World Cup squads. Chase stars, patch gaps, keep one on the bench.",
       },
       {
         n: "03",
@@ -93,7 +93,7 @@ export const home = {
     },
     chips: [
       "1970-2026",
-      "100+ Mannschaften",
+      "86 Mannschaften",
       "12 Draft-Runden",
       "Gruppe → K.-o.",
       "Elfmeterschießen",
@@ -172,7 +172,7 @@ export const home = {
     },
     chips: [
       "1970-2026",
-      "100+ équipes",
+      "86 équipes",
       "12 tours de draft",
       "Groupes → élim.",
       "Tirs au but",
@@ -249,7 +249,7 @@ export const home = {
       caption:
         "サッカー史上最強の国々から最高のXIを、実際のワールドカップ選手レーティングで構成。ドラフトして杯をシミュレート。",
     },
-    chips: ["1970-2026", "チーム100+", "ドラフト12回", "グループ→決勝", "PK戦"],
+    chips: ["1970-2026", "チーム86", "ドラフト12回", "グループ→決勝", "PK戦"],
     stepsEyebrow: "遊び方",
     stepsTitle: "栄光までの4ラウンド",
     steps: [
@@ -324,7 +324,7 @@ export const home = {
     },
     chips: [
       "1970-2026",
-      "100+ equipos",
+      "86 equipos",
       "12 rondas de draft",
       "Grupos → elim.",
       "Tiros penales",

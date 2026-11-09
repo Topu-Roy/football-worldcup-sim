@@ -18,6 +18,15 @@ export function localizedPath(path: string, locale: Locale): string {
   return getRelativeLocaleUrl(locale, path);
 }
 
+/**
+ * Link to a path in the given locale, but leave single-locale paths
+ * (game, history, legal) unprefixed because no localized route exists.
+ */
+export function linkFor(path: string, locale: Locale): string {
+  const clean = (path.split(/[?#]/)[0].replace(/\/+$/, "") || "/") as string;
+  return SINGLE_LOCALE_PATHS.includes(clean) ? path : localizedPath(path, locale);
+}
+
 export function stripLocale(pathname: string, locale: Locale): string {
   if (locale === defaultLocale) return pathname;
   const prefix = `/${locale}`;

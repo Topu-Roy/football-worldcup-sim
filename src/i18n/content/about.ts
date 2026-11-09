@@ -9,7 +9,7 @@ export const about = {
     tickTitle: "What makes it tick",
     tickItems: [
       {
-        title: "100+ historical squads.",
+        title: "86 historical squads.",
         body: "Every team is rated on the same player-stat scheme — reflexes, tackling, passing, finishing and more — so your picks and the AI opponents are compared fairly.",
       },
       {
@@ -29,7 +29,7 @@ export const about = {
     ],
     systems: [
       "Eleven Fantasy is a focused football simulator. Three systems work together.",
-      "First, the squad library holds 100+ old squads. Each one is rated on the same scale. The scale covers reflexes, tackling, passing, finishing, pace and vision. Your picks and the AI teams are fair. A Brazil 1970 attack can meet a Germany 2014 defence in the same world cup simulation.",
+      "First, the squad library holds 86 old squads. Each one is rated on the same scale. The scale covers reflexes, tackling, passing, finishing, pace and vision. Your picks and the AI teams are fair. A Brazil 1970 attack can meet a Germany 2014 defence in the same world cup simulation.",
       "Second, a real match engine simulates each game. It plays part by part. It shows possession, shots and chances. Then it settles extra time and a penalty shootout simulator. The engine is tuned to feel like real World Cup scorelines. But it does not copy any real match.",
       "Third, a chemistry model rewards good teams. Draft players from the same nation. They play better together. So a smart world cup dream team builder beats a team of big stats.",
       "It is a football draft simulator that respects balance. It is a world cup fantasy game where the draft matters most. Players call it an interactive soccer simulator and a fantasy soccer draft. The result is earned by your team, not given to you. Open the browser soccer game. Build a squad. The engine does the rest.",
@@ -59,7 +59,7 @@ export const about = {
     tickTitle: "Was es antreibt",
     tickItems: [
       {
-        title: "100+ historische Kadern.",
+        title: "86 historische Kadern.",
         body: "Jedes Team wird nach demselben Spieler-Schema bewertet — Reflexe, Zweikampf, Pass, Abschluss und mehr — damit deine Picks und die KI-Gegner fair verglichen werden.",
       },
       {
@@ -109,7 +109,7 @@ export const about = {
     tickTitle: "Ce qui le fait tourner",
     tickItems: [
       {
-        title: "100+ équipes historiques.",
+        title: "86 équipes historiques.",
         body: "Chaque équipe est notée selon le même schéma de stats joueurs — réflexes, tacles, passe, finition et plus — donc vos choix et les adversaires IA sont comparés équitablement.",
       },
       {
@@ -159,7 +159,7 @@ export const about = {
     tickTitle: "仕組み",
     tickItems: [
       {
-        title: "歴代チーム100+。",
+        title: "歴代チーム86。",
         body: "すべてのチームが同じ選手統計スキーム（反射、タックル、パス、フィニッシュなど）で評価される。だからあなたの指名もAI相手も公平に比べられる。",
       },
       {
@@ -209,7 +209,7 @@ export const about = {
     tickTitle: "Qué lo mueve",
     tickItems: [
       {
-        title: "100+ plantillas históricas.",
+        title: "86 plantillas históricas.",
         body: "Cada equipo se valora con el mismo esquema de stats de jugador — reflejos, entradas, pase, definición y más — así tus elecciones y los rivales IA se comparan con justicia.",
       },
       {

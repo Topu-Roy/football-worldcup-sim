@@ -120,9 +120,13 @@
       <button
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
-        onclick={onReset}
+        onclick={() => {
+          if (confirm("Start a new draft? This clears the current team.")) {
+            onReset();
+          }
+        }}
       >
-        <RotateCcw class="h-3.5 w-3.5" /> Play
+        <RotateCcw class="h-3.5 w-3.5" /> New draft
       </button>
     </div>
   </header>

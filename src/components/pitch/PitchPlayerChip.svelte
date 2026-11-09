@@ -13,7 +13,7 @@
   let {
     player,
     slotRole,
-    slotIndex,
+    number,
     isTarget,
     isSelected,
     selectedBest,
@@ -23,7 +23,7 @@
   }: {
     player: Player;
     slotRole: string;
-    slotIndex: number;
+    number: number;
     isTarget: boolean;
     isSelected: boolean;
     /** Best-position label of the currently selected player, used to star matching slots. */
@@ -55,7 +55,7 @@
             : 'cursor-pointer border-white/90 bg-white text-black hover:border-mint hover:text-black'}"
       onclick={onSelect}
     >
-      {player.jerseyNumber ?? slotIndex + 1}
+      {number}
     </button>
 
     {#if showStar}
@@ -91,7 +91,7 @@
   </span>
 
   <span
-    class="font-mono text-[10px] font-bold leading-none text-mint [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]"
+    class="font-mono text-[10px] leading-none font-bold text-mint [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]"
   >
     {rating}
   </span>

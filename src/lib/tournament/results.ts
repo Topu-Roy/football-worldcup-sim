@@ -1,4 +1,4 @@
-import type { MatchResult } from "../types.js";
+import type { MatchResult, MatchScript } from "../types.js";
 import type { Tournament, TournamentMatch } from "./types.js";
 import { upsertTournamentRecord } from "../history.js";
 
@@ -35,9 +35,11 @@ export function registerUserResult(
   state: Tournament,
   matchId: string,
   result: MatchResult,
+  script?: MatchScript,
 ): void {
   const m = state.matches.find((x) => x.id === matchId);
   if (!m || m.result) return;
   m.result = normalizeResultForMatch(state, m, result);
+  if (script) m.script = script;
   upsertTournamentRecord(state);
 }

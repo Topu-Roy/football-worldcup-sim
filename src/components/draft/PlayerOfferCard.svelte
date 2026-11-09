@@ -56,7 +56,7 @@
   const statRows = $derived(
     (STAT_ROWS[slotDepartment(player)] ?? []).map(([label, key]) => [
       label,
-      (player[key as keyof Player] as number) ?? 0,
+      (player[key as keyof Player] as number) ?? player.composure ?? 0,
     ]),
   );
 

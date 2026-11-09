@@ -1,4 +1,4 @@
-import type { MatchResult, Squad } from "../types.js";
+import type { MatchResult, MatchScript, Squad } from "../types.js";
 
 export type MatchRound = "group" | "r16" | "qf" | "sf" | "final";
 
@@ -8,6 +8,8 @@ export interface TournamentMatch {
   home: string;
   away: string;
   result: MatchResult | null;
+  /** Exact simulation script for the user's matches, used for replay. */
+  script?: MatchScript | null;
   isUser: boolean;
 }
 

@@ -261,6 +261,7 @@ export const SPAIN_2026: Squad = {
       dribble: 80,
       workRate: 91,
       stamina: 94,
+      aerial: 76,
       composure: 80,
     },
     {

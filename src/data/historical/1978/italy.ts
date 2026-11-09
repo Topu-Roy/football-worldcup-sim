@@ -149,6 +149,8 @@ export const ITALY_1978: Squad = {
       stamina: 89,
       finishing: 69,
       offBall: 80,
+      tackling: 82,
+      aerial: 76,
       composure: 82,
     },
     {

@@ -79,6 +79,8 @@ export const ENGLAND_2018: Squad = {
       stamina: 86,
       finishing: 72,
       offBall: 84,
+      tackling: 78,
+      aerial: 72,
       composure: 86,
     },
     {
@@ -171,6 +173,8 @@ export const ENGLAND_2018: Squad = {
       dribble: 77,
       workRate: 86,
       stamina: 86,
+      tackling: 77,
+      aerial: 73,
       composure: 82,
     },
     {
@@ -249,6 +253,7 @@ export const ENGLAND_2018: Squad = {
       dribble: 76,
       workRate: 82,
       stamina: 82,
+      aerial: 74,
       composure: 78,
     },
     {

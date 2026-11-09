@@ -34,7 +34,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "What it is",
             body: [
-              "A free browser soccer game. You draft a fantasy World Cup XI from 100+ historical squads and the engine simulates a full tournament - from groups to final.",
+              "A free browser soccer game. You draft a fantasy World Cup XI from 86 historical squads and the engine simulates a full tournament - from groups to final.",
             ],
           },
           {
@@ -48,7 +48,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "2. Draft your XI",
             body: [
-              "Twelve rounds, 11 starters plus one sub. Each round you get a board of nation + year filtered to your remaining slots. Use up to 3 rerolls to swap a bad board before you pick.",
+              "Twelve rounds, 11 starters plus one sub. Each round you get a board of nation + year filtered to your remaining slots. You have 3 rerolls for the whole draft to swap a bad board before you pick.",
               "Place each player in their best slot - starred slots are ideal - and watch chemistry climb. Same-nation players give a chemistry bonus, so a coherent draft beats a rabble of stars.",
               "Each round presents a random nation + year roster filtered to your remaining slots, so draft strategy must balance immediate need with long-term chemistry building.",
             ],
@@ -180,7 +180,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Draft dein XI",
             body: [
-              "Zwölf Runden, 11 Stammspieler plus ein Ersatz. Jede Runde bekommst du ein Brett aus Nation + Jahr, gefiltert auf deine freien Plätze. Nutze bis zu 3 Rerolls, um ein schlechtes Brett vor der Wahl zu tauschen.",
+              "Zwölf Runden, 11 Stammspieler plus ein Ersatz. Jede Runde bekommst du ein Brett aus Nation + Jahr, gefiltert auf deine freien Plätze. Du hast 3 Rerolls für den gesamten Draft, um ein schlechtes Brett vor der Wahl zu tauschen.",
               "Setze jeden Spieler auf seinen besten Platz - sterne Plätze sind ideal - und sieh die Chemie steigen. Spieler derselben Nation geben einen Chemiebonus, also schlägt ein kohärenter Draft ein Starengemisch.",
               "Das Draft-Board zeigt dir zu jeder Karte Bewertung, Bestposition und Nation, so wie du es von einem guten Fußball Draft Simulator erwartest - alle Infos auf einen Blick, keine versteckten Werte.",
             ],
@@ -312,7 +312,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Draft votre XI",
             body: [
-              "Douze tours, 11 titulaires plus un remplacant. Chaque tour vous donne un plateau nation + annee filtre sur vos postes restants. Utilisez jusqu'a 3 rerolls pour changer un mauvais plateau avant de choisir.",
+              "Douze tours, 11 titulaires plus un remplacant. Chaque tour vous donne un plateau nation + annee filtre sur vos postes restants. Vous disposez de 3 rerolls pour tout le draft pour changer un mauvais plateau avant de choisir.",
               "Placez chaque joueur a son meilleur poste - les postes etoile sont ideaux - et voyez la chimie monter. Les joueurs d'une meme nation donnent un bonus de chimie, donc un draft coherent bat un melange de stars.",
               "Le plateau affiche note, meilleur poste et nation de chaque carte - toutes les infos d'un bon draft football game, sans valeurs cachees.",
             ],
@@ -428,7 +428,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "XI をドラフトする",
             body: [
-              "12 ラウンド、先発 11 人に加え控え 1 人。各ラウンドには残りポジションで絞った「国＋年」のボードが出る。選ぶ前に悪いボードを替えられるリロールを最大 3 回使える。",
+              "12 ラウンド、先発 11 人に加え控え 1 人。各ラウンドには残りポジションで絞った「国＋年」のボードが出る。リロールはドラフト全体で 3 回、選ぶ前に悪いボードを替えられる。",
               "各選手を得意ポジションに置け——星付きポジションが理想——ケミストリーが上がるのを見よう。同じ国の選手はケミストリー・ボーナスを得るから、まとまりのあるドラフトはスターの寄せ集めに勝つ。",
               "ボードには各カードのレーティング、得意ポジション、国が表示される。隠れた数値のない、良いサッカードラフトゲームに求める情報設計だ。",
             ],
@@ -544,7 +544,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Draftas tu XI",
             body: [
-              "Doce rondas, 11 titulares más 1 banco. Cada ronda recibes una plantilla de nación + año filtrada a tus puestos restantes. Usa hasta 3 rerolls para cambiar un mal tablero antes de elegir.",
+              "Doce rondas, 11 titulares más 1 banco. Cada ronda recibes una plantilla de nación + año filtrada a tus puestos restantes. Tienes 3 rerolls para todo el draft para cambiar un mal tablero antes de elegir.",
               "Coloca cada jugador en su mejor puesto - los puestos con estrella son ideales - y ve subir la química. Los de la misma nación dan un bonus de química, así un draft listo vence a un equipo de estrellas sueltas.",
               "El tablero muestra valoración, mejor puesto y nación de cada carta - toda la información que esperas de un buen draft fútbol juego, sin valores ocultos.",
             ],

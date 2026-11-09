@@ -65,4 +65,13 @@
     {nextLabel}
     <SkipForward class="h-3.5 w-3.5" />
   </button>
+{:else}
+  <button
+    type="button"
+    class="{pillSolid} inline-flex items-center gap-2"
+    onclick={onNext}
+  >
+    {nextLabel}
+    <SkipForward class="h-3.5 w-3.5" />
+  </button>
 {/if}

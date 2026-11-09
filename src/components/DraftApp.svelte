@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from "svelte";
   import DraftBoard from "./DraftBoard.svelte";
   import ResultsView from "./ResultsView.svelte";
   import TeamReadyView from "./TeamReadyView.svelte";
@@ -7,29 +8,50 @@
   import { swapPlayers as applySwap } from "../lib/draft.js";
   import { createTournament } from "../lib/tournament.js";
   import { upsertTournamentRecord } from "../lib/history.js";
+  import {
+    saveGame,
+    type GameStep,
+    type SavedDraft,
+    type SavedGame,
+  } from "../lib/gameSession.js";
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
 
-  type Step = "draft" | "ready" | "tournament" | "results";
+  type Step = GameStep;
 
   let {
     formation,
     formationKey,
     onBack,
-  }: { formation: Formation; formationKey: string; onBack?: () => void } =
-    $props();
+    initial = null,
+  }: {
+    formation: Formation;
+    formationKey: string;
+    onBack?: () => void;
+    initial?: SavedGame | null;
+  } = $props();
 
-  let step = $state<Step>("draft");
-  let drafted = $state<Player[]>([]);
-  let squad = $state<Squad | null>(null);
-  let tournament = $state<TournamentState | null>(null);
+  let step = $state<Step>(untrack(() => initial?.step ?? "draft"));
+  let drafted = $state<Player[]>(untrack(() => initial?.drafted ?? []));
+  let squad = $state<Squad | null>(untrack(() => initial?.squad ?? null));
+  let tournament = $state<TournamentState | null>(
+    untrack(() => initial?.tournament ?? null),
+  );
+  let draftState = $state<SavedDraft | null>(
+    untrack(() => initial?.draft ?? null),
+  );
 
   /** Back to a fresh draft, clearing any squad and tournament. */
   function reset() {
     drafted = [];
     squad = null;
     tournament = null;
+    draftState = null;
     step = "draft";
+  }
+
+  function handleDraftState(next: SavedDraft) {
+    draftState = next;
   }
 
   function handlePick(p: Player) {
@@ -74,11 +96,19 @@
     };
   }
 
-  /** Restart the draft whenever the formation changes. */
+  /** Persist the in-progress game whenever any meaningful state changes. */
   $effect(() => {
-    void formation;
-    void formationKey;
-    reset();
+    if (!formationKey) return;
+    saveGame({
+      version: 1,
+      formationKey,
+      formation,
+      step,
+      drafted,
+      squad,
+      tournament,
+      draft: draftState,
+    });
   });
 
   $effect(() => {
@@ -92,7 +122,7 @@
   });
 
   $effect(() => {
-    if (tournament?.phase === "ended") {
+    if (tournament?.phase === "ended" && step !== "results") {
       upsertTournamentRecord(tournament);
       step = "results";
     }
@@ -111,6 +141,8 @@
       {formation}
       {formationKey}
       {onBack}
+      initialDraft={draftState}
+      onDraftState={handleDraftState}
       onPick={handlePick}
       onSwapDrafted={handleSwapDrafted}
     />

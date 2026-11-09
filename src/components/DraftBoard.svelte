@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from "svelte";
   import { ArrowUp, CalendarDays, ChevronLeft, Globe } from "@lucide/svelte";
   import {
     BENCH_SLOT,
@@ -21,6 +22,7 @@
   } from "../lib/draft.js";
   import { countSameNation } from "../lib/team.js";
   import { nationClusters } from "../lib/team.js";
+  import type { SavedDraft } from "../lib/gameSession.js";
   import type { Formation, Player, Position } from "../lib/types.js";
   import PitchView from "./PitchView.svelte";
   import PlayerOfferCard from "./draft/PlayerOfferCard.svelte";
@@ -31,18 +33,30 @@
     onPick,
     onSwapDrafted,
     onBack,
+    initialDraft = null,
+    onDraftState,
   }: {
     formation: Formation;
     formationKey: string;
     onPick: (p: Player) => void;
     onSwapDrafted: (players: Player[]) => void;
     onBack?: () => void;
+    initialDraft?: SavedDraft | null;
+    onDraftState?: (state: SavedDraft) => void;
   } = $props();
 
-  let offer = $state<ReturnType<typeof makeOffer> | null>(null);
-  let offerHistory: ReturnType<typeof makeOffer>[] = $state([]);
-  let rerollsLeft = $state(MAX_REROLLS);
-  let drafted = $state<Player[]>([]);
+  let offer = $state<ReturnType<typeof makeOffer> | null>(
+    untrack(() => initialDraft?.offer ?? null),
+  );
+  let offerHistory: ReturnType<typeof makeOffer>[] = $state([
+    ...untrack(() => initialDraft?.offerHistory ?? []),
+  ]);
+  let rerollsLeft = $state(
+    untrack(() => initialDraft?.rerollsLeft ?? MAX_REROLLS),
+  );
+  let drafted = $state<Player[]>([
+    ...untrack(() => initialDraft?.drafted ?? []),
+  ]);
   let selected = $state<Player | null>(null);
   let swapSelectedId = $state<string | null>(null);
   let offerScroll = $state<HTMLDivElement | null>(null);
@@ -118,11 +132,20 @@
     }
   });
 
+  // Report the draft sub-state up so it can be persisted with the game.
+  $effect(() => {
+    onDraftState?.({ offer, offerHistory, rerollsLeft, drafted });
+  });
+
   const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];
   const round = $derived(drafted.length + 1);
   const complete = $derived(validateDraft(formation, drafted));
-  const sameNation = $derived(countSameNation(drafted));
-  const clusters = $derived(nationClusters(drafted));
+  // Chemistry only counts the starting XI; the bench player is excluded.
+  const starters = $derived(
+    drafted.filter((p) => p.assignedSlot !== BENCH_SLOT),
+  );
+  const sameNation = $derived(countSameNation(starters));
+  const clusters = $derived(nationClusters(starters));
   const linkedClusters = $derived(clusters.filter((c) => c.bonus > 0));
   const draftSlots = $derived(assignSlots(drafted, formationKey));
   const selectableRoles = $derived.by(() => {
@@ -294,7 +317,6 @@
       drafted = next;
       selected = null;
       onPick(placed);
-      rerollsLeft = MAX_REROLLS;
       if (!validateDraft(formation, next)) {
         newOffer();
       }
@@ -313,7 +335,6 @@
     drafted = next;
     selected = null;
     onPick(placed);
-    rerollsLeft = MAX_REROLLS;
     if (!validateDraft(formation, next)) {
       newOffer();
     }

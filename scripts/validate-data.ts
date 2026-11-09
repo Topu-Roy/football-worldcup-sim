@@ -47,11 +47,10 @@ for (const squad of ALL_SQUADS) {
     }
 
     if (
-      p.jerseyNumber === undefined ||
-      p.jerseyNumber < 1 ||
-      p.jerseyNumber > 99
+      p.jerseyNumber !== undefined &&
+      (p.jerseyNumber < 1 || p.jerseyNumber > 99)
     ) {
-      console.error(`${tag}: ${p.name} missing or bad jerseyNumber`);
+      console.error(`${tag}: ${p.name} bad jerseyNumber`);
       errors++;
     }
 

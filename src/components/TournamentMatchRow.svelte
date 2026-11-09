@@ -6,7 +6,7 @@
     type Tournament,
     type TournamentMatch,
   } from "../lib/tournament.js";
-  import type { MatchResult, Squad } from "../lib/types.js";
+  import type { MatchResult, MatchScript, Squad } from "../lib/types.js";
   import MatchView from "./MatchView.svelte";
 
   let {
@@ -29,7 +29,7 @@
     active: boolean;
     liveScore: [number, number] | null;
     onToggle: () => void;
-    onResult: (r: MatchResult) => void;
+    onResult: (r: MatchResult, script?: MatchScript) => void;
     onClose: () => void;
   } = $props();
 
@@ -126,6 +126,7 @@
         onNext={onClose}
         regulationOnly={match.round === "group"}
         presetResult={match.result}
+        presetScript={match.script ?? null}
       />
     </div>
   {/if}

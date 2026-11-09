@@ -2,7 +2,7 @@ export const howToPlay = {
   en: {
     h1: "How to Play Eleven Fantasy",
     hero: [
-      "Build a fantasy World Cup XI from 100+ old squads. Then watch them play the greats in a simulated group stage and knockout tournament. Eleven Fantasy is a football simulator and a soccer draft game. You pick a formation. Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. You draft your dream team. The match engine simulates the world cup. You get the group stage, the knockout bracket, extra time and penalty shootouts.",
+      "Build a fantasy World Cup XI from 86 old squads. Then watch them play the greats in a simulated group stage and knockout tournament. Eleven Fantasy is a football simulator and a soccer draft game. You pick a formation. Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. You draft your dream team. The match engine simulates the world cup. You get the group stage, the knockout bracket, extra time and penalty shootouts.",
       "It is a world cup simulation and a penalty shootout simulator. It is built around the app. You can predict your own tournament online. It is free. It is in the browser. In the US, players find it as a soccer draft game, an online soccer game or a free soccer simulation game. Elsewhere, it is the fantasy soccer draft and interactive soccer simulator they like. No download. No sign-up. It is the easiest browser soccer game to learn fast.",
       "The guide below shows every step. The FAQ tells how the soccer simulator decides matches and how penalty shootouts work.",
     ],
@@ -16,7 +16,7 @@ export const howToPlay = {
       {
         n: "2",
         title: "Draft your XI",
-        body: "The draft runs 12 rounds: 11 starters plus 1 bench spot. Each round you're offered a random nation + year roster filtered to your remaining slots. Use up to 3 rerolls (same nation, different year / different nation) before picking. Place each player onto a pitch slot — best-position slots are starred. Players carry tier badges (elite / star / standard) and chemistry updates as your squad forms.",
+        body: "The draft runs 12 rounds: 11 starters plus 1 bench spot. Each round you're offered a random nation + year roster filtered to your remaining slots. You have 3 rerolls for the whole draft (same nation, different year / different nation) — spend them carefully. Place each player onto a pitch slot — best-position slots are starred. Players carry tier badges (elite / star / standard) and chemistry updates as your squad forms.",
       },
       {
         n: "3",
@@ -46,7 +46,7 @@ export const howToPlay = {
     faq: [
       {
         q: "What is Eleven Fantasy?",
-        a: "It is a free browser soccer game and a fantasy soccer draft tool. You build a dream XI from 100+ old World Cup squads. The app simulates a full tournament. You get the group stage, the knockout bracket and penalty shootouts. It predicts your final result.",
+        a: "It is a free browser soccer game and a fantasy soccer draft tool. You build a dream XI from 86 old World Cup squads. The app simulates a full tournament. You get the group stage, the knockout bracket and penalty shootouts. It predicts your final result.",
       },
       {
         q: "How does the football simulation work?",
@@ -85,7 +85,7 @@ export const howToPlay = {
       {
         n: "2",
         title: "Draft dein XI",
-        body: "Der Draft läuft 12 Runden: 11 Starter plus 1 Bankplatz. Jede Runde wird dir ein zufälliger Kader aus Nation + Jahr angeboten, gefiltert auf deine freien Plätze. Nutze bis zu 3 Neuwürfe (gleiche Nation, anderes Jahr / andere Nation), bevor du wählst. Setze jeden Spieler auf einen Platz — Bestpositionen sind sternmarkiert. Spieler haben Tier-Badges (elite / star / standard) und die Chemie aktualisiert sich, während dein Kader entsteht.",
+        body: "Der Draft läuft 12 Runden: 11 Starter plus 1 Bankplatz. Jede Runde wird dir ein zufälliger Kader aus Nation + Jahr angeboten, gefiltert auf deine freien Plätze. Du hast 3 Neuwürfe für den gesamten Draft (gleiche Nation, anderes Jahr / andere Nation) — setze sie gezielt ein. Setze jeden Spieler auf einen Platz — Bestpositionen sind sternmarkiert. Spieler haben Tier-Badges (elite / star / standard) und die Chemie aktualisiert sich, während dein Kader entsteht.",
       },
       {
         n: "3",
@@ -154,7 +154,7 @@ export const howToPlay = {
       {
         n: "2",
         title: "Draftz votre XI",
-        body: "Le draft dure 12 tours : 11 titulaires plus 1 banc. Chaque tour propose un effectif aléatoire nation + année filtré sur vos places restantes. Utilisez jusqu'à 3 relances (même nation, autre année / autre nation) avant de choisir. Placez chaque joueur sur un emplacement — les meilleurs postes sont étoilés. Les joueurs ont des badges de tier (elite / star / standard) et la chimie se met à jour.",
+        body: "Le draft dure 12 tours : 11 titulaires plus 1 banc. Chaque tour propose un effectif aléatoire nation + année filtré sur vos places restantes. Vous disposez de 3 relances pour tout le draft (même nation, autre année / autre nation) — utilisez-les avec soin. Placez chaque joueur sur un emplacement — les meilleurs postes sont étoilés. Les joueurs ont des badges de tier (elite / star / standard) et la chimie se met à jour.",
       },
       {
         n: "3",
@@ -223,7 +223,7 @@ export const howToPlay = {
       {
         n: "2",
         title: "XIをドラフト",
-        body: "ドラフトは12回：先発11人＋ベンチ1。各ラウンド、残り枠に応じて国＋年のロースターがランダム提示される。選ぶ前に最大3回のリロール（同じ国別年／別国）が使える。各選手を枠へ。最良ポジションは星印。選手はティアバッジ（elite/star/standard）を持ち、ケミストリーはチーム形成で更新される。",
+        body: "ドラフトは12回：先発11人＋ベンチ1。各ラウンド、残り枠に応じて国＋年のロースターがランダム提示される。リロールはドラフト全体で3回（同じ国の別年／別の国）——使いどころを選ぼう。各選手を枠へ。最良ポジションは星印。選手はティアバッジ（elite/star/standard）を持ち、ケミストリーはチーム形成で更新される。",
       },
       {
         n: "3",
@@ -292,7 +292,7 @@ export const howToPlay = {
       {
         n: "2",
         title: "Drafta tu XI",
-        body: "El draft dura 12 rondas: 11 titulares más 1 banco. Cada ronda se ofrece un plantilla aleatoria nación + año filtrada a tus puestos libres. Usa hasta 3 rerolls (misma nación, otro año / otra nación) antes de elegir. Coloca a cada jugador en un casillero — los mejores puestos tienen estrella. Los jugadores traen badges de tier (elite / star / standard) y la química se actualiza.",
+        body: "El draft dura 12 rondas: 11 titulares más 1 banco. Cada ronda se ofrece un plantilla aleatoria nación + año filtrada a tus puestos libres. Tienes 3 rerolls para todo el draft (misma nación, otro año / otra nación) — úsalos con cuidado. Coloca a cada jugador en un casillero — los mejores puestos tienen estrella. Los jugadores traen badges de tier (elite / star / standard) y la química se actualiza.",
       },
       {
         n: "3",

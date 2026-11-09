@@ -52,6 +52,7 @@ export const BRAZIL_2018: Squad = {
       dribble: 91,
       workRate: 87,
       stamina: 85,
+      aerial: 74,
       composure: 87,
     },
     {

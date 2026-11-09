@@ -1,6 +1,6 @@
 export const SCALE = 20;
-export const BASE_MAX_SHOTS = 4.0;
-export const MAX_SHOTS_CLAMP: [number, number] = [0, 7];
+export const BASE_MAX_SHOTS = 3.6;
+export const MAX_SHOTS_CLAMP: [number, number] = [0, 4];
 export const CHAOS_FACTOR = 0.3;
 export const POSSESSION_SWING_BASE = 0.03;
 export const POSSESSION_SWING_PER_GAP = 0.02;

@@ -52,13 +52,12 @@ const config =
 
 for (let i = 0; i < N; i++) {
   const r = simulateMatch(a, b, config);
-  const penGoals =
-    r.penalties && r.penaltyScore ? r.penaltyScore[0] + r.penaltyScore[1] : 0;
-  const total = r.score[0] + r.score[1] - penGoals;
+  // result.score is regulation + extra time; shootout goals are separate.
+  const total = r.score[0] + r.score[1];
   totalGoals += total;
   shotsSum += r.shots[0] + r.shots[1];
   sotSum += r.shotsOnTarget[0] + r.shotsOnTarget[1];
-  convSum += r.score[0] + r.score[1] - penGoals;
+  convSum += total;
   convN += r.shotsOnTarget[0] + r.shotsOnTarget[1];
   if (total > 4) highScoring++;
   if (r.extraTime) et++;

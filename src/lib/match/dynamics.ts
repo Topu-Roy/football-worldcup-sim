@@ -94,6 +94,7 @@ export function effectiveStats(
   trailing: boolean,
   isET: boolean,
   desperationScale = 1,
+  chaosFactor = CHAOS_FACTOR,
 ): EffectiveStats {
   const d = desperation(
     scoreDiff,
@@ -106,7 +107,7 @@ export function effectiveStats(
 
   let finishing = strengths.finishing * (1 - d.finishingPenalty) * staminaMult;
   if (isET && stamina < 0.5) {
-    const chaos = (1 - stamina) * CHAOS_FACTOR * (Math.random() * 2 - 1);
+    const chaos = (1 - stamina) * chaosFactor * (Math.random() * 2 - 1);
     finishing = finishing * (1 + chaos);
   }
 

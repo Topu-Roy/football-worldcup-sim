@@ -1,13 +1,19 @@
 <script lang="ts">
   import FormationPicker from "./FormationPicker.svelte";
   import DraftApp from "./DraftApp.svelte";
+  import { loadGame, clearGame, type SavedGame } from "../lib/gameSession.js";
   import type { Formation } from "../lib/types.js";
 
   type Tab = "formations" | "play";
 
-  let tab = $state<Tab>("formations");
-  let formation = $state<Formation | null>(null);
-  let formationKey = $state("");
+  // This shell only renders on the client, so reading storage during
+  // initialisation is safe (no SSR/hydration mismatch).
+  const saved = loadGame();
+
+  let initialGame = $state<SavedGame | null>(saved);
+  let tab = $state<Tab>(saved ? "play" : "formations");
+  let formation = $state<Formation | null>(saved?.formation ?? null);
+  let formationKey = $state(saved?.formationKey ?? "");
 
   function pickFormation(key: string, f: Formation) {
     const changed =
@@ -22,6 +28,8 @@
       return;
     }
     if (changed) {
+      initialGame = null;
+      clearGame();
       formation = f;
       formationKey = key;
     }
@@ -33,6 +41,8 @@
   }
 
   function resetAll() {
+    initialGame = null;
+    clearGame();
     formation = null;
     formationKey = "";
     tab = "formations";
@@ -52,7 +62,14 @@
 
   <div class:hidden={tab !== "play"}>
     {#if formation && formationKey}
-      <DraftApp {formation} {formationKey} onBack={goToFormations} />
+      {#key formationKey}
+        <DraftApp
+          {formation}
+          {formationKey}
+          initial={initialGame}
+          onBack={goToFormations}
+        />
+      {/key}
     {:else}
       <div
         class="flex min-h-[50vh] flex-col items-center justify-center gap-4 px-4 text-center"

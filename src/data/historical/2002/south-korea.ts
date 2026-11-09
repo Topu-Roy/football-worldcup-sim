@@ -192,6 +192,7 @@ export const SOUTH_KOREA_2002: Squad = {
       dribble: 78,
       workRate: 93,
       stamina: 95,
+      aerial: 76,
       composure: 81,
     },
     {

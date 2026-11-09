@@ -18,12 +18,12 @@ export const meta: Record<
     home: {
       title: "Eleven Fantasy - Draft Historical Squads, Simulate the World Cup",
       description:
-        "Build your fantasy World Cup dream team from 100+ historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free browser-based fantasy football simulator - no download, no sign-up.",
+        "Build your fantasy World Cup dream team from 86 historical squads (1970-2026), then watch them face the all-time greats in a simulated knockout tournament. Free browser-based fantasy football simulator - no download, no sign-up.",
     },
     about: {
       title: "What Is Eleven Fantasy? - Free Fantasy Football World Cup Game",
       description:
-        "Eleven Fantasy is a free browser game where you draft a fantasy World Cup XI from 100+ historical squads (1970-2026) and run them through a simulated knockout tournament. Draft, simulate, replay.",
+        "Eleven Fantasy is a free browser game where you draft a fantasy World Cup XI from 86 historical squads (1970-2026) and run them through a simulated knockout tournament. Draft, simulate, replay.",
     },
     howToPlay: {
       title: "How to Play Eleven Fantasy - Free Guide",

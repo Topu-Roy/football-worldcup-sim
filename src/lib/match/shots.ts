@@ -23,6 +23,7 @@ export function buildSegmentShots(
   isET: boolean,
   desperationScale: number,
   maxShotsClamp: [number, number],
+  chaosFactor?: number,
 ): SegmentShot[] {
   const t0 = states[0];
   const t1 = states[1];
@@ -43,6 +44,7 @@ export function buildSegmentShots(
     score[0] < score[1],
     isET,
     desperationScale,
+    chaosFactor,
   );
   const s1 = effectiveStats(
     t1.strengths,
@@ -53,15 +55,16 @@ export function buildSegmentShots(
     score[1] < score[0],
     isET,
     desperationScale,
+    chaosFactor,
   );
 
-  const shots0 = Math.min(
+  const clampShots = (n: number): number =>
+    Math.max(maxShotsClamp[0], Math.min(n, maxShotsClamp[1]));
+  const shots0 = clampShots(
     poisson(possession * maxShotsFor(s0.attack, s1.defense, base)),
-    maxShotsClamp[1],
   );
-  const shots1 = Math.min(
+  const shots1 = clampShots(
     poisson((1 - possession) * maxShotsFor(s1.attack, s0.defense, base)),
-    maxShotsClamp[1],
   );
 
   const list: SegmentShot[] = [];
