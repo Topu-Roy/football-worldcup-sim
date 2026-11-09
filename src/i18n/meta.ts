@@ -1,38 +1,6 @@
 import type { Locale } from "./config";
-import { HISTORICAL_SQUADS } from "../data/historical/index";
-import { playerRating } from "../lib/draft/rating";
-import { FORMATIONS } from "../lib/types";
 
 export type PageMeta = { title: string; description: string };
-
-function teamExtras(
-  nation: string,
-  year: string,
-): { names: string[]; form: string } {
-  const s = HISTORICAL_SQUADS.find(
-    (x) =>
-      x.name.replace(/\s+\d{4}$/, "") === nation && String(x.wcYear) === year,
-  );
-  if (!s) return { names: [], form: "4-3-3" };
-  const names = [...s.players]
-    .sort((a, b) => playerRating(b) - playerRating(a))
-    .slice(0, 3)
-    .map((p) => p.name);
-  let form = "4-3-3";
-  for (const k of Object.keys(FORMATIONS)) {
-    const v = FORMATIONS[k];
-    if (
-      v.GK === s.formation.GK &&
-      v.DEF === s.formation.DEF &&
-      v.MID === s.formation.MID &&
-      v.ATT === s.formation.ATT
-    ) {
-      form = k;
-      break;
-    }
-  }
-  return { names, form };
-}
 
 export const meta: Record<
   Locale,
@@ -44,7 +12,6 @@ export const meta: Record<
     privacy: PageMeta;
     terms: PageMeta;
     teams: (count: number) => PageMeta;
-    team: (nation: string, year: string) => PageMeta;
   }
 > = {
   en: {
@@ -82,13 +49,6 @@ export const meta: Record<
       title: "All Historical Squads - Eleven Fantasy",
       description: `Browse all ${count} historical World Cup teams from 1970 to 2026 with player ratings, from Brazil 1970 to Argentina 2022. Draft any squad in the Eleven Fantasy simulator.`,
     }),
-    team: (nation, year) => {
-      const { names, form } = teamExtras(nation, year);
-      return {
-        title: `${nation} ${year} Squad - Eleven Fantasy`,
-        description: `See the ${nation} ${year} World Cup squad${names.length ? `: ${names.join(", ")}` : ""}. Full roster, player ratings and a ${form} formation. Draft this historical team in Eleven Fantasy.`,
-      };
-    },
   },
   de: {
     home: {
@@ -125,13 +85,6 @@ export const meta: Record<
       title: "Alle historischen Mannschaften - Eleven Fantasy",
       description: `Stöbere durch alle ${count} historischen World-Cup-Mannschaften von 1970 bis 2026 mit Spielerbewertungen, von Brasilien 1970 bis Argentinien 2022. Stelle jede Mannschaft im Eleven Fantasy Simulator auf.`,
     }),
-    team: (nation, year) => {
-      const { names, form } = teamExtras(nation, year);
-      return {
-        title: `${nation} ${year} - Eleven Fantasy`,
-        description: `${nation} ${year}: WM-Kader${names.length ? ` mit ${names.join(", ")}` : ""}. Voller Kader, Spielerbewertungen und ${form}-Formation. Stelle dieses historische ${nation}-Team in Eleven Fantasy auf.`,
-      };
-    },
   },
   fr: {
     home: {
@@ -170,13 +123,6 @@ export const meta: Record<
       title: "Toutes les équipes historiques - Eleven Fantasy",
       description: `Parcourez toutes les ${count} équipes historiques de Coupe du Monde de 1970 à 2026 avec les notes des joueurs, du Brésil 1970 à l'Argentine 2022. Composez n'importe quelle équipe dans le simulateur Eleven Fantasy.`,
     }),
-    team: (nation, year) => {
-      const { names, form } = teamExtras(nation, year);
-      return {
-        title: `Équipe ${nation} ${year} - Eleven Fantasy`,
-        description: `${nation} ${year} : l'équipe du Mondial${names.length ? ` avec ${names.join(", ")}` : ""}. Effectif complet, notes des joueurs et formation ${form}. Composez cette équipe historique dans Eleven Fantasy.`,
-      };
-    },
   },
   ja: {
     home: {
@@ -214,13 +160,6 @@ export const meta: Record<
       title: "すべての歴代チーム - Eleven Fantasy",
       description: `1970年から2026年までの歴代ワールドカップチーム${count}を選手レーティング付きで見る。ブラジル1970からアルゼンチン2022まで。Eleven Fantasyシミュレーターで任意のチームをドラフト。`,
     }),
-    team: (nation, year) => {
-      const { names, form } = teamExtras(nation, year);
-      return {
-        title: `${nation} ${year} 代表 - Eleven Fantasy`,
-        description: `${nation} ${year} ワールドカップ代表${names.length ? `：${names.join("、")}ら` : ""}。全選手とレーティング、${form}フォーメーション。この歴代チームを Eleven Fantasy でドラフト。`,
-      };
-    },
   },
   es: {
     home: {
@@ -257,12 +196,5 @@ export const meta: Record<
       title: "Todos los equipos históricos - Eleven Fantasy",
       description: `Explora los ${count} equipos históricos del Mundial de 1970 a 2026 con valoraciones, del Brasil 1970 a la Argentina 2022. Arma cualquier equipo en el simulador Eleven Fantasy.`,
     }),
-    team: (nation, year) => {
-      const { names, form } = teamExtras(nation, year);
-      return {
-        title: `Equipo ${nation} ${year} - Eleven Fantasy`,
-        description: `${nation} ${year}: el equipo del Mundial${names.length ? ` con ${names.join(", ")}` : ""}. Plantilla completa, valoraciones y formación ${form}. Arma este histórico equipo en Eleven Fantasy.`,
-      };
-    },
   },
 };
