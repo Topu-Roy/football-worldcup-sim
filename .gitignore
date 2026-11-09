@@ -7,6 +7,10 @@ dist/
 # dependencies
 node_modules/
 
+# generated reports
+top-players.md
+top-players-by-department.md
+
 # logs
 npm-debug.log*
 yarn-debug.log*
