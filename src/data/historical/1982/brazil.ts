@@ -220,6 +220,7 @@ export const BRAZIL_1982: Squad = {
       finishing: 74,
       offBall: 75,
       composure: 72,
+      aerial: 64,
     },
     {
       id: "bra-1982-eduvaldo",
@@ -234,6 +235,7 @@ export const BRAZIL_1982: Squad = {
       passing: 71,
       pace: 79,
       composure: 71,
+      stamina: 82,
     },
     {
       id: "bra-1982-paulo-sergio",

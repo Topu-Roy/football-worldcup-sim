@@ -23,6 +23,7 @@ export const CAMEROON_1990: Squad = {
       finishing: 87,
       offBall: 87,
       composure: 90,
+      aerial: 72,
     },
     {
       id: "cmr-1990-omam-biyik",
@@ -297,6 +298,7 @@ export const CAMEROON_1990: Squad = {
       finishing: 70,
       offBall: 72,
       composure: 70,
+      aerial: 76,
     },
     {
       id: "cmr-1990-joseph-antoine-bell",

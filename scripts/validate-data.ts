@@ -10,6 +10,22 @@ const STAT_KEYS: Record<string, string[]> = {
   ATT: ["finishing", "dribble", "pace", "offBall"],
 };
 
+/** Every attribute used by roleRating for the player's best position. */
+const ROLE_KEYS: Record<string, string[]> = {
+  GK: ["reflexes", "positioning", "distribution", "composure"],
+  CB: ["tackling", "aerial", "passing", "composure"],
+  LB: ["pace", "tackling", "passing", "stamina", "composure"],
+  RB: ["pace", "tackling", "passing", "stamina", "composure"],
+  CDM: ["tackling", "passing", "workRate", "stamina", "composure"],
+  CM: ["passing", "workRate", "stamina", "dribble", "composure"],
+  CAM: ["passing", "dribble", "finishing", "workRate", "composure"],
+  LM: ["pace", "dribble", "passing", "workRate", "composure"],
+  RM: ["pace", "dribble", "passing", "workRate", "composure"],
+  ST: ["finishing", "offBall", "composure", "aerial"],
+  LW: ["pace", "dribble", "finishing", "composure"],
+  RW: ["pace", "dribble", "finishing", "composure"],
+};
+
 const ALL_SQUADS = [...HISTORICAL_SQUADS, ...GROUP_STAGE_SQUADS];
 
 let errors = 0;
@@ -76,6 +92,19 @@ for (const squad of ALL_SQUADS) {
     if (slotDepartment(p) === "MID" || slotDepartment(p) === "ATT") {
       if (p.stamina === undefined || p.stamina < 1 || p.stamina > 99) {
         console.error(`${tag}: ${p.name} (${slotDepartment(p)}) bad stamina`);
+        errors++;
+      }
+    }
+
+    for (const key of ROLE_KEYS[p.bestPosition] ?? []) {
+      const v = p[key as keyof Player] as number | undefined;
+      if (v === undefined) {
+        console.error(
+          `${tag}: ${p.name} (${p.bestPosition}) missing weighted ${key}`,
+        );
+        errors++;
+      } else if (v < 1 || v > 99) {
+        console.error(`${tag}: ${p.name} ${key}=${v} out of range 1-99`);
         errors++;
       }
     }

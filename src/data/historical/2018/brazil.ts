@@ -289,6 +289,7 @@ export const BRAZIL_2018: Squad = {
       stamina: 89,
       offBall: 90,
       composure: 86,
+      aerial: 80,
     },
     {
       id: "bra-2018-gabriel-jesus",
@@ -305,6 +306,7 @@ export const BRAZIL_2018: Squad = {
       stamina: 89,
       offBall: 88,
       composure: 79,
+      aerial: 72,
     },
   ],
 };

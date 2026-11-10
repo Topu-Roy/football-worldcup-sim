@@ -22,6 +22,7 @@ export const CROATIA_1998: Squad = {
       finishing: 95,
       offBall: 92,
       composure: 92,
+      aerial: 82,
     },
     {
       id: "cro-1998-bilic",
@@ -210,6 +211,7 @@ export const CROATIA_1998: Squad = {
       finishing: 82,
       offBall: 81,
       composure: 78,
+      aerial: 77,
     },
     {
       id: "cro-1998-maric",

@@ -22,6 +22,7 @@ export const BRAZIL_1970: Squad = {
       finishing: 96,
       offBall: 96,
       composure: 96,
+      aerial: 93,
     },
     {
       id: "bra-1970-jairzinho",
@@ -69,6 +70,7 @@ export const BRAZIL_1970: Squad = {
       finishing: 89,
       offBall: 94,
       composure: 88,
+      aerial: 75,
     },
     {
       id: "bra-1970-gerson",
@@ -300,6 +302,7 @@ export const BRAZIL_1970: Squad = {
       finishing: 82,
       offBall: 81,
       composure: 78,
+      aerial: 78,
     },
     {
       id: "bra-1970-dada-maravilha",
@@ -314,6 +317,7 @@ export const BRAZIL_1970: Squad = {
       finishing: 84,
       offBall: 86,
       composure: 77,
+      aerial: 75,
     },
     {
       id: "bra-1970-ado",

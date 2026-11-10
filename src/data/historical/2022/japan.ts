@@ -166,6 +166,7 @@ export const JAPAN_2022: Squad = {
       finishing: 69,
       offBall: 90,
       composure: 71,
+      aerial: 68,
     },
     {
       id: "jpn-2022-kubo",
@@ -196,6 +197,7 @@ export const JAPAN_2022: Squad = {
       finishing: 78,
       offBall: 82,
       composure: 77,
+      aerial: 63,
     },
     {
       id: "jpn-2022-minamino",
@@ -302,6 +304,7 @@ export const JAPAN_2022: Squad = {
       finishing: 72,
       offBall: 78,
       composure: 70,
+      aerial: 79,
     },
     {
       id: "jpn-2022-soma",

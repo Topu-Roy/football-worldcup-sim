@@ -84,6 +84,7 @@ export const URUGUAY_1970: Squad = {
       finishing: 82,
       offBall: 85,
       composure: 82,
+      aerial: 70,
     },
     {
       id: "uru-1970-ubinas",
@@ -212,6 +213,7 @@ export const URUGUAY_1970: Squad = {
       finishing: 76,
       offBall: 79,
       composure: 77,
+      aerial: 72,
     },
     {
       id: "uru-1970-montero-castillo",
@@ -298,6 +300,7 @@ export const URUGUAY_1970: Squad = {
       finishing: 73,
       offBall: 76,
       composure: 74,
+      aerial: 70,
     },
     {
       id: "uru-1970-walter-corbo",
@@ -337,6 +340,7 @@ export const URUGUAY_1970: Squad = {
       finishing: 72,
       offBall: 75,
       composure: 72,
+      aerial: 68,
     },
   ],
 };

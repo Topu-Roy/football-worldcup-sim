@@ -22,6 +22,7 @@ export const SPAIN_2010: Squad = {
       finishing: 95,
       offBall: 94,
       composure: 94,
+      aerial: 80,
     },
     {
       id: "esp-2010-iniesta",
@@ -36,6 +37,7 @@ export const SPAIN_2010: Squad = {
       workRate: 87,
       stamina: 90,
       composure: 93,
+      finishing: 84,
     },
     {
       id: "esp-2010-xavi",
@@ -91,6 +93,7 @@ export const SPAIN_2010: Squad = {
       passing: 88,
       pace: 90,
       composure: 92,
+      stamina: 91,
     },
     {
       id: "esp-2010-puyol",
@@ -119,6 +122,7 @@ export const SPAIN_2010: Squad = {
       workRate: 84,
       stamina: 86,
       composure: 90,
+      tackling: 85,
     },
     {
       id: "esp-2010-xabi-alonso",
@@ -133,6 +137,7 @@ export const SPAIN_2010: Squad = {
       workRate: 82,
       stamina: 86,
       composure: 90,
+      tackling: 79,
     },
     {
       id: "esp-2010-fabregas",
@@ -194,6 +199,7 @@ export const SPAIN_2010: Squad = {
       passing: 84,
       pace: 82,
       composure: 88,
+      stamina: 80,
     },
     {
       id: "esp-2010-mata",
@@ -225,6 +231,7 @@ export const SPAIN_2010: Squad = {
       finishing: 84,
       offBall: 84,
       composure: 80,
+      aerial: 82,
     },
     {
       id: "esp-2010-albiol",

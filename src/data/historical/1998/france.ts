@@ -262,6 +262,7 @@ export const FRANCE_1998: Squad = {
       finishing: 79,
       offBall: 79,
       composure: 80,
+      aerial: 83,
     },
     {
       id: "fra-1998-guivarch",

@@ -38,6 +38,7 @@ export const ITALY_1994: Squad = {
       finishing: 95,
       offBall: 92,
       composure: 90,
+      aerial: 84,
     },
     {
       id: "ita-1994-baresi",
@@ -94,6 +95,7 @@ export const ITALY_1994: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 84,
+      pace: 80,
     },
     {
       id: "ita-1994-zola",
@@ -109,6 +111,7 @@ export const ITALY_1994: Squad = {
       finishing: 80,
       offBall: 82,
       composure: 82,
+      aerial: 62,
     },
     {
       id: "ita-1994-signori",
@@ -124,6 +127,7 @@ export const ITALY_1994: Squad = {
       finishing: 84,
       offBall: 84,
       composure: 80,
+      aerial: 70,
     },
     {
       id: "ita-1994-conte",
@@ -228,6 +232,7 @@ export const ITALY_1994: Squad = {
       finishing: 80,
       offBall: 82,
       composure: 80,
+      aerial: 76,
     },
     {
       id: "ita-1994-berti",

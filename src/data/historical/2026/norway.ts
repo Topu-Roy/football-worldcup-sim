@@ -37,6 +37,7 @@ export const NORWAY_2026: Squad = {
       workRate: 82,
       stamina: 80,
       composure: 88,
+      finishing: 78,
     },
     {
       id: "nor-2026-nusa",
@@ -114,6 +115,7 @@ export const NORWAY_2026: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 80,
+      tackling: 82,
     },
     {
       id: "nor-2026-berge",
@@ -142,6 +144,7 @@ export const NORWAY_2026: Squad = {
       passing: 78,
       pace: 82,
       composure: 78,
+      stamina: 86,
     },
     {
       id: "nor-2026-thorstvedt",
@@ -225,6 +228,7 @@ export const NORWAY_2026: Squad = {
       passing: 76,
       pace: 80,
       composure: 74,
+      stamina: 86,
     },
     {
       id: "nor-2026-holmgren-pedersen",
@@ -239,6 +243,7 @@ export const NORWAY_2026: Squad = {
       passing: 74,
       pace: 78,
       composure: 74,
+      stamina: 83,
     },
   ],
 };

@@ -118,6 +118,7 @@ export const NIGERIA_1994: Squad = {
       finishing: 80,
       offBall: 80,
       composure: 77,
+      aerial: 70,
     },
     {
       id: "nga-1994-keshi",
@@ -210,6 +211,7 @@ export const NIGERIA_1994: Squad = {
       finishing: 79,
       offBall: 79,
       composure: 77,
+      aerial: 75,
     },
     {
       id: "nga-1994-eguavoen",

@@ -16,10 +16,10 @@ export const COSTA_RICA_2014: Squad = {
       positions: ["GK"],
       bestPosition: "GK",
       jerseyNumber: 1,
-      reflexes: 94,
-      positioning: 93,
-      distribution: 72,
-      composure: 94,
+      reflexes: 93,
+      positioning: 92,
+      distribution: 78,
+      composure: 93,
     },
     {
       id: "crc-2014-ruiz",
@@ -71,6 +71,7 @@ export const COSTA_RICA_2014: Squad = {
       finishing: 78,
       offBall: 84,
       composure: 81,
+      aerial: 74,
     },
     {
       id: "crc-2014-gonzalez",
@@ -235,6 +236,7 @@ export const COSTA_RICA_2014: Squad = {
       finishing: 72,
       offBall: 79,
       composure: 72,
+      aerial: 73,
     },
     {
       id: "crc-2014-barrantes",

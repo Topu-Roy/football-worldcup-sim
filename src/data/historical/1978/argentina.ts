@@ -24,6 +24,7 @@ export const ARGENTINA_1978: Squad = {
       finishing: 94,
       offBall: 94,
       composure: 93,
+      aerial: 88,
     },
     {
       id: "arg-1978-luque",
@@ -39,6 +40,7 @@ export const ARGENTINA_1978: Squad = {
       finishing: 89,
       offBall: 91,
       composure: 85,
+      aerial: 82,
     },
     {
       id: "arg-1978-gallego",
@@ -299,6 +301,7 @@ export const ARGENTINA_1978: Squad = {
       finishing: 75,
       offBall: 78,
       composure: 78,
+      aerial: 68,
     },
     {
       id: "arg-1978-daniel-killer",

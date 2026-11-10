@@ -18,8 +18,8 @@ export const GERMANY_2002: Squad = {
       jerseyNumber: 1,
       reflexes: 95,
       positioning: 96,
-      distribution: 87,
-      composure: 96,
+      distribution: 82,
+      composure: 95,
     },
     {
       id: "ger-2002-ballack",
@@ -52,6 +52,7 @@ export const GERMANY_2002: Squad = {
       finishing: 72,
       offBall: 80,
       composure: 85,
+      pace: 83,
     },
     {
       id: "ger-2002-metzelder",
@@ -114,6 +115,7 @@ export const GERMANY_2002: Squad = {
       finishing: 88,
       offBall: 90,
       composure: 82,
+      aerial: 90,
     },
     {
       id: "ger-2002-kehl",
@@ -206,6 +208,7 @@ export const GERMANY_2002: Squad = {
       finishing: 81,
       offBall: 82,
       composure: 80,
+      aerial: 68,
     },
     {
       id: "ger-2002-ziege",
@@ -238,6 +241,7 @@ export const GERMANY_2002: Squad = {
       finishing: 72,
       offBall: 78,
       composure: 78,
+      pace: 77,
     },
     {
       id: "ger-2002-asamoah",
@@ -253,6 +257,7 @@ export const GERMANY_2002: Squad = {
       finishing: 74,
       offBall: 76,
       composure: 73,
+      aerial: 80,
     },
     {
       id: "ger-2002-jancker",

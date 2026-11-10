@@ -23,6 +23,7 @@ export const WEST_GERMANY_1990: Squad = {
       finishing: 85,
       offBall: 90,
       composure: 94,
+      tackling: 87,
     },
     {
       id: "frg-1990-brehme",
@@ -57,6 +58,7 @@ export const WEST_GERMANY_1990: Squad = {
       finishing: 88,
       offBall: 89,
       composure: 85,
+      aerial: 88,
     },
     {
       id: "frg-1990-voller",
@@ -72,6 +74,7 @@ export const WEST_GERMANY_1990: Squad = {
       finishing: 88,
       offBall: 88,
       composure: 86,
+      aerial: 85,
     },
     {
       id: "frg-1990-kohler",
@@ -252,6 +255,7 @@ export const WEST_GERMANY_1990: Squad = {
       finishing: 75,
       offBall: 77,
       composure: 75,
+      aerial: 78,
     },
   ],
 };

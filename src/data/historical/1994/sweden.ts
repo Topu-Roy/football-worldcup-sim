@@ -38,6 +38,7 @@ export const SWEDEN_1994: Squad = {
       finishing: 88,
       offBall: 88,
       composure: 84,
+      aerial: 90,
     },
     {
       id: "swe-1994-dahlin",
@@ -53,6 +54,7 @@ export const SWEDEN_1994: Squad = {
       finishing: 88,
       offBall: 88,
       composure: 84,
+      aerial: 85,
     },
     {
       id: "swe-1994-schwarz",
@@ -67,6 +69,7 @@ export const SWEDEN_1994: Squad = {
       workRate: 90,
       stamina: 90,
       composure: 84,
+      tackling: 86,
     },
     {
       id: "swe-1994-larsson",
@@ -82,6 +85,7 @@ export const SWEDEN_1994: Squad = {
       finishing: 78,
       offBall: 80,
       composure: 76,
+      aerial: 76,
     },
     {
       id: "swe-1994-blomqvist",
@@ -211,6 +215,7 @@ export const SWEDEN_1994: Squad = {
       passing: 74,
       pace: 76,
       composure: 82,
+      stamina: 84,
     },
     {
       id: "swe-1994-ljung",
@@ -241,6 +246,7 @@ export const SWEDEN_1994: Squad = {
       passing: 70,
       pace: 78,
       composure: 76,
+      stamina: 80,
     },
   ],
 };

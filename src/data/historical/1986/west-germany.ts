@@ -22,6 +22,7 @@ export const WEST_GERMANY_1986: Squad = {
       finishing: 87,
       offBall: 87,
       composure: 89,
+      aerial: 82,
     },
     {
       id: "frg-1986-matthaeus",
@@ -36,6 +37,7 @@ export const WEST_GERMANY_1986: Squad = {
       workRate: 91,
       stamina: 91,
       composure: 88,
+      tackling: 87,
     },
     {
       id: "frg-1986-schumacher",
@@ -80,6 +82,7 @@ export const WEST_GERMANY_1986: Squad = {
       finishing: 84,
       offBall: 84,
       composure: 82,
+      aerial: 72,
     },
     {
       id: "frg-1986-foerster",
@@ -184,6 +187,7 @@ export const WEST_GERMANY_1986: Squad = {
       finishing: 73,
       offBall: 78,
       composure: 79,
+      pace: 85,
     },
     {
       id: "frg-1986-hoeness",

@@ -82,6 +82,7 @@ export const POLAND_1982: Squad = {
       finishing: 80,
       offBall: 83,
       composure: 80,
+      aerial: 85,
     },
     {
       id: "pol-1982-majewski",
@@ -110,6 +111,7 @@ export const POLAND_1982: Squad = {
       workRate: 87,
       stamina: 87,
       composure: 78,
+      pace: 76,
     },
     {
       id: "pol-1982-wojcicki",
@@ -219,6 +221,7 @@ export const POLAND_1982: Squad = {
       finishing: 80,
       offBall: 85,
       composure: 82,
+      aerial: 63,
     },
     {
       id: "pol-1982-jalocha",

@@ -36,6 +36,7 @@ export const FRANCE_2022: Squad = {
       workRate: 94,
       stamina: 91,
       composure: 90,
+      finishing: 84,
     },
     {
       id: "fra-2022-giroud",
@@ -48,9 +49,10 @@ export const FRANCE_2022: Squad = {
       pace: 62,
       dribble: 70,
       stamina: 79,
-      finishing: 91,
-      offBall: 91,
-      composure: 87,
+      finishing: 88,
+      offBall: 89,
+      composure: 85,
+      aerial: 91,
     },
     {
       id: "fra-2022-dembele",
@@ -166,6 +168,7 @@ export const FRANCE_2022: Squad = {
       passing: 83,
       pace: 85,
       composure: 84,
+      stamina: 84,
     },
     {
       id: "fra-2022-camavinga",
@@ -210,6 +213,7 @@ export const FRANCE_2022: Squad = {
       passing: 82,
       pace: 76,
       composure: 84,
+      stamina: 82,
     },
     {
       id: "fra-2022-thuram",

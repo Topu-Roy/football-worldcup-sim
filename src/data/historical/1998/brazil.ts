@@ -40,6 +40,7 @@ export const BRAZIL_1998: Squad = {
       finishing: 94,
       offBall: 94,
       composure: 88,
+      aerial: 86,
     },
     {
       id: "bra-1998-bebeto",
@@ -55,6 +56,7 @@ export const BRAZIL_1998: Squad = {
       finishing: 88,
       offBall: 90,
       composure: 88,
+      aerial: 72,
     },
     {
       id: "bra-1998-dunga",
@@ -211,6 +213,7 @@ export const BRAZIL_1998: Squad = {
       finishing: 84,
       offBall: 82,
       composure: 80,
+      aerial: 76,
     },
     {
       id: "bra-1998-giovanni",

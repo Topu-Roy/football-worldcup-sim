@@ -19,9 +19,10 @@ export const FRANCE_2026: Squad = {
       pace: 97,
       dribble: 95,
       stamina: 91,
-      finishing: 95,
-      offBall: 92,
-      composure: 92,
+      finishing: 96,
+      offBall: 93,
+      composure: 93,
+      aerial: 82,
     },
     {
       id: "fra-2026-dembele",
@@ -36,9 +37,9 @@ export const FRANCE_2026: Squad = {
       dribble: 91,
       workRate: 85,
       stamina: 86,
-      finishing: 88,
+      finishing: 90,
       offBall: 87,
-      composure: 84,
+      composure: 87,
     },
     {
       id: "fra-2026-saliba",
@@ -158,6 +159,7 @@ export const FRANCE_2026: Squad = {
       passing: 83,
       pace: 85,
       composure: 86,
+      stamina: 87,
     },
     {
       id: "fra-2026-rabiot",

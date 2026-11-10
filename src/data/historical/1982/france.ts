@@ -83,6 +83,7 @@ export const FRANCE_1982: Squad = {
       finishing: 84,
       offBall: 85,
       composure: 85,
+      aerial: 70,
     },
     {
       id: "fra-1982-amoros",
@@ -208,6 +209,7 @@ export const FRANCE_1982: Squad = {
       finishing: 77,
       offBall: 78,
       composure: 77,
+      aerial: 68,
     },
     {
       id: "fra-1982-ettori",

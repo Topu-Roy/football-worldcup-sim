@@ -17,13 +17,13 @@ export const BRAZIL_2026: Squad = {
       bestPosition: "LW",
       jerseyNumber: 10,
       passing: 86,
-      pace: 84,
-      dribble: 96,
+      pace: 76,
+      dribble: 90,
       workRate: 64,
       stamina: 62,
-      finishing: 88,
+      finishing: 84,
       offBall: 80,
-      composure: 90,
+      composure: 86,
     },
     {
       id: "bra-2026-vinicius",
@@ -34,12 +34,12 @@ export const BRAZIL_2026: Squad = {
       bestPosition: "LW",
       jerseyNumber: 7,
       passing: 82,
-      pace: 95,
+      pace: 94,
       dribble: 95,
       stamina: 80,
-      finishing: 86,
+      finishing: 85,
       offBall: 88,
-      composure: 84,
+      composure: 83,
     },
     {
       id: "bra-2026-gabriel-magalhaes",
@@ -157,6 +157,7 @@ export const BRAZIL_2026: Squad = {
       finishing: 82,
       offBall: 82,
       composure: 82,
+      aerial: 78,
     },
     {
       id: "bra-2026-casemiro",
@@ -186,6 +187,7 @@ export const BRAZIL_2026: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 78,
+      finishing: 76,
     },
     {
       id: "bra-2026-danilo",
@@ -200,6 +202,7 @@ export const BRAZIL_2026: Squad = {
       passing: 80,
       pace: 76,
       composure: 82,
+      stamina: 80,
     },
     {
       id: "bra-2026-douglas-santos",
@@ -214,6 +217,7 @@ export const BRAZIL_2026: Squad = {
       passing: 78,
       pace: 78,
       composure: 80,
+      stamina: 84,
     },
     {
       id: "bra-2026-endrick",
@@ -229,6 +233,7 @@ export const BRAZIL_2026: Squad = {
       finishing: 80,
       offBall: 78,
       composure: 74,
+      aerial: 67,
     },
     {
       id: "bra-2026-fabinho",

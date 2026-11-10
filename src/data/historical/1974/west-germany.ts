@@ -40,6 +40,7 @@ export const WEST_GERMANY_1974: Squad = {
       finishing: 92,
       offBall: 93,
       composure: 89,
+      aerial: 85,
     },
     {
       id: "frg-1974-maier",
@@ -284,6 +285,7 @@ export const WEST_GERMANY_1974: Squad = {
       finishing: 82,
       offBall: 84,
       composure: 80,
+      aerial: 80,
     },
     {
       id: "frg-1974-netzer",

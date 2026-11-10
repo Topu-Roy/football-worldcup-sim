@@ -16,13 +16,13 @@ export const PORTUGAL_2026: Squad = {
       positions: ["ST"],
       bestPosition: "ST",
       jerseyNumber: 7,
-      aerial: 84,
+      aerial: 81,
       pace: 58,
       dribble: 74,
       stamina: 50,
-      finishing: 91,
-      offBall: 87,
-      composure: 93,
+      finishing: 88,
+      offBall: 83,
+      composure: 89,
     },
     {
       id: "por-2026-ruben-dias",
@@ -108,6 +108,7 @@ export const PORTUGAL_2026: Squad = {
       workRate: 86,
       stamina: 84,
       composure: 86,
+      finishing: 79,
     },
     {
       id: "por-2026-rafael-leao",
@@ -197,6 +198,7 @@ export const PORTUGAL_2026: Squad = {
       passing: 78,
       pace: 82,
       composure: 80,
+      stamina: 82,
     },
     {
       id: "por-2026-goncalo-ramos",
@@ -242,6 +244,7 @@ export const PORTUGAL_2026: Squad = {
       passing: 80,
       pace: 82,
       composure: 80,
+      stamina: 86,
     },
     {
       id: "por-2026-ruben-neves",
@@ -255,6 +258,7 @@ export const PORTUGAL_2026: Squad = {
       workRate: 76,
       stamina: 78,
       composure: 84,
+      tackling: 79,
     },
     {
       id: "por-2026-matheus-nunes",

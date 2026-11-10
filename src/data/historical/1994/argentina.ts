@@ -71,6 +71,7 @@ export const ARGENTINA_1994: Squad = {
       offBall: 86,
       composure: 85,
       passing: 76,
+      aerial: 66,
     },
     {
       id: "arg-1994-ruggeri",
@@ -226,6 +227,7 @@ export const ARGENTINA_1994: Squad = {
       finishing: 74,
       offBall: 73,
       composure: 73,
+      aerial: 76,
     },
     {
       id: "arg-1994-vazquez",

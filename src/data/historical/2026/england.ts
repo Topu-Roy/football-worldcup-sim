@@ -35,9 +35,10 @@ export const ENGLAND_2026: Squad = {
       pace: 74,
       dribble: 79,
       stamina: 86,
-      finishing: 91,
-      offBall: 89,
-      composure: 90,
+      finishing: 94,
+      offBall: 93,
+      composure: 93,
+      aerial: 88,
     },
     {
       id: "eng-2026-rice",
@@ -313,6 +314,7 @@ export const ENGLAND_2026: Squad = {
       finishing: 79,
       offBall: 86,
       composure: 76,
+      aerial: 80,
     },
     {
       id: "eng-2026-dean-henderson",

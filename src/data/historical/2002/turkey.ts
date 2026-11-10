@@ -83,6 +83,7 @@ export const TURKEY_2002: Squad = {
       finishing: 86,
       offBall: 92,
       composure: 86,
+      aerial: 88,
     },
     {
       id: "tur-2002-sas",

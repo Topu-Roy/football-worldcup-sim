@@ -22,6 +22,7 @@ export const ITALY_1982: Squad = {
       finishing: 95,
       offBall: 95,
       composure: 91,
+      aerial: 82,
     },
     {
       id: "ita-1982-conti",
@@ -80,6 +81,7 @@ export const ITALY_1982: Squad = {
       passing: 85,
       pace: 88,
       composure: 86,
+      stamina: 89,
     },
     {
       id: "ita-1982-tardelli",
@@ -122,6 +124,7 @@ export const ITALY_1982: Squad = {
       workRate: 76,
       stamina: 78,
       composure: 86,
+      finishing: 74,
     },
     {
       id: "ita-1982-gentile",
@@ -136,6 +139,7 @@ export const ITALY_1982: Squad = {
       passing: 72,
       pace: 78,
       composure: 89,
+      stamina: 85,
     },
     {
       id: "ita-1982-collovati",
@@ -165,6 +169,7 @@ export const ITALY_1982: Squad = {
       finishing: 83,
       offBall: 81,
       composure: 80,
+      aerial: 85,
     },
     {
       id: "ita-1982-graziani",
@@ -180,6 +185,7 @@ export const ITALY_1982: Squad = {
       finishing: 81,
       offBall: 85,
       composure: 81,
+      aerial: 79,
     },
     {
       id: "ita-1982-oriali",

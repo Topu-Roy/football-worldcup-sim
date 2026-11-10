@@ -272,6 +272,7 @@ export const BRAZIL_1974: Squad = {
       finishing: 85,
       offBall: 87,
       composure: 83,
+      aerial: 80,
     },
     {
       id: "bra-1974-nelinho",
@@ -317,6 +318,7 @@ export const BRAZIL_1974: Squad = {
       finishing: 78,
       offBall: 81,
       composure: 76,
+      aerial: 77,
     },
     {
       id: "bra-1974-marco-antonio",

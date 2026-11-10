@@ -49,6 +49,7 @@ export const ITALY_1990: Squad = {
       finishing: 90,
       offBall: 89,
       composure: 85,
+      aerial: 77,
     },
     {
       id: "ita-1990-baggio",
@@ -82,6 +83,7 @@ export const ITALY_1990: Squad = {
       finishing: 74,
       offBall: 82,
       composure: 84,
+      pace: 88,
     },
     {
       id: "ita-1990-bergomi",
@@ -113,6 +115,7 @@ export const ITALY_1990: Squad = {
       finishing: 83,
       offBall: 84,
       composure: 80,
+      aerial: 84,
     },
     {
       id: "ita-1990-giannini",
@@ -190,6 +193,7 @@ export const ITALY_1990: Squad = {
       finishing: 80,
       offBall: 81,
       composure: 83,
+      aerial: 74,
     },
     {
       id: "ita-1990-berti",
@@ -220,6 +224,7 @@ export const ITALY_1990: Squad = {
       finishing: 79,
       offBall: 80,
       composure: 78,
+      aerial: 86,
     },
     {
       id: "ita-1990-carnevale",

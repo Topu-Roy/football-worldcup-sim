@@ -19,9 +19,10 @@ export const ENGLAND_2018: Squad = {
       pace: 76,
       dribble: 78,
       stamina: 84,
-      finishing: 92,
+      finishing: 93,
       offBall: 92,
       composure: 88,
+      aerial: 88,
     },
     {
       id: "eng-2018-pickford",
@@ -159,6 +160,7 @@ export const ENGLAND_2018: Squad = {
       finishing: 82,
       offBall: 88,
       composure: 81,
+      aerial: 76,
     },
     {
       id: "eng-2018-young",
@@ -310,6 +312,7 @@ export const ENGLAND_2018: Squad = {
       finishing: 70,
       offBall: 78,
       composure: 74,
+      aerial: 81,
     },
   ],
 };

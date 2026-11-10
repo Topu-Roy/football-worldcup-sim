@@ -66,6 +66,7 @@ export const ARGENTINA_1990: Squad = {
       finishing: 86,
       offBall: 86,
       composure: 83,
+      aerial: 63,
     },
     {
       id: "arg-1990-burruchaga",
@@ -110,6 +111,7 @@ export const ARGENTINA_1990: Squad = {
       passing: 64,
       pace: 74,
       composure: 82,
+      stamina: 80,
     },
     {
       id: "arg-1990-giusti",
@@ -170,6 +172,7 @@ export const ARGENTINA_1990: Squad = {
       stamina: 77,
       finishing: 72,
       composure: 77,
+      pace: 78,
     },
     {
       id: "arg-1990-basualdo",

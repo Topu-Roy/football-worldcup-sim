@@ -22,6 +22,7 @@ export const WEST_GERMANY_1982: Squad = {
       finishing: 92,
       offBall: 87,
       composure: 88,
+      aerial: 88,
     },
     {
       id: "frg-1982-karl-heinz-forster",
@@ -97,6 +98,7 @@ export const WEST_GERMANY_1982: Squad = {
       finishing: 86,
       offBall: 86,
       composure: 83,
+      aerial: 88,
     },
     {
       id: "frg-1982-bernd-forster",

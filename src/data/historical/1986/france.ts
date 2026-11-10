@@ -111,6 +111,7 @@ export const FRANCE_1986: Squad = {
       passing: 80,
       pace: 80,
       composure: 84,
+      stamina: 84,
     },
     {
       id: "fra-1986-battiston",
@@ -140,6 +141,7 @@ export const FRANCE_1986: Squad = {
       finishing: 82,
       offBall: 84,
       composure: 80,
+      aerial: 79,
     },
     {
       id: "fra-1986-papin",
@@ -187,6 +189,7 @@ export const FRANCE_1986: Squad = {
       finishing: 79,
       offBall: 78,
       composure: 79,
+      aerial: 68,
     },
     {
       id: "fra-1986-vercruysse",
@@ -202,6 +205,7 @@ export const FRANCE_1986: Squad = {
       workRate: 75,
       stamina: 77,
       composure: 77,
+      finishing: 76,
     },
     {
       id: "fra-1986-bibard",

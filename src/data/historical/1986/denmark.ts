@@ -22,6 +22,7 @@ export const DENMARK_1986: Squad = {
       finishing: 89,
       offBall: 88,
       composure: 87,
+      aerial: 82,
     },
     {
       id: "den-1986-laudrup",

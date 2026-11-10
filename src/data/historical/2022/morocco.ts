@@ -95,6 +95,7 @@ export const MOROCCO_2022: Squad = {
       finishing: 88,
       offBall: 91,
       composure: 85,
+      aerial: 89,
     },
     {
       id: "mar-2022-saiss",
@@ -256,6 +257,7 @@ export const MOROCCO_2022: Squad = {
       finishing: 80,
       offBall: 84,
       composure: 78,
+      aerial: 76,
     },
     {
       id: "mar-2022-benoun",
@@ -284,6 +286,7 @@ export const MOROCCO_2022: Squad = {
       finishing: 74,
       offBall: 78,
       composure: 70,
+      aerial: 80,
     },
     {
       id: "mar-2022-jabrane",

@@ -67,6 +67,7 @@ export const BELGIUM_1986: Squad = {
       finishing: 85,
       offBall: 84,
       composure: 82,
+      aerial: 73,
     },
     {
       id: "bel-1986-vercauteren",
@@ -218,6 +219,7 @@ export const BELGIUM_1986: Squad = {
       finishing: 78,
       offBall: 78,
       composure: 77,
+      aerial: 82,
     },
     {
       id: "bel-1986-demol",
@@ -244,6 +246,7 @@ export const BELGIUM_1986: Squad = {
       workRate: 83,
       stamina: 82,
       composure: 76,
+      pace: 79,
     },
   ],
 };

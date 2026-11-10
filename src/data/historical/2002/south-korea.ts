@@ -66,6 +66,7 @@ export const SOUTH_KOREA_2002: Squad = {
       finishing: 85,
       offBall: 87,
       composure: 83,
+      aerial: 76,
     },
     {
       id: "kor-2002-cha-du-ri",

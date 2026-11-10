@@ -99,6 +99,7 @@ export const NETHERLANDS_2022: Squad = {
       finishing: 85,
       offBall: 84,
       composure: 84,
+      aerial: 72,
     },
     {
       id: "ned-2022-de-roon",
@@ -279,6 +280,7 @@ export const NETHERLANDS_2022: Squad = {
       finishing: 72,
       offBall: 78,
       composure: 75,
+      aerial: 80,
     },
     {
       id: "ned-2022-luuk-de-jong",

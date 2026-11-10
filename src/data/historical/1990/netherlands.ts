@@ -82,6 +82,7 @@ export const NETHERLANDS_1990: Squad = {
       finishing: 80,
       offBall: 80,
       composure: 78,
+      aerial: 90,
     },
     {
       id: "ned-1990-wouters",
@@ -175,6 +176,7 @@ export const NETHERLANDS_1990: Squad = {
       stamina: 76,
       finishing: 70,
       composure: 78,
+      pace: 82,
     },
     {
       id: "ned-1990-vanenburg",
@@ -190,6 +192,7 @@ export const NETHERLANDS_1990: Squad = {
       stamina: 68,
       finishing: 70,
       composure: 76,
+      pace: 86,
     },
     {
       id: "ned-1990-van-t-schip",

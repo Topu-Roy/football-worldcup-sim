@@ -22,6 +22,7 @@ export const NETHERLANDS_1998: Squad = {
       finishing: 91,
       offBall: 92,
       composure: 94,
+      aerial: 84,
     },
     {
       id: "ned-1998-overmars",
@@ -174,6 +175,7 @@ export const NETHERLANDS_1998: Squad = {
       finishing: 87,
       offBall: 86,
       composure: 82,
+      aerial: 86,
     },
     {
       id: "ned-1998-reiziger",

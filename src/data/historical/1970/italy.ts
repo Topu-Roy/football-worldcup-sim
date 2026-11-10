@@ -22,6 +22,7 @@ export const ITALY_1970: Squad = {
       finishing: 93,
       offBall: 88,
       composure: 87,
+      aerial: 88,
     },
     {
       id: "ita-1970-facchetti",
@@ -116,6 +117,7 @@ export const ITALY_1970: Squad = {
       finishing: 87,
       offBall: 87,
       composure: 84,
+      aerial: 82,
     },
     {
       id: "ita-1970-mazzola",

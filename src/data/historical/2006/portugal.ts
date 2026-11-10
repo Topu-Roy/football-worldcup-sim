@@ -17,13 +17,13 @@ export const PORTUGAL_2006: Squad = {
       bestPosition: "LW",
       jerseyNumber: 17,
       passing: 80,
-      pace: 95,
-      dribble: 93,
+      pace: 93,
+      dribble: 87,
       workRate: 80,
       stamina: 84,
-      finishing: 83,
+      finishing: 78,
       offBall: 86,
-      composure: 84,
+      composure: 78,
     },
     {
       id: "por-2006-carvalho",
@@ -56,6 +56,7 @@ export const PORTUGAL_2006: Squad = {
       finishing: 72,
       offBall: 82,
       composure: 90,
+      pace: 78,
     },
     {
       id: "por-2006-ricardo",
@@ -83,6 +84,7 @@ export const PORTUGAL_2006: Squad = {
       workRate: 82,
       stamina: 82,
       composure: 88,
+      finishing: 78,
     },
     {
       id: "por-2006-simao",
@@ -146,6 +148,7 @@ export const PORTUGAL_2006: Squad = {
       finishing: 80,
       offBall: 83,
       composure: 79,
+      aerial: 79,
     },
     {
       id: "por-2006-miguel",
@@ -178,6 +181,7 @@ export const PORTUGAL_2006: Squad = {
       finishing: 78,
       offBall: 82,
       composure: 80,
+      aerial: 81,
     },
     {
       id: "por-2006-petit",

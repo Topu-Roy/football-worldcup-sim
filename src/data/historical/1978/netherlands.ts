@@ -343,6 +343,7 @@ export const NETHERLANDS_1978: Squad = {
       finishing: 73,
       offBall: 77,
       composure: 74,
+      aerial: 74,
     },
   ],
 };

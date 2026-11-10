@@ -39,6 +39,7 @@ export const ARGENTINA_1986: Squad = {
       finishing: 88,
       offBall: 88,
       composure: 87,
+      aerial: 84,
     },
     {
       id: "arg-1986-burruchaga",
@@ -184,6 +185,7 @@ export const ARGENTINA_1986: Squad = {
       finishing: 82,
       offBall: 83,
       composure: 78,
+      aerial: 73,
     },
     {
       id: "arg-1986-olarticoechea",

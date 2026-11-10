@@ -66,6 +66,7 @@ export const POLAND_1974: Squad = {
       finishing: 88,
       offBall: 89,
       composure: 84,
+      aerial: 82,
     },
     {
       id: "pol-1974-gadocha",
@@ -221,6 +222,7 @@ export const POLAND_1974: Squad = {
       finishing: 80,
       offBall: 82,
       composure: 78,
+      aerial: 75,
     },
     {
       id: "pol-1974-bulzacki",
@@ -264,6 +266,7 @@ export const POLAND_1974: Squad = {
       finishing: 85,
       offBall: 86,
       composure: 84,
+      aerial: 78,
     },
     {
       id: "pol-1974-kusto",
@@ -322,6 +325,7 @@ export const POLAND_1974: Squad = {
       finishing: 72,
       offBall: 76,
       composure: 72,
+      aerial: 70,
     },
     {
       id: "pol-1974-ciolek",

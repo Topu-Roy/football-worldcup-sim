@@ -35,9 +35,9 @@ export const ARGENTINA_2014: Squad = {
       jerseyNumber: 14,
       tackling: 91,
       aerial: 76,
-      passing: 83,
+      passing: 86,
       pace: 72,
-      dribble: 73,
+      dribble: 76,
       workRate: 95,
       stamina: 94,
       offBall: 88,
@@ -74,6 +74,7 @@ export const ARGENTINA_2014: Squad = {
       finishing: 90,
       offBall: 91,
       composure: 87,
+      aerial: 68,
     },
     {
       id: "arg-2014-garay",
@@ -124,6 +125,7 @@ export const ARGENTINA_2014: Squad = {
       finishing: 87,
       offBall: 92,
       composure: 82,
+      aerial: 82,
     },
     {
       id: "arg-2014-romero",
@@ -268,6 +270,7 @@ export const ARGENTINA_2014: Squad = {
       finishing: 77,
       offBall: 86,
       composure: 78,
+      aerial: 73,
     },
     {
       id: "arg-2014-gago",

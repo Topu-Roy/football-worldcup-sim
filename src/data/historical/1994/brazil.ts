@@ -22,6 +22,7 @@ export const BRAZIL_1994: Squad = {
       finishing: 96,
       offBall: 94,
       composure: 90,
+      aerial: 85,
     },
     {
       id: "bra-1994-bebeto",
@@ -37,6 +38,7 @@ export const BRAZIL_1994: Squad = {
       finishing: 86,
       offBall: 88,
       composure: 86,
+      aerial: 72,
     },
     {
       id: "bra-1994-dunga",
@@ -51,6 +53,7 @@ export const BRAZIL_1994: Squad = {
       workRate: 88,
       stamina: 86,
       composure: 88,
+      tackling: 84,
     },
     {
       id: "bra-1994-aldair",
@@ -79,6 +82,7 @@ export const BRAZIL_1994: Squad = {
       workRate: 88,
       stamina: 86,
       composure: 84,
+      tackling: 88,
     },
     {
       id: "bra-1994-taffarel",
@@ -135,6 +139,7 @@ export const BRAZIL_1994: Squad = {
       passing: 78,
       pace: 82,
       composure: 80,
+      stamina: 87,
     },
     {
       id: "bra-1994-zinho",
@@ -149,6 +154,7 @@ export const BRAZIL_1994: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 80,
+      pace: 74,
     },
     {
       id: "bra-1994-rai",
@@ -194,6 +200,7 @@ export const BRAZIL_1994: Squad = {
       passing: 80,
       pace: 78,
       composure: 82,
+      stamina: 80,
     },
     {
       id: "bra-1994-mazinho",
@@ -208,6 +215,7 @@ export const BRAZIL_1994: Squad = {
       workRate: 84,
       stamina: 84,
       composure: 78,
+      pace: 76,
     },
     {
       id: "bra-1994-muller",
@@ -239,6 +247,7 @@ export const BRAZIL_1994: Squad = {
       finishing: 74,
       offBall: 76,
       composure: 72,
+      aerial: 76,
     },
   ],
 };

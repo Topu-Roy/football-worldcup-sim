@@ -217,6 +217,7 @@ export const COLOMBIA_2014: Squad = {
       finishing: 81,
       offBall: 84,
       composure: 79,
+      aerial: 78,
     },
     {
       id: "col-2014-zuniga",
@@ -282,6 +283,7 @@ export const COLOMBIA_2014: Squad = {
       finishing: 75,
       offBall: 82,
       composure: 78,
+      aerial: 81,
     },
     {
       id: "col-2014-ibarbo",

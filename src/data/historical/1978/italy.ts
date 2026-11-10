@@ -22,6 +22,7 @@ export const ITALY_1978: Squad = {
       finishing: 88,
       offBall: 89,
       composure: 86,
+      aerial: 68,
     },
     {
       id: "ita-1978-zoff",
@@ -66,6 +67,7 @@ export const ITALY_1978: Squad = {
       finishing: 87,
       offBall: 91,
       composure: 89,
+      aerial: 86,
     },
     {
       id: "ita-1978-tardelli",
@@ -324,6 +326,7 @@ export const ITALY_1978: Squad = {
       finishing: 81,
       offBall: 83,
       composure: 78,
+      aerial: 81,
     },
     {
       id: "ita-1978-paolo-conti",

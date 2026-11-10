@@ -67,6 +67,7 @@ export const BELGIUM_2018: Squad = {
       finishing: 90,
       offBall: 90,
       composure: 85,
+      aerial: 90,
     },
     {
       id: "bel-2018-alderweireld",
@@ -109,6 +110,7 @@ export const BELGIUM_2018: Squad = {
       workRate: 90,
       stamina: 92,
       composure: 87,
+      tackling: 84,
     },
     {
       id: "bel-2018-kompany",
@@ -158,6 +160,7 @@ export const BELGIUM_2018: Squad = {
       finishing: 82,
       offBall: 85,
       composure: 83,
+      aerial: 62,
     },
     {
       id: "bel-2018-chadli",
@@ -281,6 +284,7 @@ export const BELGIUM_2018: Squad = {
       finishing: 82,
       offBall: 84,
       composure: 76,
+      aerial: 80,
     },
     {
       id: "bel-2018-boyata",

@@ -22,6 +22,7 @@ export const URUGUAY_2010: Squad = {
       finishing: 92,
       offBall: 92,
       composure: 92,
+      aerial: 84,
     },
     {
       id: "uru-2010-suarez",
@@ -37,6 +38,7 @@ export const URUGUAY_2010: Squad = {
       finishing: 91,
       offBall: 90,
       composure: 88,
+      aerial: 82,
     },
     {
       id: "uru-2010-godin",
@@ -79,6 +81,7 @@ export const URUGUAY_2010: Squad = {
       workRate: 92,
       stamina: 92,
       composure: 82,
+      tackling: 84,
     },
     {
       id: "uru-2010-perez",
@@ -93,6 +96,7 @@ export const URUGUAY_2010: Squad = {
       workRate: 90,
       stamina: 90,
       composure: 84,
+      tackling: 86,
     },
     {
       id: "uru-2010-muslera",
@@ -120,6 +124,7 @@ export const URUGUAY_2010: Squad = {
       workRate: 88,
       stamina: 88,
       composure: 82,
+      pace: 82,
     },
     {
       id: "uru-2010-cavani",
@@ -137,6 +142,7 @@ export const URUGUAY_2010: Squad = {
       finishing: 80,
       offBall: 84,
       composure: 84,
+      aerial: 87,
     },
     {
       id: "uru-2010-fucile",
@@ -151,6 +157,7 @@ export const URUGUAY_2010: Squad = {
       passing: 76,
       pace: 84,
       composure: 82,
+      stamina: 84,
     },
     {
       id: "uru-2010-pereira-maxi",
@@ -165,6 +172,7 @@ export const URUGUAY_2010: Squad = {
       passing: 78,
       pace: 86,
       composure: 82,
+      stamina: 88,
     },
     {
       id: "uru-2010-caceres",
@@ -180,6 +188,7 @@ export const URUGUAY_2010: Squad = {
       pace: 80,
       workRate: 82,
       composure: 78,
+      stamina: 82,
     },
     {
       id: "uru-2010-lodeiro",

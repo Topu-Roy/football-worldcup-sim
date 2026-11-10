@@ -31,8 +31,8 @@ export const CROATIA_2022: Squad = {
       bestPosition: "GK",
       jerseyNumber: 1,
       reflexes: 92,
-      positioning: 91,
-      distribution: 83,
+      positioning: 90,
+      distribution: 80,
       composure: 91,
     },
     {
@@ -107,6 +107,7 @@ export const CROATIA_2022: Squad = {
       finishing: 87,
       offBall: 87,
       composure: 86,
+      aerial: 76,
     },
     {
       id: "cro-2022-lovren",
@@ -229,6 +230,7 @@ export const CROATIA_2022: Squad = {
       finishing: 80,
       offBall: 84,
       composure: 81,
+      aerial: 90,
     },
     {
       id: "cro-2022-vlasic",
@@ -258,6 +260,7 @@ export const CROATIA_2022: Squad = {
       finishing: 80,
       offBall: 82,
       composure: 79,
+      aerial: 80,
     },
     {
       id: "cro-2022-barisic",

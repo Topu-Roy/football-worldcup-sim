@@ -22,6 +22,7 @@ export const ENGLAND_1990: Squad = {
       finishing: 92,
       offBall: 92,
       composure: 90,
+      aerial: 85,
     },
     {
       id: "eng-1990-gascoigne",
@@ -110,6 +111,7 @@ export const ENGLAND_1990: Squad = {
       finishing: 78,
       offBall: 84,
       composure: 82,
+      aerial: 62,
     },
     {
       id: "eng-1990-barnes",
@@ -126,6 +128,7 @@ export const ENGLAND_1990: Squad = {
       finishing: 76,
       offBall: 80,
       composure: 80,
+      pace: 86,
     },
     {
       id: "eng-1990-wright",
@@ -172,6 +175,7 @@ export const ENGLAND_1990: Squad = {
       finishing: 72,
       offBall: 76,
       composure: 73,
+      pace: 85,
     },
     {
       id: "eng-1990-webb",
@@ -218,6 +222,7 @@ export const ENGLAND_1990: Squad = {
       finishing: 79,
       offBall: 80,
       composure: 76,
+      aerial: 82,
     },
     {
       id: "eng-1990-pearce",

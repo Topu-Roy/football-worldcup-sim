@@ -33,9 +33,10 @@ export const GERMANY_2010: Squad = {
       pace: 84,
       dribble: 80,
       stamina: 87,
-      finishing: 92,
-      offBall: 91,
-      composure: 91,
+      finishing: 91,
+      offBall: 87,
+      composure: 88,
+      aerial: 90,
     },
     {
       id: "ger-2010-ozil",
@@ -50,6 +51,7 @@ export const GERMANY_2010: Squad = {
       workRate: 80,
       stamina: 82,
       composure: 88,
+      finishing: 77,
     },
     {
       id: "ger-2010-lahm",
@@ -64,6 +66,7 @@ export const GERMANY_2010: Squad = {
       passing: 90,
       pace: 90,
       composure: 90,
+      stamina: 90,
     },
     {
       id: "ger-2010-neuer",
@@ -197,6 +200,7 @@ export const GERMANY_2010: Squad = {
       passing: 80,
       pace: 88,
       composure: 78,
+      stamina: 84,
     },
     {
       id: "ger-2010-badstuber",
@@ -241,6 +245,7 @@ export const GERMANY_2010: Squad = {
       finishing: 78,
       offBall: 80,
       composure: 78,
+      aerial: 78,
     },
   ],
 };

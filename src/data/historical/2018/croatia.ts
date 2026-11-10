@@ -160,6 +160,7 @@ export const CROATIA_2018: Squad = {
       finishing: 81,
       offBall: 87,
       composure: 82,
+      aerial: 76,
     },
     {
       id: "cro-2018-subasic",

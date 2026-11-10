@@ -113,6 +113,7 @@ export const SENEGAL_2002: Squad = {
       offBall: 79,
       stamina: 80,
       composure: 77,
+      aerial: 72,
     },
     {
       id: "sen-2002-fadiga",

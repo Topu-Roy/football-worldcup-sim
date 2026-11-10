@@ -68,6 +68,7 @@ export const BRAZIL_1978: Squad = {
       finishing: 89,
       offBall: 89,
       composure: 87,
+      aerial: 81,
     },
     {
       id: "bra-1978-nelinho",
@@ -150,6 +151,7 @@ export const BRAZIL_1978: Squad = {
       finishing: 86,
       offBall: 87,
       composure: 83,
+      aerial: 79,
     },
     {
       id: "bra-1978-amaral",
@@ -333,6 +335,7 @@ export const BRAZIL_1978: Squad = {
       finishing: 75,
       offBall: 79,
       composure: 76,
+      aerial: 72,
     },
     {
       id: "bra-1978-nelson-dida",

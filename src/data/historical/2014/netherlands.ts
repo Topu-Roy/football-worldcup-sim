@@ -34,9 +34,10 @@ export const NETHERLANDS_2014: Squad = {
       pace: 79,
       dribble: 84,
       stamina: 81,
-      finishing: 90,
-      offBall: 93,
-      composure: 89,
+      finishing: 88,
+      offBall: 91,
+      composure: 88,
+      aerial: 85,
     },
     {
       id: "ned-2014-vlaar",

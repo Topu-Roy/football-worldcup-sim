@@ -19,9 +19,10 @@ export const GERMANY_2006: Squad = {
       pace: 84,
       dribble: 80,
       stamina: 87,
-      finishing: 93,
-      offBall: 92,
-      composure: 92,
+      finishing: 91,
+      offBall: 88,
+      composure: 88,
+      aerial: 88,
     },
     {
       id: "ger-2006-ballack",
@@ -83,6 +84,7 @@ export const GERMANY_2006: Squad = {
       finishing: 88,
       offBall: 86,
       composure: 86,
+      aerial: 80,
     },
     {
       id: "ger-2006-frings",
@@ -114,6 +116,7 @@ export const GERMANY_2006: Squad = {
       finishing: 78,
       offBall: 82,
       composure: 84,
+      pace: 78,
     },
     {
       id: "ger-2006-schneider",
@@ -128,6 +131,7 @@ export const GERMANY_2006: Squad = {
       workRate: 84,
       stamina: 82,
       composure: 85,
+      pace: 77,
     },
     {
       id: "ger-2006-metzelder",
@@ -206,6 +210,7 @@ export const GERMANY_2006: Squad = {
       finishing: 81,
       offBall: 84,
       composure: 82,
+      aerial: 68,
     },
     {
       id: "ger-2006-huth",

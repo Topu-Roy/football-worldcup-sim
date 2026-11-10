@@ -16,12 +16,12 @@ export const ARGENTINA_2026: Squad = {
       positions: ["RW", "ST", "CAM"],
       bestPosition: "RW",
       jerseyNumber: 10,
-      pace: 82,
+      pace: 80,
       dribble: 99,
       stamina: 76,
-      finishing: 98,
+      finishing: 97,
       offBall: 95,
-      composure: 99,
+      composure: 98,
     },
     {
       id: "arg-2026-emiliano-martinez",
@@ -64,6 +64,7 @@ export const ARGENTINA_2026: Squad = {
       finishing: 88,
       offBall: 90,
       composure: 87,
+      aerial: 74,
     },
     {
       id: "arg-2026-romero",

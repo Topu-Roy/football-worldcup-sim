@@ -65,6 +65,7 @@ export const PORTUGAL_2018: Squad = {
       workRate: 84,
       stamina: 85,
       composure: 84,
+      tackling: 82,
     },
     {
       id: "por-2018-patricio",
@@ -236,6 +237,7 @@ export const PORTUGAL_2018: Squad = {
       finishing: 77,
       offBall: 79,
       composure: 75,
+      aerial: 84,
     },
     {
       id: "por-2018-bruno-fernandes",

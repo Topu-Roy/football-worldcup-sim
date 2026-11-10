@@ -19,9 +19,10 @@ export const BULGARIA_1994: Squad = {
       pace: 87,
       dribble: 90,
       stamina: 83,
-      finishing: 93,
-      offBall: 92,
+      finishing: 95,
+      offBall: 94,
       composure: 86,
+      aerial: 84,
     },
     {
       id: "bul-1994-balakov",
@@ -36,6 +37,7 @@ export const BULGARIA_1994: Squad = {
       workRate: 82,
       stamina: 84,
       composure: 86,
+      finishing: 78,
     },
     {
       id: "bul-1994-letchkov",
@@ -120,6 +122,7 @@ export const BULGARIA_1994: Squad = {
       workRate: 88,
       stamina: 88,
       composure: 80,
+      tackling: 84,
     },
     {
       id: "bul-1994-sirakov",
@@ -197,6 +200,7 @@ export const BULGARIA_1994: Squad = {
       passing: 65,
       pace: 75,
       composure: 74,
+      stamina: 78,
     },
     {
       id: "bul-1994-aleksandrov",
@@ -212,6 +216,7 @@ export const BULGARIA_1994: Squad = {
       finishing: 75,
       offBall: 76,
       composure: 73,
+      aerial: 78,
     },
     {
       id: "bul-1994-iliev",
@@ -226,6 +231,7 @@ export const BULGARIA_1994: Squad = {
       passing: 64,
       pace: 70,
       composure: 74,
+      stamina: 76,
     },
   ],
 };

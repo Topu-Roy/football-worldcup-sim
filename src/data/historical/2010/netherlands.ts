@@ -55,6 +55,7 @@ export const NETHERLANDS_2010: Squad = {
       finishing: 88,
       offBall: 88,
       composure: 86,
+      aerial: 83,
     },
     {
       id: "ned-2010-kuyt",
@@ -256,6 +257,7 @@ export const NETHERLANDS_2010: Squad = {
       pace: 78,
       workRate: 80,
       composure: 78,
+      stamina: 76,
     },
   ],
 };

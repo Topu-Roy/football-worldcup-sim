@@ -47,9 +47,10 @@ export const ARGENTINA_2022: Squad = {
       pace: 90,
       dribble: 87,
       stamina: 88,
-      finishing: 90,
-      offBall: 92,
+      finishing: 89,
+      offBall: 90,
       composure: 88,
+      aerial: 72,
     },
     {
       id: "arg-2022-mac-allister",
@@ -150,6 +151,7 @@ export const ARGENTINA_2022: Squad = {
       pace: 86,
       offBall: 82,
       composure: 82,
+      stamina: 84,
     },
     {
       id: "arg-2022-tagliafico",

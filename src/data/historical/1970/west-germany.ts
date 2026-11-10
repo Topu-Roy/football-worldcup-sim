@@ -22,6 +22,7 @@ export const WEST_GERMANY_1970: Squad = {
       finishing: 97,
       offBall: 96,
       composure: 92,
+      aerial: 92,
     },
     {
       id: "frg-1970-beckenbauer",
@@ -55,6 +56,7 @@ export const WEST_GERMANY_1970: Squad = {
       finishing: 87,
       offBall: 92,
       composure: 91,
+      aerial: 78,
     },
     {
       id: "frg-1970-maier",
@@ -178,6 +180,7 @@ export const WEST_GERMANY_1970: Squad = {
       finishing: 84,
       offBall: 84,
       composure: 81,
+      aerial: 76,
     },
     {
       id: "frg-1970-held",
