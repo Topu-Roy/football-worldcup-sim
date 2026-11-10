@@ -1,12 +1,14 @@
-## Development
+## Development Rules
 
-When starting the dev server, use background mode:
-
-```
-astro dev --background
-```
-
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+- Use caveman skill, with lite mode
+- Commit the changes with major.minor.patch version each time
+- Do not auto commit changes, wait for the owner to tell you to do so
+- Use comment in where it needs to clarify things throughout the codebase
+- For each component/ui follow the design.md file
+- Update any docs/information after any major change
+- Ask question with recomended options/possible alternative option via built in questioning tool
+- Don't take any major dicition by your own, without asking the owner
+- Don't use background dev servers
 
 ## Documentation
 
