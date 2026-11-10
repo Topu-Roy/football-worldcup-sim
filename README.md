@@ -30,11 +30,18 @@ astro dev stop           # shut it down
 
 ## Game flow
 
-1. **Formation** — pick 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Slot counts lock the draft.
-2. **Draft** — 11 rounds: a full XI. Each round offers a random nation/year roster filtered to open slots. You get 3 rerolls for the whole draft. Players carry tier badges and live chemistry.
+1. **Formation** — pick 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Slot counts lock the draft. Changing shape restarts the draft (confirmed).
+2. **Draft** — 11 rounds: a full XI. Each round offers a random nation/year roster filtered to open slots. You get 3 rerolls for the whole draft. Players carry tier badges and live chemistry. "Reset draft" restarts the same shape at round one; "Change formation" goes back to the shape picker.
 3. **Team ready** — review the XI, swap players between slots, then start. Out-of-position players are penalized.
-4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. Top 2 advance to R16 → QF → SF → final against fresh opponents.
-5. **Results** — final placement, squad stats, replayable match cards. Losing allows "Play again" with the same squad; champions get one shot only.
+4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. The live group table updates as results land, and the top 2 advance to R16 → QF → SF → final against fresh opponents. The run starts on Play (not on mount) and pauses when the tab is hidden.
+5. **Results** — final placement, squad stats and replayable match cards (plus the final group table when eliminated in the group stage). A loss allows **one Retry** with the same XI; "Play again" clears the run and starts a new draft. "View history" opens `/history`.
+
+## Persistence
+
+- The in-progress game autosaves to `localStorage` (`wc:game:v1`) after every meaningful change, so a refresh resumes the run.
+- Resetting: "Reset draft" (same shape), "Start over" / "Play again" (new run), or the header "Play" button. All destructive actions ask for confirmation first.
+- Finished runs are stored separately (`wc:history:v2`, capped at 100) and listed on `/history`; "Clear history" removes them.
+- Confirmations use the in-app dialog, never `window.confirm` — see **UI conventions**.
 
 ## Match engine
 
@@ -50,6 +57,8 @@ astro dev stop           # shut it down
 src/
   pages/               Astro routes (game, history, teams, blog, OG images)
   components/          Svelte UI (draft board, pitch, match, tournament, results)
+    ConfirmDialog.astro  app-wide confirmation dialog
+    StandingsTable.svelte shared group table (tournament + results)
   layouts/             Astro layout shell
   i18n/                Locale config, UI strings, page content
   lib/
@@ -57,16 +66,27 @@ src/
     team/              form rolls, chemistry, stamina, strengths
     match/             segment simulation, shots, penalties, scorer
     tournament/        groups, knockout, standings, aggregate stats
+    confirmDialog.ts   promise-based confirmAction() used by every reset
+    gameSession.ts     autosave/load/clear for the in-progress game
+    history.ts         saved tournament runs
   data/
     historical/        77 squad files, 1970–2026
     group-stage/       9 weaker opponent squads
-scripts/               data validation, calibration, fixtures, OG/player reports
+scripts/               data validation, calibration, fixtures, player reports
 ```
 
-The 2026 squads are fictional/predicted rosters. There are 86 squads and 1,634 player entries in total.
+The 2026 squads are fictional/predicted rosters. There are 86 squads (77 historical + 9 group-stage opponents) and 1,634 player entries in total.
+
+## UI conventions
+
+- Colors come from tokens in `src/styles/global.css`. Use `--color-uvlight` (not `--color-uv`) for violet **text** on the dark canvas.
+- Every interactive element inherits the global `:focus-visible` ring; don't remove it without providing an equivalent.
+- Destructive actions must go through `confirmAction({ title, message, confirmLabel, danger })` from `src/lib/confirmDialog.ts`, which resolves `Promise<boolean>`.
+- Respect `prefers-reduced-motion` for any looping or attention-seeking animation.
+- The home hero carousel shows one XI per nation (5 slides); mobile shows a five-dot window, not one dot per slide.
 
 ## Other notes
 
 - Site config, locales, redirects, and sitemap rules live in `astro.config.mjs`.
-- Design tokens (canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, type stacks) live in `src/styles/global.css`.
+- Design tokens (canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, legible violet `#b9a3ff`, type stacks) live in `src/styles/global.css`.
 - Deployed domain: `https://elevenfantasy.com`.

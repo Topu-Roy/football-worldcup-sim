@@ -10,6 +10,8 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 ## Documentation
 
+Project architecture, game flow, persistence and UI conventions: [README.md](./README.md).
+
 Full documentation: https://docs.astro.build
 
 Consult these guides before working on related tasks:
