@@ -1,4 +1,4 @@
-# Eleven Fantasy
+# My World Cup XI
 
 Draft a fantasy World Cup XI from historical squads (1970–2026), then simulate a group stage and knockout run against the greats. Static site built with Astro 7, Svelte 5 (runes), Tailwind CSS 4, and TypeScript.
 
@@ -89,4 +89,4 @@ The 2026 squads are fictional/predicted rosters. There are 86 squads (77 histori
 
 - Site config, locales, redirects, and sitemap rules live in `astro.config.mjs`.
 - Design tokens (canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, legible violet `#b9a3ff`, type stacks) live in `src/styles/global.css`.
-- Deployed domain: `https://elevenfantasy.com`.
+- Deployed domain: `https://myworldcupxi.com`.

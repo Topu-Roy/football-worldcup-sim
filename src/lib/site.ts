@@ -1,5 +1,5 @@
-export const SITE_URL = "https://elevenfantasy.com";
-export const SITE_NAME = "Eleven Fantasy";
+export const SITE_URL = "https://myworldcupxi.com";
+export const SITE_NAME = "My World Cup XI";
 
 const OG_LOCALES: Record<string, string> = {
   en: "en_US",

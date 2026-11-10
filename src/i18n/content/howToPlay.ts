@@ -1,8 +1,8 @@
 export const howToPlay = {
   en: {
-    h1: "How to Play Eleven Fantasy",
+    h1: "How to Play My World Cup XI",
     hero: [
-      "Build a fantasy World Cup XI from 86 old squads. Then watch them play the greats in a simulated group stage and knockout tournament. Eleven Fantasy is a football simulator and a draft game. You pick a formation. Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. You draft your dream team. The match engine simulates the world cup. You get the group stage, the knockout bracket, extra time and penalty shootouts.",
+      "Build a fantasy World Cup XI from 86 old squads. Then watch them play the greats in a simulated group stage and knockout tournament. My World Cup XI is a football simulator and a draft game. You pick a formation. Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. You draft your dream team. The match engine simulates the world cup. You get the group stage, the knockout bracket, extra time and penalty shootouts.",
       "It is a world cup simulation and a penalty shootout simulator. It is built around the app. You can predict your own tournament online. It is free. It is in the browser. In the US, players find it as a soccer draft game, an online soccer game or a free soccer simulation game. Elsewhere, it is the fantasy football draft and interactive simulator they like. No download. No sign-up. It is the easiest browser football game to learn fast.",
       "The guide below shows every step. The FAQ tells how the football simulator decides matches and how penalty shootouts work.",
     ],
@@ -36,7 +36,7 @@ export const howToPlay = {
     ],
     loopTitle: "Your world cup simulator, step by step",
     loop: [
-      "The full loop of Eleven Fantasy is short. That is the appeal of a free browser football game. You start by choosing a football formation. The football simulator respects positions. Your choice locks how many defenders, midfielders and attackers you can draft. You pick over 11 rounds. A 4-3-3 leans attack. A 3-5-2 owns the middle. A 4-4-2 balances. A 4-2-3-1 controls the game.",
+      "The full loop of My World Cup XI is short. That is the appeal of a free browser football game. You start by choosing a football formation. The football simulator respects positions. Your choice locks how many defenders, midfielders and attackers you can draft. You pick over 11 rounds. A 4-3-3 leans attack. A 3-5-2 owns the middle. A 4-4-2 balances. A 4-2-3-1 controls the game.",
       "Next, the football draft simulator shows you old World Cup squads. You place each player in the best slot. You watch chemistry update. You get a few rerolls if the board is bad. Same-nation picks get a chemistry boost. So a smart world cup dream team builder beats a team of stars.",
       "When your XI is set, the match engine simulates the group stage. It plays live, part by part. The rest of the bracket is pre-simulated. So the whole world cup simulation ends fast. Knockout ties go to extra time. Then a penalty shootout simulator decides. Five kicks each. Then sudden death. This is the drama fans love.",
       "You are not predicting real 2026 results. You use the world cup simulator 2026 mode to predict your own cup. Players call it a world cup predictor for their cup. It is a football game with no download. It runs on any device. Your save stays on your device. It is a fantasy football draft where the draft matters most.",
@@ -45,7 +45,7 @@ export const howToPlay = {
     faqTitle: "Questions about the simulator",
     faq: [
       {
-        q: "What is Eleven Fantasy?",
+        q: "What is My World Cup XI?",
         a: "It is a free browser football game and a fantasy football draft tool. You build a dream XI from 86 old World Cup squads. The app simulates a full tournament. You get the group stage, the knockout bracket and penalty shootouts. It predicts your final result.",
       },
       {
@@ -69,9 +69,9 @@ export const howToPlay = {
   },
 
   de: {
-    h1: "So spielst du Eleven Fantasy",
+    h1: "So spielst du My World Cup XI",
     hero: [
-      "Baue ein Fantasy-WM-Team aus über 100 alten Kadern. Sieh ihnen dann in einer simulierten Gruppenphase und einem K.-o.-Turnier gegen die Größten zu. Eleven Fantasy ist ein Fußballsimulator und ein Soccer-Draft-Spiel. Du wählst eine Formation. Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Du draftest dein Traumteam. Die Spielengine simuliert die WM. Du bekommst Gruppenphase, K.-o.-Baum, Verlängerung und Elfmeterschießen.",
+      "Baue ein Fantasy-WM-Team aus über 100 alten Kadern. Sieh ihnen dann in einer simulierten Gruppenphase und einem K.-o.-Turnier gegen die Größten zu. My World Cup XI ist ein Fußballsimulator und ein Soccer-Draft-Spiel. Du wählst eine Formation. Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Du draftest dein Traumteam. Die Spielengine simuliert die WM. Du bekommst Gruppenphase, K.-o.-Baum, Verlängerung und Elfmeterschießen.",
       "Es ist eine WM-Simulation und ein Elfmeter-Simulator. Es dreht sich um die App. Du kannst dein eigenes Turnier online vorhersagen. Es ist kostenlos. Es ist im Browser. In den USA finden es Spieler als Soccer-Draft-Spiel, Online-Soccer-Spiel oder kostenloses Fußball-Simulationsspiel. Anderswo ist es der Fantasy-Football-Draft und interaktive Fußballsimulator, den sie mögen. Kein Download. Keine Anmeldung. Es ist das einfachste Browser-Fußballspiel, das man schnell lernt.",
       "Die Anleitung unten zeigt jeden Schritt. Die FAQ sagt, wie der Fußballsimulator Spiele entscheidet und wie Elfmeterschießen funktionieren.",
     ],
@@ -105,7 +105,7 @@ export const howToPlay = {
     ],
     loopTitle: "Dein WM-Simulator, Schritt für Schritt",
     loop: [
-      "Die ganze Schleife von Eleven Fantasy ist kurz. Das ist der Reiz eines kostenlosen Browser-Fußballspiels. Du beginnst mit einer Football-Formation. Der Fußballsimulator achtet auf Positionen. Deine Wahl sperrt, wie viele Verteidiger, Mittelfeldspieler und Stürmer du draften kannst. Du wählst über 11 Runden. 4-3-3 ist offensiv. 3-5-2 beherrscht die Mitte. 4-4-2 balanciert. 4-2-3-1 kontrolliert das Spiel.",
+      "Die ganze Schleife von My World Cup XI ist kurz. Das ist der Reiz eines kostenlosen Browser-Fußballspiels. Du beginnst mit einer Football-Formation. Der Fußballsimulator achtet auf Positionen. Deine Wahl sperrt, wie viele Verteidiger, Mittelfeldspieler und Stürmer du draften kannst. Du wählst über 11 Runden. 4-3-3 ist offensiv. 3-5-2 beherrscht die Mitte. 4-4-2 balanciert. 4-2-3-1 kontrolliert das Spiel.",
       "Dann zeigt der Football-Draft-Simulator dir alte WM-Kadern. Du setzt jeden Spieler auf den besten Platz. Du siehst die Chemie aktualisieren. Bei schlechtem Brett bekommst du ein paar Neuwürfe. Picks derselben Nation bekommen einen Chemie-Bonus. So schlägt ein schlauer WM-Traumteam-Builder ein Team voller Stars.",
       "Wenn dein XI steht, simuliert die Spielengine die Gruppenphase. Sie spielt live, Stück für Stück. Der Rest des Baums ist vor_simuliert. So endet die ganze WM-Simulation schnell. K.-o.-Unentschieden geht in Verlängerung. Dann entscheidet ein Elfmeter-Simulator. Fünf pro Seite. Dann Sudden Death. Das ist das Drama, das Fans lieben.",
       "Du sagst keine echten 2026-Ergebnisse voraus. Du nutzt den WM-Simulator-2026-Modus, um deinen eigenen Pokal vorauszusagen. Spieler nennen es WM-Vorhersage für ihren Pokal. Es ist ein Soccer-Spiel ohne Download. Es läuft auf jedem Gerät. Dein Spielstand bleibt auf deinem Gerät. Es ist ein Fantasy-Football-Draft, bei dem der Draft am meisten zählt.",
@@ -114,7 +114,7 @@ export const howToPlay = {
     faqTitle: "Fragen zum Simulator",
     faq: [
       {
-        q: "Was ist Eleven Fantasy?",
+        q: "Was ist My World Cup XI?",
         a: "Es ist ein kostenloses Browser-Fußballspiel und ein Fantasy-Football-Draft-Werkzeug. Du baust ein XI aus über 100 alten WM-Kadern. Die App simuliert ein volles Turnier. Du bekommst Gruppenphase, K.-o.-Baum und Elfmeterschießen. Es sagt dein finales Ergebnis voraus.",
       },
       {
@@ -138,9 +138,9 @@ export const howToPlay = {
   },
 
   fr: {
-    h1: "Comment jouer à Eleven Fantasy",
+    h1: "Comment jouer à My World Cup XI",
     hero: [
-      "Composez un XI de Coupe du Monde fantasy à partir de plus de 100 anciens effectifs. Puis regardez-les affronter les grands dans une phase de groupes et un tournoi à élimination simulés. Eleven Fantasy est un simulateur de football et un jeu de draft soccer. Vous choisissez une formation. Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Vous draftz votre équipe de rêve. Le moteur de match simule la Coupe du Monde. Vous avez la phase de groupes, l'arbre à élimination, la prolongation et les tirs au but.",
+      "Composez un XI de Coupe du Monde fantasy à partir de plus de 100 anciens effectifs. Puis regardez-les affronter les grands dans une phase de groupes et un tournoi à élimination simulés. My World Cup XI est un simulateur de football et un jeu de draft soccer. Vous choisissez une formation. Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Vous draftz votre équipe de rêve. Le moteur de match simule la Coupe du Monde. Vous avez la phase de groupes, l'arbre à élimination, la prolongation et les tirs au but.",
       "C'est une simulation de Coupe du Monde et un simulateur de tirs au but. Il tourne autour de l'appli. Vous pouvez prédire votre propre tournoi en ligne. C'est gratuit. C'est dans le navigateur. Aux États-Unis, on le trouve comme jeu de draft soccer, soccer en ligne ou jeu de simulation de football gratuit. Ailleurs, c'est le draft de Coupe du Monde fantasy et le simulateur de football interactif qu'ils aiment. Sans téléchargement. Sans inscription. C'est le jeu de football dans le navigateur le plus simple à apprendre vite.",
       "Le guide ci-dessous montre chaque étape. La FAQ dit comment le simulateur de football décide les matchs et comment fonctionnent les tirs au but.",
     ],
@@ -174,7 +174,7 @@ export const howToPlay = {
     ],
     loopTitle: "Votre simulateur de Coupe du Monde, étape par étape",
     loop: [
-      "La boucle complète de Eleven Fantasy est courte. C'est l'attrait d'un jeu de football gratuit dans le navigateur. Vous commencez par choisir une formation de football. Le simulateur de football respecte les postes. Votre choix verrouille combien de défenseurs, milieux et attaquants vous pouvez draftz. Vous choisissez sur 11 tours. 4-3-3 penche attaque. 3-5-2 possède le milieu. 4-4-2 équilibre. 4-2-3-1 contrôle le jeu.",
+      "La boucle complète de My World Cup XI est courte. C'est l'attrait d'un jeu de football gratuit dans le navigateur. Vous commencez par choisir une formation de football. Le simulateur de football respecte les postes. Votre choix verrouille combien de défenseurs, milieux et attaquants vous pouvez draftz. Vous choisissez sur 11 tours. 4-3-3 penche attaque. 3-5-2 possède le milieu. 4-4-2 équilibre. 4-2-3-1 contrôle le jeu.",
       "Ensuite, le simulateur de draft de football vous montre d'anciens effectifs de Coupe du Monde. Vous placez chaque joueur au meilleur poste. Vous voyez la chimie se mettre à jour. Vous avez quelques relances si le plateau est mauvais. Les picks de même nation gagnent un bonus de chimie. Ainsi un malin constructeur d'équipe de rêve bat une équipe de stars.",
       "Quand votre XI est prêt, le moteur de match simule la phase de groupes. Il joue en direct, morceau par morceau. Le reste de l'arbre est pré-simulé. Ainsi toute la simulation de Coupe du Monde finit vite. Les nuls à élimination vont en prolongation. Puis un simulateur de tirs au but décide. Cinq par côté. Puis mort subite. C'est le drame que les fans aiment.",
       "Vous ne prévoyez pas de vrais résultats 2026. Vous utilisez le mode simulateur de Coupe du Monde 2026 pour prévoir votre propre coupe. Les joueurs l'appellent pronostic de Coupe du Monde pour leur coupe. C'est un jeu soccer sans téléchargement. Il tourne sur tout appareil. Votre sauvegarde reste sur votre appareil. C'est un draft de Coupe du Monde fantasy où le draft compte le plus.",
@@ -183,7 +183,7 @@ export const howToPlay = {
     faqTitle: "Questions sur le simulateur",
     faq: [
       {
-        q: "Qu'est-ce que Eleven Fantasy ?",
+        q: "Qu'est-ce que My World Cup XI ?",
         a: "C'est un jeu de football gratuit dans le navigateur et un outil de draft de Coupe du Monde fantasy. Vous construisez un XI à partir de plus de 100 anciens effectifs de Coupe du Monde. L'appli simule un tournoi complet. Vous avez la phase de groupes, l'arbre à élimination et les tirs au but. Il prévoit votre résultat final.",
       },
       {
@@ -207,9 +207,9 @@ export const howToPlay = {
   },
 
   ja: {
-    h1: "Eleven Fantasy の遊び方",
+    h1: "My World Cup XI の遊び方",
     hero: [
-      "歴代チーム100以上からワールドカップの夢のXIを作る。そしてシミュレートされたグループリーグと決勝トーナメントで、レジェンドと戦う。Eleven Fantasyはフットボールシミュレーターであり、サッカードラフトゲームだ。フォーメーションを選ぶ。4-3-3、4-4-2、3-5-2、4-2-3-1から選ぶ。夢のチームをドラフトする。マッチエンジンがワールドカップをシミュレートする。グループリーグ、決勝トーナメント、延長、PK戦がある。",
+      "歴代チーム100以上からワールドカップの夢のXIを作る。そしてシミュレートされたグループリーグと決勝トーナメントで、レジェンドと戦う。My World Cup XIはフットボールシミュレーターであり、サッカードラフトゲームだ。フォーメーションを選ぶ。4-3-3、4-4-2、3-5-2、4-2-3-1から選ぶ。夢のチームをドラフトする。マッチエンジンがワールドカップをシミュレートする。グループリーグ、決勝トーナメント、延長、PK戦がある。",
       "これはワールドカップシミュレーションであり、PKシミュレーターだ。アプリ中心だ。オンラインで自分の大会を予想できる。無料。ブラウザで動く。アメリカではサッカードラフトゲーム、オンラインサッカーゲーム、無料サッカーシミュレーションゲームと呼ばれる。他の地域ではファンが戻るFantasy Football ドラフトであり、インタラクティブなサッカーシミュレーターだ。ダウンロード不要。登録不要。一番簡単に覚えられるブラウザサッカーゲームだ。",
       "下のガイドが各ステップを示す。FAQはサッカーシミュレーターが試合を決める仕組みとPKの仕組みを説明する。",
     ],
@@ -243,7 +243,7 @@ export const howToPlay = {
     ],
     loopTitle: "ワールドカップシミュレーター、ステップ順",
     loop: [
-      "Eleven Fantasyの全体ループは短い。それが無料ブラウザサッカーゲームの魅力だ。まずフットボールフォーメーションを選ぶ。サッカーシミュレーターはポジションを守る。選ぶとドラフトできるDF、MF、FWの数が固定される。11回指名する。4-3-3は攻撃。3-5-2は中盤。4-4-2はバランス。4-2-3-1はコントロール。",
+      "My World Cup XIの全体ループは短い。それが無料ブラウザサッカーゲームの魅力だ。まずフットボールフォーメーションを選ぶ。サッカーシミュレーターはポジションを守る。選ぶとドラフトできるDF、MF、FWの数が固定される。11回指名する。4-3-3は攻撃。3-5-2は中盤。4-4-2はバランス。4-2-3-1はコントロール。",
       "次にフットボールドラフトシミュレーターが歴代ワールドカップチームを表示する。各選手を最良の枠へ。ケミストリーが更新されるのを見る。盤面が悪ければ数回リロール。同じ国の指名はケミストリーボーナス。だから賢いワールドカップ夢チームビルダーがスターのチームに勝つ。",
       "XIが決まったらマッチエンジンがグループリーグをシミュレートする。生中継のように少しずつ。残りのトーナメントは事前シミュレート。だからワールドカップシミュレーション全体が早く終わる。決勝の引き分けは延長へ。そしてPKシミュレーターが決める。各側5本。その後サドンデス。これがファンが愛するドラマだ。",
       "本当の2026結果を予想しているのではない。ワールドカップシミュレーター2026モードで自分の杯を予想する。プレイヤーは自分の杯のワールドカップ予想と呼ぶ。これはダウンロード不要のサッカーゲーム。どの端末でも動く。保存は端末に残る。ドラフトが最も重要なFantasy Football ドラフトだ。",
@@ -252,7 +252,7 @@ export const howToPlay = {
     faqTitle: "シミュレーターについての質問",
     faq: [
       {
-        q: "Eleven Fantasy とは？",
+        q: "My World Cup XI とは？",
         a: "無料のブラウザサッカーゲームであり、Fantasy Football ドラフトツール。歴代ワールドカップチーム100以上から夢のXIを作る。アプリが大会全体をシミュレート。グループリーグ、決勝トーナメント、PK戦がある。最終結果を予想する。",
       },
       {
@@ -276,9 +276,9 @@ export const howToPlay = {
   },
 
   es: {
-    h1: "Cómo jugar a Eleven Fantasy",
+    h1: "Cómo jugar a My World Cup XI",
     hero: [
-      "Arma un XI de la Copa del Mundo fantasy con más de 100 plantillas viejas. Luego míralos enfrentar a los grandes en una fase de grupos y un torneo de eliminación simulados. Eleven Fantasy es un simulador de fútbol y un juego de draft soccer. Elijes una formación. Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Draftas tu equipo de ensueño. El motor de partido simula el Mundial. Tienes fase de grupos, cuadro de eliminación, prórroga y penales.",
+      "Arma un XI de la Copa del Mundo fantasy con más de 100 plantillas viejas. Luego míralos enfrentar a los grandes en una fase de grupos y un torneo de eliminación simulados. My World Cup XI es un simulador de fútbol y un juego de draft soccer. Elijes una formación. Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Draftas tu equipo de ensueño. El motor de partido simula el Mundial. Tienes fase de grupos, cuadro de eliminación, prórroga y penales.",
       "Es una simulación del Mundial y un simulador de penales. Gira en torno a la app. Puedes predecir tu propio torneo en línea. Es gratis. Está en el navegador. En EE. UU. lo encuentran como juego de draft soccer, soccer en línea o juego de simulación de fútbol gratuito. En otros lados, es el draft de Copa del Mundo fantasy y el simulador de fútbol interactivo que prefieren. Sin descargas. Sin registro. Es el juego de fútbol del navegador más fácil de aprender rápido.",
       "La guía de abajo muestra cada paso. La FAQ dice cómo el simulador de fútbol decide los partidos y cómo funcionan los penales.",
     ],
@@ -312,7 +312,7 @@ export const howToPlay = {
     ],
     loopTitle: "Tu simulador del Mundial, paso a paso",
     loop: [
-      "El bucle completo de Eleven Fantasy es corto. Ese es el atractivo de un juego de fútbol gratuito en el navegador. Empiezas eligiendo una formación de fútbol. El simulador de fútbol respeta los puestos. Tu elección bloquea cuántos defensas, medios y delanteros puedes draftar. Tomas en 11 rondas. 4-3-3 va al ataque. 3-5-2 domina el medio. 4-4-2 equilibra. 4-2-3-1 controla el juego.",
+      "El bucle completo de My World Cup XI es corto. Ese es el atractivo de un juego de fútbol gratuito en el navegador. Empiezas eligiendo una formación de fútbol. El simulador de fútbol respeta los puestos. Tu elección bloquea cuántos defensas, medios y delanteros puedes draftar. Tomas en 11 rondas. 4-3-3 va al ataque. 3-5-2 domina el medio. 4-4-2 equilibra. 4-2-3-1 controla el juego.",
       "Luego el simulador de draft de fútbol te muestra viejas plantillas del Mundial. Colocas a cada jugador en el mejor puesto. Ves la química actualizarse. Si el tablero es malo, tienes unos rerolls. Las elecciones de la misma nación ganan bonus de química. Así un listo constructor de equipo de ensueño vence a un equipo de estrellas.",
       "Cuando tu XI está listo, el motor de partido simula la fase de grupos. Juega en vivo, parte por parte. El resto del cuadro se pre-simula. Así toda la simulación del Mundial termina rápido. Los empates de eliminación van a prórroga. Luego un simulador de penales decide. Cinco por lado. Luego muerte súbita. Este es el drama que aman los fans.",
       "No predices resultados reales de 2026. Usas el modo simulador del Mundial 2026 para predecir tu propia copa. Los jugadores lo llaman pronóstico del Mundial para su copa. Es un juego soccer sin descargas. Funciona en cualquier dispositivo. Tu guardado queda en tu dispositivo. Es un draft de Copa del Mundo fantasy donde el draft cuenta más.",
@@ -321,7 +321,7 @@ export const howToPlay = {
     faqTitle: "Preguntas sobre el simulador",
     faq: [
       {
-        q: "¿Qué es Eleven Fantasy?",
+        q: "¿Qué es My World Cup XI?",
         a: "Es un juego de fútbol gratuito en el navegador y una herramienta de draft de Copa del Mundo fantasy. Construyes un XI con más de 100 plantillas viejas del Mundial. La app simula un torneo completo. Tienes fase de grupos, cuadro de eliminación y penales. Predice tu resultado final.",
       },
       {

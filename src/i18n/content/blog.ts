@@ -18,14 +18,14 @@ export const blog: Record<Locale, BlogLocale> = {
   en: {
     index: {
       title: "Blog",
-      seoTitle: "Eleven Fantasy Blog — Guides, Tips & Simulator Notes",
+      seoTitle: "My World Cup XI Blog — Guides, Tips & Simulator Notes",
       intro:
-        "Guides and notes on Eleven Fantasy - the free browser football game where you draft a fantasy World Cup XI and simulate the cup.",
+        "Guides and notes on My World Cup XI - the free browser football game where you draft a fantasy World Cup XI and simulate the cup.",
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "How Eleven Fantasy Works",
+        title: "How My World Cup XI Works",
         excerpt:
           "Five moves take you from an empty pitch to a simulated World Cup final. Here is the full loop.",
         date: "2026-08-22",
@@ -150,14 +150,14 @@ export const blog: Record<Locale, BlogLocale> = {
   de: {
     index: {
       title: "Blog",
-      seoTitle: "Eleven Fantasy Blog — Anleitungen, Tipps & Notizen",
+      seoTitle: "My World Cup XI Blog — Anleitungen, Tipps & Notizen",
       intro:
-        "Guides und Notizen zu Eleven Fantasy - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
+        "Guides und Notizen zu My World Cup XI - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "Wie Eleven Fantasy funktioniert",
+        title: "Wie My World Cup XI funktioniert",
         excerpt:
           "Fünf Schritte bringen dich von einer leeren Mitte zu einem simulierten WM-Finale. Hier ist der komplette Ablauf.",
         date: "2026-08-22",
@@ -282,14 +282,14 @@ export const blog: Record<Locale, BlogLocale> = {
   fr: {
     index: {
       title: "Blog",
-      seoTitle: "Blog Eleven Fantasy — Guides, astuces et notes du simulateur",
+      seoTitle: "Blog My World Cup XI — Guides, astuces et notes du simulateur",
       intro:
-        "Guides et notes sur Eleven Fantasy - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
+        "Guides et notes sur My World Cup XI - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "Comment fonctionne Eleven Fantasy",
+        title: "Comment fonctionne My World Cup XI",
         excerpt:
           "Cinq gestes vous menent d'un terrain vide a une finale de Coupe du Monde simulee. Voici la boucle complete.",
         date: "2026-08-22",
@@ -398,14 +398,14 @@ export const blog: Record<Locale, BlogLocale> = {
   ja: {
     index: {
       title: "ブログ",
-      seoTitle: "Eleven Fantasy ブログ — ガイドとヒント",
+      seoTitle: "My World Cup XI ブログ — ガイドとヒント",
       intro:
-        "Eleven Fantasy についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
+        "My World Cup XI についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "Eleven Fantasy の仕組み",
+        title: "My World Cup XI の仕組み",
         excerpt:
           "空のピッチからシミュレートされたワールドカップ決勝まで、たった五つの手順。完全なループはこれだ。",
         date: "2026-08-22",
@@ -514,14 +514,14 @@ export const blog: Record<Locale, BlogLocale> = {
   es: {
     index: {
       title: "Blog",
-      seoTitle: "Blog de Eleven Fantasy — Guías y consejos del simulador",
+      seoTitle: "Blog de My World Cup XI — Guías y consejos del simulador",
       intro:
-        "Guías y notas sobre Eleven Fantasy - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
+        "Guías y notas sobre My World Cup XI - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "Cómo funciona Eleven Fantasy",
+        title: "Cómo funciona My World Cup XI",
         excerpt:
           "Cinco movimientos te llevan de una cancha vacía a una final del Mundial simulada. Aquí está el bucle completo.",
         date: "2026-08-22",

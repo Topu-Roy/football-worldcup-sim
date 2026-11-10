@@ -1,6 +1,6 @@
 export const about = {
   en: {
-    h1: "What Is Eleven Fantasy?",
+    h1: "What Is My World Cup XI?",
     hero: [
       "This free browser football game is made for fans of World Cup history. It is a fantasy football world cup game and the world cup dream team builder in one: you draft a dream XI from the teams of 1970 to 2026 - Pelé's Brazil 1970, Zidane's France 1998, Messi's Argentina 2022 - then the game simulates a group stage and a knockout tournament.",
       "Think of it as a football simulator. It is also a draft simulator and a world cup fantasy game. You pick a formation. You draft your players. The match engine simulates the cup with penalties. In the US, it is a soccer draft game, an online soccer game or a free soccer simulation game. Around the world, it is the fantasy football draft fans return to. No download. No sign-up. It is the easiest interactive simulator to open between matches.",
@@ -28,7 +28,7 @@ export const about = {
       "You can pit Maradona's Argentina against Messi's. Or Brazil 1970 against France 2022. The match engine simulates the game inside the app. The 2026 squads add predicted lineups. So the greatest teams talk now includes new names. For a fantasy football draft, this is close to coaching the greats. For a football draft simulator, it is why no two tournaments are the same. Build your team. Use chemistry. Let the free browser football game decide who lifts the trophy.",
     ],
     systems: [
-      "Eleven Fantasy is a focused football simulator. Three systems work together.",
+      "My World Cup XI is a focused football simulator. Three systems work together.",
       "First, the squad library holds 86 old squads. Each one is rated on the same scale. The scale covers reflexes, tackling, passing, finishing, pace and vision. Your picks and the AI teams are fair. A Brazil 1970 attack can meet a Germany 2014 defence in the same world cup simulation.",
       "Second, a real match engine simulates each game. It plays part by part. It shows possession, shots and chances. Then it settles extra time and a penalty shootout simulator. The engine is tuned to feel like real World Cup scorelines. But it does not copy any real match.",
       "Third, a chemistry model rewards good teams. Draft players from the same nation. They play better together. So a smart world cup dream team builder beats a team of big stats.",
@@ -37,7 +37,7 @@ export const about = {
     dataTitle: "A note on the data",
     data: [
       "Squads come from World Cup semifinalists from 1970 to 2026. This gives the football simulator its depth. The 2026 rosters are made up. They are predicted lineups. We add them so you can run a world cup simulator 2026 draw today. Every player rating is a game estimate. It is made for balance, not for facts. The numbers are tuned so matches stay close. The draft matters more than any one rating.",
-      "We use real player names, team names and tournament names. We use them for description only. They belong to their owners. Brands like FIFA, EA Sports and Football Manager are trademarks. They are not linked to this app. They never appear in our name or web address. This matters. Eleven Fantasy is a fantasy football draft. It is an interactive football simulator inspired by World Cup history. It is not tied to any group.",
+      "We use real player names, team names and tournament names. We use them for description only. They belong to their owners. Brands like FIFA, EA Sports and Football Manager are trademarks. They are not linked to this app. They never appear in our name or web address. This matters. My World Cup XI is a fantasy football draft. It is an interactive football simulator inspired by World Cup history. It is not tied to any group.",
       "The squads you draft celebrate the sport's greatest teams. You put them on the pitch and simulate. The data is editorial. So the free football simulation game can show five decades of teams. It does not claim to be official. If a rating looks high or low, it is there to make your tournament fun. In short, the world cup fantasy game treats history as a roster. The match engine decides who wins. It decides when Brazil 1970 meets France 2022 in the browser football game.",
     ],
     contactTitle: "Contact",
@@ -50,9 +50,9 @@ export const about = {
   },
 
   de: {
-    h1: "Was ist Eleven Fantasy?",
+    h1: "Was ist My World Cup XI?",
     hero: [
-      "Eleven Fantasy ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel für Fans der WM-Geschichte. Es ist der WM-Traumteam-Builder. Du stellst ein Traumteam aus Teams von 1970 bis 2026 auf. Wähle Pelés Brasilien 1970, Zidanes Frankreich 1998 oder Messis Argentinien 2022. Dann simuliert das Spiel eine Gruppenphase und ein K.-o.-Turnier.",
+      "My World Cup XI ist ein kostenloses Browser-Fußballspiel. Es ist ein Fantasy-Football-Weltcup-Spiel für Fans der WM-Geschichte. Es ist der WM-Traumteam-Builder. Du stellst ein Traumteam aus Teams von 1970 bis 2026 auf. Wähle Pelés Brasilien 1970, Zidanes Frankreich 1998 oder Messis Argentinien 2022. Dann simuliert das Spiel eine Gruppenphase und ein K.-o.-Turnier.",
       "Denk an es als Fußballsimulator. Es ist auch ein Football-Draft-Simulator und ein WM-Fantasy-Spiel. Du wählst eine Formation. Du draftest deine Spieler. Die Spielengine simuliert den Pokal mit Elfern. In den USA ist es Soccer-Draft-Spiel, Online-Soccer-Spiel oder kostenloses Fußball-Simulationsspiel. Weltweit ist es der Fantasy-Football-Draft, zu dem Fans zurückkehren. Kein Download. Keine Anmeldung. Es ist der einfachste interaktive Fußballsimulator, den man zwischen Spielen öffnet.",
       "Nenn es WM-Simulator. Oder nenn es Soccer-Spiel ohne Download. Oder einfach WM-Fantasy-Spiel. Das Versprechen ist das gleiche. Baue dein Team. Sieh der App zu, dein Ergebnis zu simulieren.",
     ],
@@ -78,7 +78,7 @@ export const about = {
       "Du kannst Maradonas Argentinien gegen Messis antreten lassen. Oder Brasilien 1970 gegen Frankreich 2022. Die Spielengine simuliert das Spiel in der App. Die Kadern 2026 fügen vorhergesagte Aufstellungen hinzu. So kommen neue Namen in die Gespräche über die Größten. Für einen Fantasy-Football-Draft ist das nahe am Trainieren der Legenden. Für einen Football-Draft-Simulator ist es der Grund, warum keine zwei Turniere gleich sind. Baue dein Team. Nutze Chemie. Lass das kostenlose Browser-Fußballspiel entscheiden, wer den Pokal hebt.",
     ],
     systems: [
-      "Eleven Fantasy ist ein fokussierter Fußballsimulator. Drei Systeme arbeiten zusammen.",
+      "My World Cup XI ist ein fokussierter Fußballsimulator. Drei Systeme arbeiten zusammen.",
       "Erstens hält die Kaderbibliothek über 100 alte Kadern. Jeder wird nach derselben Skala bewertet. Sie deckt Reflexe, Zweikampf, Pass, Abschluss, Tempo und Übersicht. Deine Picks und die KI-Teams sind fair. Ein Angriff von Brasilien 1970 kann in derselben WM-Simulation auf eine Abwehr von Deutschland 2014 treffen.",
       "Zweitens simuliert eine echte Spielengine jedes Spiel. Sie spielt Stück für Stück. Sie zeigt Ballbesitz, Schüsse und Chancen. Dann regelt sie Verlängerung und einen Elfmeter-Simulator. Die Engine ist auf echte WM-Ergebnisse abgestimmt. Aber sie kopiert kein echtes Spiel.",
       "Drittens belohnt ein Chemie-Modell gute Teams. Draftest du Spieler derselben Nation, spielen sie besser zusammen. So schlägt ein schlauer WM-Traumteam-Builder ein Team voller Statistik.",
@@ -87,7 +87,7 @@ export const about = {
     dataTitle: "Ein Hinweis zu den Daten",
     data: [
       "Kadern stammen von WM-Halbfinalisten von 1970 bis 2026. Das gibt dem Fußballsimulator seine Tiefe. Die Kadern 2026 sind erfunden. Es sind vorhergesagte Aufstellungen. Wir fügen sie hinzu, damit du heute ein WM-Simulator-2026-Los ziehen kannst. Jede Spielerbewertung ist eine Spielschätzung. Sie dient der Balance, nicht als Fakten. Die Zahlen sind abgestimmt, damit Spiele knapp bleiben. Der Draft zählt mehr als eine einzelne Bewertung.",
-      "Wir nutzen echte Spieler-, Team- und Turniernamen. Wir nutzen sie nur zur Beschreibung. Sie gehören ihren Besitzern. Marken wie FIFA, EA Sports und Football Manager sind Warenzeichen. Sie hängen nicht an dieser App. Sie erscheinen nie in unserem Namen oder unserer Adresse. Das zählt. Eleven Fantasy ist ein Fantasy-Football-Draft. Es ist ein interaktiver Fußballsimulator, inspiriert von der WM-Geschichte. Er ist an keine Gruppe gebunden.",
+      "Wir nutzen echte Spieler-, Team- und Turniernamen. Wir nutzen sie nur zur Beschreibung. Sie gehören ihren Besitzern. Marken wie FIFA, EA Sports und Football Manager sind Warenzeichen. Sie hängen nicht an dieser App. Sie erscheinen nie in unserem Namen oder unserer Adresse. Das zählt. My World Cup XI ist ein Fantasy-Football-Draft. Es ist ein interaktiver Fußballsimulator, inspiriert von der WM-Geschichte. Er ist an keine Gruppe gebunden.",
       "Die Kadern, die du draftest, feiern die größten Teams des Sports. Du stellst sie auf den Platz und simulierst. Die Daten sind redaktionell. So kann das kostenlose Fußball-Simulationsspiel fünf Jahrzehnte Teams zeigen. Es beansprucht nicht, offiziell zu sein. Wenn eine Bewertung hoch oder niedrig wirkt, dient sie dem Spaß an deinem Turnier. Kurz: das WM-Fantasy-Spiel behandelt Geschichte als Kader. Die Spielengine entscheidet, wer gewinnt. Sie entscheidet, wann Brasilien 1970 auf Frankreich 2022 im Browser-Fußballspiel trifft.",
     ],
     contactTitle: "Kontakt",
@@ -100,9 +100,9 @@ export const about = {
   },
 
   fr: {
-    h1: "Qu'est-ce qu'Eleven Fantasy ?",
+    h1: "Qu'est-ce qu'My World Cup XI ?",
     hero: [
-      "Eleven Fantasy est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy pour les fans de l'histoire de la Coupe. C'est le constructeur d'équipe de rêve de la Coupe du Monde. Vous composez un XI de rêve à partir des équipes de 1970 à 2026. Choisissez le Brésil 1970 de Pelé, la France 1998 de Zidane ou l'Argentine 2022 de Messi. Ensuite, le jeu simule une phase de groupes et un tournoi à élimination.",
+      "My World Cup XI est un jeu de football gratuit dans le navigateur. C'est un jeu de Coupe du Monde fantasy pour les fans de l'histoire de la Coupe. C'est le constructeur d'équipe de rêve de la Coupe du Monde. Vous composez un XI de rêve à partir des équipes de 1970 à 2026. Choisissez le Brésil 1970 de Pelé, la France 1998 de Zidane ou l'Argentine 2022 de Messi. Ensuite, le jeu simule une phase de groupes et un tournoi à élimination.",
       "Voyez-le comme un simulateur de football. C'est aussi un simulateur de draft de football et un jeu de Coupe du Monde fantasy. Vous choisissez une formation. Vous draftz vos joueurs. Le moteur de match simule la coupe avec les tirs au but. Aux États-Unis, c'est un jeu de draft soccer, un soccer en ligne ou un jeu de simulation de football gratuit. Dans le monde, c'est le draft de Coupe du Monde fantasy auquel les fans reviennent. Sans téléchargement. Sans inscription. C'est le simulateur de football interactif le plus simple à ouvrir entre deux matchs.",
       "Appelez-le simulateur de Coupe du Monde. Ou appelez-le jeu soccer sans téléchargement. Ou simplement jeu de Coupe du Monde fantasy. La promesse est la même. Construisez votre équipe. Regardez l'appli simuler votre résultat.",
     ],
@@ -128,7 +128,7 @@ export const about = {
       "Vous pouvez opposer l'Argentine de Maradona à celle de Messi. Ou le Brésil 1970 à la France 2022. Le moteur de match simule le jeu dans l'appli. Les effectifs 2026 ajoutent des compositions prévues. Ainsi les plus grands incluent de nouveaux noms. Pour un draft de Coupe du Monde fantasy, c'est proche de l'entraînement des légendes. Pour un simulateur de draft de football, c'est pourquoi aucun tournoi ne se ressemble. Construisez votre équipe. Utilisez la chimie. Laissez le jeu de football gratuit dans le navigateur décider qui lève le trophée.",
     ],
     systems: [
-      "Eleven Fantasy est un simulateur de football ciblé. Trois systèmes travaillent ensemble.",
+      "My World Cup XI est un simulateur de football ciblé. Trois systèmes travaillent ensemble.",
       "D'abord, la bibliothèque d'effectifs contient plus de 100 anciennes équipes. Chacune est notée sur la même échelle. Elle couvre réflexes, tacles, passe, finition, vitesse et vision. Vos choix et les équipes IA sont équitables. Une attaque du Brésil 1970 peut rencontrer une défense de l'Allemagne 2014 dans la même simulation de Coupe du Monde.",
       "Ensuite, un vrai moteur de match simule chaque jeu. Il joue morceau par morceau. Il montre possession, tirs et occasions. Puis il règle la prolongation et un simulateur de tirs au but. Le moteur est calé pour ressembler aux vrais scores de Coupe du Monde. Mais il ne copie aucun match réel.",
       "Troisièmement, un modèle de chimie récompense les bonnes équipes. Si vous draftz des joueurs de la même nation, ils jouent mieux ensemble. Ainsi un malin constructeur d'équipe de rêve bat une équipe de grosses stats.",
@@ -137,7 +137,7 @@ export const about = {
     dataTitle: "Une note sur les données",
     data: [
       "Les effectifs viennent des demi-finalistes de Coupe du Monde de 1970 à 2026. Cela donne au simulateur de football sa profondeur. Les effectifs 2026 sont inventés. Ce sont des compositions prévues. Nous les ajoutons pour que vous puissiez tirer un tirage du simulateur de Coupe du Monde 2026 aujourd'hui. Chaque note de joueur est une estimation de jeu. Elle sert à l'équilibre, pas aux faits. Les chiffres sont calés pour que les matchs restent serrés. Le draft compte plus qu'une seule note.",
-      "Nous utilisons de vrais noms de joueurs, d'équipes et de tournois. Nous les utilisons pour la description uniquement. Ils appartiennent à leurs propriétaires. Des marques comme FIFA, EA Sports et Football Manager sont des trademarks. Elles ne sont pas liées à cette appli. Elles n'apparaissent jamais dans notre nom ou notre adresse. Cela compte. Eleven Fantasy est un draft de Coupe du Monde fantasy. C'est un simulateur de football interactif inspiré de l'histoire de la Coupe. Il n'est lié à aucun groupe.",
+      "Nous utilisons de vrais noms de joueurs, d'équipes et de tournois. Nous les utilisons pour la description uniquement. Ils appartiennent à leurs propriétaires. Des marques comme FIFA, EA Sports et Football Manager sont des trademarks. Elles ne sont pas liées à cette appli. Elles n'apparaissent jamais dans notre nom ou notre adresse. Cela compte. My World Cup XI est un draft de Coupe du Monde fantasy. C'est un simulateur de football interactif inspiré de l'histoire de la Coupe. Il n'est lié à aucun groupe.",
       "Les effectifs que vous draftz célèbrent les plus grandes équipes du sport. Vous les mettez sur le terrain et simulez. Les données sont éditoriales. Ainsi le jeu de simulation de football gratuit peut montrer cinq décennies d'équipes. Il ne prétend pas être officiel. Si une note paraît haute ou basse, c'est pour rendre votre tournoi amusant. En bref, le jeu de Coupe du Monde fantasy traite l'histoire comme un effectif. Le moteur décide qui gagne. Il décide quand le Brésil 1970 rencontre la France 2022 dans le jeu de football du navigateur.",
     ],
     contactTitle: "Contact",
@@ -150,9 +150,9 @@ export const about = {
   },
 
   ja: {
-    h1: "Eleven Fantasy とは？",
+    h1: "My World Cup XI とは？",
     hero: [
-      "Eleven Fantasyは無料のブラウザサッカーゲーム。ワールドカップの歴史を愛するファンのためのFantasy Football ワールドカップゲームだ。ワールドカップの夢のチームビルダー。1970年から2026年までのチームから夢のXIをドラフトする。ペレのブラジル1970、ジダンのフランス1998、メッシのアルゼンチン2022から選ぼう。するとゲームがグループリーグと決勝トーナメントをシミュレートする。",
+      "My World Cup XIは無料のブラウザサッカーゲーム。ワールドカップの歴史を愛するファンのためのFantasy Football ワールドカップゲームだ。ワールドカップの夢のチームビルダー。1970年から2026年までのチームから夢のXIをドラフトする。ペレのブラジル1970、ジダンのフランス1998、メッシのアルゼンチン2022から選ぼう。するとゲームがグループリーグと決勝トーナメントをシミュレートする。",
       "サッカーシミュレーターと考えよう。これはフットボールドラフトシミュレーターであり、ワールドカップファンタジーゲームでもある。フォーメーションを選ぶ。選手をドラフトする。マッチエンジンがPK付きで杯をシミュレートする。アメリカではサッカードラフトゲーム、オンラインサッカーゲーム、無料サッカーシミュレーションゲームと呼ばれる。世界中ではファンが戻るFantasy Football ドラフトだ。ダウンロード不要。登録不要。試合の合間に開く一番簡単なインタラクティブなサッカーシミュレーターだ。",
       "ワールドカップシミュレーターと呼んでもいい。ダウンロード不要のサッカーゲームと呼んでもいい。それとも単にワールドカップファンタジーゲーム。約束は同じだ。チームを作る。アプリに結果をシミュレートさせよう。",
     ],
@@ -178,7 +178,7 @@ export const about = {
       "マラドーナのアルゼンチンとメッシのアルゼンチンを対戦させられる。ブラジル1970とフランス2022でもいい。マッチエンジンがアプリ内で試合をシミュレートする。2026のチームは予想ラインナップを加える。だから最強の話に新しい名前が加わる。Fantasy Football ドラフトにとってこれはレジェンドを指導するようなもの。フットボールドラフトシミュレーターにとって、2つの大会が同じにならない理由だ。チームを作る。ケミストリーを使う。無料ブラウザサッカーゲームにトロフィーを掲げさせよう。",
     ],
     systems: [
-      "Eleven Fantasyは焦点を絞ったフットボールシミュレーター。3つのシステムが連携する。",
+      "My World Cup XIは焦点を絞ったフットボールシミュレーター。3つのシステムが連携する。",
       "1つ目、チームライブラリは歴代チーム100以上を保持。すべて同じ尺度で評価。反射、タックル、パス、フィニッシュ、スピード、視野を含む。あなたの指名もAIチームも公平。ブラジル1970の攻撃がドイツ2014の守備と同じワールドカップシミュレーションで当たれる。",
       "2つ目、本物のマッチエンジンが各試合をシミュレート。少しずつ進む。ボール保持率、シュート、チャンスを見せる。そして延長とPKシミュレーターを決める。エンジンは本物のワールドカップ結果に近くなるよう調整されている。しかし本物の試合はコピーしない。",
       "3つ目、ケミストリーモデルが良いチームを報いる。同じ国の選手をドラフトすると一緒に良くプレイする。だから賢いワールドカップ夢チームビルダーがビッグスタッツのチームに勝つ。",
@@ -187,7 +187,7 @@ export const about = {
     dataTitle: "データについての注記",
     data: [
       "チームは1970年から2026年までのワールドカップ準決勝進出チームから。これがフットボールシミュレーターに深みを与える。2026のロースターは作り話。予想ラインナップだ。今日ワールドカップシミュレーター2026の抽選ができるよう加えている。各選手レーティングはゲームの見積もり。バランスのためで、事実ではない。数字は試合が接戦になるよう調整されている。ドラフトはどのレーティングより重要だ。",
-      "本物の選手名、チーム名、大会名を使う。説明のみのためだ。彼らは所有者に属する。FIFA、EA Sports、Football Managerは商標。このアプリと無関係。名前やアドレスに出ない。これは重要だ。Eleven FantasyはFantasy Football ドラフト。ワールドカップの歴史に触発されたインタラクティブなサッカーシミュレーターだ。いかなる団体とも無関係。",
+      "本物の選手名、チーム名、大会名を使う。説明のみのためだ。彼らは所有者に属する。FIFA、EA Sports、Football Managerは商標。このアプリと無関係。名前やアドレスに出ない。これは重要だ。My World Cup XIはFantasy Football ドラフト。ワールドカップの歴史に触発されたインタラクティブなサッカーシミュレーターだ。いかなる団体とも無関係。",
       "ドラフトするチームはスポーツの最強チームを祝う。ピッチに並べてシミュレートする。データは編集的だ。だから無料サッカーシミュレーションゲームは5十年のチームを見せられる。公式とは主張しない。レーティングが高くまたは低く見えても、あなたの大会を面白くするためだ。つまり、ワールドカップファンタジーゲームは歴史をロースターとして扱う。マッチエンジンが勝者を決める。ブラジル1970がブラウザサッカーゲームでフランス2022と当たる時を決める。",
     ],
     contactTitle: "お問い合わせ",
@@ -200,9 +200,9 @@ export const about = {
   },
 
   es: {
-    h1: "¿Qué es Eleven Fantasy?",
+    h1: "¿Qué es My World Cup XI?",
     hero: [
-      "Eleven Fantasy es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy para fans de la historia del Mundial. Es el constructor de equipo de ensueño del Mundial. Armas un XI de ensueño con equipos de 1970 a 2026. Elige el Brasil 1970 de Pelé, la Francia 1998 de Zidane o la Argentina 2022 de Messi. Luego el juego simula una fase de grupos y un torneo de eliminación.",
+      "My World Cup XI es un juego de fútbol gratuito en el navegador. Es un juego de Copa del Mundo fantasy para fans de la historia del Mundial. Es el constructor de equipo de ensueño del Mundial. Armas un XI de ensueño con equipos de 1970 a 2026. Elige el Brasil 1970 de Pelé, la Francia 1998 de Zidane o la Argentina 2022 de Messi. Luego el juego simula una fase de grupos y un torneo de eliminación.",
       "Piénsalo como un simulador de fútbol. También es un simulador de draft de fútbol y un juego de Copa del Mundo fantasy. Elijes una formación. Draftas tus jugadores. El motor de partido simula la copa con penales. En EE. UU. es un juego de draft soccer, un soccer en línea o un juego de simulación de fútbol gratuito. En el mundo, es el draft de Copa del Mundo fantasy al que vuelven los fans. Sin descargas. Sin registro. Es el simulador de fútbol interactivo más fácil de abrir entre partidos.",
       "Llámalo simulador del Mundial. O llámalo juego soccer sin descargas. O simplemente juego de Copa del Mundo fantasy. La promesa es la misma. Construye tu equipo. Mira a la app simular tu resultado.",
     ],
@@ -228,7 +228,7 @@ export const about = {
       "Puedes enfrentar la Argentina de Maradona contra la de Messi. O Brasil 1970 contra Francia 2022. El motor de partido simula el juego en la app. Las plantillas 2026 añaden alineaciones previstas. Así los grandes incluyen nombres nuevos. Para un draft de Copa del Mundo fantasy, esto roza entrenar a los legendarios. Para un simulador de draft de fútbol, es por qué ningún torneo se repite. Arma tu equipo. Usa química. Deja que el juego de fútbol gratuito del navegador decida quién levanta el trofeo.",
     ],
     systems: [
-      "Eleven Fantasy es un simulador de fútbol enfocado. Tres sistemas trabajan juntos.",
+      "My World Cup XI es un simulador de fútbol enfocado. Tres sistemas trabajan juntos.",
       "Primero, la biblioteca de plantillas tiene más de 100 equipos viejos. Cada uno se valora en la misma escala. Cubre reflejos, entradas, pase, definición, velocidad y visión. Tus elecciones y los equipos IA son justas. Un ataque del Brasil 1970 puede toparse con una defensa de Alemania 2014 en la misma simulación del Mundial.",
       "Segundo, un motor de partido real simula cada juego. Juega parte por parte. Muestra posesión, tiros y ocasiones. Luego resuelve prórroga y un simulador de penales. El motor está afinado para sentirse como marcadores reales del Mundial. Pero no copia ningún partido real.",
       "Tercero, un modelo de química premia buenos equipos. Si draftas jugadores de la misma nación, juegan mejor juntos. Así un listo constructor de equipo de ensueño vence a un equipo de stats grandes.",
@@ -237,7 +237,7 @@ export const about = {
     dataTitle: "Una nota sobre los datos",
     data: [
       "Las plantillas vienen de semifinalistas del Mundial de 1970 a 2026. Eso da profundidad al simulador de fútbol. Las plantillas 2026 son inventadas. Son alineaciones previstas. Las añadimos para que hoy puedas sortear un draw del simulador del Mundial 2026. Cada valoración de jugador es una estimación de juego. Sirve para el equilibrio, no para hechos. Los números se afinan para que los partidos queden parejos. El draft cuenta más que cualquier valoración.",
-      "Usamos nombres reales de jugadores, equipos y torneos. Solo para descripción. Pertenecen a sus dueños. Marcas como FIFA, EA Sports y Football Manager son trademarks. No están ligadas a esta app. Nunca aparecen en nuestro nombre o dirección. Esto cuenta. Eleven Fantasy es un draft de Copa del Mundo fantasy. Es un simulador de fútbol interactivo inspirado en la historia del Mundial. No está atado a ningún grupo.",
+      "Usamos nombres reales de jugadores, equipos y torneos. Solo para descripción. Pertenecen a sus dueños. Marcas como FIFA, EA Sports y Football Manager son trademarks. No están ligadas a esta app. Nunca aparecen en nuestro nombre o dirección. Esto cuenta. My World Cup XI es un draft de Copa del Mundo fantasy. Es un simulador de fútbol interactivo inspirado en la historia del Mundial. No está atado a ningún grupo.",
       "Las plantillas que draftas celebran los equipos más grandes del deporte. Las pones en la cancha y simulas. Los datos son editoriales. Así el juego de simulación de fútbol gratuito puede mostrar cinco décadas de equipos. No pretende ser oficial. Si una valoración parece alta o baja, está para hacer tu torneo divertido. En resumen, el juego de Copa del Mundo fantasy trata la historia como una plantilla. El motor decide quién gana. Decide cuándo el Brasil 1970 enfrenta a Francia 2022 en el juego de fútbol del navegador.",
     ],
     contactTitle: "Contacto",

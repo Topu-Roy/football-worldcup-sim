@@ -86,7 +86,7 @@
   <div
     class="relative mx-auto max-w-5xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24 sm:pb-14"
   >
-    <p class="{mono} text-mint">Eleven Fantasy</p>
+    <p class="{mono} text-mint">My World Cup XI</p>
     <h1
       class="mt-4 font-display text-6xl leading-[0.85] tracking-[1.07px] text-white sm:text-7xl md:text-8xl"
     >
