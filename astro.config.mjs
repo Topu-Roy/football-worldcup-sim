@@ -1,11 +1,10 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
-import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-
-const buildDate = new Date().toISOString();
+import { SITE_URL } from "./src/lib/site";
+import { defaultLocale, locales } from "./src/i18n/config";
 
 /** @param {string} url */
 function pathOf(url) {
@@ -16,57 +15,62 @@ function pathOf(url) {
   }
 }
 
-/** @param {string} path */
-function priorityFor(path) {
+/**
+ * Canonical path without a trailing slash and without a locale prefix, so
+ * `/de/teams/`, `/teams/` and `/teams` all compare as `/teams`.
+ * @param {string} pathname
+ */
+function canonicalPath(pathname) {
+  const clean = pathname.replace(/\/+$/, "") || "/";
+  const segments = clean.split("/").filter(Boolean);
   if (
-    path === "/" ||
-    path === "/game" ||
-    path === "/teams" ||
-    path === "/teams/"
-  )
-    return 0.9;
-  if (path.startsWith("/blog")) return 0.7;
+    segments.length > 0 &&
+    /** @type {readonly string[]} */ (locales).includes(segments[0])
+  ) {
+    segments.shift();
+  }
+  return `/${segments.join("/")}`;
+}
+
+/** @param {string} pathname */
+function priorityFor(pathname) {
+  const path = canonicalPath(pathname);
+  if (path === "/" || path === "/game" || path === "/teams") return 0.9;
+  if (path === "/blog" || path.startsWith("/blog/")) return 0.7;
   if (
+    path === "/history" ||
     path.startsWith("/how-to-play") ||
     path.startsWith("/about") ||
     path.startsWith("/contact")
-  )
+  ) {
     return 0.6;
+  }
+  if (path.startsWith("/privacy") || path.startsWith("/terms")) return 0.3;
   return 0.5;
 }
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://elevenfantasy.com",
-  output: "static",
+  site: SITE_URL,
   integrations: [
     svelte(),
-    partytown(),
     sitemap({
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      /** @param {import("@astrojs/sitemap").SitemapItem} item */
       serialize(item) {
-        const path = pathOf(item.url);
         return {
           ...item,
-          lastmod: buildDate,
-          changefreq: "weekly",
-          priority: priorityFor(path),
+          priority: priorityFor(pathOf(item.url)),
         };
       },
     }),
   ],
 
   i18n: {
-    defaultLocale: "en",
-    locales: ["en", "de", "fr", "ja", "es"],
+    defaultLocale,
+    locales: [...locales],
     routing: {
       prefixDefaultLocale: false,
     },
-  },
-
-  redirects: {
-    "/terms": "/terms-and-conditions",
   },
 
   vite: {
