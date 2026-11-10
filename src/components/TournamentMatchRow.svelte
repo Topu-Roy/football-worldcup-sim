@@ -20,6 +20,7 @@
     onToggle,
     onResult,
     onClose,
+    nextLabel = "Close",
   }: {
     match: TournamentMatch;
     tournament: Tournament;
@@ -31,6 +32,7 @@
     onToggle: () => void;
     onResult: (r: MatchResult, script?: MatchScript) => void;
     onClose: () => void;
+    nextLabel?: string;
   } = $props();
 
   const teams = $derived(matchTeams(tournament, match));
@@ -124,6 +126,7 @@
         {roundLabel}
         {onResult}
         onNext={onClose}
+        {nextLabel}
         regulationOnly={match.round === "group"}
         presetResult={match.result}
         presetScript={match.script ?? null}

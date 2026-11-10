@@ -20,43 +20,49 @@ const options = locales
   }));
 ---
 
-<div class="locale-switcher">
-  <span class="ls-icon" aria-hidden="true">
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <circle cx="12" cy="12" r="9"></circle>
-      <path d="M3 12h18"></path>
-      <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"></path>
-    </svg>
-  </span>
-  <select id="locale-select" class="ls-select" aria-label={ui[lang].switcher.label}>
-    {
-      options.map((opt) => (
-        <option value={opt.href} selected={opt.code === lang}>
-          {opt.label}
-        </option>
-      ))
-    }
-  </select>
-  <span class="ls-caret" aria-hidden="true">
-    <svg
-      viewBox="0 0 10 6"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M1 1l4 4 4-4"></path>
-    </svg>
-  </span>
-</div>
+{
+  options.length > 1 && (
+    <div class="locale-switcher">
+      <span class="ls-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18" />
+          <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z" />
+        </svg>
+      </span>
+      <select
+        id="locale-select"
+        class="ls-select"
+        aria-label={ui[lang].switcher.label}
+      >
+        {options.map((opt) => (
+          <option value={opt.href} selected={opt.code === lang}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+      <span class="ls-caret" aria-hidden="true">
+        <svg
+          viewBox="0 0 10 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M1 1l4 4 4-4" />
+        </svg>
+      </span>
+    </div>
+  )
+}
 
 <style>
   .locale-switcher {
@@ -65,7 +71,7 @@ const options = locales
     align-items: center;
     margin-left: 8px;
     padding-left: 8px;
-    border-left: 1px solid #2d2d2d;
+    border-left: 1px solid var(--color-slate);
   }
 
   .ls-icon,

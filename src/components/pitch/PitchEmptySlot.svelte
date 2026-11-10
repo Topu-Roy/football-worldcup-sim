@@ -35,7 +35,7 @@
 {#if isSwapTarget && onSwapTarget}
   <button
     type="button"
-    class="relative flex h-11 w-11 animate-pulse cursor-pointer items-center justify-center rounded-full border-2 border-dashed border-orange-500 bg-white font-mono text-sm font-bold tracking-wide text-black uppercase shadow-[0_0_16px_rgba(255,140,0,0.7)] hover:bg-orange-500"
+    class="relative flex h-12 w-12 animate-pulse cursor-pointer items-center justify-center rounded-full border-2 border-dashed border-orange-500 bg-white font-mono text-sm font-bold tracking-wide text-black uppercase shadow-[0_0_16px_rgba(255,140,0,0.7)] hover:bg-orange-500 motion-reduce:animate-none"
     onclick={() => onSwapTarget(slotIndex)}
   >
     <Repeat class="h-4 w-4" />
@@ -50,7 +50,7 @@
   <button
     type="button"
     disabled={placing && !enabled}
-    class="relative flex h-14 w-14 items-center justify-center rounded-full border-2 font-mono text-base font-bold tracking-wide uppercase {enabled
+    class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 font-mono text-base font-bold tracking-wide uppercase {enabled
       ? 'cursor-pointer border-dashed border-orange-500 bg-orange-500/10 text-orange-500 hover:bg-orange-500/20'
       : placing
         ? 'cursor-not-allowed border-dashed border-white/15 bg-white/5 text-white/25'
@@ -67,7 +67,7 @@
   </button>
 {:else}
   <div
-    class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-white/50 bg-mint/10 font-mono text-base font-bold tracking-wide text-white/60 uppercase"
+    class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-white/50 bg-mint/10 font-mono text-base font-bold tracking-wide text-white/60 uppercase"
   >
     {role}
   </div>

@@ -7,8 +7,10 @@
   let {
     userSquad,
     opponentSquad,
+    liveStatus,
     clockLabel,
     displayScore,
+    controls,
     children,
   }: {
     userSquad: Squad;
@@ -83,6 +85,19 @@
   <div class="px-4 py-3 sm:px-6">
     {@render children()}
   </div>
+
+  {#if controls}
+    <div
+      class="flex flex-wrap items-center gap-2 border-t border-white/10 px-4 py-3 sm:px-6"
+    >
+      {@render controls()}
+    </div>
+  {/if}
+
+  <p class="sr-only" aria-live="polite">
+    {liveStatus}
+    {displayScore[0]}–{displayScore[1]}
+  </p>
 </div>
 
 <style>
@@ -99,6 +114,12 @@
     100% {
       transform: scale(1);
       filter: brightness(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .score-bump {
+      animation: none;
     }
   }
 </style>

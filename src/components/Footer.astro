@@ -32,8 +32,8 @@ const labels = ui[locale];
 
 <style>
   .site-footer {
-    background: #131313;
-    border-top: 1px solid #2d2d2d;
+    background: var(--color-canvas);
+    border-top: 1px solid var(--color-slate);
   }
 
   .inner {
@@ -53,7 +53,7 @@ const labels = ui[locale];
     font-weight: 500;
     letter-spacing: 1.1px;
     text-transform: uppercase;
-    color: #949494;
+    color: var(--color-secondary);
     margin: 0;
   }
 
@@ -70,13 +70,13 @@ const labels = ui[locale];
     font-weight: 500;
     letter-spacing: 1.1px;
     text-transform: uppercase;
-    color: #949494;
+    color: var(--color-secondary);
     text-decoration: none;
     transition: color 150ms ease;
   }
 
   .legal a:hover {
-    color: #3cffd0;
+    color: var(--color-mint);
   }
 
   .to-top {
@@ -85,9 +85,9 @@ const labels = ui[locale];
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #3cffd0;
+    color: var(--color-mint);
     background: transparent;
-    border: 1px solid #3cffd0;
+    border: 1px solid var(--color-mint);
     border-radius: 40px;
     padding: 8px 20px;
     cursor: pointer;
@@ -97,7 +97,7 @@ const labels = ui[locale];
   }
 
   .to-top:hover {
-    background: #3cffd0;
+    background: var(--color-mint);
     color: #000000;
   }
 

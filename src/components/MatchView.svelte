@@ -203,6 +203,14 @@
     playing = true;
   }
 
+  /** Jump straight to the final result instead of waiting out the reveal. */
+  function skipToEnd() {
+    if (!script || finished) return;
+    segIndex = snaps.length;
+    penIndex = script.penalties?.length ?? 0;
+    finish();
+  }
+
   $effect(() => {
     if (!playing || finished) return;
     const id = setInterval(advance, 550);
@@ -248,6 +256,7 @@
     onPlayMatch={playMatch}
     onTogglePlay={togglePlay}
     onReplay={replay}
+    onSkip={skipToEnd}
     {onNext}
     {nextLabel}
   />

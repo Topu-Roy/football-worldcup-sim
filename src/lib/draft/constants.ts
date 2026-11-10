@@ -1,4 +1,4 @@
-import type { Position } from "../types.js";
+import type { Player, Position } from "../types.js";
 
 export const NATION_NAMES: Record<string, string> = {
   BRA: "Brazil",
@@ -68,3 +68,30 @@ export const POSITION_LABEL: Record<Position, string> = {
 
 export const MAX_REROLLS = 3;
 export const DRAFT_ROUNDS = 11;
+
+/**
+ * The stats surfaced per department. Shared by the draft offer card and the
+ * squad list so the same player shows the same labels everywhere.
+ */
+export const DEPT_STAT_KEYS: Record<Position, (keyof Player)[]> = {
+  GK: ["reflexes", "positioning", "distribution"],
+  DEF: ["tackling", "aerial", "passing", "pace"],
+  MID: ["passing", "dribble", "workRate", "stamina"],
+  ATT: ["finishing", "dribble", "pace", "offBall"],
+};
+
+/** Human-readable labels for player stat keys. */
+export const STAT_LABELS: Record<string, string> = {
+  reflexes: "Reflexes",
+  positioning: "Positioning",
+  distribution: "Distribution",
+  tackling: "Tackling",
+  aerial: "Aerial",
+  passing: "Passing",
+  pace: "Pace",
+  dribble: "Dribble",
+  workRate: "Work Rate",
+  stamina: "Stamina",
+  finishing: "Finishing",
+  offBall: "Off Ball",
+};

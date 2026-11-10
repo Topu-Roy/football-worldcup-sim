@@ -4,6 +4,8 @@ export {
   NATION_NAMES,
   NATION_SLUGS,
   POSITION_LABEL,
+  DEPT_STAT_KEYS,
+  STAT_LABELS,
 } from "./constants.js";
 export {
   draftableNations,

@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { ChevronDown } from "@lucide/astro";
+import { ChevronDown, Search } from "@lucide/astro";
 import { teamsIndex } from "../../i18n/content/teamsIndex";
 import { teamDetail } from "../../i18n/content/teamDetail";
 import { meta } from "../../i18n/meta";
@@ -127,10 +127,46 @@ const collectionLd = {
           {c.ranking.map((p) => <p>{p}</p>)}
         </div>
 
-        <ul class="mt-10 space-y-3">
+        <div
+          class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div class="relative w-full sm:max-w-xs">
+            <label class="sr-only" for="team-search">Search squads</label>
+            <Search
+              class="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-secondary"
+            />
+            <input
+              id="team-search"
+              type="search"
+              autocomplete="off"
+              placeholder="Search nation or year"
+              class="w-full rounded-full border border-white/15 bg-slate/40 py-2.5 pr-4 pl-10 text-sm text-white placeholder:text-secondary focus:border-mint"
+            />
+          </div>
+          <p
+            id="team-count"
+            class="font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase"
+            aria-live="polite"
+          >
+            {teams.length} squads
+          </p>
+        </div>
+        <p
+          id="team-empty"
+          class="mt-8 hidden rounded-2xl border border-white/10 bg-slate/20 px-5 py-10 text-center text-sm text-secondary"
+        >
+          No squads match that search. Try a nation name or a year.
+        </p>
+
+        <ul id="team-list" class="mt-6 space-y-3">
           {
             teams.map((team) => (
-              <li id={team.id} class="scroll-mt-24">
+              <li
+                id={team.id}
+                class="scroll-mt-24"
+                data-team
+                data-search={`${team.name} ${team.year} ${team.formationLabel}`.toLowerCase()}
+              >
                 <details class="group rounded-2xl border border-white/10 bg-slate/40 transition-colors open:border-mint/40">
                   <summary class="flex cursor-pointer list-none flex-wrap items-baseline gap-x-4 gap-y-1 p-5 [&::-webkit-details-marker]:hidden">
                     <span class="font-display text-xl tracking-[0.5px]">
@@ -215,10 +251,41 @@ const collectionLd = {
 
   <script is:inline>
     (() => {
+      const input = document.getElementById("team-search");
+      const items = Array.from(document.querySelectorAll("[data-team]"));
+      const count = document.getElementById("team-count");
+      const empty = document.getElementById("team-empty");
+      const total = items.length;
+
+      /** Filter the squad list by nation, year or formation. */
+      const filter = () => {
+        const q = (input?.value ?? "").trim().toLowerCase();
+        let shown = 0;
+        for (const el of items) {
+          const haystack = el.getAttribute("data-search") ?? "";
+          const match = !q || haystack.includes(q);
+          el.hidden = !match;
+          if (match) shown += 1;
+        }
+        if (count) {
+          count.textContent = q
+            ? `${shown} of ${total} squads`
+            : `${total} squads`;
+        }
+        if (empty) empty.classList.toggle("hidden", shown !== 0);
+      };
+
+      input?.addEventListener("input", filter);
+
       const openTarget = () => {
         const id = decodeURIComponent(window.location.hash.slice(1));
         if (!id) return;
         const target = document.getElementById(id);
+        // A filtered-out squad can't be scrolled to: clear the search first.
+        if (target?.hidden) {
+          if (input) input.value = "";
+          filter();
+        }
         const details = target?.querySelector("details");
         if (details) details.open = true;
         target?.scrollIntoView({ block: "start" });

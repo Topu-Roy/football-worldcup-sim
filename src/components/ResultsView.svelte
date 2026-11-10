@@ -10,6 +10,7 @@
   import Confetti from "./Confetti.svelte";
   import PitchView from "./PitchView.svelte";
   import SquadStatsList from "./SquadStatsList.svelte";
+  import StandingsTable from "./StandingsTable.svelte";
   import { RotateCcw, Trophy, Play } from "@lucide/svelte";
 
   let {
@@ -68,11 +69,12 @@
     expandedId = expandedId === m.id ? null : m.id;
   }
 
-  /** Format a signed goal-difference value, e.g. +3, 0, −2. */
-  function formatSigned(n: number): string {
-    if (n > 0) return `+${n}`;
-    if (n < 0) return `−${Math.abs(n)}`;
-    return "0";
+  /** Confirm before discarding the finished run. */
+  function handlePlayAgain() {
+    if (!confirm("Play again? This clears your current XI and results.")) {
+      return;
+    }
+    onReset();
   }
 
   /** Headline text for the tournament's final placement. */
@@ -109,13 +111,20 @@
       >
         World Cup Results
       </h2>
-      <p class="{mono} mt-3 text-secondary">Season complete</p>
+      <p class="{mono} mt-3 text-secondary">Tournament complete</p>
     </div>
-    <div class="flex items-center gap-3">
+    <div class="flex flex-wrap items-center gap-3">
+      <a
+        href="/history/"
+        class="{pillOutline} hidden items-center gap-2 lg:inline-flex"
+      >
+        View history
+      </a>
       {#if tournament.outcome !== "champion" && canRerun}
         <button
           type="button"
           class="{pillSolid} hidden items-center gap-2 lg:inline-flex"
+          title="Replay the tournament with the same XI"
           onclick={onRerun}
         >
           <Play class="h-3.5 w-3.5" /> Retry
@@ -124,7 +133,8 @@
       <button
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
-        onclick={onReset}
+        title="Clear this run and draft a new XI"
+        onclick={handlePlayAgain}
       >
         <RotateCcw class="h-3.5 w-3.5" /> Play again
       </button>
@@ -137,7 +147,7 @@
     >
       <p class="{mono} mb-4 text-secondary">FINAL GROUP STAGE TABLE</p>
       <div class="overflow-x-auto">
-        {@render StandingsTable(standings, tournament.userSquad.id)}
+        <StandingsTable rows={standings} userId={tournament.userSquad.id} />
       </div>
     </div>
   {/if}
@@ -160,6 +170,11 @@
     >
       {outcomeTitle(tournament.outcome ?? "")}
     </p>
+    {#if tournament.outcome !== "champion" && !canRerun}
+      <p class="mt-3 text-xs text-secondary">
+        Retry already used — start a new draft to chase a better run.
+      </p>
+    {/if}
   </div>
 
   <div
@@ -199,10 +214,16 @@
     <button
       type="button"
       class="{pillOutline} flex w-full items-center justify-center gap-2"
-      onclick={onReset}
+      onclick={handlePlayAgain}
     >
       <RotateCcw class="h-3.5 w-3.5" /> Play again
     </button>
+    <a
+      href="/history/"
+      class="flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-mono text-xs font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+    >
+      View history
+    </a>
   </div>
 
   {#if stats.played > 0}
@@ -241,7 +262,7 @@
             liveScore={null}
             onToggle={() => toggleMatch(m)}
             onResult={() => {}}
-            onClose={() => {}}
+            onClose={() => (expandedId = null)}
           />
         {/each}
       </ul>
@@ -256,48 +277,4 @@
     <p class="{mono} text-[9px] text-secondary">{label}</p>
     <p class="mt-1 font-display text-xl">{value}</p>
   </div>
-{/snippet}
-
-{#snippet StandingsTable(
-  rows: import("../lib/tournament.js").GroupStanding[],
-  userId: string | null,
-)}
-  <table class="w-full text-left text-sm">
-    <thead>
-      <tr class="{mono} text-secondary">
-        <th class="pr-3 pb-2">#</th>
-        <th class="pr-3 pb-2">Team</th>
-        <th class="pr-3 pb-2 text-center">P</th>
-        <th class="pr-3 pb-2 text-center">W</th>
-        <th class="pr-3 pb-2 text-center">D</th>
-        <th class="pr-3 pb-2 text-center">L</th>
-        <th class="pr-3 pb-2 text-center">GF</th>
-        <th class="pr-3 pb-2 text-center">GA</th>
-        <th class="pr-3 pb-2 text-center">GD</th>
-        <th class="pb-2 text-center">Pts</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each rows as row, i (row.squadId)}
-        <tr class={row.squadId === userId ? "bg-mint/8" : ""}>
-          <td class="py-2 pr-3 font-mono text-secondary">{i + 1}</td>
-          <td class="py-2 pr-3 font-bold">
-            {row.squadId === userId ? "You" : row.name}
-            <span class="{mono} ml-2! text-secondary">
-              {NATION_NAMES[row.nation] ?? row.nation}
-            </span>
-          </td>
-          <td class="py-2 pr-3 text-center font-mono">{row.played}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.won}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.drawn}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.lost}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.gf}</td>
-          <td class="py-2 pr-3 text-center font-mono">{row.ga}</td>
-          <td class="py-2 pr-3 text-center font-mono">{formatSigned(row.gd)}</td
-          >
-          <td class="py-2 text-center font-mono font-bold">{row.points}</td>
-        </tr>
-      {/each}
-    </tbody>
-  </table>
 {/snippet}

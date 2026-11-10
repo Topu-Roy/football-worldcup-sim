@@ -46,8 +46,8 @@
   <div class="relative">
     <button
       type="button"
-      class="relative flex h-11 w-11 items-center justify-center rounded-full border-2 font-mono text-base font-bold shadow-lg transition-all duration-150 {isTarget
-        ? 'animate-pulse cursor-pointer border-mint bg-white text-black shadow-[0_0_16px_rgba(60,255,208,0.7)] hover:bg-mint'
+      class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 font-mono text-base font-bold shadow-lg transition-all duration-150 {isTarget
+        ? 'animate-pulse cursor-pointer border-mint bg-white text-black shadow-[0_0_16px_rgba(60,255,208,0.7)] hover:bg-mint motion-reduce:animate-none'
         : isSelected
           ? 'cursor-pointer border-yellow bg-white text-black shadow-[0_0_14px_rgba(255,210,60,0.6)]'
           : flagged
@@ -68,7 +68,7 @@
     {#if flagged}
       <button
         type="button"
-        class="absolute -top-2 -right-2 z-20 flex h-5 w-5 items-center justify-center rounded-full border border-white/40 bg-slate text-white/80 transition-colors duration-150 hover:bg-white hover:text-black"
+        class="absolute -top-2.5 -right-2.5 z-20 flex h-6 w-6 items-center justify-center rounded-full border border-white/40 bg-slate text-white/80 transition-colors duration-150 hover:bg-white hover:text-black"
         aria-label="Why is this player flagged?"
         onclick={(e) => {
           e.stopPropagation();
@@ -127,7 +127,7 @@
         </div>
       </dl>
       <p class="mt-2 font-mono text-[9px] leading-snug text-secondary">
-        Swap to a natural position to remove the penalty.
+        Assign a natural position to remove the penalty.
       </p>
     </div>
   {/if}

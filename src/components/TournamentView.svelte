@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Pause, Play, RotateCcw } from "@lucide/svelte";
-  import { untrack } from "svelte";
   import TournamentMatchRow from "./TournamentMatchRow.svelte";
+  import StandingsTable from "./StandingsTable.svelte";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import {
     advanceToKnockout,
@@ -10,6 +10,7 @@
     nextUserMatch,
     registerUserResult,
     resolveKnockout,
+    standingsFor,
     type Tournament,
     type TournamentMatch,
   } from "../lib/tournament.js";
@@ -134,14 +135,22 @@
     return () => clearInterval(id);
   });
 
-  /** Auto-start the run once on mount (untracked so the read/write of `running` can't re-trigger the effect). */
+  // Pause when the tab is hidden so a run never finishes while the user is away.
   $effect(() => {
-    untrack(startRun);
+    const onVisibility = () => {
+      if (document.hidden) running = false;
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
   });
 
   const userGroupMatches = $derived(
     tournament.matches.filter((m) => m.isUser && m.round === "group"),
   );
+
+  const standings = $derived(standingsFor(tournament));
+  const groupPlayed = $derived(userGroupMatches.filter((m) => m.result).length);
+  const groupTotal = $derived(userGroupMatches.length || 3);
 
   const groupDoneNow = $derived(groupDone(tournament));
 
@@ -209,6 +218,12 @@
           ? "Group stage · top 2 advance to knockouts"
           : "Knockout · win to advance"}
       </p>
+      {#if !running && groupPlayed === 0 && tournament.phase === "group"}
+        <p class="mt-3 max-w-md text-sm text-secondary">
+          Your XI is set. Play three group matches, then the knockout rounds.
+          Press Play to simulate — you can pause at any time.
+        </p>
+      {/if}
     </div>
     <div class="flex items-center gap-3">
       <button
@@ -225,14 +240,34 @@
       <button
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
-        onclick={handleReset}
-        ><RotateCcw class="h-3.5 w-3.5" /> Quit run</button
+        onclick={handleReset}><RotateCcw class="h-3.5 w-3.5" /> Quit run</button
       >
     </div>
   </header>
 
+  {#if tournament.phase === "group"}
+    <div class="mt-10 rounded-3xl border border-white/15 p-4 sm:p-6">
+      <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <p class="{mono} text-secondary">GROUP TABLE</p>
+        <p class="{mono} text-[10px] text-secondary">Top 2 advance</p>
+      </div>
+      <div class="overflow-x-auto">
+        <StandingsTable
+          rows={standings}
+          userId={tournament.userSquad.id}
+          qualifyLine
+        />
+      </div>
+    </div>
+  {/if}
+
   <div class="mt-10 rounded-3xl border border-white/15 p-4 sm:p-6">
-    <p class="{mono} mb-4 text-secondary">YOUR GROUP MATCHES</p>
+    <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+      <p class="{mono} text-secondary">GROUP MATCHES</p>
+      <p class="{mono} text-[10px] text-secondary">
+        {groupPlayed}/{groupTotal} played
+      </p>
+    </div>
     <ul class="space-y-3">
       {#each userGroupMatches as m (m.id)}
         <TournamentMatchRow

@@ -10,6 +10,7 @@
     onTogglePlay,
     onReplay,
     onNext,
+    onSkip,
     nextLabel = "Next match",
   }: {
     hasScript: boolean;
@@ -20,6 +21,8 @@
     onTogglePlay: () => void;
     onReplay: () => void;
     onNext: () => void;
+    /** Jump straight to the final score while a script is still playing. */
+    onSkip?: () => void;
     nextLabel?: string;
   } = $props();
 
@@ -27,6 +30,8 @@
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent whitespace-nowrap transition-all duration-150 enabled:hover:bg-mint enabled:hover:text-black";
   const pillSolid =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-black bg-mint border border-mint rounded-full px-5 py-2.5 whitespace-nowrap transition-all duration-150 hover:brightness-110";
+  const pillGhost =
+    "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-secondary border border-white/15 rounded-full px-4 py-2.5 bg-transparent whitespace-nowrap transition-all duration-150 hover:border-mint hover:text-mint";
 </script>
 
 {#if !hasScript && !hasResult}
@@ -38,17 +43,28 @@
     <Play class="h-3.5 w-3.5" /> Play match
   </button>
 {:else if hasScript && !finished}
-  <button
-    type="button"
-    class="{pillOutline} inline-flex items-center gap-2"
-    onclick={onTogglePlay}
-  >
-    {#if playing}
-      <Pause class="h-3.5 w-3.5" /> Pause
-    {:else}
-      <Play class="h-3.5 w-3.5" /> Play
+  <div class="flex flex-wrap items-center gap-2">
+    <button
+      type="button"
+      class="{pillOutline} inline-flex items-center gap-2"
+      onclick={onTogglePlay}
+    >
+      {#if playing}
+        <Pause class="h-3.5 w-3.5" /> Pause
+      {:else}
+        <Play class="h-3.5 w-3.5" /> Play
+      {/if}
+    </button>
+    {#if onSkip}
+      <button
+        type="button"
+        class="{pillGhost} inline-flex items-center gap-2"
+        onclick={onSkip}
+      >
+        <SkipForward class="h-3.5 w-3.5" /> Skip to result
+      </button>
     {/if}
-  </button>
+  </div>
 {:else if hasScript}
   <button
     type="button"

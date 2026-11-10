@@ -35,6 +35,22 @@
                 ? "Elim."
                 : "Live";
 
+  /** Full label for tooltips on the compact badge. */
+  const outcomeFull = (o: TournamentOutcome | null): string =>
+    o === "champion"
+      ? "Champion"
+      : o === "runners-up"
+        ? "Runners-up"
+        : o === "semi-final-exit"
+          ? "Eliminated in the semi-final"
+          : o === "quarter-final-exit"
+            ? "Eliminated in the quarter-final"
+            : o === "round-of-16-exit"
+              ? "Eliminated in the round of 16"
+              : o === "eliminated"
+                ? "Eliminated in the group stage"
+                : "Run in progress";
+
   const outcomeTone = (o: TournamentOutcome | null): string =>
     o === "champion"
       ? "var(--color-mint)"
@@ -102,11 +118,11 @@
 <section class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-14">
   <header>
     <p class="{mono} text-[10px] text-mint sm:text-[11px]">Match history</p>
-    <h2
+    <h1
       class="mt-2 font-display text-3xl leading-[0.95] tracking-[1px] sm:mt-3 sm:text-5xl"
     >
       Your World Cup runs
-    </h2>
+    </h1>
     <p class="mt-2 max-w-md text-sm text-secondary sm:mt-3">
       One entry per tournament, saved by date — expand a run to see your team
       and every result.
@@ -179,6 +195,7 @@
                 class="rounded-full border px-2.5 py-1 font-mono text-[9px] font-semibold tracking-[1.5px] uppercase"
                 style:color={outcomeTone(r.outcome)}
                 style:border-color={outcomeTone(r.outcome)}
+                title={outcomeFull(r.outcome)}
               >
                 {outcomeShort(r.outcome)}
               </span>
@@ -242,7 +259,7 @@
                     >
                       <p class="font-display text-lg text-mint">{r.stats.gf}</p>
                       <p
-                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                        class="font-mono text-[10px] font-semibold tracking-[1px] text-secondary uppercase"
                       >
                         GF
                       </p>
@@ -254,7 +271,7 @@
                         {r.stats.ga}
                       </p>
                       <p
-                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                        class="font-mono text-[10px] font-semibold tracking-[1px] text-secondary uppercase"
                       >
                         GA
                       </p>
@@ -266,7 +283,7 @@
                         {r.stats.points}
                       </p>
                       <p
-                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                        class="font-mono text-[10px] font-semibold tracking-[1px] text-secondary uppercase"
                       >
                         PTS
                       </p>
@@ -278,7 +295,7 @@
                         {r.stats.gd > 0 ? "+" : ""}{r.stats.gd}
                       </p>
                       <p
-                        class="font-mono text-[8px] font-semibold tracking-[1px] text-secondary uppercase"
+                        class="font-mono text-[10px] font-semibold tracking-[1px] text-secondary uppercase"
                       >
                         GD
                       </p>
@@ -294,7 +311,7 @@
                       >
                         <span class="flex min-w-0 items-center gap-2.5">
                           <span
-                            class="inline-flex w-8 shrink-0 items-center justify-center rounded-full border border-white/15 py-0.5 font-mono text-[9px] font-semibold tracking-[1px] uppercase"
+                            class="inline-flex w-8 shrink-0 items-center justify-center rounded-full border border-white/15 py-0.5 font-mono text-[10px] font-semibold tracking-[1px] uppercase"
                             style:color={outcomeColor(m.outcome)}
                             style:border-color={outcomeColor(m.outcome)}
                           >

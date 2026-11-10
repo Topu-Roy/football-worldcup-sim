@@ -62,17 +62,29 @@
     onSwap(selectedId, slotIndex);
     selectedId = null;
   }
+
+  /** Confirm before discarding a completed XI. */
+  function handleStartOver() {
+    if (!confirm("Start over? This clears your drafted XI and tournament.")) {
+      return;
+    }
+    onReset();
+  }
 </script>
 
 <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <div class="flex flex-wrap items-center justify-between gap-4">
     <div>
+      <p class="{mono} text-mint">Team complete</p>
       <h2
-        class="font-display text-5xl leading-[0.85] tracking-[1px] sm:text-6xl"
+        class="mt-2 font-display text-5xl leading-[0.85] tracking-[1px] sm:text-6xl"
       >
         Ready to start
       </h2>
-      <p class="{mono} mt-3 text-mint">Team complete</p>
+      <p class="mt-3 max-w-md text-sm text-secondary">
+        Review your XI below. Select a player to swap positions, then run the
+        tournament.
+      </p>
     </div>
     <div class="flex flex-wrap gap-4">
       <button
@@ -85,7 +97,7 @@
       <button
         type="button"
         class="{pillOutlineAlt} inline-flex items-center gap-2"
-        onclick={onReset}
+        onclick={handleStartOver}
       >
         <RotateCcw class="h-3.5 w-3.5" /> Start over
       </button>
@@ -93,8 +105,13 @@
   </div>
 
   <div class="mt-8 w-full rounded-3xl border border-white/15 p-4 sm:p-6">
-    <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
-      <p class="{mono} text-secondary">Your squad</p>
+    <div class="mb-4 flex flex-wrap items-end justify-between gap-2">
+      <div>
+        <p class="{mono} text-secondary">Your squad</p>
+        <p class="mt-1 text-[11px] text-secondary">
+          OVR is the overall rating (0–100). AVG is the squad average.
+        </p>
+      </div>
       <p class="{mono} text-[10px] text-secondary">
         {formationKey}
         <span
@@ -105,14 +122,30 @@
       </p>
     </div>
     <div class="grid items-start gap-6 lg:grid-cols-2">
-      <PitchView
-        players={pitchPlayers}
-        {formationKey}
-        {selectedId}
-        {swapTargets}
-        onPlayerClick={toggleSelect}
-        onSwapTarget={handleSwapTarget}
-      />
+      <div class="flex flex-col items-center gap-3">
+        <PitchView
+          players={pitchPlayers}
+          {formationKey}
+          {selectedId}
+          {swapTargets}
+          onPlayerClick={toggleSelect}
+          onSwapTarget={handleSwapTarget}
+        />
+        {#if selectedId}
+          <p
+            class="inline-flex items-center gap-1.5 text-center font-mono text-[10px] font-semibold tracking-[1.5px] text-yellow uppercase"
+          >
+            <MousePointerClick class="h-3.5 w-3.5" /> Select a highlighted position
+            to swap
+          </p>
+        {:else}
+          <p
+            class="text-center font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
+          >
+            Select a player to swap positions
+          </p>
+        {/if}
+      </div>
 
       <div>
         <SquadStatsList {squad} />
@@ -120,26 +153,28 @@
     </div>
   </div>
 
-  {#if selectedId}
-    <p
-      class="mt-4 inline-flex items-center gap-1.5 text-center font-mono text-[11px] tracking-[1.5px] text-yellow uppercase"
-    >
-      <MousePointerClick class="h-3.5 w-3.5" /> Click a highlighted position to swap
-    </p>
-  {/if}
-
   <div class="mt-8 grid grid-cols-2 gap-4">
     <div
       class="rounded-2xl border border-orange/30 bg-orange/10 px-4 py-3 text-center"
     >
       <p class="{mono} text-[10px] text-orange">Attack power</p>
       <p class="mt-1 font-display text-4xl text-orange">{attack}</p>
+      <p
+        class="mt-1 font-mono text-[9px] tracking-[1px] text-secondary uppercase"
+      >
+        out of 100
+      </p>
     </div>
     <div
       class="rounded-2xl border border-blue/30 bg-blue/10 px-4 py-3 text-center"
     >
       <p class="{mono} text-[10px] text-blue">Defense power</p>
       <p class="mt-1 font-display text-4xl text-blue">{defense}</p>
+      <p
+        class="mt-1 font-mono text-[9px] tracking-[1px] text-secondary uppercase"
+      >
+        out of 100
+      </p>
     </div>
   </div>
 

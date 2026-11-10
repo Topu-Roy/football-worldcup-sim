@@ -1,7 +1,13 @@
 <script lang="ts">
   import { ChevronDown, Lock } from "@lucide/svelte";
-  import { playerRating, playerTier, slotDepartment } from "../../lib/draft.js";
-  import type { Player, Position } from "../../lib/types.js";
+  import {
+    DEPT_STAT_KEYS,
+    STAT_LABELS,
+    playerRating,
+    playerTier,
+    slotDepartment,
+  } from "../../lib/draft.js";
+  import type { Player } from "../../lib/types.js";
 
   let {
     player,
@@ -27,36 +33,10 @@
     "font-mono text-[10px] font-semibold tracking-[1.5px] uppercase rounded-full py-1 px-2.5";
 
   /** Key stats shown on the card, selected per the player's department. */
-  const STAT_ROWS: Record<Position, [string, keyof Player][]> = {
-    GK: [
-      ["Reflexes", "reflexes"],
-      ["Positioning", "positioning"],
-      ["Distribution", "distribution"],
-    ],
-    DEF: [
-      ["Tackling", "tackling"],
-      ["Aerial", "aerial"],
-      ["Passing", "passing"],
-      ["Pace", "pace"],
-    ],
-    MID: [
-      ["Passing", "passing"],
-      ["Dribble", "dribble"],
-      ["Work Rate", "workRate"],
-      ["Stamina", "stamina"],
-    ],
-    ATT: [
-      ["Finishing", "finishing"],
-      ["Dribble", "dribble"],
-      ["Pace", "pace"],
-      ["Off Ball", "offBall"],
-    ],
-  };
-
   const statRows = $derived(
-    (STAT_ROWS[slotDepartment(player)] ?? []).map(([label, key]) => [
-      label,
-      (player[key as keyof Player] as number) ?? player.composure ?? 0,
+    (DEPT_STAT_KEYS[slotDepartment(player)] ?? []).map((key) => [
+      STAT_LABELS[key as string] ?? String(key),
+      (player[key] as number | undefined) ?? player.composure ?? 0,
     ]),
   );
 
@@ -75,7 +55,9 @@
   <button
     type="button"
     class="absolute inset-0 z-0 cursor-pointer rounded-[20px]"
-    aria-label={`Select ${player.name}`}
+    aria-label={full
+      ? `${player.name} cannot be added — position full`
+      : `Select ${player.name}`}
     {disabled}
     onclick={onClick}
   ></button>
@@ -107,7 +89,7 @@
       <div class="flex shrink-0 items-center gap-2 sm:flex-col sm:items-end">
         {#if full}
           <span
-            class="{pillTag} hidden shrink-0 items-center gap-1 bg-slate text-secondary sm:inline-flex"
+            class="{pillTag} inline-flex shrink-0 items-center gap-1 bg-slate text-secondary"
           >
             <Lock class="h-3 w-3" /> FULL
           </span>
@@ -230,5 +212,17 @@
   .card-selected {
     outline: 2px solid #3cffd0;
     outline-offset: 2px;
+  }
+
+  /* Keep the gold border as a tier cue, but drop the looping motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .card-elite {
+      animation: none;
+    }
+
+    .card-elite::after {
+      animation: none;
+      display: none;
+    }
   }
 </style>

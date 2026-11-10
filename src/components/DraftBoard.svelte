@@ -1,6 +1,13 @@
 <script lang="ts">
   import { untrack } from "svelte";
-  import { ArrowUp, CalendarDays, ChevronLeft, Globe } from "@lucide/svelte";
+  import {
+    ArrowUp,
+    CalendarDays,
+    ChevronLeft,
+    Globe,
+    MousePointerClick,
+    Undo2,
+  } from "@lucide/svelte";
   import {
     DRAFT_ROUNDS,
     MAX_REROLLS,
@@ -319,6 +326,16 @@
     swapSelectedId = swapSelectedId === playerId ? null : playerId;
   }
 
+  /** Remove the most recent pick so a mis-click doesn't force a full restart. */
+  function undoLastPick() {
+    if (drafted.length === 0 || complete) return;
+    const next = drafted.slice(0, -1);
+    drafted = next;
+    selected = null;
+    swapSelectedId = null;
+    onSwapDrafted(next);
+  }
+
   function handleSwapTarget(slotIndex: number) {
     if (!swapSelectedId) return;
     const from = drafted.find((p) => p.id === swapSelectedId);
@@ -338,7 +355,7 @@
 <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <div class="grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
-      <div class="flex min-w-0 flex-col lg:sticky lg:top-6">
+      <div class="flex min-w-0 flex-col lg:sticky lg:top-24">
         {#if onBack}
           <button
             type="button"
@@ -346,12 +363,12 @@
             onclick={onBack}
           >
             <ChevronLeft class="h-4 w-4" />
-            <span class={mono}>Formations</span>
+            <span class={mono}>Change formation</span>
           </button>
         {/if}
         <div
           bind:this={draftHeaderRef}
-          class="mb-5 flex shrink-0 scroll-mt-16 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
+          class="mb-5 flex shrink-0 scroll-mt-24 flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
         >
           <div class="min-w-0">
             <p class="{mono} text-mint">
@@ -388,11 +405,21 @@
                 Different nation
               </button>
             </div>
+            {#if drafted.length > 0 && !complete}
+              <button
+                type="button"
+                class="undo-btn inline-flex items-center justify-center gap-1.5 self-start rounded-full px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] uppercase transition-colors duration-150 sm:self-end"
+                onclick={undoLastPick}
+              >
+                <Undo2 class="h-3 w-3" />
+                Undo pick
+              </button>
+            {/if}
           </div>
         </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid max-h-[50vh] scroll-mt-16 grid-cols-1 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:max-h-none sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll grid max-h-[50vh] scroll-mt-24 grid-cols-1 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:max-h-none sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
         >
           {#each offerPlayers as p (p.id)}
             <PlayerOfferCard
@@ -409,7 +436,7 @@
 
     <aside
       bind:this={pitchRef}
-      class="h-fit scroll-mt-16 rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6 lg:sticky lg:top-6"
+      class="h-fit scroll-mt-24 rounded-3xl border border-white/15 bg-slate/30 p-4 sm:p-6 lg:sticky lg:top-24"
     >
       <div class="flex items-center justify-between gap-2">
         <p class="{mono} text-mint">
@@ -438,6 +465,19 @@
           onSwapTarget={handleSwapTarget}
         />
       </div>
+      {#if swapSelectedId}
+        <p
+          class="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] text-yellow uppercase"
+        >
+          <MousePointerClick class="h-3.5 w-3.5" /> Select a highlighted slot to swap
+        </p>
+      {:else if drafted.length > 0 && !complete}
+        <p
+          class="mt-3 font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
+        >
+          Tap a player on the pitch to swap positions
+        </p>
+      {/if}
       {#if linkedClusters.length > 0}
         <div class="mt-6 rounded-2xl border border-mint bg-mint/5 p-3">
           <p class="{mono} mb-2 text-[10px] text-mint">Synergy</p>
@@ -475,6 +515,16 @@
 
   .back-btn:hover {
     color: #3cffd0;
+  }
+
+  .undo-btn {
+    color: #949494;
+    border: 1px solid transparent;
+  }
+
+  .undo-btn:hover {
+    color: #3cffd0;
+    border-color: rgb(60 255 208 / 0.4);
   }
 
   .draft-scroll {

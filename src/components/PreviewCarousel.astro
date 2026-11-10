@@ -80,16 +80,44 @@ const { slides } = Astro.props;
         </svg>
       </button>
 
-      <div class="mt-4 flex items-center justify-center gap-2">
-        {slides.map((_, i) => (
-          <button
-            type="button"
-            class="carousel-dot h-2 w-2 rounded-full bg-white/25 transition-colors hover:bg-white/50"
-            data-index={i}
-            aria-label={`Go to slide ${i + 1}`}
-            aria-current={i === 0 ? "true" : "false"}
-          />
-        ))}
+      <div class="mt-4 flex items-center justify-center gap-3">
+        <div class="flex items-center justify-center gap-1">
+          {slides.map((_, i) => (
+            <button
+              type="button"
+              class="carousel-dot group flex h-6 w-6 items-center justify-center"
+              data-index={i}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === 0 ? "true" : "false"}
+            >
+              <span class="block h-2 w-2 rounded-full bg-white/25 transition-colors group-hover:bg-white/50" />
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          class="carousel-pause flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-secondary transition-colors hover:border-mint hover:text-mint"
+          aria-label="Pause slideshow"
+          aria-pressed="false"
+        >
+          <svg
+            class="icon-pause h-3 w-3"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <rect x="6" y="5" width="4" height="14" rx="1" />
+            <rect x="14" y="5" width="4" height="14" rx="1" />
+          </svg>
+          <svg
+            class="icon-play hidden h-3 w-3"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M8 5.5v13l11-6.5z" />
+          </svg>
+        </button>
       </div>
     </div>
   )
@@ -163,9 +191,10 @@ const { slides } = Astro.props;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
   }
 
-  .carousel-dot.is-active {
+  .carousel-dot.is-active span {
     background: #3cffd0;
     width: 1.5rem;
+    border-radius: 9999px;
   }
 </style>
 
@@ -179,9 +208,18 @@ const { slides } = Astro.props;
     const dots = Array.from(
       root.querySelectorAll<HTMLButtonElement>(".carousel-dot"),
     );
+    const pauseBtn = root.querySelector<HTMLButtonElement>(".carousel-pause");
+    const iconPause = pauseBtn?.querySelector<HTMLElement>(".icon-pause");
+    const iconPlay = pauseBtn?.querySelector<HTMLElement>(".icon-play");
     const total = slides.length;
     if (track && total > 0) {
       let i = 0;
+      let paused = false;
+      let timer: number | null = null;
+      const reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
       const go = (n: number) => {
         i = (n + total) % total;
         track.style.transform = `translateX(-${i * 100}%)`;
@@ -192,6 +230,18 @@ const { slides } = Astro.props;
           d.setAttribute("aria-current", idx === i ? "true" : "false");
           d.classList.toggle("is-active", idx === i);
         });
+      };
+
+      const stop = () => {
+        if (timer !== null) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+      };
+      const start = () => {
+        stop();
+        if (paused || reduced) return;
+        timer = window.setInterval(() => go(i + 1), 5000);
       };
 
       root.querySelector(".carousel-prev")?.addEventListener("click", () => {
@@ -209,19 +259,19 @@ const { slides } = Astro.props;
         }),
       );
 
-      let timer: number | null = null;
-      const stop = () => {
-        if (timer !== null) {
-          window.clearInterval(timer);
-          timer = null;
-        }
-      };
-      const start = () => {
-        stop();
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          timer = window.setInterval(() => go(i + 1), 5000);
-        }
-      };
+      // Explicit pause control (auto-rotating content needs a keyboard-usable stop).
+      pauseBtn?.addEventListener("click", () => {
+        paused = !paused;
+        pauseBtn.setAttribute("aria-pressed", String(paused));
+        pauseBtn.setAttribute(
+          "aria-label",
+          paused ? "Play slideshow" : "Pause slideshow",
+        );
+        iconPause?.classList.toggle("hidden", paused);
+        iconPlay?.classList.toggle("hidden", !paused);
+        if (paused) stop();
+        else start();
+      });
 
       root.addEventListener("mouseenter", stop);
       root.addEventListener("mouseleave", start);

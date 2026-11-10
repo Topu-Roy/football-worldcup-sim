@@ -13,6 +13,7 @@ export const ui = {
       contact: "Contact",
       newDraft: "Play",
       menuToggle: "Toggle menu",
+      more: "More",
     },
     footer: {
       tagline: "Free browser soccer game — draft & simulate your World Cup",
@@ -48,6 +49,7 @@ export const ui = {
       contact: "Kontakt",
       newDraft: "Spielen",
       menuToggle: "Menü umschalten",
+      more: "Mehr",
     },
     footer: {
       tagline:
@@ -84,6 +86,7 @@ export const ui = {
       contact: "Contact",
       newDraft: "Jouer",
       menuToggle: "Basculer le menu",
+      more: "Plus",
     },
     footer: {
       tagline:
@@ -120,6 +123,7 @@ export const ui = {
       contact: "お問い合わせ",
       newDraft: "プレイ",
       menuToggle: "メニューを開く",
+      more: "その他",
     },
     footer: {
       tagline:
@@ -156,6 +160,7 @@ export const ui = {
       contact: "Contacto",
       newDraft: "Jugar",
       menuToggle: "Alternar menú",
+      more: "Más",
     },
     footer: {
       tagline:

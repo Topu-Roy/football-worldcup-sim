@@ -56,7 +56,7 @@
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: 50;
+    z-index: 40;
   }
 
   .confetti-piece {
@@ -83,6 +83,12 @@
     100% {
       transform: translate3d(var(--drift), 110vh, 0) rotate(var(--rotate));
       opacity: 0.7;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .confetti-layer {
+      display: none;
     }
   }
 </style>

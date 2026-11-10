@@ -28,12 +28,15 @@
           >
           <span
             class="h-2 w-2 shrink-0 rounded-full"
-            style:background={ev.teamIndex === 0 ? "#3cffd0" : "#5200ff"}
+            style:background={ev.teamIndex === 0
+              ? "var(--color-mint)"
+              : "var(--color-uvlight)"}
           ></span>
           <span
             class="min-w-0 truncate font-semibold"
-            style:color={ev.teamIndex === 0 ? "#3cffd0" : "#5200ff"}
-            >{teamName(ev.teamIndex)}</span
+            style:color={ev.teamIndex === 0
+              ? "var(--color-mint)"
+              : "var(--color-uvlight)"}>{teamName(ev.teamIndex)}</span
           >
           <span class="ml-auto truncate text-secondary"
             >{ev.scorerName ?? "Goal"}</span
