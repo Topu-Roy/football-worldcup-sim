@@ -1,6 +1,7 @@
 <script lang="ts">
   import { MousePointerClick, Play, RotateCcw } from "@lucide/svelte";
   import { computeTeamStrengths, nationClusters } from "../lib/team.js";
+  import { confirmAction } from "../lib/confirmDialog.js";
   import { NATION_NAMES, playerRating, swapTargetsFor } from "../lib/draft.js";
   import type { Squad } from "../lib/types.js";
   import PitchView from "./PitchView.svelte";
@@ -64,10 +65,14 @@
   }
 
   /** Confirm before discarding a completed XI. */
-  function handleStartOver() {
-    if (!confirm("Start over? This clears your drafted XI and tournament.")) {
-      return;
-    }
+  async function handleStartOver() {
+    const ok = await confirmAction({
+      title: "Start over?",
+      message: "This clears your drafted XI and tournament.",
+      confirmLabel: "Start over",
+      danger: true,
+    });
+    if (!ok) return;
     onReset();
   }
 </script>

@@ -1,0 +1,173 @@
+<dialog
+  id="confirm-dialog"
+  class="confirm-dialog"
+  aria-labelledby="confirm-dialog-title"
+  aria-describedby="confirm-dialog-message"
+>
+  <form method="dialog" class="confirm-panel">
+    <p class="confirm-eyebrow">Heads up</p>
+    <h2 id="confirm-dialog-title" data-confirm-title class="confirm-title"></h2>
+    <p id="confirm-dialog-message" data-confirm-message class="confirm-message">
+    </p>
+    <div class="confirm-actions">
+      <button
+        type="submit"
+        value="cancel"
+        data-confirm-cancel
+        class="confirm-btn confirm-cancel"
+        autofocus
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        value="confirm"
+        data-confirm-ok
+        class="confirm-btn confirm-ok"
+      >
+        Confirm
+      </button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  const dialog = document.getElementById("confirm-dialog");
+  if (dialog instanceof HTMLDialogElement) {
+    // Clicking the backdrop (the dialog element itself) cancels.
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close("cancel");
+    });
+  }
+</script>
+
+<style>
+  .confirm-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(92vw, 420px);
+    max-height: min(90vh, 640px);
+    overflow-y: auto;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: 24px;
+    background: var(--color-canvas);
+    color: #ffffff;
+    box-shadow: 0 24px 80px rgb(0 0 0 / 0.6);
+  }
+
+  .confirm-dialog::backdrop {
+    background: rgb(0 0 0 / 0.65);
+    backdrop-filter: blur(3px);
+  }
+
+  .confirm-dialog[open] {
+    animation: dialog-in 160ms ease-out;
+  }
+
+  @keyframes dialog-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .confirm-dialog[open] {
+      animation: none;
+    }
+  }
+
+  .confirm-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+  }
+
+  .confirm-eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--color-mint);
+  }
+
+  .confirm-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1;
+    letter-spacing: 0.5px;
+  }
+
+  .confirm-message {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-secondary);
+  }
+
+  .confirm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .confirm-btn {
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .confirm-cancel {
+    border: 1px solid rgb(255 255 255 / 0.15);
+    background: transparent;
+    color: #ffffff;
+  }
+
+  .confirm-cancel:hover {
+    border-color: var(--color-mint);
+    color: var(--color-mint);
+  }
+
+  .confirm-ok {
+    border: 1px solid var(--color-mint);
+    background: var(--color-mint);
+    color: #000000;
+  }
+
+  .confirm-ok:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .confirm-ok.is-danger {
+    border-color: var(--color-pink);
+    background: var(--color-pink);
+    color: #000000;
+  }
+
+  .confirm-ok.is-danger:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+  }
+
+  :global(html.dialog-open) {
+    overflow: hidden;
+  }
+</style>

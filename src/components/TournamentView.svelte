@@ -2,6 +2,7 @@
   import { Pause, Play, RotateCcw } from "@lucide/svelte";
   import TournamentMatchRow from "./TournamentMatchRow.svelte";
   import StandingsTable from "./StandingsTable.svelte";
+  import { confirmAction } from "../lib/confirmDialog.js";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import {
     advanceToKnockout,
@@ -42,8 +43,14 @@
     activeScript ? (segIndex > 0 ? snaps[segIndex - 1].score : [0, 0]) : null,
   );
 
-  function handleReset() {
-    if (!confirm("Quit this run and start a new draft?")) return;
+  async function handleReset() {
+    const ok = await confirmAction({
+      title: "Quit this run?",
+      message: "Your current tournament progress is lost.",
+      confirmLabel: "Quit run",
+      danger: true,
+    });
+    if (!ok) return;
     stopRun();
     expandedId = null;
     onReset();

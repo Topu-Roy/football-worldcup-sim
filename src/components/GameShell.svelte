@@ -2,6 +2,7 @@
   import FormationPicker from "./FormationPicker.svelte";
   import DraftApp from "./DraftApp.svelte";
   import { loadGame, clearGame, type SavedGame } from "../lib/gameSession.js";
+  import { confirmAction } from "../lib/confirmDialog.js";
   import type { Formation } from "../lib/types.js";
 
   type Tab = "formations" | "play";
@@ -15,17 +16,18 @@
   let formation = $state<Formation | null>(saved?.formation ?? null);
   let formationKey = $state(saved?.formationKey ?? "");
 
-  function pickFormation(key: string, f: Formation) {
+  async function pickFormation(key: string, f: Formation) {
     const changed =
       formation === null ||
       formationKey !== key ||
       JSON.stringify(formation) !== JSON.stringify(f);
-    if (
-      formation &&
-      changed &&
-      !confirm("Changing formation restarts your draft. Continue?")
-    ) {
-      return;
+    if (formation && changed) {
+      const ok = await confirmAction({
+        title: "Change formation?",
+        message: "Changing shape restarts your draft.",
+        confirmLabel: "Change formation",
+      });
+      if (!ok) return;
     }
     if (changed) {
       initialGame = null;

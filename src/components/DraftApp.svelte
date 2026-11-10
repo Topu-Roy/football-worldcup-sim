@@ -41,6 +41,8 @@
     untrack(() => initial?.draft ?? null),
   );
   let hasRerun = $state(untrack(() => initial?.hasRerun ?? false));
+  /** Bumped on reset so the draft board remounts with fresh internal state. */
+  let resetNonce = $state(0);
 
   /** Back to a fresh draft, clearing any squad and tournament. */
   function reset() {
@@ -50,6 +52,7 @@
     draftState = null;
     hasRerun = false;
     step = "draft";
+    resetNonce += 1;
   }
 
   function handleDraftState(next: SavedDraft) {
@@ -137,15 +140,18 @@
 
 <div class="min-h-screen bg-canvas text-white">
   {#if step === "draft"}
-    <DraftBoard
-      {formation}
-      {formationKey}
-      {onBack}
-      initialDraft={draftState}
-      onDraftState={handleDraftState}
-      onPick={handlePick}
-      onSwapDrafted={handleSwapDrafted}
-    />
+    {#key formationKey + "-" + resetNonce}
+      <DraftBoard
+        {formation}
+        {formationKey}
+        {onBack}
+        initialDraft={draftState}
+        onDraftState={handleDraftState}
+        onPick={handlePick}
+        onSwapDrafted={handleSwapDrafted}
+        onReset={reset}
+      />
+    {/key}
   {:else if step === "ready" && squad}
     <TeamReadyView
       {formationKey}

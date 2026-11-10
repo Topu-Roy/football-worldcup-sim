@@ -6,7 +6,7 @@
     ChevronLeft,
     Globe,
     MousePointerClick,
-    Undo2,
+    RotateCcw,
   } from "@lucide/svelte";
   import {
     DRAFT_ROUNDS,
@@ -30,6 +30,7 @@
   import { nationClusters } from "../lib/team.js";
   import type { SavedDraft } from "../lib/gameSession.js";
   import type { Formation, Player, Position } from "../lib/types.js";
+  import { confirmAction } from "../lib/confirmDialog.js";
   import PitchView from "./PitchView.svelte";
   import PlayerOfferCard from "./draft/PlayerOfferCard.svelte";
 
@@ -39,6 +40,7 @@
     onPick,
     onSwapDrafted,
     onBack,
+    onReset,
     initialDraft = null,
     onDraftState,
   }: {
@@ -47,6 +49,8 @@
     onPick: (p: Player) => void;
     onSwapDrafted: (players: Player[]) => void;
     onBack?: () => void;
+    /** Restart the draft from round one with the same formation. */
+    onReset?: () => void;
     initialDraft?: SavedDraft | null;
     onDraftState?: (state: SavedDraft) => void;
   } = $props();
@@ -326,14 +330,15 @@
     swapSelectedId = swapSelectedId === playerId ? null : playerId;
   }
 
-  /** Remove the most recent pick so a mis-click doesn't force a full restart. */
-  function undoLastPick() {
-    if (drafted.length === 0 || complete) return;
-    const next = drafted.slice(0, -1);
-    drafted = next;
-    selected = null;
-    swapSelectedId = null;
-    onSwapDrafted(next);
+  /** Restart the draft from scratch after confirmation. */
+  async function handleResetDraft() {
+    const ok = await confirmAction({
+      title: "Reset this draft?",
+      message: "All picks and rerolls are cleared.",
+      confirmLabel: "Reset draft",
+      danger: true,
+    });
+    if (ok) onReset?.();
   }
 
   function handleSwapTarget(slotIndex: number) {
@@ -356,15 +361,31 @@
   <div class="grid items-start gap-6 lg:grid-cols-2">
     {#if offer}
       <div class="flex min-w-0 flex-col lg:sticky lg:top-24">
-        {#if onBack}
-          <button
-            type="button"
-            class="back-btn mb-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors duration-150"
-            onclick={onBack}
-          >
-            <ChevronLeft class="h-4 w-4" />
-            <span class={mono}>Change formation</span>
-          </button>
+        {#if onBack || onReset}
+          <div class="mb-4 flex items-center justify-between gap-3">
+            {#if onBack}
+              <button
+                type="button"
+                class="back-btn inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors duration-150"
+                onclick={onBack}
+              >
+                <ChevronLeft class="h-4 w-4" />
+                <span class={mono}>Change formation</span>
+              </button>
+            {:else}
+              <span></span>
+            {/if}
+            {#if onReset}
+              <button
+                type="button"
+                class="reset-btn inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors duration-150"
+                onclick={handleResetDraft}
+              >
+                <RotateCcw class="h-3.5 w-3.5" />
+                <span class={mono}>Reset draft</span>
+              </button>
+            {/if}
+          </div>
         {/if}
         <div
           bind:this={draftHeaderRef}
@@ -405,16 +426,6 @@
                 Different nation
               </button>
             </div>
-            {#if drafted.length > 0 && !complete}
-              <button
-                type="button"
-                class="undo-btn inline-flex items-center justify-center gap-1.5 self-start rounded-full px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] uppercase transition-colors duration-150 sm:self-end"
-                onclick={undoLastPick}
-              >
-                <Undo2 class="h-3 w-3" />
-                Undo pick
-              </button>
-            {/if}
           </div>
         </div>
         <div
@@ -467,13 +478,13 @@
       </div>
       {#if swapSelectedId}
         <p
-          class="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold tracking-[1.5px] text-yellow uppercase"
+          class="mx-auto mt-3 flex w-fit items-center justify-center gap-1.5 text-center font-mono text-[10px] font-semibold tracking-[1.5px] text-yellow uppercase"
         >
           <MousePointerClick class="h-3.5 w-3.5" /> Select a highlighted slot to swap
         </p>
       {:else if drafted.length > 0 && !complete}
         <p
-          class="mt-3 font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
+          class="mt-3 w-full text-center font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
         >
           Tap a player on the pitch to swap positions
         </p>
@@ -517,14 +528,12 @@
     color: #3cffd0;
   }
 
-  .undo-btn {
+  .reset-btn {
     color: #949494;
-    border: 1px solid transparent;
   }
 
-  .undo-btn:hover {
-    color: #3cffd0;
-    border-color: rgb(60 255 208 / 0.4);
+  .reset-btn:hover {
+    color: var(--color-pink);
   }
 
   .draft-scroll {

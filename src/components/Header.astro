@@ -107,6 +107,8 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
 </header>
 
 <script>
+  import { confirmAction } from "../lib/confirmDialog.js";
+
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("primary-nav");
   const newDraft = document.getElementById("new-draft");
@@ -156,7 +158,7 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
     if (more && !more.contains(e.target as Node)) closeMore();
   });
 
-  newDraft?.addEventListener("click", (e) => {
+  newDraft?.addEventListener("click", async (e) => {
     e.preventDefault();
     const onGame = window.location.pathname.startsWith("/game");
     let hasSaved = false;
@@ -165,11 +167,14 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
     } catch {
       // Storage unavailable: no saved run to confirm.
     }
-    if (
-      hasSaved &&
-      !confirm("Start a new draft? This clears the current run.")
-    ) {
-      return;
+    if (hasSaved) {
+      const ok = await confirmAction({
+        title: "Start a new draft?",
+        message: "This clears your current run.",
+        confirmLabel: "Start new draft",
+        danger: true,
+      });
+      if (!ok) return;
     }
     if (onGame) {
       window.dispatchEvent(new CustomEvent("wc:reset"));

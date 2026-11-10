@@ -1,5 +1,6 @@
 <script lang="ts">
   import { ChevronDown, ChevronUp, Clock, Trash2 } from "@lucide/svelte";
+  import { confirmAction } from "../lib/confirmDialog.js";
   import {
     clearHistory,
     loadHistory,
@@ -75,8 +76,14 @@
     expandedId = expandedId === id ? null : id;
   }
 
-  function handleClear() {
-    if (!confirm("Clear all match history?")) return;
+  async function handleClear() {
+    const ok = await confirmAction({
+      title: "Clear all history?",
+      message: "Every saved run is removed from this device.",
+      confirmLabel: "Clear history",
+      danger: true,
+    });
+    if (!ok) return;
     clearHistory();
     expandedId = null;
     refresh();

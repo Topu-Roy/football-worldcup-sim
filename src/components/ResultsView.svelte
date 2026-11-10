@@ -11,6 +11,7 @@
   import PitchView from "./PitchView.svelte";
   import SquadStatsList from "./SquadStatsList.svelte";
   import StandingsTable from "./StandingsTable.svelte";
+  import { confirmAction } from "../lib/confirmDialog.js";
   import { RotateCcw, Trophy, Play } from "@lucide/svelte";
 
   let {
@@ -70,10 +71,14 @@
   }
 
   /** Confirm before discarding the finished run. */
-  function handlePlayAgain() {
-    if (!confirm("Play again? This clears your current XI and results.")) {
-      return;
-    }
+  async function handlePlayAgain() {
+    const ok = await confirmAction({
+      title: "Play again?",
+      message: "This clears your current XI and results.",
+      confirmLabel: "Play again",
+      danger: true,
+    });
+    if (!ok) return;
     onReset();
   }
 
