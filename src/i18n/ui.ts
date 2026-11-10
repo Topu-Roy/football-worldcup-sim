@@ -16,7 +16,7 @@ export const ui = {
       more: "More",
     },
     footer: {
-      tagline: "Free browser soccer game — draft & simulate your World Cup",
+      tagline: "Free browser football game — draft & simulate your World Cup",
       backToTop: "Back to Top",
     },
     switcher: { label: "Language" },

@@ -2,16 +2,16 @@
   en: {
     h1: "Get in touch",
     hero: [
-      "Feedback, bug reports, ideas or questions? This free online soccer game lets you draft and simulate your own World Cup, and we would love to hear from you. It is a fantasy football world cup project built by fans. Every message shapes what the soccer simulator becomes next.",
-      "You may have found us as a soccer draft game, a free soccer simulation game or an interactive soccer simulator. The door is open. Tell us a squad that feels wrong. Tell us a match that swung too far. Or tell us a feature the football draft simulator should add. There is no account. No download to reinstall. Reaching out is as quick as playing a round.",
+      "Feedback, bug reports, ideas or questions? This free online football game lets you draft and simulate your own World Cup, and we would love to hear from you. It is a fantasy football world cup project built by fans. Every message shapes what the football simulator becomes next.",
+      "You may have found us as a football draft game, a free football simulation game or an interactive football simulator. The door is open. Tell us a squad that feels wrong. Tell us a match that swung too far. Or tell us a feature the football draft simulator should add. There is no account. No download to reinstall. Reaching out is as quick as playing a round.",
     ],
     ctaEmail: "Email us",
     bodyTitle: "Email",
     exploreTitle: "Explore the game",
     body: [
       "When you write in, a few details help us act fast. If a match in the world cup simulation felt off, tell us the formations. Tell us the round — group stage or knockout bracket. Then we can see how the match engine decided it. If a player rating looks wrong, name the squad and the position. The football simulator compares every draft on one scale. One wrong rating can tilt a tournament.",
-      "Feature ideas are welcome too. More old squads. Extra football formations. A deeper penalty shootout simulator. Or a way to share your finished cup. All are on the table for a world cup fantasy game that keeps growing. We also love hearing from communities. Groups that run a fantasy soccer draft. Coaches of a youth side. Anyone who wants a free browser soccer game for the classroom or the locker room.",
-      "The online soccer game runs on any device. No sign-up. So it fits a lesson or a match-day warm-up. This is a soccer game with no download. You can open it, play a round, and tell us what to change in the same sitting. However you found us — as a world cup simulator, a soccer draft game, or the easiest interactive soccer simulator to open between matches — your notes make the next build better. Get in touch. Help shape the app you play.",
+      "Feature ideas are welcome too. More old squads. Extra football formations. A deeper penalty shootout simulator. Or a way to share your finished cup. All are on the table for a world cup fantasy game that keeps growing. We also love hearing from communities. Groups that run a fantasy football draft. Coaches of a youth side. Anyone who wants a free browser football game for the classroom or the locker room.",
+      "The online football game runs on any device. No sign-up. So it fits a lesson or a match-day warm-up. This is a football game with no download. You can open it, play a round, and tell us what to change in the same sitting. However you found us — as a world cup simulator, a football draft game, or the easiest interactive football simulator to open between matches — your notes make the next build better. Get in touch. Help shape the app you play.",
     ],
     contactCta: "Contact us",
   },

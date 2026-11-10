@@ -2,9 +2,9 @@ export const howToPlay = {
   en: {
     h1: "How to Play Eleven Fantasy",
     hero: [
-      "Build a fantasy World Cup XI from 86 old squads. Then watch them play the greats in a simulated group stage and knockout tournament. Eleven Fantasy is a football simulator and a soccer draft game. You pick a formation. Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. You draft your dream team. The match engine simulates the world cup. You get the group stage, the knockout bracket, extra time and penalty shootouts.",
-      "It is a world cup simulation and a penalty shootout simulator. It is built around the app. You can predict your own tournament online. It is free. It is in the browser. In the US, players find it as a soccer draft game, an online soccer game or a free soccer simulation game. Elsewhere, it is the fantasy soccer draft and interactive soccer simulator they like. No download. No sign-up. It is the easiest browser soccer game to learn fast.",
-      "The guide below shows every step. The FAQ tells how the soccer simulator decides matches and how penalty shootouts work.",
+      "Build a fantasy World Cup XI from 86 old squads. Then watch them play the greats in a simulated group stage and knockout tournament. Eleven Fantasy is a football simulator and a draft game. You pick a formation. Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. You draft your dream team. The match engine simulates the world cup. You get the group stage, the knockout bracket, extra time and penalty shootouts.",
+      "It is a world cup simulation and a penalty shootout simulator. It is built around the app. You can predict your own tournament online. It is free. It is in the browser. In the US, players find it as a soccer draft game, an online soccer game or a free soccer simulation game. Elsewhere, it is the fantasy football draft and interactive simulator they like. No download. No sign-up. It is the easiest browser football game to learn fast.",
+      "The guide below shows every step. The FAQ tells how the football simulator decides matches and how penalty shootouts work.",
     ],
     stepsTitle: "The five moves",
     steps: [
@@ -36,17 +36,17 @@ export const howToPlay = {
     ],
     loopTitle: "Your world cup simulator, step by step",
     loop: [
-      "The full loop of Eleven Fantasy is short. That is the appeal of a free browser soccer game. You start by choosing a football formation. The soccer simulator respects positions. Your choice locks how many defenders, midfielders and attackers you can draft. You pick over 11 rounds. A 4-3-3 leans attack. A 3-5-2 owns the middle. A 4-4-2 balances. A 4-2-3-1 controls the game.",
+      "The full loop of Eleven Fantasy is short. That is the appeal of a free browser football game. You start by choosing a football formation. The football simulator respects positions. Your choice locks how many defenders, midfielders and attackers you can draft. You pick over 11 rounds. A 4-3-3 leans attack. A 3-5-2 owns the middle. A 4-4-2 balances. A 4-2-3-1 controls the game.",
       "Next, the football draft simulator shows you old World Cup squads. You place each player in the best slot. You watch chemistry update. You get a few rerolls if the board is bad. Same-nation picks get a chemistry boost. So a smart world cup dream team builder beats a team of stars.",
       "When your XI is set, the match engine simulates the group stage. It plays live, part by part. The rest of the bracket is pre-simulated. So the whole world cup simulation ends fast. Knockout ties go to extra time. Then a penalty shootout simulator decides. Five kicks each. Then sudden death. This is the drama fans love.",
-      "You are not predicting real 2026 results. You use the world cup simulator 2026 mode to predict your own cup. Players call it a world cup predictor for their cup. It is a soccer game with no download. It runs on any device. Your save stays on your device. It is a fantasy soccer draft where the draft matters most.",
-      "When the final ends, you can replay any match. Compare squad stats. Start a fresh draft. The steps above break this into five moves. The FAQ explains the football simulation, the formations and the penalty shootouts. Call it an interactive soccer simulator. Or call it the world cup fantasy game. Or the easiest online soccer game to open between matches. The path is the same. Shape, draft, simulate, repeat.",
+      "You are not predicting real 2026 results. You use the world cup simulator 2026 mode to predict your own cup. Players call it a world cup predictor for their cup. It is a football game with no download. It runs on any device. Your save stays on your device. It is a fantasy football draft where the draft matters most.",
+      "When the final ends, you can replay any match. Compare squad stats. Start a fresh draft. The steps above break this into five moves. The FAQ explains the football simulation, the formations and the penalty shootouts. Call it an interactive football simulator. Or call it the world cup fantasy game. Or the easiest online football game to open between matches. The path is the same. Shape, draft, simulate, repeat.",
     ],
     faqTitle: "Questions about the simulator",
     faq: [
       {
         q: "What is Eleven Fantasy?",
-        a: "It is a free browser soccer game and a fantasy soccer draft tool. You build a dream XI from 86 old World Cup squads. The app simulates a full tournament. You get the group stage, the knockout bracket and penalty shootouts. It predicts your final result.",
+        a: "It is a free browser football game and a fantasy football draft tool. You build a dream XI from 86 old World Cup squads. The app simulates a full tournament. You get the group stage, the knockout bracket and penalty shootouts. It predicts your final result.",
       },
       {
         q: "How does the football simulation work?",
@@ -62,7 +62,7 @@ export const howToPlay = {
       },
       {
         q: "Is it free and does it need a download?",
-        a: "Yes. It is a free soccer simulation game and a browser soccer game. No download. No sign-up. Play online on any device.",
+        a: "Yes. It is a free football simulation game that runs in your browser. No download. No sign-up. Play online on any device.",
       },
     ],
     ctaStart: "Start drafting",

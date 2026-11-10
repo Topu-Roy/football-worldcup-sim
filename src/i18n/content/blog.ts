@@ -20,7 +20,7 @@ export const blog: Record<Locale, BlogLocale> = {
       title: "Blog",
       seoTitle: "Eleven Fantasy Blog — Guides, Tips & Simulator Notes",
       intro:
-        "Guides and notes on Eleven Fantasy - the free browser soccer game where you draft a fantasy World Cup XI and simulate the cup.",
+        "Guides and notes on Eleven Fantasy - the free browser football game where you draft a fantasy World Cup XI and simulate the cup.",
     },
     posts: [
       {
@@ -34,7 +34,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "What it is",
             body: [
-              "A free browser soccer game. You draft a fantasy World Cup XI from 86 historical squads and the engine simulates a full tournament - from groups to final.",
+              "A free browser football game. You draft a fantasy World Cup XI from 86 historical squads and the engine simulates a full tournament - from groups to final.",
             ],
           },
           {
