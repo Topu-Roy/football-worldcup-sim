@@ -8,6 +8,10 @@ interface Props {
 }
 
 const { slides } = Astro.props;
+
+/** Two-digit slide counter, e.g. "01 / 12". */
+const pad = (n: number) => String(n).padStart(2, "0");
+const totalLabel = pad(slides.length);
 ---
 
 {
@@ -15,18 +19,21 @@ const { slides } = Astro.props;
     <div
       class="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] xl:max-w-[640px]"
       id="preview-carousel"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Historic World Cup XIs"
     >
       <div class="overflow-hidden rounded-3xl border border-white/10 bg-slate/30">
         <div class="carousel-track flex">
           {slides.map((s, i) => (
             <div
-              class="carousel-slide w-full shrink-0 p-4 sm:p-6"
+              class="carousel-slide w-full shrink-0 p-3 sm:p-6"
               data-index={i}
               aria-roledescription="slide"
               aria-label={`${s.team} — ${s.formationLabel} formation`}
               aria-hidden={i === 0 ? "false" : "true"}
             >
-              <div class="pitch-wrap relative mx-auto aspect-3/4 w-full max-w-[240px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
+              <div class="pitch-wrap relative mx-auto aspect-3/4 w-full max-w-[260px] sm:max-w-sm lg:max-w-md xl:max-w-lg">
                 <PitchGraphic id={s.id} />
                 {s.players.map((p) => (
                   <div
@@ -40,6 +47,20 @@ const { slides } = Astro.props;
                   </div>
                 ))}
               </div>
+
+              <div class="mx-auto mt-3 flex w-full max-w-[260px] items-center justify-between gap-2 border-t border-white/10 pt-3 sm:max-w-sm lg:max-w-md xl:max-w-lg">
+                <div class="min-w-0">
+                  <p class="truncate font-display text-base leading-none tracking-[0.5px] sm:text-lg">
+                    {s.team}
+                  </p>
+                  <p class="mt-1 font-mono text-[10px] tracking-[1.5px] text-secondary uppercase">
+                    {s.formationLabel} · best XI
+                  </p>
+                </div>
+                <span class="shrink-0 rounded-full border border-mint/40 bg-mint/10 px-2.5 py-1 font-mono text-[10px] font-bold text-mint">
+                  ★ {s.topRating}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -47,7 +68,7 @@ const { slides } = Astro.props;
 
       <button
         type="button"
-        class="carousel-prev absolute top-1/2 left-2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+        class="carousel-prev absolute top-1/2 left-2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint sm:flex"
         aria-label="Previous team"
       >
         <svg
@@ -64,7 +85,7 @@ const { slides } = Astro.props;
       </button>
       <button
         type="button"
-        class="carousel-next absolute top-1/2 right-2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint"
+        class="carousel-next absolute top-1/2 right-2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-canvas/80 p-2 text-white backdrop-blur transition-colors hover:border-mint hover:text-mint sm:flex"
         aria-label="Next team"
       >
         <svg
@@ -80,23 +101,37 @@ const { slides } = Astro.props;
         </svg>
       </button>
 
-      <div class="mt-4 flex items-center justify-center gap-3">
-        <div class="flex items-center justify-center gap-1">
-          {slides.map((_, i) => (
+      <div class="mt-4 flex items-center justify-between gap-2">
+        <p class="font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase">
+          <span data-counter>
+            {pad(1)} / {totalLabel}
+          </span>
+        </p>
+
+        <div
+          class="carousel-dots flex items-center justify-center gap-1"
+          role="group"
+          aria-label="Choose team"
+        >
+          {slides.map((s, i) => (
             <button
               type="button"
-              class="carousel-dot group flex h-6 w-6 items-center justify-center"
+              class:list={[
+                "carousel-dot group flex h-6 w-6 items-center justify-center",
+                { "is-window": i < 5 },
+              ]}
               data-index={i}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={`Go to ${s.team}`}
               aria-current={i === 0 ? "true" : "false"}
             >
-              <span class="block h-2 w-2 rounded-full bg-white/25 transition-colors group-hover:bg-white/50" />
+              <span class="carousel-dot-mark block h-2 w-2 rounded-full bg-white/25 transition-all duration-150 group-hover:bg-white/50" />
             </button>
           ))}
         </div>
+
         <button
           type="button"
-          class="carousel-pause flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-secondary transition-colors hover:border-mint hover:text-mint"
+          class="carousel-pause flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 text-secondary transition-colors hover:border-mint hover:text-mint"
           aria-label="Pause slideshow"
           aria-pressed="false"
         >
@@ -119,6 +154,8 @@ const { slides } = Astro.props;
           </svg>
         </button>
       </div>
+
+      <p class="sr-only" aria-live="polite" data-status />
     </div>
   )
 }
@@ -127,6 +164,7 @@ const { slides } = Astro.props;
   .carousel-track {
     transition: transform 400ms ease;
     will-change: transform;
+    touch-action: pan-y;
   }
 
   .pitch-wrap {
@@ -191,10 +229,27 @@ const { slides } = Astro.props;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
   }
 
-  .carousel-dot.is-active span {
-    background: #3cffd0;
-    width: 1.5rem;
+  .carousel-dot.is-active .carousel-dot-mark {
+    background: var(--color-mint);
+    width: 1.25rem;
     border-radius: 9999px;
+  }
+
+  /* Mobile keeps only a five-dot window around the active slide. */
+  @media (max-width: 639px) {
+    .carousel-dot {
+      display: none;
+    }
+
+    .carousel-dot.is-window {
+      display: flex;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+      transition: none;
+    }
   }
 </style>
 
@@ -211,25 +266,43 @@ const { slides } = Astro.props;
     const pauseBtn = root.querySelector<HTMLButtonElement>(".carousel-pause");
     const iconPause = pauseBtn?.querySelector<HTMLElement>(".icon-pause");
     const iconPlay = pauseBtn?.querySelector<HTMLElement>(".icon-play");
+    const counter = root.querySelector<HTMLElement>("[data-counter]");
+    const status = root.querySelector<HTMLElement>("[data-status]");
     const total = slides.length;
+
     if (track && total > 0) {
       let i = 0;
       let paused = false;
       let timer: number | null = null;
+      let startX: number | null = null;
       const reduced = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
+      const pad = (n: number) => String(n).padStart(2, "0");
 
-      const go = (n: number) => {
+      const go = (n: number, announce = true) => {
         i = (n + total) % total;
         track.style.transform = `translateX(-${i * 100}%)`;
         slides.forEach((s, idx) =>
           s.setAttribute("aria-hidden", idx === i ? "false" : "true"),
         );
+
+        // Keep a five-dot window on mobile, clamped at both ends.
+        const windowStart = Math.max(0, Math.min(i - 2, total - 5));
         dots.forEach((d, idx) => {
           d.setAttribute("aria-current", idx === i ? "true" : "false");
           d.classList.toggle("is-active", idx === i);
+          d.classList.toggle(
+            "is-window",
+            idx >= windowStart && idx < windowStart + 5,
+          );
         });
+
+        if (counter) counter.textContent = `${pad(i + 1)} / ${pad(total)}`;
+        if (status && announce) {
+          const label = slides[i]?.getAttribute("aria-label") ?? "";
+          status.textContent = `Slide ${i + 1} of ${total}: ${label}`;
+        }
       };
 
       const stop = () => {
@@ -240,18 +313,21 @@ const { slides } = Astro.props;
       };
       const start = () => {
         stop();
-        if (paused || reduced) return;
-        timer = window.setInterval(() => go(i + 1), 5000);
+        if (paused || reduced || document.hidden) return;
+        timer = window.setInterval(() => go(i + 1, false), 5000);
       };
 
-      root.querySelector(".carousel-prev")?.addEventListener("click", () => {
-        go(i - 1);
-        start();
-      });
-      root.querySelector(".carousel-next")?.addEventListener("click", () => {
+      const next = () => {
         go(i + 1);
         start();
-      });
+      };
+      const prev = () => {
+        go(i - 1);
+        start();
+      };
+
+      root.querySelector(".carousel-prev")?.addEventListener("click", prev);
+      root.querySelector(".carousel-next")?.addEventListener("click", next);
       dots.forEach((d, idx) =>
         d.addEventListener("click", () => {
           go(idx);
@@ -259,7 +335,6 @@ const { slides } = Astro.props;
         }),
       );
 
-      // Explicit pause control (auto-rotating content needs a keyboard-usable stop).
       pauseBtn?.addEventListener("click", () => {
         paused = !paused;
         pauseBtn.setAttribute("aria-pressed", String(paused));
@@ -273,12 +348,54 @@ const { slides } = Astro.props;
         else start();
       });
 
+      // Swipe on touch/pen; vertical page scroll stays native (touch-action).
+      track.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+        startX = event.clientX;
+        stop();
+        try {
+          track.setPointerCapture(event.pointerId);
+        } catch {
+          // Pointer capture unavailable: pointerup on the track still works.
+        }
+      });
+      track.addEventListener("pointerup", (event) => {
+        if (startX === null) return;
+        const dx = event.clientX - startX;
+        startX = null;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) next();
+          else prev();
+        } else {
+          start();
+        }
+      });
+      track.addEventListener("pointercancel", () => {
+        startX = null;
+        start();
+      });
+
+      root.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          prev();
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          next();
+        }
+      });
+
       root.addEventListener("mouseenter", stop);
       root.addEventListener("mouseleave", start);
       root.addEventListener("focusin", stop);
       root.addEventListener("focusout", start);
 
-      go(0);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stop();
+        else start();
+      });
+
+      go(0, false);
       start();
     }
   }

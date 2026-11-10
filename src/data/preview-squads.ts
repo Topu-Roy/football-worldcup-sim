@@ -39,8 +39,6 @@ const NATIONS: { codes: string[]; label: string }[] = [
 
 const FORMATIONS = ["4-3-3", "4-2-3-1", "4-4-2", "3-5-2"];
 
-const ROMAN = ["", "I", "II", "III", "IV"];
-
 function rate(p: Player): number {
   return playerRating(p);
 }
@@ -154,67 +152,60 @@ function evaluate(
   return { team, atBest, outPenalty, total };
 }
 
-/** Build all preview slides: best XI per nation (best positions, no duplicate names), with extra teams when a nation has enough elite/star players. Each team's formation is the one that keeps the most players in their best position (elite stars weighted most heavily). */
+/**
+ * Build the preview slides: one best XI per nation, in the formation that keeps
+ * the most players in their natural position. Kept to one team per nation so
+ * the home carousel stays short (5 slides) on every screen.
+ */
 export function buildPreviewSlides(): PreviewSlide[] {
   const slides: PreviewSlide[] = [];
   for (const nat of NATIONS) {
-    let remaining = poolFor(nat.codes);
-    const maxTeams = 3;
-    for (let t = 1; t <= maxTeams; t++) {
-      // If the pool still has a winger (best position LW/RW), force 4-3-3 so
-      // wingers always land on the wing (e.g. Neymar on LW). Once the wingers
-      // are used up, later teams may use the other shapes for variety.
-      const hasWinger = remaining.some(
-        (p) => p.bestPosition === "LW" || p.bestPosition === "RW",
-      );
-      const candidateFormations = hasWinger ? ["4-3-3"] : FORMATIONS;
+    const remaining = poolFor(nat.codes);
 
-      let chosen: ReturnType<typeof buildTeam> = null;
-      let chosenKey = candidateFormations[0];
-      let bestScore = -Infinity;
-      for (const fk of candidateFormations) {
-        const e = evaluate(remaining, fk);
-        if (!e) continue;
-        const score = e.atBest * 1000 - e.outPenalty + e.total;
-        if (score > bestScore) {
-          bestScore = score;
-          chosen = e.team;
-          chosenKey = fk;
-        }
+    // If the pool still has a winger (best position LW/RW), force 4-3-3 so
+    // wingers always land on the wing (e.g. Neymar on LW).
+    const hasWinger = remaining.some(
+      (p) => p.bestPosition === "LW" || p.bestPosition === "RW",
+    );
+    const candidateFormations = hasWinger ? ["4-3-3"] : FORMATIONS;
+
+    let chosen: ReturnType<typeof buildTeam> = null;
+    let chosenKey = candidateFormations[0];
+    let bestScore = -Infinity;
+    for (const fk of candidateFormations) {
+      const e = evaluate(remaining, fk);
+      if (!e) continue;
+      const score = e.atBest * 1000 - e.outPenalty + e.total;
+      if (score > bestScore) {
+        bestScore = score;
+        chosen = e.team;
+        chosenKey = fk;
       }
-      if (!chosen) break;
-
-      const numbers = jerseyNumbersFor(chosen.players, chosenKey);
-      const players: PreviewPlayer[] = chosen.players.map((p, i) => ({
-        name: p.name,
-        rating: Math.round(rate(p)),
-        tier: playerTier(p),
-        jersey: numbers.get(p.id) ?? i + 1,
-        x: chosen.slots[i].x,
-        y: chosen.slots[i].y,
-      }));
-
-      const top = [...players].sort((a, b) => b.rating - a.rating)[0];
-
-      slides.push({
-        id: `${nat.label.toLowerCase().replace(/\s+/g, "-")}-${t}`,
-        nation: nat.label,
-        team: t === 1 ? nat.label : `${nat.label} ${ROMAN[t]}`,
-        formationKey: chosenKey,
-        formationLabel: chosenKey,
-        players,
-        topName: top.name,
-        topRating: top.rating,
-      });
-
-      const pickedIds = new Set(chosen.players.map((p) => p.id));
-      remaining = remaining.filter((p) => !pickedIds.has(p.id));
-
-      const qualityLeft = remaining.filter(
-        (p) => playerTier(p) !== "standard",
-      ).length;
-      if (t === maxTeams || remaining.length < 11 || qualityLeft < 8) break;
     }
+    if (!chosen) continue;
+
+    const numbers = jerseyNumbersFor(chosen.players, chosenKey);
+    const players: PreviewPlayer[] = chosen.players.map((p, i) => ({
+      name: p.name,
+      rating: Math.round(rate(p)),
+      tier: playerTier(p),
+      jersey: numbers.get(p.id) ?? i + 1,
+      x: chosen.slots[i].x,
+      y: chosen.slots[i].y,
+    }));
+
+    const top = [...players].sort((a, b) => b.rating - a.rating)[0];
+
+    slides.push({
+      id: nat.label.toLowerCase().replace(/\s+/g, "-"),
+      nation: nat.label,
+      team: nat.label,
+      formationKey: chosenKey,
+      formationLabel: chosenKey,
+      players,
+      topName: top.name,
+      topRating: top.rating,
+    });
   }
   return slides;
 }
