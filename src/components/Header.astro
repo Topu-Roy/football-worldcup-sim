@@ -88,7 +88,7 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
     </nav>
 
     <div class="actions">
-      <a href="/game" class="nav-link nav-link-cta" id="new-draft"
+      <a href="/game/" class="nav-link nav-link-cta" id="new-draft"
         >{labels.nav.newDraft}</a
       >
       <button
@@ -184,7 +184,7 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
       } catch {
         // Storage unavailable: navigation still starts a fresh client.
       }
-      window.location.href = "/game";
+      window.location.href = "/game/";
     }
   });
 </script>

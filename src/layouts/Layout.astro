@@ -11,6 +11,7 @@ import {
   SITE_NAME as siteName,
   ogLocale,
 } from "../lib/site";
+import { ogAltFor } from "../lib/og-alt";
 
 interface Props {
   title: string;
@@ -20,6 +21,9 @@ interface Props {
   ogImage?: string;
   ogType?: "website" | "article";
   noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  authorName?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -31,6 +35,9 @@ const {
   ogImage = "/og-image.svg",
   ogType = "website",
   noindex = false,
+  publishedTime,
+  modifiedTime,
+  authorName,
   jsonLd: jsonLdExtra,
 } = Astro.props;
 
@@ -43,6 +50,11 @@ const extraJsonLd = Array.isArray(jsonLdExtra)
 const canonical = localizedPath(path, lang);
 const fullUrl = new URL(canonical, siteUrl).toString();
 const fullImage = new URL(ogImage, siteUrl).toString();
+// The served OG images are English, so describe them with their English text.
+const imageAlt = ogAltFor(path, title);
+const imageType = new URL(ogImage, siteUrl).pathname.endsWith(".svg")
+  ? "image/svg+xml"
+  : "image/png";
 
 // Only advertise locales whose version of this page actually exists.
 const availableLocales = locales.filter((loc) => supportsPath(path, loc));
@@ -55,7 +67,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#organization`,
       name: siteName,
       url: siteUrl,
-      logo: `${siteUrl}/favicon.svg`,
+      logo: `${siteUrl}/logo-512.png`,
       description:
         "A free browser-based fantasy football World Cup draft and tournament simulation game. Draft a dream XI from 77 World Cup squads and simulate the cup.",
     },
@@ -102,9 +114,10 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={fullUrl} />
     <meta property="og:image" content={fullImage} />
+    <meta property="og:image:type" content={imageType} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:locale" content={ogLocale(lang)} />
     {
       availableLocales
@@ -117,6 +130,22 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    {
+      ogType === "article" && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )
+    }
+    {
+      ogType === "article" && modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
+      )
+    }
+    {
+      ogType === "article" && authorName && (
+        <meta property="article:author" content={authorName} />
+      )
+    }
     <script
       type="application/ld+json"
       is:inline

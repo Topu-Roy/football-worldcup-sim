@@ -56,8 +56,8 @@ const faqLd = c.index.faq
   ogImage={ogImageFor(path)}
   jsonLd={[
     breadcrumbLd(lang, [
-      { name: "Home", path: "/" },
-      { name: "Blog", path: "/blog" },
+      { name: t.breadcrumbs.home, path: "/" },
+      { name: t.breadcrumbs.blog, path: "/blog" },
     ]),
     blogLd,
     ...(faqLd ? [faqLd] : []),
@@ -133,7 +133,7 @@ const faqLd = c.index.faq
 
         <div class="mt-10 flex flex-wrap items-center gap-3">
           <a
-            href="/game"
+            href="/game/"
             class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
           >
             {t.nav.newDraft}

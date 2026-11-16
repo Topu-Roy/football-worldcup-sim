@@ -10,7 +10,7 @@ export const teamDetail = {
   en: {
     eyebrow: "Historical Squad",
     intro: ({ nation, year, formation, top, rating }: TeamArgs) =>
-      `The ${nation} World Cup ${year} squad — formation ${formation}, with player ratings for every member. Led by ${top} at ${rating} overall, this is the roster as it stood at the tournament, rated player by player on a single scale so you can compare it against every team in World Cup history. Take them into the draft and see how they fare against the all-time greats.`,
+      `The ${nation} World Cup ${year} squad — formation ${formation}, with a rating for every listed player. Led by ${top} at ${rating} overall, this is the roster as it stood at the tournament, rated player by player on a single scale so you can compare it against every team in World Cup history. Take them into the draft and see how they fare against the all-time greats.`,
     ctaPlay: "Play",
     ctaAll: "All teams",
     other: (nation: string) => `Other ${nation} squads:`,
@@ -29,7 +29,7 @@ export const teamDetail = {
   de: {
     eyebrow: "Historische Mannschaft",
     intro: ({ nation, year, formation, top, rating }: TeamArgs) =>
-      `Der Kader von ${nation} für die WM ${year} — Formation ${formation}, mit Spielerbewertungen für jedes Mitglied. Angeführt von ${top} mit ${rating} insgesamt, ist das der Kader, wie er beim Turnier stand, Spieler für Spieler auf einer Skala bewertet, damit du ihn mit jedem Team der WM-Geschichte vergleichen kannst. Nimm ihn in den Draft und sieh, wie er gegen die Allzeit-Größten besteht.`,
+      `Der Kader von ${nation} für die WM ${year} — Formation ${formation}, mit einer Bewertung für jeden gelisteten Spieler. Angeführt von ${top} mit ${rating} insgesamt, ist das der Kader, wie er beim Turnier stand, Spieler für Spieler auf einer Skala bewertet, damit du ihn mit jedem Team der WM-Geschichte vergleichen kannst. Nimm ihn in den Draft und sieh, wie er gegen die Allzeit-Größten besteht.`,
     ctaPlay: "Spielen",
     ctaAll: "Alle Teams",
     other: (nation: string) => `Weitere ${nation}-Kadern:`,
@@ -47,7 +47,7 @@ export const teamDetail = {
   fr: {
     eyebrow: "Équipe historique",
     intro: ({ nation, year, formation, top, rating }: TeamArgs) =>
-      `L'effectif ${nation} de la Coupe du Monde ${year} — formation ${formation}, avec les notes de chaque joueur. Mené par ${top} à ${rating} global, c'est l'effectif tel qu'il était au tournoi, noté joueur par joueur sur une seule échelle pour que vous puissiez le comparer à chaque équipe de l'histoire de la Coupe. Emportez-le dans le draft et voyez comment il se comporte face aux plus grands de tous les temps.`,
+      `L'effectif ${nation} de la Coupe du Monde ${year} — formation ${formation}, avec la note de chaque joueur listé. Mené par ${top} à ${rating} global, c'est l'effectif tel qu'il était au tournoi, noté joueur par joueur sur une seule échelle pour que vous puissiez le comparer à chaque équipe de l'histoire de la Coupe. Emportez-le dans le draft et voyez comment il se comporte face aux plus grands de tous les temps.`,
     ctaPlay: "Jouer",
     ctaAll: "Toutes les équipes",
     other: (nation: string) => `Autres effectifs ${nation} :`,
@@ -66,7 +66,7 @@ export const teamDetail = {
   ja: {
     eyebrow: "歴代チーム",
     intro: ({ nation, year, formation, top, rating }: TeamArgs) =>
-      `${nation}のワールドカップ${year}代表 — フォーメーション${formation}、全選手にレーティング。総合${rating}で最高評価の${top}を中心に据えた、大会時点のロースターを選手ごとに1つの尺度で評価。ワールドカップ史上のあらゆるチームと比べられる。ドラフトに連れて行き、史上最強とどう渡り合うか見よう。`,
+      `${nation}のワールドカップ${year}代表 — フォーメーション${formation}、掲載選手それぞれにレーティング。総合${rating}で最高評価の${top}を中心に据えた、大会時点のロースターを選手ごとに1つの尺度で評価。ワールドカップ史上のあらゆるチームと比べられる。ドラフトに連れて行き、史上最強とどう渡り合うか見よう。`,
     ctaPlay: "プレイ",
     ctaAll: "全チーム",
     other: (nation: string) => `他の${nation}チーム：`,
@@ -85,7 +85,7 @@ export const teamDetail = {
   es: {
     eyebrow: "Equipo histórico",
     intro: ({ nation, year, formation, top, rating }: TeamArgs) =>
-      `La plantilla ${nation} del Mundial ${year} — formación ${formation}, con valoraciones para cada jugador. Liderada por ${top} con ${rating} global, este es el plantel tal como estaba en el torneo, valorado jugador por jugador en una sola escala para que puedas compararlo con cada equipo de la historia del Mundial. Llévalo al draft y ve cómo le va contra los grandes de todos los tiempos.`,
+      `La plantilla ${nation} del Mundial ${year} — formación ${formation}, con una valoración para cada jugador listado. Liderada por ${top} con ${rating} global, este es el plantel tal como estaba en el torneo, valorado jugador por jugador en una sola escala para que puedas compararlo con cada equipo de la historia del Mundial. Llévalo al draft y ve cómo le va contra los grandes de todos los tiempos.`,
     ctaPlay: "Jugar",
     ctaAll: "Todos los equipos",
     other: (nation: string) => `Otros plantillas de ${nation}:`,

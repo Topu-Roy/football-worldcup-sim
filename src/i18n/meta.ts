@@ -51,8 +51,8 @@ export const meta: Record<
         "Terms and conditions for using My World Cup XI, the fantasy football World Cup draft and tournament simulation game.",
     },
     teams: (count) => ({
-      title: "World Cup Squads & Ratings — Every Team to Draft",
-      description: `Browse ${count} World Cup squads from 1970 to 2026 with player ratings, formations and full rosters. Scout every team before you draft.`,
+      title: "World Cup Squads & Ratings — Every Team | My World Cup XI",
+      description: `Browse ${count} World Cup squads from 1970 to 2026 with player ratings, formations and squad lists. Scout every team before you draft.`,
     }),
   },
   de: {
@@ -87,7 +87,7 @@ export const meta: Record<
         "Allgemeine Geschäftsbedingungen für die Nutzung von My World Cup XI, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
     },
     teams: (count) => ({
-      title: "WM-Kader & Bewertungen — Jedes Team zum Draften",
+      title: "WM-Kader & Bewertungen — Jedes Team | My World Cup XI",
       description: `Alle ${count} WM-Kader von 1970 bis 2026 mit Spielerbewertungen, Formationen und Kadern. Scoute jedes Team vor dem Draft.`,
     }),
   },
@@ -123,7 +123,7 @@ export const meta: Record<
         "Conditions générales d'utilisation de My World Cup XI, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
     },
     teams: (count) => ({
-      title: "Effectifs & notes de Coupe du Monde — Chaque équipe",
+      title: "Effectifs & notes — Chaque équipe | My World Cup XI",
       description: `Tous les ${count} effectifs de Coupe du Monde de 1970 à 2026 avec notes, formations et listes. Observez chaque équipe avant de drafter.`,
     }),
   },
@@ -160,7 +160,7 @@ export const meta: Record<
         "My World Cup XI（ファンタジーフットボール・ワールドカップのドラフト・トーナメントシミュレーションゲーム）の利用規約。",
     },
     teams: (count) => ({
-      title: "ワールドカップのチームと評価 — ドラフトできる全チーム",
+      title: "ワールドカップのチームと評価 — 全チーム | My World Cup XI",
       description: `1970〜2026年のワールドカップ${count}チームを選手評価、フォーメーション、ロースター付きで紹介。ドラフト前に全チームをスカウト。`,
     }),
   },
@@ -196,7 +196,7 @@ export const meta: Record<
         "Términos y condiciones de uso de My World Cup XI, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
     },
     teams: (count) => ({
-      title: "Plantillas y valoraciones del Mundial — Cada equipo",
+      title: "Plantillas y valoraciones — Cada equipo | My World Cup XI",
       description: `Las ${count} plantillas del Mundial de 1970 a 2026 con valoraciones, formaciones y listas. Observa cada equipo antes de draftear.`,
     }),
   },

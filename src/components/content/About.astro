@@ -3,9 +3,11 @@ import Layout from "../../layouts/Layout.astro";
 import { about, type AboutContent } from "../../i18n/content/about";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
+import { ui } from "../../i18n/ui";
 import type { Locale } from "../../i18n/config";
 import { SITE_URL as siteUrl } from "../../lib/site";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
+import { CONTENT_DATES } from "../../lib/content-dates";
 import { ogImageFor } from "../../lib/og";
 
 interface Props {
@@ -16,13 +18,18 @@ interface Props {
 const { lang, path } = Astro.props;
 const c = about[lang] as AboutContent;
 const m = meta[lang].about;
+const t = ui[lang];
 
 const articleLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: m.title,
   description: m.description,
+  image: new URL(ogImageFor(path), siteUrl).toString(),
   inLanguage: lang,
+  datePublished: CONTENT_DATES.about.published,
+  dateModified: CONTENT_DATES.about.modified,
+  author: { "@id": `${siteUrl}/#organization` },
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": new URL(localizedPath(path, lang), siteUrl).toString(),
@@ -54,8 +61,8 @@ const faqLd =
   ogImage={ogImageFor(path)}
   jsonLd={[
     breadcrumbLd(lang, [
-      { name: "Home", path: "/" },
-      { name: "About", path: "/about" },
+      { name: t.breadcrumbs.home, path: "/" },
+      { name: t.breadcrumbs.about, path: "/about" },
     ]),
     articleLd,
     ...(faqLd ? [faqLd] : []),

@@ -27,16 +27,13 @@ const articleLd = {
   "@type": "BlogPosting",
   headline: post.title,
   description: post.excerpt,
+  inLanguage: lang,
   datePublished: post.date,
   dateModified: post.updated ?? post.date,
   mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
-  author: { "@type": "Organization", name: SITE_NAME, url: siteUrl },
-  publisher: {
-    "@type": "Organization",
-    name: SITE_NAME,
-    logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.svg` },
-  },
-  image: `${siteUrl}/og/blog/${slug}/index.png`,
+  author: { "@id": `${siteUrl}/#organization` },
+  publisher: { "@id": `${siteUrl}/#organization` },
+  image: new URL(ogImageFor(path), siteUrl).toString(),
 };
 
 const faqLd =
@@ -57,14 +54,17 @@ const faqLd =
 <Layout
   lang={lang}
   path={path}
-  title={post.title}
+  title={`${post.title} | ${SITE_NAME}`}
   description={post.excerpt}
   ogType="article"
   ogImage={ogImageFor(path)}
+  publishedTime={post.date}
+  modifiedTime={post.updated ?? post.date}
+  authorName={SITE_NAME}
   jsonLd={[
     breadcrumbLd(lang, [
-      { name: "Home", path: "/" },
-      { name: "Blog", path: "/blog" },
+      { name: t.breadcrumbs.home, path: "/" },
+      { name: t.breadcrumbs.blog, path: "/blog" },
       { name: post.title, path },
     ]),
     articleLd,

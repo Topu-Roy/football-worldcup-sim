@@ -20,6 +20,14 @@ export const ui = {
       backToTop: "Back to Top",
     },
     switcher: { label: "Language" },
+    breadcrumbs: {
+      home: "Home",
+      teams: "Teams",
+      blog: "Blog",
+      about: "About",
+      howToPlay: "How to Play",
+      contact: "Contact",
+    },
     cta: {
       playNow: "Play now",
       fullGuide: "Full guide",
@@ -57,6 +65,14 @@ export const ui = {
       backToTop: "Nach oben",
     },
     switcher: { label: "Sprache" },
+    breadcrumbs: {
+      home: "Startseite",
+      teams: "Mannschaften",
+      blog: "Blog",
+      about: "Über",
+      howToPlay: "Anleitung",
+      contact: "Kontakt",
+    },
     cta: {
       playNow: "Jetzt spielen",
       fullGuide: "Komplette Anleitung",
@@ -94,6 +110,14 @@ export const ui = {
       backToTop: "Haut de page",
     },
     switcher: { label: "Langue" },
+    breadcrumbs: {
+      home: "Accueil",
+      teams: "Équipes",
+      blog: "Blog",
+      about: "À propos",
+      howToPlay: "Comment jouer",
+      contact: "Contact",
+    },
     cta: {
       playNow: "Jouer",
       fullGuide: "Guide complet",
@@ -131,6 +155,14 @@ export const ui = {
       backToTop: "トップへ",
     },
     switcher: { label: "言語" },
+    breadcrumbs: {
+      home: "ホーム",
+      teams: "チーム",
+      blog: "ブログ",
+      about: "概要",
+      howToPlay: "遊び方",
+      contact: "お問い合わせ",
+    },
     cta: {
       playNow: "今すぐプレイ",
       fullGuide: "詳しいガイド",
@@ -168,6 +200,14 @@ export const ui = {
       backToTop: "Volver arriba",
     },
     switcher: { label: "Idioma" },
+    breadcrumbs: {
+      home: "Inicio",
+      teams: "Equipos",
+      blog: "Blog",
+      about: "Acerca de",
+      howToPlay: "Cómo jugar",
+      contact: "Contacto",
+    },
     cta: {
       playNow: "Jugar",
       fullGuide: "Guía completa",

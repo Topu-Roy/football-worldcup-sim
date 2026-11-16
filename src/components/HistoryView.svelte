@@ -6,7 +6,9 @@
     loadHistory,
     type HistoryRecord,
   } from "../lib/history.js";
-  import { playerRating } from "../lib/draft.js";
+  // Import the rating helper directly so this page does not pull the whole
+  // draft pool (and every squad) into its client bundle.
+  import { playerRating } from "../lib/draft/rating.js";
   import { outcomeColor, outcomeLabel } from "../lib/outcome.js";
   import type { TournamentOutcome } from "../lib/tournament.js";
 
@@ -158,7 +160,7 @@
         tournament.
       </p>
       <a
-        href="/game"
+        href="/game/"
         class="mt-6 inline-flex items-center rounded-full bg-mint px-6 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
       >
         Play a match

@@ -6,9 +6,7 @@ import { localizedPath } from "../../i18n/t";
 import { buildPreviewSlides } from "../../data/preview-squads";
 import PreviewCarousel from "../../components/PreviewCarousel.astro";
 import type { Locale } from "../../i18n/config";
-import { SITE_NAME as siteName, SITE_URL as siteUrl } from "../../lib/site";
 import { ogImageFor } from "../../lib/og";
-import pkg from "../../../package.json";
 
 interface Props {
   lang: Locale;
@@ -20,39 +18,8 @@ const c = home[lang] as HomeContent;
 const m = meta[lang].home;
 const previewSlides = buildPreviewSlides(lang);
 
-const webAppLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: siteName,
-  url: new URL(localizedPath("/", lang), siteUrl).toString(),
-  applicationCategory: "GameApplication",
-  applicationSubCategory: "Football draft and tournament simulator",
-  operatingSystem: "Web",
-  browserRequirements: "Requires JavaScript",
-  description: m.description,
-  inLanguage: lang,
-  softwareVersion: pkg.version,
-  isAccessibleForFree: true,
-  featureList: [
-    "Draft a fantasy World Cup XI from 86 squads",
-    "Four formations: 4-3-3, 4-4-2, 3-5-2 and 4-2-3-1",
-    "Eleven-round draft with three rerolls",
-    "Nation chemistry bonuses",
-    "Simulated group stage and knockout bracket",
-    "Extra time and penalty shootouts",
-    "Match replay and tournament history saved on your device",
-  ],
-  screenshot: new URL(ogImageFor("/"), siteUrl).toString(),
-  author: { "@id": `${siteUrl}/#organization` },
-  publisher: { "@id": `${siteUrl}/#organization` },
-  isPartOf: { "@id": `${siteUrl}/#website` },
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
-
+// The WebApplication entity lives on /game and is referenced there. Keeping a
+// second copy here would declare the same app at a different URL.
 const faqLd =
   c.faq && c.faq.length > 0
     ? {
@@ -74,7 +41,7 @@ const faqLd =
   title={m.title}
   description={m.description}
   ogImage={ogImageFor("/")}
-  jsonLd={[webAppLd, ...(faqLd ? [faqLd] : [])]}
+  jsonLd={faqLd ? [faqLd] : []}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="relative overflow-hidden">
@@ -124,7 +91,7 @@ const faqLd =
               class="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
             >
               <a
-                href="/game"
+                href="/game/"
                 class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
               >
                 {c.ctaPlay}
@@ -218,7 +185,7 @@ const faqLd =
             {c.squadsCta1}
           </a>
           <a
-            href="/game"
+            href="/game/"
             class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
           >
             {c.squadsCta2}
@@ -259,7 +226,7 @@ const faqLd =
             {c.playCta1}
           </a>
           <a
-            href="/game"
+            href="/game/"
             class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
           >
             {c.playCta2}

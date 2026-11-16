@@ -8,6 +8,7 @@ import {
 import { teamDetail } from "../../i18n/content/teamDetail";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
+import { ui } from "../../i18n/ui";
 import { HISTORICAL_SQUADS } from "../../data/historical/index";
 import { playerRating } from "../../lib/draft/rating";
 import { FORMATIONS } from "../../lib/types";
@@ -25,6 +26,7 @@ const { lang, path } = Astro.props;
 const c = teamsIndex[lang] as TeamsIndexContent;
 const detailCopy = teamDetail[lang];
 const m = meta[lang].teams(HISTORICAL_SQUADS.length);
+const t = ui[lang];
 
 const teams = HISTORICAL_SQUADS.map((squad) => {
   const ratings = squad.players.map((p) => playerRating(p));
@@ -114,8 +116,8 @@ const faqLd =
   ogImage={ogImageFor(path)}
   jsonLd={[
     breadcrumbLd(lang, [
-      { name: "Home", path: "/" },
-      { name: "Teams", path: "/teams" },
+      { name: t.breadcrumbs.home, path: "/" },
+      { name: t.breadcrumbs.teams, path: "/teams" },
     ]),
     collectionLd,
     ...(faqLd ? [faqLd] : []),
@@ -313,7 +315,7 @@ const faqLd =
           c.playCta && c.howCta && (
             <div class="mt-10 flex flex-wrap items-center gap-3">
               <a
-                href="/game"
+                href="/game/"
                 class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
               >
                 {c.playCta}

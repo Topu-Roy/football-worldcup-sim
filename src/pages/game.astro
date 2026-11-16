@@ -12,8 +12,11 @@ const description =
 const webAppLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
+  // Single app entity. Home and every locale reference this id instead of
+  // declaring a second WebApplication for the same game.
+  "@id": `${siteUrl}/#app`,
   name: siteName,
-  url: new URL("/game", siteUrl).toString(),
+  url: new URL("/game/", siteUrl).toString(),
   applicationCategory: "GameApplication",
   applicationSubCategory: "Football draft and tournament simulator",
   operatingSystem: "Web",
@@ -97,6 +100,16 @@ const breadcrumbs = breadcrumbLd("en", [
     </h1>
 
     <GameShell client:only="svelte" />
+
+    <!-- Visible page heading for users. The sr-only H1 above keeps the
+         pre-hydration document readable for crawlers and assistive tech. -->
+    <div class="mx-auto max-w-5xl px-4 pt-14 sm:px-6 sm:pt-20">
+      <h1
+        class="text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+      >
+        Draft a World Cup XI and simulate the cup
+      </h1>
+    </div>
 
     <section
       class="border-t border-white/10 bg-slate/20"

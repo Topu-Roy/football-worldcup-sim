@@ -23,8 +23,14 @@ export function localizedPath(path: string, locale: Locale): string {
  * (game, history, legal) unprefixed because no localized route exists.
  */
 export function linkFor(path: string, locale: Locale): string {
-  const clean = (path.split(/[?#]/)[0].replace(/\/+$/, "") || "/") as string;
-  return SINGLE_LOCALE_PATHS.includes(clean) ? path : localizedPath(path, locale);
+  // Keep any query or hash while normalising the path itself.
+  const [rawPath, ...suffixParts] = path.split(/(?=[?#])/);
+  const clean = (rawPath.replace(/\/+$/, "") || "/") as string;
+  if (!SINGLE_LOCALE_PATHS.includes(clean)) return localizedPath(path, locale);
+  // Single-locale pages are built as directory URLs. Keep the trailing slash
+  // so internal links match the canonical and avoid a redirect hop.
+  const suffix = suffixParts.join("");
+  return `${clean === "/" ? "/" : `${clean}/`}${suffix}`;
 }
 
 export function stripLocale(pathname: string, locale: Locale): string {

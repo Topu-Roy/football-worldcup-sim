@@ -30,4 +30,7 @@ export const SINGLE_LOCALE_PATHS: readonly string[] = [
   "/history",
   "/privacy",
   "/terms-and-conditions",
+  // Error pages are English-only and must never advertise translated URLs.
+  "/404",
+  "/500",
 ];

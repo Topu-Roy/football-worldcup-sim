@@ -4,7 +4,7 @@ export const teamsIndex = {
     h1: "World Cup Squads: Every Team You Can Draft",
     blogLink: "Want draft strategy? Read the simulator guides on the blog",
     intro: (count: number) =>
-      `Every World Cup squad in My World Cup XI is here. That is ${count} tournament teams from 1970 to 2026, ranked by average player rating and ready to scout. You draft from these ${count} squads. The game also uses nine group-stage opponents as AI teams, which brings the full pool to 86 teams. This page is the library behind the world cup team builder. Every roster has a formation, player names and a rating for each player. The ratings use one scale, so you can compare Brazil 1970 with Argentina 2022. Search by nation, year or formation. Open a squad to see the full list. Then take what you learn into the draft.`,
+      `Every World Cup squad in My World Cup XI is here. That is ${count} tournament teams from 1970 to 2026, ranked by average player rating and ready to scout. You draft from these ${count} squads. The game also uses nine group-stage opponents as AI teams, which brings the full pool to 86 teams. This page is the library behind the world cup team builder. Every roster has a formation, player names and a rating for each player. The ratings use one scale, so you can compare Brazil 1970 with Argentina 2022. Search by nation, year or formation. Open a squad to see its player list. Then take what you learn into the draft.`,
     erasTitle: "Six decades, one scale",
     eras: [
       {
@@ -79,7 +79,7 @@ export const teamsIndex = {
     h1: "WM-Kader: Jedes Team zum Draften",
     blogLink: "Willst du Draft-Strategie? Lies die Simulator-Guides im Blog",
     intro: (count: number) =>
-      `Jeder WM-Kader in My World Cup XI steht hier. Das sind ${count} Turnierteams von 1970 bis 2026, sortiert nach durchschnittlicher Spielerbewertung und bereit zum Scouten. Du draftest aus diesen ${count} Kadern. Das Spiel nutzt zusätzlich neun Gruppengegner als KI-Teams, damit kommt der volle Pool auf 86 Teams. Diese Seite ist die Bibliothek hinter dem WM-Team-Builder. Jeder Kader hat eine Formation, Spielernamen und eine Bewertung für jeden Spieler. Die Bewertungen nutzen eine Skala, damit du Brasilien 1970 mit Argentinien 2022 vergleichen kannst. Suche nach Nation, Jahr oder Formation. Öffne einen Kader für die volle Liste. Dann nimm das Wissen mit in den Draft.`,
+      `Jeder WM-Kader in My World Cup XI steht hier. Das sind ${count} Turnierteams von 1970 bis 2026, sortiert nach durchschnittlicher Spielerbewertung und bereit zum Scouten. Du draftest aus diesen ${count} Kadern. Das Spiel nutzt zusätzlich neun Gruppengegner als KI-Teams, damit kommt der volle Pool auf 86 Teams. Diese Seite ist die Bibliothek hinter dem WM-Team-Builder. Jeder Kader hat eine Formation, Spielernamen und eine Bewertung für jeden Spieler. Die Bewertungen nutzen eine Skala, damit du Brasilien 1970 mit Argentinien 2022 vergleichen kannst. Suche nach Nation, Jahr oder Formation. Öffne einen Kader für die Spielerliste. Dann nimm das Wissen mit in den Draft.`,
     erasTitle: "Sechs Jahrzehnte, eine Skala",
     eras: [
       {
@@ -155,7 +155,7 @@ export const teamsIndex = {
     blogLink:
       "Besoin de stratégie ? Lisez les guides du simulateur sur le blog",
     intro: (count: number) =>
-      `Chaque effectif de Coupe du Monde de My World Cup XI est ici. Cela fait ${count} équipes de tournoi de 1970 à 2026, classées par note moyenne et prêtes à observer. Vous draftez parmi ces ${count} effectifs. Le jeu utilise aussi neuf adversaires de groupe comme équipes IA, ce qui porte le pool complet à 86 équipes. Cette page est la bibliothèque derrière le constructeur d'équipe. Chaque effectif a une formation, des noms et une note par joueur. Les notes utilisent une seule échelle, pour comparer le Brésil 1970 avec l'Argentine 2022. Cherchez par nation, année ou formation. Ouvrez un effectif pour voir la liste complète. Puis entrez dans le draft avec ces informations.`,
+      `Chaque effectif de Coupe du Monde de My World Cup XI est ici. Cela fait ${count} équipes de tournoi de 1970 à 2026, classées par note moyenne et prêtes à observer. Vous draftez parmi ces ${count} effectifs. Le jeu utilise aussi neuf adversaires de groupe comme équipes IA, ce qui porte le pool complet à 86 équipes. Cette page est la bibliothèque derrière le constructeur d'équipe. Chaque effectif a une formation, des noms et une note par joueur. Les notes utilisent une seule échelle, pour comparer le Brésil 1970 avec l'Argentine 2022. Cherchez par nation, année ou formation. Ouvrez un effectif pour voir la liste des joueurs. Puis entrez dans le draft avec ces informations.`,
     erasTitle: "Six décennies, une échelle",
     eras: [
       {
@@ -230,7 +230,7 @@ export const teamsIndex = {
     h1: "ワールドカップのチーム：ドラフトできる全チーム",
     blogLink: "ドラフト戦略を知りたい？ブログのシミュレーターガイドを読もう",
     intro: (count: number) =>
-      `My World Cup XIのワールドカップ・チームがここにそろっています。1970年から2026年までの${count}チームを、平均レーティング順に並べ、スカウトできる状態にしました。あなたがドラフトできるのは、この${count}チームです。ゲームはさらに9つのグループステージ相手をAIチームとして使うので、全体では86チームになります。このページは、チームビルダーの背後にあるライブラリです。各チームにはフォーメーション、選手名、選手ごとの評価があります。評価は1つのスケールなので、ブラジル1970とアルゼンチン2022を比べられます。国、年、フォーメーションで検索してください。チームを開けば全リストが見られます。その知識をドラフトに持っていきましょう。`,
+      `My World Cup XIのワールドカップ・チームがここにそろっています。1970年から2026年までの${count}チームを、平均レーティング順に並べ、スカウトできる状態にしました。あなたがドラフトできるのは、この${count}チームです。ゲームはさらに9つのグループステージ相手をAIチームとして使うので、全体では86チームになります。このページは、チームビルダーの背後にあるライブラリです。各チームにはフォーメーション、選手名、選手ごとの評価があります。評価は1つのスケールなので、ブラジル1970とアルゼンチン2022を比べられます。国、年、フォーメーションで検索してください。チームを開けば選手リストが見られます。その知識をドラフトに持っていきましょう。`,
     erasTitle: "6つの十年、1つのスケール",
     eras: [
       {
@@ -305,7 +305,7 @@ export const teamsIndex = {
     h1: "Plantillas del Mundial: cada equipo para draftear",
     blogLink: "¿Quieres estrategia? Lee las guías del simulador en el blog",
     intro: (count: number) =>
-      `Cada plantilla del Mundial de My World Cup XI está aquí. Son ${count} equipos de torneo de 1970 a 2026, ordenados por valoración media y listos para observar. Drafteas de estas ${count} plantillas. El juego también usa nueve rivales de grupo como equipos IA, así que el pool completo llega a 86 equipos. Esta página es la biblioteca detrás del constructor de equipo. Cada plantilla tiene formación, nombres y una valoración por jugador. Las valoraciones usan una sola escala, para comparar el Brasil 1970 con la Argentina 2022. Busca por nación, año o formación. Abre una plantilla para ver la lista completa. Luego entra al draft con esa información.`,
+      `Cada plantilla del Mundial de My World Cup XI está aquí. Son ${count} equipos de torneo de 1970 a 2026, ordenados por valoración media y listos para observar. Drafteas de estas ${count} plantillas. El juego también usa nueve rivales de grupo como equipos IA, así que el pool completo llega a 86 equipos. Esta página es la biblioteca detrás del constructor de equipo. Cada plantilla tiene formación, nombres y una valoración por jugador. Las valoraciones usan una sola escala, para comparar el Brasil 1970 con la Argentina 2022. Busca por nación, año o formación. Abre una plantilla para ver la lista de jugadores. Luego entra al draft con esa información.`,
     erasTitle: "Seis décadas, una escala",
     eras: [
       {

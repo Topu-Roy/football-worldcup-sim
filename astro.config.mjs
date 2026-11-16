@@ -55,6 +55,12 @@ export default defineConfig({
   integrations: [
     svelte(),
     sitemap({
+      /**
+       * Drop pages that are intentionally noindex. `/history` shows local,
+       * personalized runs and is excluded from search by design.
+       * @param {string} page
+       */
+      filter: (page) => canonicalPath(pathOf(page)) !== "/history",
       /** @param {import("@astrojs/sitemap").SitemapItem} item */
       serialize(item) {
         return {
