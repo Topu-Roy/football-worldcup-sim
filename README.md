@@ -88,5 +88,6 @@ The 2026 squads are fictional/predicted rosters. There are 86 squads (77 histori
 ## Other notes
 
 - Site config, locales, redirects, and sitemap rules live in `astro.config.mjs`.
+- SEO strategy, anti-spam rules, and content quality gates live in [docs/seo-strategy.md](./docs/seo-strategy.md).
 - Design tokens (canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, legible violet `#b9a3ff`, type stacks) live in `src/styles/global.css`.
 - Deployed domain: `https://myworldcupxi.com`.
