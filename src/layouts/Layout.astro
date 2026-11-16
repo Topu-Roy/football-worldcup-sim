@@ -25,7 +25,7 @@ interface Props {
 
 const {
   title,
-  description = "Draft a fantasy World Cup XI from 86 historical squads (1970-2026) and run it through a simulated group stage and knockout tournament.",
+  description = "Draft a fantasy World Cup XI from 77 World Cup squads (1970-2026) and run it through a simulated group stage and knockout tournament.",
   lang = defaultLocale,
   path = stripLocale(Astro.url.pathname, lang),
   ogImage = "/og-image.svg",
@@ -57,7 +57,7 @@ const jsonLd = {
       url: siteUrl,
       logo: `${siteUrl}/favicon.svg`,
       description:
-        "A free browser-based fantasy football World Cup draft and tournament simulation game. Draft a dream XI from 86 historical squads and simulate the cup.",
+        "A free browser-based fantasy football World Cup draft and tournament simulation game. Draft a dream XI from 77 World Cup squads and simulate the cup.",
     },
     {
       "@type": "WebSite",

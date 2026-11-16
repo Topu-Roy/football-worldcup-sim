@@ -21,20 +21,19 @@ export const meta: Record<
 > = {
   en: {
     home: {
-      title:
-        "My World Cup XI - Draft Historical Squads, Simulate the World Cup",
+      title: "World Cup Draft Game — Build a Fantasy XI | My World Cup XI",
       description:
-        "Draft a fantasy World Cup XI from 86 historical squads (1970-2026) and simulate the cup. Free browser football game - no download, no sign-up.",
+        "Draft a fantasy World Cup XI from 77 squads, then simulate the tournament. Free browser world cup draft game. No download, no sign-up.",
     },
     about: {
-      title: "What Is My World Cup XI? - Free Fantasy Football World Cup Game",
+      title: "What Is My World Cup XI? Free World Cup Draft Game",
       description:
-        "My World Cup XI is a free browser game: draft a fantasy World Cup XI from 86 historical squads and simulate the tournament. Draft, simulate, replay.",
+        "My World Cup XI is a free browser game. Draft a fantasy XI from 77 World Cup squads, build chemistry and simulate the cup. No download, no sign-up.",
     },
     howToPlay: {
-      title: "How to Play My World Cup XI - Free Guide",
+      title: "How to Play — World Cup Draft Rules & Simulator Guide",
       description:
-        "Learn how to draft a fantasy World Cup XI, pick a formation, and simulate the tournament with penalty shootouts. Step-by-step guide.",
+        "Learn the world cup draft rules: formations, eleven picks, three rerolls, chemistry, group stage and penalty shootouts. Free browser game.",
     },
     contact: {
       title: "Contact - My World Cup XI",
@@ -52,25 +51,25 @@ export const meta: Record<
         "Terms and conditions for using My World Cup XI, the fantasy football World Cup draft and tournament simulation game.",
     },
     teams: (count) => ({
-      title: "All Historical Squads - My World Cup XI",
-      description: `Browse all ${count} historical World Cup squads (1970-2026) with player ratings, from Brazil 1970 to Argentina 2022. Draft any team.`,
+      title: "World Cup Squads & Ratings — Every Team to Draft",
+      description: `Browse ${count} World Cup squads from 1970 to 2026 with player ratings, formations and full rosters. Scout every team before you draft.`,
     }),
   },
   de: {
     home: {
-      title: "My World Cup XI - Historische Kader draften, WM simulieren",
+      title: "WM-Draft-Spiel — Traumelf bauen | My World Cup XI",
       description:
-        "Stelle dein Fantasy-WM-Team aus 86 historischen Kadern (1970-2026) zusammen und simuliere das Turnier. Kostenlos im Browser, ohne Anmeldung.",
+        "Draft eine Fantasy-WM-Elf aus 77 Kadern und simuliere das Turnier. Kostenloses WM-Draft-Spiel im Browser. Kein Download, keine Anmeldung.",
     },
     about: {
-      title: "Was ist My World Cup XI? - Kostenloses Fantasy-WM-Spiel",
+      title: "Was ist My World Cup XI? Kostenloses WM-Draft-Spiel",
       description:
-        "My World Cup XI ist ein kostenloses Browserspiel: Fantasy-WM-Team aus 86 historischen Kadern draften und das Turnier simulieren.",
+        "My World Cup XI ist ein kostenloses Browserspiel. Draft eine Fantasy-Elf aus 77 WM-Kadern, baue Chemie und simuliere den Pokal.",
     },
     howToPlay: {
-      title: "So spielst du My World Cup XI - Kostenlose Anleitung",
+      title: "So spielst du — WM-Draft-Regeln & Simulator-Guide",
       description:
-        "Lerne, wie du ein Fantasy-WM-Team aus 86 historischen Kadern aufstellst, eine Formation wählst und das Turnier mit Elfmeterschießen simulierst.",
+        "Lerne die WM-Draft-Regeln: Formationen, elf Picks, drei Neuwürfe, Chemie, Gruppenphase und Elfmeterschießen. Kostenloses Browserspiel.",
     },
     contact: {
       title: "Kontakt - My World Cup XI",
@@ -88,27 +87,25 @@ export const meta: Record<
         "Allgemeine Geschäftsbedingungen für die Nutzung von My World Cup XI, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
     },
     teams: (count) => ({
-      title: "Alle historischen Mannschaften - My World Cup XI",
-      description: `Alle ${count} historischen WM-Mannschaften (1970-2026) mit Spielerbewertungen, von Brasilien 1970 bis Argentinien 2022. Draft jede Mannschaft.`,
+      title: "WM-Kader & Bewertungen — Jedes Team zum Draften",
+      description: `Alle ${count} WM-Kader von 1970 bis 2026 mit Spielerbewertungen, Formationen und Kadern. Scoute jedes Team vor dem Draft.`,
     }),
   },
   fr: {
     home: {
-      title:
-        "My World Cup XI - Composez votre équipe, simulez la Coupe du Monde",
+      title: "Jeu de draft Coupe du Monde — Créez votre XI | My World Cup XI",
       description:
-        "Composez votre XI fantasy parmi 86 équipes historiques (1970-2026) et simulez la Coupe du Monde. Jeu gratuit dans le navigateur, sans inscription.",
+        "Draftez une XI fantasy parmi 77 effectifs et simulez la Coupe du Monde. Jeu de draft gratuit dans le navigateur, sans inscription.",
     },
     about: {
-      title:
-        "Qu'est-ce qu'My World Cup XI ? - Jeu de Coupe du Monde fantasy gratuit",
+      title: "Qu'est-ce que My World Cup XI ? Jeu de draft gratuit",
       description:
-        "My World Cup XI est un jeu gratuit dans le navigateur : composez un XI fantasy parmi 86 équipes historiques et simulez la Coupe du Monde.",
+        "My World Cup XI est un jeu gratuit dans le navigateur. Draftez une XI parmi 77 effectifs, construisez la chimie et simulez la coupe.",
     },
     howToPlay: {
-      title: "Comment jouer à My World Cup XI - Guide gratuit",
+      title: "Comment jouer — Règles du draft & guide du simulateur",
       description:
-        "Découvrez comment composer un XI fantasy, choisir une formation et simuler la Coupe du Monde avec tirs au but. Guide étape par étape.",
+        "Apprenez les règles du draft : formations, onze choix, trois relances, chimie, phase de groupes et tirs au but. Jeu gratuit.",
     },
     contact: {
       title: "Contacter My World Cup XI",
@@ -126,26 +123,26 @@ export const meta: Record<
         "Conditions générales d'utilisation de My World Cup XI, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
     },
     teams: (count) => ({
-      title: "Toutes les équipes historiques - My World Cup XI",
-      description: `Parcourez les ${count} équipes historiques du Mondial (1970-2026) avec notes des joueurs, du Brésil 1970 à l'Argentine 2022.`,
+      title: "Effectifs & notes de Coupe du Monde — Chaque équipe",
+      description: `Tous les ${count} effectifs de Coupe du Monde de 1970 à 2026 avec notes, formations et listes. Observez chaque équipe avant de drafter.`,
     }),
   },
   ja: {
     home: {
       title:
-        "My World Cup XI - 歴代チームをドラフト、ワールドカップをシミュレート",
+        "ワールドカップ・ドラフトゲーム｜歴代チームでXI作成 | My World Cup XI",
       description:
-        "1970〜2026年の歴代86チームからワールドカップの夢のXIを作り、トーナメントをシミュレート。ブラウザで遊べる無料ゲーム。",
+        "1970〜2026年の77チームからワールドカップの夢のXIをドラフトし、大会をシミュレート。ブラウザで遊べる無料ゲーム。",
     },
     about: {
-      title: "My World Cup XIとは？ - 無料のファンタジー・ワールドカップゲーム",
+      title: "My World Cup XIとは？無料のワールドカップ・ドラフトゲーム",
       description:
-        "My World Cup XIは無料のブラウザゲーム。歴代86チームからワールドカップの夢のXIをドラフトし、トーナメントをシミュレートします。",
+        "My World Cup XIは無料のブラウザゲーム。77の歴代チームからXIをドラフトし、ケミストリーを組んで大会をシミュレートします。",
     },
     howToPlay: {
-      title: "My World Cup XI の遊び方 - 無料ガイド",
+      title: "遊び方 — ワールドカップ・ドラフトのルールとガイド",
       description:
-        "歴代86チームから夢のXIをドラフトし、フォーメーションを選んでPK戦付きのトーナメントをシミュレートする方法を紹介します。",
+        "フォーメーション、11回の指名、3回のリロール、ケミストリー、グループステージ、PK戦。ワールドカップ・ドラフトのルールを説明します。",
     },
     contact: {
       title: "お問い合わせ - My World Cup XI",
@@ -163,25 +160,25 @@ export const meta: Record<
         "My World Cup XI（ファンタジーフットボール・ワールドカップのドラフト・トーナメントシミュレーションゲーム）の利用規約。",
     },
     teams: (count) => ({
-      title: "すべての歴代チーム - My World Cup XI",
-      description: `1970〜2026年の歴代ワールドカップチーム${count}を選手レーティング付きで紹介。ブラジル1970からアルゼンチン2022まで。`,
+      title: "ワールドカップのチームと評価 — ドラフトできる全チーム",
+      description: `1970〜2026年のワールドカップ${count}チームを選手評価、フォーメーション、ロースター付きで紹介。ドラフト前に全チームをスカウト。`,
     }),
   },
   es: {
     home: {
-      title: "My World Cup XI - Arma tu equipo, simula el Mundial",
+      title: "Juego de draft del Mundial — Arma tu XI | My World Cup XI",
       description:
-        "Arma tu XI fantasy con 86 equipos históricos (1970-2026) y simula la Copa del Mundo. Juego gratis en el navegador, sin registro.",
+        "Draftea una XI fantasy de 77 plantillas y simula la Copa del Mundo. Juego de draft gratis en el navegador, sin registro.",
     },
     about: {
-      title: "Qué es My World Cup XI - Juego de Copa del Mundo fantasy gratis",
+      title: "¿Qué es My World Cup XI? Juego de draft gratis",
       description:
-        "My World Cup XI es un juego gratis en el navegador: arma un XI fantasy con 86 equipos históricos y simula la Copa del Mundo.",
+        "My World Cup XI es un juego gratis en el navegador. Draftea una XI de 77 plantillas, construye química y simula la copa.",
     },
     howToPlay: {
-      title: "Cómo jugar a My World Cup XI - Guía gratis",
+      title: "Cómo jugar — Reglas del draft y guía del simulador",
       description:
-        "Aprende a armar un XI fantasy, elegir una formación y simular la Copa del Mundo con penales. Guía paso a paso.",
+        "Aprende las reglas del draft: formaciones, once elecciones, tres rerolls, química, fase de grupos y penales. Juego gratis.",
     },
     contact: {
       title: "Contacto - My World Cup XI",
@@ -199,8 +196,8 @@ export const meta: Record<
         "Términos y condiciones de uso de My World Cup XI, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
     },
     teams: (count) => ({
-      title: "Todos los equipos históricos - My World Cup XI",
-      description: `Explora los ${count} equipos históricos del Mundial (1970-2026) con valoraciones, del Brasil 1970 a la Argentina 2022.`,
+      title: "Plantillas y valoraciones del Mundial — Cada equipo",
+      description: `Las ${count} plantillas del Mundial de 1970 a 2026 con valoraciones, formaciones y listas. Observa cada equipo antes de draftear.`,
     }),
   },
 };

@@ -18,7 +18,7 @@ All copy follows [content-guide.md](./content-guide.md). Low-value copy fails th
 
 1. It offers something Wikipedia and Transfermarkt do not.
 2. It has an interactive element (builder, simulator, comparison, filter).
-3. Editorial pages have 800+ words of original writing and follow the [content guide](./content-guide.md).
+3. Editorial pages have 1000-1200 words of original writing and follow the [content guide](./content-guide.md).
 4. Sources, author and last-updated date are visible.
 5. It answers a different query than existing pages.
 6. A user would bookmark it.
@@ -34,7 +34,7 @@ If any answer is no, the page is not created.
 - Add `/changelog` (version + release notes, linked in footer).
 - `noindex` `/history` and remove it from the sitemap.
 - Expand `/game` server-rendered content: explanation, screenshots, features, FAQ.
-- Decide 2026: replace fictional squads with real ones, or label them as game rosters and keep them out of SEO.
+- 2026 squads are real and verified. Keep them on SEO surfaces with the same data notes as every other squad.
 
 ### Weeks 5–8 — one flagship tool
 
@@ -52,7 +52,7 @@ If any answer is no, the page is not created.
 
 ## App signals
 
-- Structured data: `WebApplication` with `featureList`, `screenshot`, `softwareVersion`, `datePublished`, `isAccessibleForFree`; `Organization` with `sameAs`; `FAQPage` only where real FAQ copy exists. No fake ratings.
+- Structured data: `WebApplication` with `featureList`, `screenshot`, `softwareVersion`, `isAccessibleForFree`; `Organization` with `sameAs`; `FAQPage` only where real FAQ copy exists. No fake ratings.
 - Trust: `/methodology`, `/changelog`, `/about`; state no ads, no signup, saves stay local.
 - Technical: server-rendered H1 and core copy on `/game`, `/teams`, `/history`; green Core Web Vitals; sitemap with canonical quality URLs only; no indexed query-parameter or anchor-only URLs.
 
@@ -63,12 +63,24 @@ Product-first. Volumes are unverified estimates.
 | Priority | Query                                                                  | Target                              |
 | -------- | ---------------------------------------------------------------------- | ----------------------------------- |
 | 1        | world cup draft game, world cup draft simulator, football draft game   | `/game`                             |
-| 2        | world cup all time xi, best world cup xi                               | `/xi`                               |
+| 2        | world cup all time xi, best world cup xi                               | `/teams` + blog (until `/xi` ships) |
 | 3        | world cup team builder, world cup squad builder                        | `/teams`, `/game`                   |
 | 4        | 7a0 alternative, games like 7a0                                        | comparison post                     |
-| 5        | which world cup team was the best, what formation did brazil 1970 play | FAQ blocks on `/xi`, `/teams`, blog |
+| 5        | which world cup team was the best, what formation did brazil 1970 play | FAQ blocks on `/teams`, blog        |
 
-Keep existing translations. Do not auto-translate new pages. Do not target 2030 until the product supports it.
+### Page keyword map
+
+| Page                 | Primary                                     | Secondary                                          | Long-tail and questions                                                                                                                                     |
+| -------------------- | ------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                  | world cup draft game                        | world cup draft simulator, football draft game     | draft a fantasy world cup XI, world cup dream team builder, can you make your own world cup team                                                            |
+| `/game`              | world cup draft game                        | world cup simulator game, football draft simulator | draft historical world cup squads, world cup draft game no download, how does the world cup draft work                                                      |
+| `/teams`             | world cup team builder                      | world cup squads, world cup squad ratings          | brazil 1970 squad, netherlands 1974 squad, argentina 1986 squad, france 1998 squad, which world cup squad was the best, what formation did brazil 1970 play |
+| `/how-to-play`       | how to play world cup draft game            | world cup draft rules, world cup simulator rules   | how does the world cup group stage work, how do penalty shootouts work, how to build a world cup fantasy team                                               |
+| `/about`             | what is my world cup xi                     | world cup draft game, is my world cup xi free      | how are player ratings calculated, is my world cup xi affiliated with fifa                                                                                  |
+| `/blog`              | world cup draft guide                       | world cup simulator tips                           | how to scout a world cup squad, world cup draft mistakes                                                                                                    |
+| `/blog/how-it-works` | how does the world cup draft simulator work | world cup draft strategy                           | world cup draft chemistry, world cup draft rerolls, world cup simulator 2026                                                                                |
+
+Every locale is written for that language, not machine-translated. Do not target 2030 until the product supports it.
 
 ## Measure
 

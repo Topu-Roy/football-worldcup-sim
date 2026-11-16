@@ -75,7 +75,7 @@ src/
 scripts/               data validation, calibration, fixtures, player reports
 ```
 
-The 2026 squads are fictional/predicted rosters. There are 86 squads (77 historical + 9 group-stage opponents) and 1,634 player entries in total.
+The game has 86 teams. 77 are draftable World Cup squads from 1970 to 2026. 9 are group-stage AI opponents. The 2026 squads are real and verified. There are 1,634 player entries in total.
 
 ## UI conventions
 

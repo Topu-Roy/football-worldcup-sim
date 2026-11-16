@@ -1,7 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { ChevronDown, Search } from "@lucide/astro";
-import { teamsIndex } from "../../i18n/content/teamsIndex";
+import {
+  teamsIndex,
+  type TeamsIndexContent,
+} from "../../i18n/content/teamsIndex";
 import { teamDetail } from "../../i18n/content/teamDetail";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
@@ -19,7 +22,7 @@ interface Props {
 }
 
 const { lang, path } = Astro.props;
-const c = teamsIndex[lang];
+const c = teamsIndex[lang] as TeamsIndexContent;
 const detailCopy = teamDetail[lang];
 const m = meta[lang].teams(HISTORICAL_SQUADS.length);
 
@@ -87,6 +90,20 @@ const collectionLd = {
     })),
   },
 };
+
+const faqLd =
+  c.faq && c.faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        inLanguage: lang,
+        mainEntity: c.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 ---
 
 <Layout
@@ -101,6 +118,7 @@ const collectionLd = {
       { name: "Teams", path: "/teams" },
     ]),
     collectionLd,
+    ...(faqLd ? [faqLd] : []),
   ]}
 >
   <main class="min-h-screen bg-canvas text-white">
@@ -120,12 +138,44 @@ const collectionLd = {
           {c.intro(teams.length)}
         </p>
 
+        {
+          c.eras && c.eras.length > 0 && (
+            <>
+              <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+                {c.erasTitle}
+              </h2>
+              <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                {c.eras.map((era) => (
+                  <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                    <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint uppercase">
+                      {era.years}
+                    </span>
+                    <h3 class="mt-2 block font-display text-xl tracking-[0.5px]">
+                      {era.title}
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-secondary">
+                      {era.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )
+        }
+
         <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
           {c.rankingTitle}
         </h2>
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.ranking.map((p) => <p>{p}</p>)}
         </div>
+        {
+          c.sourceNote && (
+            <p class="mt-6 rounded-2xl border border-white/10 bg-slate/20 p-4 font-mono text-[10px] leading-relaxed tracking-[0.5px] text-secondary uppercase">
+              {c.sourceNote}
+            </p>
+          )
+        }
 
         <div
           class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
@@ -237,7 +287,48 @@ const collectionLd = {
           }
         </ul>
 
-        <p class="mt-10 text-sm text-secondary">
+        {
+          c.faqTitle && c.faq && c.faq.length > 0 && (
+            <>
+              <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+                {c.faqTitle}
+              </h2>
+              <div class="mt-6 space-y-4">
+                {c.faq.map((f) => (
+                  <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                    <h3 class="block font-display text-lg tracking-[0.5px]">
+                      {f.q}
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-secondary">
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )
+        }
+
+        {
+          c.playCta && c.howCta && (
+            <div class="mt-10 flex flex-wrap items-center gap-3">
+              <a
+                href="/game"
+                class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+              >
+                {c.playCta}
+              </a>
+              <a
+                href={localizedPath("/how-to-play", lang)}
+                class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+              >
+                {c.howCta}
+              </a>
+            </div>
+          )
+        }
+
+        <p class="mt-8 text-sm text-secondary">
           <a
             href={localizedPath("/blog", lang)}
             class="text-mint transition-colors hover:text-white"

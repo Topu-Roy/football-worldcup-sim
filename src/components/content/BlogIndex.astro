@@ -1,10 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { blog } from "../../i18n/content/blog";
+import { ui } from "../../i18n/ui";
 import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
 import { ogImageFor } from "../../lib/og";
+import { SITE_URL } from "../../lib/site";
 
 interface Props {
   lang: Locale;
@@ -13,18 +15,53 @@ interface Props {
 
 const { lang, path } = Astro.props;
 const c = blog[lang];
+const t = ui[lang];
+
+const blogLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: c.index.seoTitle,
+  description: c.index.intro,
+  inLanguage: lang,
+  url: new URL(localizedPath(path, lang), SITE_URL).toString(),
+  blogPost: c.posts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    description: p.excerpt,
+    datePublished: p.date,
+    dateModified: p.updated ?? p.date,
+    url: new URL(localizedPath(`/blog/${p.slug}`, lang), SITE_URL).toString(),
+  })),
+};
+
+const faqLd = c.index.faq
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: c.index.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
 ---
 
 <Layout
   lang={lang}
   path={path}
   title={c.index.seoTitle}
-  description={c.index.intro}
+  description={c.index.description ?? c.index.intro}
   ogImage={ogImageFor(path)}
-  jsonLd={breadcrumbLd(lang, [
-    { name: "Home", path: "/" },
-    { name: "Blog", path: "/blog" },
-  ])}
+  jsonLd={[
+    breadcrumbLd(lang, [
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+    ]),
+    blogLd,
+    ...(faqLd ? [faqLd] : []),
+  ]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="border-t border-white/10">
@@ -37,6 +74,19 @@ const c = blog[lang];
         <p class="mt-6 text-sm leading-relaxed text-secondary">
           {c.index.intro}
         </p>
+
+        {
+          c.index.sections?.map((s) => (
+            <section class="mt-10">
+              <h2 class="font-display text-3xl tracking-[0.5px]">{s.h2}</h2>
+              <div class="mt-4 space-y-4 text-sm leading-relaxed text-secondary">
+                {s.body.map((p) => (
+                  <p>{p}</p>
+                ))}
+              </div>
+            </section>
+          ))
+        }
 
         <ul class="mt-12 grid gap-6">
           {
@@ -60,6 +110,41 @@ const c = blog[lang];
             ))
           }
         </ul>
+
+        {
+          c.index.faq && (
+            <section class="mt-12">
+              <h2 class="font-display text-3xl tracking-[0.5px]">FAQ</h2>
+              <div class="mt-6 space-y-4">
+                {c.index.faq.map((f) => (
+                  <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                    <h3 class="block font-display text-lg tracking-[0.5px]">
+                      {f.q}
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-secondary">
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <div class="mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href="/game"
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            {t.nav.newDraft}
+          </a>
+          <a
+            href={localizedPath("/teams", lang)}
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            {t.nav.teams}
+          </a>
+        </div>
       </div>
     </section>
   </main>

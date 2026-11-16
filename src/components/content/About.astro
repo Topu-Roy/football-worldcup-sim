@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { about } from "../../i18n/content/about";
+import { about, type AboutContent } from "../../i18n/content/about";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { lang, path } = Astro.props;
-const c = about[lang];
+const c = about[lang] as AboutContent;
 const m = meta[lang].about;
 
 const articleLd = {
@@ -30,6 +30,20 @@ const articleLd = {
   isPartOf: { "@id": `${siteUrl}/#website` },
   publisher: { "@id": `${siteUrl}/#organization` },
 };
+
+const faqLd =
+  c.faq && c.faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        inLanguage: lang,
+        mainEntity: c.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 ---
 
 <Layout
@@ -44,6 +58,7 @@ const articleLd = {
       { name: "About", path: "/about" },
     ]),
     articleLd,
+    ...(faqLd ? [faqLd] : []),
   ]}
 >
   <main class="min-h-screen bg-canvas text-white">
@@ -109,6 +124,28 @@ const articleLd = {
             {c.contactCta}
           </a>
         </div>
+
+        {
+          c.faqTitle && c.faq && c.faq.length > 0 && (
+            <>
+              <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+                {c.faqTitle}
+              </h2>
+              <div class="mt-6 space-y-4">
+                {c.faq.map((f) => (
+                  <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                    <h3 class="block font-display text-lg tracking-[0.5px]">
+                      {f.q}
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-secondary">
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )
+        }
       </div>
     </section>
   </main>

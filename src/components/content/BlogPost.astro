@@ -38,6 +38,20 @@ const articleLd = {
   },
   image: `${siteUrl}/og/blog/${slug}/index.png`,
 };
+
+const faqLd =
+  post.faq && post.faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        inLanguage: lang,
+        mainEntity: post.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 ---
 
 <Layout
@@ -54,6 +68,7 @@ const articleLd = {
       { name: post.title, path },
     ]),
     articleLd,
+    ...(faqLd ? [faqLd] : []),
   ]}
 >
   <main class="min-h-screen bg-canvas text-white">
@@ -73,6 +88,21 @@ const articleLd = {
           class="mt-3 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase"
         >
           <time datetime={post.date}>{post.date}</time>
+          {
+            post.updated && (
+              <>
+                {" · "}
+                <time datetime={post.updated}>{post.updated}</time>
+              </>
+            )
+          }
+          {" · "}
+          <a
+            href={localizedPath("/about", lang)}
+            class="text-mint transition-colors hover:text-white"
+          >
+            My World Cup XI
+          </a>
         </p>
 
         <div class="mt-8 space-y-8">
@@ -89,6 +119,26 @@ const articleLd = {
             ))
           }
         </div>
+
+        {
+          post.faq && post.faq.length > 0 && (
+            <section class="mt-12">
+              <h2 class="font-display text-3xl tracking-[0.5px]">FAQ</h2>
+              <div class="mt-6 space-y-4">
+                {post.faq.map((f) => (
+                  <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                    <h3 class="block font-display text-lg tracking-[0.5px]">
+                      {f.q}
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-secondary">
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
 
         <div class="mt-12 rounded-2xl border border-white/10 bg-slate/40 p-6">
           <ul class="flex flex-col gap-2 text-sm">

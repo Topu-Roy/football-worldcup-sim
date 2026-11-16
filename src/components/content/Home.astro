@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { home } from "../../i18n/content/home";
+import { home, type HomeContent } from "../../i18n/content/home";
 import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
 import { buildPreviewSlides } from "../../data/preview-squads";
@@ -8,6 +8,7 @@ import PreviewCarousel from "../../components/PreviewCarousel.astro";
 import type { Locale } from "../../i18n/config";
 import { SITE_NAME as siteName, SITE_URL as siteUrl } from "../../lib/site";
 import { ogImageFor } from "../../lib/og";
+import pkg from "../../../package.json";
 
 interface Props {
   lang: Locale;
@@ -15,9 +16,9 @@ interface Props {
 }
 
 const { lang, path } = Astro.props;
-const c = home[lang];
+const c = home[lang] as HomeContent;
 const m = meta[lang].home;
-const previewSlides = buildPreviewSlides();
+const previewSlides = buildPreviewSlides(lang);
 
 const webAppLd = {
   "@context": "https://schema.org",
@@ -25,16 +26,46 @@ const webAppLd = {
   name: siteName,
   url: new URL(localizedPath("/", lang), siteUrl).toString(),
   applicationCategory: "GameApplication",
+  applicationSubCategory: "Football draft and tournament simulator",
   operatingSystem: "Web",
   browserRequirements: "Requires JavaScript",
   description: m.description,
   inLanguage: lang,
+  softwareVersion: pkg.version,
+  isAccessibleForFree: true,
+  featureList: [
+    "Draft a fantasy World Cup XI from 86 squads",
+    "Four formations: 4-3-3, 4-4-2, 3-5-2 and 4-2-3-1",
+    "Eleven-round draft with three rerolls",
+    "Nation chemistry bonuses",
+    "Simulated group stage and knockout bracket",
+    "Extra time and penalty shootouts",
+    "Match replay and tournament history saved on your device",
+  ],
+  screenshot: new URL(ogImageFor("/"), siteUrl).toString(),
+  author: { "@id": `${siteUrl}/#organization` },
+  publisher: { "@id": `${siteUrl}/#organization` },
+  isPartOf: { "@id": `${siteUrl}/#website` },
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
   },
 };
+
+const faqLd =
+  c.faq && c.faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        inLanguage: lang,
+        mainEntity: c.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 ---
 
 <Layout
@@ -43,7 +74,7 @@ const webAppLd = {
   title={m.title}
   description={m.description}
   ogImage={ogImageFor("/")}
-  jsonLd={webAppLd}
+  jsonLd={[webAppLd, ...(faqLd ? [faqLd] : [])]}
 >
   <main class="min-h-screen bg-canvas text-white">
     <section class="relative overflow-hidden">
@@ -120,7 +151,10 @@ const webAppLd = {
           </div>
 
           <div class="flex min-w-0 justify-center lg:justify-end">
-            <PreviewCarousel slides={previewSlides} />
+            <PreviewCarousel
+              slides={previewSlides}
+              bestLabel={c.preview.bestXI}
+            />
           </div>
         </div>
       </div>
@@ -239,6 +273,30 @@ const webAppLd = {
         </div>
       </div>
     </section>
+
+    {
+      c.faqTitle && c.faq && c.faq.length > 0 && (
+        <section class="border-t border-white/10 bg-slate/20">
+          <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+            <h2 class="text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl">
+              {c.faqTitle}
+            </h2>
+            <div class="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-2">
+              {c.faq.map((f) => (
+                <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                  <h3 class="block font-display text-lg tracking-[0.5px]">
+                    {f.q}
+                  </h3>
+                  <p class="mt-2 text-sm leading-relaxed text-secondary">
+                    {f.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
   </main>
 </Layout>
 

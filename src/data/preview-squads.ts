@@ -1,4 +1,5 @@
 import type { Player } from "../lib/types.js";
+import type { Locale } from "../i18n/config";
 import { HISTORICAL_SQUADS } from "./historical/index.js";
 import { jerseyNumbersFor } from "../lib/jersey.js";
 import {
@@ -36,6 +37,44 @@ const NATIONS: { codes: string[]; label: string }[] = [
   { codes: ["FRA"], label: "France" },
   { codes: ["GER", "FRG"], label: "Germany" },
 ];
+
+const NATION_LABELS: Record<Locale, Record<string, string>> = {
+  en: {
+    Brazil: "Brazil",
+    Argentina: "Argentina",
+    Spain: "Spain",
+    France: "France",
+    Germany: "Germany",
+  },
+  de: {
+    Brazil: "Brasilien",
+    Argentina: "Argentinien",
+    Spain: "Spanien",
+    France: "Frankreich",
+    Germany: "Deutschland",
+  },
+  fr: {
+    Brazil: "Brésil",
+    Argentina: "Argentine",
+    Spain: "Espagne",
+    France: "France",
+    Germany: "Allemagne",
+  },
+  ja: {
+    Brazil: "ブラジル",
+    Argentina: "アルゼンチン",
+    Spain: "スペイン",
+    France: "フランス",
+    Germany: "ドイツ",
+  },
+  es: {
+    Brazil: "Brasil",
+    Argentina: "Argentina",
+    Spain: "España",
+    France: "Francia",
+    Germany: "Alemania",
+  },
+};
 
 const FORMATIONS = ["4-3-3", "4-2-3-1", "4-4-2", "3-5-2"];
 
@@ -157,7 +196,7 @@ function evaluate(
  * the most players in their natural position. Kept to one team per nation so
  * the home carousel stays short (5 slides) on every screen.
  */
-export function buildPreviewSlides(): PreviewSlide[] {
+export function buildPreviewSlides(lang: Locale = "en"): PreviewSlide[] {
   const slides: PreviewSlide[] = [];
   for (const nat of NATIONS) {
     const remaining = poolFor(nat.codes);
@@ -196,10 +235,12 @@ export function buildPreviewSlides(): PreviewSlide[] {
 
     const top = [...players].sort((a, b) => b.rating - a.rating)[0];
 
+    const localizedNation = NATION_LABELS[lang][nat.label] ?? nat.label;
+
     slides.push({
       id: nat.label.toLowerCase().replace(/\s+/g, "-"),
-      nation: nat.label,
-      team: nat.label,
+      nation: localizedNation,
+      team: localizedNation,
       formationKey: chosenKey,
       formationLabel: chosenKey,
       players,

@@ -4,9 +4,10 @@ import Layout from "../layouts/Layout.astro";
 import { breadcrumbLd } from "../lib/breadcrumbs";
 import { ogImageFor } from "../lib/og";
 import { SITE_NAME as siteName, SITE_URL as siteUrl } from "../lib/site";
+import pkg from "../../package.json";
 
 const description =
-  "Play My World Cup XI: pick a formation, draft a fantasy World Cup XI from 86 historical squads and simulate the tournament with penalty shootouts.";
+  "Play a free world cup draft game. Pick a formation, draft a fantasy XI from 77 squads and simulate the tournament with penalty shootouts.";
 
 const webAppLd = {
   "@context": "https://schema.org",
@@ -14,17 +15,66 @@ const webAppLd = {
   name: siteName,
   url: new URL("/game", siteUrl).toString(),
   applicationCategory: "GameApplication",
+  applicationSubCategory: "Football draft and tournament simulator",
   operatingSystem: "Web",
   browserRequirements: "Requires JavaScript",
   description,
   image: new URL(ogImageFor("/"), siteUrl).toString(),
+  screenshot: new URL(ogImageFor("/"), siteUrl).toString(),
   inLanguage: "en",
+  softwareVersion: pkg.version,
+  isAccessibleForFree: true,
+  featureList: [
+    "Draft a fantasy World Cup XI from 77 squads",
+    "Four formations: 4-3-3, 4-4-2, 3-5-2 and 4-2-3-1",
+    "Eleven-round draft with three rerolls",
+    "Nation chemistry bonuses",
+    "Simulated group stage and knockout bracket",
+    "Extra time and penalty shootouts",
+    "Match replay and tournament history saved on your device",
+  ],
+  author: { "@id": `${siteUrl}/#organization` },
+  publisher: { "@id": `${siteUrl}/#organization` },
   isPartOf: { "@id": `${siteUrl}/#website` },
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
   },
+};
+
+const faq = [
+  {
+    q: "Is this a free world cup draft game?",
+    a: "Yes. It is free, runs in your browser and needs no sign-up or download.",
+  },
+  {
+    q: "Can I make my own World Cup team?",
+    a: "Yes. You draft eleven players from any nation and year in the pool. You can stack one nation for chemistry or mix eras for star power.",
+  },
+  {
+    q: "How long does a run take?",
+    a: "About ten to fifteen minutes. The draft is the slow part. The matches simulate quickly and can be replayed.",
+  },
+  {
+    q: "Does it work on mobile?",
+    a: "Yes. The game runs in a mobile browser and saves on your device.",
+  },
+  {
+    q: "Are the 2026 squads included?",
+    a: "Yes. The 2026 squads are real and verified and sit beside the classic teams.",
+  },
+];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "en",
+  mainEntity: faq.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 const breadcrumbs = breadcrumbLd("en", [
@@ -34,10 +84,10 @@ const breadcrumbs = breadcrumbLd("en", [
 ---
 
 <Layout
-  title="Play — My World Cup XI"
+  title="World Cup Draft Game — Draft & Simulate | My World Cup XI"
   description={description}
   ogImage={ogImageFor("/")}
-  jsonLd={[breadcrumbs, webAppLd]}
+  jsonLd={[breadcrumbs, webAppLd, faqLd]}
 >
   <main>
     <!-- Static H1 so crawlers and assistive tech get a heading before the client-only app hydrates. -->
@@ -68,23 +118,194 @@ const breadcrumbs = breadcrumbLd("en", [
           class="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
         >
           <p>
-            This free browser game lets you draft a fantasy World Cup XI from 86
-            historical national squads spanning 1970 to 2026 — then put your
-            dream team through a full simulated tournament against the all-time
-            greats.
+            This free browser game is a world cup draft game and a tournament
+            simulator. You draft a fantasy XI from 77 World Cup squads, then put
+            it through a full cup against the all-time greats. The pool runs
+            from Brazil 1970 to the 2026 squads.
           </p>
           <p>
-            Pick a formation, draft eleven rounds with rerolls, and build
-            chemistry by stacking players from legendary sides like Brazil 1970,
-            France 1998 or Spain 2010. Every simulated match plays out ball by
-            ball with goals, stats and penalty shootouts, and your run is saved
-            on your device so you can chase a better outcome.
+            Pick a formation, draft eleven rounds, and build chemistry by
+            stacking players from the same nation. Every simulated match plays
+            out in segments with goals, shots, possession and penalty shootouts.
+            Your run is saved on your device, so you can chase a better outcome.
           </p>
           <p>
-            No download, no account, no cost — the whole World Cup simulator
-            runs in your browser on desktop and mobile.
+            No download, no account, no cost. The whole game runs in your
+            browser on desktop and mobile. A full run takes about ten to fifteen
+            minutes.
+          </p>
+          <p>
+            You draft from 77 World Cup tournament squads. The game also uses
+            nine group-stage opponents as AI teams, so the full pool is 86
+            teams. Every team uses the same rating scale, so a 1970 winger and a
+            2026 full-back can be compared fairly. The 2026 squads are real and
+            verified and sit beside the classic teams.
           </p>
         </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
+          How the draft works
+        </h2>
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. The shape sets how many
+            defenders, midfielders and attackers you must draft. A 4-3-3 needs
+            three attackers. A 3-5-2 needs five midfielders.
+          </p>
+          <p>
+            The draft runs eleven rounds. Each board offers a real World Cup
+            squad that can fill an open slot. You pick one player and place him
+            in a position. Starred slots are his best fit. Out of position, the
+            engine trims his rating.
+          </p>
+          <p>
+            You get three rerolls for the whole draft. A reroll can keep the
+            nation and change the year, or change the nation. Spend one when a
+            slot is blocked, not when a name is slightly better. The board never
+            gives you a player who cannot fill a slot, so you will not get
+            stuck. It can still give you a bad fit, and that is where rerolls
+            help.
+          </p>
+        </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
+          Why chemistry matters
+        </h2>
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            Chemistry counts your largest group of same-nation players. Two
+            gives +3%, three +5%, four +8%, and five or more +10%. The bonus
+            applies across the team. A Brazil 1970 core can lift average role
+            players. Eleven stars from eleven nations get nothing.
+          </p>
+          <p>
+            A coherent draft often beats a higher-rated collection of names. It
+            also gives you a reason to plan. If you take five Italians, you can
+            chase defenders and midfielders from the same era. If you take one
+            star from every nation, every slot has to fit perfectly.
+          </p>
+        </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
+          How the match engine works
+        </h2>
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            Every match is simulated in segments. The engine compares attack,
+            defence, creativity, finishing and goalkeeping. It also uses
+            composure, form and stamina. A tired team gives up more chances
+            late.
+          </p>
+          <p>
+            The stats page shows possession, shots, shots on target and expected
+            goals. Expected goals is the quality of the chances, not just the
+            count. A team can take eight shots and create less than a team with
+            four good ones.
+          </p>
+          <p>
+            The engine is tuned to feel like a World Cup match. It does not copy
+            real results. Brazil 1970 can lose to Italy 2006. That is the point
+            of a simulation. The draft gives you an edge, not a guarantee.
+          </p>
+        </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
+          What happens after the draft
+        </h2>
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            Your team joins a group with three AI sides. Two are weaker teams.
+            One is a strong historical squad. Every team plays the others once.
+            The top two advance.
+          </p>
+          <p>
+            The knockout bracket is a round of 16, quarter-final, semi-final and
+            final. Ties go to extra time. If the score is still level, penalties
+            decide. Your five best takers are ranked by composure and finishing.
+          </p>
+          <p>
+            After the final you can replay any match, compare squad stats and
+            start a new draft. The save stays in your browser. There is no
+            account and nothing to install.
+          </p>
+          <p>
+            The group draw changes every run. One cup can hand you a weak group.
+            The next can put a 1970 Brazil in your path. That variance is why
+            replaying matters. A good draft survives both.
+          </p>
+        </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
+          Three draft plans to try
+        </h2>
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            The spine plan: take a goalkeeper, a centre-back, a central
+            midfielder and a striker early. Then fill the wide areas. It is the
+            safest first run because every department gets a strong base.
+          </p>
+          <p>
+            The nation core plan: pick one nation and keep taking its players.
+            Five same-nation players give the whole team +10%. The risk is that
+            the board may stop offering your nation. Keep a backup nation in
+            mind.
+          </p>
+          <p>
+            The era mix plan: take the best player available, regardless of
+            nation. It raises raw ratings but gives no chemistry. It works when
+            the slots fit cleanly. It fails when you end up with stars in the
+            wrong positions.
+          </p>
+        </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
+          Who it is for
+        </h2>
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            It is for fans who argue about the best World Cup team. It is for
+            people who want to build a dream XI and see it play. It is also for
+            anyone who wants a short football game between matches.
+          </p>
+          <p>
+            It is not a management sim. There are no transfers, training
+            sessions or contracts. It is a draft game and a tournament
+            simulator. If you want to test Brazil 1970 against Argentina 2022,
+            this is the place.
+          </p>
+          <p>
+            If you have ever picked an all-time XI in a group chat, this is that
+            argument with a scoreline. You can settle it in ten minutes, then
+            try a different answer.
+          </p>
+        </div>
+
+        <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">FAQ</h2>
+        <div class="mx-auto mt-6 max-w-3xl space-y-4">
+          {
+            faq.map((f) => (
+              <div class="rounded-2xl border border-white/10 bg-slate/40 p-5">
+                <h3 class="block font-display text-lg tracking-[0.5px]">
+                  {f.q}
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-secondary">{f.a}</p>
+              </div>
+            ))
+          }
+        </div>
+
         <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
             href="/teams/"

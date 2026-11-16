@@ -5,9 +5,10 @@ import { shortName } from "../lib/shortName";
 
 interface Props {
   slides: PreviewSlide[];
+  bestLabel?: string;
 }
 
-const { slides } = Astro.props;
+const { slides, bestLabel = "best XI" } = Astro.props;
 
 /** Two-digit slide counter, e.g. "01 / 12". */
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -54,7 +55,7 @@ const totalLabel = pad(slides.length);
                     {s.team}
                   </p>
                   <p class="mt-1 font-mono text-[10px] tracking-[1.5px] text-secondary uppercase">
-                    {s.formationLabel} · best XI
+                    {s.formationLabel} · {bestLabel}
                   </p>
                 </div>
                 <span class="shrink-0 rounded-full border border-mint/40 bg-mint/10 px-2.5 py-1 font-mono text-[10px] font-bold text-mint">

@@ -7,273 +7,374 @@ export interface BlogPostData {
   date: string;
   updated?: string;
   sections: { h2: string; body: string[] }[];
+  faq?: { q: string; a: string }[];
 }
 
 export interface BlogLocale {
-  index: { title: string; seoTitle: string; intro: string };
+  index: {
+    title: string;
+    seoTitle: string;
+    intro: string;
+    description?: string;
+    sections?: { h2: string; body: string[] }[];
+    faq?: { q: string; a: string }[];
+  };
   posts: BlogPostData[];
 }
 
 export const blog: Record<Locale, BlogLocale> = {
   en: {
     index: {
-      title: "Blog",
-      seoTitle: "My World Cup XI Blog — Guides, Tips & Simulator Notes",
+      title: "World Cup Draft Guides",
+      seoTitle: "World Cup Draft Guides & Simulator Tips — My World Cup XI",
+      description:
+        "Practical guides for the world cup draft game: formations, chemistry, rerolls, group stage and penalty shootouts. Read first, draft better.",
       intro:
-        "Guides and notes on My World Cup XI - the free browser football game where you draft a fantasy World Cup XI and simulate the cup.",
+        "Short, practical guides for building a better XI in My World Cup XI. The game is simple to start: pick a shape, draft eleven players, simulate the cup. The hard part is drafting a team that fits together. These guides cover the draft, the chemistry bonus, the group stage and the penalties, so your next run has a plan behind it. There is no filler here. Each guide is short enough to read before a cup and specific enough to change how you draft.",
+      sections: [
+        {
+          h2: "Start with the draft, not the stars",
+          body: [
+            "The draft is where most cups are won. You get eleven picks and three rerolls. Each board offers a real World Cup squad that can fill an open slot. You do not get to choose the nation or the year. You choose the player.",
+            "That means fit beats fame. A 90-rated forward is only a 90 if he plays in a forward slot. If your formation still needs a centre-back, a famous striker will not fix it. Check the star marker before you pick. It shows whether the player fits the slot naturally.",
+            "The board is built to help. It only shows squads with at least one player who can fill a slot you still need. If the board looks bad, a reroll can keep the nation and change the year, or change the nation. You get three for the whole draft, so use them when a slot is blocked, not when a name is slightly better.",
+          ],
+        },
+        {
+          h2: "How a cup actually plays out",
+          body: [
+            "Your team joins a group with three AI sides. Two are weaker teams. One is a strong historical squad. Every team plays the others once. A win gives three points, a draw gives one and a loss gives zero. The top two advance.",
+            "The knockout bracket is a round of 16, quarter-final, semi-final and final. The rest of the bracket is simulated around your matches, so the whole tournament finishes fast. Ties go to extra time. If the score is still level, penalties decide. The group draw is different every run, so the same XI can get an easy group or a hard one.",
+            "Penalty shootouts use your five best takers, ranked by composure and finishing. Each side takes five kicks. The shootout stops early if one side cannot catch up. If it is still level, it goes to sudden death, one kick each. Your save stays in your browser, so you can replay any match or start a new draft.",
+          ],
+        },
+        {
+          h2: "Three draft plans to try",
+          body: [
+            "The spine plan: take a goalkeeper, a centre-back, a central midfielder and a striker in the first four rounds. Then fill the wide areas. This gives you a balanced XI with no obvious hole. It is the safest plan for a first run.",
+            "The nation core plan: pick one nation early and keep taking its players. Five same-nation players give the whole team a 10% bonus. A Brazil 1970 core or an Italy 2006 core can lift average role players. The risk is that the board may not offer your nation again, so keep a backup plan.",
+            "The era mix plan: take the best player available in every round, regardless of nation. This raises raw ratings but gives you no chemistry. It works when the board is generous and your slot fit is clean. It fails when you end up with eleven stars in the wrong positions.",
+          ],
+        },
+        {
+          h2: "How to scout a squad",
+          body: [
+            "Every squad card shows the average rating, the best player and the formation. Start with the best player. Brazil 1970 has Pelé. Argentina 1986 has Maradona. France 1998 has Zidane. A 95-rated star can carry a draft, but only if the rest of the XI fits around him.",
+            "Then look at the formation. Brazil 1970 played 4-2-4. Netherlands 1974 used total football. Italy 2006 built on defence. Spain 2010 controlled the ball. The shape tells you which slots the squad can fill. Pick squads that match the slots you still need.",
+            "Finally, check the depth. A high average means few weak spots. A top-heavy squad may leave you short in midfield. If you need two defenders, a squad with four strong defenders is more useful than a squad with one 95-rated forward.",
+          ],
+        },
+        {
+          h2: "Mistakes that cost cups",
+          body: [
+            "The first mistake is drafting names instead of roles. A 90-rated forward in a midfield slot is not a 90-rated player. Always check the star marker.",
+            "The second mistake is hoarding rerolls. You get three for the whole draft. If a board has no player for a slot you must fill, reroll. Saving all three for the last round usually leaves a hole.",
+            "The third mistake is ignoring chemistry. Eleven stars from eleven nations get no bonus. A core of five same-nation players gives the whole team +10%. That bonus often decides a close match. If you want to test it, draft five Brazilians and watch the chemistry bar.",
+          ],
+        },
+        {
+          h2: "What to read next",
+          body: [
+            "The first guide is How My World Cup XI Works. It walks through the full loop: formation, draft, chemistry, group, knockout and replay. It also explains the 2026 squads and the ratings.",
+            "After that, open the squad library. You can scout every team before you draft. Check the average rating, the best player and the formation. Then take that knowledge into the game and see if your plan survives the cup. Both pages are free and need no account.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Do I need an account to play?",
+          a: "No. The game saves in your browser. There is no sign-up and no password.",
+        },
+        {
+          q: "What formation is best for a beginner?",
+          a: "4-4-2 is the simplest. It asks for four defenders, four midfielders and two attackers, so the slots are easy to fill. Try 4-3-3 once you know which wingers you want.",
+        },
+        {
+          q: "How long does a cup take?",
+          a: "About ten to fifteen minutes. The draft is the slow part. The matches simulate quickly, and you can replay them.",
+        },
+      ],
     },
     posts: [
       {
         slug: "how-it-works",
         title: "How My World Cup XI Works",
         excerpt:
-          "Five moves take you from an empty pitch to a simulated World Cup final. Here is the full loop.",
+          "From an empty pitch to a simulated final: the draft, the chemistry, the group and the penalties.",
         date: "2026-08-22",
-        updated: "2026-11-09",
+        updated: "2026-11-16",
         sections: [
           {
-            h2: "What it is",
+            h2: "What the game is",
             body: [
-              "A free browser football game. You draft a fantasy World Cup XI from 86 historical squads and the engine simulates a full tournament - from groups to final.",
+              "My World Cup XI is a free browser game. You draft a fantasy XI from 77 World Cup squads, then simulate a full tournament. The pool runs from Brazil 1970 to the 2026 squads. The game also uses nine group-stage opponents as AI teams, for 86 teams in total. Every squad uses the same rating scale, so a 1970 winger and a 2026 full-back can be compared fairly.",
+              "You do not need an account. You do not need to download anything. A run takes about ten to fifteen minutes, and your save stays in your browser.",
             ],
           },
           {
-            h2: "1. Pick your formation",
+            h2: "What the ratings mean",
             body: [
-              "Choose 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Your shape locks the slot limits for the 11 draft rounds, so you always know how many defenders, midfielders, and forwards you need.",
-              "Formations are not just cosmetics. They decide where your stars can play and how your chemistry forms. A 4-3-3 leans on wingers; a 3-5-2 leans on wing-backs and a strong midfield.",
-              "Your formation choice affects every subsequent phase of the tournament - from draft strategy to in-match tactical adjustments. A 4-3-3 attacking formation creates different match dynamics than a 3-5-2 defensive setup.",
+              "Every player has thirteen attributes. Goalkeepers are judged on reflexes, positioning and distribution. Defenders are judged on tackling, aerial ability, passing and pace. Midfielders are judged on passing, dribbling, work rate and stamina. Forwards are judged on finishing, dribbling, pace and off-ball movement.",
+              "The game turns those attributes into one role-weighted rating. Elite players rate 90 or higher. Stars rate 85 or higher. The number on the card is the player at his best position. Move him out of that position and the engine trims his contribution.",
+              "That is why two 90-rated players can have different value. A 90-rated centre-back fills a centre-back slot. A 90-rated winger does not. Check the position before you check the rating.",
+            ],
+          },
+          {
+            h2: "1. Pick a formation",
+            body: [
+              "Choose 4-3-3, 4-4-2, 3-5-2 or 4-2-3-1. The shape locks the number of defenders, midfielders and attackers you can draft. A 4-3-3 needs three attackers. A 3-5-2 needs five midfielders. A 4-2-3-1 needs one centre-forward and a band of attacking midfielders.",
+              "Pick the shape you can fill. A 4-3-3 looks attacking, but it is hard to complete if the board keeps offering defenders. A 4-4-2 is the easiest first shape because every department has a clear slot count.",
             ],
           },
           {
             h2: "2. Draft your XI",
             body: [
-              "Eleven rounds, a full XI. Each round you get a board of nation + year filtered to your remaining slots. You have 3 rerolls for the whole draft to swap a bad board before you pick.",
-              "Place each player in their best slot - starred slots are ideal - and watch chemistry climb. Same-nation players give a chemistry bonus, so a coherent draft beats a rabble of stars.",
-              "Each round presents a random nation + year roster filtered to your remaining slots, so draft strategy must balance immediate need with long-term chemistry building.",
+              "The draft runs eleven rounds. Each round offers a nation and year, filtered to the slots you still need. You choose one player and place him in a position. Starred slots are his best fit. If you move him out of position, the engine trims his contribution.",
+              "You get three rerolls for the whole draft. A reroll can keep the nation and change the year, or change the nation. Spend one when the board has no player for a slot you must fill. Do not spend one to chase a slightly better name.",
             ],
           },
           {
-            h2: "3. Run the tournament",
+            h2: "3. Build chemistry",
             body: [
-              "Your team enters a group with 3 AI teams. Your group matches play out, then the knockout bracket runs to the final. Ties go to extra time, then penalties decide.",
-              "The match engine respects positions and chemistry, so a well-assembled XI performs above its raw ratings. Bad fit shows up as dropped points you could have avoided.",
-              "Group stage matches follow a round-robin format where your team plays each of the 3 AI opponents once, earning 3 points for a win, 1 for a draw, 0 for a loss.",
+              "Chemistry counts your largest group of same-nation players. Two gives +3%, three +5%, four +8%, and five or more +10%. The bonus applies across the team. A core of five Brazilians can lift the whole XI. Eleven stars from eleven nations get nothing.",
+              "This is why a coherent draft can beat a stronger collection of names. It is also why you should check the board for a nation you already have before you take a slightly higher-rated player from somewhere else.",
             ],
           },
           {
-            h2: "4. Results and replay",
+            h2: "4. Play the group stage",
             body: [
-              "See the final table and team stats, replay any match, or start a fresh draft. Champions get one shot; losers can replay with the same team.",
-              "The loop is short: shape, draft, simulate, replay. That is the whole game, and it never gets old.",
-              "Replay value is enhanced by the segment-by-segment match engine - you can analyze specific phases of past matches and adjust your draft strategy for next time.",
+              "Your team joins a group with three AI sides. Two are weaker teams. One is a strong historical squad. Every team plays the others once. A win gives three points, a draw gives one and a loss gives zero. The top two advance.",
+              "Your three matches play out in segments. You see possession, shots and chances. The other group match is pre-simulated. If your team finishes in the top two, the knockout bracket opens.",
             ],
           },
           {
-            h2: "Chemistry & positions: how ratings become results",
+            h2: "5. Survive the knockout",
             body: [
-              "A player's rating is a starting point. Put them in their best position and they play to it; shift them out of position and the engine trims their contribution. That is why slot fit drives outcomes.",
-              "Chemistry multiplies the effect. Stack a nation, keep players in natural slots, and the team edge adds up across a tournament. Building well is the single biggest lever on your result.",
-              "Chemistry bonuses scale non-linearly: 2 same-nation players = +3%, 3 = +5%, 4 = +8%, 5+ = +10% cap. This curve rewards coherent drafting over stat-stacked scattershots.",
+              "The bracket is a round of 16, quarter-final, semi-final and final. The rest of the bracket is simulated around your matches, so the whole cup finishes fast. Ties go to extra time. If the score is still level, penalties decide.",
+              "Penalty shootouts use your five best takers, ranked by composure and finishing. Each side takes five kicks. The shootout stops early if one side cannot catch up. If it is still level, it goes to sudden death, one kick each.",
             ],
           },
           {
-            h2: "Rerolls & draft strategy",
+            h2: "6. Read the result and replay",
             body: [
-              "Rerolls are scarce (3 per draft), so spend them when a board offers no fit for a slot you must fill. Don't waste one chasing a marginally better name.",
-              "A simple strategy: lock your spine first (GK, CB, CM, ST), then fill the flanks with whatever fits and adds chemistry. A balanced board beats a greedy one almost every time.",
-              "The match engine respects positions and chemistry across all tournament phases, so a well-drafted XI can outperform a higher-rated team that doesn't fit together. This is why understanding the simulation pipeline gives you a strategic advantage over players who just collect stars.",
+              "After the final you can replay any match, compare squad stats and start a new draft. The match page shows the score, the shots, the expected goals and the scorers. Use it to see where the cup turned.",
+              "If you lost, try a different shape or a different nation core. The next cup is one click away. The game is built for short runs, so a bad draft costs minutes, not hours.",
             ],
           },
           {
-            h2: "World Cup simulator 2026 (seasonal)",
+            h2: "Draft plans that work",
             body: [
-              "A new season brings new draft boards and fresh opportunities to rebuild your XI. The 2026 World Cup introduces predicted squads alongside the classic 1970-2025 rosters, so you can draft a mix of established legends and rising stars.",
-              "Seasonal updates keep the game feeling current, and each new tournament edition brings a fresh wave of predicted squads to draft. Whether you prefer vintage Brazil 1970 or modern France 2022, the seasonal draft offers something for every era.",
-              "The 2026 edition introduces predicted rosters based on real qualifying performances, giving you new players to draft alongside the classic 1970-2025 historical squads. This seasonal refresh ensures that even returning players face new draft boards and tactical challenges.",
+              "The spine plan: take a goalkeeper, a centre-back, a central midfielder and a striker in the first four rounds. Then fill the wide areas. This gives you a balanced XI with no obvious hole.",
+              "The nation core plan: pick one nation early and keep taking its players. Five same-nation players give the whole team a 10% bonus. A Brazil 1970 core or an Italy 2006 core can lift average role players.",
+              "The era mix plan: take the best player available in every round. This raises raw ratings but gives you no chemistry. It works when the board is generous and your slot fit is clean. It fails when you end up with eleven stars in the wrong positions.",
             ],
           },
           {
-            h2: "Pit the legends against each other",
+            h2: "One last tip",
             body: [
-              "Maradona's Argentina vs Messi's Argentina. Brazil 1970 vs France 2022. Stack one nation or mix eras - the engine respects chemistry and positions, so the matchup matters.",
-              "It is the football simulator for anyone who ever argued about the best team in history. Now you can settle it on the pitch, not in a group chat.",
-              "Dream matchups are the whole point: maradona vs messi, pele vs ronaldo, brazil 1970 vs france 2022 - every era-crossing clash fans debate becomes a playable match here.",
+              "Do not judge a draft until you have played the group. A team that looks weak on paper can win if the slots fit and the chemistry is high. A team of stars can lose if three players are out of position.",
+              "After each run, check the match stats. If you lost on shots, your attack was fine and your defence was the problem. If you lost on possession, your midfield was the problem. Fix the department, not the whole squad.",
             ],
           },
           {
-            h2: "Build your own nation or mix eras",
+            h2: "What the 2026 squads add",
             body: [
-              "You are not limited to one country or one year. Blend Pele with Neymar, or pair Beckenbauer with a modern midfield. The only rule is that each pick must fill a slot.",
-              "This freedom turns the game into a sandbox. The fun is in the 'what if' - what if the 1970s faced the 2020s? Here you find out.",
-              "As a world cup dream team builder you can craft any XI: mix decades, blend playing styles, and test whether classic grit or modern pace wins your bracket.",
+              "The 2026 squads are real and verified. They sit beside the classic teams, not in a separate mode. You can draft a 2026 forward next to a 1970 legend. The engine uses the same rating scale for both.",
+              "That makes the pool deeper and the arguments better. You can test a modern front line against a 1970s defence, or build a team that mixes eras on purpose. The draft board does not care about the year. It only cares about the slot.",
             ],
           },
+        ],
+        faq: [
           {
-            h2: "The drama of the cup",
-            body: [
-              "Group-stage upsets, last-gasp knockouts, penalty shootouts - the full emotional arc of a World Cup is in there. Underdogs you built can shock giants.",
-              "Because the simulation respects form and chemistry, the drama feels earned, not random. You will celebrate and curse like it is the real thing.",
-              "The emotional arc spans group stage drama, knockout tension, extra-time fatigue, and penalty heartbreak - each phase weighted by form, stamina, and chemistry, making every tournament feel like a complete story.",
-            ],
+            q: "Do I need an account to play?",
+            a: "No. The game saves in your browser. There is no sign-up and no password.",
           },
           {
-            h2: "World Cup predictor / simulation engine",
-            body: [
-              "With over 500+ simulated matches between balanced teams, the engine has been tuned to produce realistic scorelines. Average total goals per match target 2.4-2.8, with 63.6% of matches decided by a one-goal margin.",
-              "The prediction model accounts for possession-based shot generation, sigmoid-bounded conversion rates, and stamina decay across segments. Weaker squads vs historical AI produce realistic dominance (0-2, 0-3 common), while evenly matched teams produce competitive results.",
-              "World Cup brackets and predictor markets benefit from this stable distribution - the simulation avoids absurd blowouts while still allowing upsets when tactical decisions pay off. This is why it is a world cup simulation that feels both predictable and surprising.",
-              "Treat every run as your own world cup bracket challenge: fill in the bracket before you play, watch it crack by the quarterfinals, and simulate World Cup nights on demand whenever the mood strikes.",
-            ],
+            q: "Which formation is best for a beginner?",
+            a: "4-4-2 is the simplest. It asks for four defenders, four midfielders and two attackers, so the slots are easy to fill. Try 4-3-3 once you know which wingers you want.",
           },
           {
-            h2: "Football formations & penalty shootouts",
-            body: [
-              "Formation choice dictates your positional constraints across 11 draft rounds: 4-3-3 needs 3 attackers, 4-4-2 pairs strikers, 3-5-2 emphasizes wing-backs and a strong midfield, and 4-2-3-1 balances with a single striker. Each formation affects how chemistry develops and how positions interrelate during the simulation.",
-              "Penalty shootout simulator outcomes depend on taker composure + finishing vs goalkeeper reflexes + form. Top 5 takers are selected by 0.5×composure + 0.5×finishing weighted average. Each kick probability rolls by logistic((0.5×composure + 0.5×finishing − GK_reflexes × GK_form_mult) / 20). Best-of-5, sudden death after tied matches produce realistic penalty rates around 13.8% in calibration data.",
-              "Understanding both formation strategy and penalty mechanics gives you complete tournament preparation - from draft through to the final, including potential shootouts.",
-              "Formation choice and penalty readiness are complementary strategic elements - a well-drafted XI that also prepares for potential shootouts has a complete tournament gameplan from groups through final, with the world cup penalty shootouts that decide tight knockouts covered too.",
-            ],
-          },
-          {
-            h2: "Dream team builder / quick start tips",
-            body: [
-              "If you are new, start by locking your spine first: a goalkeeper, two center-backs, a defensive midfielder, and a striker. Fill the remaining slots with players who add chemistry through same-nation bonuses. A balanced board beats a greedy one almost every time in a world cup fantasy game.",
-              "Experienced players often experiment with mixing eras - pairing Pelé with modern forwards, or adding a 1970 Brazil defense to a 2022 attack. The only rule is each pick must fit a slot, so creativity stays within the formation limits you chose.",
-              "Remember: rerolls are scarce (3 per draft). Use them when a board offers no fit for a must-fill slot, not simply to chase a marginally better name. Smart drafting is the single biggest lever on your tournament result.",
-            ],
+            q: "How many rerolls do I get?",
+            a: "Three for the whole draft. Use them when a board has no player for a slot you must fill, not when a name is slightly better.",
           },
         ],
       },
     ],
   },
+
   de: {
     index: {
-      title: "Blog",
-      seoTitle: "My World Cup XI Blog — Anleitungen, Tipps & Notizen",
+      title: "WM-Draft-Guides",
+      seoTitle: "WM-Draft-Guides & Simulator-Tipps — My World Cup XI",
+      description:
+        "Praktische Guides für das WM-Draft-Spiel: Formationen, Chemie, Neuwürfe, Gruppenphase und Elfmeterschießen. Erst lesen, besser draften.",
       intro:
-        "Guides und Notizen zu My World Cup XI - dem kostenlosen Browser-Soccer-Spiel, in dem du ein Fantasy-WM-XI draftest und den Pokal simulierst.",
+        "Kurze, praktische Guides für eine bessere Elf in My World Cup XI. Das Spiel ist leicht zu starten: Form wählen, elf Spieler draften, Pokal simulieren. Der schwere Teil ist, ein Team zu draften, das zusammenpasst. Diese Guides decken Draft, Chemie-Bonus, Gruppenphase und Elfmeter ab. So hat dein nächster Lauf einen Plan. Hier steht keine Füllmasse. Jeder Guide ist kurz genug für vor einem Pokal und konkret genug, um deinen Draft zu ändern. Lies den ersten, spiel einen Pokal, dann komm zurück.",
+      sections: [
+        {
+          h2: "Beginne mit dem Draft, nicht mit den Stars",
+          body: [
+            "Der Draft entscheidet die meisten Pokale. Du hast elf Picks und drei Neuwürfe. Jedes Brett bietet einen echten WM-Kader, der einen offenen Platz füllen kann. Du wählst nicht die Nation oder das Jahr. Du wählst den Spieler.",
+            "Das heißt: Passung schlägt Ruhm. Ein 90er Stürmer ist nur dann 90, wenn er auf einer Stürmerposition spielt. Wenn deine Formation noch einen Innenverteidiger braucht, löst ein berühmter Stürmer das Problem nicht. Prüfe den Stern vor dem Pick. Er zeigt, ob der Spieler natürlich in den Platz passt.",
+            "Das Brett hilft. Es zeigt nur Kader mit mindestens einem Spieler, der einen offenen Platz füllen kann. Wenn das Brett schlecht aussieht, kann ein Neuwurf die Nation behalten und das Jahr ändern oder die Nation wechseln. Du hast drei für den ganzen Draft. Nutze sie, wenn ein Platz blockiert ist, nicht wenn ein Name etwas besser ist. Ein blockierter Platz kostet dich am Ende ein ganzes Turnier.",
+          ],
+        },
+        {
+          h2: "So läuft ein Pokal",
+          body: [
+            "Dein Team kommt in eine Gruppe mit drei KI-Teams. Zwei sind schwächere Mannschaften. Eine ist ein starker historischer Kader. Jeder spielt einmal gegen jeden. Ein Sieg gibt drei Punkte, ein Unentschieden einen, eine Niederlage null. Die Top zwei kommen weiter.",
+            "Der K.-o.-Baum ist Achtelfinale, Viertelfinale, Halbfinale und Finale. Der Rest des Baums wird um deine Spiele herum simuliert, deshalb endet der ganze Pokal schnell. Unentschieden gehen in die Verlängerung. Steht es dann noch gleich, entscheiden Elfmeter. Die Gruppenauslosung ist in jedem Lauf anders, deshalb kann dieselbe Elf eine leichte oder eine harte Gruppe bekommen.",
+            "Elfmeterschießen nutzen deine fünf besten Schützen, sortiert nach Nervenstärke und Abschluss. Jede Seite schießt fünfmal. Das Schießen endet früh, wenn eine Seite nicht mehr aufholen kann. Steht es dann noch gleich, geht es in den Sudden Death. Dein Spielstand bleibt im Browser, deshalb kannst du jedes Spiel wiederholen oder einen neuen Draft starten.",
+          ],
+        },
+        {
+          h2: "Drei Draft-Pläne zum Testen",
+          body: [
+            "Der Gerüst-Plan: Nimm in den ersten vier Runden einen Torwart, einen Innenverteidiger, einen zentralen Mittelfeldspieler und einen Stürmer. Dann füll die Außenbahnen. Das gibt dir eine ausgeglichene Elf ohne offensichtliches Loch. Es ist der sicherste Plan für den ersten Lauf.",
+            "Der Nationskern-Plan: Wähle früh eine Nation und nimm weiter ihre Spieler. Fünf gleiche Nationen geben dem ganzen Team +10%. Ein Kern aus Brasilien 1970 oder Italien 2006 kann durchschnittliche Rollenspieler heben. Das Risiko ist, dass das Brett deine Nation nicht mehr bietet. Halte eine Backup-Nation bereit.",
+            "Der Epochen-Mix-Plan: Nimm in jeder Runde den besten verfügbaren Spieler, egal aus welcher Nation. Das hebt die Rohbewertungen, gibt aber keine Chemie. Es funktioniert, wenn das Brett großzügig ist und deine Plätze sauber passen. Es scheitert, wenn du elf Stars auf den falschen Positionen hast. Probiere ihn erst, wenn du die anderen zwei Pläne kennst.",
+          ],
+        },
+        {
+          h2: "So scoutest du einen Kader",
+          body: [
+            "Jede Kaderkarte zeigt die Durchschnittsbewertung, den besten Spieler und die Formation. Beginne mit dem besten Spieler. Brasilien 1970 hat Pelé. Argentinien 1986 hat Maradona. Frankreich 1998 hat Zidane. Ein 95er-Star kann einen Draft tragen, aber nur wenn der Rest der Elf um ihn passt.",
+            "Dann sieh die Formation. Brasilien 1970 spielte 4-2-4. Niederlande 1974 nutzten Total Football. Italien 2006 bauten auf Abwehr. Spanien 2010 kontrollierten den Ball. Die Form zeigt, welche Plätze der Kader füllen kann. Wähle Kader, die zu den Plätzen passen, die du noch brauchst.",
+            "Prüfe zum Schluss die Tiefe. Ein hoher Durchschnitt bedeutet wenige Schwachstellen. Ein Team mit nur zwei Stars lässt dich im Mittelfeld dünn zurück. Wenn du zwei Verteidiger brauchst, ist ein Kader mit vier starken Verteidigern nützlicher als einer mit einem 95er-Stürmer. Öffne zwei Kader und vergleiche sie, bevor du draftest.",
+          ],
+        },
+        {
+          h2: "Fehler, die Pokale kosten",
+          body: [
+            "Der erste Fehler ist, Namen statt Rollen zu draften. Ein 90er Stürmer im Mittelfeld ist kein 90er Spieler. Prüfe immer den Stern.",
+            "Der zweite Fehler ist, Neuwürfe zu horten. Du hast drei für den ganzen Draft. Wenn ein Brett keinen Spieler für einen Pflichtplatz hat, würfle neu. Alle drei für die letzte Runde aufzuheben, hinterlässt meist ein Loch.",
+            "Der dritte Fehler ist, Chemie zu ignorieren. Elf Stars aus elf Nationen bekommen keinen Bonus. Ein Kern aus fünf gleichen Nationen gibt dem ganzen Team +10%. Dieser Bonus entscheidet oft ein knappes Spiel. Wenn du es testen willst, draft fünf Brasilianer und beobachte die Chemieanzeige. Der Unterschied ist in der Gruppenphase sichtbar. Ein knapper Sieg kann daran hängen.",
+          ],
+        },
+        {
+          h2: "Was du als Nächstes lesen solltest",
+          body: [
+            "Der erste Guide ist So funktioniert My World Cup XI. Er zeigt den ganzen Ablauf: Formation, Draft, Chemie, Gruppe, K.-o. und Wiederholung. Er erklärt auch die Kader 2026 und die Bewertungen.",
+            "Danach öffnest du die Kaderbibliothek. Du kannst jedes Team vor dem Draft scouten. Prüfe Durchschnittsbewertung, besten Spieler und Formation. Dann nimm das Wissen ins Spiel und sieh, ob dein Plan den Pokal übersteht. Beide Seiten sind kostenlos und brauchen kein Konto. Der Blog ist kurz, weil du spielen sollst, nicht lesen. Das reicht für den Start und den ersten Pokal.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Brauche ich ein Konto zum Spielen?",
+          a: "Nein. Das Spiel speichert im Browser. Es gibt keine Anmeldung und kein Passwort.",
+        },
+        {
+          q: "Welche Formation ist für Anfänger am besten?",
+          a: "4-4-2 ist am einfachsten. Es verlangt vier Verteidiger, vier Mittelfeldspieler und zwei Angreifer, deshalb sind die Plätze leicht zu füllen. Probiere 4-3-3, wenn du weißt, welche Flügelspieler du willst.",
+        },
+        {
+          q: "Wie lange dauert ein Pokal?",
+          a: "Etwa zehn bis fünfzehn Minuten. Der Draft ist der langsame Teil. Die Spiele laufen schnell und lassen sich wiederholen.",
+        },
+      ],
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "Wie My World Cup XI funktioniert",
+        title: "So funktioniert My World Cup XI",
         excerpt:
-          "Fünf Schritte bringen dich von einer leeren Mitte zu einem simulierten WM-Finale. Hier ist der komplette Ablauf.",
+          "Von der leeren Elf bis zum simulierten Finale: Draft, Chemie, Gruppe und Elfmeter.",
         date: "2026-08-22",
-        updated: "2026-11-09",
+        updated: "2026-11-16",
         sections: [
           {
-            h2: "Was es ist",
+            h2: "Was das Spiel ist",
             body: [
-              "Ein kostenloses Browser-Soccer-Spiel. Du draftest ein Fantasy-WM-XI aus 86 historischen Kadern, und die Engine simuliert ein komplettes Turnier - von Gruppen bis Finale.",
+              "My World Cup XI ist ein kostenloses Browserspiel. Du draftest eine Fantasy-Elf aus 77 WM-Kadern und simulierst ein ganzes Turnier. Der Pool reicht von Brasilien 1970 bis zu den Kadern 2026. Das Spiel nutzt zusätzlich neun Gruppengegner als KI-Teams, also 86 Teams insgesamt. Jeder Kader nutzt dieselbe Bewertungsskala, damit ein Flügelspieler von 1970 und ein Außenverteidiger von 2026 fair verglichen werden.",
+              "Du brauchst kein Konto. Du musst nichts herunterladen. Ein Lauf dauert zehn bis fünfzehn Minuten, und dein Spielstand bleibt im Browser. Du kannst mitten im Draft aufhören und später weitermachen.",
             ],
           },
           {
-            h2: "Wähle deine Formation",
+            h2: "Was die Bewertungen bedeuten",
             body: [
-              "Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Deine Form fixiert die Platzgrenzen für die 11 Draftrunden, also weißt du immer, wie viele Verteidiger, Mittelfelder und Stürmer du brauchst.",
-              "Formationen sind nicht nur Kosmetik. Sie entscheiden, wo deine Stars spielen können und wie deine Chemie entsteht. Ein 4-3-3 lebt von Flügeln; ein 3-5-2 von Außenverteidigern und einem starken Mittelfeld.",
-              "Die Formation ist dein erster taktischer Zug im WM-Simulator: Sie legt fest, welche Positionen das Draft-Brett anbietet und wie viel Flexibilität du später beim Setzen der Spieler hast.",
+              "Jeder Spieler hat dreizehn Attribute. Torhüter werden nach Reflexen, Stellungsspiel und Spielaufbau beurteilt. Verteidiger nach Zweikampf, Kopfball, Passspiel und Tempo. Mittelfeldspieler nach Passspiel, Dribbling, Laufarbeit und Ausdauer. Stürmer nach Abschluss, Dribbling, Tempo und Laufwegen.",
+              "Das Spiel macht daraus eine rollengewichtete Bewertung. Elite beginnt bei 90. Stars beginnen bei 85. Die Zahl auf der Karte gilt für den Spieler auf seiner Bestposition. Verschiebst du ihn, kürzt die Engine seinen Beitrag.",
+              "Deshalb können zwei 90er unterschiedlich wertvoll sein. Ein 90er Innenverteidiger füllt einen Innenverteidigerplatz. Ein 90er Flügelspieler nicht. Prüfe die Position vor der Bewertung. Ein 85er auf seiner Position hilft dir mehr als ein 92er auf einer fremden.",
             ],
           },
           {
-            h2: "Draft dein XI",
+            h2: "1. Formation wählen",
             body: [
-              "Elf Runden, ein volles XI. Jede Runde bekommst du ein Brett aus Nation + Jahr, gefiltert auf deine freien Plätze. Du hast 3 Rerolls für den gesamten Draft, um ein schlechtes Brett vor der Wahl zu tauschen.",
-              "Setze jeden Spieler auf seinen besten Platz - sterne Plätze sind ideal - und sieh die Chemie steigen. Spieler derselben Nation geben einen Chemiebonus, also schlägt ein kohärenter Draft ein Starengemisch.",
-              "Das Draft-Board zeigt dir zu jeder Karte Bewertung, Bestposition und Nation, so wie du es von einem guten Fußball Draft Simulator erwartest - alle Infos auf einen Blick, keine versteckten Werte.",
+              "Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Die Form legt die Zahl der Verteidiger, Mittelfeldspieler und Stürmer fest. Eine 4-3-3 braucht drei Angreifer. Eine 3-5-2 braucht fünf Mittelfeldspieler. Eine 4-2-3-1 braucht einen Mittelstürmer und eine Reihe offensiver Mittelfeldspieler.",
+              "Wähle die Form, die du füllen kannst. Eine 4-3-3 sieht offensiv aus, ist aber schwer zu vervollständigen, wenn das Brett ständig Verteidiger bietet. Eine 4-4-2 ist die einfachste erste Form, weil jede Abteilung eine klare Zahl hat.",
             ],
           },
           {
-            h2: "Starte das Turnier",
+            h2: "2. Elf draften",
             body: [
-              "Dein Team kommt in eine Gruppe mit 3 KI-Teams. Deine Gruppenspiele laufen, dann läuft der K.-o.-Baum bis zum Finale. Remis geht in Verlängerung, dann entscheiden Elfmeter.",
-              "Die Spiele-Engine respektiert Positionen und Chemie, also spielt ein gut zusammengebautes XI über seinen Rohbewertungen. Schlechter Fit zeigt sich als verschenkte Punkte, die du hättest vermeiden können.",
-              "Der Turniermodus deckt alles ab: Gruppentabelle, K.-o.-Klammer, Verlängerung und Elfmeterschießen - ein kompletter WM-Durchlauf in wenigen Minuten, ohne Wartezeiten zwischen den Spielen.",
+              "Der Draft läuft elf Runden. Jede Runde bietet eine Nation und ein Jahr, gefiltert auf die Plätze, die du noch brauchst. Du wählst einen Spieler und setzt ihn auf eine Position. Markierte Plätze sind seine beste Passung. Verschiebst du ihn, kürzt die Engine seinen Beitrag.",
+              "Du hast drei Neuwürfe für den ganzen Draft. Ein Neuwurf kann die Nation behalten und das Jahr ändern oder die Nation wechseln. Gib einen aus, wenn das Brett keinen Spieler für einen Pflichtplatz hat. Gib keinen aus, um einen etwas besseren Namen zu jagen.",
             ],
           },
           {
-            h2: "Ergebnisse und Wiederholung",
+            h2: "3. Chemie bauen",
             body: [
-              "Sieh die Endtabelle und Team-Stats, wiederhole jedes Spiel oder starte einen neuen Draft. Meister bekommen einen Versuch; Verlierer können mit demselben Team wiederholen.",
-              "Die Schleife ist kurz: Form, Draft, simulieren, wiederholen. Das ist das ganze Spiel, und es wird nie alt.",
-              "Nach dem Finale kannst du einzelne Spiele erneut abspielen, die K.-o.-Klammer studieren oder mit einem kleinen Zug - neuer Torwart, anderer Sturm - das nächste Turnier starten.",
+              "Chemie zählt deine größte Gruppe gleicher Nation. Zwei geben +3%, drei +5%, vier +8%, fünf oder mehr +10%. Der Bonus gilt für das ganze Team. Ein Kern aus fünf Brasilianern kann die ganze Elf heben. Elf Stars aus elf Nationen bekommen nichts.",
+              "Deshalb kann ein stimmiger Draft eine stärkere Sammlung von Namen schlagen. Deshalb solltest du auch prüfen, ob du eine Nation schon hast, bevor du einen etwas höher bewerteten Spieler von woanders nimmst.",
             ],
           },
           {
-            h2: "Chemie & Positionen: wie Bewertungen zu Ergebnissen werden",
+            h2: "4. Gruppenphase spielen",
             body: [
-              "Die Bewertung eines Spielers ist ein Startpunkt. Stell ihn auf seine Bestposition, spielt er sie; verschieb ihn aus der Position, kürzt die Engine seinen Beitrag. Darum treibt Platzfit die Ergebnisse.",
-              "Chemie vervielfacht den Effekt. Stapel eine Nation, halte Spieler in natürlichen Plätzen, und der Teamvorteil addiert sich über ein Turnier. Gutes Bauen ist der größte Hebel auf dein Ergebnis.",
-              "Chemieboni wachsen nichtlinear: 2 Spieler derselben Nation = +3 %, 3 = +5 %, 4 = +8 %, ab 5 = +10 % Obergrenze. Die Kurve belohnt kohärentes Draften statt verstreuter Stat-Stapel.",
+              "Dein Team kommt in eine Gruppe mit drei KI-Teams. Zwei sind schwächere Mannschaften. Eine ist ein starker historischer Kader. Jeder spielt einmal gegen jeden. Ein Sieg gibt drei Punkte, ein Unentschieden einen, eine Niederlage null. Die Top zwei kommen weiter.",
+              "Deine drei Spiele laufen in Abschnitten. Du siehst Ballbesitz, Schüsse und Chancen. Das andere Gruppenspiel ist vorab simuliert. Wenn dein Team unter den Top zwei landet, öffnet sich der K.-o.-Baum.",
             ],
           },
           {
-            h2: "Rerolls & Draft-Strategie",
+            h2: "5. K.-o. überstehen",
             body: [
-              "Rerolls sind knapp (3 pro Draft), also gib sie aus, wenn ein Brett keinen Fit für einen Platz bietet, den du füllen musst. Verschwende keinen für einen minimal besseren Namen.",
-              "Eine einfache Strategie: Sperr zuerst dein Rückgrat (TW, IV, ZM, ST), dann füll die Flanken mit dem, was passt und Chemie gibt. Ein ausgeglichenes Brett schlägt ein gieriges fast immer.",
-              "Späte Runden entscheiden oft das Turnier: Wer Rerolls für die letzten Lücken spart, kann im entscheidenden Moment einen Nationalspieler nachziehen, statt einen Fehlplatz akzeptieren zu müssen.",
+              "Der Baum ist Achtelfinale, Viertelfinale, Halbfinale und Finale. Der Rest des Baums wird um deine Spiele herum simuliert, deshalb endet der Pokal schnell. Unentschieden gehen in die Verlängerung. Steht es dann noch gleich, entscheiden Elfmeter.",
+              "Elfmeterschießen nutzen deine fünf besten Schützen, sortiert nach Nervenstärke und Abschluss. Jede Seite schießt fünfmal. Das Schießen endet früh, wenn eine Seite nicht mehr aufholen kann. Steht es dann noch gleich, geht es in den Sudden Death.",
             ],
           },
           {
-            h2: "World Cup simulator 2026 (saison)",
+            h2: "6. Ergebnis lesen und wiederholen",
             body: [
-              "Eine neue Saison bringt neue Draft-Boards und frische Möglichkeiten, dein XI neu aufzubauen. Die WM 2026 führt vorhergesagte Kadern neben den klassischen 1970-2025-Rostern ein, sodass du etablierte Legenden und aufstrebende Stars draften kannst.",
-              "Saisonalen Updates halten das Spiel aktuell, und das Schlüsselwort world cup simulator 2026 zieht Suchverkehr von Fans an, die nach der neuesten Ausgabe suchen. Egal, ob du Brasilien 1970 oder Frankreich 2022 bevorzugst, der saisonale Draft bietet für jede Epoche etwas.",
-              "Die WM 2026 Edition führt vorhergesagte Kadern basierend auf echten Qualifikations-Leistungen ein, sodass du neue Spieler draften kannst neben den klassischen 1970-2025 historischen Kadern. Dieser saisonale Refresh sorgt dafür, dass auch zurückkehrende Spieler neue Draft-Boards und taktische Herausforderungen erwarten.",
+              "Nach dem Finale kannst du jedes Spiel wiederholen, Kaderstatistiken vergleichen und einen neuen Draft starten. Die Spielseite zeigt Ergebnis, Schüsse, erwartete Tore und Torschützen. Nutze sie, um zu sehen, wo der Pokal gekippt ist. Das ist der ganze Lauf.",
+              "Wenn du verloren hast, probier eine andere Form oder einen anderen Nationskern. Der nächste Pokal ist einen Klick entfernt. Das Spiel ist für kurze Läufe gebaut, deshalb kostet ein schlechter Draft Minuten, nicht Stunden.",
             ],
           },
           {
-            h2: "Lass die Legenden gegeneinander antreten",
+            h2: "Draft-Pläne, die funktionieren",
             body: [
-              "Maradonas Argentinien gegen Messis Argentinien. Brasilien 1970 gegen Frankreich 2022. Stapel eine Nation oder misch Epochen - die Engine respektiert Chemie und Positionen, also zählt das Duell.",
-              "Es ist der Fußballsimulator für alle, die je über das beste Team der Geschichte gestritten haben. Jetzt kannst du es auf dem Platz entscheiden, nicht in einem Chat.",
-              "Traumduelle sind der Kern: Maradona gegen Messi, Pele gegen Ronaldo, Brasilien 1970 gegen Frankreich 2022 - jede epochenübergreifende Debatte wird hier zum spielbaren Match.",
+              "Der Gerüst-Plan: Nimm in den ersten vier Runden einen Torwart, einen Innenverteidiger, einen zentralen Mittelfeldspieler und einen Stürmer. Dann füll die Außenbahnen. Das gibt dir eine ausgeglichene Elf ohne offensichtliches Loch.",
+              "Der Nationskern-Plan: Wähle früh eine Nation und nimm weiter ihre Spieler. Fünf gleiche Nationen geben dem ganzen Team +10%. Ein Kern aus Brasilien 1970 oder Italien 2006 kann durchschnittliche Rollenspieler heben.",
+              "Der Epochen-Mix-Plan: Nimm in jeder Runde den besten verfügbaren Spieler. Das hebt die Rohbewertungen, gibt aber keine Chemie. Es funktioniert, wenn das Brett großzügig ist und deine Plätze sauber passen. Es scheitert, wenn du elf Stars auf den falschen Positionen hast.",
             ],
           },
           {
-            h2: "Baue deine Nation oder misch Epochen",
+            h2: "Ein letzter Tipp",
             body: [
-              "Du bist nicht auf ein Land oder ein Jahr begrenzt. Misch Pele mit Neymar, oder verbind Beckenbauer mit einem modernen Mittelfeld. Die einzige Regel: Jede Wahl muss einen Platz füllen.",
-              "Diese Freiheit macht das Spiel zu einem Sandkasten. Der Spaß liegt im 'Was wäre wenn' - was wenn die 70er auf die 20er träfen? Hier findest du es heraus.",
-              "Als WM-Traumteam-Builder baust du jedes XI nach Belieben: Jahrzehnte mischen, Spielstile kombinieren und testen, ob klassische Härte oder moderne Schnelligkeit dein Bracket gewinnt.",
+              "Beurteile einen Draft erst, wenn du die Gruppe gespielt hast. Ein Team, das auf Papier schwach aussieht, kann gewinnen, wenn die Plätze passen und die Chemie hoch ist. Ein Team aus Stars kann verlieren, wenn drei Spieler falsch stehen.",
+              "Prüfe nach jedem Lauf die Spielstatistiken. Wenn du nach Schüssen verloren hast, war dein Angriff in Ordnung und deine Abwehr das Problem. Wenn du nach Ballbesitz verloren hast, war dein Mittelfeld das Problem. Repariere die Abteilung, nicht die ganze Elf. Ein gezielter Wechsel im nächsten Draft ist besser als ein kompletter Neuanfang. So wird jeder Lauf zu einem Test einer klaren Idee.",
             ],
           },
           {
-            h2: "Das Drama des Pokals",
+            h2: "Was die Kader 2026 bringen",
             body: [
-              "Gruppen-Sensationen, Last-minute-Aus, Elfmeter - der ganze Gefühlsbogen einer WM ist da. Die Außenseiter, die du gebaut hast, können Giganten erschüttern.",
-              "Weil die Simulation Form und Chemie respektiert, fühlt sich das Drama verdient an, nicht zufällig. Du wirst jubeln und fluchen, als wäre es echt.",
-              "Der Gefühlsspannbogen reicht von Gruppenphase-Drama über K.-o.-Nervosität und Verlängerungsmüdigkeit bis zum Elfmeter-Herzschmerz - jede Phase gewichtet Form, Kondition und Chemie, damit jedes Turnier wie eine ganze Geschichte wirkt.",
+              "Die Kader 2026 sind echt und geprüft. Sie stehen neben den klassischen Teams, nicht in einem separaten Modus. Du kannst einen Stürmer von 2026 neben einer Legende von 1970 draften. Die Engine nutzt dieselbe Bewertungsskala für beide.",
+              "Das macht den Pool tiefer und die Debatten besser. Du kannst eine moderne Angriffsreihe gegen eine Abwehr der 1970er testen oder bewusst eine Elf aus mehreren Epochen bauen. Das Draft-Brett interessiert das Jahr nicht. Es interessiert nur der Platz. Mehr Teams bedeuten mehr Wege zum Sieg.",
             ],
           },
+        ],
+        faq: [
           {
-            h2: "WM-Prognose: die Simulations-Engine",
-            body: [
-              "Über 500 simulierte Spiele zwischen ausgeglichenen Teams fließen in die Abstimmung der Engine ein. Die durchschnittliche Torzahl pro Spiel liegt bei 2,4-2,8, und 63,6 % der Spiele werden mit einem Tor Unterschied entschieden.",
-              "Das Prognosemodell rechnet mit ballbesitzbasierter Schusserzeugung, begrenzten Verwertungsraten und Konditionsverlust über die Spielabschnitte. Schwache Kadern gegen historische KI-Teams produzieren realistische Dominanz (0-2, 0-3), ausgeglichene Teams liefern enge Spiele.",
-              "Wer eine WM-Prognose oder Weltmeisterschaft simulieren will, profitiert von dieser stabilen Verteilung: Die Simulation vermeidet absurde Debakeln, erlaubt aber Überraschungen, wenn taktische Entscheidungen aufgehen.",
-              "Die Abstimmungsparameter (scale, conversionBias, desperationScale, baseMaxShots) wurden bei 3000 ausgeglichenen Simulationen kalibriert, damit die Torsummen stabil bleiben (~2,6-2,8) - verlässliche Daten für jede WM-Prognose.",
-            ],
+            q: "Brauche ich ein Konto zum Spielen?",
+            a: "Nein. Das Spiel speichert im Browser. Es gibt keine Anmeldung und kein Passwort.",
           },
           {
-            h2: "Fußball-Formationen & Elfmeterschießen",
-            body: [
-              "Die Formation bestimmt deine Positionspflichten über alle 11 Draftrunden: 4-3-3 braucht 3 Angreifer, 4-4-2 paart Stürmer, 3-5-2 setzt auf Außenverteidiger und starkes Mittelfeld, 4-2-3-1 balanciert mit hängender Spitze. Jede Formation beeinflusst, wie Chemie entsteht und wie Positionen im Spiel zusammenwirken.",
-              "Im Elfmeterschießen zählen Nerven und Abschluss gegen Reflexe und Form des Keepers. Die besten 5 Schützen werden nach gewichtetem Durchschnitt aus Composure und Finishing gewählt; jeder Schuss rollt gegen die Reaktion des Torwarts. Best-of-5, danach Sudden Death - die Trefferquote liegt in den Kalibrierungsdaten bei realistischen Werten.",
-              "Formation und Elfmeter-Vorbereitung gehören zusammen: Wer früh weiß, welche Schützen Composure und Finishing mitbringen, draftet im Zweifel den kühleren Kopf statt dem reinen Torschützen.",
-              "Verstehst du beides - Formationswahl und Elfmeter-Mechanik - bist du vom Draft bis zum möglichen Sudden Death voll vorbereitet. Genau diese Tiefe macht den Fußball Simulator online so wiederspielbar.",
-            ],
+            q: "Welche Formation ist für Anfänger am besten?",
+            a: "4-4-2 ist am einfachsten. Es verlangt vier Verteidiger, vier Mittelfeldspieler und zwei Angreifer, deshalb sind die Plätze leicht zu füllen. Probiere 4-3-3, wenn du weißt, welche Flügelspieler du willst.",
           },
           {
-            h2: "Dream team builder / Quick start tips",
-            body: [
-              "Wenn du neu bist, beginne damit, zuerst dein Rückgrat zu sichern: einen Torwart, zwei Zentrum-Verteidiger, einen defensiven Mittelfeldspieler und einen Stürmer. Fülle die remaining Slots mit Spielern, die durch same-nation-Boni Chemie geben. Ein ausgeglichenes Brett schlägt ein gieriges fast jedes Mal in einem World Cup Fantasy Game.",
-              "Erfahrene Spieler experimentieren oft mit dem Mischen von Epochen - Pele mit modernen Stürmern kombinieren oder eine Brasilien-1970-Verteidigung zu einer 2022-Angriffsreihe hinzufügen. Die einzige Regel ist, dass jede Wahl einen Platz füllen muss, sodass Kreativität innerhalb der gewählten Formationslimits bleibt.",
-              "Denke daran: Rerolls sind pro Draft knapp (3). Nutze sie, wenn ein Board keinen Fit für einen Must-fill-Platz bietet, nicht einfach, um einen marginal besseren Namen zu jagen. Smart Drafting ist der größte Hebel für dein Turnier-Ergebnis.",
-            ],
+            q: "Wie viele Neuwürfe habe ich?",
+            a: "Drei für den ganzen Draft. Nutze sie, wenn das Brett keinen Spieler für einen Pflichtplatz hat, nicht wenn ein Name etwas besser ist.",
           },
         ],
       },
@@ -281,115 +382,177 @@ export const blog: Record<Locale, BlogLocale> = {
   },
   fr: {
     index: {
-      title: "Blog",
-      seoTitle: "Blog My World Cup XI — Guides, astuces et notes du simulateur",
+      title: "Guides de draft Coupe du Monde",
+      seoTitle: "Guides de draft & astuces du simulateur — My World Cup XI",
+      description:
+        "Guides pratiques pour le jeu de draft : formations, chimie, relances, phase de groupes et tirs au but. Lisez d'abord, draftez mieux.",
       intro:
-        "Guides et notes sur My World Cup XI - le jeu de soccer gratuit dans le navigateur ou vous draft un XI fantasy de Coupe du Monde et simulez la coupe.",
+        "Des guides courts et pratiques pour construire une meilleure XI dans My World Cup XI. Le jeu est simple à lancer : choisissez une forme, draftez onze joueurs, simulez la coupe. Le plus dur est de drafter une équipe qui fonctionne ensemble. Ces guides couvrent le draft, le bonus de chimie, la phase de groupes et les tirs au but. Votre prochaine partie aura donc un plan. Il n'y a pas de remplissage ici. Chaque guide est assez court pour être lu avant une coupe et assez précis pour changer votre draft. Lisez le premier, jouez une coupe, puis revenez.",
+      sections: [
+        {
+          h2: "Commencez par le draft, pas par les stars",
+          body: [
+            "Le draft décide la plupart des coupes. Vous avez onze choix et trois relances. Chaque plateau propose un vrai effectif de Coupe du Monde capable de remplir un poste libre. Vous ne choisissez pas la nation ni l'année. Vous choisissez le joueur.",
+            "La justesse bat la célébrité. Un attaquant à 90 n'est à 90 que s'il joue à un poste d'attaquant. Si votre formation a encore besoin d'un défenseur central, un attaquant célèbre ne résout pas le problème. Vérifiez l'étoile avant de choisir. Elle indique si le joueur correspond naturellement au poste.",
+            "Le plateau aide. Il ne montre que des effectifs avec au moins un joueur capable de remplir un poste libre. Si le plateau est mauvais, une relance peut garder la nation et changer l'année, ou changer de nation. Vous en avez trois pour tout le draft. Utilisez-les quand un poste est bloqué, pas quand un nom est un peu meilleur. Un poste bloqué coûte une coupe entière.",
+          ],
+        },
+        {
+          h2: "Comment se joue une coupe",
+          body: [
+            "Votre équipe rejoint un groupe avec trois équipes IA. Deux sont plus faibles. Une est un fort effectif historique. Chaque équipe joue une fois contre les autres. Une victoire donne trois points, un nul un point, une défaite zéro. Les deux premières passent.",
+            "L'arbre à élimination est composé des huitièmes, des quarts, des demi-finales et de la finale. Le reste de l'arbre est simulé autour de vos matchs, donc la coupe finit vite. Les matchs nuls vont en prolongation. Si le score reste égal, les tirs au but décident. Le tirage du groupe change à chaque partie, donc la même XI peut tomber sur un groupe facile ou difficile.",
+            "Les tirs au but utilisent vos cinq meilleurs tireurs, classés par sang-froid et finition. Chaque équipe tire cinq fois. La séance s'arrête tôt si une équipe ne peut plus revenir. Puis mort subite. Votre sauvegarde reste dans le navigateur, donc vous pouvez rejouer un match ou lancer un nouveau draft.",
+          ],
+        },
+        {
+          h2: "Trois plans de draft à essayer",
+          body: [
+            "Le plan colonne vertébrale : prenez un gardien, un défenseur central, un milieu central et un attaquant lors des quatre premiers tours. Puis remplissez les côtés. Cela donne un XI équilibré sans trou évident. C'est le plan le plus sûr pour une première partie.",
+            "Le plan noyau national : choisissez une nation tôt et continuez à prendre ses joueurs. Cinq joueurs d'une même nation donnent +10 % à toute l'équipe. Un noyau du Brésil 1970 ou de l'Italie 2006 peut relever des joueurs moyens. Le risque est que le plateau ne propose plus votre nation. Gardez une nation de secours.",
+            "Le plan mélange d'époques : prenez le meilleur joueur disponible à chaque tour, quelle que soit la nation. Cela augmente les notes brutes mais ne donne aucune chimie. Il fonctionne quand le plateau est généreux et que vos postes sont bien alignés. Il échoue quand vous finissez avec onze stars aux mauvais postes.",
+          ],
+        },
+        {
+          h2: "Comment observer un effectif",
+          body: [
+            "Chaque fiche montre la note moyenne, le meilleur joueur et la formation. Commencez par le meilleur joueur. Le Brésil 1970 a Pelé. L'Argentine 1986 a Maradona. La France 1998 a Zidane. Une star à 95 peut porter un draft, mais seulement si le reste du XI s'organise autour d'elle.",
+            "Regardez ensuite la formation. Le Brésil 1970 jouait en 4-2-4. Les Pays-Bas 1974 utilisaient le football total. L'Italie 2006 s'appuyait sur la défense. L'Espagne 2010 contrôlait le ballon. La forme indique quels postes l'effectif peut remplir. Choisissez des effectifs qui correspondent aux postes qu'il vous reste.",
+            "Vérifiez enfin la profondeur. Une moyenne haute signifie peu de points faibles. Une équipe avec seulement deux stars vous laisse mince au milieu. Si vous avez besoin de deux défenseurs, un effectif avec quatre bons défenseurs est plus utile qu'un effectif avec un attaquant à 95.",
+          ],
+        },
+        {
+          h2: "Les erreurs qui coûtent des coupes",
+          body: [
+            "La première erreur est de drafter des noms au lieu de rôles. Un attaquant à 90 placé au milieu n'est pas un joueur à 90. Vérifiez toujours l'étoile.",
+            "La deuxième erreur est de garder toutes les relances. Vous en avez trois pour tout le draft. Si un plateau n'a aucun joueur pour un poste obligatoire, relancez. Garder les trois pour le dernier tour laisse souvent un trou.",
+            "La troisième erreur est d'ignorer la chimie. Onze stars de onze nations ne reçoivent aucun bonus. Un noyau de cinq joueurs d'une même nation donne +10 % à toute l'équipe. Ce bonus décide souvent un match serré. Pour le tester, draftez cinq Brésiliens et regardez la barre de chimie. La différence se voit en phase de groupes.",
+          ],
+        },
+        {
+          h2: "Ce qu'il faut lire ensuite",
+          body: [
+            "Le premier guide est Comment fonctionne My World Cup XI. Il parcourt toute la boucle : formation, draft, chimie, groupe, phase finale et replay. Il explique aussi les effectifs 2026 et les notes.",
+            "Ensuite, ouvrez la bibliothèque d'effectifs. Vous pouvez observer chaque équipe avant de drafter. Vérifiez la note moyenne, le meilleur joueur et la formation. Puis entrez dans le jeu et voyez si votre plan survit à la coupe. Les deux pages sont gratuites et ne demandent aucun compte. C'est assez pour démarrer et jouer une première coupe.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Faut-il un compte pour jouer ?",
+          a: "Non. Le jeu sauvegarde dans votre navigateur. Il n'y a ni inscription ni mot de passe.",
+        },
+        {
+          q: "Quelle formation est la meilleure pour débuter ?",
+          a: "Le 4-4-2 est le plus simple. Il demande quatre défenseurs, quatre milieux et deux attaquants, donc les postes sont faciles à remplir. Essayez le 4-3-3 quand vous savez quels ailiers vous voulez.",
+        },
+        {
+          q: "Combien de temps dure une coupe ?",
+          a: "Environ dix à quinze minutes. Le draft est la partie lente. Les matchs se simulent vite et peuvent être rejoués.",
+        },
+      ],
     },
     posts: [
       {
         slug: "how-it-works",
         title: "Comment fonctionne My World Cup XI",
         excerpt:
-          "Cinq gestes vous menent d'un terrain vide a une finale de Coupe du Monde simulee. Voici la boucle complete.",
+          "Du XI vide à la finale simulée : le draft, la chimie, le groupe et les tirs au but.",
         date: "2026-08-22",
-        updated: "2026-11-09",
+        updated: "2026-11-16",
         sections: [
           {
-            h2: "C'est quoi",
+            h2: "Ce qu'est le jeu",
             body: [
-              "Un jeu de soccer gratuit dans le navigateur. Vous draft un XI fantasy Coupe du Monde parmi 86 selections historiques, et le moteur simule un tournoi complet - des groupes a la finale.",
+              "My World Cup XI est un jeu gratuit dans le navigateur. Vous draftez un XI fantasy parmi 77 effectifs de Coupe du Monde, puis vous simulez un tournoi complet. Le pool va du Brésil 1970 aux effectifs 2026. Le jeu utilise aussi neuf adversaires de groupe comme équipes IA, soit 86 équipes au total. Chaque effectif utilise la même échelle de notes, pour comparer un ailier de 1970 et un latéral de 2026 sur une base juste.",
+              "Vous n'avez pas besoin de compte. Vous n'avez rien à télécharger. Une partie dure dix à quinze minutes, et votre sauvegarde reste dans le navigateur.",
             ],
           },
           {
-            h2: "Choisissez votre formation",
+            h2: "Ce que signifient les notes",
             body: [
-              "Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Votre forme fixe les limites de postes pour les 11 tours de draft, donc vous savez toujours combien de defenseurs, milieux et attaquants il vous faut.",
-              "Les formations ne sont pas cosmetiques. Elles decident ou vos stars peuvent jouer et comment votre chimie se forme. Un 4-3-3 vit des ailiers ; un 3-5-2 des lateraux et d'un milieu fort.",
-              "La formation est votre premier geste tactique dans ce simulateur de football : elle definit les postes proposes par les plateaux de draft et votre flexibilite pour placer les joueurs ensuite.",
+              "Chaque joueur a treize attributs. Les gardiens sont jugés sur leurs réflexes, leur placement et leur relance. Les défenseurs sur leur tacle, leur jeu aérien, leur passe et leur vitesse. Les milieux sur leur passe, leur dribble, leur activité et leur endurance. Les attaquants sur leur finition, leur dribble, leur vitesse et leurs déplacements.",
+              "Le jeu transforme ces attributs en une note pondérée par rôle. Les élites commencent à 90. Les stars commencent à 85. Le chiffre sur la fiche vaut pour le joueur à sa meilleure position. Si vous le déplacez, le moteur réduit sa contribution.",
+              "C'est pourquoi deux joueurs à 90 peuvent avoir une valeur différente. Un défenseur central à 90 remplit un poste de défenseur central. Un ailier à 90 ne le fait pas. Vérifiez la position avant la note.",
             ],
           },
           {
-            h2: "Draft votre XI",
+            h2: "1. Choisir une formation",
             body: [
-              "Onze tours, un XI complet. Chaque tour vous donne un plateau nation + annee filtre sur vos postes restants. Vous disposez de 3 rerolls pour tout le draft pour changer un mauvais plateau avant de choisir.",
-              "Placez chaque joueur a son meilleur poste - les postes etoile sont ideaux - et voyez la chimie monter. Les joueurs d'une meme nation donnent un bonus de chimie, donc un draft coherent bat un melange de stars.",
-              "Le plateau affiche note, meilleur poste et nation de chaque carte - toutes les infos d'un bon draft football game, sans valeurs cachees.",
+              "Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. La forme fixe le nombre de défenseurs, milieux et attaquants. Un 4-3-3 demande trois attaquants. Un 3-5-2 demande cinq milieux. Un 4-2-3-1 demande un avant-centre et une ligne de milieux offensifs.",
+              "Choisissez la forme que vous pouvez remplir. Un 4-3-3 semble offensif, mais il est difficile à compléter si le plateau propose toujours des défenseurs. Un 4-4-2 est la première forme la plus simple, car chaque secteur a un nombre clair.",
             ],
           },
           {
-            h2: "Lancez le tournoi",
+            h2: "2. Drafter votre XI",
             body: [
-              "Votre equipe entre dans un groupe avec 3 equipes IA. Vos matchs de groupe se jouent, puis le tableau eliminatoire va jusqu'a la finale. Les nuls vont en prolongation, puis les tirs au but decident.",
-              "Le moteur respecte positions et chimie, donc un XI bien assemble surperforme ses notes brutes. Un mauvais placement apparait en points perdus que vous auriez pu eviter.",
-              "Le mode tournoi couvre tout : classement de groupes, bracket eliminatoire, prolongation et seance de tirs au but - une Coupe du Monde simulation complete en quelques minutes, sans temps mort.",
+              "Le draft dure onze tours. Chaque tour propose une nation et une année, filtrées selon les postes qu'il vous reste. Vous choisissez un joueur et le placez à une position. Les postes étoilés sont sa meilleure position. Si vous le déplacez, le moteur réduit sa contribution.",
+              "Vous avez trois relances pour tout le draft. Une relance peut garder la nation et changer l'année, ou changer de nation. Dépensez-en une quand le plateau n'a aucun joueur pour un poste obligatoire. N'en dépensez pas une pour chercher un nom un peu meilleur.",
             ],
           },
           {
-            h2: "Resultats et rejouer",
+            h2: "3. Construire la chimie",
             body: [
-              "Voyez le classement final et les stats d'equipe, rejouez n'importe quel match ou lancez un nouveau draft. Les champions ont un essai ; les perdants peuvent rejouer avec la meme equipe.",
-              "La boucle est courte : forme, draft, simule, rejoue. C'est tout le jeu, et il ne vieillit pas.",
-              "Apres la finale, rejouez un match cle, etudiez le bracket ou relancez avec un petit changement - nouveau gardien, autre attaque - pour le tournoi suivant.",
+              "La chimie compte votre plus grand groupe de joueurs d'une même nation. Deux donnent +3 %, trois +5 %, quatre +8 %, cinq ou plus +10 %. Le bonus s'applique à toute l'équipe. Un noyau de cinq Brésiliens peut porter tout le XI. Onze stars de onze nations ne reçoivent rien.",
+              "C'est pourquoi un draft cohérent peut battre une collection de noms plus forte.",
             ],
           },
           {
-            h2: "Chimie et positions : comment les notes deviennent des resultats",
+            h2: "4. Jouer la phase de groupes",
             body: [
-              "La note d'un joueur est un point de depart. Mettez-le a son meilleur poste et il le joue ; decalez-le, le moteur reduit sa contribution. Voila pourquoi l'adequation au poste dicte les resultats.",
-              "La chimie multiplie l'effet. Empilez une nation, gardez les joueurs a leur poste naturel, et l'avantage d'equipe s'additionne sur un tournoi. Bien construire est le plus grand levier sur votre resultat.",
-              "Les bonus de chimie progressent par paliers : 2 joueurs d'une meme nation = +3 %, 3 = +5 %, 4 = +8 %, 5 ou plus = +10 % plafond. La courbe recompense un draft coherent plutot qu'un empilement de notes.",
+              "Votre équipe rejoint un groupe avec trois équipes IA. Deux sont plus faibles. Une est un fort effectif historique. Chaque équipe joue une fois contre les autres. Une victoire donne trois points, un nul un point, une défaite zéro. Les deux premières passent.",
+              "Vos trois matchs se jouent par séquences. Vous voyez la possession, les tirs et les occasions. L'autre match du groupe est pré-simulé. Si votre équipe termine dans les deux premières, l'arbre à élimination s'ouvre.",
             ],
           },
           {
-            h2: "Rerolls et strategie de draft",
+            h2: "5. Survivre à la phase finale",
             body: [
-              "Les rerolls sont rares (3 par draft), depensez-les quand un plateau n'offre aucun fit pour un poste a combler. Ne gaspillez pas un pour un nom un peu meilleur.",
-              "Strategie simple : verrouillez d'abord votre colonne vertebrale (G, DC, M, A), puis remplissez les ailes avec ce qui s'emboite et donne de la chimie. Un plateau equilibre bat un plateau gourmand presque a coup sur.",
-              "Les derniers tours decident souvent du tournoi : qui garde ses rerolls pour les dernieres lacunes peut piocher un international au moment decisif au lieu d'accepter un mauvais poste.",
+              "L'arbre est composé des huitièmes, des quarts, des demi-finales et de la finale. Le reste de l'arbre est simulé autour de vos matchs, donc la coupe finit vite. Les matchs nuls vont en prolongation. Si le score reste égal, les tirs au but décident.",
+              "Les tirs au but utilisent vos cinq meilleurs tireurs, classés par sang-froid et finition. Chaque équipe tire cinq fois. La séance s'arrête tôt si une équipe ne peut plus revenir. Puis mort subite.",
             ],
           },
           {
-            h2: "Opposez les legendes",
+            h2: "6. Lire le résultat et rejouer",
             body: [
-              "L'Argentine de Maradona contre celle de Messi. Bresil 1970 contre France 2022. Empilez une nation ou melangez les epoques - le moteur respecte chimie et positions, donc le duel compte.",
-              "C'est le simulateur de football pour tous ceux qui ont deja debattu du meilleur equipe de l'histoire. Maintenant vous tranchez sur le terrain, pas dans un groupe.",
-              "Les duels de reve sont le coeur du jeu : maradona vs messi, pele vs ronaldo, bresil 1970 vs france 2022 - chaque debat entre epoques devient un match jouable ici.",
+              "Après la finale, vous pouvez rejouer chaque match, comparer les statistiques et lancer un nouveau draft. La page du match montre le score, les tirs, les buts attendus et les buteurs. Utilisez-la pour voir où la coupe a basculé.",
+              "Si vous avez perdu, essayez une autre forme ou un autre noyau de nation. La prochaine coupe est à un clic. Un mauvais draft coûte des minutes, pas des heures.",
             ],
           },
           {
-            h2: "Construisez votre nation ou melangez les epoques",
+            h2: "Des plans de draft qui marchent",
             body: [
-              "Vous n'etes pas limite a un pays ou une annee. Melangez Pele avec Neymar, ou associez Beckenbauer a un milieu moderne. La seule regle : chaque choix doit combler un poste.",
-              "Cette liberte fait du jeu un bac a sable. Le fun est dans le « et si » - et si les annees 70 affrontaient les annees 2020 ? Ici vous le decouvrez.",
-              "Comme world cup dream team builder, vous composez n'importe quel XI : melangez les decennies, combinez les styles, et testez si la griffe classique ou la vitesse moderne gagne votre bracket.",
+              "Le plan colonne vertébrale : prenez un gardien, un défenseur central, un milieu central et un attaquant lors des quatre premiers tours. Puis remplissez les côtés. Cela donne un XI équilibré sans trou évident.",
+              "Le plan noyau national : choisissez une nation tôt et continuez à prendre ses joueurs. Cinq joueurs d'une même nation donnent +10 % à toute l'équipe. Un noyau du Brésil 1970 ou de l'Italie 2006 peut relever des joueurs moyens.",
+              "Le plan mélange d'époques : prenez le meilleur joueur disponible à chaque tour. Cela augmente les notes brutes mais ne donne aucune chimie. Il fonctionne quand le plateau est généreux et que vos postes sont bien alignés. Il échoue quand vous finissez avec onze stars aux mauvais postes.",
             ],
           },
           {
-            h2: "Le drame de la coupe",
+            h2: "Un dernier conseil",
             body: [
-              "Soubresauts de groupes, eliminations dans le temps additionnel, tirs au but - toute l'arc emotionnel d'une Coupe du Monde est la. Les petits poucets que vous avez batis peuvent choquer les geants.",
-              "Comme la simulation respecte la forme et la chimie, le drame semble merite, pas aleatoire. Vous feterez et maudirez comme si c'etait la vraie.",
-              "L'arc emotionnel traverse le drame des groupes, la tension des eliminations directes, la fatigue des prolongations et le coeur brise aux tirs au but - chaque phase pondere forme, endurance et chimie, pour un tournoi qui se vit comme une histoire complete.",
+              "Ne jugez pas un draft avant d'avoir joué le groupe. Une équipe qui semble faible sur le papier peut gagner si les postes correspondent et si la chimie est haute. Une équipe de stars peut perdre si trois joueurs sont mal placés.",
+              "Après chaque partie, regardez les statistiques. Si vous avez perdu aux tirs, réparez la défense. Si vous avez perdu la possession, réparez le milieu. Un changement ciblé vaut mieux qu'un nouveau départ complet.",
             ],
           },
           {
-            h2: "Pronostic Coupe du Monde : le moteur de simulation",
+            h2: "Ce que les effectifs 2026 apportent",
             body: [
-              "Plus de 500 matchs simules entre equipes equilibrees ont servi a calibrer le moteur. La moyenne de buts par match vise 2,4-2,8, et 63,6 % des matchs se decident par un but d'ecart.",
-              "Le modele calcule les tirs via la possession, des taux de conversion encadres et l'usure d'endurance par segments. Les petits effectifs contre des equipes IA historiques produisent une domination realiste (0-2, 0-3), tandis que les equipes proches livrent des matchs serrés.",
-              "Pour un pronostic football fiable, cette distribution stable evite les scores absurdes tout en laissant place aux surprises quand vos choix tactiques payent.",
-              "Les parametres (scale, conversionBias, desperationScale) sont calibres sur 3000 simulations equilibrees : totaux de buts stables (~2,6-2,8), donc des donnees solides pour toute simulation coupe du monde.",
+              "Les effectifs 2026 sont réels et vérifiés. Ils sont à côté des équipes classiques. Vous pouvez drafter un attaquant de 2026 à côté d'une légende de 1970. Le moteur utilise la même échelle de notes pour les deux.",
+              "Cela rend le pool plus profond et les débats meilleurs. Vous pouvez tester une attaque moderne contre une défense des années 1970, ou construire volontairement un XI de plusieurs époques. Le plateau de draft ne se soucie pas de l'année. Il se soucie seulement du poste.",
             ],
           },
+        ],
+        faq: [
           {
-            h2: "Formations & tirs au but",
-            body: [
-              "La formation fixe vos obligations de postes sur les 11 tours : le 4-3-3 reclame 3 attaquants, le 4-4-2 associe deux avant-centres, le 3-5-2 mise sur lateraux et milieu, le 4-2-3-1 equilibre avec un pivot unique.",
-              "Aux tirs au but, sang-froid et finition du tireur s'opposent aux reflexes et a la forme du gardien. Les 5 meilleurs tireurs sortent d'une moyenne ponderee ; chaque tir roule contre la reaction du gardien. Best-of-5 puis mort subite - des taux de reussite realistes.",
-              "Formation et preparation aux tirs au but se completent : reperer les tireurs a sang-froid pendant le draft fait gagner la seance decisive.",
-              "Maitriser formation et tirs au but vous couvre du premier match de groupe jusqu'a la finale, mort subite comprise - c'est cette profondeur qui rend le simulateur si rejouable.",
-            ],
+            q: "Faut-il un compte pour jouer ?",
+            a: "Non. Le jeu sauvegarde dans votre navigateur. Il n'y a ni inscription ni mot de passe.",
+          },
+          {
+            q: "Quelle formation est la meilleure pour débuter ?",
+            a: "Le 4-4-2 est le plus simple. Il demande quatre défenseurs, quatre milieux et deux attaquants, donc les postes sont faciles à remplir. Essayez le 4-3-3 quand vous savez quels ailiers vous voulez.",
+          },
+          {
+            q: "Combien de relances ai-je ?",
+            a: "Trois pour tout le draft. Utilisez-les quand un plateau n'a aucun joueur pour un poste obligatoire, pas quand un nom est un peu meilleur.",
           },
         ],
       },
@@ -397,115 +560,178 @@ export const blog: Record<Locale, BlogLocale> = {
   },
   ja: {
     index: {
-      title: "ブログ",
-      seoTitle: "My World Cup XI ブログ — ガイドとヒント",
+      title: "ワールドカップ・ドラフトガイド",
+      seoTitle:
+        "ワールドカップ・ドラフトガイドとシミュレーターのコツ — My World Cup XI",
+      description:
+        "ドラフトゲームの実践ガイド。フォーメーション、ケミストリー、リロール、グループステージ、PK戦。読んでからドラフトしよう。",
       intro:
-        "My World Cup XI についてのガイドと覚書 - ファンタジーW杯XIをドラフトして大会をシミュレートする、無料のブラウザー・サッカーゲーム。",
+        "My World Cup XIでより良いXIを作るための、短くて実践的なガイドです。ゲームの始め方は簡単。形を選び、11人をドラフトし、大会をシミュレートするだけ。難しいのは、まとまりのあるチームをドラフトすることです。ここではドラフト、ケミストリーボーナス、グループステージ、PK戦を扱います。次の大会に計画を持って臨めます。中身のない文章はありません。どのガイドも大会前に読める長さで、ドラフトを変えるだけの具体性があります。最初の1本を読んだら、1回大会をプレイしてから戻ってきてください。",
+      sections: [
+        {
+          h2: "スターではなく、ドラフトから始める",
+          body: [
+            "大会の大半はドラフトで決まります。指名は11回、リロールは3回。各ボードには、空いているポジションを埋められる実際のワールドカップ・チームが出ます。国や年は選べません。選ぶのは選手です。",
+            "つまり、相性が名声に勝ります。90のFWは、FWの位置でプレーして初めて90です。フォーメーションがまだCBを必要としているなら、有名なFWでは解決しません。指名前に星印を確認しましょう。その選手が自然にポジションに合うか分かります。",
+            "ボードは助けてくれます。空いているポジションを埋められる選手が少なくとも1人いるチームだけを出します。ボードが悪ければ、リロールで国を残して年を変えるか、国ごと変えられます。使えるのは全体で3回。ポジションが詰まったときに使い、少し名前が良いだけでは使いません。詰まったポジションは大会全体を失わせます。",
+          ],
+        },
+        {
+          h2: "大会の流れ",
+          body: [
+            "あなたのチームは3つのAIチームと同じグループに入ります。2つは弱め、1つは強い歴史的チームです。総当たりで1回ずつ戦います。勝ちで3点、引き分けで1点、負けで0点。上位2チームが通過します。",
+            "決勝トーナメントはラウンド16、準々決勝、準決勝、決勝です。残りはあなたの試合の周りでシミュレートされるので、大会は早く終わります。同点なら延長戦。それでも決まらなければPK戦です。グループの組み合わせは毎回変わるので、同じXIでも楽な組にも厳しい組にも入ります。",
+            "PK戦は、冷静さとフィニッシュの高い5人を使います。お互い5本ずつ。片方が追いつけなくなれば早く終了。その後はサドンデスです。セーブはブラウザに残るので、試合を見返すことも、新しいドラフトを始めることもできます。",
+          ],
+        },
+        {
+          h2: "試したい3つのドラフト計画",
+          body: [
+            "背骨プラン：最初の4ラウンドでGK、CB、中央MF、FWを取ります。その後でサイドを埋めます。穴の目立たないバランスの良いXIになります。最初の1回に一番安全な計画です。",
+            "国の核プラン：早めに1か国を選び、その国の選手を取り続けます。同じ国が5人そろうと、チーム全体に+10%。ブラジル1970やイタリア2006の核は、平均的な選手を引き上げます。リスクは、ボードがその国を出さなくなること。予備の国を考えておきましょう。",
+            "時代ミックスプラン：毎回、国に関係なく最も評価の高い選手を取ります。生の評価は上がりますが、ケミストリーはゼロ。ボードが豊かで、ポジションがきれいに合うときだけ機能します。11人のスターが間違った位置に並ぶと失敗します。",
+          ],
+        },
+        {
+          h2: "チームのスカウト方法",
+          body: [
+            "チームカードには平均レーティング、トップ選手、フォーメーションが出ます。まずトップ選手。ブラジル1970ならペレ。アルゼンチン1986ならマラドーナ。フランス1998ならジダン。95のスターはドラフトを背負えますが、XIの残りがその選手に合っている必要があります。",
+            "次にフォーメーション。ブラジル1970は4-2-4。オランダ1974はトータルフットボール。イタリア2006は守備。スペイン2010はボール支配。形を見れば、どのポジションを埋められるか分かります。残っているポジションに合うチームを選びましょう。",
+            "最後に層の厚さ。平均が高ければ弱点が少ないです。スターが2人だけのチームは中盤が薄くなります。DFが2人必要なとき、95のFWが1人いるチームより、良いDFが4人いるチームの方が役に立ちます。",
+          ],
+        },
+        {
+          h2: "大会を落とすミス",
+          body: [
+            "1つ目は、役割ではなく名前でドラフトすることです。90のFWをMFに置いても、90の選手にはなりません。必ず星印を確認しましょう。",
+            "2つ目は、リロールをため込むことです。全体で3回。埋めなければならないポジションに誰もいなければ、リロールします。3回とも最後まで残すと、たいてい穴が残ります。",
+            "3つ目は、ケミストリーを無視することです。11人を11か国から集めてもボーナスはゼロ。同じ国が5人そろえばチーム全体に+10%。この差は接戦を決めます。試したいなら、ブラジル人を5人ドラフトしてケミストリー表示を見てください。グループステージで違いが分かります。",
+          ],
+        },
+        {
+          h2: "次に読むもの",
+          body: [
+            "最初のガイドは「My World Cup XIの仕組み」です。フォーメーション、ドラフト、ケミストリー、グループ、決勝トーナメント、見返し方まで、全体の流れを説明します。2026年のチームと評価についても触れます。",
+            "その次にチームライブラリを開きます。ドラフト前に全チームをスカウトできます。平均レーティング、トップ選手、フォーメーションを確認してください。そしてゲームに入り、自分の計画が大会を生き残るか見てみましょう。どちらのページも無料で、アカウントは不要です。最初の1回にはそれで十分です。",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "プレイにアカウントは必要ですか？",
+          a: "いいえ。ゲームはブラウザに保存します。登録もパスワードもありません。",
+        },
+        {
+          q: "初心者にはどのフォーメーションがいいですか？",
+          a: "4-4-2が一番簡単です。DF4人、MF4人、FW2人なので、ポジションを埋めやすいです。どのウイングを使うか分かってきたら4-3-3を試してください。",
+        },
+        {
+          q: "1回の大会はどのくらいですか？",
+          a: "だいたい10〜15分です。時間がかかるのはドラフト。試合はすぐに進み、見返すこともできます。",
+        },
+      ],
     },
     posts: [
       {
         slug: "how-it-works",
-        title: "My World Cup XI の仕組み",
+        title: "My World Cup XIの仕組み",
         excerpt:
-          "空のピッチからシミュレートされたワールドカップ決勝まで、たった五つの手順。完全なループはこれだ。",
+          "空のピッチからシミュレートされた決勝まで。ドラフト、ケミストリー、グループ、PK戦を順番に説明します。",
         date: "2026-08-22",
-        updated: "2026-11-09",
+        updated: "2026-11-16",
         sections: [
           {
-            h2: "それは何か",
+            h2: "ゲームの内容",
             body: [
-              "無料のブラウザー・サッカーゲーム。歴代代表86チームからファンタジーW杯 XI をドラフトし、エンジンが大会全体をシミュレートする——グループから決勝まで。",
+              "My World Cup XIは無料のブラウザゲームです。77のワールドカップ・チームからファンタジーXIをドラフトし、大会全体をシミュレートします。プールはブラジル1970から2026年チームまで。ゲームはさらに9つのグループステージ相手をAIチームとして使うので、合計86チームです。全チームが同じ評価スケールを使うので、1970年のウイングと2026年のサイドバックを公平に比べられます。",
+              "アカウントは不要。ダウンロードも不要です。1回は10〜15分で、セーブはブラウザに残ります。ドラフトの途中でやめて、後から続けることもできます。",
             ],
           },
           {
-            h2: "フォーメーションを選ぶ",
+            h2: "評価の意味",
             body: [
-              "4-3-3、4-4-2、3-5-2、4-2-3-1 から選ぶ。フォーメーションは 11 ラウンドのドラフトのポジション上限を固定するから、必要なDF・MF・FWの数が常に分かる。",
-              "フォーメーションは単なる見た目ではない。どこでスターがプレーできるか、ケミストリーがどう生まれるかを決める。4-3-3 はウイング頼り、3-5-2 はウイングバックと強い中盤頼りだ。",
-              "フォーメーション選択は W杯シミュレーターでの最初の戦術判断だ。ドラフトボードに提示されるポジションと、後の選手配置の自由度をここで決めることになる。",
+              "各選手には13の能力があります。GKは反射、位置取り、配球。DFはタックル、空中戦、パス、スピード。MFはパス、ドリブル、ワークレート、スタミナ。FWはフィニッシュ、ドリブル、スピード、オフザボールで評価されます。",
+              "ゲームはそれをポジション別の重み付き評価に変えます。エリートは90以上、スターは85以上。カードの数字は、その選手がベストポジションにいるときの値です。動かすとエンジンが貢献を減らします。",
+              "だから同じ90でも価値が違います。90のCBはCBのポジションを埋めます。90のウイングは埋めません。評価より先にポジションを確認しましょう。85でも正しい位置の選手は、92でも間違った位置の選手より役に立ちます。",
             ],
           },
           {
-            h2: "XI をドラフトする",
+            h2: "1. フォーメーションを選ぶ",
             body: [
-              "11 ラウンド、先発 XI。各ラウンドには残りポジションで絞った「国＋年」のボードが出る。リロールはドラフト全体で 3 回、選ぶ前に悪いボードを替えられる。",
-              "各選手を得意ポジションに置け——星付きポジションが理想——ケミストリーが上がるのを見よう。同じ国の選手はケミストリー・ボーナスを得るから、まとまりのあるドラフトはスターの寄せ集めに勝つ。",
-              "ボードには各カードのレーティング、得意ポジション、国が表示される。隠れた数値のない、良いサッカードラフトゲームに求める情報設計だ。",
+              "4-3-3、4-4-2、3-5-2、4-2-3-1から選びます。形でDF、MF、FWの人数が決まります。4-3-3はFWが3人。3-5-2はMFが5人。4-2-3-1はワントップと攻撃的MFの列が必要です。",
+              "埋められる形を選びましょう。4-3-3は攻撃的に見えますが、ボードがDFばかり出すと完成しにくいです。最初は4-4-2が一番簡単で、各部門の人数がはっきりしています。",
             ],
           },
           {
-            h2: "大会を走らせる",
+            h2: "2. XIをドラフトする",
             body: [
-              "チームは 3 つの AI チームと同じグループに入る。グループ戦が行われ、その後決勝トーナメントが決勝まで進む。引き分けは延長へ、そして PK で決まる。",
-              "エンジンはポジションとケミストリーを尊重するから、うまく組んだ XI は素のレーティング以上に動く。噛み合わない配置は、避けられたはずの取りこぼしとして表れる。",
-              "トーナメントモードは全部入りだ。グループ順位表、ノックアウト・ブラケット、延長、PK 戦——待ち時間なしで数分のうちに W杯一巡が完了する。",
+              "ドラフトは11ラウンド。各ラウンドで、残っているポジションに合わせて国と年が提示されます。選手を1人選び、ポジションに置きます。星印はベストポジション。動かすと貢献が減ります。",
+              "リロールは全体で3回。国を残して年を変えるか、国ごと変えられます。埋めなければならないポジションに誰もいないときに使いましょう。少し名前が良いだけで使うのはもったいないです。",
             ],
           },
           {
-            h2: "結果と再挑戦",
+            h2: "3. ケミストリーを組む",
             body: [
-              "最終順位とチームスタッツを見て、どの試合でも再現し、あるいは新しいドラフトを始める。優勝者は一度、敗者は同じチームで再挑戦できる。",
-              "ループは短い。フォーメーション、ドラフト、シミュレート、再挑戦。それがゲーム全体で、飽きない。",
-              "決勝の後も遊び方は続く。キーとなる一試合を再生し、ブラケットを研究し、小さな変更——新しい GK、別の攻撃陣——を加えて次の大会へ。",
+              "ケミストリーは、同じ国の選手が最も多いグループを数えます。2人で+3%、3人で+5%、4人で+8%、5人以上で+10%。ボーナスはチーム全体にかかります。ブラジル人5人の核はXI全体を上げます。11人を11か国から集めてもゼロです。",
+              "だからまとまりのあるドラフトは、より強い名前の集まりに勝てます。だから少し評価の高い選手を別の国から取る前に、すでに同じ国がいるか確認しましょう。",
             ],
           },
           {
-            h2: "ケミストリーとポジション：レーティングが結果になる仕組み",
+            h2: "4. グループステージを戦う",
             body: [
-              "選手のレーティングは出発点だ。得意ポジションに置けばその通りにプレーし、ずらせばエンジンは貢献を削る。だからポジション適性が結果を左右する。",
-              "ケミストリーはその効果を倍増させる。同じ国を重ね、自然なポジションに置けば、チームの優位は大会を通して積み上がる。上手に組むことが結果への最大のレバーだ。",
-              "ケミストリー・ボーナスは非線形に伸びる：同国 2 人 = +3%、3 人 = +5%、4 人 = +8%、5 人以上 = +10% 上限。この曲線は散在するスタックより一貫したドラフトを優遇する。",
+              "あなたのチームは3つのAIチームと同じグループに入ります。2つは弱め、1つは強い歴史的チーム。総当たりで1回ずつ。勝ちで3点、引き分けで1点、負けで0点。上位2チームが通過します。",
+              "3試合はセグメントごとに進み、ポゼッション、シュート、チャンスが見えます。もう1試合は事前にシミュレート済み。上位2チームに入れば、決勝トーナメントが開きます。",
             ],
           },
           {
-            h2: "リロールとドラフト戦略",
+            h2: "5. 決勝トーナメントを生き残る",
             body: [
-              "リロールは貴重だ（ドラフトあたり 3 回）。埋めなければならないポジションに合う手がないボードの時に使え。少し名前が良いだけのために無駄にするな。",
-              "シンプルな戦略：まず柱（GK、CB、CM、ST）を固め、次に噛み合ってケミストリーを出すサイドを埋める。バランスの取れたボードは欲張りなボードにほぼ必ず勝つ。",
-              "終盤ラウンドが大会を決めることが多い。リロールを最後の穴のために取っておけば、正念場で代表クラスを拾える。悪いポジション受け入れを強いられない。",
+              "ラウンド16、準々決勝、準決勝、決勝です。残りはあなたの試合の周りでシミュレートされ、大会は早く終わります。同点なら延長戦。それでも決まらなければPK戦です。",
+              "PK戦は、冷静さとフィニッシュの高い5人を使います。お互い5本ずつ。片方が追いつけなくなれば終了。同点ならサドンデスで1本ずつです。",
             ],
           },
           {
-            h2: "レジェンドをぶつけ合う",
+            h2: "6. 結果を見て、もう一度",
             body: [
-              "マラドーナのアルゼンチン対メッシのアルゼンチン。1970 年ブラジル対 2022 年フランス。一国を重ねても、時代を混ぜてもよい——エンジンはケミストリーとポジションを尊重するから、対決が効く。",
-              "これは歴代最高チームを論じたことがある全員のためのフットボール・シミュレーターだ。今ならチャットではなくピッチで決着がつく。",
-              "夢のマッチアップこそ核心：マラドーナ対メッシ、ペレ対ロナウド、1970 年ブラジル対 2022 年フランス——ファンが論じてきた時代を超えた対決が、ここではプレイ可能な試合になる。",
+              "決勝の後は、どの試合も見返せます。チームスタッツを比べ、新しいドラフトを始められます。試合ページにはスコア、シュート、期待得点、得点者が出ます。どこで大会が傾いたか分かります。",
+              "負けたら、別の形か別の国の核を試してください。次の大会はワンクリックです。短いプレイ向けなので、悪いドラフトの代償は数分です。",
             ],
           },
           {
-            h2: "自分の国を作るか、時代を混ぜる",
+            h2: "うまくいくドラフト計画",
             body: [
-              "一国や一年に縛られない。ペレとネイマールを混ぜても、ベッケンバウアーに現代のMFを組ませてもよい。唯一のルールは、各指名がポジションを埋めることだ。",
-              "この自由がゲームを砂場にする。面白いのは「もしも」だ——70 年代が 20 年代と戦ったら？ここでそれが分かる。",
-              "W杯ドリームチームビルダーとして XI は自由自在：年代を混ぜ、スタイルを組み合わせ、古典的な強さと現代の速さどちらがブラケットを制するか試せる。",
+              "背骨プラン：最初の4ラウンドでGK、CB、中央MF、FWを取ります。その後でサイドを埋めます。穴の目立たないバランスの良いXIになります。",
+              "国の核プラン：早めに1か国を選び、その国の選手を取り続けます。同じ国が5人でチーム全体に+10%。ブラジル1970やイタリア2006の核は、平均的な選手を引き上げます。",
+              "時代ミックスプラン：毎回、最も評価の高い選手を取ります。生の評価は上がりますが、ケミストリーはゼロ。ボードが豊かで、ポジションがきれいに合うときだけ機能します。11人のスターが間違った位置に並ぶと失敗します。",
             ],
           },
           {
-            h2: "大会のドラマ",
+            h2: "最後のヒント",
             body: [
-              "グループの波乱、延長の劇的な敗退、PK——ワールドカップの感情の弧はすべてそこにある。あなたが作った番狂わせが巨人を倒す。",
-              "シミュレーションが調子とケミストリーを尊重するから、ドラマはでたらめではなくもっともらしい。本物のように喜び、呪うだろう。",
-              "感情の弧はグループの波乱からノックアウトの緊張、延長の疲労、そして PK 戦の悲劇まで続く。各段階が調子・スタミナ・ケミストリーを重み付けし、大会一本が完結した物語になる。",
+              "グループを戦うまでドラフトを判断しないでください。紙の上で弱く見えるチームでも、ポジションが合い、ケミストリーが高ければ勝てます。スター集団でも、3人が間違った位置なら負けます。",
+              "毎回、試合スタッツを確認しましょう。シュートで負けたなら、攻撃は悪くなく守備が問題です。ポゼッションで負けたなら、中盤が問題です。チーム全体ではなく、その部門を直します。次のドラフトでの狙った変更は、全部やり直すより良いです。",
             ],
           },
           {
-            h2: "W杯予想：シミュレーションエンジンの内側",
+            h2: "2026年のチームが加えるもの",
             body: [
-              "均衡チーム同士の 500 試合以上がエンジン調整の基礎だ。1 試合平均ゴール 2.4〜2.8 を狙い、63.6% の試合が 1 点差で決着する。",
-              "予測モデルはポゼッション由来のシュート生成、シグモイド制限された変換率、区間ごとのスタミナ減衰を織り込む。弱いスカッド対歴代 AI の現実的な支配（0-2、0-3）も再現する。",
-              "W杯予想やワールドカップ シミュレーションに使う人にとって、この安定した分布は信頼の源だ。異常な大差は避けつつ、戦術成功時の波乱は残る。",
-              "調整ノブ（scale、conversionBias、desperationScale、baseMaxShots）は 3000 回の均衡シミュレーションで較正され、ゴール総数を安定（約 2.6〜2.8）させる——W杯予想に耐えるデータだ。",
+              "2026年のチームは実在し、検証済みです。クラシックチームと同じ場所に並び、別モードではありません。2026年のFWを1970年のレジェンドの隣でドラフトできます。エンジンは両方に同じ評価スケールを使います。",
+              "プールが深くなり、議論も面白くなります。現代の攻撃陣を1970年代の守備と戦わせたり、意図的に複数時代のXIを作ったりできます。ドラフトボードは年を気にしません。見るのはポジションだけです。チームが増えれば、勝つ道も増えます。",
             ],
           },
+        ],
+        faq: [
           {
-            h2: "フォーメーションと PK 戦の仕組み",
-            body: [
-              "フォーメーションが 11 ラウンドのポジション制約を決める。4-3-3 は FW 3、4-4-2 は 2 top、3-5-2 はウイングバックと中盤重視、4-2-3-1 は単発柱で均衡。各フォーメーションはケミストリーの生まれ方と試合中の連携にも影響する。",
-              "PK 戦シミュレーションではキッカーの冷静さ＋フィニッシュが GK のリフレックス＋フォームと対峙する。上位 5 キッカーは 0.5×冷静さ + 0.5×フィニッシュの加重平均で選出。各キックはロジスティック式で判定、5 回戦後サドンデス——較正データでも現実的な成功率だ。",
-              "フォーメーション戦略と PK 準備は補完関係にある。冷静なキッカーをドラフト時に把握しておけば、決勝トーナメントでのセッションに完全に対策できる。",
-              "両方を理解すれば、グループから決勝、サドンデスまで完全な大会準備が整う。これがこのサッカーゲームの深みであり、再プレイ性の源泉だ。",
-            ],
+            q: "プレイにアカウントは必要ですか？",
+            a: "いいえ。ゲームはブラウザに保存します。登録もパスワードもありません。",
+          },
+          {
+            q: "初心者にはどのフォーメーションがいいですか？",
+            a: "4-4-2が一番簡単です。DF4人、MF4人、FW2人なので、ポジションを埋めやすいです。どのウイングを使うか分かってきたら4-3-3を試してください。",
+          },
+          {
+            q: "リロールは何回ありますか？",
+            a: "ドラフト全体で3回です。埋めなければならないポジションに誰もいないときに使い、少し名前が良いだけでは使わないでください。",
           },
         ],
       },
@@ -513,115 +739,177 @@ export const blog: Record<Locale, BlogLocale> = {
   },
   es: {
     index: {
-      title: "Blog",
-      seoTitle: "Blog de My World Cup XI — Guías y consejos del simulador",
+      title: "Guías de draft del Mundial",
+      seoTitle: "Guías de draft y consejos del simulador — My World Cup XI",
+      description:
+        "Guías prácticas para el juego de draft: formaciones, química, rerolls, fase de grupos y penales. Lee primero, draftea mejor.",
       intro:
-        "Guías y notas sobre My World Cup XI - el juego de soccer gratuito en el navegador donde draftas un XI fantasy de la Copa del Mundo y simulas la copa.",
+        "Guías cortas y prácticas para construir una mejor XI en My World Cup XI. El juego es fácil de empezar: elige una forma, draftea once jugadores y simula la copa. Lo difícil es draftear un equipo que funcione junto. Estas guías cubren el draft, el bonus de química, la fase de grupos y los penales. Así tu próxima partida tendrá un plan. Aquí no hay relleno. Cada guía es lo bastante corta para leerla antes de una copa y lo bastante concreta para cambiar tu draft. Lee la primera, juega una copa y vuelve.",
+      sections: [
+        {
+          h2: "Empieza por el draft, no por las estrellas",
+          body: [
+            "El draft decide la mayoría de las copas. Tienes once elecciones y tres rerolls. Cada tablero ofrece una plantilla real del Mundial que puede llenar un puesto libre. No eliges la nación ni el año. Eliges al jugador.",
+            "El encaje gana a la fama. Un delantero de 90 solo es 90 si juega en un puesto de delantero. Si tu formación aún necesita un central, un delantero famoso no resuelve el problema. Revisa la estrella antes de elegir. Muestra si el jugador encaja de forma natural en el puesto.",
+            "El tablero ayuda. Solo muestra plantillas con al menos un jugador que puede llenar un puesto libre. Si el tablero es malo, un reroll puede mantener la nación y cambiar el año, o cambiar de nación. Tienes tres para todo el draft. Úsalos cuando un puesto esté bloqueado, no cuando un nombre sea un poco mejor. Un puesto bloqueado cuesta una copa entera.",
+          ],
+        },
+        {
+          h2: "Cómo se juega una copa",
+          body: [
+            "Tu equipo entra en un grupo con tres equipos IA. Dos son más débiles. Uno es una plantilla histórica fuerte. Cada equipo juega una vez contra los demás. Una victoria da tres puntos, un empate uno y una derrota cero. Los dos primeros pasan.",
+            "El cuadro de eliminación es octavos, cuartos, semifinales y final. El resto del cuadro se simula alrededor de tus partidos, así la copa termina rápido. Los empates van a prórroga. Si el marcador sigue igual, deciden los penales. El sorteo del grupo cambia en cada partida, así la misma XI puede caer en un grupo fácil o difícil.",
+            "Los penales usan a tus cinco mejores tiradores, ordenados por sangre fría y definición. Cada equipo tira cinco veces. La tanda termina antes si un equipo ya no puede remontar. Luego muerte súbita. Tu guardado se queda en el navegador, así puedes repetir un partido o empezar otro draft.",
+          ],
+        },
+        {
+          h2: "Tres planes de draft para probar",
+          body: [
+            "El plan columna vertebral: toma un portero, un central, un medio central y un delantero en las primeras cuatro rondas. Luego llena los costados. Da una XI equilibrada sin un hueco evidente. Es el plan más seguro para una primera partida.",
+            "El plan núcleo nacional: elige una nación pronto y sigue tomando sus jugadores. Cinco jugadores de la misma nación dan +10% a todo el equipo. Un núcleo del Brasil 1970 o de Italia 2006 puede subir a jugadores medios. El riesgo es que el tablero deje de ofrecer tu nación. Ten una nación de respaldo.",
+            "El plan mezcla de épocas: toma al mejor jugador disponible en cada ronda, sin importar la nación. Sube las valoraciones brutas pero no da química. Funciona cuando el tablero es generoso y tus puestos encajan bien. Falla cuando terminas con once estrellas en los puestos equivocados.",
+          ],
+        },
+        {
+          h2: "Cómo observar una plantilla",
+          body: [
+            "Cada ficha muestra la valoración media, el mejor jugador y la formación. Empieza por el mejor jugador. Brasil 1970 tiene a Pelé. Argentina 1986 tiene a Maradona. Francia 1998 tiene a Zidane. Una estrella de 95 puede cargar un draft, pero solo si el resto de la XI se organiza alrededor.",
+            "Luego mira la formación. Brasil 1970 jugaba 4-2-4. Países Bajos 1974 usaba fútbol total. Italia 2006 se apoyaba en la defensa. España 2010 controlaba el balón. La forma indica qué puestos puede llenar la plantilla. Elige plantillas que encajen en los puestos que aún necesitas.",
+            "Por último, revisa la profundidad. Una media alta significa pocos puntos débiles. Un equipo con solo dos estrellas te deja corto en el medio. Si necesitas dos defensas, una plantilla con cuatro defensas buenos es más útil que una con un delantero de 95.",
+          ],
+        },
+        {
+          h2: "Errores que cuestan copas",
+          body: [
+            "El primer error es draftear nombres en vez de roles. Un delantero de 90 en el medio no es un jugador de 90. Revisa siempre la estrella.",
+            "El segundo error es guardar todos los rerolls. Tienes tres para todo el draft. Si un tablero no tiene ningún jugador para un puesto obligatorio, haz reroll. Guardar los tres para la última ronda suele dejar un hueco.",
+            "El tercer error es ignorar la química. Once estrellas de once naciones no reciben bonus. Un núcleo de cinco jugadores de la misma nación da +10% a todo el equipo. Ese bonus decide muchos partidos ajustados. Si quieres probarlo, draftea cinco brasileños y mira la barra de química. La diferencia se ve en la fase de grupos.",
+          ],
+        },
+        {
+          h2: "Qué leer después",
+          body: [
+            "La primera guía es Cómo funciona My World Cup XI. Recorre todo el bucle: formación, draft, química, grupo, eliminación y repetición. También explica las plantillas de 2026 y las valoraciones.",
+            "Después, abre la biblioteca de plantillas. Puedes observar cada equipo antes de draftear. Revisa la valoración media, el mejor jugador y la formación. Luego entra al juego y mira si tu plan sobrevive a la copa. Las dos páginas son gratis y no piden cuenta. Es suficiente para empezar y jugar una primera copa.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "¿Necesito una cuenta para jugar?",
+          a: "No. El juego guarda en tu navegador. No hay registro ni contraseña.",
+        },
+        {
+          q: "¿Qué formación es mejor para empezar?",
+          a: "El 4-4-2 es el más simple. Pide cuatro defensas, cuatro medios y dos delanteros, así que los puestos son fáciles de llenar. Prueba el 4-3-3 cuando sepas qué extremos quieres.",
+        },
+        {
+          q: "¿Cuánto dura una copa?",
+          a: "Unos diez a quince minutos. El draft es la parte lenta. Los partidos se simulan rápido y puedes repetirlos.",
+        },
+      ],
     },
     posts: [
       {
         slug: "how-it-works",
         title: "Cómo funciona My World Cup XI",
         excerpt:
-          "Cinco movimientos te llevan de una cancha vacía a una final del Mundial simulada. Aquí está el bucle completo.",
+          "De una cancha vacía a una final simulada: el draft, la química, el grupo y los penales.",
         date: "2026-08-22",
-        updated: "2026-11-09",
+        updated: "2026-11-16",
         sections: [
           {
-            h2: "Qué es",
+            h2: "Qué es el juego",
             body: [
-              "Un juego de soccer gratuito en el navegador. Draftas un XI de Copa del Mundo fantasy de 86 plantillas históricas y el motor simula un torneo completo - de grupos a final.",
+              "My World Cup XI es un juego gratis en el navegador. Drafteas una XI fantasy de 77 plantillas del Mundial y simulas un torneo completo. El pool va del Brasil 1970 a las plantillas de 2026. El juego también usa nueve rivales de grupo como equipos IA, así que el total es de 86 equipos. Cada plantilla usa la misma escala de valoraciones, para comparar un extremo de 1970 y un lateral de 2026 de forma justa.",
+              "No necesitas cuenta. No tienes que descargar nada. Una partida dura diez a quince minutos y tu guardado se queda en el navegador. Puedes parar a mitad del draft y seguir después.",
             ],
           },
           {
-            h2: "Elige tu formación",
+            h2: "Qué significan las valoraciones",
             body: [
-              "Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Tu forma bloquea los límites de puestos para las 11 rondas de draft, así siempre sabes cuántos defensas, mediocampistas y delanteros necesitas.",
-              "Las formaciones no son solo estética. Deciden dónde pueden jugar tus estrellas y cómo se forma tu química. Un 4-3-3 vive de las bandas; un 3-5-2 de los carrileros y un mediocampo fuerte.",
-              "La formación es tu primer movimiento táctico en el simulador de fútbol: define qué puestos ofrece el tablero de draft y tu flexibilidad para colocar jugadores después.",
+              "Cada jugador tiene trece atributos. Los porteros se miden por reflejos, colocación y distribución. Los defensas por entradas, juego aéreo, pase y velocidad. Los medios por pase, regate, trabajo y resistencia. Los delanteros por definición, regate, velocidad y desmarque.",
+              "El juego convierte esos atributos en una valoración ponderada por puesto. La élite empieza en 90. Las estrellas empiezan en 85. El número de la ficha vale para el jugador en su mejor posición. Si lo mueves, el motor recorta su contribución.",
+              "Por eso dos jugadores de 90 pueden valer distinto. Un central de 90 llena un puesto de central. Un extremo de 90 no. Revisa la posición antes que la nota. Un jugador de 85 en su puesto te ayuda más que uno de 92 en un puesto ajeno.",
             ],
           },
           {
-            h2: "Draftas tu XI",
+            h2: "1. Elegir formación",
             body: [
-              "Once rondas, un XI completo. Cada ronda recibes una plantilla de nación + año filtrada a tus puestos restantes. Tienes 3 rerolls para todo el draft para cambiar un mal tablero antes de elegir.",
-              "Coloca cada jugador en su mejor puesto - los puestos con estrella son ideales - y ve subir la química. Los de la misma nación dan un bonus de química, así un draft listo vence a un equipo de estrellas sueltas.",
-              "El tablero muestra valoración, mejor puesto y nación de cada carta - toda la información que esperas de un buen draft fútbol juego, sin valores ocultos.",
+              "Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. La forma fija el número de defensas, medios y delanteros. Un 4-3-3 pide tres delanteros. Un 3-5-2 pide cinco medios. Un 4-2-3-1 pide un delantero centro y una línea de medios ofensivos.",
+              "Elige la forma que puedes llenar. Un 4-3-3 parece ofensivo, pero es difícil de completar si el tablero siempre ofrece defensas. Un 4-4-2 es la primera forma más simple, porque cada sector tiene un número claro.",
             ],
           },
           {
-            h2: "Corre el torneo",
+            h2: "2. Draftear tu XI",
             body: [
-              "Tu equipo entra en un grupo con 3 equipos IA. Tus partidos de grupo se juegan, luego el cuadro de eliminación va hasta la final. Los empates van a prórroga, luego los penales deciden.",
-              "El motor de partido respeta posiciones y química, así un XI bien armado rinde por encima de sus valoraciones brutas. Un mal encaje sale como puntos perdidos que pudiste evitar.",
-              "El modo torneo cubre todo: tabla de grupos, llave eliminatoria, prórroga y tanda de penales - una simulación Mundial completa en minutos, sin tiempos muertos.",
+              "El draft dura once rondas. Cada ronda ofrece una nación y un año, filtrados por los puestos que aún necesitas. Eliges un jugador y lo colocas en una posición. Los puestos con estrella son su mejor encaje. Si lo mueves, el motor recorta su contribución.",
+              "Tienes tres rerolls para todo el draft. Un reroll puede mantener la nación y cambiar el año, o cambiar de nación. Gasta uno cuando el tablero no tenga ningún jugador para un puesto obligatorio. No gastes uno por perseguir un nombre un poco mejor.",
             ],
           },
           {
-            h2: "Resultados y repetir",
+            h2: "3. Construir química",
             body: [
-              "Ve la tabla final y las stats del equipo, repite cualquier partido o inicia un draft nuevo. Los campeones tienen un intento; los perdedores pueden repetir con el mismo equipo.",
-              "El bucle es corto: forma, draft, simular, repetir. Ese es todo el juego, y no pasa de moda.",
-              "Tras la final puedes repetir un partido clave, estudiar la llave o relanzar con un ajuste pequeño - nuevo portero, otra delantera - para el siguiente torneo.",
+              "La química cuenta tu grupo más grande de jugadores de la misma nación. Dos dan +3%, tres +5%, cuatro +8%, cinco o más +10%. El bonus se aplica a todo el equipo. Un núcleo de cinco brasileños puede subir toda la XI. Once estrellas de once naciones no reciben nada.",
+              "Por eso un draft coherente puede ganar a una colección de nombres más fuerte. Por eso también conviene revisar si ya tienes una nación antes de tomar un jugador un poco mejor de otro sitio.",
             ],
           },
           {
-            h2: "Química y posiciones: cómo las valoraciones se vuelven resultados",
+            h2: "4. Jugar la fase de grupos",
             body: [
-              "La valoración de un jugador es un punto de partida. Ponlo en su mejor puesto y juega así; muévelo de su puesto y el motor recorta su aporte. Por eso el encaje en el puesto dicta los resultados.",
-              "La química multiplica el efecto. Apila una nación, mantén a los jugadores en su puesto natural, y la ventaja de equipo se suma en un torneo. Armar bien es la mayor palanca en tu resultado.",
-              "Los bonos de química crecen sin linealidad: 2 jugadores de la misma nación = +3%, 3 = +5%, 4 = +8%, 5 o más = +10% tope. La curva premia drafts coherentes sobre montones de stats dispersos.",
+              "Tu equipo entra en un grupo con tres equipos IA. Dos son más débiles. Uno es una plantilla histórica fuerte. Cada equipo juega una vez contra los demás. Una victoria da tres puntos, un empate uno y una derrota cero. Los dos primeros pasan.",
+              "Tus tres partidos se juegan por tramos. Ves posesión, tiros y ocasiones. El otro partido del grupo está pre-simulado. Si tu equipo termina entre los dos primeros, se abre el cuadro de eliminación.",
             ],
           },
           {
-            h2: "Rerolls y estrategia de draft",
+            h2: "5. Sobrevivir a la eliminación",
             body: [
-              "Los rerolls son escasos (3 por draft), úsalos cuando un tablero no da encaje para un puesto que debes llenar. No gastes uno por un nombre apenas mejor.",
-              "Estrategia simple: asegura primero tu columna (POR, DF, MC, DEL), luego llena las bandas con lo que encaja y da química. Un tablero equilibrado bate a uno codicioso casi siempre.",
-              "Las últimas rondas suelen decidir el torneo: quien guarda rerolls para los huecos finales puede pescar un internacional en el momento decisivo en vez de aceptar un puesto forzado.",
+              "El cuadro es octavos, cuartos, semifinales y final. El resto se simula alrededor de tus partidos, así la copa termina rápido. Los empates van a prórroga. Si el marcador sigue igual, deciden los penales.",
+              "Los penales usan a tus cinco mejores tiradores, ordenados por sangre fría y definición. Cada equipo tira cinco veces. La tanda termina antes si un equipo ya no puede remontar. Luego muerte súbita.",
             ],
           },
           {
-            h2: "Enfrenta a las leyendas",
+            h2: "6. Leer el resultado y repetir",
             body: [
-              "La Argentina de Maradona contra la de Messi. Brasil 1970 contra Francia 2022. Apila una nación o mezcla épocas - el motor respeta química y posiciones, así el duelo importa.",
-              "Es el simulador de fútbol para cualquiera que alguna vez discutió el mejor equipo de la historia. Ahora lo decides en la cancha, no en un chat.",
-              "Los duelos soñados son el corazón del juego: maradona vs messi, pele vs ronaldo, brasil 1970 vs france 2022 - cada debate entre épocas se vuelve partido jugable aquí.",
+              "Después de la final puedes repetir cualquier partido, comparar estadísticas y empezar un draft nuevo. La página del partido muestra el marcador, los tiros, los goles esperados y los goleadores. Úsala para ver dónde cambió la copa.",
+              "Si perdiste, prueba otra forma u otro núcleo de nación. La próxima copa está a un clic. El juego está hecho para partidas cortas, así que un mal draft cuesta minutos, no horas.",
             ],
           },
           {
-            h2: "Construye tu nación o mezcla épocas",
+            h2: "Planes de draft que funcionan",
             body: [
-              "No estás limitado a un país o un año. Mezcla a Pelé con Neymar, o junta a Beckenbauer con un mediocampo moderno. La única regla es que cada elección ocupe un puesto.",
-              "Esta libertad vuelve el juego un sandbox. La gracia está en el «y si» - qué pasaría si los 70 enfrentaran a los 20. Aquí lo descubres.",
-              "Como creador de dream team del mundial armas cualquier XI: mezcla décadas, combina estilos y prueba si la garra clásica o la velocidad moderna gana tu llave.",
+              "El plan columna vertebral: toma un portero, un central, un medio central y un delantero en las primeras cuatro rondas. Luego llena los costados. Da una XI equilibrada sin un hueco evidente.",
+              "El plan núcleo nacional: elige una nación pronto y sigue tomando sus jugadores. Cinco jugadores de la misma nación dan +10% a todo el equipo. Un núcleo del Brasil 1970 o de Italia 2006 puede subir a jugadores medios.",
+              "El plan mezcla de épocas: toma al mejor jugador disponible en cada ronda. Sube las valoraciones brutas pero no da química. Funciona cuando el tablero es generoso y tus puestos encajan bien. Falla cuando terminas con once estrellas en los puestos equivocados.",
             ],
           },
           {
-            h2: "El drama de la copa",
+            h2: "Un último consejo",
             body: [
-              "Sorpresas en grupos, eliminaciones en el alargue, penales - todo el arco emocional de un Mundial está ahí. Los modestos que armaste pueden humillar a los gigantes.",
-              "Como la simulación respeta la forma y la química, el drama se siente merecido, no al azar. Celebrarás y maldecirás como si fuera real.",
-              "El arco emocional atraviesa drama de grupos, tensión eliminatoria, cansancio en el alargue y corazón roto en penales - cada fase pondera forma, resistencia y química, y el torneo se vive como una historia completa.",
+              "No juzgues un draft hasta jugar el grupo. Un equipo que parece débil en el papel puede ganar si los puestos encajan y la química es alta. Un equipo de estrellas puede perder si tres jugadores están mal colocados.",
+              "Después de cada partida, mira las estadísticas. Si perdiste en tiros, tu ataque estaba bien y tu defensa era el problema. Si perdiste la posesión, tu medio era el problema. Repara el sector, no todo el equipo. Un cambio concreto en el próximo draft vale más que empezar de cero.",
             ],
           },
           {
-            h2: "Pronóstico Mundial: dentro del motor de simulación",
+            h2: "Qué aportan las plantillas de 2026",
             body: [
-              "Más de 500 partidos simulados entre equipos equilibrados calibran el motor. El promedio total apunta a 2,4-2,8 goles, y el 63,6% de los partidos se define por un gol.",
-              "El modelo incorpora generación de tiros vía posesión, tasas de conversión acotadas y desgaste de resistencia por tramos. Plantillas débiles ante IA históricas producen dominio realista (0-2, 0-3).",
-              "Para un pronóstico fútbol confiable, esta distribución estable evita marcadores absurdos dejando espacio a sorpresas cuando tus decisiones tácticas pagan.",
-              "Los parámetros (scale, conversionBias, desperationScale, baseMaxShots) quedaron calibrados en 3000 simulaciones equilibradas: totales estables (~2,6-2,8), datos sólidos para toda simulación copa del mundo.",
+              "Las plantillas de 2026 son reales y verificadas. Están junto a los equipos clásicos, no en un modo aparte. Puedes draftear un delantero de 2026 al lado de una leyenda de 1970. El motor usa la misma escala de valoraciones para ambos.",
+              "Eso hace el pool más profundo y los debates mejores. Puedes probar un ataque moderno contra una defensa de los años 70, o construir a propósito una XI de varias épocas. Al tablero de draft no le importa el año. Solo le importa el puesto. Más equipos significan más caminos hacia la victoria.",
             ],
           },
+        ],
+        faq: [
           {
-            h2: "Formaciones y penales: la preparación completa",
-            body: [
-              "La formación dicta tus restricciones de puesto en 11 rondas: 4-3-3 exige 3 atacantes, 4-4-2 empareja delanteros, 3-5-2 refuerza carrileros y mediocampo, 4-2-3-1 equilibra con punta único. Cada formación afecta cómo nace la química y cómo interactúan las posiciones.",
-              "En la tanda de penales, sangre fría + definición del tirador se enfrentan a reflejos + forma del portero. Los 5 tiradores salen del promedio 0.5×sangre fría + 0.5×definición; cada penal se resuelve contra la reacción del arquero. Mejor de 5, muerte súbita después - tasas realistas en datos de calibración.",
-              "Formación y preparación de penales son complementarias: identificar tiradores fríos durante el draft te da plan completo para la tanda decisiva.",
-              "Entender ambas te deja listo del draft al posible desempate: grupos, eliminatorias y final cubiertos. Esa profundidad es la fuente de rejugabilidad del simulador.",
-            ],
+            q: "¿Necesito una cuenta para jugar?",
+            a: "No. El juego guarda en tu navegador. No hay registro ni contraseña.",
+          },
+          {
+            q: "¿Qué formación es mejor para empezar?",
+            a: "El 4-4-2 es el más simple. Pide cuatro defensas, cuatro medios y dos delanteros, así que los puestos son fáciles de llenar. Prueba el 4-3-3 cuando sepas qué extremos quieres.",
+          },
+          {
+            q: "¿Cuántos rerolls tengo?",
+            a: "Tres para todo el draft. Úsalos cuando un tablero no tenga ningún jugador para un puesto obligatorio, no cuando un nombre sea un poco mejor.",
           },
         ],
       },

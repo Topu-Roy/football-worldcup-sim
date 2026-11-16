@@ -55,7 +55,7 @@ Include at least three of these:
 - A decision the reader can make after reading.
 - A detail from building or testing the game.
 
-Depth comes from specifics, not from length. 800 useful words beat 2,000 vague ones.
+Depth comes from specifics, not from length. 1,000 useful words beat 2,000 vague ones. Aim for 1000-1200 words on content pages.
 
 ## Structure
 
