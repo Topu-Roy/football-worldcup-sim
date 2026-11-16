@@ -71,7 +71,7 @@ export const howToPlay = {
   de: {
     h1: "So spielst du My World Cup XI",
     hero: [
-      "Baue ein Fantasy-WM-Team aus über 100 alten Kadern. Sieh ihnen dann in einer simulierten Gruppenphase und einem K.-o.-Turnier gegen die Größten zu. My World Cup XI ist ein Fußballsimulator und ein Soccer-Draft-Spiel. Du wählst eine Formation. Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Du draftest dein Traumteam. Die Spielengine simuliert die WM. Du bekommst Gruppenphase, K.-o.-Baum, Verlängerung und Elfmeterschießen.",
+      "Baue ein Fantasy-WM-Team aus 86 alten Kadern. Sieh ihnen dann in einer simulierten Gruppenphase und einem K.-o.-Turnier gegen die Größten zu. My World Cup XI ist ein Fußballsimulator und ein Soccer-Draft-Spiel. Du wählst eine Formation. Wähle 4-3-3, 4-4-2, 3-5-2 oder 4-2-3-1. Du draftest dein Traumteam. Die Spielengine simuliert die WM. Du bekommst Gruppenphase, K.-o.-Baum, Verlängerung und Elfmeterschießen.",
       "Es ist eine WM-Simulation und ein Elfmeter-Simulator. Es dreht sich um die App. Du kannst dein eigenes Turnier online vorhersagen. Es ist kostenlos. Es ist im Browser. In den USA finden es Spieler als Soccer-Draft-Spiel, Online-Soccer-Spiel oder kostenloses Fußball-Simulationsspiel. Anderswo ist es der Fantasy-Football-Draft und interaktive Fußballsimulator, den sie mögen. Kein Download. Keine Anmeldung. Es ist das einfachste Browser-Fußballspiel, das man schnell lernt.",
       "Die Anleitung unten zeigt jeden Schritt. Die FAQ sagt, wie der Fußballsimulator Spiele entscheidet und wie Elfmeterschießen funktionieren.",
     ],
@@ -115,7 +115,7 @@ export const howToPlay = {
     faq: [
       {
         q: "Was ist My World Cup XI?",
-        a: "Es ist ein kostenloses Browser-Fußballspiel und ein Fantasy-Football-Draft-Werkzeug. Du baust ein XI aus über 100 alten WM-Kadern. Die App simuliert ein volles Turnier. Du bekommst Gruppenphase, K.-o.-Baum und Elfmeterschießen. Es sagt dein finales Ergebnis voraus.",
+        a: "Es ist ein kostenloses Browser-Fußballspiel und ein Fantasy-Football-Draft-Werkzeug. Du baust ein XI aus 86 alten WM-Kadern. Die App simuliert ein volles Turnier. Du bekommst Gruppenphase, K.-o.-Baum und Elfmeterschießen. Es sagt dein finales Ergebnis voraus.",
       },
       {
         q: "Wie funktioniert die Fußballsimulation?",
@@ -140,7 +140,7 @@ export const howToPlay = {
   fr: {
     h1: "Comment jouer à My World Cup XI",
     hero: [
-      "Composez un XI de Coupe du Monde fantasy à partir de plus de 100 anciens effectifs. Puis regardez-les affronter les grands dans une phase de groupes et un tournoi à élimination simulés. My World Cup XI est un simulateur de football et un jeu de draft soccer. Vous choisissez une formation. Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Vous draftz votre équipe de rêve. Le moteur de match simule la Coupe du Monde. Vous avez la phase de groupes, l'arbre à élimination, la prolongation et les tirs au but.",
+      "Composez un XI de Coupe du Monde fantasy à partir de 86 anciens effectifs. Puis regardez-les affronter les grands dans une phase de groupes et un tournoi à élimination simulés. My World Cup XI est un simulateur de football et un jeu de draft soccer. Vous choisissez une formation. Choisissez 4-3-3, 4-4-2, 3-5-2 ou 4-2-3-1. Vous draftz votre équipe de rêve. Le moteur de match simule la Coupe du Monde. Vous avez la phase de groupes, l'arbre à élimination, la prolongation et les tirs au but.",
       "C'est une simulation de Coupe du Monde et un simulateur de tirs au but. Il tourne autour de l'appli. Vous pouvez prédire votre propre tournoi en ligne. C'est gratuit. C'est dans le navigateur. Aux États-Unis, on le trouve comme jeu de draft soccer, soccer en ligne ou jeu de simulation de football gratuit. Ailleurs, c'est le draft de Coupe du Monde fantasy et le simulateur de football interactif qu'ils aiment. Sans téléchargement. Sans inscription. C'est le jeu de football dans le navigateur le plus simple à apprendre vite.",
       "Le guide ci-dessous montre chaque étape. La FAQ dit comment le simulateur de football décide les matchs et comment fonctionnent les tirs au but.",
     ],
@@ -184,7 +184,7 @@ export const howToPlay = {
     faq: [
       {
         q: "Qu'est-ce que My World Cup XI ?",
-        a: "C'est un jeu de football gratuit dans le navigateur et un outil de draft de Coupe du Monde fantasy. Vous construisez un XI à partir de plus de 100 anciens effectifs de Coupe du Monde. L'appli simule un tournoi complet. Vous avez la phase de groupes, l'arbre à élimination et les tirs au but. Il prévoit votre résultat final.",
+        a: "C'est un jeu de football gratuit dans le navigateur et un outil de draft de Coupe du Monde fantasy. Vous construisez un XI à partir de 86 anciens effectifs de Coupe du Monde. L'appli simule un tournoi complet. Vous avez la phase de groupes, l'arbre à élimination et les tirs au but. Il prévoit votre résultat final.",
       },
       {
         q: "Comment fonctionne la simulation de football ?",
@@ -209,7 +209,7 @@ export const howToPlay = {
   ja: {
     h1: "My World Cup XI の遊び方",
     hero: [
-      "歴代チーム100以上からワールドカップの夢のXIを作る。そしてシミュレートされたグループリーグと決勝トーナメントで、レジェンドと戦う。My World Cup XIはフットボールシミュレーターであり、サッカードラフトゲームだ。フォーメーションを選ぶ。4-3-3、4-4-2、3-5-2、4-2-3-1から選ぶ。夢のチームをドラフトする。マッチエンジンがワールドカップをシミュレートする。グループリーグ、決勝トーナメント、延長、PK戦がある。",
+      "歴代チーム86からワールドカップの夢のXIを作る。そしてシミュレートされたグループリーグと決勝トーナメントで、レジェンドと戦う。My World Cup XIはフットボールシミュレーターであり、サッカードラフトゲームだ。フォーメーションを選ぶ。4-3-3、4-4-2、3-5-2、4-2-3-1から選ぶ。夢のチームをドラフトする。マッチエンジンがワールドカップをシミュレートする。グループリーグ、決勝トーナメント、延長、PK戦がある。",
       "これはワールドカップシミュレーションであり、PKシミュレーターだ。アプリ中心だ。オンラインで自分の大会を予想できる。無料。ブラウザで動く。アメリカではサッカードラフトゲーム、オンラインサッカーゲーム、無料サッカーシミュレーションゲームと呼ばれる。他の地域ではファンが戻るFantasy Football ドラフトであり、インタラクティブなサッカーシミュレーターだ。ダウンロード不要。登録不要。一番簡単に覚えられるブラウザサッカーゲームだ。",
       "下のガイドが各ステップを示す。FAQはサッカーシミュレーターが試合を決める仕組みとPKの仕組みを説明する。",
     ],
@@ -253,7 +253,7 @@ export const howToPlay = {
     faq: [
       {
         q: "My World Cup XI とは？",
-        a: "無料のブラウザサッカーゲームであり、Fantasy Football ドラフトツール。歴代ワールドカップチーム100以上から夢のXIを作る。アプリが大会全体をシミュレート。グループリーグ、決勝トーナメント、PK戦がある。最終結果を予想する。",
+        a: "無料のブラウザサッカーゲームであり、Fantasy Football ドラフトツール。歴代ワールドカップチーム86から夢のXIを作る。アプリが大会全体をシミュレート。グループリーグ、決勝トーナメント、PK戦がある。最終結果を予想する。",
       },
       {
         q: "フットボールシミュレーションの仕組みは？",
@@ -278,7 +278,7 @@ export const howToPlay = {
   es: {
     h1: "Cómo jugar a My World Cup XI",
     hero: [
-      "Arma un XI de la Copa del Mundo fantasy con más de 100 plantillas viejas. Luego míralos enfrentar a los grandes en una fase de grupos y un torneo de eliminación simulados. My World Cup XI es un simulador de fútbol y un juego de draft soccer. Elijes una formación. Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Draftas tu equipo de ensueño. El motor de partido simula el Mundial. Tienes fase de grupos, cuadro de eliminación, prórroga y penales.",
+      "Arma un XI de la Copa del Mundo fantasy con 86 plantillas viejas. Luego míralos enfrentar a los grandes en una fase de grupos y un torneo de eliminación simulados. My World Cup XI es un simulador de fútbol y un juego de draft soccer. Elijes una formación. Elige 4-3-3, 4-4-2, 3-5-2 o 4-2-3-1. Draftas tu equipo de ensueño. El motor de partido simula el Mundial. Tienes fase de grupos, cuadro de eliminación, prórroga y penales.",
       "Es una simulación del Mundial y un simulador de penales. Gira en torno a la app. Puedes predecir tu propio torneo en línea. Es gratis. Está en el navegador. En EE. UU. lo encuentran como juego de draft soccer, soccer en línea o juego de simulación de fútbol gratuito. En otros lados, es el draft de Copa del Mundo fantasy y el simulador de fútbol interactivo que prefieren. Sin descargas. Sin registro. Es el juego de fútbol del navegador más fácil de aprender rápido.",
       "La guía de abajo muestra cada paso. La FAQ dice cómo el simulador de fútbol decide los partidos y cómo funcionan los penales.",
     ],
@@ -322,7 +322,7 @@ export const howToPlay = {
     faq: [
       {
         q: "¿Qué es My World Cup XI?",
-        a: "Es un juego de fútbol gratuito en el navegador y una herramienta de draft de Copa del Mundo fantasy. Construyes un XI con más de 100 plantillas viejas del Mundial. La app simula un torneo completo. Tienes fase de grupos, cuadro de eliminación y penales. Predice tu resultado final.",
+        a: "Es un juego de fútbol gratuito en el navegador y una herramienta de draft de Copa del Mundo fantasy. Construyes un XI con 86 plantillas viejas del Mundial. La app simula un torneo completo. Tienes fase de grupos, cuadro de eliminación y penales. Predice tu resultado final.",
       },
       {
         q: "¿Cómo funciona la simulación de fútbol?",

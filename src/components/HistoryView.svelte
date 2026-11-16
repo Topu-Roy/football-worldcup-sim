@@ -125,11 +125,11 @@
 <section class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-14">
   <header>
     <p class="{mono} text-[10px] text-mint sm:text-[11px]">Match history</p>
-    <h1
+    <h2
       class="mt-2 font-display text-3xl leading-[0.95] tracking-[1px] sm:mt-3 sm:text-5xl"
     >
       Your World Cup runs
-    </h1>
+    </h2>
     <p class="mt-2 max-w-md text-sm text-secondary sm:mt-3">
       One entry per tournament, saved by date — expand a run to see your team
       and every result.

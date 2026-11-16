@@ -1,8 +1,12 @@
 ---
 import GameShell from "../components/GameShell.svelte";
 import Layout from "../layouts/Layout.astro";
+import { breadcrumbLd } from "../lib/breadcrumbs";
 import { ogImageFor } from "../lib/og";
 import { SITE_NAME as siteName, SITE_URL as siteUrl } from "../lib/site";
+
+const description =
+  "Play My World Cup XI: pick a formation, draft a fantasy World Cup XI from 86 historical squads and simulate the tournament with penalty shootouts.";
 
 const webAppLd = {
   "@context": "https://schema.org",
@@ -12,81 +16,96 @@ const webAppLd = {
   applicationCategory: "GameApplication",
   operatingSystem: "Web",
   browserRequirements: "Requires JavaScript",
-  description:
-    "Pick your formation, draft a fantasy World Cup XI from 86 historical squads (1970-2026), then run it through a simulated knockout tournament with penalty shootouts.",
+  description,
+  image: new URL(ogImageFor("/"), siteUrl).toString(),
   inLanguage: "en",
+  isPartOf: { "@id": `${siteUrl}/#website` },
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
   },
 };
+
+const breadcrumbs = breadcrumbLd("en", [
+  { name: "Home", path: "/" },
+  { name: "Play", path: "/game" },
+]);
 ---
 
 <Layout
   title="Play — My World Cup XI"
-  description="Pick your formation, draft a fantasy World Cup XI from 86 historical squads (1970-2026), then run it through a simulated knockout tournament with penalty shootouts."
+  description={description}
   ogImage={ogImageFor("/")}
-  jsonLd={webAppLd}
+  jsonLd={[breadcrumbs, webAppLd]}
 >
-  <GameShell client:only="svelte" />
+  <main>
+    <!-- Static H1 so crawlers and assistive tech get a heading before the client-only app hydrates. -->
+    <h1 class="sr-only">
+      Play My World Cup XI — draft a fantasy World Cup squad and simulate the
+      tournament
+    </h1>
 
-  <section
-    class="border-t border-white/10 bg-slate/20"
-    aria-labelledby="about-game"
-  >
-    <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
-      <p
-        class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
-      >
-        My World Cup XI
-      </p>
-      <h2
-        id="about-game"
-        class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
-      >
-        Draft history. Simulate the cup.
-      </h2>
-      <div
-        class="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
-      >
-        <p>
-          This free browser game lets you draft a fantasy World Cup XI from 86
-          historical national squads spanning 1970 to 2026 — then put your dream
-          team through a full simulated tournament against the all-time greats.
+    <GameShell client:only="svelte" />
+
+    <section
+      class="border-t border-white/10 bg-slate/20"
+      aria-labelledby="about-game"
+    >
+      <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+        <p
+          class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
+        >
+          My World Cup XI
         </p>
-        <p>
-          Pick a formation, draft eleven rounds with rerolls, and build
-          chemistry by stacking players from legendary sides like Brazil 1970,
-          France 1998 or Spain 2010. Every simulated match plays out ball by
-          ball with goals, stats and penalty shootouts, and your run is saved on
-          your device so you can chase a better outcome.
-        </p>
-        <p>
-          No download, no account, no cost — the whole World Cup simulator runs
-          in your browser on desktop and mobile.
-        </p>
+        <h2
+          id="about-game"
+          class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
+        >
+          Draft history. Simulate the cup.
+        </h2>
+        <div
+          class="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            This free browser game lets you draft a fantasy World Cup XI from 86
+            historical national squads spanning 1970 to 2026 — then put your
+            dream team through a full simulated tournament against the all-time
+            greats.
+          </p>
+          <p>
+            Pick a formation, draft eleven rounds with rerolls, and build
+            chemistry by stacking players from legendary sides like Brazil 1970,
+            France 1998 or Spain 2010. Every simulated match plays out ball by
+            ball with goals, stats and penalty shootouts, and your run is saved
+            on your device so you can chase a better outcome.
+          </p>
+          <p>
+            No download, no account, no cost — the whole World Cup simulator
+            runs in your browser on desktop and mobile.
+          </p>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/teams/"
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            Browse all squads
+          </a>
+          <a
+            href="/how-to-play/"
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            How to play
+          </a>
+          <a
+            href="/blog/"
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            Blog
+          </a>
+        </div>
       </div>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-        <a
-          href="/teams/"
-          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-        >
-          Browse all squads
-        </a>
-        <a
-          href="/how-to-play/"
-          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-        >
-          How to play
-        </a>
-        <a
-          href="/blog/"
-          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-        >
-          Blog
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </Layout>

@@ -1,65 +1,91 @@
 ---
 import HistoryView from "../components/HistoryView.svelte";
 import Layout from "../layouts/Layout.astro";
+import { breadcrumbLd } from "../lib/breadcrumbs";
 import { ogImageFor } from "../lib/og";
+import { SITE_URL as siteUrl } from "../lib/site";
+
+const description =
+  "Every match you've simulated, saved on your device: results, scores, penalty shootouts and your W/D/L record across all World Cup runs.";
+
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Match History — Your Fantasy World Cup Results",
+  description,
+  inLanguage: "en",
+  url: new URL("/history", siteUrl).toString(),
+  isPartOf: { "@id": `${siteUrl}/#website` },
+};
+
+const breadcrumbs = breadcrumbLd("en", [
+  { name: "Home", path: "/" },
+  { name: "Match History", path: "/history" },
+]);
 ---
 
 <Layout
   title="Match History — Your Fantasy World Cup Results"
-  description="Every match you've played in the fantasy World Cup simulator, stored on your device: results, scores, penalty shootouts and your W/D/L record across all runs."
+  description={description}
   ogImage={ogImageFor("/history")}
+  jsonLd={[breadcrumbs, pageLd]}
 >
-  <HistoryView client:only="svelte" />
+  <main>
+    <!-- Static H1 so crawlers and assistive tech get a heading before the client-only app hydrates. -->
+    <h1 class="sr-only">Match history — your fantasy World Cup results</h1>
 
-  <section
-    class="border-t border-white/10 bg-slate/20"
-    aria-labelledby="about-history"
-  >
-    <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
-      <p
-        class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
-      >
-        Match History
-      </p>
-      <h2
-        id="about-history"
-        class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
-      >
-        Every World Cup run you simulate, saved on your device
-      </h2>
-      <div
-        class="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
-      >
-        <p>
-          Finish a tournament in the fantasy World Cup simulator and the whole
-          run lands here — one record per tournament with your squad, every
-          simulated result, penalty shootouts and your final placement.
-        </p>
-        <p>
-          Each entry tracks your matches round by round: group stage results,
-          knockout ties, goals for and against, clean sheets and your W/D/L
-          record. Expand any run to relive the bracket and see which historical
-          squad carried you to the trophy.
-        </p>
-        <p>
-          Everything is stored locally in your browser — no account, no upload,
-          nothing leaves your device.
-        </p>
-      </div>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-        <a
-          href="/game"
-          class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+    <HistoryView client:only="svelte" />
+
+    <section
+      class="border-t border-white/10 bg-slate/20"
+      aria-labelledby="about-history"
+    >
+      <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+        <p
+          class="text-center font-mono text-[11px] font-semibold tracking-[1.8px] text-mint uppercase"
         >
-          Play a tournament
-        </a>
-        <a
-          href="/teams/"
-          class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          Match History
+        </p>
+        <h2
+          id="about-history"
+          class="mt-3 text-center font-display text-4xl leading-[0.9] tracking-[0.5px] sm:text-5xl"
         >
-          Browse all squads
-        </a>
+          Every World Cup run you simulate, saved on your device
+        </h2>
+        <div
+          class="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
+        >
+          <p>
+            Finish a tournament in the fantasy World Cup simulator and the whole
+            run lands here — one record per tournament with your squad, every
+            simulated result, penalty shootouts and your final placement.
+          </p>
+          <p>
+            Each entry tracks your matches round by round: group stage results,
+            knockout ties, goals for and against, clean sheets and your W/D/L
+            record. Expand any run to relive the bracket and see which
+            historical squad carried you to the trophy.
+          </p>
+          <p>
+            Everything is stored locally in your browser — no account, no
+            upload, nothing leaves your device.
+          </p>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/game"
+            class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
+          >
+            Play a tournament
+          </a>
+          <a
+            href="/teams/"
+            class="rounded-full border border-white/15 px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+          >
+            Browse all squads
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </Layout>

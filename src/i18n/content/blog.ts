@@ -166,7 +166,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Was es ist",
             body: [
-              "Ein kostenloses Browser-Soccer-Spiel. Du draftest ein Fantasy-WM-XI aus über 100 historischen Kadern, und die Engine simuliert ein komplettes Turnier - von Gruppen bis Finale.",
+              "Ein kostenloses Browser-Soccer-Spiel. Du draftest ein Fantasy-WM-XI aus 86 historischen Kadern, und die Engine simuliert ein komplettes Turnier - von Gruppen bis Finale.",
             ],
           },
           {
@@ -298,7 +298,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "C'est quoi",
             body: [
-              "Un jeu de soccer gratuit dans le navigateur. Vous draft un XI fantasy Coupe du Monde parmi plus de 100 selections historiques, et le moteur simule un tournoi complet - des groupes a la finale.",
+              "Un jeu de soccer gratuit dans le navigateur. Vous draft un XI fantasy Coupe du Monde parmi 86 selections historiques, et le moteur simule un tournoi complet - des groupes a la finale.",
             ],
           },
           {
@@ -414,7 +414,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "それは何か",
             body: [
-              "無料のブラウザー・サッカーゲーム。100 を超える歴代代表からファンタジーW杯 XI をドラフトし、エンジンが大会全体をシミュレートする——グループから決勝まで。",
+              "無料のブラウザー・サッカーゲーム。歴代代表86チームからファンタジーW杯 XI をドラフトし、エンジンが大会全体をシミュレートする——グループから決勝まで。",
             ],
           },
           {
@@ -530,7 +530,7 @@ export const blog: Record<Locale, BlogLocale> = {
           {
             h2: "Qué es",
             body: [
-              "Un juego de soccer gratuito en el navegador. Draftas un XI de Copa del Mundo fantasy de más de 100 plantillas históricas y el motor simula un torneo completo - de grupos a final.",
+              "Un juego de soccer gratuito en el navegador. Draftas un XI de Copa del Mundo fantasy de 86 plantillas históricas y el motor simula un torneo completo - de grupos a final.",
             ],
           },
           {

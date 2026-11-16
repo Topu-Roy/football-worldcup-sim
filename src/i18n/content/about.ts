@@ -79,7 +79,7 @@ export const about = {
     ],
     systems: [
       "My World Cup XI ist ein fokussierter Fußballsimulator. Drei Systeme arbeiten zusammen.",
-      "Erstens hält die Kaderbibliothek über 100 alte Kadern. Jeder wird nach derselben Skala bewertet. Sie deckt Reflexe, Zweikampf, Pass, Abschluss, Tempo und Übersicht. Deine Picks und die KI-Teams sind fair. Ein Angriff von Brasilien 1970 kann in derselben WM-Simulation auf eine Abwehr von Deutschland 2014 treffen.",
+      "Erstens hält die Kaderbibliothek 86 alte Kadern. Jeder wird nach derselben Skala bewertet. Sie deckt Reflexe, Zweikampf, Pass, Abschluss, Tempo und Übersicht. Deine Picks und die KI-Teams sind fair. Ein Angriff von Brasilien 1970 kann in derselben WM-Simulation auf eine Abwehr von Deutschland 2014 treffen.",
       "Zweitens simuliert eine echte Spielengine jedes Spiel. Sie spielt Stück für Stück. Sie zeigt Ballbesitz, Schüsse und Chancen. Dann regelt sie Verlängerung und einen Elfmeter-Simulator. Die Engine ist auf echte WM-Ergebnisse abgestimmt. Aber sie kopiert kein echtes Spiel.",
       "Drittens belohnt ein Chemie-Modell gute Teams. Draftest du Spieler derselben Nation, spielen sie besser zusammen. So schlägt ein schlauer WM-Traumteam-Builder ein Team voller Statistik.",
       "Es ist ein Football-Draft-Simulator, der Balance respektiert. Es ist ein WM-Fantasy-Spiel, in dem der Draft am meisten zählt. Spieler nennen es interaktiver Fußballsimulator und Fantasy-Football-Draft. Das Ergebnis wird von deinem Team verdient, nicht geschenkt. Öffne das Browser-Fußballspiel. Baue einen Kader. Die Engine macht den Rest.",
@@ -129,7 +129,7 @@ export const about = {
     ],
     systems: [
       "My World Cup XI est un simulateur de football ciblé. Trois systèmes travaillent ensemble.",
-      "D'abord, la bibliothèque d'effectifs contient plus de 100 anciennes équipes. Chacune est notée sur la même échelle. Elle couvre réflexes, tacles, passe, finition, vitesse et vision. Vos choix et les équipes IA sont équitables. Une attaque du Brésil 1970 peut rencontrer une défense de l'Allemagne 2014 dans la même simulation de Coupe du Monde.",
+      "D'abord, la bibliothèque d'effectifs contient 86 anciennes équipes. Chacune est notée sur la même échelle. Elle couvre réflexes, tacles, passe, finition, vitesse et vision. Vos choix et les équipes IA sont équitables. Une attaque du Brésil 1970 peut rencontrer une défense de l'Allemagne 2014 dans la même simulation de Coupe du Monde.",
       "Ensuite, un vrai moteur de match simule chaque jeu. Il joue morceau par morceau. Il montre possession, tirs et occasions. Puis il règle la prolongation et un simulateur de tirs au but. Le moteur est calé pour ressembler aux vrais scores de Coupe du Monde. Mais il ne copie aucun match réel.",
       "Troisièmement, un modèle de chimie récompense les bonnes équipes. Si vous draftz des joueurs de la même nation, ils jouent mieux ensemble. Ainsi un malin constructeur d'équipe de rêve bat une équipe de grosses stats.",
       "C'est un simulateur de draft de football qui respecte l'équilibre. C'est un jeu de Coupe du Monde fantasy où le draft compte le plus. Les joueurs l'appellent simulateur de football interactif et draft de Coupe du Monde fantasy. Le résultat est gagné par votre équipe, pas offert. Ouvrez le jeu de football dans le navigateur. Construisez un effectif. Le moteur fait le reste.",
@@ -179,7 +179,7 @@ export const about = {
     ],
     systems: [
       "My World Cup XIは焦点を絞ったフットボールシミュレーター。3つのシステムが連携する。",
-      "1つ目、チームライブラリは歴代チーム100以上を保持。すべて同じ尺度で評価。反射、タックル、パス、フィニッシュ、スピード、視野を含む。あなたの指名もAIチームも公平。ブラジル1970の攻撃がドイツ2014の守備と同じワールドカップシミュレーションで当たれる。",
+      "1つ目、チームライブラリは歴代チーム86を保持。すべて同じ尺度で評価。反射、タックル、パス、フィニッシュ、スピード、視野を含む。あなたの指名もAIチームも公平。ブラジル1970の攻撃がドイツ2014の守備と同じワールドカップシミュレーションで当たれる。",
       "2つ目、本物のマッチエンジンが各試合をシミュレート。少しずつ進む。ボール保持率、シュート、チャンスを見せる。そして延長とPKシミュレーターを決める。エンジンは本物のワールドカップ結果に近くなるよう調整されている。しかし本物の試合はコピーしない。",
       "3つ目、ケミストリーモデルが良いチームを報いる。同じ国の選手をドラフトすると一緒に良くプレイする。だから賢いワールドカップ夢チームビルダーがビッグスタッツのチームに勝つ。",
       "これはバランスを尊重するフットボールドラフトシミュレーター。ドラフトが最も重要なワールドカップファンタジーゲームだ。プレイヤーはインタラクティブなサッカーシミュレーターやFantasy Football ドラフトと呼ぶ。結果はチームが勝ち取るもので、与えられるものではない。ブラウザサッカーゲームを開き、チームを作る。後はエンジンの仕事だ。",
@@ -229,7 +229,7 @@ export const about = {
     ],
     systems: [
       "My World Cup XI es un simulador de fútbol enfocado. Tres sistemas trabajan juntos.",
-      "Primero, la biblioteca de plantillas tiene más de 100 equipos viejos. Cada uno se valora en la misma escala. Cubre reflejos, entradas, pase, definición, velocidad y visión. Tus elecciones y los equipos IA son justas. Un ataque del Brasil 1970 puede toparse con una defensa de Alemania 2014 en la misma simulación del Mundial.",
+      "Primero, la biblioteca de plantillas tiene 86 equipos viejos. Cada uno se valora en la misma escala. Cubre reflejos, entradas, pase, definición, velocidad y visión. Tus elecciones y los equipos IA son justas. Un ataque del Brasil 1970 puede toparse con una defensa de Alemania 2014 en la misma simulación del Mundial.",
       "Segundo, un motor de partido real simula cada juego. Juega parte por parte. Muestra posesión, tiros y ocasiones. Luego resuelve prórroga y un simulador de penales. El motor está afinado para sentirse como marcadores reales del Mundial. Pero no copia ningún partido real.",
       "Tercero, un modelo de química premia buenos equipos. Si draftas jugadores de la misma nación, juegan mejor juntos. Así un listo constructor de equipo de ensueño vence a un equipo de stats grandes.",
       "Es un simulador de draft de fútbol que respeta el equilibrio. Es un juego de Copa del Mundo fantasy donde el draft cuenta más. Los jugadores lo llaman simulador de fútbol interactivo y draft de Copa del Mundo fantasy. El resultado lo gana tu equipo, no se regala. Abre el juego de fútbol del navegador. Arma una plantilla. El motor hace el resto.",
