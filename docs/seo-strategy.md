@@ -2,6 +2,8 @@
 
 Goal: search should treat this site as a **high-value web app**, not a content site.
 
+All copy follows [content-guide.md](./content-guide.md). Low-value copy fails the quality gate, even when the SEO is right.
+
 ## Rules
 
 **We will not publish:**
@@ -16,7 +18,7 @@ Goal: search should treat this site as a **high-value web app**, not a content s
 
 1. It offers something Wikipedia and Transfermarkt do not.
 2. It has an interactive element (builder, simulator, comparison, filter).
-3. Editorial pages have 800+ words of original writing.
+3. Editorial pages have 800+ words of original writing and follow the [content guide](./content-guide.md).
 4. Sources, author and last-updated date are visible.
 5. It answers a different query than existing pages.
 6. A user would bookmark it.
