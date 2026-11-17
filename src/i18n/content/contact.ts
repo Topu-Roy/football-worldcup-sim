@@ -10,7 +10,7 @@
     exploreTitle: "Explore the game",
     body: [
       "When you write in, a few details help us act fast. If a match in the world cup simulation felt off, tell us the formations. Tell us the round — group stage or knockout bracket. Then we can see how the match engine decided it. If a player rating looks wrong, name the squad and the position. The football simulator compares every draft on one scale. One wrong rating can tilt a tournament.",
-      "Feature ideas are welcome too. More old squads. Extra football formations. A deeper penalty shootout simulator. Or a way to share your finished cup. All are on the table for a world cup fantasy game that keeps growing. We also love hearing from communities. Groups that run a fantasy football draft. Coaches of a youth side. Anyone who wants a free browser football game for the classroom or the locker room.",
+      "Feature ideas are welcome too. More old squads. Extra football formations. A deeper penalty shootout simulator. Or more ways to share your finished cup. All are on the table for a world cup fantasy game that keeps growing. We also love hearing from communities. Groups that run a fantasy football draft. Coaches of a youth side. Anyone who wants a free browser football game for the classroom or the locker room.",
       "The online football game runs on any device. No sign-up. So it fits a lesson or a match-day warm-up. This is a football game with no download. You can open it, play a round, and tell us what to change in the same sitting. However you found us — as a world cup simulator, a football draft game, or the easiest interactive football simulator to open between matches — your notes make the next build better. Get in touch. Help shape the app you play.",
     ],
     contactCta: "Contact us",
@@ -27,7 +27,7 @@
     exploreTitle: "Das Spiel entdecken",
     body: [
       "Wenn du schreibst, helfen uns ein paar Details, schnell zu handeln. Wenn ein Spiel in der WM-Simulation falsch wirkte, sag uns die Formationen. Sag uns die Runde — Gruppenphase oder K.-o.-Baum. Dann sehen wir, wie die Spielengine entschieden hat. Wenn eine Spielerbewertung falsch wirkt, nenne Kader und Position. Der Fußballsimulator vergleicht jeden Draft auf einer Skala. Eine falsche Bewertung kann ein Turnier kippen.",
-      "Funktionsideen sind ebenfalls willkommen. Mehr alte Kadern. Extra Football-Formationen. Ein tieferer Elfmeter-Simulator. Oder eine Möglichkeit, deinen fertigen Pokal zu teilen. Alles ist auf dem Tisch für ein WM-Fantasy-Spiel, das wächst. Wir hören gern von Communities. Gruppen, die einen Fantasy-Football-Draft betreiben. Trainer einer Jugendmannschaft. Jeder, der ein kostenloses Browser-Fußballspiel für Klassenzimmer oder Umkleideraum will.",
+      "Funktionsideen sind ebenfalls willkommen. Mehr alte Kadern. Extra Football-Formationen. Ein tieferer Elfmeter-Simulator. Oder mehr Wege, deinen fertigen Pokal zu teilen. Alles ist auf dem Tisch für ein WM-Fantasy-Spiel, das wächst. Wir hören gern von Communities. Gruppen, die einen Fantasy-Football-Draft betreiben. Trainer einer Jugendmannschaft. Jeder, der ein kostenloses Browser-Fußballspiel für Klassenzimmer oder Umkleideraum will.",
       "Das Online-Soccer-Spiel läuft auf jedem Gerät. Keine Anmeldung. Es passt in eine Lektion oder ein Aufwärmen am Spieltag. Dies ist ein Soccer-Spiel ohne Download. Du kannst es öffnen, eine Runde spielen und uns im selben Sitzen sagen, was sich ändern soll. Wie auch immer du uns fandest — als WM-Simulator, Soccer-Draft-Spiel oder einfachster interaktiver Fußballsimulator zwischen Spielen — deine Notizen machen den nächsten Build besser. Nimm Kontakt auf. Hilf, die App zu formen, die du spielst.",
     ],
     contactCta: "Kontakt aufnehmen",
@@ -44,7 +44,7 @@
     exploreTitle: "Découvrir le jeu",
     body: [
       "Quand vous écrivez, quelques détails nous aident à agir vite. Si un match dans la simulation de Coupe du Monde a semblé bizarre, dites les formations. Dites le tour — phase de groupes ou arbre à élimination. Nous verrons alors comment le moteur a décidé. Si une note de joueur semble fausse, nommez l'effectif et le poste. Le simulateur de football compare chaque draft sur une même échelle. Une mauvaise note peut pencher un tournoi.",
-      "Les idées de fonctionnalités sont les bienvenues aussi. Plus d'anciens effectifs. Des formations de football en plus. Un simulateur de tirs au but plus profond. Ou un moyen de partager votre coupe finie. Tout est sur la table pour un jeu de Coupe du Monde fantasy qui grandit. Nous aimons aussi entendre les communautés. Groupes qui font un draft de Coupe du Monde fantasy. Entraîneurs d'équipe de jeunes. Chacun qui veut un jeu de football gratuit dans le navigateur pour la classe ou le vestiaire.",
+      "Les idées de fonctionnalités sont les bienvenues aussi. Plus d'anciens effectifs. Des formations de football en plus. Un simulateur de tirs au but plus profond. Ou plus de façons de partager votre Coupe terminée. Tout est sur la table pour un jeu de Coupe du Monde fantasy qui grandit. Nous aimons aussi entendre les communautés. Groupes qui font un draft de Coupe du Monde fantasy. Entraîneurs d'équipe de jeunes. Chacun qui veut un jeu de football gratuit dans le navigateur pour la classe ou le vestiaire.",
       "Le soccer en ligne tourne sur tout appareil. Sans inscription. Il passe dans une leçon ou un échauffement de match day. C'est un jeu soccer sans téléchargement. Vous pouvez l'ouvrir, jouer une manche et nous dire quoi changer dans la même séance. Quelle que soit la façon dont vous nous avez trouvés — comme simulateur de Coupe du Monde, jeu de draft soccer ou plus simple simulateur de football interactif entre matchs — vos notes améliorent la prochaine version. Contactez-nous. Aidez à façonner l'appli que vous jouez.",
     ],
     contactCta: "Nous contacter",
@@ -61,7 +61,7 @@
     exploreTitle: "ゲームを探検する",
     body: [
       "書くとき、いくつかの詳細があれば早く対応できる。ワールドカップシミュレーションで試合がおかしかったら、フォーメーションを教えて。ラウンド（グループリーグか決勝トーナメント）を教えて。そうすればマッチエンジンがどう決めたか分かる。選手レーティングが違っていたら、チームとポジションを名乗ってほしい。フットボールシミュレーターはすべてのドラフトを1つの尺度で比べる。1つの誤ったレーティングが大会を傾けることがある。",
-      "機能アイデアも歓迎。歴代チームをもっと。フットボールフォーメーションを追加。より深いPKシミュレーター。あるいは完成杯を共有する方法。成長し続けるワールドカップファンタジーゲームのために全部あり。コミュニティの声も大歓迎。Fantasy Football ドラフトを運営するグループ。ユースチームのコーチ。教室やロッカールームに無料ブラウザサッカーゲームを欲しい人。",
+      "機能アイデアも歓迎。歴代チームをもっと。フットボールフォーメーションを追加。より深いPKシミュレーター。あるいは完成したカップを共有する方法を増やす。成長し続けるワールドカップファンタジーゲームのために全部あり。コミュニティの声も大歓迎。Fantasy Football ドラフトを運営するグループ。ユースチームのコーチ。教室やロッカールームに無料ブラウザサッカーゲームを欲しい人。",
       "オンラインサッカーゲームはどの端末でも動く。登録不要。授業や試合前のウォームアップに収まる。これはダウンロード不要のサッカーゲーム。開いて、1ラウンド遊んで、同じ席で変更を言える。ワールドカップシミュレーターとして、サッカードラフトゲームとして、あるいは試合の合間に開く一番簡単なインタラクティブなサッカーシミュレーターとして見つけたとしても——あなたのメモが次期ビルドを良くする。お問い合わせして、遊ぶアプリを形作ろう。",
     ],
     contactCta: "お問い合わせ",
@@ -78,7 +78,7 @@
     exploreTitle: "Explora el juego",
     body: [
       "Cuando escribes, unos detalles nos ayudan a actuar rápido. Si un partido en la simulación del Mundial se sintió raro, dinos las formaciones. Dinos la ronda — fase de grupos o cuadro de eliminación. Así vemos cómo decidió el motor. Si una valoración de jugador parece mala, nombra la plantilla y el puesto. El simulador de fútbol compara cada draft en una misma escala. Una mala valoración puede inclinar un torneo.",
-      "Las ideas de funciones también son bienvenidas. Más plantillas viejas. Formaciones de fútbol extra. Un simulador de penales más profundo. O una forma de compartir tu copa terminada. Todo está sobre la mesa para un juego de Copa del Mundo fantasy que sigue creciendo. También nos gusta oír a las comunidades. Grupos que corren un draft de Copa del Mundo fantasy. Entrenadores de un equipo juvenil. Cualquiera que quiera un juego de fútbol gratuito del navegador para el aula o el vestuario.",
+      "Las ideas de funciones también son bienvenidas. Más plantillas viejas. Formaciones de fútbol extra. Un simulador de penales más profundo. O más formas de compartir tu copa terminada. Todo está sobre la mesa para un juego de Copa del Mundo fantasy que sigue creciendo. También nos gusta oír a las comunidades. Grupos que corren un draft de Copa del Mundo fantasy. Entrenadores de un equipo juvenil. Cualquiera que quiera un juego de fútbol gratuito del navegador para el aula o el vestuario.",
       "El soccer en línea funciona en cualquier dispositivo. Sin registro. Así cabe en una lección o un calentamiento de partido. Este es un juego soccer sin descargas. Puedes abrirlo, jugar una ronda y decirnos qué cambiar en la misma sesión. Como nos hayas encontrado — como simulador del Mundial, juego de draft soccer o el simulador de fútbol interactivo más fácil entre partidos — tus notas mejoran la próxima versión. Contáctanos. Ayuda a moldear la app que juegas.",
     ],
     contactCta: "Contáctanos",

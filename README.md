@@ -35,7 +35,7 @@ astro dev stop           # shut it down
 2. **Draft** — 11 rounds: a full XI. Each round offers a random nation/year roster filtered to open slots. You get 3 rerolls for the whole draft. Players carry tier badges and live chemistry. "Reset draft" restarts the same shape at round one; "Change formation" goes back to the shape picker.
 3. **Team ready** — review the XI, swap players between slots, then start. Out-of-position players are penalized.
 4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. The live group table updates as results land, and the top 2 advance to R16 → QF → SF → final against fresh opponents. The run starts on Play (not on mount) and pauses when the tab is hidden.
-5. **Results** — final placement, squad stats and replayable match cards (plus the final group table when eliminated in the group stage). A loss allows **one Retry** with the same XI; "Play again" clears the run and starts a new draft. "View history" opens `/history`.
+5. **Results** — final placement, squad stats and replayable match cards (plus the final group table when eliminated in the group stage). The top Share button exports the result and XI as an image. A loss allows **one Retry** with the same XI; "Play again" clears the run and starts a new draft. "View history" opens `/history`.
 
 ## Persistence
 

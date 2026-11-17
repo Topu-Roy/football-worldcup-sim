@@ -9,9 +9,11 @@
   } from "../lib/tournament.js";
   import Confetti from "./Confetti.svelte";
   import PitchView from "./PitchView.svelte";
+  import ShareResultButton from "./ShareResultButton.svelte";
   import SquadStatsList from "./SquadStatsList.svelte";
   import StandingsTable from "./StandingsTable.svelte";
   import { confirmAction } from "../lib/confirmDialog.js";
+  import { outcomeTitle } from "../lib/shareCard.js";
   import { RotateCcw, Trophy, Play } from "@lucide/svelte";
 
   let {
@@ -82,16 +84,6 @@
     onReset();
   }
 
-  /** Headline text for the tournament's final placement. */
-  function outcomeTitle(o: string): string {
-    if (o === "champion") return "CHAMPION";
-    if (o === "runners-up") return "RUNNERS-UP";
-    if (o === "semi-final-exit") return "SEMI-FINAL EXIT";
-    if (o === "quarter-final-exit") return "QUARTER-FINAL EXIT";
-    if (o === "round-of-16-exit") return "ROUND OF 16 EXIT";
-    return "ELIMINATED IN GROUP STAGE";
-  }
-
   const mono = "font-mono text-[11px] font-semibold tracking-[1.8px] uppercase";
   const pillOutline =
     "font-mono text-xs font-semibold tracking-[1.5px] uppercase text-mint border border-mint rounded-full px-5 py-2.5 bg-transparent transition-all duration-150 hover:bg-mint hover:text-black";
@@ -119,6 +111,7 @@
       <p class="{mono} mt-3 text-secondary">Tournament complete</p>
     </div>
     <div class="flex flex-wrap items-center gap-3">
+      <ShareResultButton {tournament} {formationKey} {stats} />
       <a
         href="/history/"
         class="{pillOutline} hidden items-center gap-2 lg:inline-flex"
@@ -173,7 +166,7 @@
         ? "var(--color-mint)"
         : "var(--color-pink)"}
     >
-      {outcomeTitle(tournament.outcome ?? "")}
+      {outcomeTitle(tournament.outcome)}
     </p>
     {#if tournament.outcome !== "champion" && !canRerun}
       <p class="mt-3 text-xs text-secondary">
@@ -216,19 +209,21 @@
         <Play class="h-3.5 w-3.5" /> Retry
       </button>
     {/if}
-    <button
-      type="button"
-      class="{pillOutline} flex w-full items-center justify-center gap-2"
-      onclick={handlePlayAgain}
-    >
-      <RotateCcw class="h-3.5 w-3.5" /> Play again
-    </button>
-    <a
-      href="/history/"
-      class="flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-mono text-xs font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-    >
-      View history
-    </a>
+    <div class="grid grid-cols-2 gap-2 sm:gap-3">
+      <button
+        type="button"
+        class="{pillOutline} flex w-full items-center justify-center gap-2"
+        onclick={handlePlayAgain}
+      >
+        <RotateCcw class="h-3.5 w-3.5" /> Play again
+      </button>
+      <a
+        href="/history/"
+        class="flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-mono text-xs font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+      >
+        View history
+      </a>
+    </div>
   </div>
 
   {#if stats.played > 0}
