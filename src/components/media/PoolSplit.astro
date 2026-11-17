@@ -1,0 +1,75 @@
+---
+import { diagramCopy } from "../../i18n/content/media";
+import type { Locale } from "../../i18n/config";
+
+interface Props {
+  lang: Locale;
+  class?: string;
+}
+
+const { lang, class: className = "" } = Astro.props;
+const copy = diagramCopy[lang].pool;
+const [draftable, draftableLabel, ai, aiLabel, total, totalLabel] = copy.labels;
+---
+
+<figure class={`m-0 ${className}`}>
+  <svg
+    viewBox="0 0 800 320"
+    role="img"
+    aria-labelledby="pool-split-title pool-split-desc"
+    class="block h-auto w-full rounded-2xl border border-imageframe bg-slate/40"
+  >
+    <title id="pool-split-title">77 + 9 = 86</title>
+    <desc id="pool-split-desc">{copy.aria}</desc>
+
+    <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+      <rect
+        x="24"
+        y="64"
+        width="212"
+        height="192"
+        rx="20"
+        fill="#1b1b1b"
+        stroke="#313131"></rect>
+      <text x="130" y="150" fill="#3cffd0" font-size="64" font-weight="700"
+        >{draftable}</text
+      >
+      <text x="130" y="190" fill="#949494" font-size="16">{draftableLabel}</text
+      >
+
+      <text x="288" y="172" fill="#ffffff" font-size="40" font-weight="700"
+        >+</text
+      >
+
+      <rect
+        x="332"
+        y="64"
+        width="168"
+        height="192"
+        rx="20"
+        fill="#1b1b1b"
+        stroke="#313131"></rect>
+      <text x="416" y="150" fill="#3cffd0" font-size="64" font-weight="700"
+        >{ai}</text
+      >
+      <text x="416" y="190" fill="#949494" font-size="16">{aiLabel}</text>
+
+      <text x="548" y="172" fill="#ffffff" font-size="40" font-weight="700"
+        >=</text
+      >
+
+      <rect
+        x="592"
+        y="64"
+        width="184"
+        height="192"
+        rx="20"
+        fill="#1b1b1b"
+        stroke="#3cffd0"></rect>
+      <text x="684" y="150" fill="#3cffd0" font-size="64" font-weight="700"
+        >{total}</text
+      >
+      <text x="684" y="190" fill="#949494" font-size="16">{totalLabel}</text>
+    </g>
+  </svg>
+</figure>

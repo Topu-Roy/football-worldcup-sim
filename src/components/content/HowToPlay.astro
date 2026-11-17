@@ -9,6 +9,7 @@ import { SITE_URL as siteUrl } from "../../lib/site";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
 import { CONTENT_DATES } from "../../lib/content-dates";
 import { ogImageFor } from "../../lib/og";
+import Figure from "../media/Figure.astro";
 
 interface Props {
   lang: Locale;
@@ -19,6 +20,15 @@ const { lang, path } = Astro.props;
 const c = howToPlay[lang];
 const m = meta[lang].howToPlay;
 const t = ui[lang];
+
+// One screenshot per step, in the same order as the content.
+const stepFigures = [
+  "formation",
+  "draft",
+  "chemistry",
+  "group",
+  "result",
+] as const;
 
 const articleLd = {
   "@context": "https://schema.org",
@@ -82,7 +92,7 @@ const faqLd = {
         </h2>
         <ol class="mt-6 grid gap-4 sm:grid-cols-2">
           {
-            c.steps.map((step) => (
+            c.steps.map((step, i) => (
               <li class="flex flex-col rounded-2xl border border-white/10 bg-slate/40 p-5">
                 <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint">
                   {step.n}
@@ -93,6 +103,12 @@ const faqLd = {
                 <span class="mt-2 block text-sm leading-relaxed text-secondary">
                   {step.body}
                 </span>
+                <Figure
+                  id={stepFigures[i] ?? "formation"}
+                  lang={lang}
+                  variant="grid"
+                  class="mt-4"
+                />
               </li>
             ))
           }
@@ -104,6 +120,7 @@ const faqLd = {
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.loop.map((p) => <p>{p}</p>)}
         </div>
+        <Figure id="penalties" lang={lang} class="mx-auto mt-8 max-w-2xl" />
 
         <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
           {c.faqTitle}
@@ -125,7 +142,7 @@ const faqLd = {
 
         <div class="mt-10">
           <a
-            href="/game"
+            href="/game/"
             class="rounded-full bg-mint px-8 py-3 font-mono text-[11px] font-semibold tracking-[1.8px] text-black uppercase transition-colors duration-150 hover:bg-white"
           >
             {c.ctaStart}

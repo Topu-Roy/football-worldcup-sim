@@ -6,6 +6,7 @@ import { localizedPath } from "../../i18n/t";
 import type { Locale } from "../../i18n/config";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
 import { ogImageFor } from "../../lib/og";
+import Figure from "../media/Figure.astro";
 import { SITE_URL } from "../../lib/site";
 
 interface Props {
@@ -96,6 +97,13 @@ const faqLd = c.index.faq
                   href={localizedPath("/blog/" + p.slug, lang)}
                   class="block rounded-2xl border border-white/10 bg-slate/40 p-6 transition-colors hover:border-mint"
                 >
+                  <Figure
+                    id="cover"
+                    lang={lang}
+                    variant="cover"
+                    caption={false}
+                    class="mb-5"
+                  />
                   <span class="font-mono text-[10px] font-semibold tracking-[1.5px] text-mint uppercase">
                     {p.date}
                   </span>

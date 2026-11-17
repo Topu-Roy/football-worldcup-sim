@@ -22,6 +22,7 @@ export const home = {
     ],
     stepsEyebrow: "How it works",
     stepsTitle: "Four rounds to glory",
+    galleryTitle: "See a run from first pick to final",
     steps: [
       {
         n: "01",
@@ -116,6 +117,7 @@ export const home = {
     ],
     stepsEyebrow: "So funktioniert's",
     stepsTitle: "Vier Runden zum Ruhm",
+    galleryTitle: "Ein Lauf vom ersten Pick bis zum Finale",
     steps: [
       {
         n: "01",
@@ -210,6 +212,7 @@ export const home = {
     ],
     stepsEyebrow: "Comment ça marche",
     stepsTitle: "Quatre tours vers la gloire",
+    galleryTitle: "Une partie du premier choix à la finale",
     steps: [
       {
         n: "01",
@@ -303,6 +306,7 @@ export const home = {
     ],
     stepsEyebrow: "遊び方",
     stepsTitle: "栄光までの4ステップ",
+    galleryTitle: "最初の指名から決勝までの流れ",
     steps: [
       {
         n: "01",
@@ -396,6 +400,7 @@ export const home = {
     ],
     stepsEyebrow: "Cómo funciona",
     stepsTitle: "Cuatro rondas a la gloria",
+    galleryTitle: "Una partida del primer pick a la final",
     steps: [
       {
         n: "01",

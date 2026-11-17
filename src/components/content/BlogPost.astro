@@ -7,6 +7,9 @@ import type { Locale } from "../../i18n/config";
 import { SITE_URL as siteUrl, SITE_NAME } from "../../lib/site";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
 import { ogImageFor } from "../../lib/og";
+import Figure from "../media/Figure.astro";
+import RatingModel from "../media/RatingModel.astro";
+import type { MediaId } from "../../data/media";
 
 interface Props {
   lang: Locale;
@@ -20,6 +23,26 @@ const t = ui[lang];
 const post = c.posts.find((p) => p.slug === slug);
 
 if (!post) return Astro.redirect("/404");
+
+// Screenshot per section index for the how-it-works guide. "ratings" renders
+// the inline diagram instead of a screenshot. Keep this list aligned with the
+// section order in the en copy; localized posts share the same order.
+const sectionFigures: (MediaId | "ratings" | null)[] =
+  slug === "how-it-works"
+    ? [
+        null,
+        "ratings",
+        null,
+        "draft",
+        "chemistry",
+        null,
+        "penalties",
+        "result",
+        null,
+        null,
+        null,
+      ]
+    : [];
 
 const postUrl = new URL(localizedPath(path, lang), siteUrl).toString();
 const articleLd = {
@@ -105,9 +128,18 @@ const faqLd =
           </a>
         </p>
 
+        <Figure
+          id="cover"
+          lang={lang}
+          variant="cover"
+          caption={false}
+          loading="eager"
+          class="mt-8"
+        />
+
         <div class="mt-8 space-y-8">
           {
-            post.sections.map((s) => (
+            post.sections.map((s, i) => (
               <section>
                 <h2 class="font-display text-3xl tracking-[0.5px]">{s.h2}</h2>
                 <div class="mt-4 space-y-4 text-sm leading-relaxed text-secondary">
@@ -115,6 +147,15 @@ const faqLd =
                     <p>{para}</p>
                   ))}
                 </div>
+                {sectionFigures[i] === "ratings" ? (
+                  <RatingModel lang={lang} class="mt-6" />
+                ) : sectionFigures[i] ? (
+                  <Figure
+                    id={sectionFigures[i] as MediaId}
+                    lang={lang}
+                    class="mt-6"
+                  />
+                ) : null}
               </section>
             ))
           }

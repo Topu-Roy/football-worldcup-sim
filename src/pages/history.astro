@@ -3,6 +3,7 @@ import HistoryView from "../components/HistoryView.svelte";
 import Layout from "../layouts/Layout.astro";
 import { breadcrumbLd } from "../lib/breadcrumbs";
 import { ogImageFor } from "../lib/og";
+import Figure from "../components/media/Figure.astro";
 import { SITE_URL as siteUrl } from "../lib/site";
 
 const description =
@@ -72,6 +73,7 @@ const breadcrumbs = breadcrumbLd("en", [
             upload, nothing leaves your device.
           </p>
         </div>
+        <Figure id="history" lang="en" class="mx-auto mt-8 max-w-3xl" />
         <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
             href="/game/"

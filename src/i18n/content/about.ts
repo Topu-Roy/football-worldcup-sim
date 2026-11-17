@@ -22,6 +22,7 @@ export const about = {
       },
     ],
     greatestTitle: "The teams you can draft",
+    systemsTitle: "Systems",
     greatest: [
       "Brazil 1970 won all six matches and scored 19 goals. Their fourth goal in the final is still the template for a team goal: a chain of passes ends with Carlos Alberto hitting the corner. Netherlands 1974 changed how people thought about movement and space. Argentina 1986 had Maradona at his peak. France 1998 had Zidane and a defence that conceded two goals in seven matches.",
       "Later eras are here too. Spain 2010 passed teams to death and won with four straight 1-0 knockout wins. Germany 2014 beat Brazil 7-1 on the way to the title. Argentina 2022 gave Messi the one trophy he was missing. The 2026 squads are real and verified, so the pool does not stop at 2022.",
@@ -90,6 +91,7 @@ export const about = {
       },
     ],
     greatestTitle: "Die Teams, die du draften kannst",
+    systemsTitle: "Systeme",
     greatest: [
       "Brasilien 1970 gewann alle sechs Spiele und schoss 19 Tore. Das vierte Tor im Finale gilt noch heute als Muster für ein Mannschaftstor: Eine Passkette endet mit Carlos Alberto in die Ecke. Niederlande 1974 veränderten das Denken über Bewegung und Raum. Argentinien 1986 hatte Maradona am Höhepunkt. Frankreich 1998 hatte Zidane und eine Abwehr, die in sieben Spielen zwei Tore kassierte.",
       "Auch die späteren Epochen sind da. Spanien 2010 spielte sich durch den Pokal und gewann vier K.-o.-Spiele in Folge mit 1:0. Deutschland 2014 schlug Brasilien 7:1 auf dem Weg zum Titel. Argentinien 2022 gab Messi den einen Titel, der fehlte. Die Kader 2026 sind echt und geprüft, deshalb endet der Pool nicht 2022.",
@@ -158,6 +160,7 @@ export const about = {
       },
     ],
     greatestTitle: "Les équipes que vous pouvez drafter",
+    systemsTitle: "Systèmes",
     greatest: [
       "Le Brésil 1970 a gagné ses six matchs et marqué 19 buts. Leur quatrième but en finale reste le modèle du but collectif : une chaîne de passes se termine par Carlos Alberto dans le coin. Les Pays-Bas 1974 ont changé la façon de penser le mouvement et l'espace. L'Argentine 1986 avait Maradona à son sommet. La France 1998 avait Zidane et une défense qui a encaissé deux buts en sept matchs.",
       "Les époques suivantes sont là aussi. L'Espagne 2010 a passé ses adversaires et gagné quatre matchs à élimination directe 1-0. L'Allemagne 2014 a battu le Brésil 7-1 sur la route du titre. L'Argentine 2022 a donné à Messi le seul trophée qui lui manquait. Les effectifs 2026 sont réels et vérifiés, donc le pool ne s'arrête pas en 2022.",
@@ -225,6 +228,7 @@ export const about = {
       },
     ],
     greatestTitle: "ドラフトできるチーム",
+    systemsTitle: "システム",
     greatest: [
       "ブラジル1970は6戦全勝、19ゴール。決勝の4点目は今でもチームゴールの教科書です。パスの連鎖が最後にカルロス・アウベルトのシュートで終わります。オランダ1974は動きと空間の考え方を変えました。アルゼンチン1986はマラドーナの大会。フランス1998はジダンと、7試合で2失点しかしなかった守備陣がいました。",
       "後の時代もそろっています。スペイン2010はパスで相手を動かし、決勝トーナメントで4試合連続1-0勝ち。ドイツ2014はブラジルを7-1で破って優勝。アルゼンチン2022はメッシに唯一欠けていたトロフィーを与えました。2026年のチームは実在し、検証済みなので、プールは2022年で止まりません。",
@@ -293,6 +297,7 @@ export const about = {
       },
     ],
     greatestTitle: "Los equipos que puedes draftear",
+    systemsTitle: "Sistemas",
     greatest: [
       "Brasil 1970 ganó sus seis partidos y marcó 19 goles. Su cuarto gol en la final sigue siendo el modelo del gol colectivo: una cadena de pases termina con Carlos Alberto en la esquina. Países Bajos 1974 cambió la forma de pensar el movimiento y el espacio. Argentina 1986 tenía a Maradona en su mejor momento. Francia 1998 tenía a Zidane y una defensa que encajó dos goles en siete partidos.",
       "Las épocas posteriores también están. España 2010 movió el balón y ganó cuatro partidos de eliminación seguidos por 1-0. Alemania 2014 venció 7-1 a Brasil camino del título. Argentina 2022 le dio a Messi el único trofeo que le faltaba. Las plantillas de 2026 son reales y verificadas, así que el pool no termina en 2022.",

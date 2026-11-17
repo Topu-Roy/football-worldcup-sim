@@ -9,6 +9,8 @@ import { SITE_URL as siteUrl } from "../../lib/site";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
 import { CONTENT_DATES } from "../../lib/content-dates";
 import { ogImageFor } from "../../lib/og";
+import Figure from "../media/Figure.astro";
+import RatingModel from "../media/RatingModel.astro";
 
 interface Props {
   lang: Locale;
@@ -98,6 +100,8 @@ const faqLd =
           }
         </ul>
 
+        <Figure id="draft" lang={lang} class="mt-8" />
+
         <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
           {c.greatestTitle}
         </h2>
@@ -105,10 +109,13 @@ const faqLd =
           {c.greatest.map((p) => <p>{p}</p>)}
         </div>
 
-        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">Systems</h2>
+        <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
+          {c.systemsTitle}
+        </h2>
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.systems.map((p) => <p>{p}</p>)}
         </div>
+        <Figure id="matchstats" lang={lang} class="mt-8" />
 
         <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
           {c.dataTitle}
@@ -116,6 +123,7 @@ const faqLd =
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.data.map((p) => <p>{p}</p>)}
         </div>
+        <RatingModel lang={lang} class="mt-8" />
 
         <h2 class="mt-12 font-display text-3xl tracking-[0.5px]">
           {c.contactTitle}

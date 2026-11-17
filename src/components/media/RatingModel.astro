@@ -1,0 +1,142 @@
+---
+import { diagramCopy } from "../../i18n/content/media";
+import type { Locale } from "../../i18n/config";
+
+interface Props {
+  lang: Locale;
+  class?: string;
+}
+
+const { lang, class: className = "" } = Astro.props;
+const copy = diagramCopy[lang].ratings;
+const [attributes, weights, overall, gk, def, mid, att] = copy.labels;
+---
+
+<figure class={`m-0 ${className}`}>
+  <svg
+    viewBox="0 0 800 360"
+    role="img"
+    aria-labelledby="rating-model-title rating-model-desc"
+    class="block h-auto w-full rounded-2xl border border-imageframe bg-slate/40"
+  >
+    <title id="rating-model-title">{attributes} → {overall}</title>
+    <desc id="rating-model-desc">{copy.aria}</desc>
+
+    <g font-family="Helvetica, Arial, sans-serif">
+      <rect
+        x="24"
+        y="80"
+        width="220"
+        height="200"
+        rx="20"
+        fill="#1b1b1b"
+        stroke="#313131"></rect>
+      <text
+        x="134"
+        y="130"
+        fill="#ffffff"
+        font-size="18"
+        font-weight="700"
+        text-anchor="middle"
+      >
+        {attributes}
+      </text>
+      <g text-anchor="middle" font-size="15">
+        <rect
+          x="48"
+          y="152"
+          width="80"
+          height="34"
+          rx="10"
+          fill="#3cffd030"
+          stroke="#3cffd0"></rect>
+        <text x="88" y="174" fill="#e9e9e9">{gk}</text>
+        <rect
+          x="140"
+          y="152"
+          width="80"
+          height="34"
+          rx="10"
+          fill="#3c9dff30"
+          stroke="#3c9dff"></rect>
+        <text x="180" y="174" fill="#e9e9e9">{def}</text>
+        <rect
+          x="48"
+          y="202"
+          width="80"
+          height="34"
+          rx="10"
+          fill="#ffd23c30"
+          stroke="#ffd23c"></rect>
+        <text x="88" y="224" fill="#e9e9e9">{mid}</text>
+        <rect
+          x="140"
+          y="202"
+          width="80"
+          height="34"
+          rx="10"
+          fill="#ff8a3c30"
+          stroke="#ff8a3c"></rect>
+        <text x="180" y="224" fill="#e9e9e9">{att}</text>
+      </g>
+
+      <path
+        d="M258 180 H320"
+        stroke="#949494"
+        stroke-width="2"
+        stroke-dasharray="6 6"></path>
+      <path d="M314 174 L322 180 L314 186" fill="#949494"></path>
+
+      <rect
+        x="336"
+        y="138"
+        width="160"
+        height="84"
+        rx="20"
+        fill="#1b1b1b"
+        stroke="#313131"></rect>
+      <text
+        x="416"
+        y="174"
+        fill="#ffffff"
+        font-size="16"
+        font-weight="700"
+        text-anchor="middle"
+      >
+        {weights}
+      </text>
+      <text x="416" y="198" fill="#949494" font-size="13" text-anchor="middle">
+        x0.5 – x1.4
+      </text>
+
+      <path
+        d="M510 180 H572"
+        stroke="#949494"
+        stroke-width="2"
+        stroke-dasharray="6 6"></path>
+      <path d="M566 174 L574 180 L566 186" fill="#949494"></path>
+
+      <rect
+        x="588"
+        y="120"
+        width="188"
+        height="120"
+        rx="20"
+        fill="#1b1b1b"
+        stroke="#3cffd0"></rect>
+      <text
+        x="682"
+        y="184"
+        fill="#3cffd0"
+        font-size="52"
+        font-weight="700"
+        text-anchor="middle"
+      >
+        90
+      </text>
+      <text x="682" y="216" fill="#949494" font-size="15" text-anchor="middle">
+        {overall}
+      </text>
+    </g>
+  </svg>
+</figure>

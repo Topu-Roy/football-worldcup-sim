@@ -5,6 +5,7 @@ import { breadcrumbLd } from "../lib/breadcrumbs";
 import { ogImageFor } from "../lib/og";
 import { SITE_NAME as siteName, SITE_URL as siteUrl } from "../lib/site";
 import pkg from "../../package.json";
+import Figure from "../components/media/Figure.astro";
 
 const description =
   "Play a free world cup draft game. Pick a formation, draft a fantasy XI from 77 squads and simulate the tournament with penalty shootouts.";
@@ -183,6 +184,8 @@ const breadcrumbs = breadcrumbLd("en", [
           </p>
         </div>
 
+        <Figure id="draft" lang="en" class="mx-auto mt-8 max-w-3xl" />
+
         <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
           Why chemistry matters
         </h2>
@@ -202,6 +205,8 @@ const breadcrumbs = breadcrumbLd("en", [
             star from every nation, every slot has to fit perfectly.
           </p>
         </div>
+
+        <Figure id="chemistry" lang="en" class="mx-auto mt-8 max-w-3xl" />
 
         <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
           How the match engine works
@@ -227,6 +232,8 @@ const breadcrumbs = breadcrumbLd("en", [
             of a simulation. The draft gives you an edge, not a guarantee.
           </p>
         </div>
+
+        <Figure id="matchstats" lang="en" class="mx-auto mt-8 max-w-3xl" />
 
         <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
           What happens after the draft
@@ -255,6 +262,8 @@ const breadcrumbs = breadcrumbLd("en", [
             replaying matters. A good draft survives both.
           </p>
         </div>
+
+        <Figure id="bracket" lang="en" class="mx-auto mt-8 max-w-3xl" />
 
         <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
           Three draft plans to try

@@ -16,6 +16,8 @@ import type { Locale } from "../../i18n/config";
 import { SITE_URL as siteUrl } from "../../lib/site";
 import { breadcrumbLd } from "../../lib/breadcrumbs";
 import { ogImageFor } from "../../lib/og";
+import Figure from "../media/Figure.astro";
+import RatingModel from "../media/RatingModel.astro";
 
 interface Props {
   lang: Locale;
@@ -171,6 +173,7 @@ const faqLd =
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-secondary">
           {c.ranking.map((p) => <p>{p}</p>)}
         </div>
+        <Figure id="squadcard" lang={lang} class="mt-8" />
         {
           c.sourceNote && (
             <p class="mt-6 rounded-2xl border border-white/10 bg-slate/20 p-4 font-mono text-[10px] leading-relaxed tracking-[0.5px] text-secondary uppercase">
@@ -178,6 +181,7 @@ const faqLd =
             </p>
           )
         }
+        <RatingModel lang={lang} class="mt-8" />
 
         <div
           class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"

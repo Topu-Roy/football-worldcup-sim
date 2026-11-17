@@ -5,6 +5,8 @@ import { meta } from "../../i18n/meta";
 import { localizedPath } from "../../i18n/t";
 import { buildPreviewSlides } from "../../data/preview-squads";
 import PreviewCarousel from "../../components/PreviewCarousel.astro";
+import Figure from "../media/Figure.astro";
+import PoolSplit from "../media/PoolSplit.astro";
 import type { Locale } from "../../i18n/config";
 import { ogImageFor } from "../../lib/og";
 
@@ -162,6 +164,18 @@ const faqLd =
         >
           {c.loop.map((p) => <p>{p}</p>)}
         </div>
+
+        <h2
+          class="mt-14 text-center font-display text-3xl tracking-[0.5px] sm:text-4xl"
+        >
+          {c.galleryTitle}
+        </h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <Figure id="formation" lang={lang} variant="grid" />
+          <Figure id="draft" lang={lang} variant="grid" />
+          <Figure id="chemistry" lang={lang} variant="grid" />
+          <Figure id="bracket" lang={lang} variant="grid" />
+        </div>
       </div>
     </section>
 
@@ -202,6 +216,9 @@ const faqLd =
           class="mx-auto mt-10 max-w-3xl space-y-4 text-sm leading-relaxed text-secondary"
         >
           {c.squads.map((p) => <p>{p}</p>)}
+        </div>
+        <div class="mx-auto mt-10 max-w-3xl">
+          <PoolSplit lang={lang} />
         </div>
       </div>
     </section>

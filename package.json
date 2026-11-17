@@ -1,7 +1,7 @@
 {
   "name": "my-world-cup-xi",
   "type": "module",
-  "version": "0.56.0",
+  "version": "0.57.0",
   "engines": {
     "node": ">=22.12.0"
   },
