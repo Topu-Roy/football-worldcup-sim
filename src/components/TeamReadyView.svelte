@@ -127,7 +127,7 @@
       </p>
     </div>
     <div class="grid items-start gap-6 lg:grid-cols-2">
-      <div class="flex flex-col items-center gap-3">
+      <div class="flex min-w-0 flex-col items-center gap-3">
         <PitchView
           players={pitchPlayers}
           {formationKey}
@@ -152,7 +152,7 @@
         {/if}
       </div>
 
-      <div>
+      <div class="min-w-0">
         <SquadStatsList {squad} />
       </div>
     </div>

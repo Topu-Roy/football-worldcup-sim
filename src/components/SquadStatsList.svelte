@@ -2,6 +2,7 @@
   import {
     DEPT_STAT_KEYS,
     ROLE_LABELS,
+    STAT_ABBR,
     STAT_LABELS,
     effectiveDepartment,
     playerRating,
@@ -40,22 +41,25 @@
   </p>
   <ul class="mb-4 space-y-1.5">
     {#each group.players as p (p.id)}
-      <li class="rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5">
-        <div class="flex items-center gap-2 sm:gap-3">
+      <li
+        class="min-w-0 rounded-lg border border-white/10 bg-slate/20 px-3 py-1.5"
+      >
+        <div class="flex min-w-0 items-center gap-2 sm:gap-3">
           <span
             class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-slate/30 font-mono text-[10px] font-semibold text-secondary"
             >{p.jerseyNumber ?? "–"}</span
           >
-          <span class="min-w-0 flex-1 truncate text-sm font-bold">{p.name}</span
+          <span class="min-w-0 flex-1 truncate text-sm font-bold" title={p.name}
+            >{p.name}</span
           >
-          <span
-            class="hidden flex-wrap items-center justify-end gap-1.5 sm:flex"
-          >
+          <span class="hidden flex-wrap items-center justify-end gap-1 sm:flex">
             {#each DEPT_STAT_KEYS[group.dept as Position] ?? [] as key (key)}
               {#if p[key] != null}
                 <span
-                  class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
-                  >{STAT_LABELS[key as string] ?? key} {p[key]}</span
+                  class="{mono} rounded-full border border-white/10 px-1 py-0.5 text-[9px] whitespace-nowrap text-secondary"
+                  title={STAT_LABELS[key as string] ?? key}
+                  aria-label={`${STAT_LABELS[key as string] ?? key} ${p[key]}`}
+                  >{STAT_ABBR[key as string] ?? key} {p[key]}</span
                 >
               {/if}
             {/each}
@@ -69,8 +73,10 @@
           {#each DEPT_STAT_KEYS[group.dept as Position] ?? [] as key (key)}
             {#if p[key] != null}
               <span
-                class="{mono} rounded-full border border-white/10 px-1.5 py-0.5 text-[9px] text-secondary"
-                >{STAT_LABELS[key as string] ?? key} {p[key]}</span
+                class="{mono} rounded-full border border-white/10 px-1 py-0.5 text-[9px] whitespace-nowrap text-secondary"
+                title={STAT_LABELS[key as string] ?? key}
+                aria-label={`${STAT_LABELS[key as string] ?? key} ${p[key]}`}
+                >{STAT_ABBR[key as string] ?? key} {p[key]}</span
               >
             {/if}
           {/each}

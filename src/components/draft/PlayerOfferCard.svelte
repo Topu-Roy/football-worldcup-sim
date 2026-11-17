@@ -2,6 +2,7 @@
   import { ChevronDown, Lock } from "@lucide/svelte";
   import {
     DEPT_STAT_KEYS,
+    STAT_ABBR,
     STAT_LABELS,
     playerRating,
     playerTier,
@@ -34,10 +35,15 @@
 
   /** Key stats shown on the card, selected per the player's department. */
   const statRows = $derived(
-    (DEPT_STAT_KEYS[slotDepartment(player)] ?? []).map((key) => [
-      STAT_LABELS[key as string] ?? String(key),
-      (player[key] as number | undefined) ?? player.composure ?? 0,
-    ]),
+    (DEPT_STAT_KEYS[slotDepartment(player)] ?? []).map((key) => {
+      const name = String(key);
+      return {
+        key: name,
+        short: STAT_ABBR[name] ?? name.toUpperCase(),
+        label: STAT_LABELS[name] ?? name,
+        value: (player[key] as number | undefined) ?? player.composure ?? 0,
+      };
+    }),
   );
 
   /** On small screens stats are hidden behind an accordion; always visible from sm up. */
@@ -128,15 +134,17 @@
     <dl
       class="mt-3 space-y-1.5 {expanded ? 'block' : 'hidden sm:block'} sm:mt-4"
     >
-      {#each statRows as [label, val] (label)}
+      {#each statRows as row (row.key)}
         <div class="flex items-center gap-3">
           <dt
             class="{mono} min-w-0 flex-1 truncate text-[10px] leading-none text-secondary"
+            title={row.label}
+            aria-label={row.label}
           >
-            {label}
+            {row.short}
           </dt>
           <div class="h-px flex-1 bg-white/15"></div>
-          <dd class="text-right font-mono text-xs">{val}</dd>
+          <dd class="text-right font-mono text-xs">{row.value}</dd>
         </div>
       {/each}
     </dl>

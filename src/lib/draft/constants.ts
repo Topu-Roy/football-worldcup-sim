@@ -95,3 +95,19 @@ export const STAT_LABELS: Record<string, string> = {
   finishing: "Finishing",
   offBall: "Off Ball",
 };
+
+/** Compact labels for tight stat rows. Full labels stay on `STAT_LABELS`. */
+export const STAT_ABBR: Record<string, string> = {
+  reflexes: "REF",
+  positioning: "POS",
+  distribution: "DIS",
+  tackling: "TKL",
+  aerial: "AER",
+  passing: "PAS",
+  pace: "SPD",
+  dribble: "DRB",
+  workRate: "WRK",
+  stamina: "STA",
+  finishing: "FIN",
+  offBall: "OFF",
+};

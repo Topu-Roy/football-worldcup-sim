@@ -6,6 +6,7 @@ export {
   POSITION_LABEL,
   DEPT_STAT_KEYS,
   STAT_LABELS,
+  STAT_ABBR,
 } from "./constants.js";
 export {
   draftableNations,
