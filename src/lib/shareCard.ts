@@ -5,6 +5,7 @@ import type {
   TournamentOutcome,
 } from "./tournament/types.js";
 import { assignSlots } from "./draft/pitch.js";
+import { playerRating } from "./draft/rating.js";
 import { departmentOf } from "./draft/roles.js";
 import { jerseyNumbersFor } from "./jersey.js";
 import { shortName } from "./shortName.js";
@@ -28,6 +29,8 @@ export interface ShareCardPlayer {
   fullName: string;
   role: string;
   number: number;
+  /** Role-weighted overall rating, 0-99. */
+  rating: number;
   /** Slot position as a percentage of the pitch box. */
   x: number;
   y: number;
@@ -49,7 +52,15 @@ export interface ShareCardData {
   outcomeTitle: string;
   outcomeSlug: string;
   outcomeAccent: string;
+  /** Short caption under the placement, e.g. "7 matches · lifted the trophy". */
+  outcomeNote: string;
   formationKey: string;
+  /** Average XI rating, the headline number on the card. */
+  teamRating: number;
+  points: number;
+  /** Winning margin of the biggest win, not the scoreline. */
+  biggestWin: number;
+  avgGoalsFor: number;
   players: ShareCardPlayer[];
   stats: ShareCardStats;
 }
@@ -79,6 +90,21 @@ export function outcomeAccent(outcome: TournamentOutcome | undefined): string {
   return outcome === "champion" ? CHAMPION_ACCENT : EXIT_ACCENT;
 }
 
+/** Short caption under the result, e.g. "7 matches · lifted the trophy". */
+export function outcomeNote(
+  outcome: TournamentOutcome | undefined,
+  played: number,
+): string {
+  const matches = `${played} match${played === 1 ? "" : "es"}`;
+  if (outcome === "champion") return `${matches} · lifted the trophy`;
+  if (outcome === "runners-up") return `${matches} · runners-up`;
+  if (outcome === "semi-final-exit") return `${matches} · semi-final exit`;
+  if (outcome === "quarter-final-exit")
+    return `${matches} · quarter-final exit`;
+  if (outcome === "round-of-16-exit") return `${matches} · round of 16 exit`;
+  return `${matches} · out in the group stage`;
+}
+
 /** Build the data the canvas renderer needs from the finished tournament. */
 export function buildShareCardData(
   tournament: Tournament,
@@ -98,17 +124,30 @@ export function buildShareCardData(
       fullName: player.name,
       role: slot.role,
       number: numbers.get(player.id) ?? 0,
+      rating: Math.round(playerRating(player)),
       x: slot.x,
       y: slot.y,
       color: DEPARTMENT_COLORS[departmentOf(slot.role)],
     });
   }
 
+  const teamRating = players.length
+    ? Math.round(
+        players.reduce((sum, player) => sum + player.rating, 0) /
+          players.length,
+      )
+    : 0;
+
   return {
     outcomeTitle: outcomeTitle(tournament.outcome),
     outcomeSlug: outcomeSlug(tournament.outcome),
     outcomeAccent: outcomeAccent(tournament.outcome),
+    outcomeNote: outcomeNote(tournament.outcome, stats.played),
     formationKey,
+    teamRating,
+    points: stats.points,
+    biggestWin: stats.biggestWin,
+    avgGoalsFor: stats.avgGoalsFor,
     players,
     stats: {
       played: stats.played,

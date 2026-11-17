@@ -5,17 +5,19 @@ export const SHARE_WIDTH = 1080;
 export const SHARE_HEIGHT = 1350;
 
 const PAD = 64;
-const PITCH_X = 64;
-const PITCH_Y = 360;
-const PITCH_W = 952;
-const PITCH_H = 700;
-const STATS_Y = 1090;
-const STATS_H = 100;
-const FOOTER_Y = 1235;
+const CONTENT_W = SHARE_WIDTH - PAD * 2;
+const BODY_TOP = 414;
+const BODY_BOTTOM = 1230;
+const BODY_H = BODY_BOTTOM - BODY_TOP;
+const LEFT_W = 360;
+const COL_GAP = 28;
+const PITCH_H = 560;
+const TOP_CARD_H = 96;
+const MINI_H = 70;
+const BANNER_H = 178;
 
-const MINT = "#3cffd0";
 const SECONDARY = "#949494";
-const CANVAS = "#131313";
+const INK = "#171021";
 
 const regularFontUrl = new URL(
   "../assets/fonts/Inter-Regular.ttf",
@@ -28,6 +30,9 @@ let fontPromise: Promise<void> | null = null;
 
 const font = (weight: number, size: number): string =>
   `${weight} ${size}px ShareInter, Arial, Helvetica, sans-serif`;
+
+const displayFont = (size: number): string =>
+  `${size}px Impact, "Arial Black", sans-serif`;
 
 const monoFont = (weight: number, size: number): string =>
   `${weight} ${size}px ui-monospace, "Courier New", monospace`;
@@ -102,213 +107,418 @@ function drawSpaced(
   }
 }
 
-function drawBackground(ctx: CanvasRenderingContext2D): void {
+function spacedWidth(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  spacing: number,
+): number {
+  let width = 0;
+  for (const glyph of text) width += ctx.measureText(glyph).width + spacing;
+  return Math.max(0, width - spacing);
+}
+
+function drawSpacedCentered(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  cx: number,
+  y: number,
+  spacing: number,
+): void {
+  const width = spacedWidth(ctx, text, spacing);
+  drawSpaced(ctx, text, cx - width / 2, y, spacing);
+}
+
+/** Convert a #rrggbb token to rgba so department tints can be layered. */
+function withAlpha(hex: string, alpha: number): string {
+  const value = hex.replace("#", "");
+  const r = parseInt(value.slice(0, 2), 16);
+  const g = parseInt(value.slice(2, 4), 16);
+  const b = parseInt(value.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function line(
+  ctx: CanvasRenderingContext2D,
+  x1: number,
+  x2: number,
+  y: number,
+  color = "rgba(255, 255, 255, 0.1)",
+): void {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(x1, y);
+  ctx.lineTo(x2, y);
+  ctx.stroke();
+}
+
+function drawBackground(ctx: CanvasRenderingContext2D, accent: string): void {
   const gradient = ctx.createLinearGradient(0, 0, SHARE_WIDTH, SHARE_HEIGHT);
-  gradient.addColorStop(0, CANVAS);
-  gradient.addColorStop(0.55, CANVAS);
-  gradient.addColorStop(0.8, "#1b1030");
-  gradient.addColorStop(1, "#25104a");
+  gradient.addColorStop(0, "#131313");
+  gradient.addColorStop(0.64, "#171020");
+  gradient.addColorStop(1, "#1c0e33");
   ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, SHARE_WIDTH, SHARE_HEIGHT);
+
+  const glow = ctx.createRadialGradient(880, 130, 0, 880, 130, 640);
+  glow.addColorStop(0, withAlpha(accent, 0.18));
+  glow.addColorStop(1, withAlpha(accent, 0));
+  ctx.fillStyle = glow;
   ctx.fillRect(0, 0, SHARE_WIDTH, SHARE_HEIGHT);
 }
 
 function drawHeader(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
-  ctx.fillStyle = MINT;
+  ctx.fillStyle = data.outcomeAccent;
   ctx.fillRect(PAD, 64, 14, 14);
 
-  ctx.fillStyle = MINT;
-  ctx.font = font(700, 26);
-  drawSpaced(ctx, "MY WORLD CUP XI", 94, 78, 5.5);
+  ctx.fillStyle = data.outcomeAccent;
+  ctx.font = monoFont(700, 24);
+  drawSpaced(ctx, "MY WORLD CUP XI", 94, 86, 5.5);
 
   ctx.textAlign = "right";
   ctx.fillStyle = SECONDARY;
   ctx.font = monoFont(600, 18);
-  ctx.fillText(`FORMATION ${data.formationKey}`, SHARE_WIDTH - PAD, 78);
+  ctx.fillText("TEAM SHEET / 01", SHARE_WIDTH - PAD, 86);
+  ctx.textAlign = "left";
 }
 
-function drawOutcome(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
+function drawBanner(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   ctx.textAlign = "left";
   ctx.fillStyle = SECONDARY;
-  ctx.font = monoFont(600, 18);
-  drawSpaced(ctx, "TOURNAMENT COMPLETE", PAD, 170, 4);
+  ctx.font = monoFont(600, 16);
+  drawSpaced(ctx, "FINAL PLACEMENT", PAD, 144, 4);
 
   const titleSize = fitFontSize(
     data.outcomeTitle,
-    SHARE_WIDTH - PAD * 2,
-    112,
-    (text, size) => measure(ctx, text, 700, size),
-    52,
+    728,
+    70,
+    (text, size) => {
+      ctx.font = displayFont(size);
+      return ctx.measureText(text).width;
+    },
+    46,
   );
-  ctx.font = font(700, titleSize);
+  ctx.font = displayFont(titleSize);
   ctx.fillStyle = data.outcomeAccent;
-  ctx.fillText(data.outcomeTitle, PAD, 274);
+  ctx.fillText(data.outcomeTitle, PAD, 222);
 
-  ctx.font = font(400, 24);
+  ctx.font = monoFont(600, 17);
   ctx.fillStyle = SECONDARY;
-  ctx.fillText(`YOUR DRAFTED XI · ${data.players.length} PLAYERS`, PAD, 318);
+  ctx.fillText(data.outcomeNote, PAD, 250);
+
+  const chipText = `FORMATION ${data.formationKey}`;
+  ctx.font = monoFont(600, 11);
+  const chipW = ctx.measureText(chipText).width + 24;
+  const chipY = 122 + BANNER_H - 28;
+  roundRect(ctx, PAD, chipY, chipW, 28, 999);
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.14)";
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.fillStyle = "#e9e9e9";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(chipText, PAD + chipW / 2, chipY + 15);
+  ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
+
+  const cx = 921;
+  const cy = 218;
+  const radius = 70;
+
+  ctx.font = monoFont(600, 10);
+  ctx.fillStyle = SECONDARY;
+  drawSpacedCentered(ctx, "TEAM RATING", cx, 132, 1.8);
+
+  ctx.lineWidth = 12;
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+  ctx.beginPath();
+  ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.strokeStyle = data.outcomeAccent;
+  ctx.beginPath();
+  ctx.arc(
+    cx,
+    cy,
+    radius,
+    -Math.PI / 2,
+    -Math.PI / 2 + Math.PI * 2 * (data.teamRating / 100),
+  );
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, radius - 18, 0, Math.PI * 2);
+  ctx.fillStyle = INK;
+  ctx.fill();
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = data.outcomeAccent;
+  ctx.font = displayFont(56);
+  ctx.fillText(String(data.teamRating), cx, cy - 2);
+  ctx.fillStyle = SECONDARY;
+  ctx.font = monoFont(600, 9);
+  ctx.fillText("OVR", cx, cy + 30);
+  ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
 }
 
-function drawPitch(ctx: CanvasRenderingContext2D): void {
+function drawStats(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
+  const top = 318;
+  const height = 76;
+  line(ctx, PAD, SHARE_WIDTH - PAD, top);
+  line(ctx, PAD, SHARE_WIDTH - PAD, top + height);
+
+  const labels = ["RECORD", "GOALS", "CLEAN SHEETS", "BIGGEST WIN"];
+  const values = [
+    `${data.stats.won}-${data.stats.drawn}-${data.stats.lost}`,
+    `${data.stats.gf}-${data.stats.ga}`,
+    String(data.stats.cleanSheets),
+    data.biggestWin > 0 ? `+${data.biggestWin}` : "0",
+  ];
+  const colW = CONTENT_W / 4;
+
+  labels.forEach((label, i) => {
+    const colX = PAD + i * colW;
+    if (i > 0) {
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(colX, top);
+      ctx.lineTo(colX, top + height);
+      ctx.stroke();
+    }
+
+    const tx = colX + (i === 0 ? 0 : 24);
+    ctx.textAlign = "left";
+    ctx.fillStyle = SECONDARY;
+    ctx.font = monoFont(600, 12);
+    ctx.fillText(label, tx, top + 28);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = displayFont(30);
+    ctx.fillText(values[i], tx, top + 64);
+  });
+}
+
+function drawPitch(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
+  const x = PAD;
+  const y = BODY_TOP;
+  const w = LEFT_W;
+  const h = PITCH_H;
+
   ctx.save();
-  roundRect(ctx, PITCH_X, PITCH_Y, PITCH_W, PITCH_H, 24);
+  roundRect(ctx, x, y, w, h, 18);
   ctx.clip();
 
-  ctx.fillStyle = "#207238";
-  ctx.fillRect(PITCH_X, PITCH_Y, PITCH_W, PITCH_H);
-
-  const stripes = 8;
-  const stripeH = PITCH_H / stripes;
-  ctx.fillStyle = "#278140";
-  for (let i = 0; i < stripes; i += 2) {
-    ctx.fillRect(PITCH_X, PITCH_Y + i * stripeH, PITCH_W, stripeH);
+  ctx.fillStyle = "#1d6935";
+  ctx.fillRect(x, y, w, h);
+  ctx.fillStyle = "#23773e";
+  for (let i = 1; i * 58 < h; i += 2) {
+    ctx.fillRect(x, y + i * 58, w, 58);
   }
 
-  const inset = 30;
-  const left = PITCH_X + inset;
-  const top = PITCH_Y + inset;
-  const right = PITCH_X + PITCH_W - inset;
-  const bottom = PITCH_Y + PITCH_H - inset;
-  const centerX = PITCH_X + PITCH_W / 2;
-  const centerY = PITCH_Y + PITCH_H / 2;
-
-  ctx.strokeStyle = "#7cb68d";
-  ctx.fillStyle = "#7cb68d";
-  ctx.lineWidth = 3;
-  ctx.strokeRect(left, top, right - left, bottom - top);
+  ctx.strokeStyle = "rgba(226, 255, 233, 0.42)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x + 18, y + 18, w - 36, h - 36);
 
   ctx.beginPath();
-  ctx.moveTo(left, centerY);
-  ctx.lineTo(right, centerY);
+  ctx.moveTo(x + 18, y + h / 2);
+  ctx.lineTo(x + w - 18, y + h / 2);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 70, 0, Math.PI * 2);
+  ctx.arc(x + w / 2, y + h / 2, 35, 0, Math.PI * 2);
   ctx.stroke();
 
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, 4, 0, Math.PI * 2);
-  ctx.fill();
+  const boxW = w * 0.54;
+  const boxH = h * 0.13;
+  const boxX = x + (w - boxW) / 2;
+  ctx.strokeRect(boxX, y + 18, boxW, boxH);
+  ctx.strokeRect(boxX, y + h - 18 - boxH, boxW, boxH);
 
-  const boxW = PITCH_W * 0.55;
-  const boxH = PITCH_H * 0.16;
-  const boxX = centerX - boxW / 2;
-  ctx.strokeRect(boxX, top, boxW, boxH);
-  ctx.strokeRect(boxX, bottom - boxH, boxW, boxH);
-
-  const goalW = PITCH_W * 0.25;
-  const goalH = PITCH_H * 0.06;
-  const goalX = centerX - goalW / 2;
-  ctx.strokeRect(goalX, top, goalW, goalH);
-  ctx.strokeRect(goalX, bottom - goalH, goalW, goalH);
-
-  ctx.beginPath();
-  ctx.arc(centerX, top + boxH * 0.65, 4, 0, Math.PI * 2);
-  ctx.arc(centerX, bottom - boxH * 0.65, 4, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.restore();
-}
-
-function drawPlayers(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   for (const player of data.players) {
-    const x = PITCH_X + (player.x / 100) * PITCH_W;
-    // The keeper sits one line higher so the name and role fit inside the pitch.
-    const yPercent = player.role === "GK" ? Math.min(player.y, 89) : player.y;
-    const y = PITCH_Y + (yPercent / 100) * PITCH_H;
+    const px = x + (player.x / 100) * w;
+    const py = y + (player.y / 100) * h;
 
     ctx.beginPath();
-    ctx.arc(x, y, 26, 0, Math.PI * 2);
+    ctx.arc(px, py, 13, 0, Math.PI * 2);
     ctx.fillStyle = "#ffffff";
     ctx.fill();
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.strokeStyle = player.color;
     ctx.stroke();
 
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.font = font(700, 20);
-    ctx.fillStyle = CANVAS;
-    ctx.fillText(String(player.number), x, y + 1);
-
-    ctx.textBaseline = "alphabetic";
-    const nameSize = fitFontSize(
-      player.name,
-      170,
-      24,
-      (text, size) => measure(ctx, text, 700, size),
-      18,
-    );
-    const nameY = y + 46;
-    const roleY = y + 66;
-
-    const nameText = truncateToWidth(player.name, 170, (text) =>
-      measure(ctx, text, 700, nameSize),
-    );
-    ctx.shadowColor = "rgba(0, 0, 0, 0.65)";
-    ctx.shadowBlur = 4;
-    ctx.shadowOffsetY = 1;
-    ctx.font = font(700, nameSize);
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(nameText, x, nameY);
-
-    ctx.font = monoFont(600, 15);
-    ctx.fillStyle = player.color;
-    ctx.fillText(player.role, x, roleY);
-    ctx.shadowColor = "transparent";
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetY = 0;
+    ctx.font = monoFont(700, 9);
+    ctx.fillStyle = "#131313";
+    ctx.fillText(String(player.number), px, py + 1);
   }
+
+  ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
+  ctx.restore();
 }
 
-function drawStats(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
-  const gap = 16;
-  const tileW = (PITCH_W - gap * 3) / 4;
-  const tiles = [
-    {
-      label: "RECORD",
-      value: `${data.stats.won}-${data.stats.drawn}-${data.stats.lost}`,
-    },
-    { label: "GOALS", value: `${data.stats.gf}-${data.stats.ga}` },
-    { label: "CLEAN SHEETS", value: String(data.stats.cleanSheets) },
-    { label: "SHOOTOUT WINS", value: String(data.stats.penaltyWins) },
+function drawTopPlayer(
+  ctx: CanvasRenderingContext2D,
+  data: ShareCardData,
+  y: number,
+): void {
+  const top = [...data.players].sort((a, b) => b.rating - a.rating)[0];
+  if (!top) return;
+
+  roundRect(ctx, PAD, y, LEFT_W, TOP_CARD_H, 16);
+  ctx.fillStyle = withAlpha(top.color, 0.09);
+  ctx.fill();
+  ctx.strokeStyle = withAlpha(top.color, 0.4);
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  ctx.textAlign = "left";
+  ctx.fillStyle = SECONDARY;
+  ctx.font = monoFont(600, 10);
+  ctx.fillText("TOP RATED", PAD + 18, y + 23);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = font(700, 24);
+  ctx.fillText(top.name, PAD + 18, y + 51);
+
+  ctx.fillStyle = top.color;
+  ctx.font = monoFont(600, 10);
+  ctx.fillText(`${top.role} · #${top.number}`, PAD + 18, y + 69);
+
+  ctx.textAlign = "right";
+  ctx.fillStyle = top.color;
+  ctx.font = displayFont(44);
+  ctx.fillText(String(top.rating), PAD + LEFT_W - 18, y + 62);
+  ctx.textAlign = "left";
+}
+
+function drawMiniStats(
+  ctx: CanvasRenderingContext2D,
+  data: ShareCardData,
+  y: number,
+): void {
+  const gap = 8;
+  const tileW = (LEFT_W - gap * 2) / 3;
+  const labels = ["MATCHES", "GOALS / GAME", "PEN WINS"];
+  const values = [
+    String(data.stats.played),
+    data.avgGoalsFor.toFixed(1),
+    String(data.stats.penaltyWins),
   ];
 
-  tiles.forEach((tile, i) => {
+  labels.forEach((label, i) => {
     const x = PAD + i * (tileW + gap);
-    roundRect(ctx, x, STATS_Y, tileW, STATS_H, 18);
-    ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
+    roundRect(ctx, x, y, tileW, MINI_H, 12);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.035)";
     ctx.fill();
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.10)";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
     ctx.lineWidth = 1;
     ctx.stroke();
 
     ctx.textAlign = "left";
-    ctx.font = monoFont(600, 16);
     ctx.fillStyle = SECONDARY;
-    ctx.fillText(tile.label, x + 18, STATS_Y + 34);
+    ctx.font = monoFont(600, 9);
+    ctx.fillText(label, x + 12, y + 22);
 
-    ctx.font = font(700, 38);
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(tile.value, x + 18, STATS_Y + 78);
+    ctx.font = displayFont(24);
+    ctx.fillText(values[i], x + 12, y + 50);
   });
 }
 
-function drawFooter(ctx: CanvasRenderingContext2D): void {
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(PAD, FOOTER_Y);
-  ctx.lineTo(SHARE_WIDTH - PAD, FOOTER_Y);
-  ctx.stroke();
+function drawRoster(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
+  const x = PAD + LEFT_W + COL_GAP;
+  const w = CONTENT_W - LEFT_W - COL_GAP;
+  const top = BODY_TOP;
+  const headBottom = top + 26;
+  const noX = x;
+  const nameX = x + 44;
+  const nameW = w - 44 - 46 - 54 - 42;
+  const roleRight = x + w - 68;
+  const ratingX = x + w - 46;
 
-  ctx.fillStyle = MINT;
-  ctx.font = monoFont(600, 18);
-  drawSpaced(ctx, "DRAFT YOUR OWN XI", PAD, 1280, 3);
+  ctx.textAlign = "left";
+  ctx.fillStyle = SECONDARY;
+  ctx.font = monoFont(600, 11);
+  ctx.fillText("NO.", noX, top + 18);
+  ctx.fillText("PLAYER", nameX, top + 18);
+  ctx.textAlign = "right";
+  ctx.fillText("ROLE", roleRight, top + 18);
+  ctx.fillText("OVR", x + w, top + 18);
+  line(ctx, x, x + w, headBottom, "rgba(255, 255, 255, 0.14)");
+
+  const count = data.players.length;
+  if (count === 0) return;
+
+  const rowH = (BODY_BOTTOM - headBottom) / count;
+  ctx.textBaseline = "middle";
+
+  data.players.forEach((player, i) => {
+    const cy = headBottom + (i + 0.5) * rowH;
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = player.color;
+    ctx.font = monoFont(700, 20);
+    ctx.fillText(String(player.number), noX, cy + 1);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = font(700, 23);
+    const name = truncateToWidth(player.name, nameW, (text) =>
+      measure(ctx, text, 700, 23),
+    );
+    ctx.fillText(name, nameX, cy + 1);
+
+    ctx.textAlign = "right";
+    ctx.fillStyle = player.color;
+    ctx.font = monoFont(600, 10);
+    ctx.fillText(player.role, roleRight, cy + 1);
+
+    const elite = player.rating >= 94;
+    roundRect(ctx, ratingX, cy - 16, 46, 32, 8);
+    ctx.fillStyle = elite
+      ? withAlpha(data.outcomeAccent, 0.1)
+      : "rgba(255, 255, 255, 0.02)";
+    ctx.fill();
+    ctx.strokeStyle = elite
+      ? withAlpha(data.outcomeAccent, 0.45)
+      : "rgba(255, 255, 255, 0.12)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = elite ? data.outcomeAccent : "#ffffff";
+    ctx.font = displayFont(20);
+    ctx.fillText(String(player.rating), ratingX + 23, cy + 1);
+
+    line(
+      ctx,
+      x,
+      x + w,
+      headBottom + (i + 1) * rowH,
+      "rgba(255, 255, 255, 0.07)",
+    );
+  });
+
+  ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
+}
+
+function drawFooter(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
+  line(ctx, PAD, SHARE_WIDTH - PAD, 1248, "rgba(255, 255, 255, 0.12)");
+
+  ctx.fillStyle = data.outcomeAccent;
+  ctx.font = monoFont(600, 17);
+  drawSpaced(ctx, "DRAFT YOUR OWN XI", PAD, 1280, 2.6);
 
   ctx.textAlign = "right";
   ctx.fillStyle = SECONDARY;
-  ctx.font = monoFont(600, 18);
+  ctx.font = monoFont(600, 17);
   ctx.fillText("myworldcupxi.com", SHARE_WIDTH - PAD, 1280);
+  ctx.textAlign = "left";
 }
 
 /** Draw the full result card onto a 1080×1350 canvas context. */
@@ -318,14 +528,19 @@ export function drawShareCard(
 ): void {
   ctx.clearRect(0, 0, SHARE_WIDTH, SHARE_HEIGHT);
   ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
 
-  drawBackground(ctx);
+  const gap = (BODY_H - PITCH_H - TOP_CARD_H - MINI_H) / 2;
+
+  drawBackground(ctx, data.outcomeAccent);
   drawHeader(ctx, data);
-  drawOutcome(ctx, data);
-  drawPitch(ctx);
-  drawPlayers(ctx, data);
+  drawBanner(ctx, data);
   drawStats(ctx, data);
-  drawFooter(ctx);
+  drawPitch(ctx, data);
+  drawTopPlayer(ctx, data, BODY_TOP + PITCH_H + gap);
+  drawMiniStats(ctx, data, BODY_TOP + PITCH_H + TOP_CARD_H + gap * 2);
+  drawRoster(ctx, data);
+  drawFooter(ctx, data);
 }
 
 /** Render the result card to a PNG blob using the native Canvas API. */

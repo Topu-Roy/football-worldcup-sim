@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SharePreview from "../components/SharePreview.svelte";
+
+// Internal design route: Team Sheet refinements, no export pipeline yet.
+---
+
+<Layout
+  title="Team Sheet Refinements — My World Cup XI"
+  description="Four internal Team Sheet share-card refinements for My World Cup XI."
+  noindex
+>
+  <main>
+    <SharePreview client:load />
+  </main>
+</Layout>

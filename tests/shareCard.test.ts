@@ -96,9 +96,15 @@ describe("share card data", () => {
     expect(data.players[0]).toMatchObject({
       number: 1,
       color: "#3cffd0",
+      rating: 80,
     });
     expect(data.outcomeTitle).toBe("CHAMPION");
     expect(data.outcomeAccent).toBe("#3cffd0");
+    expect(data.outcomeNote).toBe("7 matches · lifted the trophy");
+    expect(data.teamRating).toBe(80);
+    expect(data.points).toBe(18);
+    expect(data.biggestWin).toBe(4);
+    expect(data.avgGoalsFor).toBeCloseTo(2.285);
     expect(data.stats).toEqual({
       played: 7,
       won: 6,
