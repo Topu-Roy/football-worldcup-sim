@@ -2,6 +2,7 @@ import type { Player } from "../types.js";
 import { clamp } from "../random.js";
 
 export const CHEMISTRY_CAP = 0.1;
+export const HISTORICAL_CHEMISTRY = 0.1;
 export const CHEMISTRY_CURVE: Record<number, number> = {
   2: 0.03,
   3: 0.05,
@@ -54,25 +55,25 @@ export function nationClusters(players: Player[]): NationCluster[] {
     );
 }
 
-/** Stat multiplier a single player receives from their own nation cluster. */
+/** Historical squads get a flat +10% on passing and offBall; drafted squads use their own nation cluster. */
 export function playerBonus(
   player: Player,
   players: Player[],
   isHistorical: boolean,
 ): number {
-  if (isHistorical) return 0.2;
+  if (isHistorical) return HISTORICAL_CHEMISTRY;
   const cluster = nationClusters(players).find((c) =>
     c.players.some((p) => p.id === player.id),
   );
   return cluster?.bonus ?? 0;
 }
 
-/** Stat multiplier from squad chemistry: historical squads get a flat bonus, drafted squads scale with same-nation count. */
+/** Historical squads get a flat +10% on passing and offBall; drafted squads scale with same-nation count. */
 export function chemistryBonus(
   players: Player[],
   isHistorical: boolean,
 ): number {
-  if (isHistorical) return 0.2;
+  if (isHistorical) return HISTORICAL_CHEMISTRY;
   const n = countSameNation(players);
   return clamp(CHEMISTRY_CURVE[Math.min(n, 5)] ?? 0, 0, CHEMISTRY_CAP);
 }

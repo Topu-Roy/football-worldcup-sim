@@ -57,4 +57,6 @@ for (const pos of Object.keys(ROLE_LABELS)) {
 }
 
 writeFileSync(new URL("../top-players.md", import.meta.url), md);
-console.log(`Wrote top-players.md (${byPos.size} positions, ${listed} players listed)`);
+console.log(
+  `Wrote top-players.md (${byPos.size} positions, ${listed} players listed)`,
+);

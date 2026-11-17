@@ -16,17 +16,18 @@ astro dev stop           # shut it down
 
 ## Commands
 
-| Command                        | Action                          |
-| :----------------------------- | :------------------------------ |
-| `bun run dev`                  | Start dev server (foreground)   |
-| `bun run build`                | Build to `./dist/`              |
-| `bun run preview`              | Preview the build               |
-| `bun run lint`                 | ESLint + typecheck + data check |
-| `bun run typecheck`            | `astro check` + `svelte-check`  |
-| `bun test`                     | Unit and distribution tests     |
-| `bun run format`               | Prettier write                  |
-| `bun scripts/validate-data.ts` | Validate squad data             |
-| `bun scripts/calibration.ts`   | Calibration report              |
+| Command                             | Action                          |
+| :---------------------------------- | :------------------------------ |
+| `bun run dev`                       | Start dev server (foreground)   |
+| `bun run build`                     | Build to `./dist/`              |
+| `bun run preview`                   | Preview the build               |
+| `bun run lint`                      | ESLint + typecheck + data check |
+| `bun run typecheck`                 | `astro check` + `svelte-check`  |
+| `bun test`                          | Unit and distribution tests     |
+| `bun run format`                    | Prettier write                  |
+| `bun scripts/validate-data.ts`      | Validate squad data             |
+| `bun scripts/calibration.ts`        | Calibration report              |
+| `bun scripts/simulate-runs.ts 1000` | Full-run balance report         |
 
 ## Game flow
 
@@ -47,7 +48,7 @@ astro dev stop           # shut it down
 
 - 90 minutes split into 6 × 15-minute segments, plus 2 × 15-minute extra-time segments when level.
 - Possession share → Poisson shot volume → logistic on-target and conversion rolls. Score, time, stamina, composure, and GK form adjust effective stats per segment.
-- Chemistry boosts same-nation players (`offBall` + `passing`): 2→+3%, 3→+5%, 4→+8%, 5+→+10%. Historical squads get a flat +20%.
+- Drafted XI chemistry boosts same-nation players on all stats: 2→+3%, 3→+5%, 4→+8%, 5+→+10%. Historical squads get a flat +10% to `passing` and `offBall`.
 - Level after extra time goes to a best-of-5 penalty shootout with sudden death.
 - Engine code and tuning constants live in `src/lib/match/` and `src/lib/team/`.
 
@@ -72,7 +73,7 @@ src/
   data/
     historical/        77 squad files, 1970–2026
     group-stage/       9 weaker opponent squads
-scripts/               data validation, calibration, fixtures, player reports
+scripts/               data validation, calibration, fixtures, balance report, player reports
 ```
 
 The game has 86 teams. 77 are draftable World Cup squads from 1970 to 2026. 9 are group-stage AI opponents. The 2026 squads are real and verified. There are 1,634 player entries in total.

@@ -7,32 +7,42 @@ import {
   slotDepartment,
 } from "../draft/roles.js";
 
-function applyChemistryAndForm(player: Player, bonus: number): Player {
+/** Whether this is the player's drafted XI. Older saves only carry the id. */
+export function isUserSquad(squad: Squad): boolean {
+  return squad.isUser === true || squad.id === "user-squad";
+}
+
+function applyChemistryAndForm(
+  player: Player,
+  bonus: number,
+  boostAllStats: boolean,
+): Player {
   const chemistryMul = 1 + bonus;
   const form = player.form ?? 0;
   const { factor, keys } = roleNerf(player);
   const applyNerf = (v: number | undefined, key: string) =>
     v === undefined ? undefined : keys.has(key) ? v * factor : v;
   const withForm = (v?: number) => (v === undefined ? undefined : v + form);
-  const withChemAndForm = (v?: number) =>
+  const withChem = (v?: number) =>
     v === undefined ? undefined : v * chemistryMul + form;
+  // Non-passing/offBall stats get chemistry only in all-stat mode.
+  const base = boostAllStats ? withChem : withForm;
   return {
     ...player,
-    reflexes: applyNerf(withForm(player.reflexes), "reflexes"),
-    positioning: applyNerf(withForm(player.positioning), "positioning"),
-    distribution: applyNerf(withForm(player.distribution), "distribution"),
-    tackling: applyNerf(withForm(player.tackling), "tackling"),
-    aerial: applyNerf(withForm(player.aerial), "aerial"),
-    passing: applyNerf(withChemAndForm(player.passing), "passing"),
-    pace: applyNerf(withForm(player.pace), "pace"),
-    dribble: applyNerf(withForm(player.dribble), "dribble"),
-    workRate: applyNerf(withForm(player.workRate), "workRate"),
-    stamina: applyNerf(withForm(player.stamina), "stamina"),
-    finishing: applyNerf(withForm(player.finishing), "finishing"),
-    offBall: applyNerf(withChemAndForm(player.offBall), "offBall"),
+    reflexes: applyNerf(base(player.reflexes), "reflexes"),
+    positioning: applyNerf(base(player.positioning), "positioning"),
+    distribution: applyNerf(base(player.distribution), "distribution"),
+    tackling: applyNerf(base(player.tackling), "tackling"),
+    aerial: applyNerf(base(player.aerial), "aerial"),
+    passing: applyNerf(withChem(player.passing), "passing"),
+    pace: applyNerf(base(player.pace), "pace"),
+    dribble: applyNerf(base(player.dribble), "dribble"),
+    workRate: applyNerf(base(player.workRate), "workRate"),
+    stamina: applyNerf(base(player.stamina), "stamina"),
+    finishing: applyNerf(base(player.finishing), "finishing"),
+    offBall: applyNerf(withChem(player.offBall), "offBall"),
     composure:
-      applyNerf((player.composure ?? 0) + form, "composure") ??
-      player.composure,
+      applyNerf(base(player.composure ?? 0), "composure") ?? player.composure,
   };
 }
 
@@ -51,13 +61,21 @@ export function validateFormation(
   );
 }
 
-/** Bake per-player chemistry bonus, out-of-position nerfs, and per-player form into each player's stats. */
+/**
+ * Bake per-player chemistry bonus, out-of-position nerfs, and per-player form into each player's stats.
+ * `boostAllStats` extends user chemistry to every stat (never for historical squads).
+ */
 export function applyTeamModifiers(
   players: Player[],
   isHistorical: boolean,
+  boostAllStats = false,
 ): Player[] {
   return players.map((p) =>
-    applyChemistryAndForm(p, playerBonus(p, players, isHistorical)),
+    applyChemistryAndForm(
+      p,
+      playerBonus(p, players, isHistorical),
+      boostAllStats && !isHistorical,
+    ),
   );
 }
 

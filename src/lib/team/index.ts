@@ -10,6 +10,7 @@ export {
 export {
   applyTeamModifiers,
   computeTeamStrengths,
+  isUserSquad,
   pickXI,
   startingXI,
   validateFormation,

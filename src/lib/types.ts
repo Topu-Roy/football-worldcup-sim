@@ -48,6 +48,7 @@ export interface Squad {
   formation: Formation;
   players: Player[];
   isHistorical: boolean;
+  isUser?: boolean;
 }
 
 export interface DepartmentComposure {

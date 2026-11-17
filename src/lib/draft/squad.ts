@@ -14,5 +14,6 @@ export function buildUserSquad(formation: Formation, drafted: Player[]): Squad {
     formation,
     players,
     isHistorical: false,
+    isUser: true,
   };
 }

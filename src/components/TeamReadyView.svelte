@@ -186,7 +186,7 @@
   <div class="mt-8 w-full rounded-3xl border border-white/15 p-4 sm:p-6">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
       <p class="{mono} text-secondary">Synergy breakdown</p>
-      <p class="{mono} text-[10px] text-secondary">passing + off-ball boost</p>
+      <p class="{mono} text-[10px] text-secondary">all-stat boost</p>
     </div>
 
     {#if linkedClusters.length > 0}
@@ -206,7 +206,7 @@
                 class="rounded-full bg-mint px-2 py-0.5 text-[10px] font-bold text-black"
                 >+{Math.round(c.bonus * 100)}%</span
               >
-              passing + off-ball
+              all stats
             </p>
             <ul class="mt-3 flex flex-wrap gap-1">
               {#each c.players as p (p.id)}

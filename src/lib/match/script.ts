@@ -10,6 +10,7 @@ import {
   applyTeamModifiers,
   computeTeamStrengths,
   decayRateFor,
+  isUserSquad,
   rollForms,
   startingXI,
 } from "../team/index.js";
@@ -55,10 +56,12 @@ export function simulateMatchScript(
   const playersA = applyTeamModifiers(
     rollForms(startingXI(squadA)),
     squadA.isHistorical,
+    isUserSquad(squadA),
   );
   const playersB = applyTeamModifiers(
     rollForms(startingXI(squadB)),
     squadB.isHistorical,
+    isUserSquad(squadB),
   );
   const strengthsA = computeTeamStrengths(playersA);
   const strengthsB = computeTeamStrengths(playersB);
