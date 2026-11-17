@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { Pause, Play, RotateCcw } from "@lucide/svelte";
   import TournamentMatchRow from "./TournamentMatchRow.svelte";
   import StandingsTable from "./StandingsTable.svelte";
@@ -19,9 +20,12 @@
 
   let {
     tournament,
+    autoStart = false,
     onReset,
   }: {
     tournament: Tournament;
+    /** Set only after a user presses Start or Retry, not when restoring a save. */
+    autoStart?: boolean;
     onReset: () => void;
   } = $props();
 
@@ -135,6 +139,12 @@
       stopRun();
     }
   }
+
+  // A user-initiated start should go straight into match one. A restored save
+  // stays paused so a match never runs while the player is away.
+  onMount(() => {
+    if (autoStart) startRun();
+  });
 
   $effect(() => {
     if (!running || !activeScript) return;

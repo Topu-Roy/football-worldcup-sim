@@ -41,6 +41,8 @@
     untrack(() => initial?.draft ?? null),
   );
   let hasRerun = $state(untrack(() => initial?.hasRerun ?? false));
+  /** True only for a user-initiated start/retry, never for a restored save. */
+  let autoStart = $state(false);
   /** Bumped on reset so the draft board remounts with fresh internal state. */
   let resetNonce = $state(0);
 
@@ -51,6 +53,7 @@
     tournament = null;
     draftState = null;
     hasRerun = false;
+    autoStart = false;
     step = "draft";
     resetNonce += 1;
   }
@@ -71,6 +74,7 @@
   function startTournament() {
     if (!squad) return;
     tournament = createTournament(squad);
+    autoStart = true;
     step = "tournament";
   }
 
@@ -80,6 +84,7 @@
     if (!squad) return;
     hasRerun = true;
     tournament = createTournament(squad);
+    autoStart = true;
     step = "tournament";
   }
 
@@ -161,7 +166,7 @@
       onSwap={swapPlayers}
     />
   {:else if step === "tournament" && tournament}
-    <TournamentView {tournament} onReset={reset} />
+    <TournamentView {tournament} {autoStart} onReset={reset} />
   {:else if step === "results" && tournament}
     <ResultsView
       {tournament}
