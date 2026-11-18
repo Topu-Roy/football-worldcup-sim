@@ -160,6 +160,15 @@
     ),
   );
 
+  // Split the squad so the board shows real choices first. The rest stay one
+  // click away instead of forming a wall of disabled cards.
+  const placeableOfferPlayers = $derived(
+    offerPlayers.filter((p) => hasPlaceableSlot(p)),
+  );
+  const otherOfferPlayers = $derived(
+    offerPlayers.filter((p) => !hasPlaceableSlot(p)),
+  );
+
   const offerUnplaceable = $derived(
     offer != null &&
       !complete &&
@@ -411,17 +420,44 @@
         </div>
         <div
           bind:this={offerScroll}
-          class="draft-scroll grid max-h-[50vh] scroll-mt-24 grid-cols-1 gap-3 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:max-h-none sm:grid-cols-2 sm:gap-4 lg:max-h-[calc(100vh-9rem)]"
+          class="draft-scroll max-h-[50vh] scroll-mt-24 overflow-y-auto rounded-3xl border border-white/15 p-3 sm:max-h-none lg:max-h-[calc(100vh-9rem)]"
         >
-          {#each offerPlayers as p (p.id)}
-            <PlayerOfferCard
-              player={p}
-              selected={selected?.id === p.id}
-              disabled={complete || !hasPlaceableSlot(p)}
-              full={!hasPlaceableSlot(p)}
-              onClick={() => toggleSelect(p)}
-            />
-          {/each}
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+            {#each placeableOfferPlayers as p (p.id)}
+              <PlayerOfferCard
+                player={p}
+                selected={selected?.id === p.id}
+                disabled={complete}
+                full={false}
+                onClick={() => toggleSelect(p)}
+              />
+            {/each}
+          </div>
+
+          {#if otherOfferPlayers.length > 0}
+            <details
+              class="mt-3 rounded-2xl border border-white/10 bg-slate/20 px-3 py-1"
+            >
+              <summary
+                class="flex min-h-11 cursor-pointer items-center py-2 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase transition-colors duration-150 hover:text-mint"
+              >
+                Other players in this squad ({otherOfferPlayers.length})
+              </summary>
+              <div
+                class="grid grid-cols-1 gap-3 pt-1 pb-3 sm:grid-cols-2 sm:gap-4"
+              >
+                {#each otherOfferPlayers as p (p.id)}
+                  <PlayerOfferCard
+                    player={p}
+                    selected={false}
+                    disabled
+                    full
+                    onClick={() => {}}
+                  />
+                {/each}
+              </div>
+            </details>
+          {/if}
         </div>
       </div>
     {/if}
@@ -443,6 +479,31 @@
           {/if}
         </p>
       </div>
+      {#if selected}
+        <p
+          class="mx-auto mt-3 flex w-fit items-center justify-center gap-1.5 text-center font-mono text-[10px] font-semibold tracking-[1.5px] text-mint uppercase"
+        >
+          <MousePointerClick class="h-3.5 w-3.5" /> Now tap a starred position
+        </p>
+      {:else if swapSelectedId}
+        <p
+          class="mx-auto mt-3 flex w-fit items-center justify-center gap-1.5 text-center font-mono text-[10px] font-semibold tracking-[1.5px] text-yellow uppercase"
+        >
+          <MousePointerClick class="h-3.5 w-3.5" /> Tap a highlighted slot to swap
+        </p>
+      {:else if drafted.length === 0}
+        <p
+          class="mt-3 w-full text-center font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
+        >
+          Pick a player to start
+        </p>
+      {:else if !complete}
+        <p
+          class="mt-3 w-full text-center font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
+        >
+          Tap a player to swap positions
+        </p>
+      {/if}
       <div class="mt-4">
         <PitchView
           players={drafted}
@@ -457,19 +518,6 @@
           onSwapTarget={handleSwapTarget}
         />
       </div>
-      {#if swapSelectedId}
-        <p
-          class="mx-auto mt-3 flex w-fit items-center justify-center gap-1.5 text-center font-mono text-[10px] font-semibold tracking-[1.5px] text-yellow uppercase"
-        >
-          <MousePointerClick class="h-3.5 w-3.5" /> Select a highlighted slot to swap
-        </p>
-      {:else if drafted.length > 0 && !complete}
-        <p
-          class="mt-3 w-full text-center font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
-        >
-          Tap a player on the pitch to swap positions
-        </p>
-      {/if}
       {#if linkedClusters.length > 0}
         <div class="mt-6 rounded-2xl border border-mint bg-mint/5 p-3">
           <p class="{mono} mb-2 text-[10px] text-mint">Synergy</p>

@@ -1,5 +1,6 @@
 ---
 import GameShell from "../components/GameShell.svelte";
+import GameHelp from "../components/GameHelp.astro";
 import Layout from "../layouts/Layout.astro";
 import { breadcrumbLd } from "../lib/breadcrumbs";
 import { ogImageFor } from "../lib/og";
@@ -101,6 +102,7 @@ const breadcrumbs = breadcrumbLd("en", [
     </h1>
 
     <GameShell client:only="svelte" />
+    <GameHelp />
 
     <section
       class="border-t border-white/10 bg-slate/20"
@@ -254,7 +256,7 @@ const breadcrumbs = breadcrumbLd("en", [
           </p>
         </div>
 
-        <Figure id="bracket" lang="en" class="mx-auto mt-8 max-w-3xl" />
+        <Figure id="result" lang="en" class="mx-auto mt-8 max-w-3xl" />
 
         <h2 class="mt-14 font-display text-3xl tracking-[0.5px]">
           Three draft plans to try

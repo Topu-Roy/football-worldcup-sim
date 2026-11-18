@@ -49,9 +49,11 @@
         <td class="py-2 pr-2 font-mono text-secondary">{i + 1}</td>
         <td class="py-2 pr-3 font-bold">
           {row.squadId === userId ? "You" : row.name}
-          <span class="{mono} ml-2! text-[9px] text-secondary">
-            {NATION_NAMES[row.nation] ?? row.nation}
-          </span>
+          {#if row.squadId !== userId}
+            <span class="{mono} ml-2! text-[9px] text-secondary">
+              {NATION_NAMES[row.nation] ?? row.nation}
+            </span>
+          {/if}
         </td>
         <td class="py-2 pr-2 text-center font-mono">{row.played}</td>
         <td class="py-2 pr-2 text-center font-mono">{row.won}</td>

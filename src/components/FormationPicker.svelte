@@ -56,7 +56,7 @@
     {
       icon: Play,
       title: "Auto-run the cup",
-      text: "Your tournament simulates itself, match by match. Pause any game and take over.",
+      text: "Your tournament simulates itself, match by match. Pause any run at any time.",
     },
     {
       icon: ChartColumn,
@@ -66,7 +66,7 @@
   ];
 
   const stats = [
-    "4 teams",
+    "4-team group",
     "11 draft rounds",
     "Group → knockout",
     "Replay any match",

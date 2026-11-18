@@ -1,6 +1,5 @@
 <script lang="ts">
   import TournamentMatchRow from "./TournamentMatchRow.svelte";
-  import { NATION_NAMES } from "../lib/draft.js";
   import {
     aggregateStats,
     standingsFor,
@@ -12,7 +11,6 @@
   import ShareResultButton from "./ShareResultButton.svelte";
   import SquadStatsList from "./SquadStatsList.svelte";
   import StandingsTable from "./StandingsTable.svelte";
-  import { confirmAction } from "../lib/confirmDialog.js";
   import { outcomeTitle } from "../lib/shareCard.js";
   import { RotateCcw, Trophy, Play } from "@lucide/svelte";
 
@@ -49,6 +47,22 @@
     ...userKnockoutMatches,
   ]);
 
+  /** Last match the user played, used for the scoreline in the outcome banner. */
+  const finalMatch = $derived(
+    allUserMatches.length > 0
+      ? allUserMatches[allUserMatches.length - 1]
+      : null,
+  );
+  const finalOpponent = $derived(
+    finalMatch
+      ? tournament.squads[
+          finalMatch.home === tournament.userSquad.id
+            ? finalMatch.away
+            : finalMatch.home
+        ]
+      : null,
+  );
+
   /** Human-readable round caption for a user match (knockout rounds or group match index). */
   function roundLabel(m: TournamentMatch): string {
     if (m.round === "r16") return "Round of 16";
@@ -72,15 +86,8 @@
     expandedId = expandedId === m.id ? null : m.id;
   }
 
-  /** Confirm before discarding the finished run. */
-  async function handlePlayAgain() {
-    const ok = await confirmAction({
-      title: "Play again?",
-      message: "This clears your current XI and results.",
-      confirmLabel: "Play again",
-      danger: true,
-    });
-    if (!ok) return;
+  /** The finished run is already saved in history, so start a new draft now. */
+  function handlePlayAgain() {
     onReset();
   }
 
@@ -102,7 +109,7 @@
     class="flex w-full flex-wrap items-end justify-between gap-4 lg:col-span-2"
   >
     <div>
-      <p class="{mono} text-mint">Tournament · 4 teams</p>
+      <p class="{mono} text-mint">Your World Cup run</p>
       <h2
         class="font-display text-4xl leading-[0.85] tracking-[1px] sm:text-5xl"
       >
@@ -114,20 +121,13 @@
       <ShareResultButton {tournament} {formationKey} {stats} />
       <a
         href="/history/"
+        target="_blank"
+        rel="noopener"
+        title="Opens in a new tab"
         class="{pillOutline} hidden items-center gap-2 lg:inline-flex"
       >
         View history
       </a>
-      {#if tournament.outcome !== "champion" && canRerun}
-        <button
-          type="button"
-          class="{pillSolid} hidden items-center gap-2 lg:inline-flex"
-          title="Replay the tournament with the same XI"
-          onclick={onRerun}
-        >
-          <Play class="h-3.5 w-3.5" /> Retry
-        </button>
-      {/if}
       <button
         type="button"
         class="{pillOutline} inline-flex items-center gap-2"
@@ -168,7 +168,33 @@
     >
       {outcomeTitle(tournament.outcome)}
     </p>
-    {#if tournament.outcome !== "champion" && !canRerun}
+    {#if finalMatch && finalMatch.result && finalOpponent}
+      <p
+        class="mt-3 font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase"
+      >
+        {roundLabel(finalMatch)}: {finalMatch.result.score[0]}–{finalMatch
+          .result.score[1]} vs {finalOpponent.name}{finalMatch.result.penalties
+          ? " (pens)"
+          : ""}
+      </p>
+    {/if}
+    {#if tournament.outcome !== "champion" && canRerun}
+      <div class="mt-5 flex flex-col items-center gap-2">
+        <button
+          type="button"
+          class="{pillSolid} inline-flex min-h-11 items-center gap-2"
+          title="Replay the tournament with the same XI"
+          onclick={onRerun}
+        >
+          <Play class="h-3.5 w-3.5" /> Retry run
+        </button>
+        <p
+          class="font-mono text-[10px] tracking-[1.5px] text-secondary uppercase"
+        >
+          One retry left · same XI, new draw
+        </p>
+      </div>
+    {:else if tournament.outcome !== "champion" && !canRerun}
       <p class="mt-3 text-xs text-secondary">
         Retry already used — start a new draft to chase a better run.
       </p>
@@ -180,11 +206,7 @@
   >
     <div class="flex flex-wrap items-baseline justify-between gap-2">
       <p class="font-display text-2xl">{tournament.userSquad.name}</p>
-      <p class="{mono} text-secondary">
-        {NATION_NAMES[tournament.userSquad.nation] ??
-          tournament.userSquad.nation} ·
-        {tournament.userSquad.wcYear}
-      </p>
+      <p class="{mono} text-secondary">{formationKey} · Fantasy XI</p>
     </div>
 
     <div class="mt-6">
@@ -199,31 +221,16 @@
     <SquadStatsList squad={tournament.userSquad} />
   </div>
 
-  <div class="order-7 flex w-full flex-col gap-3 lg:hidden">
-    {#if tournament.outcome !== "champion" && canRerun}
-      <button
-        type="button"
-        class="{pillSolid} flex w-full items-center justify-center gap-2"
-        onclick={onRerun}
-      >
-        <Play class="h-3.5 w-3.5" /> Retry
-      </button>
-    {/if}
-    <div class="grid grid-cols-2 gap-2 sm:gap-3">
-      <button
-        type="button"
-        class="{pillOutline} flex w-full items-center justify-center gap-2"
-        onclick={handlePlayAgain}
-      >
-        <RotateCcw class="h-3.5 w-3.5" /> Play again
-      </button>
-      <a
-        href="/history/"
-        class="flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-mono text-xs font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
-      >
-        View history
-      </a>
-    </div>
+  <div class="order-7 w-full lg:hidden">
+    <a
+      href="/history/"
+      target="_blank"
+      rel="noopener"
+      title="Opens in a new tab"
+      class="flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 font-mono text-xs font-semibold tracking-[1.5px] text-white uppercase transition-colors duration-150 hover:border-mint hover:text-mint"
+    >
+      View history
+    </a>
   </div>
 
   {#if stats.played > 0}

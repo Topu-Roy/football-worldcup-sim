@@ -7,6 +7,7 @@
   import { swapPlayers as applySwap } from "../lib/draft.js";
   import { createTournament } from "../lib/tournament.js";
   import { upsertTournamentRecord } from "../lib/history.js";
+  import { setRunActive } from "../lib/runGuard.js";
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
 
@@ -29,6 +30,13 @@
   let hasRerun = $state(false);
   /** Bumped on reset so the draft board remounts with fresh internal state. */
   let resetNonce = $state(0);
+
+  /** Every step swap should start at the top, not at the old scroll depth. */
+  function resetViewport() {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
+  }
 
   /** Back to a fresh draft, clearing any squad and tournament. */
   function reset() {
@@ -83,9 +91,6 @@
     if (step === "draft" && drafted.length === DRAFT_ROUNDS) {
       squad = buildUserSquad(formation, drafted);
       step = "ready";
-      requestAnimationFrame(() =>
-        window.scrollTo({ top: 0, behavior: "smooth" }),
-      );
     }
   });
 
@@ -94,6 +99,21 @@
       upsertTournamentRecord(tournament);
       step = "results";
     }
+  });
+
+  // Reset scroll on every phase change so bottom actions never land mid-page.
+  $effect(() => {
+    if (step) resetViewport();
+  });
+
+  // Tell the site header when leaving would discard real progress. Results are
+  // already saved, so they are safe to leave.
+  $effect(() => {
+    setRunActive(
+      step !== "results" &&
+        (drafted.length > 0 || step === "ready" || step === "tournament"),
+    );
+    return () => setRunActive(false);
   });
 
   $effect(() => {

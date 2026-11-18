@@ -20,7 +20,7 @@
     player: Player;
     selected: boolean;
     disabled: boolean;
-    /** True when this player's department already has its quota of drafted players. */
+    /** True when this player has no open slot in the current formation. */
     full: boolean;
     onClick: () => void;
   } = $props();
@@ -62,7 +62,7 @@
     type="button"
     class="absolute inset-0 z-0 cursor-pointer rounded-[20px]"
     aria-label={full
-      ? `${player.name} cannot be added — position full`
+      ? `${player.name} cannot be added — no open slot`
       : `Select ${player.name}`}
     {disabled}
     onclick={onClick}
@@ -97,7 +97,7 @@
           <span
             class="{pillTag} inline-flex shrink-0 items-center gap-1 bg-slate text-secondary"
           >
-            <Lock class="h-3 w-3" /> FULL
+            <Lock class="h-3 w-3" /> NO SLOT
           </span>
         {/if}
         {#if tier === "elite"}

@@ -50,8 +50,8 @@
       : tournament.squads[match.home],
   );
 
-  /** Squad names embed the year ("Colombia 2014"); show just the nation name. */
-  const opponentName = $derived(opponent.name.replace(/\s+\d{4}$/, ""));
+  /** Keep the year: the opponent's era is part of the fantasy matchup. */
+  const opponentName = $derived(opponent.name);
 
   const badge = $derived(outcomeBadge(match, tournament.userSquad.id));
 
@@ -72,7 +72,9 @@
     }}
   >
     <span class="min-w-0 flex-1">
-      <span class="block truncate font-bold">vs. {opponentName}</span>
+      <span class="block truncate font-bold" title={opponentName}
+        >vs. {opponentName}</span
+      >
     </span>
     <span
       class="flex shrink-0 items-center justify-end gap-2 whitespace-nowrap sm:gap-4"

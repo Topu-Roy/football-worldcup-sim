@@ -218,7 +218,7 @@
 <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
   <header class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p class="{mono} text-mint">Tournament · 4 teams</p>
+      <p class="{mono} text-mint">Your World Cup run</p>
       <h2
         class="font-display text-4xl leading-[0.85] tracking-[1px] sm:text-5xl"
       >

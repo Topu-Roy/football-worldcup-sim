@@ -9,10 +9,22 @@ const labels = ui[locale];
 
 /** Primary pages stay visible in the wide nav; the rest live in the "More" menu. */
 const primaryLinks = [
-  { href: localizedPath("/teams", locale), label: labels.nav.teams },
-  { href: localizedPath("/how-to-play", locale), label: labels.nav.howToPlay },
-  { href: localizedPath("/blog", locale), label: labels.nav.blog },
-  { href: "/history/", label: labels.nav.history },
+  {
+    href: localizedPath("/teams", locale),
+    label: labels.nav.teams,
+    gameHelp: false,
+  },
+  {
+    href: localizedPath("/how-to-play", locale),
+    label: labels.nav.howToPlay,
+    gameHelp: true,
+  },
+  {
+    href: localizedPath("/blog", locale),
+    label: labels.nav.blog,
+    gameHelp: false,
+  },
+  { href: "/history/", label: labels.nav.history, gameHelp: false },
 ];
 
 const moreLinks = [
@@ -51,6 +63,7 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
             href={link.href}
             class="nav-link"
             aria-current={isActive(link.href) ? "page" : undefined}
+            data-game-help={link.gameHelp ? "true" : undefined}
           >
             {link.label}
           </a>
@@ -108,7 +121,13 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
 
 <script>
   import { confirmAction } from "../lib/confirmDialog.js";
+  import {
+    isRunActive,
+    setRunActive,
+    shouldGuardNavigation,
+  } from "../lib/runGuard.js";
 
+  const onGame = window.location.pathname.startsWith("/game");
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("primary-nav");
   const newDraft = document.getElementById("new-draft");
@@ -158,11 +177,73 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
     if (more && !more.contains(e.target as Node)) closeMore();
   });
 
+  // On the game page, the guide opens in place while a run is active. With no
+  // active run the link keeps its normal behavior.
+  document.addEventListener("click", (e) => {
+    if (!onGame || !isRunActive()) return;
+    const helpLink = (e.target as HTMLElement).closest("[data-game-help]");
+    if (!helpLink) return;
+    const dialog = document.getElementById("game-help");
+    if (!(dialog instanceof HTMLDialogElement)) return;
+    e.preventDefault();
+    dialog.showModal();
+  });
+
+  // Only guard links that would actually unload the page. New tabs, downloads,
+  // modified clicks and the in-game guide keep the current run alive.
+  if (onGame) {
+    document.addEventListener("click", async (e) => {
+      if (e.defaultPrevented || !isRunActive()) return;
+      const anchor = (e.target as HTMLElement).closest("a[href]");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      const href = anchor.getAttribute("href");
+      const help = anchor.hasAttribute("data-game-help");
+      if (
+        !shouldGuardNavigation({
+          href,
+          active: true,
+          target: anchor.getAttribute("target"),
+          download: anchor.hasAttribute("download"),
+          modifier: e.metaKey || e.ctrlKey || e.shiftKey || e.altKey,
+          help,
+        })
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+      const ok = await confirmAction({
+        title: "Leave this run?",
+        message: "Your draft and tournament progress will be lost.",
+        confirmLabel: "Leave run",
+        cancelLabel: "Stay",
+        danger: true,
+      });
+      if (!ok) return;
+
+      // The player already confirmed; avoid a second native prompt.
+      setRunActive(false);
+      window.location.assign(anchor.href);
+    });
+
+    window.addEventListener("beforeunload", (e) => {
+      if (!isRunActive()) return;
+      // Browsers show their own copy, not this text.
+      e.preventDefault();
+      e.returnValue = "";
+    });
+  }
+
   newDraft?.addEventListener("click", async (e) => {
     e.preventDefault();
-    const onGame = window.location.pathname.startsWith("/game");
-    if (onGame) {
-      // The current run lives only in memory, so a reset needs confirmation.
+    if (!onGame) {
+      window.location.href = "/game/";
+      return;
+    }
+
+    // Only a live draft or tournament has progress worth protecting.
+    if (isRunActive()) {
       const ok = await confirmAction({
         title: "Start a new draft?",
         message: "This clears your current run.",
@@ -170,10 +251,8 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
         danger: true,
       });
       if (!ok) return;
-      window.dispatchEvent(new CustomEvent("wc:reset"));
-    } else {
-      window.location.href = "/game/";
     }
+    window.dispatchEvent(new CustomEvent("wc:reset"));
   });
 </script>
 

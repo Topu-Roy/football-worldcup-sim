@@ -11,6 +11,13 @@
   let formation = $state<Formation | null>(null);
   let formationKey = $state("");
 
+  /** Start a screen at the top after switching tabs. */
+  function scrollToTop() {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
+  }
+
   async function pickFormation(key: string, f: Formation) {
     const changed =
       formation === null ||
@@ -29,16 +36,19 @@
       formationKey = key;
     }
     tab = "play";
+    scrollToTop();
   }
 
   function goToFormations() {
     tab = "formations";
+    scrollToTop();
   }
 
   function resetAll() {
     formation = null;
     formationKey = "";
     tab = "formations";
+    scrollToTop();
   }
 
   $effect(() => {

@@ -1,0 +1,248 @@
+---
+import { X } from "@lucide/astro";
+---
+
+<dialog id="game-help" class="game-help" aria-labelledby="game-help-title">
+  <form method="dialog" class="game-help-panel">
+    <div class="game-help-head">
+      <p class="game-help-eyebrow">How to play</p>
+      <button
+        type="submit"
+        class="game-help-close"
+        aria-label="Close help"
+        title="Close"
+      >
+        <X class="h-4 w-4" aria-hidden="true" />
+      </button>
+    </div>
+
+    <h2 id="game-help-title" class="game-help-title">How the game works</h2>
+
+    <div class="game-help-body">
+      <section>
+        <h3>Draft</h3>
+        <p>
+          Pick a player from the squad, then tap a starred position on the
+          pitch. Repeat for 11 rounds. You get three rerolls for the whole
+          draft: different year or different nation.
+        </p>
+      </section>
+
+      <section>
+        <h3>Chemistry</h3>
+        <p>
+          Same-nation players lift the whole team: two gives +3%, three +5%,
+          four +8%, five or more +10%.
+        </p>
+      </section>
+
+      <section>
+        <h3>The cup</h3>
+        <p>
+          You play three group matches. The top two advance, then the round of
+          16, quarter-final, semi-final and final. Matches run automatically;
+          pause any time.
+        </p>
+      </section>
+
+      <section>
+        <h3>Retry</h3>
+        <p>
+          If you are eliminated, you get one retry with the same XI. It is a new
+          draw, not the same tournament.
+        </p>
+      </section>
+
+      <section>
+        <h3>History</h3>
+        <p>
+          Finished and incomplete runs are stored on this device. Results stay
+          here when you start a new draft.
+        </p>
+      </section>
+    </div>
+
+    <div class="game-help-actions">
+      <a
+        href="/how-to-play/"
+        target="_blank"
+        rel="noopener"
+        class="game-help-guide"
+        title="Opens in a new tab"
+      >
+        Full guide
+      </a>
+      <button type="submit" class="game-help-done">Got it</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  const dialog = document.getElementById("game-help");
+  if (dialog instanceof HTMLDialogElement) {
+    // Clicking the dimmed backdrop closes the dialog.
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+</script>
+
+<style>
+  .game-help {
+    width: min(92vw, 540px);
+    max-height: min(88vh, 720px);
+    margin: auto;
+    overflow-y: auto;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: 24px;
+    background: var(--color-canvas);
+    color: #ffffff;
+    box-shadow: 0 24px 80px rgb(0 0 0 / 0.6);
+  }
+
+  .game-help::backdrop {
+    background: rgb(0 0 0 / 0.65);
+    backdrop-filter: blur(3px);
+  }
+
+  .game-help[open] {
+    animation: game-help-in 160ms ease-out;
+  }
+
+  @keyframes game-help-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .game-help[open] {
+      animation: none;
+    }
+  }
+
+  .game-help-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .game-help-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .game-help-eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--color-mint);
+  }
+
+  .game-help-close {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-secondary);
+    cursor: pointer;
+    transition:
+      border-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .game-help-close:hover {
+    border-color: var(--color-mint);
+    color: var(--color-mint);
+  }
+
+  .game-help-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 0.95;
+    letter-spacing: 0.5px;
+  }
+
+  .game-help-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .game-help-body h3 {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-mint);
+  }
+
+  .game-help-body p {
+    margin: 4px 0 0;
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .game-help-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  .game-help-guide,
+  .game-help-done {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .game-help-guide {
+    border: 1px solid rgb(255 255 255 / 0.15);
+    color: #ffffff;
+  }
+
+  .game-help-guide:hover {
+    border-color: var(--color-mint);
+    color: var(--color-mint);
+  }
+
+  .game-help-done {
+    border: 1px solid var(--color-mint);
+    background: var(--color-mint);
+    color: #000000;
+  }
+
+  .game-help-done:hover {
+    border-color: #ffffff;
+    background: #ffffff;
+  }
+</style>

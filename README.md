@@ -35,13 +35,14 @@ astro dev stop           # shut it down
 2. **Draft** — 11 rounds: a full XI. Each round offers a random nation/year roster filtered to open slots. You get 3 rerolls for the whole draft. Players carry tier badges and live chemistry. "Reset draft" restarts the same shape at round one; "Change formation" goes back to the shape picker.
 3. **Team ready** — review the XI, swap players between slots, then start. Out-of-position players are penalized.
 4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. The top 2 advance to R16 → QF → SF → final against fresh opponents. The run auto-starts on entry, can be paused or resumed with Play, and pauses when the tab is hidden.
-5. **Results** — final placement, squad stats and replayable match cards (plus the final group table when eliminated in the group stage). The top Share button exports the Team Sheet card: outcome, team rating, XI, player OVRs and key stats as an image. A loss allows **one Retry** with the same XI; "Play again" clears the run and starts a new draft. "View history" opens `/history`.
+5. **Results** — final placement, the last scoreline, squad stats and replayable match cards (plus the final group table when eliminated in the group stage). The top Share button exports the Team Sheet card: outcome, team rating, XI, player OVRs and key stats as an image. A loss shows **Retry run** in the outcome banner: one retry with the same XI and a new draw. "Play again" starts a fresh draft with the same shape; "View history" opens `/history` in a new tab.
 
 ## Persistence
 
 - The active game lives in memory only. A refresh or new tab starts again on the formation picker; no draft or tournament progress is restored.
-- Resetting: "Reset draft" (same shape), "Start over" / "Play again" (new run), or the header "New draft" button. All destructive actions ask for confirmation first.
-- Finished runs are stored in `localStorage` (`wc:history:v2`, capped at 100) and listed on `/history`; "Clear history" removes them.
+- While a draft has at least one pick, or a tournament is live, in-app links and refresh ask before leaving. Formation picker and finished results do not guard. Help opens in place from the How to Play link while a run is active.
+- Resetting: "Reset draft" (same shape), "Start over" / "Play again" (new run), or the header "Play" button. Actions that discard unsaved progress ask for confirmation; "Play again" after a finished run does not because the run is already saved.
+- Runs are saved to `localStorage` (`wc:history:v2`, capped at 100) after each user match and listed on `/history`; partial runs are marked Incomplete and cannot be resumed. "Clear history" removes them.
 - Confirmations use the in-app dialog, never `window.confirm` — see **UI conventions**.
 
 ## Match engine

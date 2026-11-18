@@ -69,7 +69,8 @@
     <div class="flex min-w-0 flex-col items-start">
       <span
         class="flex h-8 w-8 items-center justify-center rounded-full bg-uv font-display text-base leading-none text-white sm:h-9 sm:w-9 sm:text-lg"
-        >{opponentSquad.name.slice(0, 3).toUpperCase()}</span
+        >{opponentSquad.nation ||
+          opponentSquad.name.slice(0, 3).toUpperCase()}</span
       >
       <p
         class="mt-1.5 w-full truncate font-display text-lg leading-none text-secondary sm:text-xl"

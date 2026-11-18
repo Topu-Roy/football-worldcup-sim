@@ -36,7 +36,7 @@
               ? "R16"
               : o === "eliminated"
                 ? "Elim."
-                : "Live";
+                : "Incomplete";
 
   /** Full label for tooltips on the compact badge. */
   const outcomeFull = (o: TournamentOutcome | null): string =>
@@ -52,7 +52,7 @@
               ? "Eliminated in the round of 16"
               : o === "eliminated"
                 ? "Eliminated in the group stage"
-                : "Run in progress";
+                : "Run not finished — cannot be resumed";
 
   const outcomeTone = (o: TournamentOutcome | null): string =>
     o === "champion"
@@ -61,9 +61,7 @@
         ? "var(--color-yellow)"
         : o === "eliminated"
           ? "var(--color-pink)"
-          : o
-            ? "var(--color-secondary)"
-            : "var(--color-mint)";
+          : "var(--color-secondary)";
 
   const mono = "font-mono font-semibold uppercase tracking-[1.5px]";
 

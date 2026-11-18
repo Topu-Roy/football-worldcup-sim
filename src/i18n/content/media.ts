@@ -20,11 +20,11 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
         "Pick a shape first. It fixes how many defenders, midfielders and attackers you need.",
     },
     draft: {
-      alt: "Draft board showing a Brazil 1970 squad, open formation slots and three rerolls remaining.",
+      alt: "Draft board showing a historical squad, open formation slots and three rerolls remaining.",
       caption: "Each round offers one squad that can fill an open slot.",
     },
     chemistry: {
-      alt: "Team ready screen with a drafted XI on the pitch and a five-nation chemistry bonus of 10 percent.",
+      alt: "Team ready screen with a drafted XI on the pitch, player ratings and a squad average.",
       caption: "Chemistry counts your largest group of same-nation players.",
     },
     group: {
@@ -40,15 +40,15 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Level after extra time? Five kicks each, then sudden death.",
     },
     result: {
-      alt: "Final match result with the score, trophy placement and a replay option.",
+      alt: "Tournament result with placement and final score.",
       caption: "Replay any match or start a new draft.",
     },
     matchstats: {
-      alt: "Live match stats with possession, shots, shots on target and expected goals.",
+      alt: "Match stats with goals, possession, shots, shots on target and expected goals.",
       caption: "Expected goals measures chance quality, not shot count.",
     },
     squadcard: {
-      alt: "Expanded Brazil 1970 squad card with formation, average rating and player ratings.",
+      alt: "Expanded Spain 2010 squad card with formation, average rating and player ratings.",
       caption: "Open a squad to check shape, depth and the best player.",
     },
     history: {
@@ -56,7 +56,7 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Every finished run stays on your device.",
     },
     cover: {
-      alt: "My World Cup XI cover showing a drafted XI, a match score and a trophy.",
+      alt: "My World Cup XI formation picker with four World Cup XI shapes.",
     },
   },
   de: {
@@ -66,12 +66,12 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
         "Wähle zuerst die Form. Sie legt fest, wie viele Verteidiger, Mittelfeldspieler und Stürmer du brauchst.",
     },
     draft: {
-      alt: "Draft-Brett mit Brasilien 1970, offenen Plätzen und drei verbleibenden Neuwürfen.",
+      alt: "Draft-Brett mit einem historischen Kader, offenen Plätzen und drei verbleibenden Neuwürfen.",
       caption:
         "Jede Runde bietet einen Kader, der einen offenen Platz füllen kann.",
     },
     chemistry: {
-      alt: "Team-bereit-Ansicht mit gedrafteter Elf auf dem Platz und 10 Prozent Chemie-Bonus aus fünf Spielern derselben Nation.",
+      alt: "Team-bereit-Ansicht mit gedrafteter Elf auf dem Platz, Spielerbewertungen und Durchschnittsnote.",
       caption: "Chemie zählt deine größte Gruppe gleicher Nation.",
     },
     group: {
@@ -87,15 +87,15 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Nach Verlängerung: fünf Schüsse pro Seite, dann Sudden Death.",
     },
     result: {
-      alt: "Endergebnis mit Spielstand, Platzierung und Wiederholungsoption.",
+      alt: "Turnierergebnis mit Platzierung und Endstand.",
       caption: "Wiederhole jedes Spiel oder starte einen neuen Draft.",
     },
     matchstats: {
-      alt: "Live-Spielstatistik mit Ballbesitz, Schüssen, Schüssen aufs Tor und erwarteten Toren.",
+      alt: "Spielstatistik mit Toren, Ballbesitz, Schüssen, Schüssen aufs Tor und erwarteten Toren.",
       caption: "Erwartete Tore messen Chancenqualität, nicht Schusszahl.",
     },
     squadcard: {
-      alt: "Geöffnete Kaderkarte Brasilien 1970 mit Formation, Durchschnittsbewertung und Spielerbewertungen.",
+      alt: "Geöffnete Kaderkarte Spanien 2010 mit Formation, Durchschnittsbewertung und Spielerbewertungen.",
       caption: "Öffne einen Kader für Form, Tiefe und besten Spieler.",
     },
     history: {
@@ -103,7 +103,7 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Jeder abgeschlossene Lauf bleibt auf deinem Gerät.",
     },
     cover: {
-      alt: "Titelbild von My World Cup XI mit gedrafteter Elf, Spielstand und Pokal.",
+      alt: "Formationsauswahl von My World Cup XI mit vier WM-Elf-Formen.",
     },
   },
   fr: {
@@ -113,12 +113,12 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
         "Choisissez d'abord la forme. Elle fixe le nombre de défenseurs, milieux et attaquants.",
     },
     draft: {
-      alt: "Plateau de draft avec le Brésil 1970, des postes ouverts et trois relances restantes.",
+      alt: "Plateau de draft avec un effectif historique, des postes ouverts et trois relances restantes.",
       caption:
         "Chaque tour propose un effectif capable de remplir un poste libre.",
     },
     chemistry: {
-      alt: "Écran d'équipe prête avec un XI drafté sur le terrain et un bonus de chimie de 10 % venu de cinq joueurs de la même nation.",
+      alt: "Écran d'équipe prête avec un XI drafté sur le terrain, les notes des joueurs et la moyenne d'équipe.",
       caption:
         "La chimie compte votre plus grand groupe de joueurs d'une même nation.",
     },
@@ -136,16 +136,16 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Après la prolongation : cinq tirs chacun, puis mort subite.",
     },
     result: {
-      alt: "Résultat final avec le score, le classement et une option de replay.",
+      alt: "Résultat du tournoi avec classement et score final.",
       caption: "Rejouez un match ou lancez un nouveau draft.",
     },
     matchstats: {
-      alt: "Statistiques de match en direct avec possession, tirs, tirs cadrés et buts attendus.",
+      alt: "Statistiques de match avec buts, possession, tirs, tirs cadrés et buts attendus.",
       caption:
         "Les buts attendus mesurent la qualité des occasions, pas le nombre de tirs.",
     },
     squadcard: {
-      alt: "Fiche d'effectif Brésil 1970 ouverte avec formation, note moyenne et notes des joueurs.",
+      alt: "Fiche d'effectif Espagne 2010 ouverte avec formation, note moyenne et notes des joueurs.",
       caption:
         "Ouvrez un effectif pour voir la forme, la profondeur et le meilleur joueur.",
     },
@@ -154,7 +154,7 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Chaque partie terminée reste sur votre appareil.",
     },
     cover: {
-      alt: "Visuel My World Cup XI avec un XI drafté, un score de match et un trophée.",
+      alt: "Sélecteur de formation de My World Cup XI avec quatre formes de XI.",
     },
   },
   ja: {
@@ -163,12 +163,12 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "まず形を選びます。必要なDF、MF、FWの人数が決まります。",
     },
     draft: {
-      alt: "ブラジル1970のカード、空きポジション、残り3回のリロールを示すドラフトボード。",
+      alt: "歴代チーム、空きポジション、残り3回のリロールを示すドラフトボード。",
       caption:
         "各ラウンドでは、空きポジションを埋められるチームが1つ提示されます。",
     },
     chemistry: {
-      alt: "ピッチ上のドラフトXIと、同じ国の選手5人によるケミストリー10%ボーナスを示すチーム準備画面。",
+      alt: "ピッチ上のドラフトXI、選手評価、チーム平均を示すチーム準備画面。",
       caption: "ケミストリーは同じ国の選手の最大グループで決まります。",
     },
     group: {
@@ -184,15 +184,15 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "延長後も同点なら、各5本のPK、その後サドンデスです。",
     },
     result: {
-      alt: "スコア、最終順位、リプレイ選択肢を示す試合結果画面。",
+      alt: "最終順位とスコアを示す大会結果画面。",
       caption: "試合を見返すか、新しいドラフトを始められます。",
     },
     matchstats: {
-      alt: "ポゼッション、シュート、枠内シュート、xGを示すライブ試合統計。",
+      alt: "ゴール、ポゼッション、シュート、枠内シュート、xGを示す試合統計。",
       caption: "xGはシュート数ではなく決定機の質を測ります。",
     },
     squadcard: {
-      alt: "フォーメーション、平均評価、選手評価を示すブラジル1970の開いたチームカード。",
+      alt: "フォーメーション、平均評価、選手評価を示すスペイン2010の開いたチームカード。",
       caption: "チームを開いて形、層の厚さ、最高評価選手を確認できます。",
     },
     history: {
@@ -200,7 +200,7 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "終了した大会はすべて端末に残ります。",
     },
     cover: {
-      alt: "ドラフトXI、試合スコア、トロフィーを描いたMy World Cup XIのカバー画像。",
+      alt: "4つのフォーメーションを選べるMy World Cup XIの画面。",
     },
   },
   es: {
@@ -210,11 +210,11 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
         "Elige primero la forma. Fija cuántos defensas, medios y delanteros necesitas.",
     },
     draft: {
-      alt: "Tablero de draft con Brasil 1970, huecos abiertos y tres rerolls restantes.",
+      alt: "Tablero de draft con una plantilla histórica, huecos abiertos y tres rerolls restantes.",
       caption: "Cada ronda ofrece una plantilla que puede cubrir un hueco.",
     },
     chemistry: {
-      alt: "Pantalla de equipo listo con un XI drafteado y una química del 10 por ciento por cinco jugadores de la misma nación.",
+      alt: "Pantalla de equipo listo con un XI drafteado en el campo, notas de jugadores y media del equipo.",
       caption:
         "La química cuenta tu grupo más grande de jugadores de la misma nación.",
     },
@@ -233,16 +233,16 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
         "Tras la prórroga: cinco penales por lado y luego muerte súbita.",
     },
     result: {
-      alt: "Resultado final con marcador, puesto y opción de repetir el partido.",
+      alt: "Resultado del torneo con puesto y marcador final.",
       caption: "Repite cualquier partido o empieza otro draft.",
     },
     matchstats: {
-      alt: "Estadísticas en directo con posesión, tiros, tiros a puerta y goles esperados.",
+      alt: "Estadísticas del partido con goles, posesión, tiros, tiros a puerta y goles esperados.",
       caption:
         "Los goles esperados miden la calidad de las ocasiones, no el número de tiros.",
     },
     squadcard: {
-      alt: "Ficha abierta de Brasil 1970 con formación, nota media y notas de los jugadores.",
+      alt: "Ficha abierta de España 2010 con formación, nota media y notas de los jugadores.",
       caption:
         "Abre una plantilla para ver forma, profundidad y mejor jugador.",
     },
@@ -251,7 +251,7 @@ export const mediaCopy: Record<Locale, Record<MediaId, MediaCopy>> = {
       caption: "Cada partida terminada se queda en tu dispositivo.",
     },
     cover: {
-      alt: "Portada de My World Cup XI con un XI drafteado, un marcador y un trofeo.",
+      alt: "Selector de formación de My World Cup XI con cuatro formas de XI.",
     },
   },
 };

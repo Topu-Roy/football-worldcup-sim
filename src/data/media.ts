@@ -12,9 +12,9 @@ import history from "../assets/media/history-view.png";
 import cover from "../assets/media/blog-how-it-works-cover.png";
 
 /**
- * Screenshot library. Replace the PNG in `src/assets/media/` with a real
- * capture at the same size and the page picks it up on the next build.
- * If the file extension changes, update only the import above.
+ * Screenshot library. Captures come from the running app; replace a PNG at the
+ * same path when the UI changes. Unused legacy entries stay listed until the
+ * next content pass so the locale copy map keeps its stable keys.
  */
 export const media = {
   formation,
