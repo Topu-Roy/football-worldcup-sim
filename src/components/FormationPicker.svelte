@@ -17,7 +17,7 @@
     $props();
   const options = formationOptions();
 
-  // e.g. "4 DEFs · 3 MIDs · 3 ATTs" — a compact breakdown of slot counts per department.
+  // e.g. "4 DEFs · 3 MIDs · 3 ATTs" - a compact breakdown of slot counts per department.
   const summary = (f: Formation) =>
     ["GK", "DEF", "MID", "ATT"]
       .map(

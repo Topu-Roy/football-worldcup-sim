@@ -39,8 +39,8 @@ bun scripts/gen-media-placeholders.ts --force
 
 Two inline SVG diagrams need no screenshots:
 
-- `src/components/media/PoolSplit.astro` — 77 draftable + 9 AI = 86.
-- `src/components/media/RatingModel.astro` — 13 attributes to one role-weighted rating.
+- `src/components/media/PoolSplit.astro` - 77 draftable + 9 AI = 86.
+- `src/components/media/RatingModel.astro` - 13 attributes to one role-weighted rating.
 
 Labels come from `diagramCopy` in `src/i18n/content/media.ts`.
 

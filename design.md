@@ -1,4 +1,4 @@
-# Design System — My World Cup XI
+# Design System - My World Cup XI
 
 Dark, high-contrast canvas. Violet/mint neon accents. Bold display type. Mono labels.
 
@@ -26,7 +26,7 @@ Source: `src/styles/global.css`.
 
 Rules:
 
-- Use `--color-uvlight` for violet text — never `--color-uv` (it is ~2.5:1 contrast on the dark canvas).
+- Use `--color-uvlight` for violet text - never `--color-uv` (it is ~2.5:1 contrast on the dark canvas).
 - Use `--color-uv` only for background glows.
 
 ## Typography
@@ -52,10 +52,10 @@ Rules:
 
 - Hairline borders: `border-white/10` (subtle), `border-white/15` (cards).
 - Radius scale:
-  - `rounded-full` — pills, badges
-  - `rounded-3xl` — large cards, buttons
-  - `rounded-2xl` — cards
-  - `rounded-xl` — inner containers
+  - `rounded-full` - pills, badges
+  - `rounded-3xl` - large cards, buttons
+  - `rounded-2xl` - cards
+  - `rounded-xl` - inner containers
 
 ## Surfaces
 
@@ -74,10 +74,10 @@ Rules:
 ## Interaction
 
 - Hover: `-translate-y-0.5` + `border-mint` + `bg-slate/60`, `transition-all duration-150`.
-- Focus: global `:focus-visible` ring — `outline: 2px solid var(--color-focuscyan); outline-offset: 2px`. Never remove without an equivalent.
+- Focus: global `:focus-visible` ring - `outline: 2px solid var(--color-focuscyan); outline-offset: 2px`. Never remove without an equivalent.
 - Respect `prefers-reduced-motion` for looping or attention-seeking animation.
 
 ## Icons
 
-- `@lucide/svelte` — Svelte components.
-- `@lucide/astro` — Astro components.
+- `@lucide/svelte` - Svelte components.
+- `@lucide/astro` - Astro components.

@@ -27,7 +27,7 @@ If any answer is no, the page is not created.
 
 ## Build plan
 
-### Weeks 1–4 — make it look like software
+### Weeks 1–4 - make it look like software
 
 - Upgrade `/teams`: server-rendered, filter by nation/year/rating, compare two squads, share.
 - Add `/methodology` (rating model, data sources, squad rules).
@@ -36,7 +36,7 @@ If any answer is no, the page is not created.
 - Expand `/game` server-rendered content: explanation, screenshots, features, FAQ.
 - 2026 squads are real and verified. Keep them on SEO surfaces with the same data notes as every other squad.
 
-### Weeks 5–8 — one flagship tool
+### Weeks 5–8 - one flagship tool
 
 - Build `/xi`: interactive all-time XI builder.
 - Add 4 nation pages only: `/xi/brazil`, `/xi/argentina`, `/xi/germany`, `/xi/italy`.

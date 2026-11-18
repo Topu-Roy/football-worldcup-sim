@@ -32,7 +32,7 @@ export function ogAltFor(path: string, fallback: string): string {
     "/terms-and-conditions": en.terms.title,
     "/teams": en.teams(0).title,
     "/blog": blog.en.index.seoTitle,
-    "/history": "Match History — Your Fantasy World Cup Results",
+    "/history": "Match History - Your Fantasy World Cup Results",
   };
 
   return byPath[clean] ?? fallback;

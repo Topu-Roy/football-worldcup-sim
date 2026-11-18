@@ -93,7 +93,7 @@ console.log(`\n=== Highest-rated players by department ===`);
 for (const dept of DEPT_ORDER) {
   const list = byDept.get(dept)!;
   console.log(
-    `${dept.padEnd(3)} ${String(list.length).padEnd(4)} avg ${avg(list).toFixed(1)}  top: ${list[0]?.name ?? "—"} (${list[0]?.rating ?? 0})`,
+    `${dept.padEnd(3)} ${String(list.length).padEnd(4)} avg ${avg(list).toFixed(1)}  top: ${list[0]?.name ?? "-"} (${list[0]?.rating ?? 0})`,
   );
 }
 console.log(`\nWrote top-players-by-department.md (${lines.length} lines)`);

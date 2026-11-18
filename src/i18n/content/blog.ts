@@ -26,7 +26,7 @@ export const blog: Record<Locale, BlogLocale> = {
   en: {
     index: {
       title: "World Cup Draft Guides",
-      seoTitle: "World Cup Draft Guides & Simulator Tips — My World Cup XI",
+      seoTitle: "World Cup Draft Guides & Simulator Tips - My World Cup XI",
       description:
         "Practical guides for the world cup draft game: formations, chemistry, rerolls, group stage and penalty shootouts. Read first, draft better.",
       intro:
@@ -205,7 +205,7 @@ export const blog: Record<Locale, BlogLocale> = {
   de: {
     index: {
       title: "WM-Draft-Guides",
-      seoTitle: "WM-Draft-Guides & Simulator-Tipps — My World Cup XI",
+      seoTitle: "WM-Draft-Guides & Simulator-Tipps - My World Cup XI",
       description:
         "Praktische Guides für das WM-Draft-Spiel: Formationen, Chemie, Neuwürfe, Gruppenphase und Elfmeterschießen. Erst lesen, besser draften.",
       intro:
@@ -383,7 +383,7 @@ export const blog: Record<Locale, BlogLocale> = {
   fr: {
     index: {
       title: "Guides de draft Coupe du Monde",
-      seoTitle: "Guides de draft & astuces du simulateur — My World Cup XI",
+      seoTitle: "Guides de draft & astuces du simulateur - My World Cup XI",
       description:
         "Guides pratiques pour le jeu de draft : formations, chimie, relances, phase de groupes et tirs au but. Lisez d'abord, draftez mieux.",
       intro:
@@ -562,7 +562,7 @@ export const blog: Record<Locale, BlogLocale> = {
     index: {
       title: "ワールドカップ・ドラフトガイド",
       seoTitle:
-        "ワールドカップ・ドラフトガイドとシミュレーターのコツ — My World Cup XI",
+        "ワールドカップ・ドラフトガイドとシミュレーターのコツ - My World Cup XI",
       description:
         "ドラフトゲームの実践ガイド。フォーメーション、ケミストリー、リロール、グループステージ、PK戦。読んでからドラフトしよう。",
       intro:
@@ -740,7 +740,7 @@ export const blog: Record<Locale, BlogLocale> = {
   es: {
     index: {
       title: "Guías de draft del Mundial",
-      seoTitle: "Guías de draft y consejos del simulador — My World Cup XI",
+      seoTitle: "Guías de draft y consejos del simulador - My World Cup XI",
       description:
         "Guías prácticas para el juego de draft: formaciones, química, rerolls, fase de grupos y penales. Lee primero, draftea mejor.",
       intro:

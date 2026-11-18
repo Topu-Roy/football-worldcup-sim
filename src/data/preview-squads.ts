@@ -118,7 +118,7 @@ function buildTeam(
     return out;
   };
 
-  // Pass 1 — highest-rated first, into a matching slot, preferring best position.
+  // Pass 1 - highest-rated first, into a matching slot, preferring best position.
   const byRating = [...remaining].sort((a, b) => rate(b) - rate(a));
   for (const p of byRating) {
     if (used.has(p.id)) continue;
@@ -135,7 +135,7 @@ function buildTeam(
     used.add(p.id);
   }
 
-  // Pass 2 — fill remaining slots, but ONLY with players who can actually play
+  // Pass 2 - fill remaining slots, but ONLY with players who can actually play
   // the role. We never place a player out of position; if a slot can't be filled
   // naturally the formation is rejected (caller tries another formation).
   for (let i = 0; i < n; i++) {

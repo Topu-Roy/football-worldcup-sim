@@ -64,7 +64,7 @@ test("isUserSquad recognizes the new flag and the legacy id", () => {
 
 Run: `bun test tests/chemistry.test.ts`
 
-Expected: FAIL — `isUserSquad` missing and `isUser` undefined.
+Expected: FAIL - `isUserSquad` missing and `isUser` undefined.
 
 - [ ] **Step 3: Implement**
 
@@ -114,7 +114,7 @@ test("historical squads get a flat 10% chemistry", () => {
 
 Run: `bun test tests/chemistry.test.ts`
 
-Expected: FAIL — actual `0.2`.
+Expected: FAIL - actual `0.2`.
 
 - [ ] **Step 3: Implement**
 
@@ -193,7 +193,7 @@ test("out-of-position nerf applies after chemistry", () => {
 
 Run: `bun test tests/chemistry.test.ts`
 
-Expected: FAIL — only passing/offBall receive the bonus.
+Expected: FAIL - only passing/offBall receive the bonus.
 
 - [ ] **Step 3: Implement**
 
@@ -283,7 +283,7 @@ Change the chemistry bullet to:
 
 Add the balance report to the Commands table:
 
-> `bun scripts/simulate-runs.ts 1000` — full-run balance report
+> `bun scripts/simulate-runs.ts 1000` - full-run balance report
 
 - [ ] **Step 2: Bump version**
 

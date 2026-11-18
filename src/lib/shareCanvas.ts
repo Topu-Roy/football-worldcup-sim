@@ -281,7 +281,7 @@ function drawStats(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
     `${data.stats.won}-${data.stats.drawn}-${data.stats.lost}`,
     `${data.stats.gf}-${data.stats.ga}`,
     String(data.stats.cleanSheets),
-    data.biggestWinScore ?? "—",
+    data.biggestWinScore ?? "-",
   ];
   const colW = CONTENT_W / 4;
 

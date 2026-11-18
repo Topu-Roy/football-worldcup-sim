@@ -82,7 +82,7 @@ function svgFor({ file, width, height, label }: Placeholder): string {
   <rect x="${20 * scale}" y="${20 * scale}" width="${width - 40 * scale}" height="${height - 40 * scale}" rx="${28 * scale}" fill="#1b1b1b" stroke="#313131" stroke-width="${3 * scale}" />
   <rect x="${80 * scale}" y="${height / 2 - 150 * scale}" width="${120 * scale}" height="${10 * scale}" fill="#3cffd0" />
   <text x="${80 * scale}" y="${height / 2 - 70 * scale}" fill="#ffffff" font-family="Arial Black, Arial, sans-serif" font-size="${titleSize}" font-weight="900">${label}</text>
-  <text x="${80 * scale}" y="${height / 2 + 10 * scale}" fill="#3cffd0" font-family="Courier New, monospace" font-size="${bodySize}" font-weight="700">PLACEHOLDER — ${width} × ${height}</text>
+  <text x="${80 * scale}" y="${height / 2 + 10 * scale}" fill="#3cffd0" font-family="Courier New, monospace" font-size="${bodySize}" font-weight="700">PLACEHOLDER - ${width} × ${height}</text>
   <text x="${80 * scale}" y="${height / 2 + 60 * scale}" fill="#949494" font-family="Helvetica, Arial, sans-serif" font-size="${smallSize}">Replace src/assets/media/${file} with a real capture.</text>
   <text x="${80 * scale}" y="${height - 90 * scale}" fill="#949494" font-family="Courier New, monospace" font-size="${smallSize}">MY WORLD CUP XI / SCREENSHOT STUDIO</text>
 </svg>`;
