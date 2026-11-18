@@ -152,6 +152,13 @@ function line(
   ctx.stroke();
 }
 
+/** Format a signed number with a true minus sign. */
+function formatSigned(n: number): string {
+  if (n > 0) return `+${n}`;
+  if (n < 0) return `−${Math.abs(n)}`;
+  return "0";
+}
+
 function drawBackground(ctx: CanvasRenderingContext2D, accent: string): void {
   const gradient = ctx.createLinearGradient(0, 0, SHARE_WIDTH, SHARE_HEIGHT);
   gradient.addColorStop(0, "#131313");
@@ -178,7 +185,7 @@ function drawHeader(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   ctx.textAlign = "right";
   ctx.fillStyle = SECONDARY;
   ctx.font = monoFont(600, 18);
-  ctx.fillText("TEAM SHEET / 01", SHARE_WIDTH - PAD, 86);
+  ctx.fillText("TEAM SHEET", SHARE_WIDTH - PAD, 86);
   ctx.textAlign = "left";
 }
 
@@ -186,7 +193,7 @@ function drawBanner(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   ctx.textAlign = "left";
   ctx.fillStyle = SECONDARY;
   ctx.font = monoFont(600, 16);
-  drawSpaced(ctx, "FINAL PLACEMENT", PAD, 144, 4);
+  drawSpaced(ctx, "FINAL PLACEMENT", PAD, 132, 4);
 
   const titleSize = fitFontSize(
     data.outcomeTitle,
@@ -269,12 +276,12 @@ function drawStats(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   line(ctx, PAD, SHARE_WIDTH - PAD, top);
   line(ctx, PAD, SHARE_WIDTH - PAD, top + height);
 
-  const labels = ["RECORD", "GOALS", "CLEAN SHEETS", "BIGGEST WIN"];
+  const labels = ["RECORD", "GOALS F-A", "CLEAN SHEETS", "BIGGEST WIN"];
   const values = [
     `${data.stats.won}-${data.stats.drawn}-${data.stats.lost}`,
     `${data.stats.gf}-${data.stats.ga}`,
     String(data.stats.cleanSheets),
-    data.biggestWin > 0 ? `+${data.biggestWin}` : "0",
+    data.biggestWinScore ?? "—",
   ];
   const colW = CONTENT_W / 4;
 
@@ -340,11 +347,14 @@ function drawPitch(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   // Marker and label sizes scale with the pitch, so a wider card keeps the
   // same visual balance instead of turning names into oversized stickers.
   const markerR = Math.max(11, Math.round(w * 0.031));
-  const numberSize = Math.max(8, Math.round(w * 0.021));
+  const numberSize = Math.max(9, Math.round(w * 0.023));
   const nameSize = Math.max(11, Math.min(15, Math.round(w * 0.034)));
-  const nameMaxW = w * 0.19;
+  const nameMaxW = w * 0.18;
   const nameGap = Math.max(3, Math.round(w * 0.01));
-  const nameBaseline = (py: number) => py + markerR + nameGap + nameSize / 2;
+  const nameBaseline = (py: number, above: boolean) =>
+    above
+      ? py - markerR - nameGap - nameSize / 2
+      : py + markerR + nameGap + nameSize / 2;
 
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -362,13 +372,16 @@ function drawPitch(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
         return ctx.measureText(text).width;
       },
     );
+    // The keeper sits closest to the bottom line, so keep that label above
+    // the dot instead of squeezing it into the goal area.
+    const nameY = nameBaseline(py, player.y >= 88);
 
     ctx.font = font(700, nameSize);
     ctx.lineWidth = Math.max(2, Math.round(nameSize * 0.22));
     ctx.strokeStyle = "rgba(8, 35, 18, 0.9)";
-    ctx.strokeText(label, px, nameBaseline(py));
+    ctx.strokeText(label, px, nameY);
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(label, px, nameBaseline(py));
+    ctx.fillText(label, px, nameY);
   }
 
   for (const player of data.players) {
@@ -423,7 +436,7 @@ function drawTopPlayer(
 
   ctx.textAlign = "right";
   ctx.fillStyle = top.color;
-  ctx.font = displayFont(44);
+  ctx.font = displayFont(38);
   ctx.fillText(String(top.rating), PAD + LEFT_W - 18, y + 62);
   ctx.textAlign = "left";
 }
@@ -435,9 +448,9 @@ function drawMiniStats(
 ): void {
   const gap = 8;
   const tileW = (LEFT_W - gap * 2) / 3;
-  const labels = ["MATCHES", "GOALS / GAME", "PEN WINS"];
+  const labels = ["GOAL DIFF", "GOALS / GAME", "PEN WINS"];
   const values = [
-    String(data.stats.played),
+    formatSigned(data.stats.gf - data.stats.ga),
     data.avgGoalsFor.toFixed(1),
     String(data.stats.penaltyWins),
   ];
@@ -453,7 +466,7 @@ function drawMiniStats(
 
     ctx.textAlign = "left";
     ctx.fillStyle = SECONDARY;
-    ctx.font = monoFont(600, 9);
+    ctx.font = monoFont(600, 10);
     ctx.fillText(label, x + 12, y + 22);
 
     ctx.fillStyle = "#ffffff";
@@ -475,7 +488,7 @@ function drawRoster(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
 
   ctx.textAlign = "left";
   ctx.fillStyle = SECONDARY;
-  ctx.font = monoFont(600, 11);
+  ctx.font = monoFont(600, 12);
   ctx.fillText("NO.", noX, top + 18);
   ctx.fillText("PLAYER", nameX, top + 18);
   ctx.textAlign = "right";
@@ -498,15 +511,15 @@ function drawRoster(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
     ctx.fillText(String(player.number), noX, cy + 1);
 
     ctx.fillStyle = "#ffffff";
-    ctx.font = font(700, 23);
+    ctx.font = font(700, 22);
     const name = truncateToWidth(player.name, nameW, (text) =>
-      measure(ctx, text, 700, 23),
+      measure(ctx, text, 700, 22),
     );
     ctx.fillText(name, nameX, cy + 1);
 
     ctx.textAlign = "right";
     ctx.fillStyle = player.color;
-    ctx.font = monoFont(600, 10);
+    ctx.font = monoFont(600, 11);
     ctx.fillText(player.role, roleRight, cy + 1);
 
     const elite = player.rating >= 94;

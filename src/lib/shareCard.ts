@@ -57,9 +57,8 @@ export interface ShareCardData {
   formationKey: string;
   /** Average XI rating, the headline number on the card. */
   teamRating: number;
-  points: number;
-  /** Winning margin of the biggest win, not the scoreline. */
-  biggestWin: number;
+  /** Scoreline of the highest-margin win, ordered from the user's side. */
+  biggestWinScore: string | null;
   avgGoalsFor: number;
   players: ShareCardPlayer[];
   stats: ShareCardStats;
@@ -97,12 +96,37 @@ export function outcomeNote(
 ): string {
   const matches = `${played} match${played === 1 ? "" : "es"}`;
   if (outcome === "champion") return `${matches} · lifted the trophy`;
-  if (outcome === "runners-up") return `${matches} · runners-up`;
-  if (outcome === "semi-final-exit") return `${matches} · semi-final exit`;
+  if (outcome === "runners-up") return `${matches} · lost the final`;
+  if (outcome === "semi-final-exit") return `${matches} · lost the semi-final`;
   if (outcome === "quarter-final-exit")
-    return `${matches} · quarter-final exit`;
-  if (outcome === "round-of-16-exit") return `${matches} · round of 16 exit`;
-  return `${matches} · out in the group stage`;
+    return `${matches} · lost the quarter-final`;
+  if (outcome === "round-of-16-exit")
+    return `${matches} · lost in the round of 16`;
+  return `${matches} · out before the knockouts`;
+}
+
+/** Highest-margin win, with the score ordered from the user's side. */
+function findBiggestWinScore(
+  tournament: Tournament,
+  stats: AggregateStats,
+): string | null {
+  let best: { margin: number; score: string } | null = null;
+
+  for (const match of stats.matches) {
+    if (match.outcome !== "W") continue;
+    const source = tournament.matches.find((item) => item.id === match.id);
+    const userHome = source ? source.home === tournament.userSquad.id : true;
+    const [home, away] = match.result.score;
+    const gf = userHome ? home : away;
+    const ga = userHome ? away : home;
+    const margin = gf - ga;
+
+    if (!best || margin > best.margin) {
+      best = { margin, score: `${gf}-${ga}` };
+    }
+  }
+
+  return best?.score ?? null;
 }
 
 /** Build the data the canvas renderer needs from the finished tournament. */
@@ -145,8 +169,7 @@ export function buildShareCardData(
     outcomeNote: outcomeNote(tournament.outcome, stats.played),
     formationKey,
     teamRating,
-    points: stats.points,
-    biggestWin: stats.biggestWin,
+    biggestWinScore: findBiggestWinScore(tournament, stats),
     avgGoalsFor: stats.avgGoalsFor,
     players,
     stats: {
@@ -164,7 +187,7 @@ export function buildShareCardData(
 
 /** Compact surname-biased player label drawn under the pitch marker. */
 export function pitchLabel(name: string): string {
-  return shortName(name, 10);
+  return shortName(name, 9);
 }
 
 /** Share-sheet title. */
