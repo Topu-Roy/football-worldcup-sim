@@ -45,7 +45,7 @@ export const blog: Record<Locale, BlogLocale> = {
           body: [
             "Your team joins a group with three AI sides. Two are weaker teams. One is a strong historical squad. Every team plays the others once. A win gives three points, a draw gives one and a loss gives zero. The top two advance.",
             "The knockout bracket is a round of 16, quarter-final, semi-final and final. The rest of the bracket is simulated around your matches, so the whole tournament finishes fast. Ties go to extra time. If the score is still level, penalties decide. The group draw is different every run, so the same XI can get an easy group or a hard one.",
-            "Penalty shootouts use your five best takers, ranked by composure and finishing. Each side takes five kicks. The shootout stops early if one side cannot catch up. If it is still level, it goes to sudden death, one kick each. Your save stays in your browser, so you can replay any match or start a new draft.",
+            "Penalty shootouts use your five best takers, ranked by composure and finishing. Each side takes five kicks. The shootout stops early if one side cannot catch up. If it is still level, it goes to sudden death, one kick each. Finished runs stay in your match history, so you can review them or start a new draft.",
           ],
         },
         {
@@ -83,7 +83,7 @@ export const blog: Record<Locale, BlogLocale> = {
       faq: [
         {
           q: "Do I need an account to play?",
-          a: "No. The game saves in your browser. There is no sign-up and no password.",
+          a: "No. Your finished runs are saved in your match history in the browser. There is no sign-up and no password.",
         },
         {
           q: "What formation is best for a beginner?",
@@ -108,7 +108,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "What the game is",
             body: [
               "My World Cup XI is a free browser game. You draft a fantasy XI from 77 World Cup squads, then simulate a full tournament. The pool runs from Brazil 1970 to the 2026 squads. The game also uses nine group-stage opponents as AI teams, for 86 teams in total. Every squad uses the same rating scale, so a 1970 winger and a 2026 full-back can be compared fairly.",
-              "You do not need an account. You do not need to download anything. A run takes about ten to fifteen minutes, and your save stays in your browser.",
+              "You do not need an account. You do not need to download anything. A run takes about ten to fifteen minutes, and finished runs stay in your match history.",
             ],
           },
           {
@@ -187,7 +187,7 @@ export const blog: Record<Locale, BlogLocale> = {
         faq: [
           {
             q: "Do I need an account to play?",
-            a: "No. The game saves in your browser. There is no sign-up and no password.",
+            a: "No. Your finished runs are saved in your match history in the browser. There is no sign-up and no password.",
           },
           {
             q: "Which formation is best for a beginner?",
@@ -224,7 +224,7 @@ export const blog: Record<Locale, BlogLocale> = {
           body: [
             "Dein Team kommt in eine Gruppe mit drei KI-Teams. Zwei sind schwächere Mannschaften. Eine ist ein starker historischer Kader. Jeder spielt einmal gegen jeden. Ein Sieg gibt drei Punkte, ein Unentschieden einen, eine Niederlage null. Die Top zwei kommen weiter.",
             "Der K.-o.-Baum ist Achtelfinale, Viertelfinale, Halbfinale und Finale. Der Rest des Baums wird um deine Spiele herum simuliert, deshalb endet der ganze Pokal schnell. Unentschieden gehen in die Verlängerung. Steht es dann noch gleich, entscheiden Elfmeter. Die Gruppenauslosung ist in jedem Lauf anders, deshalb kann dieselbe Elf eine leichte oder eine harte Gruppe bekommen.",
-            "Elfmeterschießen nutzen deine fünf besten Schützen, sortiert nach Nervenstärke und Abschluss. Jede Seite schießt fünfmal. Das Schießen endet früh, wenn eine Seite nicht mehr aufholen kann. Steht es dann noch gleich, geht es in den Sudden Death. Dein Spielstand bleibt im Browser, deshalb kannst du jedes Spiel wiederholen oder einen neuen Draft starten.",
+            "Elfmeterschießen nutzen deine fünf besten Schützen, sortiert nach Nervenstärke und Abschluss. Jede Seite schießt fünfmal. Das Schießen endet früh, wenn eine Seite nicht mehr aufholen kann. Steht es dann noch gleich, geht es in den Sudden Death. Abgeschlossene Läufe bleiben in deiner Spielhistorie, deshalb kannst du sie ansehen oder einen neuen Draft starten.",
           ],
         },
         {
@@ -262,7 +262,7 @@ export const blog: Record<Locale, BlogLocale> = {
       faq: [
         {
           q: "Brauche ich ein Konto zum Spielen?",
-          a: "Nein. Das Spiel speichert im Browser. Es gibt keine Anmeldung und kein Passwort.",
+          a: "Nein. Deine abgeschlossenen Läufe werden in deiner Spielhistorie im Browser gespeichert. Es gibt keine Anmeldung und kein Passwort.",
         },
         {
           q: "Welche Formation ist für Anfänger am besten?",
@@ -287,7 +287,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "Was das Spiel ist",
             body: [
               "My World Cup XI ist ein kostenloses Browserspiel. Du draftest eine Fantasy-Elf aus 77 WM-Kadern und simulierst ein ganzes Turnier. Der Pool reicht von Brasilien 1970 bis zu den Kadern 2026. Das Spiel nutzt zusätzlich neun Gruppengegner als KI-Teams, also 86 Teams insgesamt. Jeder Kader nutzt dieselbe Bewertungsskala, damit ein Flügelspieler von 1970 und ein Außenverteidiger von 2026 fair verglichen werden.",
-              "Du brauchst kein Konto. Du musst nichts herunterladen. Ein Lauf dauert zehn bis fünfzehn Minuten, und dein Spielstand bleibt im Browser. Du kannst mitten im Draft aufhören und später weitermachen.",
+              "Du brauchst kein Konto. Du musst nichts herunterladen. Ein Lauf dauert zehn bis fünfzehn Minuten, und deine abgeschlossenen Läufe bleiben in deiner Spielhistorie. Eine laufende Partie wird beim Neuladen nicht fortgesetzt.",
             ],
           },
           {
@@ -366,7 +366,7 @@ export const blog: Record<Locale, BlogLocale> = {
         faq: [
           {
             q: "Brauche ich ein Konto zum Spielen?",
-            a: "Nein. Das Spiel speichert im Browser. Es gibt keine Anmeldung und kein Passwort.",
+            a: "Nein. Deine abgeschlossenen Läufe werden in deiner Spielhistorie im Browser gespeichert. Es gibt keine Anmeldung und kein Passwort.",
           },
           {
             q: "Welche Formation ist für Anfänger am besten?",
@@ -402,7 +402,7 @@ export const blog: Record<Locale, BlogLocale> = {
           body: [
             "Votre équipe rejoint un groupe avec trois équipes IA. Deux sont plus faibles. Une est un fort effectif historique. Chaque équipe joue une fois contre les autres. Une victoire donne trois points, un nul un point, une défaite zéro. Les deux premières passent.",
             "L'arbre à élimination est composé des huitièmes, des quarts, des demi-finales et de la finale. Le reste de l'arbre est simulé autour de vos matchs, donc la coupe finit vite. Les matchs nuls vont en prolongation. Si le score reste égal, les tirs au but décident. Le tirage du groupe change à chaque partie, donc la même XI peut tomber sur un groupe facile ou difficile.",
-            "Les tirs au but utilisent vos cinq meilleurs tireurs, classés par sang-froid et finition. Chaque équipe tire cinq fois. La séance s'arrête tôt si une équipe ne peut plus revenir. Puis mort subite. Votre sauvegarde reste dans le navigateur, donc vous pouvez rejouer un match ou lancer un nouveau draft.",
+            "Les tirs au but utilisent vos cinq meilleurs tireurs, classés par sang-froid et finition. Chaque équipe tire cinq fois. La séance s'arrête tôt si une équipe ne peut plus revenir. Puis mort subite. Les parties terminées restent dans votre historique, donc vous pouvez les revoir ou lancer un nouveau draft.",
           ],
         },
         {
@@ -440,7 +440,7 @@ export const blog: Record<Locale, BlogLocale> = {
       faq: [
         {
           q: "Faut-il un compte pour jouer ?",
-          a: "Non. Le jeu sauvegarde dans votre navigateur. Il n'y a ni inscription ni mot de passe.",
+          a: "Non. Les parties terminées sont enregistrées dans votre historique dans le navigateur. Il n'y a ni inscription ni mot de passe.",
         },
         {
           q: "Quelle formation est la meilleure pour débuter ?",
@@ -465,7 +465,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "Ce qu'est le jeu",
             body: [
               "My World Cup XI est un jeu gratuit dans le navigateur. Vous draftez un XI fantasy parmi 77 effectifs de Coupe du Monde, puis vous simulez un tournoi complet. Le pool va du Brésil 1970 aux effectifs 2026. Le jeu utilise aussi neuf adversaires de groupe comme équipes IA, soit 86 équipes au total. Chaque effectif utilise la même échelle de notes, pour comparer un ailier de 1970 et un latéral de 2026 sur une base juste.",
-              "Vous n'avez pas besoin de compte. Vous n'avez rien à télécharger. Une partie dure dix à quinze minutes, et votre sauvegarde reste dans le navigateur.",
+              "Vous n'avez pas besoin de compte. Vous n'avez rien à télécharger. Une partie dure dix à quinze minutes, et les parties terminées restent dans votre historique.",
             ],
           },
           {
@@ -544,7 +544,7 @@ export const blog: Record<Locale, BlogLocale> = {
         faq: [
           {
             q: "Faut-il un compte pour jouer ?",
-            a: "Non. Le jeu sauvegarde dans votre navigateur. Il n'y a ni inscription ni mot de passe.",
+            a: "Non. Les parties terminées sont enregistrées dans votre historique dans le navigateur. Il n'y a ni inscription ni mot de passe.",
           },
           {
             q: "Quelle formation est la meilleure pour débuter ?",
@@ -581,7 +581,7 @@ export const blog: Record<Locale, BlogLocale> = {
           body: [
             "あなたのチームは3つのAIチームと同じグループに入ります。2つは弱め、1つは強い歴史的チームです。総当たりで1回ずつ戦います。勝ちで3点、引き分けで1点、負けで0点。上位2チームが通過します。",
             "決勝トーナメントはラウンド16、準々決勝、準決勝、決勝です。残りはあなたの試合の周りでシミュレートされるので、大会は早く終わります。同点なら延長戦。それでも決まらなければPK戦です。グループの組み合わせは毎回変わるので、同じXIでも楽な組にも厳しい組にも入ります。",
-            "PK戦は、冷静さとフィニッシュの高い5人を使います。お互い5本ずつ。片方が追いつけなくなれば早く終了。その後はサドンデスです。セーブはブラウザに残るので、試合を見返すことも、新しいドラフトを始めることもできます。",
+            "PK戦は、冷静さとフィニッシュの高い5人を使います。お互い5本ずつ。片方が追いつけなくなれば早く終了。その後はサドンデスです。完了した大会は試合履歴に残るので、後で見返したり、新しいドラフトを始めたりできます。",
           ],
         },
         {
@@ -619,7 +619,7 @@ export const blog: Record<Locale, BlogLocale> = {
       faq: [
         {
           q: "プレイにアカウントは必要ですか？",
-          a: "いいえ。ゲームはブラウザに保存します。登録もパスワードもありません。",
+          a: "いいえ。完了した大会はブラウザの試合履歴に保存されます。登録もパスワードもありません。",
         },
         {
           q: "初心者にはどのフォーメーションがいいですか？",
@@ -644,7 +644,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "ゲームの内容",
             body: [
               "My World Cup XIは無料のブラウザゲームです。77のワールドカップ・チームからファンタジーXIをドラフトし、大会全体をシミュレートします。プールはブラジル1970から2026年チームまで。ゲームはさらに9つのグループステージ相手をAIチームとして使うので、合計86チームです。全チームが同じ評価スケールを使うので、1970年のウイングと2026年のサイドバックを公平に比べられます。",
-              "アカウントは不要。ダウンロードも不要です。1回は10〜15分で、セーブはブラウザに残ります。ドラフトの途中でやめて、後から続けることもできます。",
+              "アカウントは不要。ダウンロードも不要です。1回は10〜15分で、完了した大会は試合履歴に残ります。ドラフト中の進行は保存されません。",
             ],
           },
           {
@@ -723,7 +723,7 @@ export const blog: Record<Locale, BlogLocale> = {
         faq: [
           {
             q: "プレイにアカウントは必要ですか？",
-            a: "いいえ。ゲームはブラウザに保存します。登録もパスワードもありません。",
+            a: "いいえ。完了した大会はブラウザの試合履歴に保存されます。登録もパスワードもありません。",
           },
           {
             q: "初心者にはどのフォーメーションがいいですか？",
@@ -759,7 +759,7 @@ export const blog: Record<Locale, BlogLocale> = {
           body: [
             "Tu equipo entra en un grupo con tres equipos IA. Dos son más débiles. Uno es una plantilla histórica fuerte. Cada equipo juega una vez contra los demás. Una victoria da tres puntos, un empate uno y una derrota cero. Los dos primeros pasan.",
             "El cuadro de eliminación es octavos, cuartos, semifinales y final. El resto del cuadro se simula alrededor de tus partidos, así la copa termina rápido. Los empates van a prórroga. Si el marcador sigue igual, deciden los penales. El sorteo del grupo cambia en cada partida, así la misma XI puede caer en un grupo fácil o difícil.",
-            "Los penales usan a tus cinco mejores tiradores, ordenados por sangre fría y definición. Cada equipo tira cinco veces. La tanda termina antes si un equipo ya no puede remontar. Luego muerte súbita. Tu guardado se queda en el navegador, así puedes repetir un partido o empezar otro draft.",
+            "Los penales usan a tus cinco mejores tiradores, ordenados por sangre fría y definición. Cada equipo tira cinco veces. La tanda termina antes si un equipo ya no puede remontar. Luego muerte súbita. Las partidas terminadas se quedan en tu historial, así puedes revisarlas o empezar otro draft.",
           ],
         },
         {
@@ -797,7 +797,7 @@ export const blog: Record<Locale, BlogLocale> = {
       faq: [
         {
           q: "¿Necesito una cuenta para jugar?",
-          a: "No. El juego guarda en tu navegador. No hay registro ni contraseña.",
+          a: "No. Las partidas terminadas se guardan en tu historial en el navegador. No hay registro ni contraseña.",
         },
         {
           q: "¿Qué formación es mejor para empezar?",
@@ -822,7 +822,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "Qué es el juego",
             body: [
               "My World Cup XI es un juego gratis en el navegador. Drafteas una XI fantasy de 77 plantillas del Mundial y simulas un torneo completo. El pool va del Brasil 1970 a las plantillas de 2026. El juego también usa nueve rivales de grupo como equipos IA, así que el total es de 86 equipos. Cada plantilla usa la misma escala de valoraciones, para comparar un extremo de 1970 y un lateral de 2026 de forma justa.",
-              "No necesitas cuenta. No tienes que descargar nada. Una partida dura diez a quince minutos y tu guardado se queda en el navegador. Puedes parar a mitad del draft y seguir después.",
+              "No necesitas cuenta. No tienes que descargar nada. Una partida dura diez a quince minutos y las partidas terminadas se quedan en tu historial. Una partida en curso no se guarda al recargar.",
             ],
           },
           {
@@ -901,7 +901,7 @@ export const blog: Record<Locale, BlogLocale> = {
         faq: [
           {
             q: "¿Necesito una cuenta para jugar?",
-            a: "No. El juego guarda en tu navegador. No hay registro ni contraseña.",
+            a: "No. Las partidas terminadas se guardan en tu historial en el navegador. No hay registro ni contraseña.",
           },
           {
             q: "¿Qué formación es mejor para empezar?",

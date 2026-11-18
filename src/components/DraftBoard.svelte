@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { untrack } from "svelte";
   import {
     ArrowUp,
     CalendarDays,
@@ -28,7 +27,6 @@
   } from "../lib/draft.js";
   import { countSameNation } from "../lib/team.js";
   import { nationClusters } from "../lib/team.js";
-  import type { SavedDraft } from "../lib/gameSession.js";
   import type { Formation, Player, Position } from "../lib/types.js";
   import { confirmAction } from "../lib/confirmDialog.js";
   import PitchView from "./PitchView.svelte";
@@ -41,8 +39,6 @@
     onSwapDrafted,
     onBack,
     onReset,
-    initialDraft = null,
-    onDraftState,
   }: {
     formation: Formation;
     formationKey: string;
@@ -51,22 +47,12 @@
     onBack?: () => void;
     /** Restart the draft from round one with the same formation. */
     onReset?: () => void;
-    initialDraft?: SavedDraft | null;
-    onDraftState?: (state: SavedDraft) => void;
   } = $props();
 
-  let offer = $state<ReturnType<typeof makeOffer> | null>(
-    untrack(() => initialDraft?.offer ?? null),
-  );
-  let offerHistory: ReturnType<typeof makeOffer>[] = $state([
-    ...untrack(() => initialDraft?.offerHistory ?? []),
-  ]);
-  let rerollsLeft = $state(
-    untrack(() => initialDraft?.rerollsLeft ?? MAX_REROLLS),
-  );
-  let drafted = $state<Player[]>([
-    ...untrack(() => initialDraft?.drafted ?? []),
-  ]);
+  let offer = $state<ReturnType<typeof makeOffer> | null>(null);
+  let offerHistory: ReturnType<typeof makeOffer>[] = $state([]);
+  let rerollsLeft = $state(MAX_REROLLS);
+  let drafted = $state<Player[]>([]);
   let selected = $state<Player | null>(null);
   let swapSelectedId = $state<string | null>(null);
   let offerScroll = $state<HTMLDivElement | null>(null);
@@ -140,11 +126,6 @@
       offer = first;
       offerHistory = [first];
     }
-  });
-
-  // Report the draft sub-state up so it can be persisted with the game.
-  $effect(() => {
-    onDraftState?.({ offer, offerHistory, rerollsLeft, drafted });
   });
 
   const positionOrder: Position[] = ["GK", "ATT", "MID", "DEF"];

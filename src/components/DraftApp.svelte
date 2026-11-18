@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { untrack } from "svelte";
   import DraftBoard from "./DraftBoard.svelte";
   import ResultsView from "./ResultsView.svelte";
   import TeamReadyView from "./TeamReadyView.svelte";
@@ -8,41 +7,26 @@
   import { swapPlayers as applySwap } from "../lib/draft.js";
   import { createTournament } from "../lib/tournament.js";
   import { upsertTournamentRecord } from "../lib/history.js";
-  import {
-    saveGame,
-    type GameStep,
-    type SavedDraft,
-    type SavedGame,
-  } from "../lib/gameSession.js";
   import type { Formation, Player, Squad } from "../lib/types.js";
   import type { Tournament as TournamentState } from "../lib/tournament.js";
 
-  type Step = GameStep;
+  type Step = "draft" | "ready" | "tournament" | "results";
 
   let {
     formation,
     formationKey,
     onBack,
-    initial = null,
   }: {
     formation: Formation;
     formationKey: string;
     onBack?: () => void;
-    initial?: SavedGame | null;
   } = $props();
 
-  let step = $state<Step>(untrack(() => initial?.step ?? "draft"));
-  let drafted = $state<Player[]>(untrack(() => initial?.drafted ?? []));
-  let squad = $state<Squad | null>(untrack(() => initial?.squad ?? null));
-  let tournament = $state<TournamentState | null>(
-    untrack(() => initial?.tournament ?? null),
-  );
-  let draftState = $state<SavedDraft | null>(
-    untrack(() => initial?.draft ?? null),
-  );
-  let hasRerun = $state(untrack(() => initial?.hasRerun ?? false));
-  /** True only for a user-initiated start/retry, never for a restored save. */
-  let autoStart = $state(false);
+  let step = $state<Step>("draft");
+  let drafted = $state<Player[]>([]);
+  let squad = $state<Squad | null>(null);
+  let tournament = $state<TournamentState | null>(null);
+  let hasRerun = $state(false);
   /** Bumped on reset so the draft board remounts with fresh internal state. */
   let resetNonce = $state(0);
 
@@ -51,15 +35,9 @@
     drafted = [];
     squad = null;
     tournament = null;
-    draftState = null;
     hasRerun = false;
-    autoStart = false;
     step = "draft";
     resetNonce += 1;
-  }
-
-  function handleDraftState(next: SavedDraft) {
-    draftState = next;
   }
 
   function handlePick(p: Player) {
@@ -74,7 +52,6 @@
   function startTournament() {
     if (!squad) return;
     tournament = createTournament(squad);
-    autoStart = true;
     step = "tournament";
   }
 
@@ -84,7 +61,6 @@
     if (!squad) return;
     hasRerun = true;
     tournament = createTournament(squad);
-    autoStart = true;
     step = "tournament";
   }
 
@@ -102,22 +78,6 @@
     if (!next) return;
     squad = { ...squad, players: next };
   }
-
-  /** Persist the in-progress game whenever any meaningful state changes. */
-  $effect(() => {
-    if (!formationKey) return;
-    saveGame({
-      version: 1,
-      formationKey,
-      formation,
-      step,
-      drafted,
-      squad,
-      tournament,
-      draft: draftState,
-      hasRerun,
-    });
-  });
 
   $effect(() => {
     if (step === "draft" && drafted.length === DRAFT_ROUNDS) {
@@ -150,8 +110,6 @@
         {formation}
         {formationKey}
         {onBack}
-        initialDraft={draftState}
-        onDraftState={handleDraftState}
         onPick={handlePick}
         onSwapDrafted={handleSwapDrafted}
         onReset={reset}
@@ -166,7 +124,7 @@
       onSwap={swapPlayers}
     />
   {:else if step === "tournament" && tournament}
-    <TournamentView {tournament} {autoStart} onReset={reset} />
+    <TournamentView {tournament} onReset={reset} />
   {:else if step === "results" && tournament}
     <ResultsView
       {tournament}

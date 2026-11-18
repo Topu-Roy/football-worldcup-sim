@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { Pause, Play, RotateCcw } from "@lucide/svelte";
   import TournamentMatchRow from "./TournamentMatchRow.svelte";
-  import StandingsTable from "./StandingsTable.svelte";
   import { confirmAction } from "../lib/confirmDialog.js";
   import { simulateMatchScript } from "../lib/matchEngine.js";
   import {
@@ -12,7 +11,6 @@
     nextUserMatch,
     registerUserResult,
     resolveKnockout,
-    standingsFor,
     type Tournament,
     type TournamentMatch,
   } from "../lib/tournament.js";
@@ -20,12 +18,9 @@
 
   let {
     tournament,
-    autoStart = false,
     onReset,
   }: {
     tournament: Tournament;
-    /** Set only after a user presses Start or Retry, not when restoring a save. */
-    autoStart?: boolean;
     onReset: () => void;
   } = $props();
 
@@ -140,10 +135,10 @@
     }
   }
 
-  // A user-initiated start should go straight into match one. A restored save
-  // stays paused so a match never runs while the player is away.
+  // This view only mounts after the user presses Start or Retry, so go straight
+  // into match one.
   onMount(() => {
-    if (autoStart) startRun();
+    startRun();
   });
 
   $effect(() => {
@@ -165,7 +160,6 @@
     tournament.matches.filter((m) => m.isUser && m.round === "group"),
   );
 
-  const standings = $derived(standingsFor(tournament));
   const groupPlayed = $derived(userGroupMatches.filter((m) => m.result).length);
   const groupTotal = $derived(userGroupMatches.length || 3);
 
@@ -261,22 +255,6 @@
       >
     </div>
   </header>
-
-  {#if tournament.phase === "group"}
-    <div class="mt-10 rounded-3xl border border-white/15 p-4 sm:p-6">
-      <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <p class="{mono} text-secondary">GROUP TABLE</p>
-        <p class="{mono} text-[10px] text-secondary">Top 2 advance</p>
-      </div>
-      <div class="overflow-x-auto">
-        <StandingsTable
-          rows={standings}
-          userId={tournament.userSquad.id}
-          qualifyLine
-        />
-      </div>
-    </div>
-  {/if}
 
   <div class="mt-10 rounded-3xl border border-white/15 p-4 sm:p-6">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-2">

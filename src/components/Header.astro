@@ -161,13 +161,8 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
   newDraft?.addEventListener("click", async (e) => {
     e.preventDefault();
     const onGame = window.location.pathname.startsWith("/game");
-    let hasSaved = false;
-    try {
-      hasSaved = !!window.localStorage.getItem("wc:game:v1");
-    } catch {
-      // Storage unavailable: no saved run to confirm.
-    }
-    if (hasSaved) {
+    if (onGame) {
+      // The current run lives only in memory, so a reset needs confirmation.
       const ok = await confirmAction({
         title: "Start a new draft?",
         message: "This clears your current run.",
@@ -175,15 +170,8 @@ const moreActive = moreLinks.some((link) => isActive(link.href));
         danger: true,
       });
       if (!ok) return;
-    }
-    if (onGame) {
       window.dispatchEvent(new CustomEvent("wc:reset"));
     } else {
-      try {
-        window.localStorage.removeItem("wc:game:v1");
-      } catch {
-        // Storage unavailable: navigation still starts a fresh client.
-      }
       window.location.href = "/game/";
     }
   });

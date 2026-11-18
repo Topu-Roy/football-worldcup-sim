@@ -1,20 +1,15 @@
 <script lang="ts">
   import FormationPicker from "./FormationPicker.svelte";
   import DraftApp from "./DraftApp.svelte";
-  import { loadGame, clearGame, type SavedGame } from "../lib/gameSession.js";
   import { confirmAction } from "../lib/confirmDialog.js";
   import type { Formation } from "../lib/types.js";
 
   type Tab = "formations" | "play";
 
-  // This shell only renders on the client, so reading storage during
-  // initialisation is safe (no SSR/hydration mismatch).
-  const saved = loadGame();
-
-  let initialGame = $state<SavedGame | null>(saved);
-  let tab = $state<Tab>(saved ? "play" : "formations");
-  let formation = $state<Formation | null>(saved?.formation ?? null);
-  let formationKey = $state(saved?.formationKey ?? "");
+  // No in-progress game is restored: every visit starts on the formation picker.
+  let tab = $state<Tab>("formations");
+  let formation = $state<Formation | null>(null);
+  let formationKey = $state("");
 
   async function pickFormation(key: string, f: Formation) {
     const changed =
@@ -30,8 +25,6 @@
       if (!ok) return;
     }
     if (changed) {
-      initialGame = null;
-      clearGame();
       formation = f;
       formationKey = key;
     }
@@ -43,8 +36,6 @@
   }
 
   function resetAll() {
-    initialGame = null;
-    clearGame();
     formation = null;
     formationKey = "";
     tab = "formations";
@@ -65,12 +56,7 @@
   <div class:hidden={tab !== "play"}>
     {#if formation && formationKey}
       {#key formationKey}
-        <DraftApp
-          {formation}
-          {formationKey}
-          initial={initialGame}
-          onBack={goToFormations}
-        />
+        <DraftApp {formation} {formationKey} onBack={goToFormations} />
       {/key}
     {:else}
       <div

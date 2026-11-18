@@ -4,7 +4,7 @@ export const about = {
     hero: [
       "My World Cup XI is a free browser game about World Cup history. You draft a fantasy XI from 77 World Cup squads, then simulate a full tournament. The pool runs from Brazil 1970 to the 2026 squads. You pick a formation, make eleven picks, and watch the cup play out.",
       "It is a world cup draft game, a football simulator and a squad builder in one. You can stack one nation for chemistry or mix eras for star power. Every match uses the same ratings, so a 1970 forward and a 2026 defender can meet on fair terms.",
-      "There is no download and no sign-up. The game runs in your browser on a phone, tablet or laptop. A full run takes about ten to fifteen minutes. You can stop after the draft, replay a match, or start a new cup straight away. Close the tab and your save is still there when you return.",
+      "There is no download and no sign-up. The game runs in your browser on a phone, tablet or laptop. A full run takes about ten to fifteen minutes. You can replay a match or start a new cup straight away. Finished runs stay in your match history, so you can review them when you return.",
     ],
     tickTitle: "What makes it work",
     tickItems: [
@@ -39,7 +39,7 @@ export const about = {
     data: [
       "The squads are real World Cup teams. The 2026 squads are real and verified. Ratings are editorial estimates, not official FIFA numbers. They are tuned for balance, so matches stay close and the draft matters. Elite players rate 90 or higher. Stars rate 85 or higher.",
       "Player names, nation names and tournament names are used for description only. FIFA, EA Sports and Football Manager are trademarks of their owners. My World Cup XI is not affiliated with any of them.",
-      "The game saves on your device. There is no account, no upload and no ad tracker in the game itself. If you clear your browser data, your saved runs go with it. Nothing is sent to a server. Once the page has loaded, the draft and the simulation run in your browser.",
+      "Your finished runs are saved on your device. There is no account, no upload and no ad tracker in the game itself. If you clear your browser data, your saved runs go with it. Nothing is sent to a server. Once the page has loaded, the draft and the simulation run in your browser.",
     ],
     contactTitle: "Who builds it",
     contact: [
@@ -63,7 +63,7 @@ export const about = {
       },
       {
         q: "Do I need an account?",
-        a: "No. The game saves your progress and match history in your browser. There is no sign-up and no password.",
+        a: "No. Your finished runs and match history are saved in your browser. There is no sign-up and no password.",
       },
     ],
   },
@@ -73,7 +73,7 @@ export const about = {
     hero: [
       "My World Cup XI ist ein kostenloses Browserspiel über die Geschichte der WM. Du draftest eine Fantasy-Elf aus 77 WM-Kadern und simulierst ein ganzes Turnier. Der Pool reicht von Brasilien 1970 bis zu den Kadern 2026. Du wählst eine Formation, machst elf Picks und siehst den Pokal laufen.",
       "Es ist ein WM-Draft-Spiel, ein Fußballsimulator und ein Team-Builder in einem. Du kannst eine Nation für Chemie stapeln oder Epochen für Star-Power mischen. Jedes Spiel nutzt dieselben Bewertungen, damit ein Stürmer von 1970 und ein Verteidiger von 2026 fair aufeinandertreffen.",
-      "Kein Download, keine Anmeldung. Das Spiel läuft im Browser auf Handy, Tablet oder Laptop. Ein Lauf dauert zehn bis fünfzehn Minuten. Du kannst nach dem Draft aufhören, ein Spiel wiederholen oder direkt einen neuen Pokal starten. Schließ den Tab, und dein Spielstand ist beim nächsten Besuch noch da.",
+      "Kein Download, keine Anmeldung. Das Spiel läuft im Browser auf Handy, Tablet oder Laptop. Ein Lauf dauert zehn bis fünfzehn Minuten. Du kannst ein Spiel wiederholen oder direkt einen neuen Pokal starten. Abgeschlossene Läufe bleiben in deiner Spielhistorie, damit du sie beim nächsten Besuch ansehen kannst.",
     ],
     tickTitle: "Was es antreibt",
     tickItems: [
@@ -103,13 +103,13 @@ export const about = {
       "Das Chemie-Modell zählt deine größte Gruppe gleicher Nation. Es belohnt einen Plan. Wenn du fünf Brasilianer nimmst, bekommt das ganze Team +10%. Wenn du elf Stars aus elf Nationen nimmst, bekommst du nichts. Deshalb kann ein Draft mit klarer Idee gegen einen Draft mit berühmten Namen gewinnen. Das ist der Unterschied zwischen einem Team und einer Sammlung.",
       "Die Spielengine macht aus Bewertungen Chancen. Sie nutzt Angriff, Abwehr, Kreativität, Abschluss, Torwartspiel und Nervenstärke. Sie verfolgt auch Ausdauer, damit ein Team spät abbauen kann. Unentschieden gehen in die Verlängerung. Steht es dann noch gleich, entscheidet ein Elfmeterschießen. Deine fünf besten Schützen werden nach Nervenstärke und Abschluss sortiert.",
       "Die Turnierschicht zieht zwei schwächere Gruppengegner und einen starken historischen Kader. Jeder spielt einmal gegen jeden. Die Top zwei kommen in einen vorab simulierten K.-o.-Baum. Du spielst deine Spiele. Der Rest der Welt spielt sich selbst, deshalb endet der Pokal schnell.",
-      "Das Spiel speichert deinen Fortschritt lokal. Du kannst mitten im Draft aufhören und später weitermachen. Es gibt keine Werbung und keine Registrierung. Das hält den Einstieg kurz und den nächsten Lauf nah.",
+      "Abgeschlossene Läufe landen in deiner Spielhistorie im Browser. Eine laufende Partie lebt nur im Tab, also beende sie vor dem Neuladen. Es gibt keine Werbung und keine Registrierung. Das hält den Einstieg kurz und den nächsten Lauf nah.",
     ],
     dataTitle: "Ein Hinweis zu den Daten",
     data: [
       "Die Kader sind echte WM-Teams. Die Kader 2026 sind echt und geprüft. Bewertungen sind redaktionelle Schätzungen, keine offiziellen FIFA-Zahlen. Sie sind auf Balance getrimmt, damit Spiele knapp bleiben und der Draft zählt. Elite beginnt bei 90. Stars beginnen bei 85.",
       "Spielernamen, Ländernamen und Turniernamen werden nur zur Beschreibung genutzt. FIFA, EA Sports und Football Manager sind Marken ihrer Eigentümer. My World Cup XI ist mit keinem davon verbunden.",
-      "Das Spiel speichert auf deinem Gerät. Es gibt kein Konto, keinen Upload und keinen Werbetracker im Spiel selbst. Wenn du deine Browserdaten löschst, sind auch deine gespeicherten Läufe weg. Nichts wird an einen Server geschickt. Nach dem Laden laufen Draft und Simulation in deinem Browser.",
+      "Deine abgeschlossenen Läufe werden auf deinem Gerät gespeichert. Es gibt kein Konto, keinen Upload und keinen Werbetracker im Spiel selbst. Wenn du deine Browserdaten löschst, sind auch deine gespeicherten Läufe weg. Nichts wird an einen Server geschickt. Nach dem Laden laufen Draft und Simulation in deinem Browser.",
     ],
     contactTitle: "Wer es baut",
     contact: [
@@ -133,7 +133,7 @@ export const about = {
       },
       {
         q: "Brauche ich ein Konto?",
-        a: "Nein. Das Spiel speichert Fortschritt und Spielhistorie in deinem Browser. Es gibt keine Anmeldung und kein Passwort.",
+        a: "Nein. Deine abgeschlossenen Läufe und die Spielhistorie werden in deinem Browser gespeichert. Es gibt keine Anmeldung und kein Passwort.",
       },
     ],
   },
@@ -142,7 +142,7 @@ export const about = {
     hero: [
       "My World Cup XI est un jeu gratuit dans le navigateur sur l'histoire de la Coupe du Monde. Vous draftez un XI fantasy parmi 77 effectifs de Coupe du Monde, puis vous simulez un tournoi complet. Le pool va du Brésil 1970 aux effectifs 2026. Vous choisissez une formation, faites onze choix et regardez la coupe se jouer.",
       "C'est un jeu de draft, un simulateur de football et un constructeur d'équipe en un. Vous pouvez empiler une nation pour la chimie ou mélanger les époques pour les stars. Chaque match utilise les mêmes notes, pour qu'un attaquant de 1970 et un défenseur de 2026 se rencontrent à armes égales.",
-      "Sans téléchargement, sans inscription. Le jeu tourne dans le navigateur sur téléphone, tablette ou ordinateur. Une partie dure dix à quinze minutes. Vous pouvez vous arrêter après le draft, rejouer un match ou lancer une nouvelle coupe. Fermez l'onglet, votre sauvegarde est toujours là au retour.",
+      "Sans téléchargement, sans inscription. Le jeu tourne dans le navigateur sur téléphone, tablette ou ordinateur. Une partie dure dix à quinze minutes. Vous pouvez rejouer un match ou lancer une nouvelle coupe. Les parties terminées restent dans votre historique, pour les revoir à votre retour.",
     ],
     tickTitle: "Ce qui le fait tourner",
     tickItems: [
@@ -177,7 +177,7 @@ export const about = {
     data: [
       "Les effectifs sont de vraies équipes de Coupe du Monde. Les effectifs 2026 sont réels et vérifiés. Les notes sont des estimations éditoriales, pas des chiffres officiels de la FIFA. Elles sont réglées pour l'équilibre, afin que les matchs restent serrés et que le draft compte. Les élites commencent à 90. Les stars commencent à 85.",
       "Les noms de joueurs, de nations et de tournois servent seulement à décrire. FIFA, EA Sports et Football Manager sont des marques de leurs propriétaires. My World Cup XI n'est lié à aucune d'elles.",
-      "Le jeu sauvegarde sur votre appareil. Il n'y a ni compte, ni envoi, ni traceur publicitaire dans le jeu. Si vous effacez les données du navigateur, vos parties sauvegardées disparaissent aussi. Rien n'est envoyé à un serveur. Une fois la page chargée, le draft et la simulation tournent dans votre navigateur.",
+      "Vos parties terminées sont enregistrées sur votre appareil. Il n'y a ni compte, ni envoi, ni traceur publicitaire dans le jeu. Si vous effacez les données du navigateur, vos parties sauvegardées disparaissent aussi. Rien n'est envoyé à un serveur. Une fois la page chargée, le draft et la simulation tournent dans votre navigateur.",
     ],
     contactTitle: "Qui le construit",
     contact: [
@@ -201,7 +201,7 @@ export const about = {
       },
       {
         q: "Faut-il un compte ?",
-        a: "Non. Le jeu sauvegarde la progression et l'historique des matchs dans votre navigateur. Il n'y a ni inscription ni mot de passe.",
+        a: "Non. Vos parties terminées et l'historique des matchs sont enregistrés dans votre navigateur. Il n'y a ni inscription ni mot de passe.",
       },
     ],
   },
@@ -210,7 +210,7 @@ export const about = {
     hero: [
       "My World Cup XIは、ワールドカップの歴史をテーマにした無料のブラウザゲームです。77のワールドカップ・チームからファンタジーXIをドラフトし、大会全体をシミュレートします。プールはブラジル1970から2026年チームまで。フォーメーションを選び、11人を指名し、大会が進むのを見ます。",
       "ドラフトゲームであり、サッカーシミュレーターであり、チームビルダーでもあります。ケミストリーのために1か国の選手をそろえることも、スターのために時代を混ぜることもできます。どの試合も同じ評価スケールを使うので、1970年のFWと2026年のDFを公平に戦わせられます。",
-      "ダウンロードも登録も不要。スマホ、タブレット、PCのブラウザで動きます。1回は10〜15分。ドラフトの後にやめても、試合を見返しても、すぐ次の大会を始めてもいいです。タブを閉じても、次に来たときセーブは残っています。",
+      "ダウンロードも登録も不要。スマホ、タブレット、PCのブラウザで動きます。1回は10〜15分。試合を見返したり、すぐ次の大会を始めたりできます。完了した大会は試合履歴に残るので、次に来たとき見返せます。",
     ],
     tickTitle: "動かしている仕組み",
     tickItems: [
@@ -245,7 +245,7 @@ export const about = {
     data: [
       "チームは実際のワールドカップ代表です。2026年のチームは実在し、検証済み。評価は編集上の推定で、FIFAの公式数値ではありません。試合が接戦になるように調整され、ドラフトが重要になります。エリートは90以上、スターは85以上です。",
       "選手名、国名、大会名は説明のためにだけ使います。FIFA、EA Sports、Football Managerは各社の商標です。My World Cup XIはどれとも関係ありません。",
-      "ゲームは端末に保存します。アカウントもアップロードも、ゲーム内の広告トラッカーもありません。ブラウザのデータを消すと、保存した大会も消えます。サーバーには何も送りません。ページを読み込んだ後は、ドラフトもシミュレーションもブラウザ内で動きます。",
+      "完了した大会は端末に保存されます。アカウントもアップロードも、ゲーム内の広告トラッカーもありません。ブラウザのデータを消すと、保存した大会も消えます。サーバーには何も送りません。ページを読み込んだ後は、ドラフトもシミュレーションもブラウザ内で動きます。",
       "作っているのは小さなファンプロジェクトです。サッカーを好きな人が作り、更新しています。スタジオではありません。",
     ],
     contactTitle: "作っている人",
@@ -270,7 +270,7 @@ export const about = {
       },
       {
         q: "アカウントは必要ですか？",
-        a: "いいえ。進行状況と試合履歴はブラウザに保存されます。登録もパスワードもありません。",
+        a: "いいえ。完了した大会と試合履歴はブラウザに保存されます。登録もパスワードもありません。",
       },
     ],
   },
@@ -279,7 +279,7 @@ export const about = {
     hero: [
       "My World Cup XI es un juego gratis en el navegador sobre la historia del Mundial. Drafteas una XI fantasy de 77 plantillas del Mundial y simulas un torneo completo. El pool va del Brasil 1970 a las plantillas de 2026. Eliges una formación, haces once elecciones y ves la copa jugarse.",
       "Es un juego de draft, un simulador de fútbol y un constructor de equipo en uno. Puedes apilar una nación para la química o mezclar épocas para tener estrellas. Cada partido usa las mismas valoraciones, así un delantero de 1970 y un defensa de 2026 se enfrentan en igualdad.",
-      "Sin descargas, sin registro. El juego funciona en el navegador del móvil, la tablet o el portátil. Una partida dura diez a quince minutos. Puedes parar después del draft, repetir un partido o empezar otra copa. Cierra la pestaña y tu guardado sigue ahí al volver.",
+      "Sin descargas, sin registro. El juego funciona en el navegador del móvil, la tablet o el portátil. Una partida dura diez a quince minutos. Puedes repetir un partido o empezar otra copa. Las partidas terminadas se quedan en tu historial para que las revises al volver.",
     ],
     tickTitle: "Qué lo hace funcionar",
     tickItems: [
@@ -314,7 +314,7 @@ export const about = {
     data: [
       "Las plantillas son equipos reales del Mundial. Las plantillas de 2026 son reales y verificadas. Las valoraciones son estimaciones editoriales, no cifras oficiales de la FIFA. Están ajustadas para el equilibrio, para que los partidos sigan parejos y el draft importe. La élite empieza en 90. Las estrellas empiezan en 85.",
       "Los nombres de jugadores, naciones y torneos se usan solo para describir. FIFA, EA Sports y Football Manager son marcas de sus dueños. My World Cup XI no está afiliado a ninguna.",
-      "El juego guarda en tu dispositivo. No hay cuenta, ni subida, ni rastreador publicitario dentro del juego. Si borras los datos del navegador, tus partidas guardadas también desaparecen. No se envía nada a un servidor. Una vez cargada la página, el draft y la simulación corren en tu navegador.",
+      "Tus partidas terminadas se guardan en tu dispositivo. No hay cuenta, ni subida, ni rastreador publicitario dentro del juego. Si borras los datos del navegador, tus partidas guardadas también desaparecen. No se envía nada a un servidor. Una vez cargada la página, el draft y la simulación corren en tu navegador.",
     ],
     contactTitle: "Quién lo construye",
     contact: [
@@ -338,7 +338,7 @@ export const about = {
       },
       {
         q: "¿Necesito una cuenta?",
-        a: "No. El juego guarda el progreso y el historial de partidos en tu navegador. No hay registro ni contraseña.",
+        a: "No. Tus partidas terminadas y el historial de partidos se guardan en tu navegador. No hay registro ni contraseña.",
       },
     ],
   },

@@ -31,7 +31,7 @@ export const howToPlay = {
       {
         n: "5",
         title: "Read the result and replay",
-        body: "See the final table, your squad stats and the match details. Replay any game. If you lose, you can run the tournament again with the same team or start a fresh draft. The save stays in your browser.",
+        body: "See the final table, your squad stats and the match details. Replay any game. If you lose, you can run the tournament again with the same team or start a fresh draft. Finished runs stay in your match history.",
       },
     ],
     loopTitle: "Your world cup simulator, step by step",
@@ -68,7 +68,7 @@ export const howToPlay = {
       },
       {
         q: "Is it free and does it work on mobile?",
-        a: "Yes. It is a free browser game with no download and no sign-up. It runs on desktop and mobile, and your save stays on your device.",
+        a: "Yes. It is a free browser game with no download and no sign-up. It runs on desktop and mobile, and your finished runs stay in your match history.",
       },
     ],
     ctaStart: "Start drafting",
@@ -106,7 +106,7 @@ export const howToPlay = {
       {
         n: "5",
         title: "Ergebnis lesen und wiederholen",
-        body: "Sieh die Endtabelle, deine Kaderstatistiken und die Spieldetails. Wiederhole jedes Spiel. Wenn du verlierst, kannst du das Turnier mit demselben Team erneut starten oder einen neuen Draft beginnen. Der Spielstand bleibt im Browser.",
+        body: "Sieh die Endtabelle, deine Kaderstatistiken und die Spieldetails. Wiederhole jedes Spiel. Wenn du verlierst, kannst du das Turnier mit demselben Team erneut starten oder einen neuen Draft beginnen. Abgeschlossene Läufe bleiben in deiner Spielhistorie.",
       },
     ],
     loopTitle: "Dein WM-Simulator, Schritt für Schritt",
@@ -145,7 +145,7 @@ export const howToPlay = {
       },
       {
         q: "Ist es kostenlos und funktioniert es auf dem Handy?",
-        a: "Ja. Es ist ein kostenloses Browserspiel ohne Download und ohne Anmeldung. Es läuft auf Desktop und Handy, und dein Spielstand bleibt auf deinem Gerät.",
+        a: "Ja. Es ist ein kostenloses Browserspiel ohne Download und ohne Anmeldung. Es läuft auf Desktop und Handy, und deine abgeschlossenen Läufe bleiben in deiner Spielhistorie.",
       },
     ],
     ctaStart: "Draft starten",
@@ -182,7 +182,7 @@ export const howToPlay = {
       {
         n: "5",
         title: "Lisez le résultat et rejouez",
-        body: "Regardez le classement final, les statistiques de votre effectif et les détails des matchs. Rejouez n'importe quel match. Si vous perdez, relancez le tournoi avec la même équipe ou commencez un nouveau draft. La sauvegarde reste dans le navigateur.",
+        body: "Regardez le classement final, les statistiques de votre effectif et les détails des matchs. Rejouez n'importe quel match. Si vous perdez, relancez le tournoi avec la même équipe ou commencez un nouveau draft. Les parties terminées restent dans votre historique.",
       },
     ],
     loopTitle: "Votre simulateur de Coupe du Monde, étape par étape",
@@ -219,7 +219,7 @@ export const howToPlay = {
       },
       {
         q: "Est-ce gratuit et est-ce que ça marche sur mobile ?",
-        a: "Oui. C'est un jeu gratuit dans le navigateur, sans téléchargement ni inscription. Il tourne sur ordinateur et mobile, et votre sauvegarde reste sur votre appareil.",
+        a: "Oui. C'est un jeu gratuit dans le navigateur, sans téléchargement ni inscription. Il tourne sur ordinateur et mobile, et vos parties terminées restent dans votre historique.",
       },
     ],
     ctaStart: "Commencer le draft",
@@ -256,7 +256,7 @@ export const howToPlay = {
       {
         n: "5",
         title: "結果を見て、もう一度",
-        body: "最終順位、チームスタッツ、試合の詳細を見ます。どの試合も見返せます。負けたら同じチームでもう一度大会を戦うか、新しいドラフトを始めます。セーブはブラウザに残ります。",
+        body: "最終順位、チームスタッツ、試合の詳細を見ます。どの試合も見返せます。負けたら同じチームでもう一度大会を戦うか、新しいドラフトを始めます。完了した大会は試合履歴に残ります。",
       },
     ],
     loopTitle: "ワールドカップ・シミュレーターを順番に",
@@ -293,7 +293,7 @@ export const howToPlay = {
       },
       {
         q: "無料ですか？スマホで動きますか？",
-        a: "はい。無料のブラウザゲームで、ダウンロードも登録も不要です。PCでもスマホでも動き、セーブは端末に残ります。",
+        a: "はい。無料のブラウザゲームで、ダウンロードも登録も不要です。PCでもスマホでも動き、完了した大会は試合履歴に残ります。",
       },
     ],
     ctaStart: "ドラフト開始",
@@ -330,7 +330,7 @@ export const howToPlay = {
       {
         n: "5",
         title: "Lee el resultado y repite",
-        body: "Mira la tabla final, las estadísticas de tu plantilla y los detalles de los partidos. Repite cualquier partido. Si pierdes, puedes jugar el torneo otra vez con el mismo equipo o empezar un draft nuevo. El guardado se queda en el navegador.",
+        body: "Mira la tabla final, las estadísticas de tu plantilla y los detalles de los partidos. Repite cualquier partido. Si pierdes, puedes jugar el torneo otra vez con el mismo equipo o empezar un draft nuevo. Las partidas terminadas se quedan en tu historial.",
       },
     ],
     loopTitle: "Tu simulador del Mundial, paso a paso",
@@ -367,7 +367,7 @@ export const howToPlay = {
       },
       {
         q: "¿Es gratis y funciona en el móvil?",
-        a: "Sí. Es un juego gratis en el navegador, sin descarga ni registro. Funciona en ordenador y móvil, y tu guardado se queda en tu dispositivo.",
+        a: "Sí. Es un juego gratis en el navegador, sin descarga ni registro. Funciona en ordenador y móvil, y tus partidas terminadas se quedan en tu historial.",
       },
     ],
     ctaStart: "Empezar el draft",

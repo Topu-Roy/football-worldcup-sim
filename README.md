@@ -34,14 +34,14 @@ astro dev stop           # shut it down
 1. **Formation** — pick 4-3-3, 4-4-2, 3-5-2, or 4-2-3-1. Slot counts lock the draft. Changing shape restarts the draft (confirmed).
 2. **Draft** — 11 rounds: a full XI. Each round offers a random nation/year roster filtered to open slots. You get 3 rerolls for the whole draft. Players carry tier badges and live chemistry. "Reset draft" restarts the same shape at round one; "Change formation" goes back to the shape picker.
 3. **Team ready** — review the XI, swap players between slots, then start. Out-of-position players are penalized.
-4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. The live group table updates as results land, and the top 2 advance to R16 → QF → SF → final against fresh opponents. The run starts on Play (not on mount) and pauses when the tab is hidden.
+4. **Tournament** — 4-team group (your squad + 2 weak + 1 strong historical side). Your matches play out segment by segment; the rest are pre-simulated. The top 2 advance to R16 → QF → SF → final against fresh opponents. The run auto-starts on entry, can be paused or resumed with Play, and pauses when the tab is hidden.
 5. **Results** — final placement, squad stats and replayable match cards (plus the final group table when eliminated in the group stage). The top Share button exports the Team Sheet card: outcome, team rating, XI, player OVRs and key stats as an image. A loss allows **one Retry** with the same XI; "Play again" clears the run and starts a new draft. "View history" opens `/history`.
 
 ## Persistence
 
-- The in-progress game autosaves to `localStorage` (`wc:game:v1`) after every meaningful change, so a refresh resumes the run.
-- Resetting: "Reset draft" (same shape), "Start over" / "Play again" (new run), or the header "Play" button. All destructive actions ask for confirmation first.
-- Finished runs are stored separately (`wc:history:v2`, capped at 100) and listed on `/history`; "Clear history" removes them.
+- The active game lives in memory only. A refresh or new tab starts again on the formation picker; no draft or tournament progress is restored.
+- Resetting: "Reset draft" (same shape), "Start over" / "Play again" (new run), or the header "New draft" button. All destructive actions ask for confirmation first.
+- Finished runs are stored in `localStorage` (`wc:history:v2`, capped at 100) and listed on `/history`; "Clear history" removes them.
 - Confirmations use the in-app dialog, never `window.confirm` — see **UI conventions**.
 
 ## Match engine
@@ -59,7 +59,7 @@ src/
   pages/               Astro routes (game, history, teams, blog, OG images)
   components/          Svelte UI (draft board, pitch, match, tournament, results)
     ConfirmDialog.astro  app-wide confirmation dialog
-    StandingsTable.svelte shared group table (tournament + results)
+    StandingsTable.svelte group table for the results screen
   layouts/             Astro layout shell
   i18n/                Locale config, UI strings, page content
   lib/
@@ -68,7 +68,6 @@ src/
     match/             segment simulation, shots, penalties, scorer
     tournament/        groups, knockout, standings, aggregate stats
     confirmDialog.ts   promise-based confirmAction() used by every reset
-    gameSession.ts     autosave/load/clear for the in-progress game
     history.ts         saved tournament runs
   data/
     historical/        77 squad files, 1970–2026
