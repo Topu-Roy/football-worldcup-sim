@@ -29,6 +29,7 @@ const c = teamsIndex[lang] as TeamsIndexContent;
 const detailCopy = teamDetail[lang];
 const m = meta[lang].teams(HISTORICAL_SQUADS.length);
 const t = ui[lang];
+const search = t.teamsSearch;
 
 const teams = HISTORICAL_SQUADS.map((squad) => {
   const ratings = squad.players.map((p) => playerRating(p));
@@ -187,7 +188,7 @@ const faqLd =
           class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
         >
           <div class="relative w-full sm:max-w-xs">
-            <label class="sr-only" for="team-search">Search squads</label>
+            <label class="sr-only" for="team-search">{search.label}</label>
             <Search
               class="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-secondary"
             />
@@ -195,23 +196,28 @@ const faqLd =
               id="team-search"
               type="search"
               autocomplete="off"
-              placeholder="Search nation or year"
+              placeholder={search.placeholder}
               class="w-full rounded-full border border-white/15 bg-slate/40 py-2.5 pr-4 pl-10 text-sm text-white placeholder:text-secondary focus:border-mint"
             />
           </div>
           <p
             id="team-count"
             class="font-mono text-[10px] font-semibold tracking-[1.5px] text-secondary uppercase"
+            data-count-all={search.countAll.replace(
+              "{count}",
+              String(teams.length),
+            )}
+            data-count-filtered={search.countFiltered}
             aria-live="polite"
           >
-            {teams.length} squads
+            {search.countAll.replace("{count}", String(teams.length))}
           </p>
         </div>
         <p
           id="team-empty"
           class="mt-8 hidden rounded-2xl border border-white/10 bg-slate/20 px-5 py-10 text-center text-sm text-secondary"
         >
-          No squads match that search. Try a nation name or a year.
+          {search.empty}
         </p>
 
         <ul id="team-list" class="mt-6 space-y-3">
@@ -353,6 +359,11 @@ const faqLd =
       const count = document.getElementById("team-count");
       const empty = document.getElementById("team-empty");
       const total = items.length;
+      const countAll =
+        count?.getAttribute("data-count-all") ?? `${total} squads`;
+      const countFiltered =
+        count?.getAttribute("data-count-filtered") ??
+        `{shown} of {total} squads`;
 
       /** Filter the squad list by nation, year or formation. */
       const filter = () => {
@@ -366,8 +377,10 @@ const faqLd =
         }
         if (count) {
           count.textContent = q
-            ? `${shown} of ${total} squads`
-            : `${total} squads`;
+            ? countFiltered
+                .replace("{shown}", String(shown))
+                .replace("{total}", String(total))
+            : countAll;
         }
         if (empty) empty.classList.toggle("hidden", shown !== 0);
       };

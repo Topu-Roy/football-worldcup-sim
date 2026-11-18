@@ -520,7 +520,7 @@
       </div>
       {#if linkedClusters.length > 0}
         <div class="mt-6 rounded-2xl border border-mint bg-mint/5 p-3">
-          <p class="{mono} mb-2 text-[10px] text-mint">Synergy</p>
+          <p class="{mono} mb-2 text-[10px] text-mint">Chemistry</p>
           <ul class="space-y-1 font-mono text-[10px]">
             {#each linkedClusters as c (c.nation)}
               <li class="flex items-center justify-between gap-2">

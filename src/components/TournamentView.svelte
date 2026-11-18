@@ -232,7 +232,7 @@
       {#if !running && groupPlayed === 0 && tournament.phase === "group"}
         <p class="mt-3 max-w-md text-sm text-secondary">
           Your XI is set. Play three group matches, then the knockout rounds.
-          Press Play to simulate — you can pause at any time.
+          Press Play to simulate. You can pause at any time.
         </p>
       {/if}
     </div>

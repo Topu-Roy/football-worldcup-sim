@@ -42,6 +42,21 @@ Avoid these, they sound like a robot wrote them:
 - "It's important to note that", "When it comes to", "In order to"
 - Three adjectives in a row. One is enough.
 
+## Robotic patterns to cut
+
+These patterns make copy sound generated. Cut them on sight.
+
+- **Not X but Y.** "A match engine, not a coin flip." State what it is: "Every match is simulated."
+- **One-line closers.** A short paragraph that restates the point: "That is the real win." Delete it.
+- **Aphorisms.** "The heart of the game", "the real question is", "at its core". Replace with the specific claim.
+- **Staged openers.** "Heads up", "Let's dive in", "Here's the thing". Start with the point.
+- **Forced triads.** Three parallel examples that only exist for rhythm. Merge them or develop one.
+- **Em dashes in prose.** Use a period, comma, colon or parentheses. Title separators are fine.
+- **Inflated significance.** "Pivotal moment", "stands as a testament", "marks a turning point". Keep the fact, drop the ceremony.
+- **Sales language.** "Unlock", "seamless", "elevate", "world-class", "take it to the next level".
+- **Stacked fragments.** "No account. No download. Just play." One short sentence is fine. Five in a row is not.
+- **Chatbot residue.** "I hope this helps", "Let me know", "Great question".
+
 ## What makes copy valuable
 
 A page earns its place when it gives the reader something they cannot get by skimming Wikipedia.
@@ -127,6 +142,9 @@ Open with the answer or the tension. Do not warm up.
 - Do not machine-translate and publish. A human must read it.
 - Football terms differ by country. Use the local term. For example, "Elfmeterschießen", "tirs au but", "penales", "PK戦".
 - Keep names, ratings and dates identical across languages.
+- Keep the section structure aligned with English. If a locale needs an extra sentence, add it because the language needs it, not because the draft grew.
+- Use the local word for football. Do not leave "soccer", "match day" or "star power" in German, French or Spanish.
+- Check for false friends and literal phrases. "Deep squad" is not "un effectif profond" in every context; write what a local fan would say.
 
 ## Quality checklist
 

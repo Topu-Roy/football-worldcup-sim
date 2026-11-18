@@ -52,7 +52,7 @@
               ? "Eliminated in the round of 16"
               : o === "eliminated"
                 ? "Eliminated in the group stage"
-                : "Run not finished — cannot be resumed";
+                : "Run not finished. Cannot be resumed";
 
   const outcomeTone = (o: TournamentOutcome | null): string =>
     o === "champion"
@@ -131,8 +131,8 @@
       Your World Cup runs
     </h2>
     <p class="mt-2 max-w-md text-sm text-secondary sm:mt-3">
-      One entry per tournament, saved by date — expand a run to see your team
-      and every result.
+      One entry per tournament, saved by date. Expand a run to see your team and
+      every result.
     </p>
     {#if records.length > 0}
       <button
@@ -153,9 +153,8 @@
         No tournaments played yet
       </p>
       <p class="mx-auto mt-3 max-w-sm text-sm text-secondary">
-        Finish a match in the simulator and its run will show up here — your
-        team and every result get stored on this device, one entry per
-        tournament.
+        Finish a match in the simulator and its run will show up here. Your team
+        and every result are stored on this device, one entry per tournament.
       </p>
       <a
         href="/game/"

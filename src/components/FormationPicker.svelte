@@ -46,12 +46,12 @@
     {
       icon: LayoutGrid,
       title: "Pick your shape",
-      text: `Choose from 4 classic formations. This locks the slot limits for all ${DRAFT_ROUNDS} draft rounds.`,
+      text: `Choose from 4 classic formations. This sets the position limits for all ${DRAFT_ROUNDS} draft rounds.`,
     },
     {
       icon: Trophy,
       title: "Draft your XI",
-      text: "Eleven rounds of picks. Chase stars, patch gaps, and fill every slot.",
+      text: "Eleven rounds of picks. Each board fits an open slot, so you always have a player to choose.",
     },
     {
       icon: Play,
@@ -61,7 +61,7 @@
     {
       icon: ChartColumn,
       title: "Replay & results",
-      text: "Rewatch goals, compare squad stats, and lift the trophy when it's all over.",
+      text: "Replay matches, compare squad stats, and see where you finish.",
     },
   ];
 
@@ -94,7 +94,7 @@
     </h2>
     <p class="mx-auto mt-6 max-w-xl text-secondary">
       Every XI needs a shape. Choose how many defenders, midfielders and
-      attackers you'll draft — this sets the position limits across all 11
+      attackers you'll draft. This sets the position limits across all 11
       rounds.
     </p>
 

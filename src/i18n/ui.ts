@@ -16,7 +16,7 @@ export const ui = {
       more: "More",
     },
     footer: {
-      tagline: "Free browser football game — draft & simulate your World Cup",
+      tagline: "Free browser football game: draft and simulate your World Cup",
       backToTop: "Back to Top",
     },
     switcher: { label: "Language" },
@@ -38,6 +38,13 @@ export const ui = {
       viewTeam: "View team",
     },
     team: { historicalSquad: "Historical Squad" },
+    teamsSearch: {
+      label: "Search squads",
+      placeholder: "Search nation or year",
+      empty: "No squads match that search. Try a nation name or a year.",
+      countAll: "{count} squads",
+      countFiltered: "{shown} of {total} squads",
+    },
     seoLinks: {
       game: "Draft your World Cup XI",
       howToPlay: "How to Play My World Cup XI",
@@ -61,7 +68,7 @@ export const ui = {
     },
     footer: {
       tagline:
-        "Kostenloses Browser-Fußballspiel — stelle deinen World Cup auf und simuliere ihn",
+        "Kostenloses Browser-Fußballspiel: Stelle deine WM-Elf auf und simuliere sie",
       backToTop: "Nach oben",
     },
     switcher: { label: "Sprache" },
@@ -83,6 +90,14 @@ export const ui = {
       viewTeam: "Team ansehen",
     },
     team: { historicalSquad: "Historische Mannschaft" },
+    teamsSearch: {
+      label: "Kader suchen",
+      placeholder: "Nation oder Jahr suchen",
+      empty:
+        "Kein Kader passt zu dieser Suche. Versuch es mit einer Nation oder einem Jahr.",
+      countAll: "{count} Kader",
+      countFiltered: "{shown} von {total} Kadern",
+    },
     seoLinks: {
       game: "Stelle dein WM-XI auf",
       howToPlay: "My World Cup XI spielen",
@@ -106,7 +121,7 @@ export const ui = {
     },
     footer: {
       tagline:
-        "Jeu de football gratuit dans le navigateur — composez et simulez votre Coupe du Monde",
+        "Jeu de football gratuit dans le navigateur : composez et simulez votre Coupe du Monde",
       backToTop: "Haut de page",
     },
     switcher: { label: "Langue" },
@@ -128,6 +143,13 @@ export const ui = {
       viewTeam: "Voir l'équipe",
     },
     team: { historicalSquad: "Équipe historique" },
+    teamsSearch: {
+      label: "Rechercher des effectifs",
+      placeholder: "Rechercher une nation ou une année",
+      empty: "Aucun effectif ne correspond. Essayez une nation ou une année.",
+      countAll: "{count} effectifs",
+      countFiltered: "{shown} sur {total} effectifs",
+    },
     seoLinks: {
       game: "Composez votre XI du Mondial",
       howToPlay: "Comment jouer à My World Cup XI",
@@ -151,7 +173,7 @@ export const ui = {
     },
     footer: {
       tagline:
-        "無料ブラウザサッカーゲーム — ワールドカップをドラフトしてシミュレート",
+        "無料ブラウザサッカーゲーム。ワールドカップをドラフトしてシミュレート",
       backToTop: "トップへ",
     },
     switcher: { label: "言語" },
@@ -173,6 +195,13 @@ export const ui = {
       viewTeam: "チームを見る",
     },
     team: { historicalSquad: "歴代チーム" },
+    teamsSearch: {
+      label: "チームを検索",
+      placeholder: "国名または年で検索",
+      empty: "該当するチームがありません。国名か年で試してください。",
+      countAll: "{count}チーム",
+      countFiltered: "{total}チーム中{shown}チーム",
+    },
     seoLinks: {
       game: "夢のイレブンをドラフト",
       howToPlay: "My World Cup XI の遊び方",
@@ -196,7 +225,7 @@ export const ui = {
     },
     footer: {
       tagline:
-        "Juego de fútbol gratuito en el navegador — arma y simula tu Copa del Mundo",
+        "Juego de fútbol gratuito en el navegador: arma y simula tu Copa del Mundo",
       backToTop: "Volver arriba",
     },
     switcher: { label: "Idioma" },
@@ -218,6 +247,13 @@ export const ui = {
       viewTeam: "Ver equipo",
     },
     team: { historicalSquad: "Equipo histórico" },
+    teamsSearch: {
+      label: "Buscar plantillas",
+      placeholder: "Buscar nación o año",
+      empty: "Ninguna plantilla coincide. Prueba con una nación o un año.",
+      countAll: "{count} plantillas",
+      countFiltered: "{shown} de {total} plantillas",
+    },
     seoLinks: {
       game: "Arma tu once del Mundial",
       howToPlay: "Cómo jugar a My World Cup XI",

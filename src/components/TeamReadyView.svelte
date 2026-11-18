@@ -185,7 +185,7 @@
 
   <div class="mt-8 w-full rounded-3xl border border-white/15 p-4 sm:p-6">
     <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
-      <p class="{mono} text-secondary">Synergy breakdown</p>
+      <p class="{mono} text-secondary">Chemistry breakdown</p>
       <p class="{mono} text-[10px] text-secondary">all-stat boost</p>
     </div>
 
@@ -227,8 +227,8 @@
       {/if}
     {:else}
       <p class="text-sm text-secondary">
-        No same-nation links — pick players from the same nation to unlock
-        synergy boosts.
+        No same-nation links yet. Pick players from the same nation to earn a
+        chemistry bonus.
       </p>
     {/if}
   </div>

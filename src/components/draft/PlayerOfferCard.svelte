@@ -62,7 +62,7 @@
     type="button"
     class="absolute inset-0 z-0 cursor-pointer rounded-[20px]"
     aria-label={full
-      ? `${player.name} cannot be added — no open slot`
+      ? `${player.name} cannot be added. No open slot`
       : `Select ${player.name}`}
     {disabled}
     onclick={onClick}

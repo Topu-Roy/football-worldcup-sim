@@ -30,10 +30,10 @@ export const blog: Record<Locale, BlogLocale> = {
       description:
         "Practical guides for the world cup draft game: formations, chemistry, rerolls, group stage and penalty shootouts. Read first, draft better.",
       intro:
-        "Short, practical guides for building a better XI in My World Cup XI. The game is simple to start: pick a shape, draft eleven players, simulate the cup. The hard part is drafting a team that fits together. These guides cover the draft, the chemistry bonus, the group stage and the penalties, so your next run has a plan behind it. There is no filler here. Each guide is short enough to read before a cup and specific enough to change how you draft.",
+        "Short, practical guides for building a better XI in My World Cup XI. The game is simple to start: pick a shape, draft eleven players, simulate the cup. The hard part is drafting a team that fits together. These guides cover the draft, the chemistry bonus, the group stage and the penalties, so your next run has a plan behind it. Each guide is short enough to read before a cup and specific enough to change how you draft.",
       sections: [
         {
-          h2: "Start with the draft, not the stars",
+          h2: "The draft decides most cups",
           body: [
             "The draft is where most cups are won. You get eleven picks and three rerolls. Each board offers a real World Cup squad that can fill an open slot. You do not get to choose the nation or the year. You choose the player.",
             "That means fit beats fame. A 90-rated forward is only a 90 if he plays in a forward slot. If your formation still needs a centre-back, a famous striker will not fix it. Check the star marker before you pick. It shows whether the player fits the slot naturally.",
@@ -158,7 +158,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "6. Read the result and replay",
             body: [
               "After the final you can replay any match, compare squad stats and start a new draft. The match page shows the score, the shots, the expected goals and the scorers. Use it to see where the cup turned.",
-              "If you lost, try a different shape or a different nation core. The next cup is one click away. The game is built for short runs, so a bad draft costs minutes, not hours.",
+              "If you lost, try a different shape or a different nation core. The game is built for short runs, so a bad draft costs minutes, not hours.",
             ],
           },
           {
@@ -170,7 +170,7 @@ export const blog: Record<Locale, BlogLocale> = {
             ],
           },
           {
-            h2: "One last tip",
+            h2: "Check the stats after each run",
             body: [
               "Do not judge a draft until you have played the group. A team that looks weak on paper can win if the slots fit and the chemistry is high. A team of stars can lose if three players are out of position.",
               "After each run, check the match stats. If you lost on shots, your attack was fine and your defence was the problem. If you lost on possession, your midfield was the problem. Fix the department, not the whole squad.",
@@ -209,10 +209,10 @@ export const blog: Record<Locale, BlogLocale> = {
       description:
         "Praktische Guides für das WM-Draft-Spiel: Formationen, Chemie, Neuwürfe, Gruppenphase und Elfmeterschießen. Erst lesen, besser draften.",
       intro:
-        "Kurze, praktische Guides für eine bessere Elf in My World Cup XI. Das Spiel ist leicht zu starten: Form wählen, elf Spieler draften, Pokal simulieren. Der schwere Teil ist, ein Team zu draften, das zusammenpasst. Diese Guides decken Draft, Chemie-Bonus, Gruppenphase und Elfmeter ab. So hat dein nächster Lauf einen Plan. Hier steht keine Füllmasse. Jeder Guide ist kurz genug für vor einem Pokal und konkret genug, um deinen Draft zu ändern. Lies den ersten, spiel einen Pokal, dann komm zurück.",
+        "Kurze, praktische Guides für eine bessere Elf in My World Cup XI. Das Spiel ist leicht zu starten: Form wählen, elf Spieler draften, Pokal simulieren. Der schwere Teil ist, ein Team zu draften, das zusammenpasst. Diese Guides decken Draft, Chemie-Bonus, Gruppenphase und Elfmeter ab. So hat dein nächster Lauf einen Plan. Jeder Guide ist kurz genug für vor einem Pokal und konkret genug, um deinen Draft zu ändern. Lies den ersten, spiel einen Pokal, dann komm zurück.",
       sections: [
         {
-          h2: "Beginne mit dem Draft, nicht mit den Stars",
+          h2: "Der Draft entscheidet die meisten Pokale",
           body: [
             "Der Draft entscheidet die meisten Pokale. Du hast elf Picks und drei Neuwürfe. Jedes Brett bietet einen echten WM-Kader, der einen offenen Platz füllen kann. Du wählst nicht die Nation oder das Jahr. Du wählst den Spieler.",
             "Das heißt: Passung schlägt Ruhm. Ein 90er Stürmer ist nur dann 90, wenn er auf einer Stürmerposition spielt. Wenn deine Formation noch einen Innenverteidiger braucht, löst ein berühmter Stürmer das Problem nicht. Prüfe den Stern vor dem Pick. Er zeigt, ob der Spieler natürlich in den Platz passt.",
@@ -337,7 +337,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "6. Ergebnis lesen und wiederholen",
             body: [
               "Nach dem Finale kannst du jedes Spiel wiederholen, Kaderstatistiken vergleichen und einen neuen Draft starten. Die Spielseite zeigt Ergebnis, Schüsse, erwartete Tore und Torschützen. Nutze sie, um zu sehen, wo der Pokal gekippt ist. Das ist der ganze Lauf.",
-              "Wenn du verloren hast, probier eine andere Form oder einen anderen Nationskern. Der nächste Pokal ist einen Klick entfernt. Das Spiel ist für kurze Läufe gebaut, deshalb kostet ein schlechter Draft Minuten, nicht Stunden.",
+              "Wenn du verloren hast, probier eine andere Form oder einen anderen Nationskern. Das Spiel ist für kurze Läufe gebaut, deshalb kostet ein schlechter Draft Minuten, nicht Stunden.",
             ],
           },
           {
@@ -349,7 +349,7 @@ export const blog: Record<Locale, BlogLocale> = {
             ],
           },
           {
-            h2: "Ein letzter Tipp",
+            h2: "Prüfe nach jedem Lauf die Statistiken",
             body: [
               "Beurteile einen Draft erst, wenn du die Gruppe gespielt hast. Ein Team, das auf Papier schwach aussieht, kann gewinnen, wenn die Plätze passen und die Chemie hoch ist. Ein Team aus Stars kann verlieren, wenn drei Spieler falsch stehen.",
               "Prüfe nach jedem Lauf die Spielstatistiken. Wenn du nach Schüssen verloren hast, war dein Angriff in Ordnung und deine Abwehr das Problem. Wenn du nach Ballbesitz verloren hast, war dein Mittelfeld das Problem. Repariere die Abteilung, nicht die ganze Elf. Ein gezielter Wechsel im nächsten Draft ist besser als ein kompletter Neuanfang. So wird jeder Lauf zu einem Test einer klaren Idee.",
@@ -387,10 +387,10 @@ export const blog: Record<Locale, BlogLocale> = {
       description:
         "Guides pratiques pour le jeu de draft : formations, chimie, relances, phase de groupes et tirs au but. Lisez d'abord, draftez mieux.",
       intro:
-        "Des guides courts et pratiques pour construire une meilleure XI dans My World Cup XI. Le jeu est simple à lancer : choisissez une forme, draftez onze joueurs, simulez la coupe. Le plus dur est de drafter une équipe qui fonctionne ensemble. Ces guides couvrent le draft, le bonus de chimie, la phase de groupes et les tirs au but. Votre prochaine partie aura donc un plan. Il n'y a pas de remplissage ici. Chaque guide est assez court pour être lu avant une coupe et assez précis pour changer votre draft. Lisez le premier, jouez une coupe, puis revenez.",
+        "Des guides courts et pratiques pour construire une meilleure XI dans My World Cup XI. Le jeu est simple à lancer : choisissez une forme, draftez onze joueurs, simulez la coupe. Le plus dur est de drafter une équipe qui fonctionne ensemble. Ces guides couvrent le draft, le bonus de chimie, la phase de groupes et les tirs au but. Votre prochaine partie aura donc un plan. Chaque guide est assez court pour être lu avant une coupe et assez précis pour changer votre draft. Lisez le premier, jouez une coupe, puis revenez.",
       sections: [
         {
-          h2: "Commencez par le draft, pas par les stars",
+          h2: "Le draft décide la plupart des coupes",
           body: [
             "Le draft décide la plupart des coupes. Vous avez onze choix et trois relances. Chaque plateau propose un vrai effectif de Coupe du Monde capable de remplir un poste libre. Vous ne choisissez pas la nation ni l'année. Vous choisissez le joueur.",
             "La justesse bat la célébrité. Un attaquant à 90 n'est à 90 que s'il joue à un poste d'attaquant. Si votre formation a encore besoin d'un défenseur central, un attaquant célèbre ne résout pas le problème. Vérifiez l'étoile avant de choisir. Elle indique si le joueur correspond naturellement au poste.",
@@ -418,7 +418,7 @@ export const blog: Record<Locale, BlogLocale> = {
           body: [
             "Chaque fiche montre la note moyenne, le meilleur joueur et la formation. Commencez par le meilleur joueur. Le Brésil 1970 a Pelé. L'Argentine 1986 a Maradona. La France 1998 a Zidane. Une star à 95 peut porter un draft, mais seulement si le reste du XI s'organise autour d'elle.",
             "Regardez ensuite la formation. Le Brésil 1970 jouait en 4-2-4. Les Pays-Bas 1974 utilisaient le football total. L'Italie 2006 s'appuyait sur la défense. L'Espagne 2010 contrôlait le ballon. La forme indique quels postes l'effectif peut remplir. Choisissez des effectifs qui correspondent aux postes qu'il vous reste.",
-            "Vérifiez enfin la profondeur. Une moyenne haute signifie peu de points faibles. Une équipe avec seulement deux stars vous laisse mince au milieu. Si vous avez besoin de deux défenseurs, un effectif avec quatre bons défenseurs est plus utile qu'un effectif avec un attaquant à 95.",
+            "Vérifiez enfin la profondeur. Une moyenne haute signifie peu de points faibles. Une équipe avec seulement deux stars vous laisse peu de solutions au milieu. Si vous avez besoin de deux défenseurs, un effectif avec quatre bons défenseurs est plus utile qu'un effectif avec un attaquant à 95.",
           ],
         },
         {
@@ -515,7 +515,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "6. Lire le résultat et rejouer",
             body: [
               "Après la finale, vous pouvez rejouer chaque match, comparer les statistiques et lancer un nouveau draft. La page du match montre le score, les tirs, les buts attendus et les buteurs. Utilisez-la pour voir où la coupe a basculé.",
-              "Si vous avez perdu, essayez une autre forme ou un autre noyau de nation. La prochaine coupe est à un clic. Un mauvais draft coûte des minutes, pas des heures.",
+              "Si vous avez perdu, essayez une autre forme ou un autre noyau de nation. Un mauvais draft coûte des minutes, pas des heures.",
             ],
           },
           {
@@ -527,7 +527,7 @@ export const blog: Record<Locale, BlogLocale> = {
             ],
           },
           {
-            h2: "Un dernier conseil",
+            h2: "Vérifiez les statistiques après chaque partie",
             body: [
               "Ne jugez pas un draft avant d'avoir joué le groupe. Une équipe qui semble faible sur le papier peut gagner si les postes correspondent et si la chimie est haute. Une équipe de stars peut perdre si trois joueurs sont mal placés.",
               "Après chaque partie, regardez les statistiques. Si vous avez perdu aux tirs, réparez la défense. Si vous avez perdu la possession, réparez le milieu. Un changement ciblé vaut mieux qu'un nouveau départ complet.",
@@ -566,10 +566,10 @@ export const blog: Record<Locale, BlogLocale> = {
       description:
         "ドラフトゲームの実践ガイド。フォーメーション、ケミストリー、リロール、グループステージ、PK戦。読んでからドラフトしよう。",
       intro:
-        "My World Cup XIでより良いXIを作るための、短くて実践的なガイドです。ゲームの始め方は簡単。形を選び、11人をドラフトし、大会をシミュレートするだけ。難しいのは、まとまりのあるチームをドラフトすることです。ここではドラフト、ケミストリーボーナス、グループステージ、PK戦を扱います。次の大会に計画を持って臨めます。中身のない文章はありません。どのガイドも大会前に読める長さで、ドラフトを変えるだけの具体性があります。最初の1本を読んだら、1回大会をプレイしてから戻ってきてください。",
+        "My World Cup XIでより良いXIを作るための、短くて実践的なガイドです。ゲームの始め方は簡単。形を選び、11人をドラフトし、大会をシミュレートするだけ。難しいのは、まとまりのあるチームをドラフトすることです。ここではドラフト、ケミストリーボーナス、グループステージ、PK戦を扱います。次の大会に計画を持って臨めます。どのガイドも大会前に読める長さで、ドラフトを変えるだけの具体性があります。最初の1本を読んだら、1回大会をプレイしてから戻ってきてください。",
       sections: [
         {
-          h2: "スターではなく、ドラフトから始める",
+          h2: "大会の大半はドラフトで決まる",
           body: [
             "大会の大半はドラフトで決まります。指名は11回、リロールは3回。各ボードには、空いているポジションを埋められる実際のワールドカップ・チームが出ます。国や年は選べません。選ぶのは選手です。",
             "つまり、相性が名声に勝ります。90のFWは、FWの位置でプレーして初めて90です。フォーメーションがまだCBを必要としているなら、有名なFWでは解決しません。指名前に星印を確認しましょう。その選手が自然にポジションに合うか分かります。",
@@ -694,7 +694,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "6. 結果を見て、もう一度",
             body: [
               "決勝の後は、どの試合も見返せます。チームスタッツを比べ、新しいドラフトを始められます。試合ページにはスコア、シュート、期待得点、得点者が出ます。どこで大会が傾いたか分かります。",
-              "負けたら、別の形か別の国の核を試してください。次の大会はワンクリックです。短いプレイ向けなので、悪いドラフトの代償は数分です。",
+              "負けたら、別の形か別の国の核を試してください。短いプレイ向けなので、悪いドラフトの代償は数分です。",
             ],
           },
           {
@@ -706,7 +706,7 @@ export const blog: Record<Locale, BlogLocale> = {
             ],
           },
           {
-            h2: "最後のヒント",
+            h2: "各大会の後にスタッツを見る",
             body: [
               "グループを戦うまでドラフトを判断しないでください。紙の上で弱く見えるチームでも、ポジションが合い、ケミストリーが高ければ勝てます。スター集団でも、3人が間違った位置なら負けます。",
               "毎回、試合スタッツを確認しましょう。シュートで負けたなら、攻撃は悪くなく守備が問題です。ポゼッションで負けたなら、中盤が問題です。チーム全体ではなく、その部門を直します。次のドラフトでの狙った変更は、全部やり直すより良いです。",
@@ -744,10 +744,10 @@ export const blog: Record<Locale, BlogLocale> = {
       description:
         "Guías prácticas para el juego de draft: formaciones, química, rerolls, fase de grupos y penales. Lee primero, draftea mejor.",
       intro:
-        "Guías cortas y prácticas para construir una mejor XI en My World Cup XI. El juego es fácil de empezar: elige una forma, draftea once jugadores y simula la copa. Lo difícil es draftear un equipo que funcione junto. Estas guías cubren el draft, el bonus de química, la fase de grupos y los penales. Así tu próxima partida tendrá un plan. Aquí no hay relleno. Cada guía es lo bastante corta para leerla antes de una copa y lo bastante concreta para cambiar tu draft. Lee la primera, juega una copa y vuelve.",
+        "Guías cortas y prácticas para construir una mejor XI en My World Cup XI. El juego es fácil de empezar: elige una forma, draftea once jugadores y simula la copa. Lo difícil es draftear un equipo que funcione junto. Estas guías cubren el draft, el bonus de química, la fase de grupos y los penales. Así tu próxima partida tendrá un plan. Cada guía es lo bastante corta para leerla antes de una copa y lo bastante concreta para cambiar tu draft. Lee la primera, juega una copa y vuelve.",
       sections: [
         {
-          h2: "Empieza por el draft, no por las estrellas",
+          h2: "El draft decide la mayoría de las copas",
           body: [
             "El draft decide la mayoría de las copas. Tienes once elecciones y tres rerolls. Cada tablero ofrece una plantilla real del Mundial que puede llenar un puesto libre. No eliges la nación ni el año. Eliges al jugador.",
             "El encaje gana a la fama. Un delantero de 90 solo es 90 si juega en un puesto de delantero. Si tu formación aún necesita un central, un delantero famoso no resuelve el problema. Revisa la estrella antes de elegir. Muestra si el jugador encaja de forma natural en el puesto.",
@@ -773,7 +773,7 @@ export const blog: Record<Locale, BlogLocale> = {
         {
           h2: "Cómo observar una plantilla",
           body: [
-            "Cada ficha muestra la valoración media, el mejor jugador y la formación. Empieza por el mejor jugador. Brasil 1970 tiene a Pelé. Argentina 1986 tiene a Maradona. Francia 1998 tiene a Zidane. Una estrella de 95 puede cargar un draft, pero solo si el resto de la XI se organiza alrededor.",
+            "Cada ficha muestra la valoración media, el mejor jugador y la formación. Empieza por el mejor jugador. Brasil 1970 tiene a Pelé. Argentina 1986 tiene a Maradona. Francia 1998 tiene a Zidane. Una estrella de 95 puede sostener un draft, pero solo si el resto de la XI se organiza alrededor.",
             "Luego mira la formación. Brasil 1970 jugaba 4-2-4. Países Bajos 1974 usaba fútbol total. Italia 2006 se apoyaba en la defensa. España 2010 controlaba el balón. La forma indica qué puestos puede llenar la plantilla. Elige plantillas que encajen en los puestos que aún necesitas.",
             "Por último, revisa la profundidad. Una media alta significa pocos puntos débiles. Un equipo con solo dos estrellas te deja corto en el medio. Si necesitas dos defensas, una plantilla con cuatro defensas buenos es más útil que una con un delantero de 95.",
           ],
@@ -872,7 +872,7 @@ export const blog: Record<Locale, BlogLocale> = {
             h2: "6. Leer el resultado y repetir",
             body: [
               "Después de la final puedes repetir cualquier partido, comparar estadísticas y empezar un draft nuevo. La página del partido muestra el marcador, los tiros, los goles esperados y los goleadores. Úsala para ver dónde cambió la copa.",
-              "Si perdiste, prueba otra forma u otro núcleo de nación. La próxima copa está a un clic. El juego está hecho para partidas cortas, así que un mal draft cuesta minutos, no horas.",
+              "Si perdiste, prueba otra forma u otro núcleo de nación. El juego está hecho para partidas cortas, así que un mal draft cuesta minutos, no horas.",
             ],
           },
           {
@@ -884,7 +884,7 @@ export const blog: Record<Locale, BlogLocale> = {
             ],
           },
           {
-            h2: "Un último consejo",
+            h2: "Revisa las estadísticas después de cada partida",
             body: [
               "No juzgues un draft hasta jugar el grupo. Un equipo que parece débil en el papel puede ganar si los puestos encajan y la química es alta. Un equipo de estrellas puede perder si tres jugadores están mal colocados.",
               "Después de cada partida, mira las estadísticas. Si perdiste en tiros, tu ataque estaba bien y tu defensa era el problema. Si perdiste la posesión, tu medio era el problema. Repara el sector, no todo el equipo. Un cambio concreto en el próximo draft vale más que empezar de cero.",

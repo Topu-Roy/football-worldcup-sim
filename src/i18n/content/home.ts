@@ -10,7 +10,7 @@ export const home = {
       eyebrow: "Game preview",
       title: "Legends, on the pitch",
       caption:
-        "The best possible XI from football's greatest nations — built from real World Cup player ratings. Draft them, then sim the cup.",
+        "The best possible XI from football's greatest nations, built from real World Cup player ratings. Draft them, then sim the cup.",
       bestXI: "best XI",
     },
     chips: [
@@ -56,7 +56,7 @@ export const home = {
     squadsTitle: "Every World Cup great, one pool",
     squads: [
       "The game has 86 teams. You draft from 77 World Cup tournament squads from 1970 to 2026. Nine group-stage opponents fill the AI side of the cup. All 86 use one rating scale, so a 1970 winger and a 2026 full-back can be compared fairly.",
-      "You can draft Brazil 1970, the side that won all six matches and scored 19 goals. You can draft Netherlands 1974 and their total football. Argentina 1986 gives you Maradona. France 1998 gives you Zidane. Spain 2010 gives you tiki-taka. Germany 2014 gives you the team that beat Brazil 7-1. Argentina 2022 gives you Messi's last World Cup.",
+      "Brazil 1970 won all six matches and scored 19 goals. Netherlands 1974 changed how teams thought about movement. Argentina 1986 had Maradona, France 1998 had Zidane, and Spain 2010 won with tiki-taka. Germany 2014 beat Brazil 7-1 on the way to the title. Argentina 2022 gave Messi the one trophy he was missing.",
       "The 2026 squads are real and verified. They sit beside the classic teams, not in a separate mode. A draft can mix a 1970 Pelé with a 2026 forward. The engine treats them the same way. Ratings are role-weighted. A goalkeeper is judged on reflexes, positioning and distribution. A centre-back is judged on tackling, aerial ability and passing. A striker is judged on finishing, dribbling, pace and off-ball movement. Elite players rate 90 or higher. Stars rate 85 or higher.",
       "You can browse every roster on the teams page before you draft. Check the average rating, the best player and the formation. Then take that knowledge into the draft.",
     ],
@@ -96,7 +96,7 @@ export const home = {
 
   de: {
     h1: "Draft eine WM-Elf aus der Geschichte, dann simuliere den Pokal",
-    hero: "My World Cup XI ist ein kostenloses WM-Draft-Spiel. Wähle eine Formation, draft elf Spieler aus 77 WM-Kadern und sieh deinem Team bei einem ganzen Turnier zu. Der Pool reicht von Brasilien 1970 bis zu den Kadern 2026. Jedes Spiel wird simuliert: Gruppenspiele, K.-o.-Baum, Verlängerung und Elfmeterschießen. Es läuft im Browser. Kein Download, keine Anmeldung. Du startest in etwa einer Minute und beendest einen Pokal in einer Sitzung.",
+    hero: "My World Cup XI ist ein kostenloses WM-Draft-Spiel. Wähle eine Formation, draft elf Spieler aus 77 WM-Kadern und sieh deinem Team bei einem ganzen Turnier zu. Der Pool reicht von Brasilien 1970 bis zu den Kadern 2026. Jedes Spiel wird simuliert: Gruppenspiele, K.-o.-Baum, Verlängerung und Elfmeterschießen. Es läuft im Browser. Kein Download, keine Anmeldung. Der Einstieg dauert etwa eine Minute, und ein Pokal passt in eine Sitzung.",
     ctaPlay: "Jetzt spielen",
     ctaHow: "Anleitung",
     showMore: "Mehr anzeigen",
@@ -105,7 +105,7 @@ export const home = {
       eyebrow: "Spielvorschau",
       title: "Legenden auf dem Platz",
       caption:
-        "Die bestmögliche Elf der größten Fußballnationen — aus echten WM-Spielerbewertungen. Draft sie und simuliere den Pokal.",
+        "Die bestmögliche Elf der größten Fußballnationen, gebaut aus echten WM-Spielerbewertungen. Draft sie und simuliere den Pokal.",
       bestXI: "beste Elf",
     },
     chips: [
@@ -142,7 +142,7 @@ export const home = {
     ],
     loop: [
       "Der Draft entscheidet die meisten Pokale. Jede Runde bietet einen echten Kader und ein Jahr. Brasilien 1970 kann in Runde eins kommen. Italien 2006 kann auftauchen, wenn du noch einen Innenverteidiger brauchst. Du setzt jeden Spieler auf einen Platz. Markierte Plätze sind seine Bestposition. Außerhalb dieser Position verliert er einen Teil seiner Bewertung.",
-      "Neuwürfe sind knapp. Du hast drei für den ganzen Draft. Nutze einen, wenn das Brett keinen Spieler für einen Pflichtplatz hat. Verbrenne keinen, um einen etwas besseren Namen zu jagen. Ein ausgeglichenes Brett schlägt ein gieriges.",
+      "Neuwürfe sind knapp. Du hast drei für den ganzen Draft. Nutze einen, wenn das Brett keinen Spieler für einen Pflichtplatz hat. Verbrenne keinen, um einen etwas besseren Namen zu jagen. Ein ausgeglichenes Brett ist besser als ein gieriges.",
       "Ein häufiger Fehler ist, immer den höchsten Wert zu nehmen. Ein 90er Stürmer im Mittelfeld ist schlechter als ein 84er Mittelfeldspieler auf seiner Position. Prüfe den Stern vor dem Pick. Er zeigt, ob der Spieler in den Platz passt.",
       "Chemie ist der andere Hebel. Sie zählt deine größte Gruppe gleicher Nation. Zwei geben +3%, drei +5%, vier +8%, fünf oder mehr +10%. Der Bonus gilt für das ganze Team. Ein brasilianischer Kern kann durchschnittliche Spieler heben. Elf Stars aus elf Nationen bekommen nichts.",
       "Wenn der Draft endet, übernimmt die Spielengine. Deine Gruppe hat drei Gegner. Zwei sind schwächere Teams. Einer ist ein starker WM-Kader. Jeder spielt einmal gegen jeden. Die Top zwei kommen weiter. Der K.-o.-Baum wird um deine Spiele herum vorab simuliert. Du bekommst Achtelfinale, Viertelfinale, Halbfinale und Finale. Unentschieden gehen in die Verlängerung, dann entscheiden Elfmeter.",
@@ -152,7 +152,7 @@ export const home = {
     squadsTitle: "Jeder WM-Große in einem Pool",
     squads: [
       "Das Spiel hat 86 Teams. Du draftest aus 77 WM-Kadern von 1970 bis 2026. Neun Gruppengegner füllen die KI-Seite des Pokals. Alle 86 nutzen dieselbe Bewertungsskala, damit ein Flügelspieler von 1970 und ein Außenverteidiger von 2026 fair verglichen werden.",
-      "Du kannst Brasilien 1970 draften, die Mannschaft mit sechs Siegen und 19 Toren. Oder Niederlande 1974 mit Total Football. Argentinien 1986 gibt dir Maradona. Frankreich 1998 gibt dir Zidane. Spanien 2010 gibt dir Tiki-Taka. Deutschland 2014 gibt dir das Team, das Brasilien 7:1 schlug. Argentinien 2022 gibt dir Messis letzten WM-Titel.",
+      "Brasilien 1970 gewann alle sechs Spiele und schoss 19 Tore. Niederlande 1974 veränderten das Denken über Bewegung. Argentinien 1986 hatte Maradona, Frankreich 1998 hatte Zidane, und Spanien 2010 gewann mit Tiki-Taka. Deutschland 2014 schlug Brasilien 7:1 auf dem Weg zum Titel. Argentinien 2022 gab Messi den einen Titel, der fehlte.",
       "Die Kader 2026 sind echt und geprüft. Sie stehen neben den klassischen Teams, nicht in einem separaten Modus. Ein Draft kann einen Pelé von 1970 mit einem Stürmer von 2026 mischen. Die Engine behandelt beide gleich. Bewertungen sind rollengewichtet. Ein Torwart wird nach Reflexen, Stellungsspiel und Spielaufbau beurteilt. Ein Innenverteidiger nach Zweikampf, Kopfball und Passspiel. Ein Stürmer nach Abschluss, Dribbling, Tempo und Laufwegen. Elite beginnt bei 90. Stars beginnen bei 85.",
       "Du kannst jeden Kader vor dem Draft auf der Teamseite ansehen. Prüfe die Durchschnittsbewertung, den besten Spieler und die Formation. Dann geh mit diesem Wissen in den Draft.",
     ],
@@ -200,7 +200,7 @@ export const home = {
       eyebrow: "Aperçu du jeu",
       title: "Les légendes sur le terrain",
       caption:
-        "La meilleure XI possible des plus grandes nations du football — construite avec de vraies notes de joueurs de Coupe du Monde. Draftez-les, puis simulez la coupe.",
+        "La meilleure XI possible des plus grandes nations du football, construite avec de vraies notes de joueurs de Coupe du Monde. Draftez-les, puis simulez la coupe.",
       bestXI: "meilleur XI",
     },
     chips: [
@@ -237,7 +237,7 @@ export const home = {
     ],
     loop: [
       "Le draft décide la plupart des coupes. Chaque tour propose un vrai effectif et une année. Le Brésil 1970 peut arriver au premier tour. L'Italie 2006 peut apparaître quand il vous manque encore un défenseur central. Vous placez chaque joueur sur un poste. Les postes marqués d'une étoile sont sa meilleure position. Hors de cette position, il perd une partie de sa note.",
-      "Les relances sont limitées. Vous en avez trois pour tout le draft. Utilisez-en une quand le plateau n'a aucun joueur pour un poste obligatoire. N'en brûlez pas une pour chercher un nom un peu meilleur. Un plateau équilibré bat un plateau gourmand.",
+      "Les relances sont limitées. Vous en avez trois pour tout le draft. Utilisez-en une quand le plateau n'a aucun joueur pour un poste obligatoire. N'en brûlez pas une pour chercher un nom un peu meilleur. Un plateau équilibré vaut mieux qu'un plateau trop ambitieux.",
       "La chimie est l'autre levier. Elle compte votre plus grand groupe de joueurs d'une même nation. Deux donnent +3 %, trois +5 %, quatre +8 %, cinq ou plus +10 %. Le bonus s'applique à toute l'équipe. Un noyau brésilien peut donc relever des joueurs moyens. Onze stars de onze nations ne reçoivent rien.",
       "Quand le draft se termine, le moteur de match prend le relais. Votre groupe a trois adversaires. Deux sont plus faibles. Un est un fort effectif de Coupe du Monde. Chaque équipe joue une fois contre les autres. Les deux premières passent. L'arbre à élimination est simulé autour de vos matchs. Vous avez les huitièmes, les quarts, les demi-finales et la finale. Les matchs nuls vont en prolongation, puis aux tirs au but.",
       "Les tirs au but utilisent vos cinq meilleurs tireurs, classés par sang-froid et finition. Cinq tirs chacun, puis mort subite. Après la finale, vous pouvez rejouer n'importe quel match, lire les statistiques et lancer un nouveau draft. Les parties terminées restent dans votre historique sur cet appareil.",
@@ -246,7 +246,7 @@ export const home = {
     squadsTitle: "Chaque grand de la Coupe du Monde, un seul pool",
     squads: [
       "Le jeu compte 86 équipes. Vous draftez parmi 77 effectifs de Coupe du Monde de 1970 à 2026. Neuf adversaires de groupe remplissent le côté IA de la coupe. Les 86 utilisent la même échelle de notes, pour comparer un ailier de 1970 et un latéral de 2026 sur une base juste.",
-      "Vous pouvez drafter le Brésil 1970, l'équipe qui a gagné ses six matchs et marqué 19 buts. Ou les Pays-Bas 1974 et leur football total. L'Argentine 1986 vous donne Maradona. La France 1998 vous donne Zidane. L'Espagne 2010 vous donne le tiki-taka. L'Allemagne 2014 vous donne l'équipe qui a battu le Brésil 7-1. L'Argentine 2022 vous donne le dernier titre de Messi.",
+      "Le Brésil 1970 a gagné ses six matchs et marqué 19 buts. Les Pays-Bas 1974 ont changé la façon de penser le mouvement. L'Argentine 1986 avait Maradona, la France 1998 avait Zidane, et l'Espagne 2010 a gagné avec le tiki-taka. L'Allemagne 2014 a battu le Brésil 7-1 sur la route du titre. L'Argentine 2022 a donné à Messi le seul trophée qui lui manquait.",
       "Les effectifs 2026 sont réels et vérifiés. Ils sont à côté des équipes classiques, pas dans un mode séparé. Un draft peut mélanger un Pelé de 1970 avec un attaquant de 2026. Le moteur les traite de la même façon. Les notes sont pondérées par rôle. Un gardien est jugé sur ses réflexes, son placement et sa relance. Un défenseur central sur son tacle, son jeu aérien et sa passe. Un attaquant sur sa finition, son dribble, sa vitesse et ses déplacements. Les élites commencent à 90. Les stars commencent à 85.",
       "Vous pouvez consulter chaque effectif sur la page des équipes avant de drafter. Vérifiez la note moyenne, le meilleur joueur et la formation. Puis entrez dans le draft avec ces informations.",
     ],
@@ -331,7 +331,7 @@ export const home = {
     ],
     loop: [
       "ドラフトが大会の大半を決めます。各ラウンドでは、実際のチームと年が提示されます。1巡目にブラジル1970が来ることもあります。DFがまだ足りないときにイタリア2006が来ることもあります。選手はポジションに置きます。星印のポジションがその選手のベストです。ベスト以外に置くと、レーティングの一部が失われます。",
-      "リロールは限られています。ドラフト全体で3回です。埋めなければならないポジションに誰も合わないときに使いましょう。少し名前が良いだけで使うのはもったいないです。バランスの良いボードは、欲張ったボードに勝ちます。",
+      "リロールは限られています。ドラフト全体で3回です。埋めなければならないポジションに誰も合わないときに使いましょう。少し名前が良いだけで使うのはもったいないです。バランスの良いボードは、欲張ったボードよりうまくいきます。",
       "ケミストリーはもう1つのカギです。同じ国の選手が最も多いグループを数えます。2人で+3%、3人で+5%、4人で+8%、5人以上で+10%。ボーナスはチーム全体にかかります。ブラジル人を5人集めれば、平均的な選手も底上げできます。11人を11か国から集めても、ボーナスはゼロです。",
       "ドラフトが終わると、マッチエンジンが動きます。グループには3つの相手がいます。2つは弱めのチーム、1つは強い歴史的チームです。総当たりで1回ずつ戦います。上位2チームが通過します。決勝トーナメントはあなたの試合の周りで事前にシミュレートされます。ラウンド16、準々決勝、準決勝、決勝まであります。同点なら延長戦、それでも決まらなければPK戦です。",
       "PK戦では、冷静さとフィニッシュの高い5人を選びます。お互い5本ずつ蹴ります。早く決着がつけばそこで終了。その後はサドンデスです。決勝が終わったら、どの試合も見返せます。スタッツを読み、新しいドラフトを始められます。完了した大会は端末の試合履歴に残ります。",
@@ -340,7 +340,7 @@ export const home = {
     squadsTitle: "歴代の強豪が1つのプールに",
     squads: [
       "ゲームには86チームあります。あなたがドラフトできるのは、1970年から2026年までの77チームです。9つのグループステージ相手はAI側を埋めます。86チームすべてが同じ評価スケールを使うので、1970年のウイングと2026年のサイドバックを公平に比べられます。",
-      "ブラジル1970は6戦全勝、19ゴール。オランダ1974はトータルフットボール。アルゼンチン1986にはマラドーナ。フランス1998にはジダン。スペイン2010にはティキタカ。ドイツ2014はブラジルを7-1で破ったチーム。アルゼンチン2022はメッシ最後のワールドカップ制覇です。",
+      "ブラジル1970は6戦全勝、19ゴール。オランダ1974は動きの考え方を変えました。アルゼンチン1986にはマラドーナ、フランス1998にはジダン、スペイン2010はティキタカで優勝。ドイツ2014はブラジルを7-1で破って頂点へ。アルゼンチン2022はメッシに唯一欠けていたトロフィーを与えました。",
       "2026年のチームは実在し、検証済みです。クラシックチームと同じ場所に並び、別モードではありません。1970年のペレと2026年のFWを同じドラフトで混ぜられます。エンジンは両方を同じように扱います。評価はポジションごとの重み付きです。GKは反射、位置取り、配球。CBはタックル、空中戦、パス。FWはフィニッシュ、ドリブル、スピード、オフザボール。エリートは90以上、スターは85以上です。",
       "ドラフト前にチームページで全ロースターを見られます。平均レーティング、トップ選手、フォーメーションを確認しましょう。その知識を持ってドラフトに入ります。",
     ],
@@ -388,7 +388,7 @@ export const home = {
       eyebrow: "Vista previa",
       title: "Leyendas, en la cancha",
       caption:
-        "La mejor XI posible de las grandes naciones del fútbol — armada con valoraciones reales de jugadores del Mundial. Draftea y simula la copa.",
+        "La mejor XI posible de las grandes naciones del fútbol, armada con valoraciones reales de jugadores del Mundial. Draftea y simula la copa.",
       bestXI: "mejor XI",
     },
     chips: [
@@ -425,7 +425,7 @@ export const home = {
     ],
     loop: [
       "El draft decide la mayoría de las copas. Cada ronda ofrece una plantilla real y un año. El Brasil 1970 puede salir en la primera ronda. Italia 2006 puede aparecer cuando aún necesitas un central. Colocas a cada jugador en un puesto. Los puestos con estrella son su mejor posición. Fuera de esa posición, pierde parte de su valoración.",
-      "Los rerolls son limitados. Tienes tres para todo el draft. Usa uno cuando el tablero no tenga ningún jugador para un puesto obligatorio. No gastes uno por perseguir un nombre un poco mejor. Un tablero equilibrado gana a uno codicioso.",
+      "Los rerolls son limitados. Tienes tres para todo el draft. Usa uno cuando el tablero no tenga ningún jugador para un puesto obligatorio. No gastes uno por perseguir un nombre un poco mejor. Un tablero equilibrado funciona mejor que uno codicioso.",
       "La química es la otra palanca. Cuenta tu grupo más grande de jugadores de la misma nación. Dos dan +3%, tres +5%, cuatro +8%, cinco o más +10%. El bonus se aplica a todo el equipo. Un núcleo brasileño puede subir a jugadores medios. Once estrellas de once naciones no reciben nada.",
       "Cuando termina el draft, toma el control el motor de partido. Tu grupo tiene tres rivales. Dos son más débiles. Uno es una plantilla histórica fuerte. Cada equipo juega una vez contra los demás. Los dos primeros pasan. El cuadro de eliminación se simula alrededor de tus partidos. Tienes octavos, cuartos, semifinales y final. Los empates van a prórroga y luego a penales.",
       "Los penales usan a tus cinco mejores tiradores, ordenados por sangre fría y definición. Cinco tiros por lado y luego muerte súbita. Después de la final puedes repetir cualquier partido, leer las estadísticas y empezar otro draft. Las partidas terminadas se quedan en tu historial en este dispositivo.",
@@ -434,7 +434,7 @@ export const home = {
     squadsTitle: "Cada grande del Mundial, un solo pool",
     squads: [
       "El juego tiene 86 equipos. Drafteas de 77 plantillas del Mundial de 1970 a 2026. Nueve rivales de grupo llenan el lado IA de la copa. Los 86 usan la misma escala de valoraciones, para comparar un extremo de 1970 con un lateral de 2026 de forma justa.",
-      "Puedes draftear el Brasil 1970, el equipo que ganó sus seis partidos y marcó 19 goles. O Países Bajos 1974 y su fútbol total. Argentina 1986 te da a Maradona. Francia 1998 te da a Zidane. España 2010 te da el tiki-taka. Alemania 2014 te da el equipo que venció 7-1 a Brasil. Argentina 2022 te da el último Mundial de Messi.",
+      "Brasil 1970 ganó sus seis partidos y marcó 19 goles. Países Bajos 1974 cambió la forma de pensar el movimiento. Argentina 1986 tenía a Maradona, Francia 1998 tenía a Zidane y España 2010 ganó con el tiki-taka. Alemania 2014 venció 7-1 a Brasil camino del título. Argentina 2022 le dio a Messi el único trofeo que le faltaba.",
       "Las plantillas de 2026 son reales y verificadas. Están junto a los equipos clásicos, no en un modo aparte. Un draft puede mezclar a un Pelé de 1970 con un delantero de 2026. El motor trata a ambos igual. Las valoraciones se ponderan por puesto. Un portero se mide por reflejos, colocación y distribución. Un central por entradas, juego aéreo y pase. Un delantero por definición, regate, velocidad y desmarque. La élite empieza en 90. Las estrellas empiezan en 85.",
       "Puedes revisar cada plantilla en la página de equipos antes de draftear. Mira la valoración media, el mejor jugador y la formación. Luego entra al draft con esa información.",
     ],

@@ -4,7 +4,7 @@ export const teamsIndex = {
     h1: "World Cup Squads: Every Team You Can Draft",
     blogLink: "Want draft strategy? Read the simulator guides on the blog",
     intro: (count: number) =>
-      `Every World Cup squad in My World Cup XI is here. That is ${count} tournament teams from 1970 to 2026, ranked by average player rating and ready to scout. You draft from these ${count} squads. The game also uses nine group-stage opponents as AI teams, which brings the full pool to 86 teams. This page is the library behind the world cup team builder. Every roster has a formation, player names and a rating for each player. The ratings use one scale, so you can compare Brazil 1970 with Argentina 2022. Search by nation, year or formation. Open a squad to see its player list. Then take what you learn into the draft.`,
+      `Every World Cup squad in My World Cup XI is here. That is ${count} tournament teams from 1970 to 2026, ranked by average player rating and ready to scout. You draft from these ${count} squads. The game also uses nine group-stage opponents as AI teams, which brings the full pool to 86 teams. This page is the squad library for the game. Every roster has a formation, player names and a rating for each player. The ratings use one scale, so you can compare Brazil 1970 with Argentina 2022. Search by nation, year or formation. Open a squad to see its player list. Then take what you learn into the draft.`,
     erasTitle: "Six decades, one scale",
     eras: [
       {
@@ -44,8 +44,9 @@ export const teamsIndex = {
     ranking: [
       "Average rating tells you depth. A high average means the squad has few weak spots. It does not guarantee a title. Brazil 1982 had one of the best midfields ever and lost to Italy. Italy 1982 started slowly and won the cup.",
       "The top player matters, but fit matters more. A 95-rated forward is only a 95 if he plays in a forward slot. If your formation needs a centre-back, a star striker will not solve it. Use the card to see the best player, the formation and the positions the squad can fill.",
-      "Formation is the other clue. Brazil 1970 played 4-2-4. Netherlands 1974 used total football. Italy 2006 built on defence. Spain 2010 controlled the ball. Pick squads that can fill the slots you still need, not just the ones with the biggest names.",
+      "Formation is the other clue. Brazil 1970 played 4-2-4. Netherlands 1974 used total football. Italy 2006 built on defence. Spain 2010 controlled the ball. Pick squads that can fill the slots you still need. A famous name in the wrong slot does not help.",
       "Ratings are role-weighted. A goalkeeper is judged on reflexes, positioning and distribution. A centre-back is judged on tackling, aerial ability and passing. A midfielder is judged on passing, dribbling, work rate and stamina. A forward is judged on finishing, dribbling, pace and off-ball movement. That is why a 90-rated defender and a 90-rated striker are not the same kind of player.",
+      "Open two squads and compare them before you draft. A team with several 85-rated players can fit better than one with a 95 and three holes. The cards show the best player and the formation. That is enough for a first plan.",
     ],
     faqTitle: "Questions about the squads",
     faq: [
@@ -79,7 +80,7 @@ export const teamsIndex = {
     h1: "WM-Kader: Jedes Team zum Draften",
     blogLink: "Willst du Draft-Strategie? Lies die Simulator-Guides im Blog",
     intro: (count: number) =>
-      `Jeder WM-Kader in My World Cup XI steht hier. Das sind ${count} Turnierteams von 1970 bis 2026, sortiert nach durchschnittlicher Spielerbewertung und bereit zum Scouten. Du draftest aus diesen ${count} Kadern. Das Spiel nutzt zusätzlich neun Gruppengegner als KI-Teams, damit kommt der volle Pool auf 86 Teams. Diese Seite ist die Bibliothek hinter dem WM-Team-Builder. Jeder Kader hat eine Formation, Spielernamen und eine Bewertung für jeden Spieler. Die Bewertungen nutzen eine Skala, damit du Brasilien 1970 mit Argentinien 2022 vergleichen kannst. Suche nach Nation, Jahr oder Formation. Öffne einen Kader für die Spielerliste. Dann nimm das Wissen mit in den Draft.`,
+      `Jeder WM-Kader in My World Cup XI steht hier. Das sind ${count} Turnierteams von 1970 bis 2026, sortiert nach durchschnittlicher Spielerbewertung und bereit zum Scouten. Du draftest aus diesen ${count} Kadern. Das Spiel nutzt zusätzlich neun Gruppengegner als KI-Teams, damit kommt der volle Pool auf 86 Teams. Diese Seite ist die Kaderbibliothek des Spiels. Jeder Kader hat eine Formation, Spielernamen und eine Bewertung für jeden Spieler. Die Bewertungen nutzen eine Skala, damit du Brasilien 1970 mit Argentinien 2022 vergleichen kannst. Suche nach Nation, Jahr oder Formation. Öffne einen Kader für die Spielerliste. Dann nimm das Wissen mit in den Draft.`,
     erasTitle: "Sechs Jahrzehnte, eine Skala",
     eras: [
       {
@@ -119,7 +120,7 @@ export const teamsIndex = {
     ranking: [
       "Die Durchschnittsbewertung zeigt Tiefe. Ein hoher Wert bedeutet wenige Schwachstellen. Er garantiert keinen Titel. Brasilien 1982 hatte eines der besten Mittelfelder aller Zeiten und verlor gegen Italien. Italien 1982 startete langsam und gewann den Pokal.",
       "Der beste Spieler zählt, aber Passung zählt mehr. Ein 95er Stürmer ist nur dann 95, wenn er auf einer Stürmerposition spielt. Wenn deine Formation einen Innenverteidiger braucht, löst ein Star-Stürmer das Problem nicht. Nutze die Karte, um besten Spieler, Formation und mögliche Positionen zu sehen.",
-      "Die Formation ist der andere Hinweis. Brasilien 1970 spielte 4-2-4. Niederlande 1974 nutzten Total Football. Italien 2006 bauten auf Abwehr. Spanien 2010 kontrollierten den Ball. Wähle Kader, die deine offenen Plätze füllen, nicht nur die mit den größten Namen.",
+      "Die Formation ist der andere Hinweis. Brasilien 1970 spielte 4-2-4. Niederlande 1974 nutzten Total Football. Italien 2006 bauten auf Abwehr. Spanien 2010 kontrollierten den Ball. Wähle Kader, die deine offenen Plätze füllen. Ein großer Name auf dem falschen Platz hilft dir nicht.",
       "Bewertungen sind rollengewichtet. Ein Torwart wird nach Reflexen, Stellungsspiel und Spielaufbau beurteilt. Ein Innenverteidiger nach Zweikampf, Kopfball und Passspiel. Ein Mittelfeldspieler nach Passspiel, Dribbling, Laufarbeit und Ausdauer. Ein Stürmer nach Abschluss, Dribbling, Tempo und Laufwegen. Deshalb sind ein 90er Verteidiger und ein 90er Stürmer nicht derselbe Spielertyp.",
       "Öffne zwei Kader und vergleiche sie, bevor du draftest. Ein Team mit vielen 85ern kann besser passen als ein Team mit einem 95er und drei Lücken. Die Karten zeigen den besten Spieler und die Formation. Mehr brauchst du für den ersten Plan nicht.",
     ],
@@ -155,7 +156,7 @@ export const teamsIndex = {
     blogLink:
       "Besoin de stratégie ? Lisez les guides du simulateur sur le blog",
     intro: (count: number) =>
-      `Chaque effectif de Coupe du Monde de My World Cup XI est ici. Cela fait ${count} équipes de tournoi de 1970 à 2026, classées par note moyenne et prêtes à observer. Vous draftez parmi ces ${count} effectifs. Le jeu utilise aussi neuf adversaires de groupe comme équipes IA, ce qui porte le pool complet à 86 équipes. Cette page est la bibliothèque derrière le constructeur d'équipe. Chaque effectif a une formation, des noms et une note par joueur. Les notes utilisent une seule échelle, pour comparer le Brésil 1970 avec l'Argentine 2022. Cherchez par nation, année ou formation. Ouvrez un effectif pour voir la liste des joueurs. Puis entrez dans le draft avec ces informations.`,
+      `Chaque effectif de Coupe du Monde de My World Cup XI est ici. Cela fait ${count} équipes de tournoi de 1970 à 2026, classées par note moyenne et prêtes à observer. Vous draftez parmi ces ${count} effectifs. Le jeu utilise aussi neuf adversaires de groupe comme équipes IA, ce qui porte le pool complet à 86 équipes. Cette page est la bibliothèque d'effectifs du jeu. Chaque effectif a une formation, des noms et une note par joueur. Les notes utilisent une seule échelle, pour comparer le Brésil 1970 avec l'Argentine 2022. Cherchez par nation, année ou formation. Ouvrez un effectif pour voir la liste des joueurs. Puis entrez dans le draft avec ces informations.`,
     erasTitle: "Six décennies, une échelle",
     eras: [
       {
@@ -195,7 +196,7 @@ export const teamsIndex = {
     ranking: [
       "La note moyenne indique la profondeur. Une note haute signifie peu de points faibles. Elle ne garantit pas un titre. Le Brésil 1982 avait l'un des meilleurs milieux de l'histoire et a perdu contre l'Italie. L'Italie 1982 a mal commencé et a gagné la coupe.",
       "Le meilleur joueur compte, mais la justesse compte plus. Un attaquant à 95 n'est à 95 que s'il joue à un poste d'attaquant. Si votre formation a besoin d'un défenseur central, une star offensive ne résout pas le problème. Utilisez la fiche pour voir le meilleur joueur, la formation et les postes possibles.",
-      "La formation est l'autre indice. Le Brésil 1970 jouait en 4-2-4. Les Pays-Bas 1974 utilisaient le football total. L'Italie 2006 s'appuyait sur la défense. L'Espagne 2010 contrôlait le ballon. Choisissez des effectifs qui remplissent vos postes libres, pas seulement ceux avec les plus grands noms.",
+      "La formation est l'autre indice. Le Brésil 1970 jouait en 4-2-4. Les Pays-Bas 1974 utilisaient le football total. L'Italie 2006 s'appuyait sur la défense. L'Espagne 2010 contrôlait le ballon. Choisissez des effectifs qui remplissent vos postes libres. Un grand nom au mauvais poste ne vous aide pas.",
       "Les notes sont pondérées par rôle. Un gardien est jugé sur ses réflexes, son placement et sa relance. Un défenseur central sur son tacle, son jeu aérien et sa passe. Un milieu sur sa passe, son dribble, son activité et son endurance. Un attaquant sur sa finition, son dribble, sa vitesse et ses déplacements. C'est pourquoi un défenseur à 90 et un attaquant à 90 ne sont pas le même type de joueur.",
       "Ouvrez deux effectifs et comparez-les avant de drafter. Une équipe avec beaucoup de joueurs à 85 peut mieux convenir qu'une équipe avec un 95 et trois trous. Les fiches montrent le meilleur joueur et la formation. Vous n'avez pas besoin de plus pour votre premier plan.",
     ],
@@ -230,7 +231,7 @@ export const teamsIndex = {
     h1: "ワールドカップのチーム：ドラフトできる全チーム",
     blogLink: "ドラフト戦略を知りたい？ブログのシミュレーターガイドを読もう",
     intro: (count: number) =>
-      `My World Cup XIのワールドカップ・チームがここにそろっています。1970年から2026年までの${count}チームを、平均レーティング順に並べ、スカウトできる状態にしました。あなたがドラフトできるのは、この${count}チームです。ゲームはさらに9つのグループステージ相手をAIチームとして使うので、全体では86チームになります。このページは、チームビルダーの背後にあるライブラリです。各チームにはフォーメーション、選手名、選手ごとの評価があります。評価は1つのスケールなので、ブラジル1970とアルゼンチン2022を比べられます。国、年、フォーメーションで検索してください。チームを開けば選手リストが見られます。その知識をドラフトに持っていきましょう。`,
+      `My World Cup XIのワールドカップ・チームがここにそろっています。1970年から2026年までの${count}チームを、平均レーティング順に並べ、スカウトできる状態にしました。あなたがドラフトできるのは、この${count}チームです。ゲームはさらに9つのグループステージ相手をAIチームとして使うので、全体では86チームになります。このページはゲームのチーム図鑑です。各チームにはフォーメーション、選手名、選手ごとの評価があります。評価は1つのスケールなので、ブラジル1970とアルゼンチン2022を比べられます。国、年、フォーメーションで検索してください。チームを開けば選手リストが見られます。その知識をドラフトに持っていきましょう。`,
     erasTitle: "6つの十年、1つのスケール",
     eras: [
       {
@@ -270,7 +271,7 @@ export const teamsIndex = {
     ranking: [
       "平均レーティングは層の厚さを示します。高いほど弱点が少ないです。ただし優勝を保証しません。ブラジル1982は史上最高の中盤の1つを持ちながら、イタリアに負けました。イタリア1982はゆっくり始まり、優勝しました。",
       "トップ選手も大事ですが、相性の方が大事です。95のFWは、FWの位置でプレーして初めて95です。フォーメーションがCBを必要としているなら、スターFWでは解決しません。カードでトップ選手、フォーメーション、埋められるポジションを確認しましょう。",
-      "フォーメーションも手がかりです。ブラジル1970は4-2-4。オランダ1974はトータルフットボール。イタリア2006は守備。スペイン2010はボール支配。残っているポジションを埋められるチームを選びましょう。名前が大きいだけのチームではありません。",
+      "フォーメーションも手がかりです。ブラジル1970は4-2-4。オランダ1974はトータルフットボール。イタリア2006は守備。スペイン2010はボール支配。残っているポジションを埋められるチームを選びましょう。有名な選手でも、合わないポジションでは助けになりません。",
       "評価はポジションごとの重み付きです。GKは反射、位置取り、配球。CBはタックル、空中戦、パス。MFはパス、ドリブル、ワークレート、スタミナ。FWはフィニッシュ、ドリブル、スピード、オフザボール。だから90のDFと90のFWは同じ種類の選手ではありません。",
       "2つのチームを開いて比べてからドラフトしましょう。85が多くそろったチームは、95が1人いて穴が3つあるチームより合うことがあります。カードにはトップ選手とフォーメーションが出ます。最初の計画にはそれで十分です。",
     ],
@@ -305,7 +306,7 @@ export const teamsIndex = {
     h1: "Plantillas del Mundial: cada equipo para draftear",
     blogLink: "¿Quieres estrategia? Lee las guías del simulador en el blog",
     intro: (count: number) =>
-      `Cada plantilla del Mundial de My World Cup XI está aquí. Son ${count} equipos de torneo de 1970 a 2026, ordenados por valoración media y listos para observar. Drafteas de estas ${count} plantillas. El juego también usa nueve rivales de grupo como equipos IA, así que el pool completo llega a 86 equipos. Esta página es la biblioteca detrás del constructor de equipo. Cada plantilla tiene formación, nombres y una valoración por jugador. Las valoraciones usan una sola escala, para comparar el Brasil 1970 con la Argentina 2022. Busca por nación, año o formación. Abre una plantilla para ver la lista de jugadores. Luego entra al draft con esa información.`,
+      `Cada plantilla del Mundial de My World Cup XI está aquí. Son ${count} equipos de torneo de 1970 a 2026, ordenados por valoración media y listos para observar. Drafteas de estas ${count} plantillas. El juego también usa nueve rivales de grupo como equipos IA, así que el pool completo llega a 86 equipos. Esta página es la biblioteca de plantillas del juego. Cada plantilla tiene formación, nombres y una valoración por jugador. Las valoraciones usan una sola escala, para comparar el Brasil 1970 con la Argentina 2022. Busca por nación, año o formación. Abre una plantilla para ver la lista de jugadores. Luego entra al draft con esa información.`,
     erasTitle: "Seis décadas, una escala",
     eras: [
       {
@@ -345,7 +346,7 @@ export const teamsIndex = {
     ranking: [
       "La valoración media indica profundidad. Una nota alta significa pocos puntos débiles. No garantiza un título. Brasil 1982 tenía uno de los mejores medios de la historia y perdió contra Italia. Italia 1982 empezó lento y ganó la copa.",
       "El mejor jugador importa, pero el encaje importa más. Un delantero de 95 solo es 95 si juega en un puesto de delantero. Si tu formación necesita un central, una estrella ofensiva no resuelve el problema. Usa la ficha para ver el mejor jugador, la formación y los puestos posibles.",
-      "La formación es la otra pista. Brasil 1970 jugaba 4-2-4. Países Bajos 1974 usaba fútbol total. Italia 2006 se apoyaba en la defensa. España 2010 controlaba el balón. Elige plantillas que llenen tus puestos libres, no solo las de nombres más grandes.",
+      "La formación es la otra pista. Brasil 1970 jugaba 4-2-4. Países Bajos 1974 usaba fútbol total. Italia 2006 se apoyaba en la defensa. España 2010 controlaba el balón. Elige plantillas que llenen tus puestos libres. Un nombre grande en el puesto equivocado no te ayuda.",
       "Las valoraciones se ponderan por puesto. Un portero se mide por reflejos, colocación y distribución. Un central por entradas, juego aéreo y pase. Un medio por pase, regate, trabajo y resistencia. Un delantero por definición, regate, velocidad y desmarque. Por eso un defensa de 90 y un delantero de 90 no son el mismo tipo de jugador.",
       "Abre dos plantillas y compáralas antes de draftear. Un equipo con muchos 85 puede encajar mejor que uno con un 95 y tres huecos. Las fichas muestran el mejor jugador y la formación. No necesitas más para tu primer plan.",
     ],

@@ -91,5 +91,6 @@ The game has 86 teams. 77 are draftable World Cup squads from 1970 to 2026. 9 ar
 - Site config, locales, redirects, and sitemap rules live in `astro.config.mjs`.
 - SEO strategy, anti-spam rules, and content quality gates live in [docs/seo-strategy.md](./docs/seo-strategy.md).
 - Voice, tone and copy rules live in [docs/content-guide.md](./docs/content-guide.md).
+- The latest page and translation copy audit lives in [docs/copy-audit.md](./docs/copy-audit.md).
 - Design tokens (canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, legible violet `#b9a3ff`, type stacks) live in `src/styles/global.css`.
 - Deployed domain: `https://myworldcupxi.com`.

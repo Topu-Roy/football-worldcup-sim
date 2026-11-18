@@ -3,7 +3,7 @@ export const about = {
     h1: "What Is My World Cup XI?",
     hero: [
       "My World Cup XI is a free browser game about World Cup history. You draft a fantasy XI from 77 World Cup squads, then simulate a full tournament. The pool runs from Brazil 1970 to the 2026 squads. You pick a formation, make eleven picks, and watch the cup play out.",
-      "It is a world cup draft game, a football simulator and a squad builder in one. You can stack one nation for chemistry or mix eras for star power. Every match uses the same ratings, so a 1970 forward and a 2026 defender can meet on fair terms.",
+      "You can stack one nation for chemistry or mix eras for star power. Every match uses the same ratings, so a 1970 forward and a 2026 defender can meet on fair terms.",
       "There is no download and no sign-up. The game runs in your browser on a phone, tablet or laptop. A full run takes about ten to fifteen minutes. You can replay a match or start a new cup straight away. Finished runs stay in your match history, so you can review them when you return.",
     ],
     tickTitle: "What makes it work",
@@ -13,7 +13,7 @@ export const about = {
         body: "You draft from 77 World Cup tournament squads from 1970 to 2026. Nine group-stage opponents fill the AI side. Every player is rated role by role across thirteen attributes, so a 1970 winger and a 2026 full-back can be compared fairly.",
       },
       {
-        title: "A match engine, not a coin flip.",
+        title: "Every match is simulated.",
         body: "Matches play in segments with possession, shots, expected goals, stamina, extra time and penalties. Better teams win more often, but a bad draft can still lose to a well-built underdog.",
       },
       {
@@ -72,7 +72,7 @@ export const about = {
     h1: "Was ist My World Cup XI?",
     hero: [
       "My World Cup XI ist ein kostenloses Browserspiel über die Geschichte der WM. Du draftest eine Fantasy-Elf aus 77 WM-Kadern und simulierst ein ganzes Turnier. Der Pool reicht von Brasilien 1970 bis zu den Kadern 2026. Du wählst eine Formation, machst elf Picks und siehst den Pokal laufen.",
-      "Es ist ein WM-Draft-Spiel, ein Fußballsimulator und ein Team-Builder in einem. Du kannst eine Nation für Chemie stapeln oder Epochen für Star-Power mischen. Jedes Spiel nutzt dieselben Bewertungen, damit ein Stürmer von 1970 und ein Verteidiger von 2026 fair aufeinandertreffen.",
+      "Du kannst eine Nation für Chemie stapeln oder Epochen für Star-Power mischen. Jedes Spiel nutzt dieselben Bewertungen, damit ein Stürmer von 1970 und ein Verteidiger von 2026 fair aufeinandertreffen.",
       "Kein Download, keine Anmeldung. Das Spiel läuft im Browser auf Handy, Tablet oder Laptop. Ein Lauf dauert zehn bis fünfzehn Minuten. Du kannst ein Spiel wiederholen oder direkt einen neuen Pokal starten. Abgeschlossene Läufe bleiben in deiner Spielhistorie, damit du sie beim nächsten Besuch ansehen kannst.",
     ],
     tickTitle: "Was es antreibt",
@@ -82,7 +82,7 @@ export const about = {
         body: "Du draftest aus 77 WM-Kadern von 1970 bis 2026. Neun Gruppengegner füllen die KI-Seite. Jeder Spieler wird nach dreizehn Attributen bewertet, damit ein Flügelspieler von 1970 und ein Außenverteidiger von 2026 fair verglichen werden.",
       },
       {
-        title: "Eine Spielengine, kein Münzwurf.",
+        title: "Jedes Spiel wird simuliert.",
         body: "Spiele laufen in Abschnitten mit Ballbesitz, Schüssen, erwarteten Toren, Ausdauer, Verlängerung und Elfmeterschießen. Bessere Teams gewinnen öfter, aber ein schlechter Draft kann gegen einen gut gebauten Außenseiter verlieren.",
       },
       {
@@ -95,15 +95,14 @@ export const about = {
     greatest: [
       "Brasilien 1970 gewann alle sechs Spiele und schoss 19 Tore. Das vierte Tor im Finale gilt noch heute als Muster für ein Mannschaftstor: Eine Passkette endet mit Carlos Alberto in die Ecke. Niederlande 1974 veränderten das Denken über Bewegung und Raum. Argentinien 1986 hatte Maradona am Höhepunkt. Frankreich 1998 hatte Zidane und eine Abwehr, die in sieben Spielen zwei Tore kassierte.",
       "Auch die späteren Epochen sind da. Spanien 2010 spielte sich durch den Pokal und gewann vier K.-o.-Spiele in Folge mit 1:0. Deutschland 2014 schlug Brasilien 7:1 auf dem Weg zum Titel. Argentinien 2022 gab Messi den einen Titel, der fehlte. Die Kader 2026 sind echt und geprüft, deshalb endet der Pool nicht 2022.",
-      "Jeder Kader ist mehr als ein Wappen. Der Kader hat Spielernamen, Positionen und dreizehn Attribute. Du kannst ein Team vor dem Draft scouten. Finde den Star. Finde die Schwachstelle. Entscheide, ob der Kader zu deiner Formation passt. Ein tiefes Italien 2006 kann einen Draft tragen. Ein Team mit nur zwei Stars lässt dich im Mittelfeld dünn zurück. Ein Kader mit vielen soliden Spielern passt manchmal besser als ein Team mit einem 95er und zehn Lücken.",
+      "Jeder Kader ist mehr als ein Wappen. Der Kader hat Spielernamen, Positionen und dreizehn Attribute. Du kannst ein Team vor dem Draft scouten. Finde den Star. Finde die Schwachstelle. Entscheide, ob der Kader zu deiner Formation passt. Ein Italien 2006 mit einem tiefen Kader kann einen Draft tragen. Ein Team mit nur zwei Stars lässt dich im Mittelfeld dünn zurück. Ein Kader mit vielen soliden Spielern passt manchmal besser als ein Team mit einem 95er und zehn Lücken.",
     ],
     systems: [
       "Drei Systeme tragen das Spiel.",
       "Das Draft-Brett bietet eine Nation und ein Jahr, die einen offenen Platz füllen. Du setzt einen Spieler pro Runde. Markierte Plätze sind seine Bestposition. Außerhalb dieser Position verliert er einen Teil seiner Bewertung. Du hast elf Picks und drei Neuwürfe für den ganzen Draft. Ein Neuwurf kann die Nation behalten und das Jahr ändern oder die Nation wechseln.",
-      "Das Chemie-Modell zählt deine größte Gruppe gleicher Nation. Es belohnt einen Plan. Wenn du fünf Brasilianer nimmst, bekommt das ganze Team +10%. Wenn du elf Stars aus elf Nationen nimmst, bekommst du nichts. Deshalb kann ein Draft mit klarer Idee gegen einen Draft mit berühmten Namen gewinnen. Das ist der Unterschied zwischen einem Team und einer Sammlung.",
+      "Das Chemie-Modell zählt deine größte Gruppe gleicher Nation. Es belohnt einen Plan. Wenn du fünf Brasilianer nimmst, bekommt das ganze Team +10%. Wenn du elf Stars aus elf Nationen nimmst, bekommst du nichts. Deshalb kann ein Draft mit klarer Idee gegen einen Draft mit berühmten Namen gewinnen.",
       "Die Spielengine macht aus Bewertungen Chancen. Sie nutzt Angriff, Abwehr, Kreativität, Abschluss, Torwartspiel und Nervenstärke. Sie verfolgt auch Ausdauer, damit ein Team spät abbauen kann. Unentschieden gehen in die Verlängerung. Steht es dann noch gleich, entscheidet ein Elfmeterschießen. Deine fünf besten Schützen werden nach Nervenstärke und Abschluss sortiert.",
       "Die Turnierschicht zieht zwei schwächere Gruppengegner und einen starken historischen Kader. Jeder spielt einmal gegen jeden. Die Top zwei kommen in einen vorab simulierten K.-o.-Baum. Du spielst deine Spiele. Der Rest der Welt spielt sich selbst, deshalb endet der Pokal schnell.",
-      "Abgeschlossene Läufe landen in deiner Spielhistorie im Browser. Eine laufende Partie lebt nur im Tab, also beende sie vor dem Neuladen. Es gibt keine Werbung und keine Registrierung. Das hält den Einstieg kurz und den nächsten Lauf nah.",
     ],
     dataTitle: "Ein Hinweis zu den Daten",
     data: [
@@ -141,7 +140,7 @@ export const about = {
     h1: "Qu'est-ce que My World Cup XI ?",
     hero: [
       "My World Cup XI est un jeu gratuit dans le navigateur sur l'histoire de la Coupe du Monde. Vous draftez un XI fantasy parmi 77 effectifs de Coupe du Monde, puis vous simulez un tournoi complet. Le pool va du Brésil 1970 aux effectifs 2026. Vous choisissez une formation, faites onze choix et regardez la coupe se jouer.",
-      "C'est un jeu de draft, un simulateur de football et un constructeur d'équipe en un. Vous pouvez empiler une nation pour la chimie ou mélanger les époques pour les stars. Chaque match utilise les mêmes notes, pour qu'un attaquant de 1970 et un défenseur de 2026 se rencontrent à armes égales.",
+      "Vous pouvez empiler une nation pour la chimie ou mélanger les époques pour les stars. Chaque match utilise les mêmes notes, pour qu'un attaquant de 1970 et un défenseur de 2026 se rencontrent à armes égales.",
       "Sans téléchargement, sans inscription. Le jeu tourne dans le navigateur sur téléphone, tablette ou ordinateur. Une partie dure dix à quinze minutes. Vous pouvez rejouer un match ou lancer une nouvelle coupe. Les parties terminées restent dans votre historique, pour les revoir à votre retour.",
     ],
     tickTitle: "Ce qui le fait tourner",
@@ -151,7 +150,7 @@ export const about = {
         body: "Vous draftez parmi 77 effectifs de Coupe du Monde de 1970 à 2026. Neuf adversaires de groupe remplissent le côté IA. Chaque joueur est noté sur treize attributs, pour comparer un ailier de 1970 et un latéral de 2026 sur une base juste.",
       },
       {
-        title: "Un moteur de match, pas un pile ou face.",
+        title: "Chaque match est simulé.",
         body: "Les matchs se jouent par séquences avec possession, tirs, buts attendus, endurance, prolongation et tirs au but. Les meilleures équipes gagnent plus souvent, mais un mauvais draft peut perdre contre un outsider bien construit.",
       },
       {
@@ -164,7 +163,7 @@ export const about = {
     greatest: [
       "Le Brésil 1970 a gagné ses six matchs et marqué 19 buts. Leur quatrième but en finale reste le modèle du but collectif : une chaîne de passes se termine par Carlos Alberto dans le coin. Les Pays-Bas 1974 ont changé la façon de penser le mouvement et l'espace. L'Argentine 1986 avait Maradona à son sommet. La France 1998 avait Zidane et une défense qui a encaissé deux buts en sept matchs.",
       "Les époques suivantes sont là aussi. L'Espagne 2010 a passé ses adversaires et gagné quatre matchs à élimination directe 1-0. L'Allemagne 2014 a battu le Brésil 7-1 sur la route du titre. L'Argentine 2022 a donné à Messi le seul trophée qui lui manquait. Les effectifs 2026 sont réels et vérifiés, donc le pool ne s'arrête pas en 2022.",
-      "Chaque effectif est plus qu'un écusson. Le groupe a des noms, des postes et treize attributs. Vous pouvez observer une équipe avant de drafter. Trouvez la star. Trouvez le point faible. Décidez si l'effectif correspond à votre formation. Une Italie 2006 profonde peut porter un draft. Une équipe avec deux stars seulement vous laisse mince au milieu.",
+      "Chaque effectif est plus qu'un écusson. Le groupe a des noms, des postes et treize attributs. Vous pouvez observer une équipe avant de drafter. Trouvez la star. Trouvez le point faible. Décidez si l'effectif correspond à votre formation. Une Italie 2006 avec un effectif profond peut porter un draft. Une équipe avec deux stars seulement vous laisse peu de solutions au milieu.",
     ],
     systems: [
       "Trois systèmes font tourner le jeu.",
@@ -209,7 +208,7 @@ export const about = {
     h1: "My World Cup XIとは？",
     hero: [
       "My World Cup XIは、ワールドカップの歴史をテーマにした無料のブラウザゲームです。77のワールドカップ・チームからファンタジーXIをドラフトし、大会全体をシミュレートします。プールはブラジル1970から2026年チームまで。フォーメーションを選び、11人を指名し、大会が進むのを見ます。",
-      "ドラフトゲームであり、サッカーシミュレーターであり、チームビルダーでもあります。ケミストリーのために1か国の選手をそろえることも、スターのために時代を混ぜることもできます。どの試合も同じ評価スケールを使うので、1970年のFWと2026年のDFを公平に戦わせられます。",
+      "ケミストリーのために1か国の選手をそろえることも、スターのために時代を混ぜることもできます。どの試合も同じ評価スケールを使うので、1970年のFWと2026年のDFを公平に戦わせられます。",
       "ダウンロードも登録も不要。スマホ、タブレット、PCのブラウザで動きます。1回は10〜15分。試合を見返したり、すぐ次の大会を始めたりできます。完了した大会は試合履歴に残るので、次に来たとき見返せます。",
     ],
     tickTitle: "動かしている仕組み",
@@ -219,7 +218,7 @@ export const about = {
         body: "ドラフト対象は1970年から2026年までの77チーム。9つのグループステージ相手がAI側を埋めます。全選手を13の能力で評価するので、1970年のウイングと2026年のサイドバックを公平に比べられます。",
       },
       {
-        title: "コイン投げではなく、マッチエンジン。",
+        title: "すべての試合をシミュレート。",
         body: "試合はセグメントごとに進み、ポゼッション、シュート、期待得点、スタミナ、延長戦、PK戦を使います。強いチームほど勝ちますが、悪いドラフトが良いアンダードッグに負けることもあります。",
       },
       {
@@ -246,7 +245,6 @@ export const about = {
       "チームは実際のワールドカップ代表です。2026年のチームは実在し、検証済み。評価は編集上の推定で、FIFAの公式数値ではありません。試合が接戦になるように調整され、ドラフトが重要になります。エリートは90以上、スターは85以上です。",
       "選手名、国名、大会名は説明のためにだけ使います。FIFA、EA Sports、Football Managerは各社の商標です。My World Cup XIはどれとも関係ありません。",
       "完了した大会は端末に保存されます。アカウントもアップロードも、ゲーム内の広告トラッカーもありません。ブラウザのデータを消すと、保存した大会も消えます。サーバーには何も送りません。ページを読み込んだ後は、ドラフトもシミュレーションもブラウザ内で動きます。",
-      "作っているのは小さなファンプロジェクトです。サッカーを好きな人が作り、更新しています。スタジオではありません。",
     ],
     contactTitle: "作っている人",
     contact: [
@@ -278,7 +276,7 @@ export const about = {
     h1: "¿Qué es My World Cup XI?",
     hero: [
       "My World Cup XI es un juego gratis en el navegador sobre la historia del Mundial. Drafteas una XI fantasy de 77 plantillas del Mundial y simulas un torneo completo. El pool va del Brasil 1970 a las plantillas de 2026. Eliges una formación, haces once elecciones y ves la copa jugarse.",
-      "Es un juego de draft, un simulador de fútbol y un constructor de equipo en uno. Puedes apilar una nación para la química o mezclar épocas para tener estrellas. Cada partido usa las mismas valoraciones, así un delantero de 1970 y un defensa de 2026 se enfrentan en igualdad.",
+      "Puedes apilar una nación para la química o mezclar épocas para tener estrellas. Cada partido usa las mismas valoraciones, así un delantero de 1970 y un defensa de 2026 se enfrentan en igualdad.",
       "Sin descargas, sin registro. El juego funciona en el navegador del móvil, la tablet o el portátil. Una partida dura diez a quince minutos. Puedes repetir un partido o empezar otra copa. Las partidas terminadas se quedan en tu historial para que las revises al volver.",
     ],
     tickTitle: "Qué lo hace funcionar",
@@ -288,7 +286,7 @@ export const about = {
         body: "Drafteas de 77 plantillas del Mundial de 1970 a 2026. Nueve rivales de grupo llenan el lado IA. Cada jugador se valora con trece atributos, para comparar un extremo de 1970 y un lateral de 2026 de forma justa.",
       },
       {
-        title: "Un motor de partido, no una moneda al aire.",
+        title: "Cada partido se simula.",
         body: "Los partidos se juegan por tramos con posesión, tiros, goles esperados, resistencia, prórroga y penales. Los mejores equipos ganan más, pero un mal draft puede perder contra un rival bien construido.",
       },
       {
@@ -301,7 +299,7 @@ export const about = {
     greatest: [
       "Brasil 1970 ganó sus seis partidos y marcó 19 goles. Su cuarto gol en la final sigue siendo el modelo del gol colectivo: una cadena de pases termina con Carlos Alberto en la esquina. Países Bajos 1974 cambió la forma de pensar el movimiento y el espacio. Argentina 1986 tenía a Maradona en su mejor momento. Francia 1998 tenía a Zidane y una defensa que encajó dos goles en siete partidos.",
       "Las épocas posteriores también están. España 2010 movió el balón y ganó cuatro partidos de eliminación seguidos por 1-0. Alemania 2014 venció 7-1 a Brasil camino del título. Argentina 2022 le dio a Messi el único trofeo que le faltaba. Las plantillas de 2026 son reales y verificadas, así que el pool no termina en 2022.",
-      "Cada plantilla es más que un escudo. El equipo tiene nombres, puestos y trece atributos. Puedes observar un equipo antes de draftear. Encuentra la estrella. Encuentra el punto débil. Decide si encaja en tu formación. Una Italia 2006 profunda puede cargar un draft. Un equipo con solo dos estrellas te deja corto en el medio.",
+      "Cada plantilla es más que un escudo. El equipo tiene nombres, puestos y trece atributos. Puedes observar un equipo antes de draftear. Encuentra la estrella. Encuentra el punto débil. Decide si encaja en tu formación. Una Italia 2006 con una plantilla profunda puede sostener un draft. Un equipo con solo dos estrellas te deja corto en el medio.",
     ],
     systems: [
       "Tres sistemas hacen funcionar el juego.",

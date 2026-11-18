@@ -196,7 +196,7 @@
       </div>
     {:else if tournament.outcome !== "champion" && !canRerun}
       <p class="mt-3 text-xs text-secondary">
-        Retry already used — start a new draft to chase a better run.
+        Retry already used. Start a new draft to chase a better run.
       </p>
     {/if}
   </div>

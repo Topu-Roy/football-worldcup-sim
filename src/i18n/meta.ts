@@ -38,17 +38,17 @@ export const meta: Record<
     contact: {
       title: "Contact - My World Cup XI",
       description:
-        "Get in touch with My World Cup XI for feedback, bug reports, and questions about the fantasy football World Cup draft simulation game.",
+        "Get in touch with My World Cup XI. Send feedback, report a bug or ask a question about the game.",
     },
     privacy: {
       title: "Privacy Policy - My World Cup XI",
       description:
-        "Privacy policy for My World Cup XI. Explains what data is collected when you use the fantasy football draft simulator website.",
+        "Privacy policy for My World Cup XI: what data the game collects, how it is used, and the choices you have.",
     },
     terms: {
       title: "Terms & Conditions - My World Cup XI",
       description:
-        "Terms and conditions for using My World Cup XI, the fantasy football World Cup draft and tournament simulation game.",
+        "Terms and conditions for My World Cup XI, a free browser World Cup draft and tournament simulation game.",
     },
     teams: (count) => ({
       title: "World Cup Squads & Ratings — Every Team | My World Cup XI",
@@ -74,17 +74,17 @@ export const meta: Record<
     contact: {
       title: "Kontakt - My World Cup XI",
       description:
-        "Kontaktiere My World Cup XI mit Feedback, Fehlermeldungen und Fragen zum Fantasy-Football-World-Cup-Draft-Simulationsspiel.",
+        "Kontakt zu My World Cup XI: Feedback, Fehler melden oder eine Frage zum Spiel stellen.",
     },
     privacy: {
       title: "Datenschutz - My World Cup XI",
       description:
-        "Datenschutzerklärung für My World Cup XI. Erklärt, welche Daten beim Nutzen der Fantasy-Football-Draft-Simulator-Website erhoben werden.",
+        "Datenschutzerklärung für My World Cup XI: welche Daten das Spiel erhebt, wie sie genutzt werden und welche Wahl du hast.",
     },
     terms: {
       title: "AGB - My World Cup XI",
       description:
-        "Allgemeine Geschäftsbedingungen für die Nutzung von My World Cup XI, dem Fantasy-Football-Draft- und Turnier-Simulationsspiel.",
+        "AGB für My World Cup XI, ein kostenloses WM-Draft- und Turniersimulationsspiel im Browser.",
     },
     teams: (count) => ({
       title: "WM-Kader & Bewertungen — Jedes Team | My World Cup XI",
@@ -110,17 +110,17 @@ export const meta: Record<
     contact: {
       title: "Contacter My World Cup XI",
       description:
-        "Contactez My World Cup XI pour vos retours, bugs et questions sur le jeu de simulation de draft de Coupe du Monde fantasy.",
+        "Contactez My World Cup XI : envoyez un retour, signalez un bug ou posez une question sur le jeu.",
     },
     privacy: {
       title: "Confidentialité - My World Cup XI",
       description:
-        "Politique de confidentialité de My World Cup XI. Explique les données collectées sur le site de simulation de draft de Coupe du Monde fantasy.",
+        "Politique de confidentialité de My World Cup XI : données collectées, utilisation et choix disponibles.",
     },
     terms: {
       title: "Conditions - My World Cup XI",
       description:
-        "Conditions générales d'utilisation de My World Cup XI, le jeu de simulation de draft et de tournoi de Coupe du Monde fantasy.",
+        "Conditions d'utilisation de My World Cup XI, jeu gratuit de draft et de simulation de Coupe du Monde.",
     },
     teams: (count) => ({
       title: "Effectifs & notes — Chaque équipe | My World Cup XI",
@@ -147,17 +147,17 @@ export const meta: Record<
     contact: {
       title: "お問い合わせ - My World Cup XI",
       description:
-        "My World Cup XIのファンタジーフットボール・ワールドカップ・ドラフトシミュレーションゲームについてのフィードバック、不具合報告、質問は My World Cup XI へ。",
+        "My World Cup XIへのお問い合わせ。感想、不具合報告、ゲームについての質問を送れます。",
     },
     privacy: {
       title: "プライバシー - My World Cup XI",
       description:
-        "My World Cup XI のプライバシーポリシー。Fantasy Football ドラフトシミュレーターサイトの利用時に収集するデータを説明します。",
+        "My World Cup XIのプライバシーポリシー。ゲームが集めるデータ、使い方、選べる設定を説明します。",
     },
     terms: {
       title: "利用規約 - My World Cup XI",
       description:
-        "My World Cup XI（ファンタジーフットボール・ワールドカップのドラフト・トーナメントシミュレーションゲーム）の利用規約。",
+        "My World Cup XIの利用規約。無料のブラウザ向けワールドカップ・ドラフト＆大会シミュレーションゲームです。",
     },
     teams: (count) => ({
       title: "ワールドカップのチームと評価 — 全チーム | My World Cup XI",
@@ -183,17 +183,17 @@ export const meta: Record<
     contact: {
       title: "Contacto - My World Cup XI",
       description:
-        "Contacta con My World Cup XI con comentarios, errores y preguntas sobre el juego de simulación de draft de la Copa del Mundo fantasy.",
+        "Contacta con My World Cup XI: envía comentarios, reporta un error o pregunta lo que quieras sobre el juego.",
     },
     privacy: {
       title: "Privacidad - My World Cup XI",
       description:
-        "Política de privacidad de My World Cup XI. Explica qué datos se recogen al usar el sitio del simulador de draft de la Copa del Mundo fantasy.",
+        "Política de privacidad de My World Cup XI: qué datos recoge el juego, cómo se usan y qué opciones tienes.",
     },
     terms: {
       title: "Términos - My World Cup XI",
       description:
-        "Términos y condiciones de uso de My World Cup XI, el juego de simulación de draft y torneo de la Copa del Mundo fantasy.",
+        "Términos y condiciones de My World Cup XI, un juego gratis de draft y simulación del Mundial.",
     },
     teams: (count) => ({
       title: "Plantillas y valoraciones — Cada equipo | My World Cup XI",
