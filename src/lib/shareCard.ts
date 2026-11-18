@@ -23,9 +23,9 @@ const DEPARTMENT_COLORS: Record<Position, string> = {
 
 export interface ShareCardPlayer {
   id: string;
-  /** Compact name drawn under the shirt number. */
+  /** Compact name used by the roster column. */
   name: string;
-  /** Full name kept for accessibility and future layouts. */
+  /** Full name; the pitch derives a shorter surname label from it. */
   fullName: string;
   role: string;
   number: number;
@@ -160,6 +160,11 @@ export function buildShareCardData(
       penaltyWins: stats.penaltyWins,
     },
   };
+}
+
+/** Compact surname-biased player label drawn under the pitch marker. */
+export function pitchLabel(name: string): string {
+  return shortName(name, 10);
 }
 
 /** Share-sheet title. */

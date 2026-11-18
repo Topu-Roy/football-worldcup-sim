@@ -1,5 +1,5 @@
 import type { ShareCardData } from "./shareCard.js";
-import { fitFontSize, truncateToWidth } from "./shareCard.js";
+import { fitFontSize, pitchLabel, truncateToWidth } from "./shareCard.js";
 
 export const SHARE_WIDTH = 1080;
 export const SHARE_HEIGHT = 1350;
@@ -9,9 +9,9 @@ const CONTENT_W = SHARE_WIDTH - PAD * 2;
 const BODY_TOP = 414;
 const BODY_BOTTOM = 1230;
 const BODY_H = BODY_BOTTOM - BODY_TOP;
-const LEFT_W = 360;
+const LEFT_W = 420;
 const COL_GAP = 28;
-const PITCH_H = 560;
+const PITCH_H = 600;
 const TOP_CARD_H = 96;
 const MINI_H = 70;
 const BANNER_H = 178;
@@ -337,21 +337,53 @@ function drawPitch(ctx: CanvasRenderingContext2D, data: ShareCardData): void {
   ctx.strokeRect(boxX, y + 18, boxW, boxH);
   ctx.strokeRect(boxX, y + h - 18 - boxH, boxW, boxH);
 
+  // Marker and label sizes scale with the pitch, so a wider card keeps the
+  // same visual balance instead of turning names into oversized stickers.
+  const markerR = Math.max(11, Math.round(w * 0.031));
+  const numberSize = Math.max(8, Math.round(w * 0.021));
+  const nameSize = Math.max(11, Math.min(15, Math.round(w * 0.034)));
+  const nameMaxW = w * 0.19;
+  const nameGap = Math.max(3, Math.round(w * 0.01));
+  const nameBaseline = (py: number) => py + markerR + nameGap + nameSize / 2;
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.lineJoin = "round";
+
+  // Labels first: a later marker must never cover an earlier name.
+  for (const player of data.players) {
+    const px = x + (player.x / 100) * w;
+    const py = y + (player.y / 100) * h;
+    const label = truncateToWidth(
+      pitchLabel(player.fullName),
+      nameMaxW,
+      (text) => {
+        ctx.font = font(700, nameSize);
+        return ctx.measureText(text).width;
+      },
+    );
+
+    ctx.font = font(700, nameSize);
+    ctx.lineWidth = Math.max(2, Math.round(nameSize * 0.22));
+    ctx.strokeStyle = "rgba(8, 35, 18, 0.9)";
+    ctx.strokeText(label, px, nameBaseline(py));
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(label, px, nameBaseline(py));
+  }
+
   for (const player of data.players) {
     const px = x + (player.x / 100) * w;
     const py = y + (player.y / 100) * h;
 
     ctx.beginPath();
-    ctx.arc(px, py, 13, 0, Math.PI * 2);
+    ctx.arc(px, py, markerR, 0, Math.PI * 2);
     ctx.fillStyle = "#ffffff";
     ctx.fill();
     ctx.lineWidth = 2;
     ctx.strokeStyle = player.color;
     ctx.stroke();
 
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.font = monoFont(700, 9);
+    ctx.font = monoFont(700, numberSize);
     ctx.fillStyle = "#131313";
     ctx.fillText(String(player.number), px, py + 1);
   }

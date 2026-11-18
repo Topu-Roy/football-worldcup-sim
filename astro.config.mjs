@@ -57,11 +57,10 @@ export default defineConfig({
     sitemap({
       /**
        * Drop pages that are intentionally noindex. `/history` shows local,
-       * personalized runs, and `/share-preview` is an internal design route.
+       * personalized runs.
        * @param {string} page
        */
-      filter: (page) =>
-        !["/history", "/share-preview"].includes(canonicalPath(pathOf(page))),
+      filter: (page) => !["/history"].includes(canonicalPath(pathOf(page))),
       /** @param {import("@astrojs/sitemap").SitemapItem} item */
       serialize(item) {
         return {

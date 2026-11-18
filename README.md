@@ -87,7 +87,6 @@ The game has 86 teams. 77 are draftable World Cup squads from 1970 to 2026. 9 ar
 
 ## Other notes
 
-- `/share-preview` is an internal, noindex route with four 1080×1350 Team Sheet refinements: two classic pitch layouts and two dossier layouts, all led by team rating. Add `?variant=group-exit` to review the early-exit state. Mockups only; the chosen variation still needs a Canvas renderer.
 - Site config, locales, redirects, and sitemap rules live in `astro.config.mjs`.
 - SEO strategy, anti-spam rules, and content quality gates live in [docs/seo-strategy.md](./docs/seo-strategy.md).
 - Voice, tone and copy rules live in [docs/content-guide.md](./docs/content-guide.md).

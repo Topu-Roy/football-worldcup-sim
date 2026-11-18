@@ -12,6 +12,7 @@ import {
   outcomeAccent,
   outcomeSlug,
   outcomeTitle,
+  pitchLabel,
   shareFilename,
   shareText,
   truncateToWidth,
@@ -142,6 +143,14 @@ describe("share card data", () => {
     );
 
     expect(data.players[0].name.length).toBeLessThanOrEqual(15);
+  });
+});
+
+describe("pitch labels", () => {
+  test("uses compact surname labels on the pitch", () => {
+    expect(pitchLabel("Roberto Carlos")).toBe("Carlos");
+    expect(pitchLabel("Maldini")).toBe("Maldini");
+    expect(pitchLabel("Kevin De Bruyne")).toBe("De Bruyne");
   });
 });
 
