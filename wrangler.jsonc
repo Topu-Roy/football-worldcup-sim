@@ -1,0 +1,16 @@
+{
+  // Worker name must match the name registered in the Cloudflare dashboard.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "my-world-cup-xi",
+  "compatibility_date": "2026-11-20",
+
+  // Static site: Wrangler uploads dist/ and Cloudflare serves it directly.
+  // No "main" script, so requests never invoke a Worker.
+  "assets": {
+    "directory": "./dist",
+    // Directory URLs keep their trailing slash, matching internal links and canonicals.
+    "html_handling": "auto-trailing-slash",
+    // Serve the nearest 404.html (generated from src/pages/404.astro).
+    "not_found_handling": "404-page",
+  },
+}

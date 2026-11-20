@@ -1,7 +1,7 @@
 {
   "name": "my-world-cup-xi",
   "type": "module",
-  "version": "0.65.0",
+  "version": "0.66.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -9,6 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:worker": "wrangler dev",
+    "deploy": "bun run build && wrangler deploy",
     "astro": "astro",
     "postinstall": "node scripts/patch-harfbuzz.mjs",
     "lint": "eslint . && npm run typecheck && bun scripts/validate-data.ts",
@@ -45,7 +47,8 @@
     "prettier-plugin-svelte": "^4.1.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "svelte-check": "^4.7.4",
-    "typescript-eslint": "^8.66.0"
+    "typescript-eslint": "^8.66.0",
+    "wrangler": "^4.165.0"
   },
   "packageManager": "bun@1.4.4"
 }

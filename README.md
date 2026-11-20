@@ -21,6 +21,8 @@ astro dev stop           # shut it down
 | `bun run dev`                       | Start dev server (foreground)   |
 | `bun run build`                     | Build to `./dist/`              |
 | `bun run preview`                   | Preview the build               |
+| `bun run preview:worker`            | Serve `dist/` through Wrangler  |
+| `bun run deploy`                    | Build and deploy to Cloudflare  |
 | `bun run lint`                      | ESLint + typecheck + data check |
 | `bun run typecheck`                 | `astro check` + `svelte-check`  |
 | `bun test`                          | Unit and distribution tests     |
@@ -28,6 +30,25 @@ astro dev stop           # shut it down
 | `bun scripts/validate-data.ts`      | Validate squad data             |
 | `bun scripts/calibration.ts`        | Calibration report              |
 | `bun scripts/simulate-runs.ts 1000` | Full-run balance report         |
+
+## Deployment
+
+The site is deployed as a static site on Cloudflare Workers. Wrangler uploads `dist/` as Worker static assets. There is no Worker script and no `@astrojs/cloudflare` adapter, so asset requests are served without invoking compute.
+
+```sh
+bun run build
+bun run preview:worker   # serve dist/ through Wrangler locally
+bun run deploy           # build and upload (run `bunx wrangler login` once)
+```
+
+Continuous deployment uses Cloudflare Workers Builds, connected to `Topu-Roy/football-worldcup-sim`:
+
+- Pushes to `main` build and deploy to production.
+- Pushes to other branches create preview URLs.
+- Dashboard settings: Worker name `my-world-cup-xi` (must match `wrangler.jsonc`), build command `bun run build`, deploy command `npx wrangler deploy`, root directory `/`.
+- `wrangler.jsonc` controls the asset directory, trailing-slash handling, and the custom `404.html`.
+
+Until the custom domain is attached, the Worker is reachable at `my-world-cup-xi.topuroy143333.workers.dev`. To attach a domain later, add it under the Worker's **Settings → Domains & Routes** and update `SITE_URL` in `src/lib/site.ts` so canonical URLs and the sitemap follow.
 
 ## Game flow
 
@@ -93,4 +114,4 @@ The game has 86 teams. 77 are draftable World Cup squads from 1970 to 2026. 9 ar
 - Voice, tone and copy rules live in [docs/content-guide.md](./docs/content-guide.md).
 - The latest page and translation copy audit lives in [docs/copy-audit.md](./docs/copy-audit.md).
 - Design tokens (canvas `#131313`, mint `#3cffd0`, ultraviolet `#5200ff`, legible violet `#b9a3ff`, type stacks) live in `src/styles/global.css`.
-- Deployed domain: `https://myworldcupxi.com`.
+- Deployed domain: `https://my-world-cup-xi.topuroy143333.workers.dev` (custom domain pending).

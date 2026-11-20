@@ -1,4 +1,4 @@
-export const SITE_URL = "https://myworldcupxi.com";
+export const SITE_URL = "https://my-world-cup-xi.topuroy143333.workers.dev"; // "https://myworldcupxi.com"; - Will be updated when i buy the domain name
 export const SITE_NAME = "My World Cup XI";
 
 const OG_LOCALES: Record<string, string> = {
