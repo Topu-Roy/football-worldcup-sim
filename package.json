@@ -46,5 +46,6 @@
     "prettier-plugin-tailwindcss": "^0.8.1",
     "svelte-check": "^4.7.4",
     "typescript-eslint": "^8.66.0"
-  }
+  },
+  "packageManager": "bun@1.4.4"
 }
